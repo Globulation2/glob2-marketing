@@ -11,6 +11,12 @@ The initial research records evidence and explores options. It does **not** sele
 - [Facts](facts/README.md): existing repositories, channels, listings, websites, assets, product capabilities, and history.
 - [Analysis](analysis/README.md): hypotheses about audiences, jobs, channels, business models, and comparable games.
 
+## Initial research status
+
+The 2026-10-26 pass is documented in six factual ledgers and four separate possibility maps, with team review and evidence limits recorded in the [research review](planning/research-review.md). It inventories 21 asset/copy families, source-level commercial capabilities, public and historical distribution/community records, and a history beginning with the predecessor and early Glob2 development. Analysis explores audiences, jobs, 17 channel families, 17 business-model possibilities and 12 comparable games without selecting an approach.
+
+Asset normalization, messaging decisions, audience validation and campaign execution remain future work. See the [open task ledger](planning/tasks.md#open-follow-up-work).
+
 ## Structure
 
 Keep research in simple Markdown files with lowercase, hyphenated filenames. Each directory has a README index; each substantive document links to its index and relevant related documents. Link to source assets instead of duplicating them without a reason. Distinguish drafts, verified observations, historical records, and unresolved questions.

@@ -1,6 +1,6 @@
 # Marketing task ledger
 
-[Repository overview](../README.md) · [Facts](../facts/README.md) · [Analysis](../analysis/README.md)
+[Planning index](README.md) · [Repository overview](../README.md) · [Facts](../facts/README.md) · [Analysis](../analysis/README.md)
 
 Created: 2026-10-26. Statuses: planned, in progress, complete, blocked. Completion means the bounded research pass is documented, not that every question has been resolved.
 
@@ -15,8 +15,8 @@ Created: 2026-10-26. Statuses: planned, in progress, complete, blocked. Completi
 | MKT-007 | Explore psychographics, gamer personas, user personas, and jobs to be done | Complete | [Audiences](../analysis/audiences.md): nine dimensions, eight gamer/six user roles; [JTBD](../analysis/jobs-to-be-done.md): 14 player/creator/operator jobs plus paid-service circumstances |
 | MKT-008 | Explore marketing channels and existing/new business models with tradeoffs | Complete | [Channel and model map](../analysis/channels-and-business-models.md): 17 channel families and 17 model possibilities, uncertainty and candidate evidence |
 | MKT-009 | Compare historical and currently popular relevant games | Complete | [12 comparison cases](../analysis/comparables.md), dated primary-source indicators and six framing tradeoffs; no comparative playtest |
-| MKT-010 | Review analysis, links, evidence boundaries, and completeness; commit and push completed research | Planned | MKT-007–009; detailed marketing work record in Git |
-| MKT-011 | Report findings and open questions to the user without recommendations or firm conclusions | Planned | MKT-010; pushed research available for review |
+| MKT-010 | Review analysis, links, evidence boundaries, and completeness; commit and push completed research | Complete | [Research review](research-review.md); independent cross-review, relative links/anchors and whitespace checked; detailed direct-to-main commits |
+| MKT-011 | Report findings and open questions to the user without recommendations or firm conclusions | Complete | [Findings handoff](research-review.md#findings-for-the-initial-handoff) documented and delivered to the coordinating agent for the user-facing report |
 
 ## Deferred decisions
 
@@ -25,3 +25,18 @@ Target audience, positioning, canonical screenshots, messaging, commercial model
 ## Research scope
 
 The first inventory uses available local repositories and public sources, not comprehensive private-account or analytics access. See the [facts evidence limits](../facts/README.md#scope-and-evidence-limits). Unverified ownership, deployment, activity, rights, and missing-platform leads will remain explicit follow-up work.
+
+## Open follow-up work
+
+These items remain open; they are not ranked or approved for execution by this research pass.
+
+| ID | Work remaining | Status / evidence gap |
+| --- | --- | --- |
+| FOLLOW-01 | Verify account/domain/store ownership, access and unpublished submissions | Planned; no private-console audit performed |
+| FOLLOW-02 | Build an exact currently-published screenshot/copy matrix for every platform, locale and device | Planned; source families inventoried, console display not exhaustively checked |
+| FOLLOW-03 | Resolve rights, capture provenance and historical source gaps | Planned; ledger-specific uncertainties remain |
+| FOLLOW-04 | Decide canonical asset families and normalize approved screenshots/copy across surfaces | Planned; no asset family or wording selected |
+| FOLLOW-05 | Verify enabled production capabilities, native/device quality and service/payment behavior | Planned; source and public shell/listing checks do not establish these |
+| FOLLOW-06 | Collect player/creator/returner/organizer evidence, cohort outcomes and willingness-to-pay data | Planned; personas/JTBD/models remain hypotheses |
+| FOLLOW-07 | Choose audience, positioning, messages, business model and channel approach | Deferred user decision; no recommendation made |
+| FOLLOW-08 | Prepare and execute approved launch campaigns, outreach, listing updates and measurement | Planned; none executed in this pass |
