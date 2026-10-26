@@ -12,9 +12,9 @@ Created: 2026-10-26. Statuses: planned, in progress, complete, blocked. Completi
 | MKT-004 | Inventory implemented capabilities relevant to existing or possible business models | Complete | [Product ledger](../facts/product.md): source capabilities, five commercial mechanisms, measurement and deployment limits |
 | MKT-005 | Reconstruct the game's 20+ year history with dated evidence and gaps | Complete | [History](../facts/history.md), from predecessor/development to modern revamp; missing chronology explicit |
 | MKT-006 | Review and interlink the factual inventory; record coverage limits and unresolved verification tasks | Complete | [Facts index](../facts/README.md); source boundaries, relative links and whitespace reviewed |
-| MKT-007 | Explore psychographics, gamer personas, user personas, and jobs to be done | Planned | MKT-006; hypotheses linked to evidence, no audience selection |
-| MKT-008 | Explore marketing channels and existing/new business models with tradeoffs | Planned | MKT-006; alternatives, dependencies, and uncertainty |
-| MKT-009 | Compare historical and currently popular relevant games | Planned | MKT-006; source-backed descriptions separated from inferred comparisons |
+| MKT-007 | Explore psychographics, gamer personas, user personas, and jobs to be done | In progress | MKT-006; hypotheses linked to evidence, no audience selection |
+| MKT-008 | Explore marketing channels and existing/new business models with tradeoffs | Complete | [Channel and model map](../analysis/channels-and-business-models.md): 17 channel families and 17 model possibilities, uncertainty and candidate evidence |
+| MKT-009 | Compare historical and currently popular relevant games | In progress | MKT-006; source-backed descriptions separated from inferred comparisons |
 | MKT-010 | Review analysis, links, evidence boundaries, and completeness; commit and push completed research | Planned | MKT-007–009; detailed marketing work record in Git |
 | MKT-011 | Report findings and open questions to the user without recommendations or firm conclusions | Planned | MKT-010; pushed research available for review |
 
