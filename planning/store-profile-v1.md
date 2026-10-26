@@ -2,6 +2,8 @@
 
 [Planning index](README.md) · [Store asset brief](store-assets-v1.md) · [Agreed positioning](../analysis/positioning-v1.md) · [Product facts](../facts/product.md) · [Public platform audit](../facts/platform-audit.md) · [Asset ledger](../facts/assets.md)
 
+**Destination update, 2026-10-26:** the user selected Epic Games Store first. Use the [Epic profile](epic-store-profile-v1.md), [verified requirements](epic-store-requirements.md) and [artwork pack](../assets/epic-v1/README.md) for its current preparation. This reusable source remains useful for later stores.
+
 Prepared **2026-10-26** following the user's request to start the store profile and launch materials. The headline and master pitch below are the exact agreed positioning. All adaptations are new review drafts, not separately approved copy or published listings. This is a reusable source pack; store-specific fields, availability and submission requirements still need to be matched to the chosen launch destination.
 
 ## Profile identity
@@ -83,7 +85,7 @@ These URLs are recorded in the [2026-10-26 distribution audit](../facts/distribu
 - **Snap:** an exact public listing is recorded in [PA-04](../facts/platform-audit.md#first-party-and-project-associated-presentation-matrix). Adapt the approved pitch to its fields; reconcile old homepage/version context before publication. Public publisher metadata does not itself establish current account access.
 - **Microsoft Store and mobile stores:** submission materials exist, but public listing state is unresolved. Use this pack for the game story; retain edition-specific platform, account, payment and privacy details in their separate fields after verification.
 - **Steam, itch.io and GOG:** preparation is documented, but an exact public listing was not established. The long description and feature bullets are reusable drafts, not a selected primary store or submission-ready field map.
-- **Epic Games Store:** current local release setup documents a Windows-first workflow. This is local preparation evidence, not a verified live listing or a selected primary destination; see the [task ledger](tasks.md) for launch preparation status. Adapt the copy only after the actual product/profile fields are known.
+- **Epic Games Store:** current local release setup documents a Windows-first workflow. The user selected Epic as the first destination. Local workflow evidence does not establish a live listing; see the [task ledger](tasks.md) for launch preparation status. Adapt the copy only after the actual product/profile fields are known.
 - **Website and other profiles:** keep the master headline/pitch consistent. Adapt length and formatting without shifting the lead back to battles, control experiments or coding tools.
 
 ## Evidence and remaining profile decisions

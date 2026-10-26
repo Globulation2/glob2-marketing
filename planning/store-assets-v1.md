@@ -2,6 +2,8 @@
 
 [Planning index](README.md) · [Store profile draft](store-profile-v1.md) · [Agreed positioning](../analysis/positioning-v1.md) · [Asset ledger](../facts/assets.md) · [Public image audit](../facts/platform-audit.md)
 
+**Destination update, 2026-10-26:** the user selected Epic Games Store first. Use the [Epic profile](epic-store-profile-v1.md), [verified requirements](epic-store-requirements.md) and [artwork pack](../assets/epic-v1/README.md) for its current preparation. This reusable source remains useful for later stores.
+
 Prepared **2026-10-26** for the working launch positioning: **“Build a thriving colony in contested territory.”** This is an asset selection and capture brief, not a finished export pack. Existing candidates below were documented in the dated asset inventory/public audit; no new captures, rights clearance, platform uploads or live changes were performed here.
 
 ## Small first pack
