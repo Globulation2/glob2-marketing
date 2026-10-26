@@ -10,6 +10,9 @@ This section explores hypotheses and alternatives, separate from the factual est
 
 - [Comparable games](comparables.md): twelve historical/current reference cases, bounded popularity signals and interpretation limits.
 
-Audience and jobs-to-be-done maps are under final review. No hypothesis has been selected or validated as a market conclusion.
+- [Audience and persona map](audiences.md): psychographic dimensions, gamer circumstances, creator/contributor users and possible payer roles.
+- [Jobs to be done](jobs-to-be-done.md): hypothetical player, creator/operator and paid-service progress, adoption forces and observable outcomes.
+
+All four maps have undergone evidence-boundary and peer review. No hypothesis has been selected or validated as a market conclusion.
 
 Initial work must report possibilities without recommendations or firm conclusions.
