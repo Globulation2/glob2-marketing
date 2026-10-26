@@ -7,11 +7,11 @@ Created: 2026-10-26. Statuses: planned, in progress, complete, blocked. Completi
 | ID | Task | Status | Dependency / completion evidence |
 | --- | --- | --- | --- |
 | MKT-001 | Establish README, permanent working rules, directory indexes, and this ledger; commit and push foundation to main | Complete | Foundation files prepared; initial commit and push establish the baseline before research |
-| MKT-002 | Inventory repositories, websites, channels, community destinations, stores, and distribution platforms | In progress | MKT-001; cite sources, current/historical status, account-control uncertainty |
+| MKT-002 | Inventory repositories, websites, channels, community destinations, stores, and distribution platforms | Complete | [Repositories](../facts/repositories.md), [channels](../facts/channels.md), [distribution](../facts/distribution.md); ownership and console access gaps explicit |
 | MKT-003 | Inventory logos, screenshots, videos, marketing copy, and other assets; record locations and consistency gaps | Complete | [21 asset/copy families](../facts/assets.md), screenshot hashes/dimensions and rights/capture gaps |
 | MKT-004 | Inventory implemented capabilities relevant to existing or possible business models | Complete | [Product ledger](../facts/product.md): source capabilities, five commercial mechanisms, measurement and deployment limits |
-| MKT-005 | Reconstruct the game's 20+ year history with dated evidence and gaps | In progress | MKT-001; timeline and source links |
-| MKT-006 | Review and interlink the factual inventory; record coverage limits and unresolved verification tasks | Planned | MKT-002–005; facts index and gaps |
+| MKT-005 | Reconstruct the game's 20+ year history with dated evidence and gaps | Complete | [History](../facts/history.md), from predecessor/development to modern revamp; missing chronology explicit |
+| MKT-006 | Review and interlink the factual inventory; record coverage limits and unresolved verification tasks | Complete | [Facts index](../facts/README.md); source boundaries, relative links and whitespace reviewed |
 | MKT-007 | Explore psychographics, gamer personas, user personas, and jobs to be done | Planned | MKT-006; hypotheses linked to evidence, no audience selection |
 | MKT-008 | Explore marketing channels and existing/new business models with tradeoffs | Planned | MKT-006; alternatives, dependencies, and uncertainty |
 | MKT-009 | Compare historical and currently popular relevant games | Planned | MKT-006; source-backed descriptions separated from inferred comparisons |

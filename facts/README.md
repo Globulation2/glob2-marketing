@@ -10,7 +10,11 @@ This section inventories what already exists and reconstructs the game's history
 - [Marketing assets](assets.md): logos, screenshot families, video, copy, provenance and gaps.
 - [Product and commercial capabilities](product.md): gameplay, creator systems, payment machinery and measurement limits.
 
-Public channels, distribution and history records are under final evidence review.
+- [Communication channels](channels.md): current public surfaces, legacy community destinations and independent visibility.
+- [Distribution platforms](distribution.md): observed releases/listings, preparation-only stores and version/context differences.
+- [History](history.md): predecessor, development, releases, community and hosting milestones, with chronology gaps.
+
+The first bounded inventory pass is complete. Open verification work remains within each ledger; completeness of this pass does not establish an exhaustive estate audit.
 
 ## Scope and evidence limits
 
