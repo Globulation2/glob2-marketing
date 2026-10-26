@@ -25,8 +25,8 @@ On 2026-10-26, the user authorized completing the public platform audit and draf
 | ID | Task | Status | Dependency / completion evidence |
 | --- | --- | --- | --- |
 | MKT-012 | Audit publicly visible platform copy, screenshots, versions, links and displayed publisher information | In progress | Extend FOLLOW-02 with a bounded platform-by-platform record; private consoles, locales and device variants remain explicit limits |
-| MKT-013 | Draft audience/message combinations with product evidence, tradeoffs and unanswered questions | In progress | Build on audience, JTBD, product and comparable-game maps; no winner selected |
-| MKT-014 | Prepare neutral player-validation materials and decision criteria | In progress | Concrete plan only; no recruitment, interviews or claimed results |
+| MKT-013 | Draft audience/message combinations with product evidence, tradeoffs and unanswered questions | Complete | [Four unranked positioning drafts](../analysis/positioning-options.md), source-backed proof, risks and falsifying questions; no winner selected |
+| MKT-014 | Prepare neutral player-validation materials and decision criteria | Complete | [Exploratory protocol](../analysis/validation-plan.md), neutral prompts, qualification dependencies, proposed criteria and record template; no recruitment or performed tests |
 | MKT-015 | Cross-review the platform audit and positioning drafts; integrate, commit, push and report | In progress | Independent review, link checks, source boundaries and clean remote verification |
 
 ## Deferred decisions
@@ -48,6 +48,6 @@ These items track unresolved work. The current authorized phase above identifies
 | FOLLOW-03 | Resolve rights, capture provenance and historical source gaps | Planned; ledger-specific uncertainties remain |
 | FOLLOW-04 | Decide canonical asset families and normalize approved screenshots/copy across surfaces | Planned; no asset family or wording selected |
 | FOLLOW-05 | Verify enabled production capabilities, native/device quality and service/payment behavior | Planned; source and public shell/listing checks do not establish these |
-| FOLLOW-06 | Collect player/creator/returner/organizer evidence, cohort outcomes and willingness-to-pay data | Validation plan in progress under MKT-014; evidence collection not yet performed |
-| FOLLOW-07 | Choose audience, positioning, messages, business model and channel approach | Positioning alternatives in progress under MKT-013; final choice remains open |
+| FOLLOW-06 | Collect player/creator/returner/organizer evidence, cohort outcomes and willingness-to-pay data | [Validation plan](../analysis/validation-plan.md) prepared under MKT-014; evidence collection not yet performed |
+| FOLLOW-07 | Choose audience, positioning, messages, business model and channel approach | [Positioning alternatives](../analysis/positioning-options.md) drafted under MKT-013; final choice remains open |
 | FOLLOW-08 | Prepare and execute approved launch campaigns, outreach, listing updates and measurement | Planned; none executed in this pass |
