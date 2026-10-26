@@ -6,7 +6,7 @@
 - [Epic profile v1](epic-store-profile-v1.md): prepared first-store copy and metadata draft; portal values remain to verify.
 - [Epic requirements](epic-store-requirements.md): current official field/media requirements and remaining portal checks.
 - [Store-art reference review](store-art-reference-review.md): six visually inspected official game covers and lessons for the replacement artwork.
-- Replacement Epic key art: in progress; source-fidelity correction follows the user’s rejection of the first generated globs. No replacement pack is approved.
+- [Character correction study](../assets/epic-v2/README.md): illustrated organism-shape correction awaiting user feedback; no title, portrait or submission export is approved.
 - [Epic artwork v1](../assets/epic-v1/README.md): rejected historical review pack; retained for provenance, not the current visual direction.
 - [Store profile v1](store-profile-v1.md): prepared reusable listing-copy source; Epic is the selected first destination.
 - [Store assets v1](store-assets-v1.md): prepared visual brief and existing-asset candidates; final images and exports remain unfinished.
