@@ -20,7 +20,7 @@ Created: 2026-10-26. Statuses: planned, in progress, complete, blocked. Completi
 
 ## Current authorized phase
 
-On 2026-10-26, the user authorized completing the public platform audit and drafting positioning options in parallel. That phase extended the initial research without selecting a message. The user subsequently stopped recruitment/testing and selected a working launch v1 through discussion; this does not authorize outreach or live listing changes.
+On 2026-10-26, the user authorized completing the public platform audit and drafting positioning options in parallel. That phase extended the initial research without selecting a message. The user subsequently stopped recruitment/testing, selected a working launch v1 through discussion, and authorized preparation of the store profile and supporting launch materials. The current work prepares reusable copy and a visual brief; it does not publish listings or authorize outreach.
 
 | ID | Task | Status | Dependency / completion evidence |
 | --- | --- | --- | --- |
@@ -30,8 +30,11 @@ On 2026-10-26, the user authorized completing the public platform audit and draf
 | MKT-015 | Cross-review the platform audit and positioning drafts; integrate, commit, push and report | Complete | [Phase review and handoff](platform-positioning-review.md): independent cross-review, provenance corrections, link/anchor and whitespace checks; direct-to-main work units |
 | MKT-016 | Prepare a lightweight three-player positioning test and recruitment kit | Complete | User authorized preparation on 2026-10-26: [message-only kit](three-player-test-kit.md) and [recruitment preparation](three-player-recruitment.md); three unfamiliar strategy players, 15 minutes each, no installation/gameplay. Public recruitment rules checked, cards/script and anonymous note sheet prepared; no timed pilot, outreach or sessions performed, and no message selected at that stage. |
 | MKT-017 | Record the user-selected working launch positioning v1 | Complete | [Agreed headline and pitch](../analysis/positioning-v1.md), selected through discussion on 2026-10-26. Colony building/economics lead, with spatial strategy and rivals supporting. User stopped recruitment/testing; no player-validation claim, outreach or live copy changes. |
+| MKT-018 | Prepare store profile copy and supporting visual brief | Complete | [Store profile v1](store-profile-v1.md) and [store assets v1](store-assets-v1.md) prepared from the agreed colony/economy positioning. Reusable copy and the asset brief are complete as review drafts; primary destination remains pending, final images/exports are unfinished, and no images were captured or listings changed. |
 
 The three-player preparation task remains complete as historical work; the user cancelled its immediate execution in favor of discussion. The working v1 message is selected. Larger gameplay, access/continuity and creator studies remain deferred, without being launch prerequisites.
+
+Store preparation starts with reusable copy and an existing-asset visual brief, rather than assuming a primary platform. The current local game source contains an [Epic Windows/free-base-offer workflow](https://github.com/Globulation2/glob2/blob/7ebec312cd2bdcb6b6f685e141726b8caaca9ef7/docs/releases/store-setup.md#epic-games-store), observed 2026-10-26; this is preparation evidence, not a verified live listing, account-access finding or platform decision.
 
 ## Deferred decisions
 
@@ -50,8 +53,8 @@ These items track unresolved work. The current authorized phase above identifies
 | FOLLOW-01 | Verify account/domain/store ownership, access and unpublished submissions | Planned; no private-console audit performed |
 | FOLLOW-02 | Build an exact currently-published screenshot/copy matrix for every platform, locale and device | [Public pass complete](../facts/platform-audit.md) under MKT-012; authenticated consoles, blocked galleries and locale/device variants remain unverified |
 | FOLLOW-03 | Resolve rights, capture provenance and historical source gaps | Planned; ledger-specific uncertainties remain |
-| FOLLOW-04 | Decide canonical asset families and normalize approved screenshots/copy across surfaces | Planned; [v1 wording selected](../analysis/positioning-v1.md), asset families and live normalization not completed |
+| FOLLOW-04 | Decide canonical asset families and normalize approved screenshots/copy across surfaces | [v1 wording selected](../analysis/positioning-v1.md); reusable store copy and visual brief prepared under MKT-018. Primary destination, canonical assets, final image exports and live normalization remain unfinished |
 | FOLLOW-05 | Verify enabled production capabilities, native/device quality and service/payment behavior | Planned; source and public shell/listing checks do not establish these |
 | FOLLOW-06 | Collect player/creator/returner/organizer evidence, cohort outcomes and willingness-to-pay data | [Validation plan](../analysis/validation-plan.md) prepared under MKT-014; lightweight message-only kit prepared under MKT-016. No participant evidence collected; user stopped immediate recruitment/testing, and larger study remains deferred. |
 | FOLLOW-07 | Choose audience, positioning, messages, business model and channel approach | [Working launch positioning v1](../analysis/positioning-v1.md) selected under MKT-017; detailed audience, business model and channel decisions remain open |
-| FOLLOW-08 | Prepare and execute approved launch campaigns, outreach, listing updates and measurement | Planned; none executed in this pass |
+| FOLLOW-08 | Prepare and execute approved launch campaigns, outreach, listing updates and measurement | Store-profile copy and visual brief prepared under MKT-018. Publishing, outreach, campaign execution and measurement remain separate work; none executed in this pass |

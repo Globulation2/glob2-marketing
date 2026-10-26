@@ -3,6 +3,8 @@
 [Repository overview](../README.md) · [Facts](../facts/README.md) · [Analysis](../analysis/README.md)
 
 - [Launch positioning v1](../analysis/positioning-v1.md): current agreed headline, pitch and message emphasis; selected through discussion.
+- [Store profile v1](store-profile-v1.md): prepared reusable listing-copy draft based on the agreed positioning; destination pending.
+- [Store assets v1](store-assets-v1.md): prepared visual brief and existing-asset candidates; final images and exports remain unfinished.
 - [Task ledger](tasks.md): initial research completion, unresolved verification and future decision/execution work.
 - [Research review](research-review.md): evidence boundaries, team review, validation and handoff status for the 2026-10-26 pass.
 
