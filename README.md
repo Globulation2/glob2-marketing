@@ -1,19 +1,24 @@
-# Globulation 2 Marketing
+# Globulation 2 marketing
 
-A shared workspace for preparing Globulation 2 marketing content, brand direction, and messaging.
+This is the shared Markdown workspace for preparing the revamped Globulation 2 launch: understanding the existing estate, examining audiences and business possibilities, and eventually establishing consistent messaging and assets.
 
-## Scope
+The initial research records evidence and explores options. It does **not** select a target audience, business model, message, or campaign.
 
-- Brand positioning, audience, voice, and messaging.
-- Campaign ideas, content plans, and launch preparation.
-- Draft and approved copy for websites, social posts, announcements, and press materials.
-- Creative briefs and references for screenshots, videos, and other marketing assets.
+## Start here
 
-Mark drafts and approved material clearly. Verify gameplay claims against the current game, and record sources and usage rights for third-party assets. This repository is public; keep credentials, private contact information, and confidential plans elsewhere.
+- [Working rules](AGENTS.md): delegation, evidence, structure, and trunk-based commits.
+- [Task ledger](planning/tasks.md): scope, progress, dependencies, and follow-up work.
+- [Facts](facts/README.md): existing repositories, channels, listings, websites, assets, product capabilities, and history.
+- [Analysis](analysis/README.md): hypotheses about audiences, jobs, channels, business models, and comparable games.
+
+## Structure
+
+Keep research in simple Markdown files with lowercase, hyphenated filenames. Each directory has a README index; each substantive document links to its index and relevant related documents. Link to source assets instead of duplicating them without a reason. Distinguish drafts, verified observations, historical records, and unresolved questions.
 
 ## Related repositories
 
-- [glob2](https://github.com/Globulation2/glob2): the game and online platform; the source of truth for product behavior.
-- [glob2-design-system](https://github.com/Globulation2/glob2-design-system): shared themes, tokens, web components, fonts, icons, and brand assets. Reference shared assets there and coordinate reusable visual changes in that repository.
+- [glob2](https://github.com/Globulation2/glob2): game and online platform; verify product behavior here.
+- [glob2-design-system](https://github.com/Globulation2/glob2-design-system): shared visual foundations and brand assets.
+- [glob2-marketing](https://github.com/Globulation2/glob2-marketing): marketing research, plans, and copy.
 
-Marketing strategy and copy live here; shared visual foundations live in the design system.
+This repository is public. Keep credentials, private contact information, and confidential account data out of it.
