@@ -4,7 +4,13 @@
 
 This section inventories what already exists and reconstructs the game's history. Records must cite dated sources and distinguish current evidence, historical evidence, and unverified leads. Account ownership, rights, active maintenance, and live availability require separate verification.
 
-Planned coverage: repositories; websites; communication and community channels; store and distribution listings; logos, screenshots, video, and other assets; product capabilities relevant to business models; and the game's history over more than 20 years. Research documents will be linked here as they are completed.
+## Ledgers
+
+- [Repositories and web properties](repositories.md): source locations, revisions, public properties and implementation boundaries.
+- [Marketing assets](assets.md): logos, screenshot families, video, copy, provenance and gaps.
+- [Product and commercial capabilities](product.md): gameplay, creator systems, payment machinery and measurement limits.
+
+Public channels, distribution and history records are under final evidence review.
 
 ## Scope and evidence limits
 
