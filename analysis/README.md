@@ -8,6 +8,8 @@ This section explores hypotheses and alternatives, separate from the factual est
 
 - [Channels and business models](channels-and-business-models.md): candidate acquisition/engagement channels, current mechanisms and new offers, tradeoffs and possible distinguishing evidence.
 
-Audience, jobs-to-be-done and comparable-game maps are in progress. No hypothesis has been selected or validated as a market conclusion.
+- [Comparable games](comparables.md): twelve historical/current reference cases, bounded popularity signals and interpretation limits.
+
+Audience and jobs-to-be-done maps are under final review. No hypothesis has been selected or validated as a market conclusion.
 
 Initial work must report possibilities without recommendations or firm conclusions.
