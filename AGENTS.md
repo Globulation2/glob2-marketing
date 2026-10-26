@@ -2,7 +2,7 @@
 
 ## Delegation
 
-The coordinating agent must oversee sub-agents for all substantive work instead of performing it directly. Assign clear file or responsibility ownership, ask sub-agents to respect concurrent edits, and review and integrate their results. Split independent work across a team and parallelize whenever useful. Avoid overlapping file ownership and competing Git operations; designate one agent to commit and push a completed batch.
+The coordinating agent must oversee sub-agents for all substantive work instead of performing it directly. Assign clear file or responsibility ownership, ask sub-agents to respect concurrent edits, and review and integrate their results. Split independent work across a team and parallelize whenever useful. Avoid overlapping file ownership and competing Git operations; designate one agent to commit and push each completed work unit promptly. Workers hand off ready files and a work summary; the designated Git steward stages explicit completed paths only, so unfinished concurrent edits stay out of the commit. This coordination does not postpone the rule to commit after even small completed work.
 
 ## Git workflow
 
