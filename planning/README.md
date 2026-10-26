@@ -5,7 +5,9 @@
 - [Launch positioning v1](../analysis/positioning-v1.md): current agreed headline, pitch and message emphasis; selected through discussion.
 - [Epic profile v1](epic-store-profile-v1.md): prepared first-store copy and metadata draft; portal values remain to verify.
 - [Epic requirements](epic-store-requirements.md): current official field/media requirements and remaining portal checks.
-- [Epic artwork pack](../assets/epic-v1/README.md): three product/offer artwork review drafts, provenance and remaining qualification.
+- [Store-art reference review](store-art-reference-review.md): six visually inspected official game covers and lessons for the replacement artwork.
+- Replacement Epic key art: in progress; source-fidelity correction follows the user’s rejection of the first generated globs. No replacement pack is approved.
+- [Epic artwork v1](../assets/epic-v1/README.md): rejected historical review pack; retained for provenance, not the current visual direction.
 - [Store profile v1](store-profile-v1.md): prepared reusable listing-copy source; Epic is the selected first destination.
 - [Store assets v1](store-assets-v1.md): prepared visual brief and existing-asset candidates; final images and exports remain unfinished.
 - [Task ledger](tasks.md): initial research completion, unresolved verification and future decision/execution work.

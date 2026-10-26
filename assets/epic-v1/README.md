@@ -2,6 +2,8 @@
 
 [Profile draft](../../planning/epic-store-profile-v1.md) · [Requirements](../../planning/epic-store-requirements.md) · [Store visual brief](../../planning/store-assets-v1.md)
 
+**Rejected direction, 2026-10-26:** the user rejected this pack as resembling a presentation slide. Preserve these files as historical drafts; do not use them as the current store-art direction. See the [visual reference review](../../planning/store-art-reference-review.md) for the replacement direction, currently in preparation and undergoing character-source fidelity correction; no replacement art is approved.
+
 Prepared **2026-10-26** using the existing Glob2 identity and the agreed colony/economy positioning. These are tangible review compositions, not approved uploads or newly captured gameplay. No store or source-project files were changed.
 
 ## Files
