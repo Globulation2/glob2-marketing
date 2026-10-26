@@ -2,6 +2,8 @@
 
 [Planning index](README.md) · [Recruitment and invitation](three-player-recruitment.md) · [Positioning options](../analysis/positioning-options.md) · [Full validation plan](../analysis/validation-plan.md)
 
+**Current status, 2026-10-26:** the user stopped this recruitment/testing approach and selected [launch positioning v1](../analysis/positioning-v1.md) through discussion. This document is retained as historical preparation; do not execute it as an active launch task. No outreach or sessions occurred.
+
 Prepared **2026-10-26**. Ready-to-use preparation for three 15-minute conversations with strategy players unfamiliar with Glob2. No participants have been contacted and no sessions or results are recorded here. This smaller, text-only check follows the user's request to reduce the initial study. It can reveal confusing wording and reasons for interest; it cannot choose a reliable winner, validate demand or establish that gameplay delivers the promise.
 
 ## Before starting

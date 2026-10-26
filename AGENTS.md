@@ -27,3 +27,7 @@ Inventory the existing estate and history first; then map the marketing possibil
 ## Authorized follow-up phase
 
 The user subsequently authorized a public platform audit and positioning-option drafts in parallel, followed by concrete player-validation preparation. Draft alternative audience/message combinations with supporting evidence and tradeoffs; keep them distinct from verified facts. Do not treat this authorization as a selected strategy, completed player research, permission to contact people, or approval to change live listings. Final launch-kit production depends on a message decision.
+
+## Selected launch v1
+
+The user subsequently stopped recruitment/testing as the immediate approach and selected a working launch positioning through discussion on 2026-10-26. Use [the agreed v1](analysis/positioning-v1.md) as the current message reference: colony building and economics lead, with spatial strategy and rival pressure supporting. Historical research plans remain preserved but are not active launch prerequisites. This is a user decision, not player validation or authorization to contact people or change live listings.

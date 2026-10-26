@@ -26,12 +26,16 @@ Review corrected a malformed prior GitHub release URL and an inserted space in t
 
 Relative Markdown file links, local heading anchors and whitespace were checked. No binaries were committed. No live listings, accounts, other project repositories or history were changed. Completed work was committed and pushed directly to main in detailed work units.
 
+## Subsequent message decision
+
+On 2026-10-26, the user stopped the recruitment/testing approach and selected [working launch positioning v1](../analysis/positioning-v1.md) through discussion. Colony building and economics lead, with spatial strategy and rival pressure supporting. This is a practical launch starting point, not a participant finding.
+
 ## Still open
 
 Private submissions, account/domain access, complete blocked galleries, locale/region/device variants, remaining package leads, usage rights and original capture provenance remain explicit audit gaps. Runtime/device/install/payment and authored-bot workflow qualification were not performed.
 
-On 2026-10-26, the user reduced the immediate scope to preparation for three 15-minute, message-only conversations with strategy players unfamiliar with Glob2. The [lightweight kit](three-player-test-kit.md) and [recruitment preparation](three-player-recruitment.md) are prepared. Public community rules, invitation/screener, three message cards, a 15-minute script and anonymous note sheet are documented. No timed read-through has been performed. This first signal requires no installation or gameplay; it cannot validate whether the game delivers the messages. Outreach and interviews have not occurred.
+On 2026-10-26, the user reduced the immediate scope to preparation for three 15-minute, message-only conversations with strategy players unfamiliar with Glob2. The [lightweight kit](three-player-test-kit.md) and [recruitment preparation](three-player-recruitment.md) are prepared. Public community rules, invitation/screener, three message cards, a 15-minute script and anonymous note sheet are documented. No timed read-through has been performed. The user subsequently stopped execution of this approach; these materials remain historical preparation. Outreach and interviews have not occurred.
 
 The larger proposed study remains deferred. Before it can run, its named build, common gameplay proof, baseline card and reproducible player/access/creator tasks need preparation and an internal pilot. Participant access, recruitment/consent arrangements and a moderator/reviewer are also unresolved. No tracking or conversion experiment occurred.
 
-The user can review the four concrete drafts without treating any as chosen. Canonical screenshots, a final audience/message, live copy changes, a final launch kit and campaign execution remain subsequent work. The task ledger preserves these dependencies rather than marking them complete.
+The [working v1 message](../analysis/positioning-v1.md) is the current reference, with the four earlier drafts preserved as alternatives. Canonical screenshots, detailed audience decisions, live copy changes, a final launch kit and campaign execution remain subsequent work. Player research is not an active prerequisite for using the v1. The task ledger preserves these dependencies rather than marking them complete.

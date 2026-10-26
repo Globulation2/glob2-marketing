@@ -2,7 +2,7 @@
 
 [Repository overview](../README.md) · [Task ledger](../planning/tasks.md) · [Facts](../facts/README.md)
 
-This section explores hypotheses and alternatives, separate from the factual estate inventory. It does not represent validated market demand or decisions.
+This section explores hypotheses and alternatives, separate from the factual estate inventory. The [launch positioning v1](positioning-v1.md) records the user’s subsequent message decision; it does not represent validated market demand.
 
 ## Possibility maps
 
@@ -15,11 +15,15 @@ This section explores hypotheses and alternatives, separate from the factual est
 
 The four initial maps have undergone evidence-boundary and peer review. No hypothesis has been selected or validated as a market conclusion.
 
-## Positioning draft phase
+## Current positioning
+
+- [Launch positioning v1](positioning-v1.md): agreed headline and pitch, message emphasis and decision limits. Colony building and economics lead; selected through discussion, without player testing.
+
+## Historical positioning draft phase
 
 - [Positioning options](positioning-options.md): four unranked audience/message candidates, draft headlines and pitches, source-backed proof, tradeoffs and tests.
 - [Validation plan](validation-plan.md): proposed player/access/creator research, neutral prompts, required proof/task preparation, evidence records and review criteria.
 
-These follow-up drafts are authorized review materials and have undergone cross-review against the public platform evidence. They have not been published as claims, selected as the launch message, or tested with participants. See the [phase review](../planning/platform-positioning-review.md).
+These follow-up drafts are authorized review materials and have undergone cross-review against the public platform evidence. They were not published or tested with participants. The subsequent [v1 decision](positioning-v1.md) is the current message reference; recruitment and study execution have been stopped for the immediate launch approach. See the [phase review](../planning/platform-positioning-review.md).
 
-Initial work must report possibilities without recommendations or firm conclusions.
+The original possibility maps retain their initial research boundaries; the v1 record separately identifies the later user decision.

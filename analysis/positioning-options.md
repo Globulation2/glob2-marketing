@@ -4,6 +4,8 @@
 
 Drafted **2026-10-26** following authorization to develop concrete audience/message combinations. These are four **untested candidates**, not a selected positioning, claims approval, or evidence of audience demand. No new player research or current-build playtest was performed. Copy below is review material; it has not been published or applied to listings.
 
+**Later decision, 2026-10-26:** the user selected [launch positioning v1](positioning-v1.md) through discussion, centering colony building and economics with spatial strategy and rival pressure. These earlier options remain untested historical drafts. Recruitment/testing is no longer the immediate approach.
+
 The rows have no preference order. Options A and B describe different motivations for the same core gameplay; C changes the trust/access emphasis; D addresses a separate creator circumstance. A person could respond to several. Each test must distinguish understanding of the game from attraction to a slogan.
 
 ## Side-by-side review
@@ -89,6 +91,6 @@ The rows have no preference order. Options A and B describe different motivation
 - Label replay/spectator captures and experimental content by context. Do not test one option with polished footage and another with a weak or unrelated screenshot and call the difference a message result.
 - Core game access, optional purchases, authored bots, generation and AI-assisted command need separate explanations. Prices, margins and payer demand remain outside the evidence collected here.
 
-## Decision record still open
+## Subsequent decision
 
-No candidate has been selected, ranked or validated. The [validation plan](validation-plan.md) defines reviewable test materials and proposed criteria for the next evidence-gathering step. Choosing a lead promise, preparing a canonical screenshot set and applying platform copy remain later decisions, not completed work.
+The user selected a [working launch v1](positioning-v1.md) through conversation, without running the proposed research. That record supersedes the open message decision while preserving these options as historical alternatives. No candidate has been player-validated. Canonical screenshots and publication remain separate work.
