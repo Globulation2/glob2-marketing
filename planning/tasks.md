@@ -24,10 +24,10 @@ On 2026-10-26, the user authorized completing the public platform audit and draf
 
 | ID | Task | Status | Dependency / completion evidence |
 | --- | --- | --- | --- |
-| MKT-012 | Audit publicly visible platform copy, screenshots, versions, links and displayed publisher information | In progress | Extend FOLLOW-02 with a bounded platform-by-platform record; private consoles, locales and device variants remain explicit limits |
+| MKT-012 | Audit publicly visible platform copy, screenshots, versions, links and displayed publisher information | Complete | [Public audit](../facts/platform-audit.md): 21 records, 18 unique inspected assets, six candidate-store groups; bounded public pass, not all consoles/locales/devices |
 | MKT-013 | Draft audience/message combinations with product evidence, tradeoffs and unanswered questions | Complete | [Four unranked positioning drafts](../analysis/positioning-options.md), source-backed proof, risks and falsifying questions; no winner selected |
 | MKT-014 | Prepare neutral player-validation materials and decision criteria | Complete | [Exploratory protocol](../analysis/validation-plan.md), neutral prompts, qualification dependencies, proposed criteria and record template; no recruitment or performed tests |
-| MKT-015 | Cross-review the platform audit and positioning drafts; integrate, commit, push and report | In progress | Independent review, link checks, source boundaries and clean remote verification |
+| MKT-015 | Cross-review the platform audit and positioning drafts; integrate, commit, push and report | Complete | [Phase review and handoff](platform-positioning-review.md): independent cross-review, provenance corrections, link/anchor and whitespace checks; direct-to-main work units |
 
 ## Deferred decisions
 
@@ -44,7 +44,7 @@ These items track unresolved work. The current authorized phase above identifies
 | ID | Work remaining | Status / evidence gap |
 | --- | --- | --- |
 | FOLLOW-01 | Verify account/domain/store ownership, access and unpublished submissions | Planned; no private-console audit performed |
-| FOLLOW-02 | Build an exact currently-published screenshot/copy matrix for every platform, locale and device | In progress for public surfaces under MKT-012; authenticated consoles, locale/device variants remain unverified |
+| FOLLOW-02 | Build an exact currently-published screenshot/copy matrix for every platform, locale and device | [Public pass complete](../facts/platform-audit.md) under MKT-012; authenticated consoles, blocked galleries and locale/device variants remain unverified |
 | FOLLOW-03 | Resolve rights, capture provenance and historical source gaps | Planned; ledger-specific uncertainties remain |
 | FOLLOW-04 | Decide canonical asset families and normalize approved screenshots/copy across surfaces | Planned; no asset family or wording selected |
 | FOLLOW-05 | Verify enabled production capabilities, native/device quality and service/payment behavior | Planned; source and public shell/listing checks do not establish these |

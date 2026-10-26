@@ -20,6 +20,6 @@ The four initial maps have undergone evidence-boundary and peer review. No hypot
 - [Positioning options](positioning-options.md): four unranked audience/message candidates, draft headlines and pitches, source-backed proof, tradeoffs and tests.
 - [Validation plan](validation-plan.md): proposed player/access/creator research, neutral prompts, required proof/task preparation, evidence records and review criteria.
 
-These follow-up drafts are authorized review materials. They have not been published as claims, selected as the launch message, or tested with participants.
+These follow-up drafts are authorized review materials and have undergone cross-review against the public platform evidence. They have not been published as claims, selected as the launch message, or tested with participants. See the [phase review](../planning/platform-positioning-review.md).
 
 Initial work must report possibilities without recommendations or firm conclusions.
