@@ -4,6 +4,8 @@
 
 Prepared **2026-10-26**. This is a **proposed research protocol**, not an executed study or a report of results. No participants have been recruited/contacted, no messages sent, no interviews run and no preference or conversion data collected. Candidate drafts are available in [positioning options](positioning-options.md); gameplay/capture checks and participant access still need preparation. Thresholds below are proposed operating rules for a small exploratory round, not statistically calibrated market benchmarks.
 
+**Immediate scope update, 2026-10-26:** the user authorized a [lightweight three-player kit](../planning/three-player-test-kit.md) and [recruitment preparation](../planning/three-player-recruitment.md), now prepared. No timed read-through or participant sessions have been performed. These are 15-minute, text-only conversations with strategy players unfamiliar with Glob2, without installation or gameplay. The larger protocol below is deferred; the smaller test can surface comprehension and interest, but cannot establish gameplay delivery or a winning position.
+
 ## Questions and boundaries
 
 The first round asks three separate questions: **What does this make someone expect? Does that experience sound useful or enjoyable to them? Does the actual named build deliver the critical part of that expectation?** A positive answer to one cannot substitute for another. It is not a market-size, retention, pricing or business-model validation study.

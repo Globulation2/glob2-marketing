@@ -28,6 +28,9 @@ On 2026-10-26, the user authorized completing the public platform audit and draf
 | MKT-013 | Draft audience/message combinations with product evidence, tradeoffs and unanswered questions | Complete | [Four unranked positioning drafts](../analysis/positioning-options.md), source-backed proof, risks and falsifying questions; no winner selected |
 | MKT-014 | Prepare neutral player-validation materials and decision criteria | Complete | [Exploratory protocol](../analysis/validation-plan.md), neutral prompts, qualification dependencies, proposed criteria and record template; no recruitment or performed tests |
 | MKT-015 | Cross-review the platform audit and positioning drafts; integrate, commit, push and report | Complete | [Phase review and handoff](platform-positioning-review.md): independent cross-review, provenance corrections, link/anchor and whitespace checks; direct-to-main work units |
+| MKT-016 | Prepare a lightweight three-player positioning test and recruitment kit | Complete | User authorized preparation on 2026-10-26: [message-only kit](three-player-test-kit.md) and [recruitment preparation](three-player-recruitment.md); three unfamiliar strategy players, 15 minutes each, no installation/gameplay. Public recruitment rules checked, cards/script and anonymous note sheet prepared; no timed pilot, outreach or sessions performed, and no message selected. |
+
+The three-player preparation task is complete. Recruitment and sessions remain a later execution step. It seeks an early signal about message comprehension and interest; the larger gameplay, access/continuity and creator study remains deferred. It does not establish a positioning winner.
 
 ## Deferred decisions
 
@@ -48,6 +51,6 @@ These items track unresolved work. The current authorized phase above identifies
 | FOLLOW-03 | Resolve rights, capture provenance and historical source gaps | Planned; ledger-specific uncertainties remain |
 | FOLLOW-04 | Decide canonical asset families and normalize approved screenshots/copy across surfaces | Planned; no asset family or wording selected |
 | FOLLOW-05 | Verify enabled production capabilities, native/device quality and service/payment behavior | Planned; source and public shell/listing checks do not establish these |
-| FOLLOW-06 | Collect player/creator/returner/organizer evidence, cohort outcomes and willingness-to-pay data | [Validation plan](../analysis/validation-plan.md) prepared under MKT-014; evidence collection not yet performed |
+| FOLLOW-06 | Collect player/creator/returner/organizer evidence, cohort outcomes and willingness-to-pay data | [Validation plan](../analysis/validation-plan.md) prepared under MKT-014; lightweight message-only kit prepared under MKT-016. No participant evidence collected; larger study deferred. |
 | FOLLOW-07 | Choose audience, positioning, messages, business model and channel approach | [Positioning alternatives](../analysis/positioning-options.md) drafted under MKT-013; final choice remains open |
 | FOLLOW-08 | Prepare and execute approved launch campaigns, outreach, listing updates and measurement | Planned; none executed in this pass |
