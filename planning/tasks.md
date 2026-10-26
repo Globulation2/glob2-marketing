@@ -18,6 +18,17 @@ Created: 2026-10-26. Statuses: planned, in progress, complete, blocked. Completi
 | MKT-010 | Review analysis, links, evidence boundaries, and completeness; commit and push completed research | Complete | [Research review](research-review.md); independent cross-review, relative links/anchors and whitespace checked; detailed direct-to-main commits |
 | MKT-011 | Report findings and open questions to the user without recommendations or firm conclusions | Complete | [Findings handoff](research-review.md#findings-for-the-initial-handoff) documented and delivered to the coordinating agent for the user-facing report |
 
+## Current authorized phase
+
+On 2026-10-26, the user authorized completing the public platform audit and drafting positioning options in parallel. This phase extends the initial research; it does not select a final message or authorize outreach or live listing changes.
+
+| ID | Task | Status | Dependency / completion evidence |
+| --- | --- | --- | --- |
+| MKT-012 | Audit publicly visible platform copy, screenshots, versions, links and displayed publisher information | In progress | Extend FOLLOW-02 with a bounded platform-by-platform record; private consoles, locales and device variants remain explicit limits |
+| MKT-013 | Draft audience/message combinations with product evidence, tradeoffs and unanswered questions | In progress | Build on audience, JTBD, product and comparable-game maps; no winner selected |
+| MKT-014 | Prepare neutral player-validation materials and decision criteria | In progress | Concrete plan only; no recruitment, interviews or claimed results |
+| MKT-015 | Cross-review the platform audit and positioning drafts; integrate, commit, push and report | In progress | Independent review, link checks, source boundaries and clean remote verification |
+
 ## Deferred decisions
 
 Target audience, positioning, canonical screenshots, messaging, commercial model, channel priorities, and launch campaign choices remain open until the user requests decisions. The first pass should expose the available evidence and possibility space.
@@ -28,15 +39,15 @@ The first inventory uses available local repositories and public sources, not co
 
 ## Open follow-up work
 
-These items remain open; they are not ranked or approved for execution by this research pass.
+These items track unresolved work. The current authorized phase above identifies the bounded work now underway; other items remain unranked and unapproved for execution.
 
 | ID | Work remaining | Status / evidence gap |
 | --- | --- | --- |
 | FOLLOW-01 | Verify account/domain/store ownership, access and unpublished submissions | Planned; no private-console audit performed |
-| FOLLOW-02 | Build an exact currently-published screenshot/copy matrix for every platform, locale and device | Planned; source families inventoried, console display not exhaustively checked |
+| FOLLOW-02 | Build an exact currently-published screenshot/copy matrix for every platform, locale and device | In progress for public surfaces under MKT-012; authenticated consoles, locale/device variants remain unverified |
 | FOLLOW-03 | Resolve rights, capture provenance and historical source gaps | Planned; ledger-specific uncertainties remain |
 | FOLLOW-04 | Decide canonical asset families and normalize approved screenshots/copy across surfaces | Planned; no asset family or wording selected |
 | FOLLOW-05 | Verify enabled production capabilities, native/device quality and service/payment behavior | Planned; source and public shell/listing checks do not establish these |
-| FOLLOW-06 | Collect player/creator/returner/organizer evidence, cohort outcomes and willingness-to-pay data | Planned; personas/JTBD/models remain hypotheses |
-| FOLLOW-07 | Choose audience, positioning, messages, business model and channel approach | Deferred user decision; no recommendation made |
+| FOLLOW-06 | Collect player/creator/returner/organizer evidence, cohort outcomes and willingness-to-pay data | Validation plan in progress under MKT-014; evidence collection not yet performed |
+| FOLLOW-07 | Choose audience, positioning, messages, business model and channel approach | Positioning alternatives in progress under MKT-013; final choice remains open |
 | FOLLOW-08 | Prepare and execute approved launch campaigns, outreach, listing updates and measurement | Planned; none executed in this pass |

@@ -23,3 +23,7 @@ The coordinating agent must oversee sub-agents for all substantive work instead 
 ## Initial research boundary
 
 Inventory the existing estate and history first; then map the marketing possibility space. The user has requested findings without recommendations or firm conclusions at this stage. Do not choose positioning, personas, channels, business models, or launch tactics. Record alternatives and tradeoffs for later decisions.
+
+## Authorized follow-up phase
+
+The user subsequently authorized a public platform audit and positioning-option drafts in parallel, followed by concrete player-validation preparation. Draft alternative audience/message combinations with supporting evidence and tradeoffs; keep them distinct from verified facts. Do not treat this authorization as a selected strategy, completed player research, permission to contact people, or approval to change live listings. Final launch-kit production depends on a message decision.
