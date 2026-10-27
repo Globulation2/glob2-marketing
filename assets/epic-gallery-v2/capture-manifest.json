@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "observed_date": "2026-10-26",
+  "status": "review-candidate-map-media",
+  "kind": "actual-game-render",
+  "engine": {
+    "version": "0.11.4.0",
+    "compiled": "2026-10-26 20:55",
+    "save_version": 186,
+    "network_protocol": 72,
+    "binary_path": "glob2/build/overview-icon-order/src/glob2",
+    "binary_sha256": "e2f61b50a9b729fb334486b5c641ab423969ccb4495b54ffa50b660b7f8b5264",
+    "matching_source_commit": "unconfirmed; executable fingerprint is authoritative"
+  },
+  "input": {
+    "kind": "fresh-generated-playable-map",
+    "generator": "lava-shield",
+    "revision": 7,
+    "seed": 713,
+    "parameters": {
+      "width": 256,
+      "height": 256,
+      "teams": 4,
+      "workers": 4,
+      "tongue-count": 5,
+      "long-tongues": 50,
+      "branching": 2,
+      "rim-width": 8,
+      "islets": 1,
+      "wheat-amount": 100,
+      "wood-amount": 100,
+      "stone-amount": 100,
+      "algae-amount": 100,
+      "fruit-amount": 100
+    },
+    "map_sha256": "6e5c03283b8fe85f6da4a7adbbfb7d92c2433ae207e6b615a323e1a868795df1",
+    "tick": 0,
+    "source_map_committed": false
+  },
+  "render": {
+    "command": "glob2 map render MAP --data-dir data --output lava-shield-current-map.png --render-max-pixels 4096",
+    "pixels": [
+      4096,
+      4096
+    ],
+    "camera": "complete flat map",
+    "fog": "disabled by map-render mode",
+    "hud": "none",
+    "animation": "frozen by map-render mode",
+    "scope": "native game world renderer; not a normal player-view screenshot or strategic-overview UI capture"
+  },
+  "generation_recipe": "glob2 map generate lava-shield --seed 713 --width 256 --height 256 --teams 4 --workers 4 --output MAP --report-file REPORT",
+  "exports": [
+    {
+      "file": "lava-shield-current-map.png",
+      "pixels": [
+        4096,
+        4096
+      ],
+      "bytes": 10763237,
+      "sha256": "7e565dd6724982500e9cf042873c877b725d77cacec4094abf7800eef1e4fe55",
+      "treatment": "unaltered native renderer output"
+    },
+    {
+      "file": "lava-shield-terrain.jpg",
+      "pixels": [
+        2560,
+        1440
+      ],
+      "bytes": 2641931,
+      "sha256": "6cf165ec5479f3c40e16451eae2f7b75564aa77771cae3cd53f3d7628fb793e3",
+      "treatment": "crop [0,896,4096,3200], then downsample to2560x1440, JPEG quality96"
+    },
+    {
+      "file": "lava-shield-map.jpg",
+      "pixels": [
+        2560,
+        1440
+      ],
+      "bytes": 1331065,
+      "sha256": "36e3bfd3ab071286eddac6e34d79713f1bef718556bf0e628f37cda60a489c26",
+      "treatment": "fullmap downsample to1440x1440, pillarbox within2560x1440 using dark canvas; JPEGquality96"
+    }
+  ],
+  "limits": [
+    "Initial terrain/map composition; no mature colony, active combat or player-demand evidence.",
+    "No game graphics, units or terrain were fabricated or AI-generated.",
+    "No black-center artifact from the older Lava Shield revision5 candidate is present.",
+    "Epic Windows launcher release compatibility and supported-map configuration are not qualified by this local render."
+  ]
+}
