@@ -1,0 +1,86 @@
+{
+  "prepared": "2026-10-26",
+  "kind": "promotional illustration with actual-source units and existing title; review draft",
+  "files": [
+    {
+      "file": "environment-native.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "bytes": 3023569,
+      "sha256": "013b9090cc72fcebf16a83a5526323654cb1a84ba07675750f62c721cb35d070"
+    },
+    {
+      "file": "colony-native.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "bytes": 2795771,
+      "sha256": "a30d08e35ad0f74f2e5785250cac42460e4f0baa6a92bd53d9058acb53a0f657"
+    },
+    {
+      "file": "offer-landscape-2560x1440.png",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "mode": "RGB",
+      "bytes": 5333621,
+      "sha256": "2ed88d7e351ebe0a5d313bf9080c92b7e1c0087036de2b8e365a101c4cdff4af"
+    },
+    {
+      "file": "offer-landscape-2560x1440.jpg",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "mode": "RGB",
+      "bytes": 1808585,
+      "sha256": "8c6d5c32b72fae872fc55ccb51548cb5709a1c30fc3124463f9952e686338aa3"
+    },
+    {
+      "file": "offer-portrait-1200x1600.png",
+      "dimensions": [
+        1200,
+        1600
+      ],
+      "mode": "RGB",
+      "bytes": 2866063,
+      "sha256": "5d680a445185f0ea2d2360dbd3b4c88df65304155f63e95f426f95ea667ec950"
+    },
+    {
+      "file": "offer-portrait-1200x1600.jpg",
+      "dimensions": [
+        1200,
+        1600
+      ],
+      "mode": "RGB",
+      "bytes": 991815,
+      "sha256": "be1c9911f326525aee624feed3615416127a14c0e9419e69769339613e685ddb"
+    },
+    {
+      "file": "product-logo-960x540.png",
+      "dimensions": [
+        960,
+        540
+      ],
+      "mode": "RGBA",
+      "bytes": 38025,
+      "sha256": "730891bc823683e26a22c739c1c5b1bf8db84cabc5eb440fb8698f849fcde110"
+    },
+    {
+      "file": "review-contact-sheet.jpg",
+      "dimensions": [
+        1500,
+        1100
+      ],
+      "mode": "RGB",
+      "bytes": 645384,
+      "sha256": "b15096fc1f64ccf17c86e937e36ab1beaeb4926c97df253a4ae38a02c75d0955"
+    }
+  ]
+}

@@ -6,7 +6,8 @@
 - [Epic profile v1](epic-store-profile-v1.md): prepared first-store copy and metadata draft; portal values remain to verify.
 - [Epic requirements](epic-store-requirements.md): current official field/media requirements and remaining portal checks.
 - [Store-art reference review](store-art-reference-review.md): six visually inspected official game covers and lessons for the replacement artwork.
-- [Actual-source cover review](../assets/epic-v4/README.md): full-bleed game imagery and the existing title preserve real unit shapes; native-size review compositions, not submission exports.
+- [Current illustrated store artwork](../assets/epic-v5/README.md): coherent landscape/portrait offer drafts with an illustrated colony environment, exact source units and the existing title; genuine gameplay gallery remains separate.
+- [Actual-source cover review](../assets/epic-v4/README.md): historical full-bleed screenshot/title experiment; native-size review compositions, not the current flagship artwork.
 - [Failed role-specific illustration](../assets/epic-v3/README.md): source-reference generation still altered anatomy; retained as rejected history.
 - [Actual unit references](../assets/epic-v2/unit-references/README.md): unchanged worker and warrior renders in matched poses; slender workers and bulkier warriors guide the next illustration.
 - [Character correction study](../assets/epic-v2/README.md): superseded anatomy study; its generic icon-based forms did not preserve role-specific proportions. No cover or submission export is approved.

@@ -2,7 +2,7 @@
 
 [Planning index](README.md) · [Store profile draft](store-profile-v1.md) · [Agreed positioning](../analysis/positioning-v1.md) · [Asset ledger](../facts/assets.md) · [Public image audit](../facts/platform-audit.md)
 
-**Destination update, 2026-10-26:** the user selected Epic Games Store first. Use the [Epic profile](epic-store-profile-v1.md), [verified requirements](epic-store-requirements.md) and [artwork pack](../assets/epic-v1/README.md) for its current preparation. This reusable source remains useful for later stores.
+**Current preparation, 2026-10-26:** Epic Games Store is first. Use the [Epic profile](epic-store-profile-v1.md), [verified requirements](epic-store-requirements.md) and [current illustrated artwork](../assets/epic-v5/README.md). The working covers combine a generated environment with actual source units and the existing title. The genuine gameplay gallery remains separate. The first artwork pack and subsequent character/screenshot studies remain historical; no artwork is user-approved or uploaded. This reusable brief remains source material for later stores.
 
 Prepared **2026-10-26** for the working launch positioning: **“Build a thriving colony in contested territory.”** This is an asset selection and capture brief, not a finished export pack. Existing candidates below were documented in the dated asset inventory/public audit; no new captures, rights clearance, platform uploads or live changes were performed here.
 
