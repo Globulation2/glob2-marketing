@@ -2,7 +2,7 @@
 
 [Store profile](../../planning/epic-store-profile-v1.md) · [Source asset ledger](../../facts/assets.md) · [Exact prompts and inputs](prompts.md)
 
-Prepared **2026-10-26** after the user rejected the first store artwork as presentation-like, then identified incorrect globs in the illustrated revision. **Awaiting user character feedback.** This is a character-correction study, not an approved cover or submission asset. No title, portrait or production exports have been prepared from it.
+Prepared **2026-10-26** after the user rejected the first store artwork as presentation-like, then identified incorrect globs in the illustrated revision. **Superseded as an anatomy direction:** the user requested actual worker/warrior imagery and clarified that workers are longer and more slender, while warriors are bulkier. Use the [unchanged role-specific source references](unit-references/README.md) for the next correction; the project icon is not an anatomy master. This is a character-correction study, not an approved cover or submission asset. No title, portrait or production exports have been prepared from it.
 
 ![Character correction study](character-correction-study.png)
 
@@ -21,4 +21,4 @@ The image is a generated promotional illustration, **not gameplay or a screensho
 
 Reference artwork provenance and GPL-related notices remain subject to release-specific review; generation does not resolve usage-rights questions. Third-party game store images informed composition research only and were not supplied to the image model or used in this illustration.
 
-Next: obtain feedback on the corrected organism shape before further illustration, title treatment, portrait composition or export work. This study does not replace the rejected v1 files as an approved store pack.
+Next: correct the illustration against the actual worker and warrior images, preserving their different proportions. The replacement remains in progress. This study does not replace the rejected v1 files as an approved store pack, and no title, portrait or submission export is approved.

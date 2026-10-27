@@ -1,0 +1,80 @@
+{
+  "observed": "2026-10-26",
+  "source_repository": "https://github.com/Globulation2/glob2",
+  "source_revision": "7ebec312cd2bdcb6b6f685e141726b8caaca9ef7",
+  "copies": "Unchanged source bytes; 128x128 RGBA recolorable team/body layer",
+  "files": [
+    {
+      "file": "worker-direction-0-pose-0.png",
+      "source": "datasrc/gfx/production/original-derived/unit256r.png",
+      "sha256": "886303f7e9cf438c46cd0cd7d962303764cc265975cf3cf54db6776266b2d64f",
+      "animation": "worker-walk",
+      "direction": 0,
+      "pose": 0,
+      "original_model": {
+        "path": "datasrc/gfx/originals/units/glob-worker-walk.blend",
+        "sha256": "c63b1a4ae627147f20911f7c7abe2b61ff8a2b0d6719ade4ee6c3434b3e6d344"
+      }
+    },
+    {
+      "file": "worker-direction-1-pose-0.png",
+      "source": "datasrc/gfx/production/original-derived/unit288r.png",
+      "sha256": "2fc877b5c4107b4541c351ffba2eb417f23b9b586c578354b8479994104dffdc",
+      "animation": "worker-walk",
+      "direction": 1,
+      "pose": 0,
+      "original_model": {
+        "path": "datasrc/gfx/originals/units/glob-worker-walk.blend",
+        "sha256": "c63b1a4ae627147f20911f7c7abe2b61ff8a2b0d6719ade4ee6c3434b3e6d344"
+      }
+    },
+    {
+      "file": "worker-direction-3-pose-0.png",
+      "source": "datasrc/gfx/production/original-derived/unit352r.png",
+      "sha256": "19442a4bcf12d1871c0f5d7a9d632d7a836886402018fc1254c78df385197e53",
+      "animation": "worker-walk",
+      "direction": 3,
+      "pose": 0,
+      "original_model": {
+        "path": "datasrc/gfx/originals/units/glob-worker-walk.blend",
+        "sha256": "c63b1a4ae627147f20911f7c7abe2b61ff8a2b0d6719ade4ee6c3434b3e6d344"
+      }
+    },
+    {
+      "file": "warrior-direction-0-pose-0.png",
+      "source": "datasrc/gfx/production/original-derived/unit1024r.png",
+      "sha256": "ec06da6d887474a90fce936796a1fc8d8157869797d9df16d8f91f7ba0ab6dc2",
+      "animation": "warrior-walk",
+      "direction": 0,
+      "pose": 0,
+      "original_model": {
+        "path": "datasrc/gfx/originals/units/glob-warrior-walk.blend",
+        "sha256": "f7c9d2f9d2693c4f73c5e5ccea2063fd256509740fe6f755e658511fff744943"
+      }
+    },
+    {
+      "file": "warrior-direction-1-pose-0.png",
+      "source": "datasrc/gfx/production/original-derived/unit1056r.png",
+      "sha256": "340ef0663230178cb04c773ce998526ab27156503e195baf1bb79172c4a307d5",
+      "animation": "warrior-walk",
+      "direction": 1,
+      "pose": 0,
+      "original_model": {
+        "path": "datasrc/gfx/originals/units/glob-warrior-walk.blend",
+        "sha256": "f7c9d2f9d2693c4f73c5e5ccea2063fd256509740fe6f755e658511fff744943"
+      }
+    },
+    {
+      "file": "warrior-direction-3-pose-0.png",
+      "source": "datasrc/gfx/production/original-derived/unit1120r.png",
+      "sha256": "a5089bd53453e6f4649f31ccb77bd2edbe4bf07257604d4d6df5e700ed27b2f9",
+      "animation": "warrior-walk",
+      "direction": 3,
+      "pose": 0,
+      "original_model": {
+        "path": "datasrc/gfx/originals/units/glob-warrior-walk.blend",
+        "sha256": "f7c9d2f9d2693c4f73c5e5ccea2063fd256509740fe6f755e658511fff744943"
+      }
+    }
+  ]
+}
