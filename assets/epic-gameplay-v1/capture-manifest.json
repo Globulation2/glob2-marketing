@@ -26,10 +26,10 @@
     "snapshotTickSample": 2672,
     "tickCaveat": "Diagnostics sampled immediately before screenshot; simulation continued during capture, not an exact frame tick assertion.",
     "captureTimeUTC": "2026-10-27T00:25:00.904547+00:00",
-    "view": "Live local-player view; normal fog enabled and HUD retained; selected Inn, camera zoom133%",
+    "view": "Live local-player view; player fog enabled and HUD retained; selected Inn, camera zoom133%. Fog rendering rejected in subsequent visual review.",
     "imageTreatment": "Unchanged browser screenshot, no crop, resize, retouching, compositing or generation",
     "visiblePanel": "Inn Level1; Working0/4; Food10/10 at capture",
-    "purpose": "Supporting economic/control screenshot, not a mature-colony hero or battle proof"
+    "purpose": "Rejected capture retained as diagnostic evidence only; not approved marketing media"
   },
   "runtime": {
     "executionMode": "threaded",
@@ -68,6 +68,14 @@
     "Actual current early colony; insufficient wall time to grow large mature colonies in bounded session",
     "Uses supported maximum game-speed control; UI speed varied actual TPS",
     "No current rival/battle screenshot captured",
-    "Existing documented 2026-10-11 replay gallery remains needed for mature colony story"
-  ]
+    "Existing documented 2026-10-11 replay gallery remains needed for mature colony story",
+    "Fog-enabled setting was initially mislabeled as normal/correct fog; rejected by user and removed from marketing preview."
+  ],
+  "reviewStatus": {
+    "status": "rejected-for-marketing",
+    "observedDate": "2026-10-26",
+    "reason": "User identified abnormal fog-of-war presentation; visual review shows washed-out grey shading and coarse tiled fog.",
+    "usage": "Retain original PNG as diagnostic evidence only; excluded from Epic gallery and About.",
+    "rootCause": "Unconfirmed rendering/capture issue; enabled fog setting and no context-lost error do not establish correct output."
+  }
 }

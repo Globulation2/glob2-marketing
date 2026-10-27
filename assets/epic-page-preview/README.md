@@ -18,7 +18,7 @@ The proposed Free/Windows offer follows the existing Epic preparation record. It
 
 ## Content and provenance
 
-Copy derives from the [selected positioning](../../analysis/positioning-v1.md) and [Epic description draft](../../planning/epic-store-profile-v1.md), shortened for scanability. The page presents the colony economy first, spatial growth second, and control/rival pressure as supporting parts of the experience.
+Copy derives from the [selected positioning](../../analysis/positioning-v1.md) and [Epic description draft](../../planning/epic-store-profile-v1.md), shortened for scanability. The page presents the colony economy first, spatial growth second, and rival pressure as a supporting part of the experience.
 
 The hero uses the [v5 landscape illustration](../epic-v5/README.md), with its existing title and exact source-unit silhouettes. It is promotional key art, not a gameplay screenshot. The product logo uses the v5 transparent export. Both are linked directly from the sibling pack to avoid divergent copies. Existing genuine gallery and About references are copied unchanged from the website:
 
@@ -27,23 +27,23 @@ The hero uses the [v5 landscape illustration](../epic-v5/README.md), with its ex
 | `media/colony.webp` | `public/images/home-thriving-colony.webp` | Replay view: colony/economy composition |
 | `media/expansion.webp` | `public/images/home-rival-expansion.webp` | Replay view: territorial context |
 | `media/defence.webp` | `public/images/home-colony-defence.webp` | Replay view: rival pressure |
-| [Current controls capture](../epic-gameplay-v1/early-colony-controls.png) | Public browser build, captured 2026-10-26 | Live local-player view: Inn worker demand, normal fog and HUD, 2560×1440 |
 
-Website source revision: [6e391ebe93b725747827a3ed7cea78f0d0d8f7e1](https://github.com/Globulation2/glob2-online-website/tree/6e391ebe93b725747827a3ed7cea78f0d0d8f7e1). The homepage replay views were recorded 2026-10-11 on Fingerprint / Quick clash, tick 41350, with fog disabled and outer HUD cropped. They are not fresh player-view captures of the Epic Windows edition. The fresh controls image follows the [current capture manifest](../epic-gameplay-v1/capture-manifest.json); it is browser evidence, not Epic Windows launcher qualification. Source roles and limitations belong in submission provenance even when the preview presents images cleanly.
+
+Website source revision: [6e391ebe93b725747827a3ed7cea78f0d0d8f7e1](https://github.com/Globulation2/glob2-online-website/tree/6e391ebe93b725747827a3ed7cea78f0d0d8f7e1). The homepage replay views were recorded 2026-10-11 on Fingerprint / Quick clash, tick 41350, with fog disabled and outer HUD cropped. They are not fresh player-view captures of the Epic Windows edition. The [newer controls capture](../epic-gameplay-v1/README.md) was rejected after the user identified abnormal fog rendering; it is excluded from the gallery and About. The earlier “normal fog” wording described an enabled setting without establishing visual correctness. The original remains diagnostic evidence only. The tutorial/first-colony alternatives were also inspected and contain irregular grey fog, so no unqualified replacement was substituted. Source roles and limitations belong in submission provenance even when the preview presents images cleanly.
 
 The v5 [provenance record](../epic-v5/README.md) covers its generated environment, actual game-unit silhouettes, existing wordmark masks and maintained cream/gold colors. This page introduces no third-party game art or additional character substitutes. See the [source provenance ledger](../../facts/assets.md) and original project notices for art/attribution context; this review does not finish release rights clearance.
 
 ## Remaining production work
 
-The cover is the current v5 direction; the genuine gallery combines documented earlier replay captures with a fresh current-browser controls view. Replace that gallery with stronger current-build captures when ready, verify the copy in Epic's actual field/preview system, and populate release-specific metadata from the qualified build. This file does not authorize uploads or publication.
+The cover is the current v5 direction; the genuine gallery uses documented earlier replay captures only. The gallery has four entries: cover, colony, expansion and rival pressure. The third About section uses the defence replay and discusses economic growth under rival pressure. A clean current-build controls image remains outstanding. Replace that gallery with stronger current-build captures when ready, verify the copy in Epic's actual field/preview system, and populate release-specific metadata from the qualified build. This file does not authorize uploads or publication.
 
 ## Visual checks
 
-Rendered in the local browser at 1600×1100 desktop and 390×844 mobile. The mobile document has no horizontal overflow, and all images load. Gallery interaction switches the hero and updates selection state. The Get control remains disabled. No custom fonts are bundled; typography uses the system font stack.
+Rendered in the local browser at 1600×1100 desktop and 390×844 mobile. The mobile document has no horizontal overflow, and all images load. Gallery interaction switches the hero and updates selection state. The rejected controls image is absent from both gallery and About. The Get control remains disabled. No custom fonts are bundled; typography uses the system font stack.
 
 - [Desktop overview](desktop-overview.png)
 - [About section](about-section.png)
 - [Full-page review](desktop-full-page.jpg)
 - [Mobile overview](mobile-overview.png)
 
-The full-page review assembles overlapping browser viewport captures at their measured scroll offsets, with no content alterations. It is a local presentation review, not an Epic portal screenshot.
+After excluding the defective controls image, all four review images were regenerated with local headless Chromium at the documented desktop/mobile viewports. The full-page image is a direct full-page browser render, with no stitching or content alterations. It is a local presentation review, not an Epic portal screenshot. Four gallery entries, loaded images, disabled Get, absence of rejected-image references and no mobile overflow were checked.
