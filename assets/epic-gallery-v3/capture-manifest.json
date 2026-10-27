@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "captured_date": "2026-10-27",
+  "status": "native-capture-review-pack",
+  "kind": "staged-in-engine-skirmish-and-actual-strategic-interface",
+  "base_runtime": {
+    "version": "0.11.4.0",
+    "compiled": "2026-10-26 20:55",
+    "save_version": 186,
+    "network_protocol": 72,
+    "executable_sha256": "e2f61b50a9b729fb334486b5c641ab423969ccb4495b54ffa50b660b7f8b5264",
+    "matching_source_commit": "unconfirmed; production object dependencies reused from this completed build"
+  },
+  "capture_runtime": {
+    "method": "temporary native companion linked against645 existing game production objects and the same completed-build libraries, replacing only the application main",
+    "binary_sha256": "797f8155e2c35c478cd308c771b04a0cada4c93675c858cb1c044091981d94b1",
+    "captured_translation_unit_sha256": "447dc5c12e615c82976e7d4092424c8b20641dffa0ecdb5867d74d630571ea01",
+    "public_rebuild_source": "capture-scene.cpp",
+    "source_portability_change": "The preserved source reads its asset directory from GLOB2_MARKETING_ASSET_DIR instead of the local absolute path used during capture; staging, simulation, camera and draw code are unchanged.",
+    "game_source_changes": false,
+    "shared_build_directory_changes": false,
+    "isolated_profile": true
+  },
+  "source_map": {
+    "generator": "lava-shield",
+    "revision": 7,
+    "seed": 713,
+    "width": 256,
+    "height": 256,
+    "teams": 4,
+    "initial_workers_per_colony": 4,
+    "map_sha256": "6e5c03283b8fe85f6da4a7adbbfb7d92c2433ae207e6b615a323e1a868795df1",
+    "generation_command": "glob2 map generate lava-shield --seed 713 --width 256 --height 256 --teams 4 --workers 4 --output MAP"
+  },
+  "staging": {
+    "authoring_method": "native editor and SGSL production APIs Game::addUnit and Game::addBuilding, followed by ordinary Game::step simulation",
+    "added_warriors": 192,
+    "warrior_level": 1,
+    "forces": [
+      96,
+      96
+    ],
+    "added_economic_buildings": 16,
+    "building_types_per_colony": [
+      "inn",
+      "school",
+      "racetrack",
+      "hospital"
+    ],
+    "added_workers": 96,
+    "original_hives_retained": 4,
+    "generic_player_names": "Colony",
+    "terrain_or_resource_painting": false,
+    "direct_damage_or_attack_animation_edits": false,
+    "formation_center": [
+      193,
+      134
+    ],
+    "normal_war_flags": 2,
+    "note": "This is an authored showcase skirmish, not an organic player match, natural growth result, benchmark, or proof of typical army size/timing."
+  },
+  "simulation": {
+    "native_world_steps": 192,
+    "initial_warrior_count": 192,
+    "initial_total_warrior_hp": 48000,
+    "captured_warrior_count": 192,
+    "captured_total_warrior_hp": 47624,
+    "actively_attacking_warriors": 39,
+    "attack_evidence": "Native MOV_ATTACKING_TARGET count and naturally reduced HP, with no direct damage mutation",
+    "metrics_file": "simulation-metrics.csv",
+    "capture_state_sha256": "0b4c512984dffde98e45ce09e30aa422acb11bd42a8e6eaaa789b427cb6eee9a",
+    "initial_state_sha256": "1b3d99d7d4c5e241c83e3b7dd8b60875e1126b53c29b9ce77e5e482eecfe6f33",
+    "raw_state_files_committed": false
+  },
+  "presentation": {
+    "renderer": "software via actual GameGUI/Scene",
+    "tactical_zoom": 0.8,
+    "strategic_zoom_label": "16% native adaptive overview; requested whole-map fit is clamped by actual window/camera sizing",
+    "native_pixels": [
+      2940,
+      1626
+    ],
+    "native_scene": "actualHUD, minimap, source unit/building sprites, adaptive team markers/building icons/territory wash",
+    "observer_view": true,
+    "fog": "disabled using native spectator option",
+    "combined_vision": true,
+    "flags": "hidden using native spectator option after orders remain active",
+    "areas": "hidden using native spectator option",
+    "viewport_centering": "native MapCamera.visibleW/visibleH and actual scene center",
+    "screenshot_method": "native GraphicContext pending screenshot, flushed by next completed frame; nativeBMP converted losslessly toRGB PNG",
+    "performance_label": "The native snapshot HUD displays0.0; it is not a runtimeFPS/performance measurement and was not retouched."
+  },
+  "delivery": {
+    "pixels": [
+      2560,
+      1440
+    ],
+    "treatment": "Complete native2940x1626 frame downsized to2560x1416;12pixel dark margins top/bottom; JPEGquality96, chroma subsampling0",
+    "no_hud_crop": true,
+    "no_ai_or_painted_game_pixels": true,
+    "epic_maximum_bytes": 4194304
+  },
+  "limits": [
+    "Staged scenario is intentionally authored; no organic-match or natural-colony-growth claim.",
+    "This capture uses native game Scene/HUD but is not an Epic Windows launcher qualification.",
+    "Wide strategic frame shows the native strategic interface and populated scenario; it is not a claim that the entire toroidal map fits.",
+    "HUD labels and source game rendering are preserved; no UI was invented or fixed in an image editor."
+  ],
+  "files": [
+    {
+      "file": "capture-scene.cpp",
+      "bytes": 6997,
+      "sha256": "2b39c873bb56ac375f51671fe40bf604455fddbf7a7a585379244d6b289b3e83"
+    },
+    {
+      "file": "lava-shield-battle-native.png",
+      "bytes": 2178264,
+      "sha256": "6504059124654cd8db25842ccec2d475dcf60821c689eb7cab35f3977d333830",
+      "pixels": [
+        2940,
+        1626
+      ]
+    },
+    {
+      "file": "lava-shield-battle.jpg",
+      "bytes": 1924387,
+      "sha256": "adc72c168ebc8f7b5a21070b5c88936d874bbe2daf399f8a3a2912e4c1c2a86d",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "lava-shield-strategic-native.png",
+      "bytes": 209146,
+      "sha256": "5b3c90d2e8a2d0c29fbb8bb53283f251d3952ed61800b9d897129709cb5b1c46",
+      "pixels": [
+        2940,
+        1626
+      ]
+    },
+    {
+      "file": "lava-shield-strategic.jpg",
+      "bytes": 1021679,
+      "sha256": "84d612a28246607b77d0c92a432c89b7a867897b409d31dd2687aedb5031b695",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "simulation-metrics.csv",
+      "bytes": 228,
+      "sha256": "677f907eaf1cd57335cd4faefa27ebaa68a171414a9315306e500cf8da6f220e"
+    }
+  ]
+}
