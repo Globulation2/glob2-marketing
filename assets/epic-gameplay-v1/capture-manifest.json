@@ -1,0 +1,73 @@
+{
+  "observedDate": "2026-10-26",
+  "url": "https://app.glob2online.com/play/?renderer=webgl2",
+  "context": "Fresh browser context, local singleplayer bot match; no account/login or multiplayer interaction",
+  "setup": {
+    "map": "Fingerprint random generator",
+    "width": 128,
+    "height": 128,
+    "ruleset": "Quick clash",
+    "colonies": [
+      "You + AI Maxima",
+      "AI Nicowar",
+      "AI Cabino",
+      "AI Maxima"
+    ],
+    "teams": "FFA"
+  },
+  "capture": {
+    "file": "early-colony-controls.png",
+    "bytes": 2760662,
+    "sha256": "75cb57a6c8a1df3848040175558856bbf98a8c4bc9bae03644b95bca0bdfcf1c",
+    "dimensions": [
+      2560,
+      1440
+    ],
+    "snapshotTickSample": 2672,
+    "tickCaveat": "Diagnostics sampled immediately before screenshot; simulation continued during capture, not an exact frame tick assertion.",
+    "captureTimeUTC": "2026-10-27T00:25:00.904547+00:00",
+    "view": "Live local-player view; normal fog enabled and HUD retained; selected Inn, camera zoom133%",
+    "imageTreatment": "Unchanged browser screenshot, no crop, resize, retouching, compositing or generation",
+    "visiblePanel": "Inn Level1; Working0/4; Food10/10 at capture",
+    "purpose": "Supporting economic/control screenshot, not a mature-colony hero or battle proof"
+  },
+  "runtime": {
+    "executionMode": "threaded",
+    "workerCount": 14,
+    "renderer": "webgl2",
+    "renderContext": {
+      "width": 2560,
+      "height": 1440,
+      "error": null
+    },
+    "contextLost": false,
+    "width": 2560,
+    "height": 1440
+  },
+  "buildIdentity": {
+    "gameVersion": "Not established from inspected diagnostics (diagnostics version1 is a schema number)",
+    "packagesFetchedImmediatelyAfterCapture": [
+      {
+        "url": "https://app.glob2online.com/play/threaded/index.js",
+        "sha256": "94fc77afb4165f21566dae727f72161a8a788659dea096879c28d0a4071f9ce7",
+        "bytes": 915738,
+        "etag": "\"dmaqh3g04enijml6\"",
+        "lastModified": "Wed, 21 Oct 2026 18:38:43 GMT"
+      },
+      {
+        "url": "https://app.glob2online.com/play/threaded/index.wasm",
+        "sha256": "358fb38b586b486e4687f50a09e5e73d49e8ddffa6fe075271e7d7505b4cec79",
+        "bytes": 24332685,
+        "etag": "\"dmaqh3fh2jcuehj7x\"",
+        "lastModified": "Wed, 21 Oct 2026 18:38:43 GMT"
+      }
+    ],
+    "qualification": "Browser runtime only; not Windows Epic launcher qualification"
+  },
+  "limits": [
+    "Actual current early colony; insufficient wall time to grow large mature colonies in bounded session",
+    "Uses supported maximum game-speed control; UI speed varied actual TPS",
+    "No current rival/battle screenshot captured",
+    "Existing documented 2026-10-11 replay gallery remains needed for mature colony story"
+  ]
+}
