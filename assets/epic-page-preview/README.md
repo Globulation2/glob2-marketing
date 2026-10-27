@@ -18,32 +18,32 @@ The proposed Free/Windows offer follows the existing Epic preparation record. It
 
 ## Content and provenance
 
-Copy derives from the [selected positioning](../../analysis/positioning-v1.md) and [Epic description draft](../../planning/epic-store-profile-v1.md), shortened for scanability. The page presents the colony economy first, spatial growth second, and rival pressure as a supporting part of the experience.
+Copy derives from the [selected positioning](../../analysis/positioning-v1.md) and [Epic description draft](../../planning/epic-store-profile-v1.md), shortened for scanability. The page leads with the colony economy, uses Lava Shield to make spatial strategy concrete, and retains rival pressure as text while a stronger genuine battle image remains outstanding.
 
-The hero uses the [v5 landscape illustration](../epic-v5/README.md), with its existing title and exact source-unit silhouettes. It is promotional key art, not a gameplay screenshot. The product logo uses the v5 transparent export. Both are linked directly from the sibling pack to avoid divergent copies. Existing genuine gallery and About references are copied unchanged from the website:
+| Current media | Source and context |
+| --- | --- |
+| [Illustrated cover](../epic-v5/README.md) | Promotional key art: generated environment, existing title and exact source-unit silhouettes. It is not a gameplay screenshot. The sidebar logo uses the same pack. |
+| `media/colony.webp` | Unchanged website `public/images/home-thriving-colony.webp`, revision [6e391ebe](https://github.com/Globulation2/glob2-online-website/tree/6e391ebe93b725747827a3ed7cea78f0d0d8f7e1). Actual Fingerprint / Quick clash replay recorded 2026-10-11, tick41350, fog disabled and outer HUD cropped. It is not a fresh Epic Windows capture. |
+| [Lava Shield overview](../epic-gallery-v2/lava-shield-map.jpg) | Native engine render of an initial generated Lava Shield map. The whole island is preserved inside a landscape delivery canvas. This is a map overview, not a populated battle or a screenshot of the live strategic UI. The [capture pack](../epic-gallery-v2/README.md) records source/build identity, render and export. |
 
-| Local file | Source | Context |
-| --- | --- | --- |
-| `media/colony.webp` | `public/images/home-thriving-colony.webp` | Replay view: colony/economy composition |
-| `media/expansion.webp` | `public/images/home-rival-expansion.webp` | Replay view: territorial context |
-| `media/defence.webp` | `public/images/home-colony-defence.webp` | Replay view: rival pressure |
+The Lava Shield overview replaces the similar expansion replay crop. Its crater, branching flows and crossings are documented in the game's [Lava Shield guide](https://github.com/Globulation2/glob2/blob/53110681a31d08423568afe26d5b8d8f9ac45dd1/docs/map-generators/lava-shield.md). The gallery has three entries: **Cover, Colony and Lava Shield**. The spatial About section uses the same map overview; the defence section is text-only, without a missing-image placeholder.
 
+The old `media/expansion.webp` and `media/defence.webp` files remain historical source copies, but are no longer referenced by the page. Their similar crops did not communicate a sufficiently different view or a clear large battle. The [newer controls capture](../epic-gameplay-v1/README.md) also remains excluded after its abnormal fog rendering was identified. None of the evaluated coastal or Four Squares render candidates is represented as an approved battle capture; resource algae must not be mistaken for armies.
 
-Website source revision: [6e391ebe93b725747827a3ed7cea78f0d0d8f7e1](https://github.com/Globulation2/glob2-online-website/tree/6e391ebe93b725747827a3ed7cea78f0d0d8f7e1). The homepage replay views were recorded 2026-10-11 on Fingerprint / Quick clash, tick 41350, with fog disabled and outer HUD cropped. They are not fresh player-view captures of the Epic Windows edition. The [newer controls capture](../epic-gameplay-v1/README.md) was rejected after the user identified abnormal fog rendering; it is excluded from the gallery and About. The earlier “normal fog” wording described an enabled setting without establishing visual correctness. The original remains diagnostic evidence only. The tutorial/first-colony alternatives were also inspected and contain irregular grey fog, so no unqualified replacement was substituted. Source roles and limitations belong in submission provenance even when the preview presents images cleanly.
-
-The v5 [provenance record](../epic-v5/README.md) covers its generated environment, actual game-unit silhouettes, existing wordmark masks and maintained cream/gold colors. This page introduces no third-party game art or additional character substitutes. See the [source provenance ledger](../../facts/assets.md) and original project notices for art/attribution context; this review does not finish release rights clearance.
+The v5 [provenance record](../epic-v5/README.md) covers its illustration and source silhouettes. See the [source asset ledger](../../facts/assets.md) and original project notices for art/attribution context. This local review does not complete release rights clearance.
 
 ## Remaining production work
 
-The cover is the current v5 direction; the genuine gallery uses documented earlier replay captures only. The gallery has four entries: cover, colony, expansion and rival pressure. The third About section uses the defence replay and discusses economic growth under rival pressure. A clean current-build controls image remains outstanding. Replace that gallery with stronger current-build captures when ready, verify the copy in Epic's actual field/preview system, and populate release-specific metadata from the qualified build. This file does not authorize uploads or publication.
+A clear large-battle image and an actual strategic-UI view remain open capture tasks. The current native editor automation attempt did not yield a qualified frame, and no substitute was fabricated. The Lava Shield image demonstrates map geometry only. Obtain stronger current-build mature gameplay media, verify copy and crops in Epic's actual preview, and populate release metadata from the qualified Windows build before submission. Nothing in this local review authorizes uploads or publication.
 
 ## Visual checks
 
-Rendered in the local browser at 1600×1100 desktop and 390×844 mobile. The mobile document has no horizontal overflow, and all images load. Gallery interaction switches the hero and updates selection state. The rejected controls image is absent from both gallery and About. The Get control remains disabled. No custom fonts are bundled; typography uses the system font stack.
+Rendered in the local browser at 1600×1100 desktop and 390×844 mobile. The mobile document has no horizontal overflow, and all images load. Gallery interaction switches the hero and updates selection state. The rejected controls image and retired expansion/defence crops are absent from both gallery and About. The Get control remains disabled. No custom fonts are bundled; typography uses the system font stack.
 
 - [Desktop overview](desktop-overview.png)
 - [About section](about-section.png)
+- [Lava Shield selected](lava-shield-selection.png)
 - [Full-page review](desktop-full-page.jpg)
 - [Mobile overview](mobile-overview.png)
 
-After excluding the defective controls image, all four review images were regenerated with local headless Chromium at the documented desktop/mobile viewports. The full-page image is a direct full-page browser render, with no stitching or content alterations. It is a local presentation review, not an Epic portal screenshot. Four gallery entries, loaded images, disabled Get, absence of rejected-image references and no mobile overflow were checked.
+After diversifying the gallery, all four review images were regenerated with local headless Chromium at the documented desktop/mobile viewports. The full-page image is a direct full-page browser render, with no stitching or content alterations. It is a local presentation review, not an Epic portal screenshot. Three distinct gallery entries, loaded images, disabled Get, absence of retired/rejected-image references and no mobile overflow were checked. The Lava Shield selection was checked with the complete island visible.
