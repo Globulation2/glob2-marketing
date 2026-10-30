@@ -1,0 +1,79 @@
+{
+  "prepared": "2026-10-30",
+  "purpose": "Dedicated Microsoft Store poster, box-art and titleless Super hero fields",
+  "source": "../../epic-v5/colony-native.png",
+  "source_dimensions": [
+    1672,
+    941
+  ],
+  "source_sha256": "a30d08e35ad0f74f2e5785250cac42460e4f0baa6a92bd53d9058acb53a0f657",
+  "title_source": "../../epic-v5/product-logo-960x540.png",
+  "title_source_sha256": "730891bc823683e26a22c739c1c5b1bf8db84cabc5eb440fb8698f849fcde110",
+  "title_source_crop": [
+    30,
+    204,
+    930,
+    335
+  ],
+  "resampling": "Lanczos",
+  "source_notice": "Approved promotional illustration and existing real-unit composite; not gameplay. No new generation, inpainting, retouching or unit-anatomy editing.",
+  "images": [
+    {
+      "file": "poster-1440x2160.png",
+      "dimensions": [
+        1440,
+        2160
+      ],
+      "mode": "RGB",
+      "format": "PNG",
+      "bytes": 4073597,
+      "sha256": "73e0274dfd1401ef495ae475f21f1a96ec959932ff64717ad01b2bed8d36c0f4",
+      "treatment": {
+        "source_crop": [
+          554,
+          0,
+          1178,
+          936
+        ],
+        "title_width": 1296,
+        "title_top": 190
+      }
+    },
+    {
+      "file": "box-art-1080x1080.png",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "mode": "RGB",
+      "format": "PNG",
+      "bytes": 2021193,
+      "sha256": "36db5c8923fec4f170ef5d261f1ebc94e50b86ad1977bc02d184604b9d96b8e6",
+      "treatment": {
+        "source_crop": [
+          365,
+          0,
+          1306,
+          941
+        ],
+        "title_width": 972,
+        "title_top": 60
+      }
+    },
+    {
+      "file": "super-hero-titleless-1920x1080.png",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "format": "PNG",
+      "bytes": 3497398,
+      "sha256": "281017a4290d9d7031f67538297542755f83d22117153f910be21325d20c2e0e",
+      "treatment": {
+        "source_fit": "centered ImageOps.fit, preserving aspect ratio",
+        "title": "None; approved pre-title scene used directly"
+      }
+    }
+  ]
+}
