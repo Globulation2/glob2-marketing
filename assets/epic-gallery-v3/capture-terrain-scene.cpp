@@ -94,7 +94,7 @@ int main(int argc,char**argv){try{
   }
  }
  // Normal GameGUI adaptive overview, rather than a full-map exporter.
- 
+
  }
  std::cout<<"done"<<std::endl;return 0;
  }catch(const std::exception&e){std::cerr<<e.what()<<std::endl;return 1;}}

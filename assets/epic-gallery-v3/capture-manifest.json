@@ -155,8 +155,8 @@
     },
     {
       "file": "capture-terrain-scene.cpp",
-      "bytes": 6901,
-      "sha256": "4c97809adddc968d19f017ffa5da02a057176ece69510b74aadf6ad21fc56be6"
+      "bytes": 6900,
+      "sha256": "dfe9e895a829422ebf42d76877c4d512322caa39acdb0d50253030314a655d48"
     },
     {
       "file": "lava-shield-terrain-in-use-native.png",
