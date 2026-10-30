@@ -152,6 +152,60 @@
       "file": "simulation-metrics.csv",
       "bytes": 228,
       "sha256": "677f907eaf1cd57335cd4faefa27ebaa68a171414a9315306e500cf8da6f220e"
+    },
+    {
+      "file": "capture-terrain-scene.cpp",
+      "bytes": 6901,
+      "sha256": "4c97809adddc968d19f017ffa5da02a057176ece69510b74aadf6ad21fc56be6"
+    },
+    {
+      "file": "lava-shield-terrain-in-use-native.png",
+      "bytes": 5280654,
+      "sha256": "982cde7f0c0d08c626d6dcdd3fce15afd6fc07c987197c575e22cb6c6e8dfb2b",
+      "pixels": [
+        2940,
+        1634
+      ]
+    },
+    {
+      "file": "lava-shield-terrain-in-use.jpg",
+      "bytes": 2524643,
+      "sha256": "73d1e4b5918f1fc4edbf3efecf5c70cfb7cb0d169744249dcd57080d5388bff6",
+      "pixels": [
+        2560,
+        1440
+      ]
     }
-  ]
+  ],
+  "terrain_capture": {
+    "captured_date": "2026-10-30",
+    "kind": "closer-terrain-in-use-view-of-same-staged-native-scenario",
+    "public_rebuild_source": "capture-terrain-scene.cpp",
+    "binary_sha256": "e4e9d19d31f2176cadc52dcef28cc4df2cd61942a97d1f74a0c51385c654e697",
+    "captured_translation_unit_sha256": "0de57738c670bb464d10b06e5a47b7e486cf6bf756ff5cb7d8435b0e0b8a44fd",
+    "source_portability_change": "Public source reads GLOB2_MARKETING_ASSET_DIR instead of the local absolute asset directory; scenario, simulation and camera code are unchanged.",
+    "native_pixels": [
+      2940,
+      1634
+    ],
+    "zoom": 0.4,
+    "camera_center_tiles": [
+      174,
+      100
+    ],
+    "adaptive_zoom_detail": false,
+    "fog": false,
+    "flags": false,
+    "areas": false,
+    "native_world_steps": 192,
+    "warriors": 192,
+    "actively_attacking_warriors": 39,
+    "total_warrior_hp": 47624,
+    "initial_state_sha256": "1b3d99d7d4c5e241c83e3b7dd8b60875e1126b53c29b9ce77e5e482eecfe6f33",
+    "capture_state_sha256": "313048b683d4d7639c5622684eb2cbec393f49f63123048a722ed74244046e7d",
+    "simulation_metrics_sha256": "677f907eaf1cd57335cd4faefa27ebaa68a171414a9315306e500cf8da6f220e",
+    "treatment": "Full native RGB frame resized to2560x1423; dark margins top8px/bottom9px; JPEGquality96,chroma subsampling0; no HUD crop or gameplay retouching.",
+    "approved_existing_media_changed": false,
+    "limits": "Same deliberately staged scenario and native completed-build production objects as the original pack; not an organic player match or Epic Windows release qualification."
+  }
 }
