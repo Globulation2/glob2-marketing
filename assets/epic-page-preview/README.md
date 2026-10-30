@@ -24,11 +24,11 @@ Copy derives from the [selected positioning](../../analysis/positioning-v1.md) a
 | --- | --- |
 | [Illustrated cover](../epic-v5/README.md) | Promotional key art: generated environment, existing title and exact source-unit silhouettes. It is not a gameplay screenshot. The sidebar logo uses the same pack. |
 | `media/colony.webp` | Unchanged website `public/images/home-thriving-colony.webp`, revision [6e391ebe](https://github.com/Globulation2/glob2-online-website/tree/6e391ebe93b725747827a3ed7cea78f0d0d8f7e1). Actual Fingerprint / Quick clash replay recorded 2026-10-11, tick41350, fog disabled and outer HUD cropped. It is not a fresh Epic Windows capture. |
-| [Battle](../epic-gallery-v3/lava-shield-battle.jpg) | Native GameGUI output of a staged in-engine scenario with opposing warrior forces and actual combat stepped before capture. It is not a frame recovered from an ordinary completed match. |
-| [Strategic view](../epic-gallery-v3/lava-shield-strategic.jpg) | The same staged scenario rendered through the native strategic-overview GUI, showing territory, building icons and unit markers. This demonstrates the actual overview presentation rather than substituting a flat map export. |
+| [Battle](../epic-gallery-v4/river-battle.jpg) | Native GameGUI output of a staged River scenario with blue and gold warriors in actual combat. Prepared on 2026-10-30 to add another map and different team colours. It is not an ordinary completed match. |
+| [Strategic view](../epic-gallery-v3/lava-shield-strategic.jpg) | The staged Lava Shield scenario rendered through the native strategic-overview GUI, showing territory, building icons and unit markers. This demonstrates the actual overview presentation rather than substituting a flat map export. |
 | [Lava Shield terrain in use](../epic-gallery-v3/lava-shield-terrain-in-use.jpg) | A closer native view of the staged scenario, showing colony activity and units in the lava terrain. Replaces the similar whole-map framing on 2026-10-30; the strategic view remains unchanged. |
 
-The [staged capture pack](../epic-gallery-v3/README.md) records the scenario setup, actual combat observations, native renderer/HUD, source identities and export treatment. The scene was composed in the engine with real game units, buildings and terrain. No unit graphics, combat effects or interface elements were painted into the screenshots. It does not establish natural-match prevalence, player demand, game performance or Epic Windows launcher qualification.
+The [River battle pack](../epic-gallery-v4/README.md) and [Lava Shield capture pack](../epic-gallery-v3/README.md) record the respective scenario setups, actual combat observations, native renderer/HUD, source identities and export treatment. The scenes were composed in the engine with real game units, buildings and terrain. No unit graphics, combat effects or interface elements were painted into the screenshots. It does not establish natural-match prevalence, player demand, game performance or Epic Windows launcher qualification.
 
 The spatial About image uses the populated strategic view, and the defence section has the battle image. On **2026-10-30**, the spatial copy was broadened to explain how different maps call for different strategies; Lava Shield remains the illustration rather than the subject of that section. Lava Shield's crater, branching flows and crossings are supported by the [map guide](https://github.com/Globulation2/glob2/blob/53110681a31d08423568afe26d5b8d8f9ac45dd1/docs/map-generators/lava-shield.md). The [map capture pack](../epic-gallery-v2/README.md) retains the superseded whole-map export and its separate generation/render provenance.
 
@@ -45,7 +45,8 @@ Rendered in the local browser at 1600×1100 desktop and 390×844 mobile. The mob
 - [Desktop overview](desktop-overview.png)
 - [About section](about-section.png)
 - [Map-strategy section — copy updated 2026-10-30](map-strategy-section.png)
-- [Battle selected](battle-selection.png)
+- [Battle selected — River, updated 2026-10-30](battle-selection.png)
+- [Defence section — River battle](defence-section.png)
 - [Strategic view selected](strategic-selection.png)
 - [Lava Shield terrain selected — updated 2026-10-30](lava-shield-selection.png)
 - [Full-page review](desktop-full-page.jpg)
@@ -54,3 +55,5 @@ Rendered in the local browser at 1600×1100 desktop and 390×844 mobile. The mob
 After extending the gallery on **2026-10-27**, all review images were regenerated with local headless Chromium at the documented desktop/mobile viewports. The full-page image is a direct full-page browser render, with no stitching or content alterations. It is a local presentation review, not an Epic portal screenshot. Five entries, loaded assets, working selections, disabled Get, absence of retired/rejected-image references and no mobile overflow were checked. Delivery images and the whole map use contain framing so native HUD and map edges are preserved.
 
 On **2026-10-30**, only the fifth gallery image was replaced with the closer terrain-in-use capture after the user approved the other images and noted the whole-map/strategic duplication. The updated Lava Shield selection proof was rendered and inspected; image loading, selection, full-frame display and mobile overflow were checked. Other approved source images and About image assignments remain byte-identical. Earlier overview/full-page proofs retain their dated gallery thumbnails; the current selected proof above shows the replacement.
+
+Also on **2026-10-30**, the Battle gallery entry and defence About image were replaced with the River capture in blue and gold team colours. This adds map and colour variety while preserving the cover, colony, strategic and Lava Shield terrain source images. Battle selection and defence proofs were refreshed; desktop/mobile selection, image loading, full-frame display and overflow checks passed. Earlier overview proofs retain their dated thumbnails.
