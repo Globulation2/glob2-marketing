@@ -1,0 +1,87 @@
+{
+  "prepared": "2026-10-30",
+  "role": "Epic Games Store 1920x1080 carousel adapters of approved gameplay images only",
+  "file_limit_bytes": 4000000,
+  "images": [
+    {
+      "file": "01-colony-1920x1080.jpg",
+      "source": "../01-colony.png",
+      "source_dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "eff964acf6760d40299d1c45e2835a35c7bfbada5a4a84f9adf227dd0b21ecf5",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "resampling": "Lanczos",
+      "scale": 1.5,
+      "jpeg_quality": 95,
+      "jpeg_subsampling": 0,
+      "bytes": 1043229,
+      "sha256": "f384522610b2bb5e244d089b6a8fa4a2d401eb2fd078a0f68ce7187a8cdfa7c6",
+      "treatment": "Full-frame resize only, with lossy JPEG encoding; no crop, sharpening, generation, inpainting or retouching. Upscaling the colony adds no native detail."
+    },
+    {
+      "file": "02-river-battle-1920x1080.jpg",
+      "source": "../02-river-battle.png",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "source_sha256": "314b532c9046547b753c88ab8868a44931628b911c4e06417b12b41592a9eabc",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "resampling": "Lanczos",
+      "scale": 0.75,
+      "jpeg_quality": 95,
+      "jpeg_subsampling": 0,
+      "bytes": 1369339,
+      "sha256": "3cf58241b63cf464fb54226d33743ba1468b52c840b7cc41976a5d0514f1831b",
+      "treatment": "Full-frame downsample only, preserving complete existing HUD/frame; lossy JPEG encoding with no added or altered game content."
+    },
+    {
+      "file": "03-four-squares-strategic-1920x1080.jpg",
+      "source": "../03-four-squares-strategic.png",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "source_sha256": "30f8f09cfd4684a981643b0299d2de792c4a6b76b89ee01778329878617b33d3",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "resampling": "Lanczos",
+      "scale": 0.75,
+      "jpeg_quality": 95,
+      "jpeg_subsampling": 0,
+      "bytes": 561361,
+      "sha256": "80dd2c7b611ff9bddc01ec75ace1590e6bed8ccf5e717ddb94728669e458985d",
+      "treatment": "Full-frame downsample only, preserving complete existing HUD/frame; lossy JPEG encoding with no added or altered game content."
+    },
+    {
+      "file": "04-lava-shield-terrain-1920x1080.jpg",
+      "source": "../04-lava-shield-terrain.png",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "source_sha256": "a360b32a468589c815e9da97c8700aada173cc01b8158c8cc32c86cca7f31ab2",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "resampling": "Lanczos",
+      "scale": 0.75,
+      "jpeg_quality": 95,
+      "jpeg_subsampling": 0,
+      "bytes": 1281851,
+      "sha256": "ca19528f812e592e3080271a16dff378faeccdaad313b0040619566d263da5c2",
+      "treatment": "Full-frame downsample only, preserving complete existing HUD/frame; lossy JPEG encoding with no added or altered game content."
+    }
+  ]
+}
