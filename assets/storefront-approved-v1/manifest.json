@@ -1,0 +1,50 @@
+{
+  "prepared": "2026-10-30",
+  "purpose": "Approved desktop gameplay images exported as PNG for storefront fields that require PNG. These are not mobile/device qualification captures.",
+  "images": [
+    {
+      "file": "01-colony.png",
+      "source": "../epic-page-preview/media/colony.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "eff964acf6760d40299d1c45e2835a35c7bfbada5a4a84f9adf227dd0b21ecf5",
+      "bytes": 1707917,
+      "transformation": "Decoded RGB pixels preserved in PNG; no resize, crop or image-content change."
+    },
+    {
+      "file": "02-river-battle.png",
+      "source": "../epic-gallery-v4/river-battle.jpg",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "sha256": "314b532c9046547b753c88ab8868a44931628b911c4e06417b12b41592a9eabc",
+      "bytes": 5463894,
+      "transformation": "Decoded RGB pixels preserved in PNG; no resize, crop or image-content change."
+    },
+    {
+      "file": "03-four-squares-strategic.png",
+      "source": "../epic-gallery-v5/four-squares-midgame-strategic.jpg",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "sha256": "30f8f09cfd4684a981643b0299d2de792c4a6b76b89ee01778329878617b33d3",
+      "bytes": 1209755,
+      "transformation": "Decoded RGB pixels preserved in PNG; no resize, crop or image-content change."
+    },
+    {
+      "file": "04-lava-shield-terrain.png",
+      "source": "../epic-gallery-v3/lava-shield-terrain-in-use.jpg",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "sha256": "a360b32a468589c815e9da97c8700aada173cc01b8158c8cc32c86cca7f31ab2",
+      "bytes": 5832202,
+      "transformation": "Decoded RGB pixels preserved in PNG; no resize, crop or image-content change."
+    }
+  ]
+}
