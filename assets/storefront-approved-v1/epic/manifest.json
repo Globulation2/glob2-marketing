@@ -1,6 +1,6 @@
 {
   "prepared": "2026-10-30",
-  "role": "Epic Games Store 1920x1080 carousel adapters of approved gameplay images only",
+  "role": "Epic carousel adapters and optional social-preview derivative from approved imagery only",
   "file_limit_bytes": 4000000,
   "images": [
     {
@@ -83,5 +83,26 @@
       "sha256": "ca19528f812e592e3080271a16dff378faeccdaad313b0040619566d263da5c2",
       "treatment": "Full-frame downsample only, preserving complete existing HUD/frame; lossy JPEG encoding with no added or altered game content."
     }
-  ]
+  ],
+  "social_preview": {
+    "file": "social-preview-1200x1200.jpg",
+    "role": "Optional share/social preview",
+    "source": "../windows/box-art-1080x1080.png",
+    "source_dimensions": [
+      1080,
+      1080
+    ],
+    "source_sha256": "36db5c8923fec4f170ef5d261f1ebc94e50b86ad1977bc02d184604b9d96b8e6",
+    "dimensions": [
+      1200,
+      1200
+    ],
+    "resize_ratio": "10/9",
+    "resampling": "Lanczos",
+    "jpeg_quality": 94,
+    "jpeg_subsampling": 0,
+    "bytes": 812455,
+    "sha256": "459e548c700ac817ce2f8ccd6b949a6e45160986296bb60edc09bd18ab762d77",
+    "treatment": "Full-frame resize of already reviewed Windows box art; no composition, title, content or geometry changes. Lossy JPEG format adaptation only."
+  }
 }
