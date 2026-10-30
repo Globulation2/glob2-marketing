@@ -1,0 +1,80 @@
+{
+  "prepared": "2026-10-30",
+  "target": "Snap Store listing media",
+  "file_limit_bytes": 2000000,
+  "screenshot_export_target_bytes": 1950000,
+  "images": [
+    {
+      "file": "01-colony.jpg",
+      "source": "../01-colony.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "jpeg_quality": 95,
+      "jpeg_subsampling": 0,
+      "bytes": 591649,
+      "sha256": "5efe337716926be56c9c31fed83436f5417d2fa5ffa00f98e9924fd1a8a65442",
+      "treatment": "Full frame preserved without resize, crop, recolouring or content edits; lossy JPEG encoding from approved decoded pixels."
+    },
+    {
+      "file": "02-river-battle.jpg",
+      "source": "../02-river-battle.png",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "jpeg_quality": 91,
+      "jpeg_subsampling": 0,
+      "bytes": 1593377,
+      "sha256": "0ca69c0150bfb12b84a27a102b5323cf50bfc4dbb43d290cdd86b2ba91d77245",
+      "treatment": "Full frame preserved without resize, crop, recolouring or content edits; lossy JPEG encoding from approved decoded pixels."
+    },
+    {
+      "file": "03-four-squares-strategic.jpg",
+      "source": "../03-four-squares-strategic.png",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "jpeg_quality": 95,
+      "jpeg_subsampling": 0,
+      "bytes": 841901,
+      "sha256": "82f5b120a281c5a5964abdaff9e79b52f7b8c0e04bc84e9fd78a3c6f52f04b54",
+      "treatment": "Full frame preserved without resize, crop, recolouring or content edits; lossy JPEG encoding from approved decoded pixels."
+    },
+    {
+      "file": "04-lava-shield-terrain.jpg",
+      "source": "../04-lava-shield-terrain.png",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "jpeg_quality": 91,
+      "jpeg_subsampling": 0,
+      "bytes": 1464530,
+      "sha256": "80a58cad4c12e8f0f171206f2d000c1f291cba03f46ccda713bdf08b26ddcbdc",
+      "treatment": "Full frame preserved without resize, crop, recolouring or content edits; lossy JPEG encoding from approved decoded pixels."
+    },
+    {
+      "file": "banner-1440x480.jpg",
+      "source": "../../epic-v5/offer-landscape-2560x1440.png",
+      "dimensions": [
+        1440,
+        480
+      ],
+      "source_crop": [
+        0,
+        90,
+        2559,
+        943
+      ],
+      "resampling": "Lanczos",
+      "jpeg_quality": 95,
+      "jpeg_subsampling": 0,
+      "bytes": 515020,
+      "sha256": "2578d28882e0c4596873246d80b778013ac83fdeac9056dd526f8e5f61e352b7",
+      "treatment": "Optional 3:1 key-art banner crop, retaining existing wordmark and central colony; requires visual review before upload."
+    }
+  ]
+}
