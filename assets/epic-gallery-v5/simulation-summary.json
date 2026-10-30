@@ -1,0 +1,67 @@
+{
+  "ticks": 25000,
+  "termination": "tick_cap",
+  "game_seed": 714,
+  "map": "FourSquares1",
+  "controllers": [
+    "cortex",
+    "cortex",
+    "cortex",
+    "cortex"
+  ],
+  "teams": [
+    {
+      "team": 0,
+      "alive": true,
+      "outcome": "unresolved",
+      "units": 140,
+      "workers": 38,
+      "explorers": 1,
+      "warriors": 101,
+      "buildings": 12,
+      "sites": 3
+    },
+    {
+      "team": 1,
+      "alive": true,
+      "outcome": "unresolved",
+      "units": 251,
+      "workers": 59,
+      "explorers": 3,
+      "warriors": 189,
+      "buildings": 16,
+      "sites": 4
+    },
+    {
+      "team": 2,
+      "alive": true,
+      "outcome": "unresolved",
+      "units": 205,
+      "workers": 41,
+      "explorers": 1,
+      "warriors": 163,
+      "buildings": 19,
+      "sites": 1
+    },
+    {
+      "team": 3,
+      "alive": true,
+      "outcome": "unresolved",
+      "units": 203,
+      "workers": 43,
+      "explorers": 2,
+      "warriors": 158,
+      "buildings": 17,
+      "sites": 2
+    }
+  ],
+  "totals": {
+    "units": 799,
+    "workers": 181,
+    "explorers": 7,
+    "warriors": 611,
+    "buildings": 64,
+    "sites": 10
+  },
+  "capture_native_buildings_including_flags": 83
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "captured": "2026-10-30",
+  "kind": "native-gameplay-capture",
+  "map": {
+    "name": "FourSquares1",
+    "dimensions": [
+      128,
+      128
+    ],
+    "source": "Globulation2/glob2:maps/FourSquares1.map.gz",
+    "sha256": "3f2ba4e3313fa31801449e057adaff679951abba7c599c271442a29578931869"
+  },
+  "simulation": {
+    "controller": "Cortex for all four teams",
+    "game_seed": 714,
+    "ticks": 25000,
+    "simulated_seconds": 833.3333333333334,
+    "termination": "tick_cap",
+    "all_four_colonies_alive": true,
+    "authored_additions": false,
+    "save_format": 186,
+    "save_sha256": "584506622140010172ac4844319ef305c596e9c67ff27baa3a19d98c31d2a93e",
+    "headless_result_sha256": "b4ae6f3021ee07f6cc7e33b3ab835449c6942dbc366fe9d5c6ed57fd2f11cef1",
+    "totals": {
+      "units": 799,
+      "workers": 181,
+      "explorers": 7,
+      "warriors": 611,
+      "buildings": 64,
+      "sites": 10
+    }
+  },
+  "runtime": {
+    "reported_version": "0.11.4.0",
+    "compile_date": "2026-10-26 20:55",
+    "build_identity": "overview-icon-order",
+    "source_commit_match": "not established",
+    "game_binary_sha256": "e2f61b50a9b729fb334486b5c641ab423969ccb4495b54ffa50b660b7f8b5264",
+    "capture_binary_sha256": "ee04534f764f4512d060d02f055293ad3f031dbb5cddb10bf8661af5d7c5df1a",
+    "capture_source_sha256": "c3ce368233880605ee98ac6578b11dfd76f403a0be148297c31279bb54220574"
+  },
+  "presentation": {
+    "renderer": "native GameGUI immutable Scene renderer",
+    "mode": "spectator",
+    "camera_center_tile": [
+      32,
+      64
+    ],
+    "requested_zoom": 0.2,
+    "effective_zoom_label": "32%",
+    "adaptive_zoom_detail": true,
+    "fog": false,
+    "flags": false,
+    "areas": false,
+    "clouds": false,
+    "cloud_shadows": false,
+    "native_dimensions": [
+      2940,
+      1634
+    ],
+    "native_screenshot_format": "BMP, converted losslessly to PNG",
+    "performance_label": "native 0.0 snapshot label preserved; not a performance measurement",
+    "full_world_claim": false
+  },
+  "delivery": {
+    "dimensions": [
+      2560,
+      1440
+    ],
+    "native_scaled_to": [
+      2560,
+      1423
+    ],
+    "padding_top": 8,
+    "padding_bottom": 9,
+    "jpeg_quality": 96,
+    "jpeg_subsampling": 0,
+    "crop": null,
+    "retouching": false
+  },
+  "outputs": {
+    "capture-strategic-scene.cpp": {
+      "bytes": 3660,
+      "sha256": "c3ce368233880605ee98ac6578b11dfd76f403a0be148297c31279bb54220574"
+    },
+    "four-squares-midgame-strategic-native.png": {
+      "bytes": 169549,
+      "sha256": "b9149c8bd5e6e057bbc37fcd4695666b57a9c48cfe759d41dfe5d4f521f13f74"
+    },
+    "four-squares-midgame-strategic.jpg": {
+      "bytes": 975247,
+      "sha256": "65c90ad7da9425a9cee668f6972f64a9f9500fd2eef0cecd29c0e2fe6bbeaaa0"
+    },
+    "simulation-summary.json": {
+      "bytes": 1208,
+      "sha256": "95f495f8c5bb956245ece15c7beee4dbaa72e2a553c50c4b20367f0dfb7b2167"
+    },
+    "README.md": {
+      "bytes": 4059,
+      "sha256": "b53557c0cf934cb70c23df9bb4f179017b2293491ddfbbda3f74b0dd8560aa43"
+    }
+  }
+}
