@@ -25,10 +25,10 @@ Copy derives from the [selected positioning](../../analysis/positioning-v1.md) a
 | [Illustrated cover](../epic-v5/README.md) | Promotional key art: generated environment, existing title and exact source-unit silhouettes. It is not a gameplay screenshot. The sidebar logo uses the same pack. |
 | `media/colony.webp` | Unchanged website `public/images/home-thriving-colony.webp`, revision [6e391ebe](https://github.com/Globulation2/glob2-online-website/tree/6e391ebe93b725747827a3ed7cea78f0d0d8f7e1). Actual Fingerprint / Quick clash replay recorded 2026-10-11, tick41350, fog disabled and outer HUD cropped. It is not a fresh Epic Windows capture. |
 | [Battle](../epic-gallery-v4/river-battle.jpg) | Native GameGUI output of a staged River scenario with blue and gold warriors in actual combat. Prepared on 2026-10-30 to add another map and different team colours. It is not an ordinary completed match. |
-| [Strategic view](../epic-gallery-v3/lava-shield-strategic.jpg) | The staged Lava Shield scenario rendered through the native strategic-overview GUI, showing territory, building icons and unit markers. This demonstrates the actual overview presentation rather than substituting a flat map export. |
+| [Strategic view](../epic-gallery-v5/four-squares-midgame-strategic.jpg) | A developed Four Squares AI match at 25,000 ticks, rendered through the actual native strategic-overview GUI. Four surviving Cortex colonies have 799 units, 611 warriors and 64 buildings. The position grew through the real AI simulation, without authored extra spawns. |
 | [Lava Shield terrain in use](../epic-gallery-v3/lava-shield-terrain-in-use.jpg) | A closer native view of the staged scenario, showing colony activity and units in the lava terrain. Replaces the similar whole-map framing on 2026-10-30; the strategic view remains unchanged. |
 
-The [River battle pack](../epic-gallery-v4/README.md) and [Lava Shield capture pack](../epic-gallery-v3/README.md) record the respective scenario setups, actual combat observations, native renderer/HUD, source identities and export treatment. The scenes were composed in the engine with real game units, buildings and terrain. No unit graphics, combat effects or interface elements were painted into the screenshots. It does not establish natural-match prevalence, player demand, game performance or Epic Windows launcher qualification.
+The [River battle pack](../epic-gallery-v4/README.md), [Four Squares strategic pack](../epic-gallery-v5/README.md) and [Lava Shield terrain pack](../epic-gallery-v3/README.md) record their respective simulation, native renderer/HUD, source identities and export treatment. River and Lava Shield are authored in-engine scenes; Four Squares is a developed AI match. No unit graphics, combat effects or interface elements were painted into the screenshots. These captures do not establish player demand, typical match prevalence, game performance or Epic Windows launcher qualification.
 
 The spatial About image uses the populated strategic view, and the defence section has the battle image. On **2026-10-30**, the spatial copy was broadened to explain how different maps call for different strategies; Lava Shield remains the illustration rather than the subject of that section. Lava Shield's crater, branching flows and crossings are supported by the [map guide](https://github.com/Globulation2/glob2/blob/53110681a31d08423568afe26d5b8d8f9ac45dd1/docs/map-generators/lava-shield.md). The [map capture pack](../epic-gallery-v2/README.md) retains the superseded whole-map export and its separate generation/render provenance.
 
@@ -36,7 +36,7 @@ The old `media/expansion.webp` and `media/defence.webp` files remain historical 
 
 ## Remaining production work
 
-The requested battle and populated strategic-view roles are now prepared as representative native scene captures. Capturing a naturally developed match remains a separate possible replacement, rather than the provenance of these images. Review the gallery and copy in Epic's actual fields/crop preview, confirm release-specific rights and metadata, and qualify the Windows build before submission. Nothing in this local review authorizes uploads or publication.
+The battle and terrain roles use authored native scenarios; the strategic view now shows a genuinely developed AI match. A human-player match is not the provenance of these images. Review the gallery and copy in Epic's actual fields/crop preview, confirm release-specific rights and metadata, and qualify the Windows build before submission. Nothing in this local review authorizes uploads or publication.
 
 ## Visual checks
 
@@ -47,7 +47,7 @@ Rendered in the local browser at 1600×1100 desktop and 390×844 mobile. The mob
 - [Map-strategy section — copy updated 2026-10-30](map-strategy-section.png)
 - [Battle selected — River, updated 2026-10-30](battle-selection.png)
 - [Defence section — River battle](defence-section.png)
-- [Strategic view selected](strategic-selection.png)
+- [Strategic view selected — Four Squares midgame, updated 2026-10-30](strategic-selection.png)
 - [Lava Shield terrain selected — updated 2026-10-30](lava-shield-selection.png)
 - [Full-page review](desktop-full-page.jpg)
 - [Mobile overview](mobile-overview.png)
@@ -57,3 +57,5 @@ After extending the gallery on **2026-10-27**, all review images were regenerate
 On **2026-10-30**, only the fifth gallery image was replaced with the closer terrain-in-use capture after the user approved the other images and noted the whole-map/strategic duplication. The updated Lava Shield selection proof was rendered and inspected; image loading, selection, full-frame display and mobile overflow were checked. Other approved source images and About image assignments remain byte-identical. Earlier overview/full-page proofs retain their dated gallery thumbnails; the current selected proof above shows the replacement.
 
 Also on **2026-10-30**, the Battle gallery entry and defence About image were replaced with the River capture in blue and gold team colours. This adds map and colour variety while preserving the cover, colony, strategic and Lava Shield terrain source images. Battle selection and defence proofs were refreshed; desktop/mobile selection, image loading, full-frame display and overflow checks passed. Earlier overview proofs retain their dated thumbnails.
+
+The strategic gallery entry and spatial About image were subsequently replaced on **2026-10-30** with the developed Four Squares AI match. This gives the gallery a third map and a genuine midgame position. The general map-strategy copy, River battle, Lava Shield terrain, colony and cover remain unchanged. Strategic selection and spatial-section proofs were refreshed; desktop/mobile selection, image loading and full-frame display were checked.
