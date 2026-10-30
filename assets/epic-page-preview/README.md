@@ -40,7 +40,7 @@ The old `media/expansion.webp` and `media/defence.webp` files remain historical 
 
 ## Remaining production work
 
-The battle and terrain roles use authored native scenarios; the strategic view now shows a genuinely developed AI match. A human-player match is not the provenance of these images. Review the gallery and copy in Epic's actual fields/crop preview, confirm release-specific rights and metadata, and qualify the Windows build before submission. Nothing in this local review authorizes uploads or publication.
+The battle and terrain roles use authored native scenarios; the strategic view now shows a genuinely developed AI match. A human-player match is not the provenance of these images. Review the gallery and copy in Epic's actual fields/crop preview, confirm release-specific rights and metadata, and qualify the Windows build before submission. The user subsequently authorized applying the approved presentation to project-controlled storefronts; [actual updates and access gaps](../../planning/approved-storefront-rollout.md) are recorded separately. Product/build releases retain their own qualification and release controls.
 
 ## Visual checks
 

@@ -58,8 +58,25 @@ The cover belongs in key-art/cover slots. Keep the four gameplay images separate
 | Work unit | Status on 2026-10-30 | Evidence / next action |
 | --- | --- | --- |
 | Approved source copy/media | Complete | Final source already committed through `baa3093`; this record saves the user's approval and rollout authorization. |
-| Exact storefront/account inventory | In progress | Reconcile [public audit](../facts/platform-audit.md) with controlled console identities and maintained source metadata. Public listing existence alone does not prove control. |
-| Store-specific field/asset adaptation | In progress | Reuse the approved source above; match actual fields and image requirements, retaining edition-specific metadata. |
-| Live storefront application | Pending access checks | Record each exact destination, copy/media changed and observed save/publication result. No live update is claimed by this approval record. |
+| Desktop PNG exports | Complete | [Four screenshots and source manifest](../assets/storefront-approved-v1/README.md), committed as `a968359`; decoded RGB preserved exactly. Existing key-art/logo sources linked. |
+| Maintained game-store metadata | Complete | [Game PR #1281](https://github.com/Globulation2/glob2/pull/1281) merged as `7038776f3fb84f43cacd51ff02e3c4d1aac4a331`. Snap, AppStream, Android English metadata and maintained iOS/Windows/Amazon copy now use the approved message. Desktop/Mac guides link the canonical pack. |
+| Exact storefront/account inventory | In progress | [Public audit](../facts/platform-audit.md) supplies known identities; authenticated consoles and unpublished listings remain to verify. |
+| Live storefront application | Access pending | Snap's editor requires publisher sign-in; no listing save was possible. Access to the other store consoles has not yet been verified in this run. Repository metadata changes are not a live-console publication. |
 
-Detailed per-destination execution will be added as access and identities are verified. Prepared-source platforms and independent catalogs remain distinct from controlled live listings.
+## Destination status
+
+| Destination | Applied source changes | Live status / next action |
+| --- | --- | --- |
+| Snap (`globulation2`) | `snap/snapcraft.yaml`: approved short/full description and modern homepage; AppStream gallery refreshed. | Known public listing. Publisher authentication required to change current Store copy/images; not saved live. Do not publish a new binary just to update presentation. |
+| Desktop AppStream | Approved summary/description, modern homepage and four immutable hosted screenshots; local default PNG matches the hosted colony image. | Merged upstream metadata, for downstream packaging. No Flathub listing submission or independent package-catalog edit was performed. |
+| Google Play / Android | `fastlane/metadata/android/en-US/short_description.txt` and `full_description.txt` updated. Existing account/network/privacy/IAP paragraphs retained byte-for-byte. | Console/listing identity and access not verified here. Existing mobile screenshot directories remain unchanged; desktop frames are not phone captures. |
+| Apple iPhone/iPad | Maintained iOS description, subtitle and promotional text adapted; actual-device screenshot requirement retained. | Console/listing identity and access not verified. Mobile gallery still requires actual release-candidate device captures. |
+| Mac App Store | Release guide points to the approved copy, desktop gallery and key-art sources. | Console/listing access and candidate screenshot fit remain to verify. No build selected or released. |
+| Microsoft Store (`9PH4FCRMX19F`) | Maintained short/full description and feature copy updated; Windows guide links the three 2560×1440 PNG captures and source limits. | Known product identity; public listing was unavailable in the prior audit. Partner Center access/save/publication not verified. Do not enlarge the 1280×720 colony source to imply a new Windows capture. |
+| Amazon Appstore | Maintained Fire listing description uses the approved message; Fire-device captures and qualification requirements retained. | Exact live listing and console access not verified. Desktop gallery not substituted for Fire screenshots. |
+| Epic / Steam / GOG / itch.io | Shared desktop setup points to the canonical approved presentation and export pack; Epic remains the first selected store. | Exact controlled listing/console identities and current fields still to verify. No upload or live save claimed. |
+| SourceForge / independent catalogs | No external edits. | SourceForge is a historical public project; current maintainer access must be verified. Independent wrappers and distribution-maintained catalogs are not presumed controlled storefronts. |
+
+## Validation and limits
+
+The game metadata work used an isolated worktree from `afab6e9b28`, leaving the existing game checkout and its concurrent branch untouched. XML and YAML parsed; Android short/full text is 47/1643 characters, iOS subtitle/promotional text is 30/164. All four hosted screenshot URLs returned HTTP 200, and the AppStream default exactly matches the local PNG bytes. `tools/release/release.py check`, all 34 package-asset tests and whitespace checks passed. No engine build was needed for presentation-only metadata changes. No mobile screenshot, application icon, game build, price or account/privacy declaration was changed.

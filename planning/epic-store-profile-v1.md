@@ -2,6 +2,8 @@
 
 [Planning index](README.md) · [Agreed positioning](../analysis/positioning-v1.md) · [Reusable copy](store-profile-v1.md) · [Epic requirements](epic-store-requirements.md) · [Asset brief](store-assets-v1.md)
 
+**Superseded draft — 2026-10-30:** the user approved the final [page presentation](../assets/epic-page-preview/README.md) for use across storefronts. Use the [approved copy/media and rollout record](approved-storefront-rollout.md) as the current paste source, not the earlier 222-character pitch or About variants below. Current art is the [v5 illustrated cover](../assets/epic-v5/README.md), with Colony / River Battle / Four Squares Strategic / Lava Shield Terrain gameplay. The sections below retain historical preparation and unresolved field checks; approval does not establish a live Epic update.
+
 Prepared **2026-10-26** after the user selected Epic Games Store as the first storefront. The headline and master pitch are approved positioning; the store adaptations below are drafts for review. No Developer Portal fields or live listings have been changed. The planned first Epic artifact is Windows; it has not been launcher-tested in this marketing pass.
 
 ## Product name

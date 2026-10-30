@@ -4,7 +4,7 @@
 
 - [Approved storefront rollout](approved-storefront-rollout.md): 2026-10-30 user approval, exact approved copy/media and cross-store execution status.
 - [Launch positioning v1](../analysis/positioning-v1.md): current agreed headline, pitch and message emphasis; selected through discussion.
-- [Epic profile v1](epic-store-profile-v1.md): prepared first-store copy and metadata draft; portal values remain to verify.
+- [Epic profile v1](epic-store-profile-v1.md): historical first-store draft and metadata checks; superseded as a copy source by the approved rollout record.
 - [Epic requirements](epic-store-requirements.md): current official field/media requirements and remaining portal checks.
 - [Epic page presentation](../assets/epic-page-preview/README.md): coherent local desktop/mobile review of the current cover, genuine game gallery, approved positioning and About sections; not a live listing.
 - [Current browser controls capture](../assets/epic-gameplay-v1/README.md): unchanged 2560×1440 supporting economy/control view with normal fog and HUD; Windows qualification and mature-colony capture remain separate.
@@ -15,7 +15,7 @@
 - [Actual unit references](../assets/epic-v2/unit-references/README.md): unchanged worker and warrior renders in matched poses; slender workers and bulkier warriors guide the next illustration.
 - [Character correction study](../assets/epic-v2/README.md): superseded anatomy study; its generic icon-based forms did not preserve role-specific proportions. No cover or submission export is approved.
 - [Epic artwork v1](../assets/epic-v1/README.md): rejected historical review pack; retained for provenance, not the current visual direction.
-- [Store profile v1](store-profile-v1.md): prepared reusable listing-copy source; Epic is the selected first destination.
+- [Store profile v1](store-profile-v1.md): historical reusable copy variants; use the approved rollout record for current listing text.
 - [Store assets v1](store-assets-v1.md): prepared visual brief and existing-asset candidates; final images and exports remain unfinished.
 - [Task ledger](tasks.md): initial research completion, unresolved verification and future decision/execution work.
 - [Research review](research-review.md): evidence boundaries, team review, validation and handoff status for the 2026-10-26 pass.

@@ -2,7 +2,7 @@
 
 [Epic profile](../../planning/epic-store-profile-v1.md) · [Official requirements](../../planning/epic-store-requirements.md) · [Actual unit references](../epic-v2/unit-references/README.md)
 
-Prepared **2026-10-26** as the working art direction for a professional Epic presentation. The illustrated environment presents the colony-building and economic promise; real game renders preserve the worker and warrior shapes. These are complete artwork drafts for review, not user-approved or uploaded assets. Genuine gameplay images remain a separate gallery.
+Prepared **2026-10-26** as the working art direction for a professional Epic presentation. The illustrated environment presents the colony-building and economic promise; real game renders preserve the worker and warrior shapes. The landscape cover and product logo used in the final [page presentation](../epic-page-preview/README.md) were approved for use on 2026-10-30; see the [approved rollout record](../../planning/approved-storefront-rollout.md). The portrait is an existing export of the same family and needs its destination crop preview. Approval is separate from an actual store upload. Genuine gameplay images remain a separate gallery.
 
 ![Landscape, portrait and thumbnail review](review-contact-sheet.jpg)
 

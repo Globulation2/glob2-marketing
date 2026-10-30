@@ -2,7 +2,7 @@
 
 [Planning index](README.md) · [Store asset brief](store-assets-v1.md) · [Agreed positioning](../analysis/positioning-v1.md) · [Product facts](../facts/product.md) · [Public platform audit](../facts/platform-audit.md) · [Asset ledger](../facts/assets.md)
 
-**Destination update, 2026-10-26:** the user selected Epic Games Store first. Use the [Epic profile](epic-store-profile-v1.md), [verified requirements](epic-store-requirements.md) and [artwork pack](../assets/epic-v1/README.md) for its current preparation. This reusable source remains useful for later stores.
+**Superseded draft — 2026-10-30:** use the [approved storefront copy/media and rollout record](approved-storefront-rollout.md) for all current listing updates. This document preserves earlier variants for history; do not paste its old descriptions as the approved final copy. The final [page presentation](../assets/epic-page-preview/README.md) uses the [v5 illustrated cover](../assets/epic-v5/README.md) and the approved Colony / River Battle / Four Squares Strategic / Lava Shield Terrain gallery. Epic remains the selected first destination; [verified requirements](epic-store-requirements.md) and actual portal fields govern its adaptation.
 
 Prepared **2026-10-26** following the user's request to start the store profile and launch materials. The headline and master pitch below are the exact agreed positioning. All adaptations are new review drafts, not separately approved copy or published listings. This is a reusable source pack; store-specific fields, availability and submission requirements still need to be matched to the chosen launch destination.
 
