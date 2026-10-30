@@ -91,6 +91,9 @@ The currently deployed web assets still contain some former-domain website
 guide/download links. Their exact build provenance does not justify rebuilding
 unrelated application code during this cutover. These links depend on the pending
 former-website redirects until a separately qualified web release replaces them.
+The embedded design-system revision also keeps theme selection in the new app's
+origin-local storage but does not recognize the new shared website theme cookie;
+cross-subdomain preference sharing awaits the qualified frontend update.
 
 ## Feeds, variables and monitoring
 
