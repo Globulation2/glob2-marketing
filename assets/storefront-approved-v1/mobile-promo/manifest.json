@@ -1,0 +1,27 @@
+{
+  "prepared": "2026-10-30",
+  "role": "Promotional key art for compatible mobile-store feature/promotional image fields; not a gameplay screenshot or application icon.",
+  "source": "../../epic-v5/offer-landscape-2560x1440.png",
+  "source_sha256": "2ed88d7e351ebe0a5d313bf9080c92b7e1c0087036de2b8e365a101c4cdff4af",
+  "source_dimensions": [
+    2560,
+    1440
+  ],
+  "source_crop": [
+    0,
+    30,
+    2560,
+    1280
+  ],
+  "resampling": "Lanczos",
+  "output": "feature-graphic-1024x500.png",
+  "dimensions": [
+    1024,
+    500
+  ],
+  "mode": "RGB",
+  "format": "PNG",
+  "bytes": 1005747,
+  "sha256": "147f09c37234de318986a774d664480705f272ff3dd95bdcf6d8b9041385e7df",
+  "treatment": "Crop and resize of approved illustrated landscape. Existing wordmark, colony and unit art preserved; no new imagery, retouching or app-icon replacement."
+}
