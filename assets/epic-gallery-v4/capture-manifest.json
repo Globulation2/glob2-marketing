@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "captured_date": "2026-10-30",
+  "kind": "staged-native-river-battle",
+  "purpose": "Replace the Lava Shield battle view with another map and different native team colours, preserving the large opposing warrior formations.",
+  "runtime": {
+    "version": "0.11.4.0",
+    "compiled": "2026-10-26 20:55",
+    "save_version": 186,
+    "network_protocol": 72,
+    "completed_game_binary_sha256": "e2f61b50a9b729fb334486b5c641ab423969ccb4495b54ffa50b660b7f8b5264",
+    "matching_source_commit": "unconfirmed",
+    "method": "Temporary native companion linked to645 existing production objects and matching completed-build libraries; no shared game source or build edits.",
+    "capture_binary_sha256": "122eac6b5d709c3e402529ae949f099bc1531bbe9a24c6de7ab730ad9bfc7d09",
+    "captured_translation_unit_sha256": "32fc2c6157ad4a1510eca3de40063f3440dbf99dea4141b891c4ed3fc1c2c0c8",
+    "public_rebuild_source": "capture-scene.cpp",
+    "public_source_changes": "Asset directory read from GLOB2_MARKETING_ASSET_DIR rather than local absolute path; comments/whitespace normalized. Staging, simulation, colours and camera unchanged.",
+    "isolated_profile": true
+  },
+  "map": {
+    "generator": "river",
+    "revision": 5,
+    "seed": 713,
+    "width": 128,
+    "height": 128,
+    "teams": 2,
+    "initial_workers_per_team": 4,
+    "sha256": "200ec7d3c26e08eb1f9206a3235e8f88b7711276befaa8348206e481d6b2672c",
+    "generation_command": "glob2 map generate river --seed 713 --width 128 --height 128 --teams 2 --workers 4 --output MAP",
+    "parameters": {
+      "width": 128,
+      "height": 128,
+      "teams": 2,
+      "workers": 4,
+      "water": 45,
+      "sand": 3,
+      "grass": 75,
+      "desert": 0,
+      "smoothing": 4,
+      "river-width": 35,
+      "winding-river": 1,
+      "fruit": 4,
+      "wheat-amount": 100,
+      "wood-amount": 100,
+      "stone-amount": 100,
+      "algae-amount": 100,
+      "hilltop-stone": 0,
+      "repeat": 1
+    }
+  },
+  "staging": {
+    "method": "Production editor/SGSL Game::addUnit and Game::addBuilding APIs",
+    "warriors": 192,
+    "forces": [
+      96,
+      96
+    ],
+    "warrior_level": 1,
+    "native_team_hues_degrees": [
+      210,
+      55
+    ],
+    "native_colours": [
+      "blue",
+      "gold/yellow"
+    ],
+    "colour_method": "Team::setCorrectColor(float) before native rendering, with no image recolouring",
+    "formation_center_tiles": [
+      84,
+      54
+    ],
+    "placement": "Nearest legal free grass positions in two opposing compact formations; resources and terrain retained.",
+    "war_flags": 2,
+    "economic_buildings": 8,
+    "economic_building_types_per_colony": [
+      "inn",
+      "school",
+      "racetrack",
+      "hospital"
+    ],
+    "additional_workers": 48,
+    "original_hives_retained": 2,
+    "player_names": "Colony",
+    "terrain_or_resource_painting": false
+  },
+  "simulation": {
+    "native_world_steps": 192,
+    "initial_warriors": 192,
+    "initial_total_warrior_hp": 48000,
+    "captured_warriors": 192,
+    "captured_total_warrior_hp": 47672,
+    "actively_attacking_warriors": 32,
+    "evidence": "MOV_ATTACKING_TARGET count and naturally reduced HP; no direct damage or attack-animation mutation",
+    "metrics_file": "simulation-metrics.csv",
+    "initial_state_sha256": "a1ebb637758d6a059ef73455fba2e7931dc7aea0523850ed8387cfc81a655efa",
+    "capture_state_sha256": "cc3884882c21602b506ae882a17b3282d8e7394d86b35751020ea4dec2827dd1",
+    "raw_states_committed": false
+  },
+  "presentation": {
+    "renderer": "software via actual GameGUI/Scene",
+    "zoom": 0.8,
+    "camera_center_tiles": [
+      84,
+      54
+    ],
+    "native_pixels": [
+      2940,
+      1634
+    ],
+    "fog": false,
+    "combined_vision": true,
+    "flags": false,
+    "areas": false,
+    "native_hud_preserved": true,
+    "screenshot": "Native queued BMP flushed by next completed frame, losslessly converted to RGB PNG",
+    "performance_label": "Native HUD0.0 snapshot label retained; not a performance measurement."
+  },
+  "delivery": {
+    "pixels": [
+      2560,
+      1440
+    ],
+    "resized_native_pixels": [
+      2560,
+      1423
+    ],
+    "dark_margins_top_bottom_pixels": [
+      8,
+      9
+    ],
+    "jpeg_quality": 96,
+    "chroma_subsampling": 0,
+    "maximum_jpeg_bytes": 4194304,
+    "hud_crop": false,
+    "ai_or_painted_gameplay_pixels": false
+  },
+  "limits": [
+    "Deliberately staged native scenario, not an organic player match or typical match timing/army-size claim.",
+    "Native capture does not qualify an Epic Windows launcher build or authorize publication.",
+    "Map and colours differ from the preserved earlier Lava Shield battle; other approved gallery media are unchanged."
+  ],
+  "files": [
+    {
+      "file": "capture-scene.cpp",
+      "bytes": 7662,
+      "sha256": "554789235a740c9b5114868db9018a566f9fff234dd9ea2617209d1ccf4e564a"
+    },
+    {
+      "file": "simulation-metrics.csv",
+      "bytes": 228,
+      "sha256": "320c33eff861985cdc4f37368ba5c1e92c6ee75148eb63f656c8977b13252a4d"
+    },
+    {
+      "file": "river-battle-native.png",
+      "bytes": 2639990,
+      "sha256": "ff3cbb38180a24c1c9149025a4f4eb8227d8227362d5fa4a56715cde7a47d2ba",
+      "pixels": [
+        2940,
+        1634
+      ]
+    },
+    {
+      "file": "river-battle.jpg",
+      "bytes": 2596659,
+      "sha256": "e839d9d5872faed4fd2c2247f0572701ae857896269748bbf8c5d866de47eb2c",
+      "pixels": [
+        2560,
+        1440
+      ]
+    }
+  ]
+}
