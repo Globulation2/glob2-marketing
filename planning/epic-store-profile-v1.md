@@ -70,10 +70,10 @@ Use this block only if it adds clarity to the page; the About blocks already cov
 | Genre | Strategy proposed; use Epic's current selectable taxonomy |
 | Supporting tags | Real-time strategy, colony building and resource management are descriptive candidates; select only matching tags actually offered by Epic |
 | Developer and publisher | Confirm the exact Epic-facing identities. The public Snap listing names Bradley Arsenault, but that does not establish the Epic publisher field. |
-| Website | https://glob2online.com/ — public project destination recorded in the distribution audit |
+| Website | https://glob2.online/ — canonical destination selected in the [2026-10-30 domain migration](domain-migration.md); live verification is tracked there |
 | Source | https://github.com/Globulation2/glob2 — supporting project link if Epic permits this slot |
 | Support contact / URL | Confirm the current public support destination and responsible contact before entry; do not substitute private account details |
-| Privacy policy | https://glob2online.com/privacy/ is referenced by current local store documentation; review its current coverage for the Epic edition before entry |
+| Privacy policy | https://glob2.online/privacy/ — hostname updated for the [domain migration](domain-migration.md); review its current coverage for the Epic edition before entry |
 | Release date, regions, ratings and languages | Pending exact release/edition data; do not infer these from other stores |
 | Windows minimum/recommended specifications | Pending measured launch-build requirements; no guessed CPU, memory, graphics or storage values |
 | Multiplayer, achievements, accounts and purchases | Pending edition-specific declarations and applicable Epic requirements; no blanket yes/no claim is prepared in this copy pack |

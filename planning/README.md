@@ -2,6 +2,7 @@
 
 [Repository overview](../README.md) · [Facts](../facts/README.md) · [Analysis](../analysis/README.md)
 
+- [Domain migration](domain-migration.md): canonical `glob2.online` destinations, old-domain redirect work, verification and external-access gaps.
 - [Approved storefront rollout](approved-storefront-rollout.md): 2026-10-30 user approval, exact approved copy/media and cross-store execution status.
 - [Launch positioning v1](../analysis/positioning-v1.md): current agreed headline, pitch and message emphasis; selected through discussion.
 - [Epic profile v1](epic-store-profile-v1.md): historical first-store draft and metadata checks; superseded as a copy source by the approved rollout record.

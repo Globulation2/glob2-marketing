@@ -4,6 +4,8 @@
 
 This section inventories what already exists and reconstructs the game's history. Records must cite dated sources and distinguish current evidence, historical evidence, and unverified leads. Account ownership, rights, active maintenance, and live availability require separate verification.
 
+**Domain migration — 2026-10-30:** the canonical destination is now `https://glob2.online/`; see the [migration ledger](../planning/domain-migration.md) for implementation and verification status. The ledgers below preserve URLs as originally observed, including the former domain and application subdomain. Those historical references do not establish the current canonical address or successful redirects.
+
 ## Ledgers
 
 - [Repositories and web properties](repositories.md): source locations, revisions, public properties and implementation boundaries.

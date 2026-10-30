@@ -8,6 +8,10 @@ On **2026-10-30**, after the final River battle and developed Four Squares strat
 
 Apply this presentation to project-controlled storefront listings and their maintained metadata sources, with destination-specific field formatting and required asset exports. The instruction authorizes those listing updates. It does not establish account control, a successful upload, platform acceptance, a product release, or verified release metadata. Do not change game-build availability, price, account/privacy declarations, system requirements, release dates or ratings merely to make the profile look complete. No outreach or independent-catalog edits are included.
 
+## Canonical domain update — 2026-10-30
+
+The user subsequently requested migration to **`https://glob2.online/`** everywhere and redirects from the former domain. Use the new hostname for future listing edits; the [Snap upload fields](../assets/storefront-approved-v1/snap/listing-fields.json) have been updated. The old-domain URLs in the dated live-verification entries below preserve what was actually observed before migration. They are not the current paste source or evidence that a live listing has migrated. Track source changes, external listing saves and redirects separately in the [domain migration ledger](domain-migration.md).
+
 ## Approved copy
 
 ### Headline

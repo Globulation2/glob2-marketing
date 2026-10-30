@@ -73,12 +73,12 @@ Globulation 2 is free and open source.
 
 | Placement | Draft CTA | Destination / use condition |
 | --- | --- | --- |
-| Browser entry | Play in your browser | [Project browser entry](https://app.glob2online.com/play/); the public website calls this early access. Confirm the intended launch build and start flow before using it as a live CTA. |
-| Direct native distribution | Download Globulation 2 | [Project downloads](https://glob2online.com/downloads/); retain the actual release's experimental/testing status rather than implying every build is a qualified store release. |
+| Browser entry | Play in your browser | [Project browser entry](https://app.glob2.online/play/); the public website calls this early access. Confirm the intended launch build and start flow before using it as a live CTA. |
+| Direct native distribution | Download Globulation 2 | [Project downloads](https://glob2.online/downloads/); retain the actual release's experimental/testing status rather than implying every build is a qualified store release. |
 | Source / contribution | Explore the source | [Globulation2/glob2](https://github.com/Globulation2/glob2). A supporting link, rather than the main player CTA. |
 | Store-native profile | Use the store's own install, download or wishlist action | Only after the exact listing and release state are known. Do not fabricate a store URL or add a wishlist claim to a released/downloadable profile. |
 
-These URLs are recorded in the [2026-10-26 distribution audit](../facts/distribution.md), not freshly exercised runtime journeys in this copy pass. No live destination has been changed.
+The destination hostnames above were updated on **2026-10-30** for the [domain migration](domain-migration.md). The [2026-10-26 distribution audit](../facts/distribution.md) preserves the originally observed URLs; changing this draft does not establish a functioning migrated runtime journey or an updated live listing.
 
 ## Platform adaptation notes
 
