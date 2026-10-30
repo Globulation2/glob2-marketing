@@ -60,17 +60,18 @@ The cover belongs in key-art/cover slots. Keep the four gameplay images separate
 | Approved source copy/media | Complete | Final source already committed through `baa3093`; this record saves the user's approval and rollout authorization. |
 | Desktop PNG exports | Complete | [Four screenshots and source manifest](../assets/storefront-approved-v1/README.md), committed as `a968359`; decoded RGB preserved exactly. Existing key-art/logo sources linked. |
 | Maintained game-store metadata | Complete | [Game PR #1281](https://github.com/Globulation2/glob2/pull/1281) merged as `7038776f3fb84f43cacd51ff02e3c4d1aac4a331`. Snap, AppStream, Android English metadata and maintained iOS/Windows/Amazon copy now use the approved message. Desktop/Mac guides link the canonical pack. |
-| Snap-specific exports | Complete | [Four sub-2 MB JPEGs, exact listing fields and a reviewed 3:1 banner](../assets/storefront-approved-v1/snap/README.md), committed as `f1d6af4`. No media uploaded yet. |
+| Snap-specific exports | Complete | [Four sub-2 MB JPEGs, exact listing fields and a reviewed 3:1 banner](../assets/storefront-approved-v1/snap/README.md), committed as `f1d6af4`; all four gallery images and the banner uploaded and publicly verified. |
 | Exact storefront/account inventory | In progress | Snap publisher access verified; Google Play package `org.globulation2.glob2` found in authenticated closed testing. Epic and Microsoft still require sign-in; other consoles and unpublished listings remain to verify. |
-| Live storefront application | Partial | Snap summary, description, homepage and Games category saved with explicit success confirmation. Screenshots/banner remain unuploaded. Google Play copy and other stores remain pending; public Snap propagation is not yet verified. |
+| Snap listing application | Complete | Approved copy, homepage, Games category, four ordered screenshots and banner are live; independently verified on the public listing and API at 18:06 Toronto / 22:06 UTC on 2026-10-30. |
+| Cross-store application | In progress | Snap is complete; Google Play copy work continues and remaining store consoles still need verified access/application. |
 
 ## Destination status
 
 | Destination | Applied source changes | Live status / next action |
 | --- | --- | --- |
-| Snap (`globulation2`) | `snap/snapcraft.yaml`: approved short/full description and modern homepage; AppStream gallery refreshed. | Authenticated editor saved the approved summary/full description, `https://glob2online.com/` homepage and Games category. UI confirmed “Changes applied successfully” with Save/Revert disabled. Public propagation unverified. Gallery/banner not uploaded; browser file access permission is still needed. |
+| Snap (`globulation2`) | `snap/snapcraft.yaml`: approved short/full description and modern homepage; AppStream gallery refreshed. | Complete: public listing/API show the approved summary, full description, `https://glob2online.com/` homepage, Games category, Colony / River / Four Squares / Lava Shield gallery and banner. Verified 18:06 Toronto on 2026-10-30; stable 0.11.2 and app icon unchanged. |
 | Desktop AppStream | Approved summary/description, modern homepage and four immutable hosted screenshots; local default PNG matches the hosted colony image. | Merged upstream metadata, for downstream packaging. No Flathub listing submission or independent package-catalog edit was performed. |
-| Google Play / Android | `fastlane/metadata/android/en-US/short_description.txt` and `full_description.txt` updated. Existing account/network/privacy/IAP paragraphs retained byte-for-byte. | Authenticated console identified controlled package `org.globulation2.glob2` in closed testing. No listing-copy edit was made before the browser session became unavailable. Existing mobile screenshot directories remain unchanged; desktop frames are not phone captures. |
+| Google Play / Android | `fastlane/metadata/android/en-US/short_description.txt` and `full_description.txt` updated. Existing account/network/privacy/IAP paragraphs retained byte-for-byte. | Authenticated console identified controlled package `org.globulation2.glob2` in closed testing. Listing-copy work continues; no completed live save is recorded yet. Existing mobile screenshot directories remain unchanged; desktop frames are not phone captures. |
 | Apple iPhone/iPad | Maintained iOS description, subtitle and promotional text adapted; actual-device screenshot requirement retained. | Console/listing identity and access not verified. Mobile gallery still requires actual release-candidate device captures. |
 | Mac App Store | Release guide points to the approved copy, desktop gallery and key-art sources. | Console/listing access and candidate screenshot fit remain to verify. No build selected or released. |
 | Microsoft Store (`9PH4FCRMX19F`) | Maintained short/full description and feature copy updated; Windows guide links the three 2560×1440 PNG captures and source limits. | Known product identity; public listing was unavailable in the prior audit. Partner Center requires sign-in; no save/publication verified. Do not enlarge the 1280×720 colony source to imply a new Windows capture. |
@@ -79,11 +80,21 @@ The cover belongs in key-art/cover slots. Keep the four gameplay images separate
 | Steam / GOG / itch.io | Shared desktop setup points to the canonical approved presentation and export pack. | Exact controlled listing/console identities and current fields still to verify; no upload or live save claimed. |
 | SourceForge / independent catalogs | No external edits. | SourceForge remains unchecked in this authenticated pass; current maintainer control is unverified. Independent wrappers and distribution-maintained catalogs are not presumed controlled storefronts. |
 
-## Resume requirements and observed save
+## Snap live verification — 2026-10-30
 
-The final Snap save succeeded after correcting an earlier attempt that had not persisted. The editor showed **“Changes applied successfully”**, and both Save and Revert were disabled afterwards. This confirms the editor save, not public storefront propagation. Only summary, full description, homepage and Games category changed; no screenshots or banner were uploaded.
+The [public Snap listing](https://snapcraft.io/globulation2) and [public information API](https://api.snapcraft.io/v2/snaps/info/globulation2) were independently checked at **18:06 America/Toronto / 22:06 UTC**. They show the exact approved summary and full description, `https://glob2online.com/` homepage and Games category. The app icon and **stable 0.11.2** release remain unchanged. The authenticated save was also explicitly confirmed; no private publisher-page proof is committed.
 
-The browser session became unavailable before the remaining console work. Resume requires an unlocked session and permission to access local upload files. The four Snap gallery exports and reviewed banner are ready in the [Snap pack](../assets/storefront-approved-v1/snap/README.md). Google Play description editing and Epic/Microsoft sign-in still need completion. No binaries, prices, icons or release states changed.
+All four gameplay images appear in the approved order, and the 3:1 illustration banner is live. Each public media URL returned HTTP 200, decoded successfully and remained below 2,000,000 bytes:
+
+| Role / order | Public media |
+| --- | --- |
+| Banner | [1440×480 illustrated banner](https://dashboard.snapcraft.io/site_media/appmedia/2026/10/banner-1440x480.jpg) |
+| 1 — Colony | [Colony screenshot](https://dashboard.snapcraft.io/site_media/appmedia/2026/10/01-colony-1793397810.jpg) |
+| 2 — River battle | [Blue/gold battle screenshot](https://dashboard.snapcraft.io/site_media/appmedia/2026/10/02-river-battle-1793397810.jpg) |
+| 3 — Four Squares strategic view | [Developed AI match screenshot](https://dashboard.snapcraft.io/site_media/appmedia/2026/10/03-four-squares-strategic-1793397810.jpg) |
+| 4 — Lava Shield terrain | [Terrain-in-use screenshot](https://dashboard.snapcraft.io/site_media/appmedia/2026/10/04-lava-shield-terrain-1793397810.jpg) |
+
+The [Snap export pack](../assets/storefront-approved-v1/snap/README.md) retains source provenance and file validation. No binary, price, icon or release state was changed. Google Play and other storefront work remain in progress; completing Snap does not complete the cross-store rollout.
 
 ## Validation and limits
 

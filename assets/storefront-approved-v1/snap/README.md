@@ -19,7 +19,7 @@ Snap permits up to five gallery items, at 480×480 minimum, documented maximum 3
 
 ## Featured banner
 
-[Optional 1440×480 banner](banner-1440x480.jpg) is a 3:1 crop of the approved illustrated landscape: source rectangle `(0,90,2559,943)`, resampled with Lanczos. It retains the existing wordmark and central colony. This is promotional illustration, separate from gameplay. The export passed coordinating visual review; its fit in the actual banner field remains to check before upload. Preserve the existing app icon.
+[Optional 1440×480 banner](banner-1440x480.jpg) is a 3:1 crop of the approved illustrated landscape: source rectangle `(0,90,2559,943)`, resampled with Lanczos. It retains the existing wordmark and central colony. This is promotional illustration, separate from gameplay. The export passed coordinating visual review and was uploaded to the banner field; the public banner was verified on 2026-10-30. Preserve the existing app icon.
 
 The banner fits Snap's documented 3:1 range of 720×240–4320×1440 and is under 2,000,000 bytes. The export manifest records its exact byte count and hash.
 
@@ -32,4 +32,4 @@ The platform inventory verified these sources on 2026-10-30:
 - [Publisher screenshot validator](https://github.com/canonical/snapcraft.io/blob/main/static/js/publisher/pages/Listing/ListingDetails/Screenshots.tsx): accepted image/file-size handling.
 - [Publisher banner/icon validator](https://github.com/canonical/snapcraft.io/blob/main/static/js/publisher/pages/Listing/ListingDetails/ListingDetails.tsx): banner ratio, dimensions and cap.
 
-No screenshot or banner has been uploaded. The approved summary, full description, homepage and Games category were subsequently saved in the authenticated Snap editor, with explicit success confirmation; public propagation remains unverified. See the [rollout ledger](../../../planning/approved-storefront-rollout.md) for remaining file-upload permission and console-access work.
+The approved summary, full description, homepage, Games category, four ordered screenshots and banner are live. The public listing/API and all five media URLs were independently verified at 18:06 Toronto / 22:06 UTC on 2026-10-30. The [rollout ledger](../../../planning/approved-storefront-rollout.md#snap-live-verification--2026-10-30) links public evidence. Stable 0.11.2 and the app icon remain unchanged; other storefront work continues.
