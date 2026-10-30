@@ -4,6 +4,10 @@
 
 Prepared **2026-10-26** to review the store presentation as a whole: cover, genuine game gallery, short pitch, offer hierarchy and concise About sections. This is a local static mockup inspired by Epic's product-page structure, **not an official Epic screenshot, live listing, submission or custom site for publication**. Exact portal layout may differ.
 
+## Approval — 2026-10-30
+
+The user approved this final presentation for use and requested application across the project’s storefronts. The [approved copy/media and rollout ledger](../../planning/approved-storefront-rollout.md) records that authorization and actual destination status. The page itself remains a local review, not proof of a live listing update.
+
 ## Open locally
 
 From the repository root:
@@ -30,7 +34,7 @@ Copy derives from the [selected positioning](../../analysis/positioning-v1.md) a
 
 The [River battle pack](../epic-gallery-v4/README.md), [Four Squares strategic pack](../epic-gallery-v5/README.md) and [Lava Shield terrain pack](../epic-gallery-v3/README.md) record their respective simulation, native renderer/HUD, source identities and export treatment. River and Lava Shield are authored in-engine scenes; Four Squares is a developed AI match. No unit graphics, combat effects or interface elements were painted into the screenshots. These captures do not establish player demand, typical match prevalence, game performance or Epic Windows launcher qualification.
 
-The spatial About image uses the populated strategic view, and the defence section has the battle image. On **2026-10-30**, the spatial copy was broadened to explain how different maps call for different strategies; Lava Shield remains the illustration rather than the subject of that section. Lava Shield's crater, branching flows and crossings are supported by the [map guide](https://github.com/Globulation2/glob2/blob/53110681a31d08423568afe26d5b8d8f9ac45dd1/docs/map-generators/lava-shield.md). The [map capture pack](../epic-gallery-v2/README.md) retains the superseded whole-map export and its separate generation/render provenance.
+The spatial About image uses the populated strategic view, and the defence section has the battle image. On **2026-10-30**, the spatial copy was broadened to explain how different maps call for different strategies. The developed Four Squares view illustrates that section; its text applies across maps. Lava Shield's crater, branching flows and crossings are supported by the [map guide](https://github.com/Globulation2/glob2/blob/53110681a31d08423568afe26d5b8d8f9ac45dd1/docs/map-generators/lava-shield.md). The [map capture pack](../epic-gallery-v2/README.md) retains the superseded whole-map export and its separate generation/render provenance.
 
 The old `media/expansion.webp` and `media/defence.webp` files remain historical source copies but are not referenced by the page. The [abnormal-fog controls image](../epic-gameplay-v1/README.md) also remains excluded. Earlier coastal/Four Squares renders were rejected as battle evidence; algae resources are not armies. The v5 [provenance record](../epic-v5/README.md) and [source asset ledger](../../facts/assets.md) retain art/attribution context. This local review does not complete release rights clearance.
 

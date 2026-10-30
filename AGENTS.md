@@ -31,3 +31,7 @@ The user subsequently authorized a public platform audit and positioning-option 
 ## Selected launch v1
 
 The user subsequently stopped recruitment/testing as the immediate approach and selected a working launch positioning through discussion on 2026-10-26. Use [the agreed v1](analysis/positioning-v1.md) as the current message reference: colony building and economics lead, with spatial strategy and rival pressure supporting. Historical research plans remain preserved but are not active launch prerequisites. This is a user decision, not player validation or authorization to contact people or change live listings.
+
+## Approved storefront rollout
+
+On 2026-10-30, after reviewing the final Epic-style presentation, the user said: “this is approved for use. lets commit this and then apply this to all of our various storefroents”. The [approved storefront rollout](planning/approved-storefront-rollout.md) records the exact copy and current media. Apply this approved presentation to project-controlled storefront listings and their maintained source metadata, adapting only to platform fields and asset requirements. This authorization supersedes earlier preparation-only limits for listing updates. It does not authorize releasing unqualified game builds, changing prices or account/legal declarations, contacting third parties, or treating independent catalog entries as controlled accounts. Record actual changes and access gaps; approval is not evidence that a listing has been updated.
