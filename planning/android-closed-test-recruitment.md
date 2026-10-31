@@ -2,7 +2,7 @@
 
 [Planning index](README.md) · [Publishing ledger](approved-storefront-rollout.md#google-play-production-eligibility--2026-10-30) · [Launch message](../analysis/positioning-v1.md)
 
-Prepared **2026-10-31** after the user requested help obtaining enough registered Android testers to release Glob2. The user selected **both personal invitations and public recruitment** and approved the exact Discord #general invitation below. That invitation is **posted and verified**. Other channels remain drafts; no new participant enrollment or paid recruitment is recorded. This is a release-testing effort; the historical [three-player description interviews](three-player-recruitment.md) remain stopped and are not this cohort.
+Prepared **2026-10-31** after the user requested help obtaining enough registered Android testers to release Glob2. The user selected **both personal invitations and public recruitment** and approved the exact Discord #general invitation below. That invitation is **posted and verified**. The user subsequently authorized personal recruitment to family and friends, with Android primary and iPhone interest welcomed. Two individual email invitations have been sent; other personal-message results remain pending verification. No new participant enrollment or paid recruitment is recorded. This is a release-testing effort; the historical [three-player description interviews](three-player-recruitment.md) remain stopped and are not this cohort.
 
 ## Requirement and starting evidence
 
@@ -30,11 +30,11 @@ Verified console destinations: [Join the Glob2 closed test](https://play.google.
 
 ## Recruitment routes
 
-Use both routes chosen by the user. Personal invitations are prepared for the user's own Android contacts and referrals. The user has approved the exact Discord #general invitation and its DM intake; other public drafts still need approval for their named destinations. No audience size is inferred.
+Use both routes chosen by the user. Personal invitations are authorized for the user's family and friends, with private contact selection kept outside this repository. The user has approved the exact Discord #general invitation and its DM intake; other public drafts still need approval for their named destinations. No audience size is inferred.
 
 | Candidate | Evidence checked 2026-10-31 | Use / remaining dependency |
 | --- | --- | --- |
-| Personal contacts and referrals | Google suggests personal/professional networks as recruitment sources; the user selected this route. | User sends the personal draft privately to willing Android users; no contacts or reach are established. |
+| Personal contacts and referrals | Google suggests personal/professional networks as recruitment sources; the user selected this route. | Two individual email invitations sent and confirmed with sent-message receipts. Additional direct-message results remain pending verification; invitation counts are not opted-in tester counts. |
 | [Project Discord #general](https://discord.com/channels/1545968030155280415/1545968030901604423) | Accessible in an authenticated existing community account. The approved [invitation](https://discord.com/channels/1545968030155280415/1545968030901604423/1566119400434700410) was sent as `genixpro` October 31, 11:59 AM displayed local time, verified in full message history with an empty composer and screenshot. The website also links [this invite](https://discord.gg/xnVrafzMD). | Posted; DM intake selected. Membership/recruitment response and new opted-ins remain unmeasured. |
 | [r/AndroidClosedTesting](https://www.reddit.com/r/AndroidClosedTesting/) | Public page displays test requests; current rules prohibit links to other subreddits and harassment. Its old 20-tester sticky is not the current Google requirement. | Prepare a clear test invitation after the admission route works. No reciprocal-testing commitment unless the user will perform real tests. Recheck current posting rules at publication. |
 | [r/BaseBuildingGames](https://www.reddit.com/r/BaseBuildingGames/) | Own-project links allowed for games substantially featuring base building; engage in replies, avoid reposting, use text posts for videos. | Secondary audience route; accurate colony RTS description, current rule check and destination approval required. |
@@ -78,6 +78,16 @@ Use the approved colony/economy message. No compensation, review exchange, incen
 >
 > Try the tutorial or an initial colony session, then return on a few different days. Let us know what you tried, what worked and what went wrong through Google Play's private testing feedback, or report reproducible bugs at https://github.com/Globulation2/glob2/issues without private account details. Please stay opted in for at least 14 consecutive days from joining; opting out interrupts your qualifying period. You may leave whenever you choose. Thank you for helping us test the actual game.
 
+## Personal outreach and iPhone availability — 2026-10-31
+
+The user authorized warm personal invitations to family and friends, including other established friends found in connected correspondence. The invitations prioritize Android closed testing, ask willing volunteers to reply privately with their Play account address, and welcome iPhone interest without claiming immediate installation. No public review is requested. Recipient names, contact details, relationship evidence and private correspondence remain outside this public repository.
+
+**Two individual email invitations were sent and verified** from the user's selected personal account, with separate `SENT` receipts. These are two invitations, not two accepted testers, installations or qualifying opt-ins. No response or enrollment has been verified in this step. Direct-message outreach is tracked separately to avoid duplicate invitations.
+
+A read-only App Store Connect check found **no installable external TestFlight build**: the external group has **0 builds**, with **No Builds Available**. The latest **iOS 0.11.400 / build 1002101** is **Ready to Submit** for beta review and assigned only to **Internal Testers**. The separate App Store version is **Waiting for Review**. No beta configuration, submission or invitation was changed in this check.
+
+Use truthful iPhone wording: “If you use an iPhone, I'd love your help too—let me know and I'll send the TestFlight steps when that version is ready.” iPhone participation does not satisfy Android's closed-test requirement. Before sending installation instructions, complete external TestFlight availability checks and verify the actual invitation route.
+
 ## Useful testing and follow-through
 
 This schedule is a proposed lightweight operating plan, not Google's required session frequency. Arrange check-ins only with volunteers who agree to receive them.
@@ -117,10 +127,11 @@ Avoid committing email addresses, handles, group membership, private messages or
 | Verify recruit installation route | Pending | Eligible-account opt-in and actual Android installation/open evidence needed. |
 | Prepare invitation, onboarding and test cadence | Discord copy approved and posted; other drafts prepared | Exact Discord copy above; adapt remaining drafts to actual channel rules and agreed intake. |
 | Select private intake and roster location | Discord DM intake selected; private roster location pending | Reply privately to the account operating the approved post; no participant identities belong in this repository. |
-| Send or publish recruitment | Discord invitation posted and verified | [Exact sent message](https://discord.com/channels/1545968030155280415/1545968030901604423/1566119400434700410), October 31 11:59 AM displayed local time. No DMs/other posts sent; personal invitations remain prepared for the user and other public drafts await approval. |
+| Send or publish recruitment | Discord invitation posted and verified | [Exact sent message](https://discord.com/channels/1545968030155280415/1545968030901604423/1566119400434700410), October 31 11:59 AM displayed local time. Two personal email invitations also sent with separate SENT receipts. Other public drafts await approval; direct-message results remain pending verification. |
+| Send personal invitations | 2 individual emails sent and verified; direct-message results pending | Selected personal account; no acceptance, device or Play-account enrollment inferred from delivery. |
 | Reach 20 real opted-ins | Not started | Planning target only; dated aggregate console checks needed. |
 | Maintain qualifying cohort and collect feedback | Not started | At least 12 continuously opted in for 14 days; actual useful participation evidence. |
 | Apply for production access | Blocked by current recorded gate | Confirm eligibility and answer recruitment/testing/readiness questions honestly. |
 | Publish Android production release | Not completed | Production access plus current artifact/platform preflight; track separately in publishing ledger. |
 
-The approved Discord invitation is the only completed outreach recorded. No new enrollment, eligibility modification, paid recruitment, end-to-end installation, test completion or Android production release is claimed.
+Completed outreach recorded here consists of the approved Discord post and two individual email invitations; direct-message results are recorded separately when verified. No new enrollment, eligibility modification, paid recruitment, end-to-end installation, test completion or Android production release is claimed.
