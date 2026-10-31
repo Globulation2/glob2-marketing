@@ -69,6 +69,7 @@ The user required **only approved images/screenshots or direct modifications of 
 - [Snap JPEGs and banner](../assets/storefront-approved-v1/snap/README.md): the same frames, plus a crop of the approved illustration.
 - [Shared mobile promotional graphic](../assets/storefront-approved-v1/mobile-promo/README.md): a crop/resample of approved key art.
 - [Windows poster, box and titleless hero](../assets/storefront-approved-v1/windows/README.md): retained approved pre-title colony composite and exact existing wordmark, with format-specific crops/layout.
+- [Epic carousel and optional social adapters](../assets/storefront-approved-v1/epic/README.md): direct full-frame gameplay resizes and a resize of the approved Windows box art. The social adapter is prepared but not uploaded.
 
 No new outside image was introduced. Existing mobile-device screenshot galleries and application icons were left unchanged. Promotional illustration remains separate from gameplay screenshots. For every new upload, wait for completion before Save, then fresh-reload the listing and compare the persisted image with its approved source. The Windows correction below demonstrates why upload initiation or a generic success state alone is insufficient.
 
@@ -82,13 +83,15 @@ No new outside image was introduced. Existing mobile-device screenshot galleries
 | Snap-specific exports | Complete | [Four sub-2 MB JPEGs, exact listing fields and a reviewed 3:1 banner](../assets/storefront-approved-v1/snap/README.md), committed as `f1d6af4`; all four gallery images and the banner uploaded and publicly verified. |
 | Shared mobile-store promotional art | Complete | [1024×500 promotional PNG](../assets/storefront-approved-v1/mobile-promo/README.md), committed as `54bab83`, reviewed and saved in Amazon’s promotional-image field; the Google Play feature graphic is now submitted for review as exactly one image change. It is not a gameplay screenshot or app icon. |
 | Windows promotional exports | Complete | [Poster, box and titleless Super hero PNGs](../assets/storefront-approved-v1/windows/README.md), committed as `01a19e3`; all three persisted and decoded in the saved Windows listing. App Tile/icon unchanged. |
-| Exact storefront/account inventory | In progress | Snap, Google Play, Microsoft, Amazon and Apple authenticated access verified. Mac fields are locked by its release state; Epic’s normal login page is available but awaits user sign-in; SourceForge recovery remains pending without credentials. |
+| Epic image exports | Complete | [Four 1920×1080 carousel adapters](../assets/storefront-approved-v1/epic/README.md), `81bdafd`, uploaded to the Dev draft. The reviewed optional 1200×1200 social JPEG, `806d1ca`, remains local/unuploaded. Original v5 landscape, portrait and logo used unchanged in their fields. |
+| Exact storefront/account inventory | In progress | Snap, Google Play, Microsoft, Amazon, Apple and Epic authenticated access verified. Epic existing product/EGS editor reached; Mac fields remain release-state locked and SourceForge recovery remains pending without credentials. |
 | Snap listing application | Complete | Approved copy, Games category, four ordered screenshots and banner are live. A later fresh editor/public recheck also confirmed website `https://glob2.online/`; the earlier 18:06 old-domain observation remains historical below. |
 | Google Play update | Feature graphic in review | Prior copy changes cleared from pending in the console, which shows Last Published October 30; no independent public-copy claim. Exactly one Feature graphic change is now submitted with “Changes in review”. Contact website `https://glob2.online/` saved/reloaded with publish confirmation. |
 | Amazon listing application | Applied to draft | US short/full copy, six economy/map feature bullets and the reviewed promotional image saved and verified on a fresh server reopen. Existing app remains an unsubmitted “Ready to Submit” draft, not live. |
 | iOS listing application | Applied; existing review pending | Approved promotional text/description and new Marketing URL saved and verified by fresh server reload. Existing Waiting for Review state, build 1002101, manual release and mobile assets unchanged. Existing Apple privacy/service URL `https://app.glob2online.com/account` preserved. |
 | Windows listing application | Applied to draft | US listing component is Complete after fresh reopen, with approved copy/media and new website/privacy URLs. Whole submission is unsubmitted: Main packages are incomplete and unrelated Gaming metadata is also changed. |
-| Cross-store application | In progress | Snap is live; Google Play’s feature graphic is in review and its copy is cleared in the console; iOS is saved under its existing review state; Amazon/Windows metadata is saved but unsubmitted. Mac is release-state locked, Epic awaits user sign-in and SourceForge recovery is pending. |
+| Epic required marketing fields | Applied to Dev draft | All required marketing sections saved and freshly reopened in the existing Work in Progress Dev product. No Stage promotion or Live listing. Actual sandbox store preview unverified; optional social preview remains empty. |
+| Cross-store application | In progress | Snap is live; Google Play feature art is in review; iOS is saved under its existing review state; Amazon/Windows remain unsubmitted drafts; Epic required marketing fields are saved in Dev. Mac is release-state locked and SourceForge recovery is pending. No all-store live/release completion claim. |
 
 ## Destination status
 
@@ -101,7 +104,7 @@ No new outside image was introduced. Existing mobile-device screenshot galleries
 | Mac App Store | Release guide points to the approved copy, desktop gallery and key-art sources. | Access prerequisite cleared, but Pending Developer Release disables Promotional Text, Description, Support URL and Marketing URL. Editing would require cancelling the release; fields were left locked. No cancellation, release or listing change performed. |
 | Microsoft Store (`9PH4FCRMX19F`) | Maintained short/full description and feature copy updated; Windows guide links the three 2560×1440 PNG captures and source limits. | Final full server reload and coordinating visual QA verified US short 164, approved full body plus existing offline/online tail, four features, the corrected approved colony plus other three screenshots, and three persisted art PNGs; listing component Complete. Properties website/privacy saved to the new domain. Whole submission remains draft/unpublished because packages and unrelated Gaming metadata are included in nonselective Publish. |
 | Amazon Appstore | Maintained Fire listing description uses the approved message; Fire-device captures and qualification requirements retained. | Applied to the existing app draft and verified by fresh server reopen: US short 164 / full 1139 characters, six economy/map feature bullets and persisted 1024×500 promotional image. “Ready to Submit” remains unsubmitted and not live. Four existing Fire screenshot IDs, Free price, DRM, APK 9050003 and release state unchanged. |
-| Epic | Shared desktop setup points to the canonical approved presentation and export pack; Epic remains the first selected store. | A normal working Epic login page is now available without the earlier errors; awaiting user sign-in. No product ID/editor access or external listing update established. |
+| Epic | Approved copy, four [1920×1080 gameplay adapters](../assets/storefront-approved-v1/epic/README.md), original v5 key art/logo and new main-site URLs applied to required fields. | Existing Work in Progress Dev draft: saved/freshly reopened About 1204/10000, short 164, four ordered carousel images, General and Library landscape/portrait art, logo and website/privacy/terms fields. No Stage/Live promotion or release. Optional social preview not uploaded; actual sandbox storefront preview did not load. |
 | Steam / GOG / itch.io | Shared desktop setup points to the canonical approved presentation and export pack. | Exact controlled listing/console identities and current fields still to verify; no upload or live save claimed. |
 | SourceForge | No external edits. | [Public project](https://sourceforge.net/projects/globulation2/) shows Login; no authenticated editor session. Historical maintainer metadata includes `genixpro`, but current control is unverified. Existing publisher sign-in via [SourceForge authentication](https://sourceforge.net/auth/) needed. |
 | Independent catalogs | No external edits. | Independent wrappers and distribution-maintained catalogs are not presumed controlled storefronts. |
@@ -136,7 +139,7 @@ At the text-submission step, no builds, testing tracks, mobile visual assets, po
 
 ## Remaining publisher access — 2026-10-30
 
-Initial read-only checks of Microsoft Partner Center, Epic Developer Portal, Apple App Store Connect, Amazon Appstore Developer Console and SourceForge reached sign-in gates without authenticated editor access; no external listing updates occurred in that initial pass. Subsequent publisher sign-ins enabled Microsoft and Amazon editors. Amazon and Windows draft changes and iOS listing metadata are now saved and verified; Mac fields remain disabled by Pending Developer Release. Epic’s normal login page is now available and awaits user sign-in; SourceForge remains pending recovery without credentials.
+Initial read-only checks of Microsoft Partner Center, Epic Developer Portal, Apple App Store Connect, Amazon Appstore Developer Console and SourceForge reached sign-in gates without authenticated editor access; no external listing updates occurred in that initial pass. Subsequent publisher sign-ins enabled Microsoft and Amazon editors. Amazon and Windows draft changes and iOS listing metadata are now saved and verified; Mac fields remain disabled by Pending Developer Release. Epic authenticated access subsequently reached the existing product and EGS editor; required marketing fields are now saved in the Dev draft. SourceForge remains pending recovery without credentials.
 
 Continue approved presentation updates only for existing controlled listings after access is established. Skip destinations without an existing listing; do not create accounts, reset SourceForge credentials or create new listings. The cross-store rollout remains in progress, with per-destination outcomes in the table above.
 
@@ -173,6 +176,27 @@ Private publisher-console proof for these units is retained outside Git. No logg
 The approved [1024×500 promotional graphic](../assets/storefront-approved-v1/mobile-promo/README.md) was submitted as **exactly one Feature graphic change**, with **“Changes in review”** confirmed. This is the feature-art review receipt, separate from the earlier text-only submission. The prior copy-pending entry had cleared, and the console showed Last Published October 30; no independent public-copy or feature-art approval claim is made.
 
 The actual existing Contact Website, `globulation2.org`, was changed to **`https://glob2.online/`**. Fresh server reload and publish confirmation verified that field update. Mobile gameplay screenshots, application icon, builds, tracks and policy/privacy/managed-publishing settings were not changed.
+
+## Epic saved Dev draft — 2026-10-30
+
+Authenticated access reached the existing product and Epic Games Store editor. The product remains **Work in Progress in Dev**, without a Live page. All required marketing sections were saved and freshly reopened:
+
+| Field | Verified saved content |
+| --- | --- |
+| About | Five canonical sections plus the actual existing account/service tail; **1204/10000** characters. |
+| Short description | Approved **164-character** pitch. |
+| Media carousel | Four new remote **1920×1080** images in order: Colony / River / Four Squares / Lava Shield. Coordinating visual QA confirmed the first and middle images match approved sources. The colony is the documented direct upscale from 1280×720, not a new native capture. |
+| General images | Original approved v5 **2560×1440 landscape** and **1200×1600 portrait**. |
+| Library images | The same two approved compositions saved in the separate landscape/portrait Library slots: four new remote art placements across General and Library, not four different designs. |
+| Product logo | Approved **960×540** PNG. |
+| Website | **`https://glob2.online/`**. |
+| Main-site privacy/terms URLs | Updated to `glob2.online` with their existing paths retained. |
+
+The blank Product icon remained untouched. Publisher, developer, feature/platform declarations, Windows support, Free price, artifacts and policy answers were not changed. There was **no Dev-to-Stage promotion, Live publication or product release**.
+
+The optional [1200×1200 social preview](../assets/storefront-approved-v1/epic/social-preview-1200x1200.jpg) was **not uploaded**. The upload chooser could not be triggered, then browser transport stalled before any file input; the slot remains empty. The additional-images area remains empty and optional banner text remains disabled/unchanged. No outside imagery was introduced.
+
+The actual sandbox **storefront preview is not verified**: its new tab remained blank after a transport timeout. The editor’s placement skeleton is not a real store preview. Required-field save/reopen verification does not replace that outstanding preview check. Private editor proofs remain outside Git, and the browser worker stopped after the transport failure.
 
 ## Validation and limits
 
