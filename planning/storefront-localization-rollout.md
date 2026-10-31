@@ -74,3 +74,9 @@ The current Stage entities advanced independently to **In review**. **Push to St
 ## Final Google review checkpoint — 2026-10-31
 
 The final publishing overview now explicitly states **“Your changes are now in review. We may find additional issues when reviewing your app.”** The automated quick-check message is gone; the same **31 Add language** rows remain under Changes in review, with Managed Publishing Off. This supersedes the earlier queued-checks checkpoint. Platform approval, public translated display and production-track eligibility remain unverified.
+
+## Existing-account authentication check — 2026-10-31
+
+Snap already has authenticated listing access; its multilingual-field capability is the unresolved question. SourceForge's observed login page offers username/password, with no Google SSO shown. Bitwarden's matching-site autofill menu offered only **Add login**; this is not an exhaustive vault search, and the vault's lock state was not established.
+
+No existing Steam/itch tabs were available for the background session check. Further authentication/vault checks were deferred while the user handled GOG sign-in, not classified as inaccessible. GOG's earlier application is known; publisher-role/product access remains unverified as recorded in [GOG readiness](gog-release-readiness.md). No credentials, new accounts, resets or listing changes resulted from this check.
