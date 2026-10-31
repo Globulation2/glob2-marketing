@@ -55,7 +55,7 @@ A strategy game to play, explore and help shape.
 | Layered delivery | [Existing compositing script and source family](../assets/epic-v5/build-assets.py) | No editable PSD supplied in the approved kit. A future layered export must retain real source layers and accurately describe flattened/resampled components; a flat PNG renamed PSD is insufficient. |
 | Trailer | None prepared in the approved kit | Private Apple review clips are not an approved public GOG trailer. No new footage prepared or reused. |
 
-See the [desktop source manifest](../assets/storefront-approved-v1/README.md) for capture provenance. Only approved images or direct technical derivatives may be introduced. Keep gameplay frames separate from key art. GOG-specific exports remain pending inspection of the actual official templates; no speculative crops or new imagery have been created.
+See the [desktop source manifest](../assets/storefront-approved-v1/README.md) for capture provenance. Only approved images or direct technical derivatives may be introduced. Keep gameplay frames separate from key art. GOG-specific exports remain pending the template-fit/guide review below; no speculative crops or new imagery have been created.
 
 ## Official requirements and their scope
 
@@ -63,7 +63,29 @@ Observed **2026-10-31**. The [GOG Essentials Checklist](https://docs.gog.com/bas
 
 DRM-free release candidates are requested for supported operating systems. Galaxy SDK is explicitly optional; achievement instructions and cloud-save paths are conditional on those features. Extras apply when relevant. Launch timing/pricing must be agreed/configured, not fabricated. Keep prior DevPortal builds. Postlaunch promotion guidance is not evidence of a pre-submission technical gate. [Official checklist](https://docs.gog.com/basic-game-assets/).
 
-[Official graphics templates](https://items.gog.com/templates/gog_art_assets.zip) must be inspected before declaring exact canvas, safe-area or file-delivery specifications. Consumer Galaxy custom-library artwork sizes are not publisher-store specifications. [Early Access](https://docs.gog.com/games-in-development/) is a separate designation to resolve with GOG; a version number alone does not select it.
+[Official graphics templates](https://items.gog.com/templates/gog_art_assets.zip) are inspected below; safe-area and file-delivery details still require guide/portal checks. Consumer Galaxy custom-library artwork sizes are not publisher-store specifications. [Early Access](https://docs.gog.com/games-in-development/) is a separate designation to resolve with GOG; a version number alone does not select it.
+
+## Official template inspection — 2026-10-31
+
+Downloaded the [official ZIP](https://items.gog.com/templates/gog_art_assets.zip) to temporary storage: **178,489,651 bytes**, SHA-256 `50222fd566382488f2b7888ece1c0ae5596bf84d73b86600be229a587c9a2468`. Read its instruction PDF and PSD metadata without executing content. The archive contains product, promotional, social and icon PSD sheets. The following dimensions come from **artboard descriptors**, not overall sheet canvases or painted-layer bounds.
+
+| Product artboard | Width × height | Proposed treatment / qualification |
+| --- | --- | --- |
+| `prod_main_banner` | 1600×740 | Approved pre-title colony composite with separately positioned approved wordmark; guide fit still to inspect. |
+| `prod_logo` | 1600×740 | Transparent canvas; preserve original wordmark proportions and disclose any resampling. |
+| `prod_box` | 342×482 | Approved portrait composition adapted without losing title or colony; visual review required. |
+| `prod_galaxy_background` | 2560×670 | Approved pre-title art crop; no new content. |
+| `prod_bg` | 2560×655 | Distinct actual artboard height; not interchangeable with the 670-pixel background. |
+| `prod_web_icon` | 98×98 | Existing compiled icon preserved; no replacement export currently assigned. |
+| `prod_demo_box` | 342×482 | Demo-specific; no demo product selected, so not automatically needed. |
+
+The instruction PDF identifies green boards as editable, requires transparent logos within the safe area, and says to hide crop/cover/safe-space guides before export. Mockup boards must not be exported. A guide/smart-object visual inspection remains necessary before composing deliveries; matching the outer dimensions alone is insufficient.
+
+The other sheets contain campaign/PR formats, not proof every slot is mandatory for this product: promotional Galaxy banner 1540×270, product card 1540×404, desktop 2560×423, mobile 767×472, spot 444×740, navbar 747×550/logo 285×170 and takeover desktop 2560×360/mobile 960×570/logo 454×200; social square 1200×1200, Twitter 1200×675, Facebook 1200×630 and news 1550×490. Request the actually applicable slots through the accepted product/Assets Manager rather than treating all campaign formats as launch blockers.
+
+Icon-template names and some artboard bounds differ (for example, a board named `icon_128` measures 125×125); these are not grounds to modify the application icon or infer its required delivery sizes. Product/portal specifics remain unresolved. The inspected ZIP/templates are not redistributed in this public repository.
+
+**Next proposed asset unit, pending coordinating review:** core product derivatives from approved pre-title art and wordmark, unchanged approved gameplay files, and a genuinely layered source export where possible. Preserve actual component resolution and describe flattened/resampled components honestly. No exports or new trailer have been created by this inspection.
 
 ## Remaining work and ownership
 
@@ -71,7 +93,7 @@ DRM-free release candidates are requested for supported operating systems. Galax
 | --- | --- | --- |
 | Onboarding/access | Reconcile actual acceptance/invitation and controlled product identity; existing application only, no duplicate submission | Unresolved |
 | Copy | Transfer approved blocks into actual portal fields, inspect limits and save/reload | Prepared locally, not applied |
-| Graphics | Marketing worker inspects official template ZIP safely in temporary storage, reports actual specs, then prepares approved-source derivatives and provenance for visual review | Specs/export work pending |
+| Graphics | Official ZIP/artboard metadata inspected; inspect editable safe-area guides, then prepare approved-source derivatives and provenance for visual review | Template metadata complete; guide review/exports pending |
 | Layered art / trailer | Confirm requested delivery with actual template/portal; real compositing layers only, no newly invented imagery or unapproved public footage | Gaps recorded |
 | Candidate and QA | Build worker qualifies immutable source, DRM-free platform payloads and depot IDs, then protected Staging upload when configured | Tooling exists; no completed GOG candidate/upload claimed |
 | Product declarations | Verify developer/publisher, requirements/languages, rights, ratings/territories and price from current artifact/account evidence | Not filled with assumptions |
