@@ -77,6 +77,10 @@ The final publishing overview now explicitly states **“Your changes are now in
 
 ## Existing-account authentication check — 2026-10-31
 
-Snap already has authenticated listing access; its multilingual-field capability is the unresolved question. SourceForge's observed login page offers username/password, with no Google SSO shown. Bitwarden's matching-site autofill menu offered only **Add login**; this is not an exhaustive vault search, and the vault's lock state was not established.
+Snap already has authenticated listing access; its multilingual-field capability is the unresolved question. SourceForge's observed login page offers username/password, with no Google SSO shown. After the earlier matching-site menu check, the actual Bitwarden vault loaded without an unlock challenge. Full-vault searches for **sourceforge** and **sf.net** each returned **No items match your search**. An existing SourceForge credential still needs to be located or entered by the owner; no reset or new account was attempted.
 
-No existing Steam/itch tabs were available for the background session check. Further authentication/vault checks were deferred while the user handled GOG sign-in, not classified as inaccessible. GOG's earlier application is known; publisher-role/product access remains unverified as recorded in [GOG readiness](gog-release-readiness.md). No credentials, new accounts, resets or listing changes resulted from this check.
+The itch.io dashboard redirected to login, offering username/password or **Log in with GitHub**, with no Google SSO shown. The loaded vault's exact **itch.io** search found no matching item. Existing itch account identity/project control remains unverified; no GitHub account linking or signup was attempted.
+
+A saved Steam login was found and directly autofilled into the Steamworks sign-in, using **Autofill only** without changing saved site associations. The submitted existing login reached an **email verification-code challenge**. Email verification remains pending before publisher-role or Glob2 project-edit access can be checked. No code or password is recorded here; reaching this challenge does not establish Steamworks product control.
+
+These resumed checks supersede the earlier temporary deferral during GOG authentication. GOG's earlier application is known; publisher-role/product access remains unverified as recorded in [GOG readiness](gog-release-readiness.md). GOG tabs were preserved. No new account, reset, enrollment, fee, agreement, permission change or listing edit resulted from this audit.
