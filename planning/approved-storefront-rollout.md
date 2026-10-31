@@ -6,7 +6,17 @@
 
 On **2026-10-30**, after the final River battle and developed Four Squares strategic replacements, the user approved the presentation for use and instructed: “lets commit this and then apply this to all of our various storefroents”. The approval applies to the final copy and media displayed in the [local page](../assets/epic-page-preview/index.html), recorded at source revision `baa3093` before this approval entry.
 
-Apply this presentation to project-controlled storefront listings and their maintained metadata sources, with destination-specific field formatting and required asset exports. The instruction authorizes those listing updates. It does not establish account control, a successful upload, platform acceptance, a product release, or verified release metadata. Do not change game-build availability, price, account/privacy declarations, system requirements, release dates or ratings merely to make the profile look complete. No outreach or independent-catalog edits are included.
+Apply this presentation to project-controlled storefront listings and their maintained metadata sources, with destination-specific field formatting and required asset exports. The instruction authorizes those listing updates. It does not establish account control, a successful upload, platform acceptance, a product release, or verified release metadata. The later publishing authorization below now permits actual submissions and releases. Preserve truthful current-artifact qualification, prices, declarations, system requirements, dates and ratings rather than filling gaps with guesses. No outreach or independent-catalog edits are included.
+
+## Publishing and review submission authorized — 2026-10-30
+
+The user subsequently instructed:
+
+> We need to start getting these things live and start publishing, submitting them for approval, everything.
+
+This authorizes starting platform approval submissions and actual product publishing/releases, superseding the earlier presentation-only boundary. Existing complete reviews/releases can proceed after inspecting the actual current artifact, platform preflight and affected pending changes. Do not stop solely because the next action is Submit, Publish or Release; do not infer that authorization makes a platform-approved or live result exist.
+
+Legal, payment/fee, security and policy gates remain substantive: use truthful reviewed answers and artifacts, without blindly accepting agreements, paying fees or changing declarations to bypass a blocker. Preserve the approved-source-only imagery rule and selected `https://glob2.online/` main website. Source/hosting domain migration remains separately coordinated; this ledger records console release outcomes.
 
 ## Canonical domain update — 2026-10-30
 
@@ -91,7 +101,24 @@ No new outside image was introduced. Existing mobile-device screenshot galleries
 | iOS listing application | Applied; existing review pending | Approved promotional text/description and new Marketing URL saved and verified by fresh server reload. Existing Waiting for Review state, build 1002101, manual release and mobile assets unchanged. Existing Apple privacy/service URL `https://app.glob2online.com/account` preserved. |
 | Windows listing application | Applied to draft | US listing component is Complete after fresh reopen, with approved copy/media and new website/privacy URLs. Whole submission is unsubmitted: Main packages are incomplete and unrelated Gaming metadata is also changed. |
 | Epic required marketing fields | Applied to Dev draft | All required marketing sections saved and freshly reopened in the existing Work in Progress Dev product. No Stage promotion or Live listing. Actual sandbox store preview unverified; optional social preview remains empty. |
-| Cross-store application | In progress | Snap is live; Google Play feature art is in review; iOS is saved under its existing review state; Amazon/Windows remain unsubmitted drafts; Epic required marketing fields are saved in Dev. Mac is release-state locked and SourceForge recovery is pending. No all-store live/release completion claim. |
+| Cross-store application and publishing | In progress | Snap is live; Google Play feature art is in review; iOS is saved under its existing review state; Amazon/Windows remain unsubmitted drafts; Epic required marketing fields are saved in Dev. Mac is release-state locked and SourceForge recovery is pending. No all-store live/release completion claim. |
+
+## Current publication and review dependencies
+
+The following actions are now authorized; their dependencies and results remain to verify. This is an execution ledger, not a claim that these future steps have happened.
+
+| Destination | Current verified state | Next submission/release dependency |
+| --- | --- | --- |
+| Snap | Approved presentation live; stable 0.11.2 unchanged. | No new binary release is implied by the completed listing update. Any requested binary update still needs the actual candidate and normal release checks. |
+| Google Play | Existing closed-testing package; text cleared in console and exactly one feature-graphic change in review. | Confirm the current review/track state and eligible production route before any app rollout; metadata review is not production-build release. |
+| iOS | Existing Waiting for Review, build 1002101, manual release. | Confirm review outcome and current build; release after approval is authorized. No duplicate review submission is presumed necessary. |
+| Mac App Store | Pending Developer Release; marketing fields disabled. | Inspect the approved build and pending release before releasing or taking a necessary revision path. Do not cancel/release merely to unlock fields without checking the resulting submission scope. |
+| Microsoft Store | Listing component Complete; Main packages Incomplete and unrelated Gaming metadata Changed. | Resolve/validate the current Main package and inspect every included submission component. Publish is nonselective; listing completion alone is insufficient. |
+| Amazon Appstore | Existing Ready to Submit draft, APK 9050003; copy/promo saved. | Inspect the current APK and actual console validation/declarations, then submit if eligible. Draft metadata alone does not establish artifact qualification. |
+| Epic | Required marketing fields saved in Work in Progress Dev. | Inspect active Windows artifact, offer/platform requirements and Dev/Stage review readiness; actual storefront preview remains unverified. No Stage/Live promotion has yet been recorded. |
+| SourceForge | Existing project; credentials unavailable. | Owner access remains necessary; no credential reset or account creation has been performed. |
+| Steam / GOG / itch.io and other stores | Controlled listing/account identity not yet verified in this pass. | Establish the existing product/account and platform requirements; do not assume enrollment, contractual consent or fee payment. |
+| AppStream / downstream catalogs | Approved upstream metadata merged; no Flathub submission recorded. | Verify actual downstream listing/submission state and the documented platform requirements before claiming distribution publication. |
 
 ## Destination status
 
@@ -141,7 +168,7 @@ At the text-submission step, no builds, testing tracks, mobile visual assets, po
 
 Initial read-only checks of Microsoft Partner Center, Epic Developer Portal, Apple App Store Connect, Amazon Appstore Developer Console and SourceForge reached sign-in gates without authenticated editor access; no external listing updates occurred in that initial pass. Subsequent publisher sign-ins enabled Microsoft and Amazon editors. Amazon and Windows draft changes and iOS listing metadata are now saved and verified; Mac fields remain disabled by Pending Developer Release. Epic authenticated access subsequently reached the existing product and EGS editor; required marketing fields are now saved in the Dev draft. SourceForge remains pending recovery without credentials.
 
-Continue approved presentation updates only for existing controlled listings after access is established. Skip destinations without an existing listing; do not create accounts, reset SourceForge credentials or create new listings. The cross-store rollout remains in progress, with per-destination outcomes in the table above.
+Continue the newly authorized presentation, review-submission and publishing work for controlled products after access and platform readiness are established. Skip destinations without an existing listing; do not create accounts, reset SourceForge credentials or create new listings. The cross-store rollout remains in progress, with per-destination outcomes in the table above.
 
 ## Amazon saved draft — 2026-10-30
 
