@@ -3,8 +3,8 @@
 [Migration ledger](domain-migration.md) · [Planning index](README.md)
 
 Observed and changed on **2026-10-30**. This record describes the live application
-transition and the remaining website gate; it is not evidence of a new game
-release. All deployment operations targeted personal project
+transition, completed website/qualified frontend deployment and remaining
+browser-only metadata handoff; it is not evidence of a new game release. All deployment operations targeted personal project
 `bradley-personal-20261027`. Existing buckets whose names contain `pharaoh-418820`
 were retained. The former domain registration was not changed.
 
@@ -32,8 +32,9 @@ hostname as `GLOB2_ADDITIONAL_DOMAIN` and `GLOB2_AUTH_REDIRECT_DOMAIN`.
 application HTTPS origins. The relay list is comma-separated. The live Compose
 file includes the corresponding relay override and edge environment fields.
 
-The current edge image embeds its Caddy configuration. A graceful reload alone
-would not persist the migrated environment across a container restart. After
+Initially the old edge image embedded its prior Caddy configuration. A graceful
+reload alone would not persist the migrated configuration across a container
+restart. After
 checking for active matches, the edge was recreated with its existing image,
 certificate volumes and a temporary read-only configuration mount:
 
@@ -48,31 +49,30 @@ second short edge recreation; the correction retained image digest
 `sha256:f1aaadea67d60630cab9a664f30b051975b0d6d2fe2d73535926d6949f1e82f0`.
 The API, relay and database were not restarted for those edge corrections.
 
-### Remove the temporary edge bridge on the next qualified deployment
+### Temporary edge bridge retired
 
-The maintained game and release-mirror sources now contain the sign-in matcher,
-its environment fields, and the relay-origin override. When a qualified Caddy
-image containing those changes is deployed:
+The successful qualified frontend rollout below **removed** the temporary
+`/etc/caddy/Caddyfile` bind. The current image bakes the reviewed migration
+configuration. Certificate volumes, the read-only `/srv/play` bind, both domain
+allowlists and canonical-origin settings remain in place. The old bridge file and
+private rollback snapshot are retained only for rollback; they no longer override
+the running image.
 
-1. Preserve the private runtime environment, instance configuration and persistent
-   volumes. Confirm the candidate source/image contains all migration settings.
-2. Reconcile the deliberate domain changes in the VM checkout before checking out
-   another revision. The live Compose file has local migration changes; avoid a
-   blanket reset or clean that could discard concurrent work.
-3. Remove the temporary `/etc/caddy/Caddyfile` bind from Compose so the qualified
-   image supplies its maintained configuration. Keep the canonical and former-host
-   environment settings and both origin allowlists.
-4. Validate the effective configuration; check active matches before an edge
-   recreation. Recheck both hosts, sign-in redirects, recovery routes and realtime.
-5. Retire the bridge file only after successful deployment and rollback review.
-   Do not leave a host configuration silently overriding future image updates.
+For a future rollback, restore the prior image and bridge bind together while
+preserving the public bridge's original ownership and **0644** mode. Private
+backups and environment files remain private; never transfer a backup's **0600**
+mode onto a public runtime configuration file. Avoid blanket checkout/reset/clean
+operations on the VM's deliberately modified deployment checkout. Recheck active
+matches, both hosts, sign-in, recovery paths and realtime after any separately
+reviewed edge transition.
 
 ## Frontend activation incident and recovery
 
 The first narrow frontend activation attempt failed its immediate TLS startup
 probe. That initial result remains inconclusive: it does not establish a
-candidate regression or a successful rollout. The frontend candidate is **not
-deployed**.
+candidate regression or a successful rollout. At the recovery point described
+below, the candidate had been rolled back and was not deployed. The later
+successful rollout is recorded separately; it does not change this incident.
 
 The automatic rollback introduced a separate operator error. It restored the
 private backup's **0600** mode onto the non-secret public Caddy bridge rather
@@ -95,12 +95,60 @@ attempt or recovery. The independently verified website deployment, live
 `220b965` identity and complete former-website redirects remain separate,
 unchanged outcomes.
 
-Before a retry, require both the bounded readiness and rollback-metadata
-corrections and the actual non-root file/start permission audit. Hosting corrected
-the original-metadata restore and readiness handling; three local operational
-checks passed. Inventory is auditing the actual container's read/start permissions.
-This is a hold on retry until those checks are reviewed, not evidence that a
-candidate is live. Preserve the failed activation and rollback/recovery evidence.
+Before retrying, the operator corrected original-metadata restoration and bounded
+readiness, added emergency-recovery and detached-job guards, and passed eight
+operational guard tests. The actual production UID/GID **10001:10001** audit read
+and hashed all 513 public files; static files and the Caddyfile were **0644**, nine
+public directories were **0755**, and an isolated hardened start served both hosts
+over local-CA TLS. That isolated audit did not reproduce or explain the first
+production failure. The failed candidate container was removed before startup
+diagnostics were retained, so the original startup cause remains inconclusive.
+Preserve the failed activation and rollback/recovery evidence.
+
+## Completed qualified frontend rollout
+
+The separately approved detached one-shot
+`frontend-domain-20261031T022941Z-49f8dd0c` completed with exit **0** at
+**22:35:37.366 America/Toronto on 2026-10-30 / 02:35:37.366 UTC on 2026-10-31**.
+The active-match gate was **zero**. The final live loaded OCI image is:
+
+```text
+sha256:c44335a7ef05555fc3f1c0990e6d7e339eda7dac971b6ca14f41014fd314bef6
+```
+
+Its configuration ID is
+`sha256:0361b88e8110e892793c72affb93f228ead1acbc3f60024be84aa86e2e354d74`.
+Provenance is frontend mirror source `86d13e76f71587f4ce8dedb9e0ff61b4a9a3fec3`,
+reviewed public edge source `d01722f63167ebc1133de15360a4a9f46b292b62`, and design
+`220b965b061e402df7531fa0f9ad5104bf29a638`. All 513 frontend file hashes and all
+190 existing game-file hashes matched the reviewed manifests. API, relay and
+Postgres retained the same container identities, images and mounts. No game build,
+game release, API/relay recreation or database change occurred in this rollout.
+
+The strict bounded readiness check passed on both application hosts at **22:35:30
+Toronto / 02:35:30 UTC**. It waited through one observed SSL startup transient
+without weakening TLS verification or triggering a premature rollback. That later
+transient does not prove the cause of the earlier inconclusive startup failure.
+The temporary Caddy bridge bind was removed because the reviewed configuration is
+baked into the new image. The bridge file remains only as rollback material.
+
+Public live checks at **22:37:43 Toronto / 02:37:43 UTC** passed all **nine checks
+in each of Chromium and WebKit**: new About/download links, fallback-to-cookie
+migration, actual website/application and API-sign-in theme sharing, exact
+bootstrap GET/HEAD on both hosts, revalidation, case-sensitive routing, explicit
+cookie priority and old/new cookie isolation. Eight public TLS/API/play/mobile
+association routes returned **200**; all four former/new host and Origin
+WebSocket combinations and a relay-upgrade probe returned **101**. All 64 old
+hashed asset URLs retained their exact bytes. The full live monitor passed. Independent
+readback verified both public design manifests identify `220b965` and the
+exact API-page bootstrap/cache behavior.
+
+Qualification also passed 294 web unit tests. The broader adjusted frontend suite
+was **41 passed, five failed, four skipped**. Fresh equivalent baseline/candidate
+comparisons reproduced the same four failures and passed the fifth flaky case on
+both; no candidate-only failure appeared. Preserve these limits rather than
+calling the entire suite green. No multiplayer match was completed, and no live
+Firefox browser test body ran.
 
 ## Verified application behavior
 
@@ -123,13 +171,10 @@ candidate is live. Preserve the failed activation and rollback/recovery evidence
   device credentials remain backed by the same database. Retain the former
   application recovery and API endpoints during qualification of shipped clients.
 
-The currently deployed web assets still contain some former-domain website
-guide/download links. Their exact build provenance does not justify rebuilding
-unrelated application code during this cutover. These links now follow the verified
-former-website redirects until a separately qualified web release replaces them.
-The embedded design-system revision also keeps theme selection in the new app's
-origin-local storage but does not recognize the new shared website theme cookie;
-cross-subdomain preference sharing awaits the qualified frontend update.
+The deployed frontend now uses the new website/download destinations and design
+`220b965`. Website/application/API-page theme sharing and fallback migration are
+verified above. Former application API/recovery endpoints and old hashed asset
+URLs intentionally remain for shipped-client and open-tab compatibility.
 
 ## Feeds, variables and monitoring
 
@@ -227,10 +272,11 @@ The API-page bootstrap and asset-namespace CSP preservation follow-up is publish
 in [PR #1287](https://github.com/Globulation2/glob2/pull/1287), source `d01722f631`,
 merged as `3ca77178`. Focused real-Caddy cases passed. Candidate qualification is
 complete with explicit baseline-known failures retained by the implementation
-work unit. The first narrow Caddy activation was rolled back; the candidate is not deployed.
-The initial TLS startup failure is inconclusive, and retry is held for reviewed
-readiness, metadata restoration and non-root permission checks as recorded above. This source integration alone does not update
-the deployed frontend, API, edge or saved runtime preference state.
+work unit. The first narrow Caddy activation was rolled back, with the incident preserved
+above. Following reviewed readiness, metadata restoration and non-root permission
+checks, the qualified frontend is now live as separately verified in the completed
+rollout record. All related source PRs #58, #1286 and #1287 are merged and mirrored;
+no further source changes are required for the remaining browser-only handoff.
 
 ## Verification evidence and remaining operations
 
@@ -242,10 +288,16 @@ the website checkout's ignored `artifacts/domain-migration/`: `promotion.json`,
 website release artifacts are in `website-651401b-release/` (`release.json` and
 `promotion.json`), downloaded from the successful main run. These local artifacts are
 operator evidence, not public repository files; preserve private configuration
-and credential material outside Git.
+and credential material outside Git. The sanitized final application rollout
+summary is `frontend-candidate/live-rollout/final-rollout-evidence.json` in the
+game worktree's ignored domain-migration artifacts, alongside `REVIEW.md`,
+`candidate-image-manifest.json` and `permission-start-audit.json`. Its supporting
+`approved-job-result.json`, `live-browser-results.json` and `live-http-checks.json`
+record the activation and public checks. Website evidence also includes
+`post-frontend-live-monitor.log`.
 
-The website deployment and full website redirect matrix are complete. Remaining
-work is separate:
+The website deployment, full website redirect matrix and qualified application
+frontend rollout are complete. Remaining work requires the locked browser:
 
 1. Update OAuth branding home/privacy/terms links after verifying their current
    console fields. The new authorized domain and application callback are already
@@ -259,13 +311,11 @@ work is separate:
 3. Check the game repository's About homepage through its UI when the browser
    lease is available. The available REST update path returned 404; this does not
    establish that a maintainer cannot edit the website's About field.
-4. Review the incident readiness/rollback fixes and actual non-root file/start
-   permissions before retrying the qualified application frontend. A successful
-   future deployment must replace former-domain links and verify preference
-   sharing; the candidate is currently not deployed. Remove the temporary edge bridge
-   on the next qualified image deployment, using the earlier cleanup checklist.
 
-The hourly `finish-glob2-domain-migration` follow-up is saved for unfinished
-migration work. A scheduled check is separate from the verified deployment and
-redirect outcomes above. Keep former-domain registrations, DNS and certificates
+The hourly `finish-glob2-domain-migration` automation was **deleted** under its
+stop-on-user-action instruction once the remaining work required Mac unlock.
+The separate publishing chat already requested unlock; no duplicate request or
+competing UI action was made. Resume the authorized branding/About checks after
+unlock and coordinate the existing publishing lease; the Apple service field
+remains with that chat. Keep former-domain registrations, DNS and certificates
 maintained for inbound links and old application-client recovery.
