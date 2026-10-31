@@ -133,34 +133,71 @@ and no issues. This establishes observed HTTPS readiness; managed-certificate
 propagation is still in progress.
 
 [Website PR #57](https://github.com/Globulation2/glob2-online-website/pull/57)
-merged as `7d0d5e401c42b8d61cbec3598f489311f5409964`. Its pull-request verification
-passed, including all three hosted browser projects. The [main workflow](https://github.com/Globulation2/glob2-online-website/actions/runs/41150137135)
-is in progress and will test a preview before promoting the exact immutable
-version. Production promotion and former-domain redirects are not yet recorded
-as complete.
+merged as `7d0d5e401c42b8d61cbec3598f489311f5409964`. The [main workflow](https://github.com/Globulation2/glob2-online-website/actions/runs/41150137135)
+passed verification, including all three hosted browser projects, but its publish
+preview smoke encountered stale Firebase edge redirect configuration immediately
+after candidate release. The candidate API configuration was correct; the failed
+workflow did not promote production.
 
-## Remaining operations
+The exact existing candidate subsequently passed the complete smoke check:
+**29 handbook chapters and 237 immutable media assets**. The authorized operator
+then promoted that same immutable version, `c1941eff894c0639`, as release
+`1793407232643000` at **20:40:32 America/Toronto on 2026-10-30 / 00:40:32 UTC on
+2026-10-31**. No rebuild or asset substitution occurred. The previous production
+version is `8b593ba5415e69f4`; preserve it as the rollback reference.
 
-1. Verify the main workflow's preview checks and production promotion, then check
-   canonical URLs, public routes, app links and feed access on the new hosts.
-2. Set the former Firebase custom domains' `redirectTarget` to `glob2.online`.
-   The REST update mask is `redirectTarget`; this is a domain-level **301**.
-   Verify HTTP/HTTPS, apex/WWW, deep paths and query strings before recording the
-   redirect as complete. Set new WWW canonicalization separately as appropriate.
-   Preserve the old website's certificates throughout the redirect transition.
-3. Continue monitoring Firebase managed-certificate propagation; valid observed
-   HTTPS and a pending managed-certificate state are separate facts.
-4. Update OAuth branding home/privacy/terms links to the new website after the
-   migrated pages are verified. The new authorized domain and application callback
-   are already saved. Browser ownership remains with the separate publishing work;
-   avoid competing UI actions.
-5. Follow the [storefront destination ledger](approved-storefront-rollout.md#destination-status)
+The full live `https://glob2.online` smoke check passed after promotion. Home,
+downloads, privacy, terms and learn routes returned **200** with new-domain
+canonicals and no former-domain player links. Robots and sitemap use the new
+hostname; the theme metadata identifies `e826954`; the feed returned **200** with
+the new-origin CORS header. The original workflow publish failure remains
+historical evidence alongside this separate successful operator promotion.
+
+Around **20:42 Toronto**, the former apex/WWW domains and new WWW received
+`redirectTarget=glob2.online`. Both WWW hosts initially passed **301** checks while the former apex still returned
+stale **200** responses. The apex converged naturally. At **20:44 Toronto on
+2026-10-30 / 00:44 UTC on 2026-10-31**, all **12** HTTP/HTTPS root/deep-path cases
+for the former apex/WWW and new WWW returned **301** to `https://glob2.online`,
+preserving encoded queries exactly. Followed privacy routes on all three
+redirecting hosts reached the new **200** page. Firebase operations completed
+without errors, with active host/ownership/certificate states and no legacy-domain
+conflict. Former-domain certificates remain valid. The full live availability
+monitor passed.
+
+## Verification evidence and remaining operations
+
+Sanitized operational outcomes are recorded above. Detailed local evidence is in
+the website checkout's ignored `artifacts/domain-migration/`: `promotion.json`,
+`candidate-smoke.log`, `live-smoke.log`, `live-site-checks.json`,
+`domain-redirect-updates.json`, `domain-redirect-state.json`,
+`domain-redirect-checks.json` and `live-monitor.log`. These local artifacts are
+operator evidence, not public repository files; preserve private configuration
+and credential material outside Git.
+
+The website deployment and full website redirect matrix are complete. Remaining
+work is separate:
+
+1. Update OAuth branding home/privacy/terms links after verifying their current
+   console fields. The new authorized domain and application callback are already
+   saved. Browser ownership remains with the separate publishing work; avoid
+   competing UI actions.
+2. Follow the [storefront destination ledger](approved-storefront-rollout.md#destination-status)
    for verified new-domain listing fields rather than duplicating their saves.
    Apple's global privacy/service field still uses
    `https://app.glob2online.com/account`; its service-destination migration remains
    outstanding and must preserve its purpose.
+3. Check the game repository's About homepage through its UI when the browser
+   lease is available. The available REST update path returned 404; this does not
+   establish that a maintainer cannot edit the website's About field.
+4. Complete review/verification of the website operations and bounded Hosting
+   convergence follow-up in [PR #58](https://github.com/Globulation2/glob2-online-website/pull/58).
+   Preserve the original transient edge/first WebKit failure evidence; do not
+   treat the original main publish job as successful.
+5. Replace former-domain links and reconcile theme-preference sharing in the
+   separately qualified application frontend. Remove the temporary edge bridge
+   on the next qualified image deployment, using the earlier cleanup checklist.
 
 The hourly `finish-glob2-domain-migration` follow-up is saved for unfinished
-migration work. A scheduled check does not establish deployment or redirect
-completion. Keep the temporary edge-bridge cleanup on the next qualified image's
-checklist even after the website redirects are complete.
+migration work. A scheduled check is separate from the verified deployment and
+redirect outcomes above. Keep former-domain registrations, DNS and certificates
+maintained for inbound links and old application-client recovery.
