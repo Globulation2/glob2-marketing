@@ -164,13 +164,46 @@ without errors, with active host/ownership/certificate states and no legacy-doma
 conflict. Former-domain certificates remain valid. The full live availability
 monitor passed.
 
+## Subsequent source integration
+
+Website [PR #58](https://github.com/Globulation2/glob2-online-website/pull/58)
+merged as `651401b4130e4ccdf83d0712e931681f777f305f` after final hosted verification
+passed. It combines durable operations guidance, bounded Hosting convergence
+checks and the `220b965` theme-preservation baseline. The [new main workflow](https://github.com/Globulation2/glob2-online-website/actions/runs/41153025573)
+completed successfully for this source, with both verification and publication
+jobs passing. Independent `https://glob2.online/design-system.json` readback
+confirms `220b965b061e402df7531fa0f9ad5104bf29a638`. The run’s downloaded Hosting artifact records candidate and promoted version
+`2c873c3132936a9a`, production release `1793408963340000` and previous version
+`c1941eff894c0639`, with `unchanged=false`. The earlier `e826954` release remains
+historical evidence and a rollback reference, not the current theme.
+
+Public game [PR #1286](https://github.com/Globulation2/glob2/pull/1286) merged as
+`9c49bfb1c52a5f6a8f06a78950838a76980e0de2`. The release mirror normally merged
+its existing baseline and that reviewed upstream history as
+`fc90352cfcfa622e450121e094d4c6c43572b472` (parents `86d13e76` and `9c49bfb1`).
+The exact final tree matches the reviewed upstream; there was no force push,
+history rewrite or automatic deployment. The subsequent routing-source merge is
+`68f7fc038c3d758daf67a69ed9bf65f11e2e08a2` (parents `fc90352` and `3ca77178`),
+with exact tree matching reviewed upstream `3ca77178`; existing tags and history
+were preserved.
+
+The API-page bootstrap and asset-namespace CSP preservation follow-up is published
+in [PR #1287](https://github.com/Globulation2/glob2/pull/1287), source `d01722f631`,
+merged as `3ca77178`. Focused real-Caddy cases passed. Candidate qualification is
+complete with explicit baseline-known failures retained by the implementation
+work unit. Hosting owns the approved narrow Caddy rollout; live deployment and
+runtime readback remain pending. This source integration alone does not update
+the deployed frontend, API, edge or saved runtime preference state.
+
 ## Verification evidence and remaining operations
 
 Sanitized operational outcomes are recorded above. Detailed local evidence is in
 the website checkout's ignored `artifacts/domain-migration/`: `promotion.json`,
 `candidate-smoke.log`, `live-smoke.log`, `live-site-checks.json`,
 `domain-redirect-updates.json`, `domain-redirect-state.json`,
-`domain-redirect-checks.json` and `live-monitor.log`. These local artifacts are
+`domain-redirect-checks.json` and `live-monitor.log`. The subsequent automatic
+website release artifacts are in `website-651401b-release/` (`release.json` and
+`promotion.json`), downloaded from the successful main run. These local artifacts are
 operator evidence, not public repository files; preserve private configuration
 and credential material outside Git.
 
@@ -189,11 +222,7 @@ work is separate:
 3. Check the game repository's About homepage through its UI when the browser
    lease is available. The available REST update path returned 404; this does not
    establish that a maintainer cannot edit the website's About field.
-4. Complete review/verification of the website operations and bounded Hosting
-   convergence follow-up in [PR #58](https://github.com/Globulation2/glob2-online-website/pull/58).
-   Preserve the original transient edge/first WebKit failure evidence; do not
-   treat the original main publish job as successful.
-5. Replace former-domain links and reconcile theme-preference sharing in the
+4. Replace former-domain links and reconcile theme-preference sharing in the
    separately qualified application frontend. Remove the temporary edge bridge
    on the next qualified image deployment, using the earlier cleanup checklist.
 
