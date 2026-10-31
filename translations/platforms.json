@@ -1,0 +1,817 @@
+{
+  "schema_version": 1,
+  "locales": [
+    "ar",
+    "pt-BR",
+    "ca",
+    "cs",
+    "de",
+    "da",
+    "en",
+    "es",
+    "eo",
+    "eu",
+    "fa",
+    "fr",
+    "el",
+    "hu",
+    "it",
+    "nl",
+    "pl",
+    "pt-PT",
+    "ro",
+    "ru",
+    "sl",
+    "sk",
+    "sr-Cyrl",
+    "fi",
+    "sv",
+    "tr",
+    "zh-Hant",
+    "zh-Hans",
+    "uk",
+    "id",
+    "vi",
+    "ja",
+    "ko"
+  ],
+  "description_paragraphs": [
+    [
+      "listing_intro"
+    ],
+    [
+      "economy_heading",
+      "economy_body"
+    ],
+    [
+      "map_heading",
+      "map_body"
+    ],
+    [
+      "defense_heading",
+      "defense_body"
+    ],
+    [
+      "listing_open_source"
+    ]
+  ],
+  "notes": [
+    "Mappings are export candidates, not evidence of current console support or editability. Reconcile against current platform locale selector before upload.",
+    "Amazon and Snap non-English locales remain unsupported/unverified pending editable console inspection.",
+    "No binary language declarations or release notes are exported.",
+    "Epic and Amazon platform-specific existing tails/features must be preserved until exact saved fields are reconciled; generic export is preparation only."
+  ],
+  "sources": {
+    "google-play": "https://support.google.com/googleplay/android-developer/answer/9844778?hl=en",
+    "apple": "https://developer.apple.com/help/app-store-connect/reference/app-information/app-store-localizations",
+    "epic": "https://dev.epicgames.com/docs/epic-games-store/store-presence/localization"
+  },
+  "platforms": {
+    "google-play": {
+      "locales": {
+        "ar": "ar",
+        "pt-BR": "pt-BR",
+        "ca": "ca",
+        "cs": "cs-CZ",
+        "de": "de-DE",
+        "da": "da-DK",
+        "en": "en-US",
+        "es": "es-ES",
+        "eu": "eu-ES",
+        "fa": "fa",
+        "fr": "fr-FR",
+        "el": "el-GR",
+        "hu": "hu-HU",
+        "it": "it-IT",
+        "nl": "nl-NL",
+        "pl": "pl-PL",
+        "pt-PT": "pt-PT",
+        "ro": "ro",
+        "ru": "ru-RU",
+        "sl": "sl",
+        "sk": "sk",
+        "sr-Cyrl": "sr",
+        "fi": "fi-FI",
+        "sv": "sv-SE",
+        "tr": "tr-TR",
+        "zh-Hant": "zh-TW",
+        "zh-Hans": "zh-CN",
+        "uk": "uk",
+        "id": "id",
+        "vi": "vi",
+        "ja": "ja-JP",
+        "ko": "ko-KR"
+      },
+      "fields": {
+        "title": {
+          "paragraphs": [
+            [
+              "product_name"
+            ]
+          ],
+          "limit": 30
+        },
+        "short_description": {
+          "paragraphs": [
+            [
+              "headline"
+            ]
+          ],
+          "limit": 80
+        },
+        "full_description": {
+          "paragraphs": [
+            [
+              "headline"
+            ],
+            [
+              "listing_intro"
+            ],
+            [
+              "economy_heading",
+              "economy_body"
+            ],
+            [
+              "map_heading",
+              "map_body"
+            ],
+            [
+              "defense_heading",
+              "defense_body"
+            ],
+            [
+              "listing_open_source"
+            ],
+            [
+              "android_tail"
+            ]
+          ],
+          "limit": 4000
+        }
+      },
+      "mapping_status": "requires_current_console_verification"
+    },
+    "ios": {
+      "locales": {
+        "ar": "ar",
+        "pt-BR": "pt-BR",
+        "ca": "ca",
+        "cs": "cs",
+        "de": "de",
+        "da": "da",
+        "en": "en-US",
+        "es": "es-ES",
+        "fr": "fr",
+        "el": "el",
+        "hu": "hu",
+        "it": "it",
+        "nl": "nl",
+        "pl": "pl",
+        "pt-PT": "pt-PT",
+        "ro": "ro",
+        "ru": "ru",
+        "sk": "sk",
+        "fi": "fi",
+        "sv": "sv",
+        "tr": "tr",
+        "zh-Hant": "zh-Hant",
+        "zh-Hans": "zh-Hans",
+        "uk": "uk",
+        "id": "id",
+        "vi": "vi",
+        "ja": "ja",
+        "ko": "ko"
+      },
+      "fields": {
+        "name": {
+          "paragraphs": [
+            [
+              "product_name"
+            ]
+          ],
+          "limit": 30
+        },
+        "subtitle": {
+          "paragraphs": [
+            [
+              "ios_subtitle"
+            ]
+          ],
+          "limit": 30
+        },
+        "promotionalText": {
+          "paragraphs": [
+            [
+              "short_pitch"
+            ]
+          ],
+          "limit": 170
+        },
+        "keywords": {
+          "paragraphs": [
+            [
+              "ios_keywords"
+            ]
+          ],
+          "limit": 100
+        },
+        "description": {
+          "paragraphs": [
+            [
+              "headline"
+            ],
+            [
+              "listing_intro"
+            ],
+            [
+              "economy_heading",
+              "economy_body"
+            ],
+            [
+              "map_heading",
+              "map_body"
+            ],
+            [
+              "defense_heading",
+              "defense_body"
+            ],
+            [
+              "listing_open_source"
+            ],
+            [
+              "ios_tail"
+            ]
+          ],
+          "limit": 4000
+        }
+      },
+      "mapping_status": "requires_current_console_verification"
+    },
+    "mac": {
+      "locales": {
+        "ar": "ar",
+        "pt-BR": "pt-BR",
+        "ca": "ca",
+        "cs": "cs",
+        "de": "de",
+        "da": "da",
+        "en": "en-US",
+        "es": "es-ES",
+        "fr": "fr",
+        "el": "el",
+        "hu": "hu",
+        "it": "it",
+        "nl": "nl",
+        "pl": "pl",
+        "pt-PT": "pt-PT",
+        "ro": "ro",
+        "ru": "ru",
+        "sk": "sk",
+        "fi": "fi",
+        "sv": "sv",
+        "tr": "tr",
+        "zh-Hant": "zh-Hant",
+        "zh-Hans": "zh-Hans",
+        "uk": "uk",
+        "id": "id",
+        "vi": "vi",
+        "ja": "ja",
+        "ko": "ko"
+      },
+      "fields": {
+        "name": {
+          "paragraphs": [
+            [
+              "product_name"
+            ]
+          ],
+          "limit": 30
+        },
+        "subtitle": {
+          "paragraphs": [
+            [
+              "ios_subtitle"
+            ]
+          ],
+          "limit": 30
+        },
+        "promotionalText": {
+          "paragraphs": [
+            [
+              "short_pitch"
+            ]
+          ],
+          "limit": 170
+        },
+        "keywords": {
+          "paragraphs": [
+            [
+              "ios_keywords"
+            ]
+          ],
+          "limit": 100
+        },
+        "description": {
+          "paragraphs": [
+            [
+              "headline"
+            ],
+            [
+              "listing_intro"
+            ],
+            [
+              "economy_heading",
+              "economy_body"
+            ],
+            [
+              "map_heading",
+              "map_body"
+            ],
+            [
+              "defense_heading",
+              "defense_body"
+            ],
+            [
+              "listing_open_source"
+            ]
+          ],
+          "limit": 4000
+        }
+      },
+      "mapping_status": "requires_current_console_verification"
+    },
+    "microsoft": {
+      "locales": {
+        "ar": "ar",
+        "pt-BR": "pt-br",
+        "ca": "ca",
+        "cs": "cs",
+        "de": "de",
+        "da": "da",
+        "en": "en",
+        "es": "es",
+        "eu": "eu",
+        "fa": "fa",
+        "fr": "fr",
+        "el": "el",
+        "hu": "hu",
+        "it": "it",
+        "nl": "nl",
+        "pl": "pl",
+        "pt-PT": "pt-pt",
+        "ro": "ro",
+        "ru": "ru",
+        "sl": "sl",
+        "sk": "sk",
+        "sr-Cyrl": "sr-cyrl",
+        "fi": "fi",
+        "sv": "sv",
+        "tr": "tr",
+        "zh-Hant": "zh-hant",
+        "zh-Hans": "zh-hans",
+        "uk": "uk",
+        "id": "id",
+        "vi": "vi",
+        "ja": "ja",
+        "ko": "ko"
+      },
+      "fields": {
+        "title": {
+          "paragraphs": [
+            [
+              "product_name"
+            ]
+          ],
+          "limit": null
+        },
+        "short_description": {
+          "paragraphs": [
+            [
+              "short_pitch"
+            ]
+          ],
+          "limit": 270
+        },
+        "description": {
+          "paragraphs": [
+            [
+              "headline"
+            ],
+            [
+              "listing_intro"
+            ],
+            [
+              "economy_heading",
+              "economy_body"
+            ],
+            [
+              "map_heading",
+              "map_body"
+            ],
+            [
+              "defense_heading",
+              "defense_body"
+            ],
+            [
+              "listing_open_source"
+            ],
+            [
+              "windows_tail"
+            ]
+          ],
+          "limit": 10000
+        },
+        "feature_1": {
+          "paragraphs": [
+            [
+              "windows_feature_1"
+            ]
+          ],
+          "limit": 200
+        },
+        "search_term": {
+          "paragraphs": [
+            [
+              "windows_search_term"
+            ]
+          ],
+          "limit": 40
+        },
+        "feature_2": {
+          "paragraphs": [
+            [
+              "windows_feature_2"
+            ]
+          ],
+          "limit": 200
+        },
+        "feature_3": {
+          "paragraphs": [
+            [
+              "windows_feature_3"
+            ]
+          ],
+          "limit": 200
+        },
+        "feature_4": {
+          "paragraphs": [
+            [
+              "windows_feature_4"
+            ]
+          ],
+          "limit": 200
+        }
+      },
+      "mapping_status": "requires_current_console_verification"
+    },
+    "amazon": {
+      "locales": {
+        "en": "en-US"
+      },
+      "fields": {
+        "title": {
+          "paragraphs": [
+            [
+              "product_name"
+            ]
+          ],
+          "limit": 200
+        },
+        "short_description": {
+          "paragraphs": [
+            [
+              "short_pitch"
+            ]
+          ],
+          "limit": 1200
+        },
+        "description": {
+          "paragraphs": [
+            [
+              "headline"
+            ],
+            [
+              "listing_intro"
+            ],
+            [
+              "economy_heading",
+              "economy_body"
+            ],
+            [
+              "map_heading",
+              "map_body"
+            ],
+            [
+              "defense_heading",
+              "defense_body"
+            ],
+            [
+              "listing_open_source"
+            ],
+            [
+              "amazon_tail"
+            ]
+          ],
+          "limit": 4000
+        },
+        "feature_1": {
+          "paragraphs": [
+            [
+              "amazon_feature_1"
+            ]
+          ],
+          "limit": null
+        },
+        "feature_2": {
+          "paragraphs": [
+            [
+              "amazon_feature_2"
+            ]
+          ],
+          "limit": null
+        },
+        "feature_3": {
+          "paragraphs": [
+            [
+              "amazon_feature_3"
+            ]
+          ],
+          "limit": null
+        },
+        "feature_4": {
+          "paragraphs": [
+            [
+              "amazon_feature_4"
+            ]
+          ],
+          "limit": null
+        },
+        "feature_5": {
+          "paragraphs": [
+            [
+              "amazon_feature_5"
+            ]
+          ],
+          "limit": null
+        },
+        "feature_6": {
+          "paragraphs": [
+            [
+              "amazon_feature_6"
+            ]
+          ],
+          "limit": null
+        }
+      },
+      "mapping_status": "requires_current_console_verification"
+    },
+    "epic": {
+      "locales": {
+        "ar": "ar",
+        "pt-BR": "pt-BR",
+        "cs": "cs",
+        "de": "de",
+        "da": "da",
+        "en": "en",
+        "es": "es-ES",
+        "fr": "fr",
+        "el": "el",
+        "hu": "hu",
+        "it": "it",
+        "nl": "nl",
+        "pl": "pl",
+        "pt-PT": "pt",
+        "ro": "ro",
+        "ru": "ru",
+        "fi": "fi",
+        "sv": "sv",
+        "tr": "tr",
+        "zh-Hant": "zh-Hant",
+        "zh-Hans": "zh-CN",
+        "uk": "uk",
+        "id": "id",
+        "vi": "vi",
+        "ja": "ja",
+        "ko": "ko"
+      },
+      "fields": {
+        "title": {
+          "paragraphs": [
+            [
+              "product_name"
+            ]
+          ],
+          "limit": null
+        },
+        "short_description": {
+          "paragraphs": [
+            [
+              "short_pitch"
+            ]
+          ],
+          "limit": null
+        },
+        "description": {
+          "paragraphs": [
+            [
+              "headline"
+            ],
+            [
+              "listing_intro"
+            ],
+            [
+              "economy_heading",
+              "economy_body"
+            ],
+            [
+              "map_heading",
+              "map_body"
+            ],
+            [
+              "defense_heading",
+              "defense_body"
+            ],
+            [
+              "listing_open_source"
+            ],
+            [
+              "epic_tail"
+            ]
+          ],
+          "limit": null
+        },
+        "legal": {
+          "paragraphs": [
+            [
+              "epic_legal"
+            ]
+          ],
+          "limit": null
+        }
+      },
+      "mapping_status": "requires_current_console_verification"
+    },
+    "snap": {
+      "locales": {
+        "en": "en"
+      },
+      "fields": {
+        "summary": {
+          "paragraphs": [
+            [
+              "headline"
+            ]
+          ],
+          "limit": 79
+        },
+        "description": {
+          "paragraphs": [
+            [
+              "headline"
+            ],
+            [
+              "listing_intro"
+            ],
+            [
+              "economy_heading",
+              "economy_body"
+            ],
+            [
+              "map_heading",
+              "map_body"
+            ],
+            [
+              "defense_heading",
+              "defense_body"
+            ],
+            [
+              "listing_open_source"
+            ]
+          ],
+          "limit": null
+        }
+      },
+      "mapping_status": "requires_current_console_verification"
+    },
+    "fastlane": {
+      "locales": {
+        "ar": "ar",
+        "pt-BR": "pt-BR",
+        "ca": "ca",
+        "cs": "cs",
+        "de": "de",
+        "da": "da",
+        "en": "en-US",
+        "es": "es",
+        "eo": "eo",
+        "eu": "eu",
+        "fa": "fa",
+        "fr": "fr",
+        "el": "el",
+        "hu": "hu",
+        "it": "it",
+        "nl": "nl",
+        "pl": "pl",
+        "pt-PT": "pt-PT",
+        "ro": "ro",
+        "ru": "ru",
+        "sl": "sl",
+        "sk": "sk",
+        "sr-Cyrl": "sr",
+        "fi": "fi",
+        "sv": "sv",
+        "tr": "tr",
+        "zh-Hant": "zh-TW",
+        "zh-Hans": "zh-CN",
+        "uk": "uk",
+        "id": "id",
+        "vi": "vi",
+        "ja": "ja",
+        "ko": "ko"
+      },
+      "fields": {
+        "title": {
+          "paragraphs": [
+            [
+              "product_name"
+            ]
+          ],
+          "limit": 30
+        },
+        "short_description": {
+          "paragraphs": [
+            [
+              "headline"
+            ]
+          ],
+          "limit": 80
+        },
+        "full_description": {
+          "paragraphs": [
+            [
+              "headline"
+            ],
+            [
+              "listing_intro"
+            ],
+            [
+              "economy_heading",
+              "economy_body"
+            ],
+            [
+              "map_heading",
+              "map_body"
+            ],
+            [
+              "defense_heading",
+              "defense_body"
+            ],
+            [
+              "listing_open_source"
+            ],
+            [
+              "android_tail"
+            ]
+          ],
+          "limit": 4000
+        }
+      },
+      "mapping_status": "requires_current_console_verification"
+    }
+  },
+  "upstream_locales": {
+    "ar": "ar",
+    "pt-BR": "pt_BR",
+    "ca": "ca",
+    "cs": "cs",
+    "de": "de",
+    "da": "da",
+    "en": "en",
+    "es": "es",
+    "eo": "eo",
+    "eu": "eu",
+    "fa": "fa",
+    "fr": "fr",
+    "el": "el",
+    "hu": "hu",
+    "it": "it",
+    "nl": "nl",
+    "pl": "pl",
+    "pt-PT": "pt_PT",
+    "ro": "ro",
+    "ru": "ru",
+    "sl": "sl",
+    "sk": "sk",
+    "sr-Cyrl": "sr",
+    "fi": "fi",
+    "sv": "sv",
+    "tr": "tr",
+    "zh-Hant": "zh_TW",
+    "zh-Hans": "zh_CN",
+    "uk": "uk",
+    "id": "id",
+    "vi": "vi",
+    "ja": "ja",
+    "ko": "ko"
+  }
+}
