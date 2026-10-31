@@ -305,9 +305,24 @@ branding recheck is claimed.
 Screenshots remain outside Git in the game worktree's ignored
 `artifacts/domain-migration/branding/`: `saved-branding-links.png`,
 `ownership-verified.png` and `verification-issue.png`. Chrome control was released
-back to the separate publishing chat. GitHub is signed out; its retained login
-page requires user sign-in before the About editor's actual capability can be
-checked. No account permission changes were made.
+back to the separate publishing chat. No account permission changes were made.
+
+## Apple service field and retained legacy homepage — 2026-10-31
+
+The separately coordinated publishing work saved the optional Apple **User Privacy
+Choices URL** as `https://app.glob2.online/account` and verified the persisted
+value by fresh reload. This is the optional account/service endpoint, **not the
+Privacy Policy URL**. The actual Privacy Policy URL remains the existing GitHub
+`docs/mobile/privacy-policy.md` destination; privacy-data answers were preserved.
+The earlier session-expiry/reauthentication gap is no longer outstanding. Follow
+the [storefront ledger](approved-storefront-rollout.md#destination-status) for its
+separate release/submission states.
+
+The user clarified that the migration changes `glob2online.com` references and
+leaves the game repository's `globulation2.org` About homepage alone. That legacy
+homepage is deliberately unchanged. GitHub sign-in or About-editor capability is
+therefore no longer a migration prerequisite. The website repository About field
+was already changed from the former modern domain to `https://glob2.online/`.
 
 ## Verification evidence and remaining operations
 
@@ -327,26 +342,17 @@ game worktree's ignored domain-migration artifacts, alongside `REVIEW.md`,
 record the activation and public checks. Website evidence also includes
 `post-frontend-live-monitor.log`.
 
-The website deployment, full website redirect matrix and qualified application
-frontend rollout are complete. Remaining work is limited to account/provider
-follow-up:
-
-1. Retry Google branding verification after the instructed 24-hour ownership
-   propagation interval. The new branding URLs are persisted and reachable;
-   Search Console ownership is verified, but branding verification is unconfirmed.
-2. Follow the [storefront destination ledger](approved-storefront-rollout.md#destination-status)
-   for verified new-domain listing fields rather than duplicating their saves.
-   Apple's global privacy/service field still uses
-   `https://app.glob2online.com/account`; its migration remains with the separate
-   publishing chat and must preserve its purpose.
-3. After the user signs in to GitHub, check the game repository's About homepage
-   through its UI while coordinating the publishing chat's browser lease. The
-   available REST update path returned 404; it does not establish that a maintainer
-   cannot edit the About website field.
+The website deployment, full website redirect matrix, qualified application
+frontend rollout and Apple service-field replacement are complete. The only
+remaining migration gate is **Google branding verification** after the instructed
+24-hour ownership-propagation interval. The new branding URLs are persisted and
+reachable, and Search Console ownership is verified; do not mark branding
+verification complete before a successful recheck. Retry no earlier than
+**2026-11-01 11:34 UTC / 06:34 Toronto** after the clock change.
 
 The hourly `finish-glob2-domain-migration` automation was **deleted** under its
 stop-on-user-action instruction when the earlier Mac-lock gate required user
-input. That gate has cleared, and no schedule has been recreated. Chrome was
-released back to the publishing chat; this documentation work made no competing
-UI action or duplicate sign-in request. Keep former-domain registrations, DNS and
+input. That gate has cleared, and no schedule has been recreated. Chrome remains
+released to the publishing chat; no GitHub login or About edit is required for the
+user-defined migration scope. Keep former-domain registrations, DNS and
 certificates maintained for inbound links and old application-client recovery.
