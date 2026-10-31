@@ -93,6 +93,20 @@ Icon-template names and some artboard bounds differ (for example, a board named 
 
 The normal release-mirror merge `f72ceca5541b6ac79fa58f661528771985bf9d08` retains both histories and has the exact reviewed public tree `a54eb9698cff5b78150e455ec5c415b2d651e5c0`. [Run 41220221276](https://github.com/genixpro/glob2-release/actions/runs/41220221276) was dispatched with `tag=v0.11.4.0`, `mode=build`, `platforms=all`, `reuse_released_payload=true`. This records a dispatch, **not completed candidates, successful native qualification or an upload**. No GOG credentials/product IDs/builder hash are verified; no source rebuild or GOG submission is claimed.
 
+## Partial candidate results and Linux retry — 2026-10-31
+
+[Run 41220221276](https://github.com/genixpro/glob2-release/actions/runs/41220221276) completed with overall failure **only in Linux**, where the packaging environment lacked existing `libva.so.2` and `libva-drm.so.2` dependencies. Windows, Mac arm64 and Mac x86_64 jobs succeeded, including native payload preservation, archive roundtrip and smoke checks. Retained outputs:
+
+| Depot | GitHub artifact ID | Bytes | GitHub API artifact SHA-256 |
+| --- | --- | --- | --- |
+| Windows | `13049293985` | 178,920,545 | `7bc8b68f34b762b345ddb2983e90f8d8648cba9d04e8c4fa738ff378aae703ca` |
+| Mac arm64 | `13049837290` | 170,893,887 | `d942426cbbfe4e6f8668a3cefb1fd0b73c1631e67f15cef390d35309dd684f5d` |
+| Mac x86_64 | `13049573136` | 173,102,350 | `d2e7fb07b0e14546a273d3970069ad28c75bbc15c2dd451bb0126872ab9948bc` |
+
+All three artifact containers currently expire **2027-01-29 16:33:05 UTC**; none has been downloaded or published as a public release by this record. These are **GitHub API artifact digests**, not hashes of an inner depot archive. Native CI smoke/preservation checks do not establish GOG offline-installer delivery, full gameplay qualification, Staging or platform QA acceptance.
+
+[PR #1300](https://github.com/Globulation2/glob2/pull/1300), the narrow packaging dependency-list fix, merged as `5793d3f242bc35fd67d0e9d2844e3a653b50a7c0`. Normal mirror merge `070f2d642fedef6535133a0fbdb2729b70defd95` matches reviewed public tree `62321cd9ef3a71e4f19528534ebf4162bab241ff`. Corrected **Linux-only build** [run 41220918563](https://github.com/genixpro/glob2-release/actions/runs/41220918563) has verified workflow head `070f2d642fedef6535133a0fbdb2729b70defd95`, passed preflight and is executing dependency closure; its completion and final dependency/license provenance remain unverified. Released payload/source `a766230578dede730be43919240c5c80fafb44fe` is unchanged. No upload, GOG offline installer, QA submission or Live result is claimed.
+
 ## Product declarations evidence — 2026-10-31
 
 This matrix uses immutable **v0.11.4.0 source `a766230578dede730be43919240c5c80fafb44fe`** as evidence, not older store-build declarations. The separately owned GOG candidate must supply actual package identity and qualification before these become portal promises.
@@ -116,7 +130,7 @@ The public-trailer gap remains as recorded above. This evidence preparation chan
 | Copy | Transfer approved blocks into actual portal fields, inspect limits and save/reload | Prepared locally, not applied |
 | Graphics | Official ZIP/artboards/embedded guides inspected; core approved-source derivatives and genuine layered PSDs prepared and visually reviewed | Complete locally; portal acceptance unverified |
 | Layered art / trailer | Layered product/key art prepared with genuine raster layers and disclosed native origins; confirm actual delivery acceptance. Public trailer remains absent | Layered exports reviewed; trailer/portal gaps remain |
-| Candidate and QA | Build worker qualifies immutable source, DRM-free platform payloads and depot IDs, then protected Staging upload when configured | [Released-payload build-only run dispatched](#released-payload-build-only-checkpoint--2026-10-31); completion/candidates/native qualification and upload unverified |
+| Candidate and QA | Build worker qualifies immutable source, DRM-free platform payloads and depot IDs, then protected Staging upload when configured | [Windows and both Mac outputs passed native CI checks](#partial-candidate-results-and-linux-retry--2026-10-31); corrected Linux-only run ongoing. No GOG upload/offline installer/QA claimed |
 | Product declarations | Verify developer/publisher, requirements/languages, rights, ratings/territories and price from current artifact/account evidence | Not filled with assumptions |
 | Release | GOG QA/approval and actual branch/publication outcome | Not submitted or live |
 
