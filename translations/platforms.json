@@ -57,15 +57,19 @@
   ],
   "notes": [
     "Mappings are export candidates, not evidence of current console support or editability. Reconcile against current platform locale selector before upload.",
-    "Amazon and Snap non-English locales remain unsupported/unverified pending editable console inspection.",
     "No binary language declarations or release notes are exported.",
-    "Epic and Amazon platform-specific existing tails/features must be preserved until exact saved fields are reconciled; generic export is preparation only."
+    "Epic and Amazon platform-specific existing tails/features must be preserved until exact saved fields are reconciled; generic export is preparation only.",
+    "Snap non-English locale fields remain unverified. Amazon documented supported language labels are exported even while current review prevents saving; exact API codes must be reconciled before use."
   ],
   "sources": {
     "google-play": "https://support.google.com/googleplay/android-developer/answer/9844778?hl=en",
     "apple": "https://developer.apple.com/help/app-store-connect/reference/app-information/app-store-localizations",
     "epic": "https://dev.epicgames.com/docs/epic-games-store/store-presence/localization",
-    "apple-shortcodes": "https://developer.apple.com/documentation/appstoreconnectapi/managing-metadata-in-your-app-by-using-locale-shortcodes"
+    "apple-shortcodes": "https://developer.apple.com/documentation/appstoreconnectapi/managing-metadata-in-your-app-by-using-locale-shortcodes",
+    "amazon": "https://www.developer.amazon.com/docs/app-submission/distribute-your-app-internationally.html",
+    "amazon-api-codes": "https://developer.amazon.com/docs/app-submission-api/flows.html#supported-languages",
+    "microsoft": "https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/supported-languages?pivots=store-installer-msix",
+    "microsoft-import": "https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/import-and-export-store-listings?pivots=store-installer-msix"
   },
   "platforms": {
     "google-play": {
@@ -351,7 +355,7 @@
         "cs": "cs",
         "de": "de",
         "da": "da",
-        "en": "en",
+        "en": "en-us",
         "es": "es",
         "eu": "eu",
         "fa": "fa",
@@ -370,8 +374,8 @@
         "fi": "fi",
         "sv": "sv",
         "tr": "tr",
-        "zh-Hant": "zh-hant",
-        "zh-Hans": "zh-hans",
+        "zh-Hant": "zh-tw",
+        "zh-Hans": "zh-cn",
         "uk": "uk",
         "id": "id",
         "vi": "vi",
@@ -469,7 +473,17 @@
     },
     "amazon": {
       "locales": {
-        "en": "en-US"
+        "en": "English (United States)",
+        "nl": "Dutch",
+        "fr": "French",
+        "de": "German",
+        "it": "Italian",
+        "ja": "Japanese",
+        "pl": "Polish",
+        "pt-BR": "Portuguese (Brazil)",
+        "pt-PT": "Portuguese (Portugal)",
+        "es": "Spanish",
+        "sv": "Swedish"
       },
       "fields": {
         "title": {
@@ -566,7 +580,9 @@
           "limit": null
         }
       },
-      "mapping_status": "requires_current_console_verification"
+      "mapping_status": "documented_language_support_exact_API_shortcode_and_console_editability_pending",
+      "locale_identifier_kind": "documented_console_language_label_not_API_shortcode",
+      "mapping_notes": "Current international distribution docs give these console language labels. API Task Flows has a differing older code subset using underscores; community API examples use hyphens. Do not infer API wire identifiers from labels. All exports remain preparation only."
     },
     "epic": {
       "locales": {
@@ -578,7 +594,6 @@
         "en": "en",
         "es": "es-ES",
         "fr": "fr",
-        "el": "el",
         "hu": "hu",
         "it": "it",
         "nl": "nl",
@@ -779,7 +794,8 @@
           "limit": 4000
         }
       },
-      "mapping_status": "requires_current_console_verification"
+      "mapping_status": "requires_current_console_verification",
+      "mapping_notes": "Maintained F-Droid Fastlane locale directories; generic locale IDs are intentional. Google Play payload uses the separate google-play adapter and must not consume these generic F-Droid directories as a ready Play upload."
     }
   },
   "upstream_locales": {

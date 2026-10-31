@@ -114,6 +114,8 @@ def platform_payload(fields, platform):
 
 
 def export(root, destination, require_review=True):
+    if destination.exists() and any(destination.iterdir()):
+        raise ValueError('Export destination must be empty; use a fresh directory to prevent stale locale payloads surviving configuration changes')
     errors, catalogs = validate(root, require_review)
     if errors:
         raise ValueError('\n'.join(errors))

@@ -65,6 +65,13 @@ class StorefrontTests(unittest.TestCase):
         self.assertEqual('Build & grow', payload['summary'])
         self.assertTrue(errors)
 
+    def test_refuses_nonempty_export_to_prevent_stale_locales(self):
+        out = self.root / 'out'
+        out.mkdir()
+        (out / 'stale.json').write_text('preserve')
+        self.assertRaisesRegex(ValueError, 'must be empty', S.export, self.root, out)
+        self.assertEqual('preserve', (out / 'stale.json').read_text())
+
     def test_export_mapping_xml_safety_and_preparation_status(self):
         out = self.root / 'out'
         S.export(self.root, out)
