@@ -1,37 +1,42 @@
 # iOS App Review response draft
 
-**Draft only, 2026-10-31.** The six sections below are the shared reply / App Review Notes text. Replace bracketed gaps before sending.
+**Draft only, 2026-10-31.** The six sections below are prepared for the same review reply and App Review Notes. The user has not yet chosen between supplementary footage and sending the existing clip with its coverage/signing disclosure. No reply, Notes update or resubmission is claimed.
 
 ## Reviewer response
 
 1. Physical-device recording
-[RECORDING LINK OR ATTACHMENT; DEVICE MODEL; LATEST SUPPORTED PUBLIC OS VERSION/BUILD FOR THIS DEVICE; INSTALLATION ROUTE AND ANY SIGNING DIFFERENCE; TIMESTAMPS]. The recording must show Globulation 2 0.11.400 (1002101) launching, normal gameplay and applicable online flows. The installed test copy is a development-signed export of the exact original compiled archive, without rebuilding; it is not TestFlight/App Store signing.
+Recording: Globulation 2 Preview.mp4, 1m49s, on a physical iPhone running iOS 15.8.8 (19H422), the latest supported public OS for this hardware. The recording uses the original submitted release binaries, version 0.11.400 (1002101), installed with a development profile without recompiling.
+
+Timeline: 00:00–00:03 Home Screen and app launch; 00:05–00:23 Custom game/map/player setup; 00:24–01:24 colony gameplay, touch navigation, building/radial controls and flag/zone tools; 01:25–01:29 game menu; about 01:30 normal defeat/results; 01:38 guest connecting and 01:40–01:43 online guest hub; 01:44–01:49 main/More menu. This shows core gameplay and automatic guest access. Optional account registration/linking/login/deletion, reporting/blocking and paid browser flows are not demonstrated in this recording; user blocking has not been verified.
 
 2. Purpose and audience
-Globulation 2 is a free, open-source real-time strategy game for players who enjoy colony building, economics and spatial strategy. Players balance food, construction and training while expanding and defending their colony. Autonomous creatures carry out assigned work so players can guide the colony as a whole. iPhone and iPad use touch controls.
+Globulation 2 is a free, open-source real-time strategy game for players who enjoy colony building, economics and spatial strategy. Players balance food, construction and training while expanding and defending their colony. Autonomous creatures carry out assigned work, letting players guide the colony as a whole. iPhone and iPad use touch controls.
 
-3. Setup and main features
-Single-player games, campaigns, the map editor and LAN play need no account or sample files. Launch the app, choose a single-player game or campaign, select an included scenario and begin. [CONFIRM BUTTON LABELS IN RECORDING.] Show colony construction, work assignment and save/load.
+3. Setup and access
+Offline single-player, campaigns and the map editor need no account or sample files. Choose Custom game, configure a map and players, then start; Campaign and Tutorial are also on the main menu. LAN is under More and needs no account.
 
-Optional online play creates a guest account without an email address. Sign in or link a sign-in method through the online account menu or Settings > Online; authentication opens the system browser. Settings > Online > Download or delete my data opens the account page. A guest must first link a sign-in method to use web deletion. [ADD RECORDED REGISTRATION, LOGIN AND DELETION TIMESTAMPS; PRIVATE DEMO CREDENTIALS ONLY IF REQUIRED.]
+Play online creates a guest account without email. Optional sign-in/linking opens the system browser from the online account menu or Settings > Online. Settings > Online > Download or delete my data > Open opens the account page. Guests must first link a sign-in method to use web deletion. No reviewer credentials are needed for offline or guest play.
 
-Online features include rooms/chat and community maps. Maps have reporting controls; music entries link to credits/downloads/reporting in the browser. [UGC TIMESTAMPS AND VERIFIED REPORTING/BLOCKING INSTRUCTIONS.]
-
-This App Store release disables the native AI commander, AI-authoring links, community AI controllers and community map generators. It retains ordinary strategy gameplay and community maps/music. [CONFIRM ANY PAID FEATURES REACHABLE THROUGH BROWSER LINKS AND SHOW THEM IF APPLICABLE.]
+Online content includes rooms/chat, community maps and music. Map details offer Report; music entries link to credits/downloads/reporting in the browser. Native AI Commander/paid-credit controls, AI-authoring links, community AI controllers and community map generators are disabled in this App Store build; built-in computer opponents remain available.
 
 4. External services
-Offline gameplay uses local content/storage. Optional online play uses the project's online service for accounts, rooms, matches, ratings and shared content. Its documented providers include Google Cloud hosting, optional Google browser sign-in and Gravatar profile images. Username/password authentication is operated by the project. The wider optional website services document Stripe payments and OpenAI generation; these are not dependencies of offline gameplay. [CONFIRM WHICH OPTIONAL SERVICES ARE REACHABLE FROM THIS BUILD'S BROWSER LINKS.] No publisher credentials are needed to play offline.
+Offline play uses local content/storage. Optional online play uses the project's account, room, matchmaking and shared-content service. Documented providers include Google Cloud hosting, optional Google browser sign-in and Gravatar images; the project also operates username/password authentication. Separate optional website tools use Stripe payments and OpenAI generation. They are not offline-game dependencies.
 
 5. Regional behavior
-The submitted workflow builds the standard iOS edition, without the separate China-edition option. The tagged native feature configuration is common to this build; relay regions select network servers, not different game content. [CONFIRM CURRENT SERVICE/REGIONAL RESTRICTIONS BEFORE STATING THAT ALL FEATURES ARE IDENTICAL IN EVERY REGION.]
+This is the standard iOS build, not the separate China edition. Native feature configuration is shared across regions; relay regions select network servers. Online service/provider availability can vary, so we do not claim identical availability everywhere.
 
-6. Third-party material and authorization
-Globulation 2 is a strategy game distributed under GPL-3.0-or-later. It includes separately licensed dependencies/assets: font notices, image-codec/JavaScript/JSON/icon notices, per-soundtrack attribution, and packaged MoltenVK/recording notices. For example, Woodland music credits JC Sounds under CC BY 4.0 and records the adaptations. [RELEVANT AUTHORIZATION DOCUMENTS IF REQUESTED.]
-
+6. Third-party material
+This strategy game is distributed under GPL-3.0-or-later, with separate font, codec, JavaScript, JSON, icon, MoltenVK and recording-component notices and soundtrack attribution. Woodland music credits JC Sounds under CC BY 4.0 and describes its adaptations. These notices identify the relevant third-party authors and licenses.
 
 ## Internal evidence and remaining gaps
 
-Observed 2026-10-31: authenticated UI reports Guideline 2.1.0 Performance / App Completeness rejection requesting six items, including a physical-device recording on the latest supported public OS for the hardware and the same information in App Review Notes. No crash is alleged in the observed request. No reply, Notes update, resubmission or recording has been performed. Related: [publishing ledger](approved-storefront-rollout.md).
+Observed 2026-10-31: authenticated UI reports Guideline 2.1.0 Performance / App Completeness rejection requesting six information items. Apple's actual video wording specifies a physical device “running the latest operating system,” beginning with app launch and the typical flow, plus account registration/login/deletion, user-generated-content reporting/blocking and paid flows **if present**. “Latest supported for this hardware” is our evidence-backed device context, not a quoted Apple exception or an acceptance guarantee. No crash is alleged in the observed request. Related: [publishing ledger](approved-storefront-rollout.md).
+
+The existing clip covers launch/core gameplay/automatic guest connection. Optional account-management and moderation flows remain unrecorded; user blocking and reachable paid browser flows have not been verified. Save/load was part of our suggested script, **not a separately stated Apple video requirement**. Showing Save/Load menu buttons does not establish either action.
+
+### User choice before sending
+
+The user may record a short supplement for applicable account/UGC/paid flows, or choose to send the existing clip with these explicit limitations and the development-signing disclosure. Neither route has been selected in this draft, and Apple's acceptance is not assumed. Keep the original clip intact; a supplement need not repeat the demonstrated core flow. No reviewer reply, App Review Notes save or resubmission has occurred.
 
 ### Exact candidate
 
@@ -41,8 +46,8 @@ Observed 2026-10-31: authenticated UI reports Guideline 2.1.0 Performance / App 
 
 - [Tagged iOS workflow](https://github.com/Globulation2/glob2/blob/v0.11.4.0/.github/workflows/ios-testflight.yml) invokes `mobile/ios.py configure --environment device --release --unsigned --build-number`, without `--china` or feature overrides. [iOS packaging](https://github.com/Globulation2/glob2/blob/v0.11.4.0/mobile/ios.py) passes target ios/release to build identity. [Client feature resolution](https://github.com/Globulation2/glob2/blob/v0.11.4.0/scons/client_features.py) defaults release to free/app_store: commander, authoring_links, community_ai and community_generators false. This establishes the native build defaults; it does not remove every browser destination reachable from account/content pages.
 - [Online account menu](https://github.com/Globulation2/glob2/blob/v0.11.4.0/src/online/screens/OnlineHubScreen.cpp) fetches authentication providers from the service and begins browser sign-in. [Online settings](https://github.com/Globulation2/glob2/blob/v0.11.4.0/src/ui/settings/SettingsScreenOnline.cpp) exposes linking, sign-out and `/account`; Commander account/credits controls return immediately when Commander is disabled. [Tagged policy](https://github.com/Globulation2/glob2/blob/v0.11.4.0/docs/mobile/privacy-policy.md) explains guest web-deletion limitations and provider purposes.
-- [Maps UI](https://github.com/Globulation2/glob2/blob/v0.11.4.0/src/online/screens/OnlineMapsScreen.cpp) implements shared-map reporting. [Music UI](https://github.com/Globulation2/glob2/blob/v0.11.4.0/src/ui/screens/MusicLibraryScreen.cpp) exposes `/music/{id}` for credits/downloads/reporting; authoring actions are feature-gated. User blocking was not established by the scoped source inspection. Current browser navigation and moderation behavior require the physical walkthrough.
-- The workflow does not select the China edition. No country-based native content switch was identified in this scoped path. Online relay geography is not evidence of content restrictions. Current service/provider restrictions remain a specific confirmation gap, not an established regional difference.
+- [Maps UI](https://github.com/Globulation2/glob2/blob/v0.11.4.0/src/online/screens/OnlineMapsScreen.cpp) implements shared-map reporting. [Music UI](https://github.com/Globulation2/glob2/blob/v0.11.4.0/src/ui/screens/MusicLibraryScreen.cpp) exposes `/music/{id}` for credits/downloads/reporting; authoring actions are feature-gated. User blocking was not established by the scoped source inspection. The recorded guest connection verifies service access, but browser navigation and moderation behavior remain unrecorded.
+- The workflow does not select the China edition. No country-based native content switch was identified in this scoped path. Online relay geography is not evidence of content restrictions; do not extrapolate identical provider/service availability in every region.
 
 ### Notices and rights evidence
 
@@ -54,12 +59,26 @@ The exact unsigned archive retained by [upload 39651442049](https://github.com/g
 
 The existing app-specific development profile was regenerated using the **existing certificate and already registered test phone**, with capabilities preserved. App/team/device/private-key matching and strict code-signature, signer, profile, entitlement, minimum-OS and version checks passed. The archive was manually exported with **development/debugging signing**, without a rebuild or managed version change; the compiled binary UUID was unchanged. No new certificate/key or device registration was created.
 
-The actual development IPA is **168,168,948 bytes**, SHA-256 `52f2f5c5debafde36bede7f5ed50a364e3afcd475d05c7315897a47c8f9f1d65`. **ios-deploy exited 0 and reported completed installation** to the connected test phone. This is not a new TestFlight/App Store artifact, TestFlight installation or a bit-identical signed IPA. No launch/debugger, uninstall or data-deletion action was performed; app data was not independently audited. App opening/gameplay/footage remain unverified. Private device/account/profile/certificate identifiers, paths and logs remain outside Git.
+The actual development IPA is **168,168,948 bytes**, SHA-256 `52f2f5c5debafde36bede7f5ed50a364e3afcd475d05c7315897a47c8f9f1d65`. **ios-deploy exited 0 and reported completed installation** to the connected test phone. This is not a new TestFlight/App Store artifact, TestFlight installation or a bit-identical signed IPA. At the installation step, no launch/debugger, uninstall or data-deletion action was performed; app data was not independently audited. The later physical walkthrough below establishes app opening/gameplay; it does not demonstrate account deletion. Private device/account/profile/certificate identifiers, paths and logs remain outside Git.
 
-### Physical recording dependency
+### Physical device and recorded evidence
 
-The earlier read-only Xcode inventory found this Mac and simulators, with **no physical iPhone/iPad at that time**. On 2026-10-31, a physical test iPhone connected and its existing trust pairing validated. It runs **iOS 15.8.8 / build 19H422**, the latest supported public OS for this older hardware, checked against [Apple’s public software catalog](https://gdmf.apple.com/v2/pmv) and [Apple’s iOS 15.8.8 support record](https://support.apple.com/en-ca/127114). This does not impose the globally newest OS or a replacement-phone requirement.
+The earlier absence of a connected device is historical. On 2026-10-31, the physical test iPhone connected and its existing trust pairing validated. It runs **iOS 15.8.8 / build 19H422**, the latest supported public OS for this older hardware, checked against [Apple's public software catalog](https://gdmf.apple.com/v2/pmv) and [Apple's iOS 15.8.8 support record](https://support.apple.com/en-ca/127114). No globally newest-OS or replacement-phone requirement is inferred. Newer CoreDevice tooling's unsupported status did not prevent physical capture.
 
-The newer Xcode CoreDevice path does not support this device/OS combination; that is a tooling limit, not evidence that the app cannot run. QuickTime’s actual **screen and speaker source picker recognizes the phone**. No source preview or recording has started. The phone’s TestFlight currently offers only an older version, and the user explicitly requested installing the current build. The current **0.11.400 / 1002101** is now installed through the verified same-archive development export described above. The user should open the installed app from the Home Screen; an older TestFlight listing may remain. No app opening or source preview is verified yet. The installation route/signing difference must be disclosed; it is not TestFlight-installed or a bit-identical signed IPA. A simulator or newly compiled development binary cannot stand in for the requested submitted-build footage. Personal device names, identifiers, serial numbers and accounts remain outside Git.
+The user recorded **Globulation 2 Preview.mp4** on October 31. Original size **88,033,423 bytes**, duration **109.092317 seconds**, SHA-256 **`61d6c23e09bba2469f41100fd2269722d6423d225d5b92b3f07a259dc16afa29`**. Its MP4 container has a **1280 × 720 H.264** video stream with the portrait phone centered between black side areas, **48 kHz stereo AAC** audio, and an attached MJPEG thumbnail. No rotation metadata is present. Full video/audio decoding completed with exit 0 and no errors; audible content was not separately assessed. The original was not edited, deleted, copied or re-encoded. Only small private review frames/contact sheets were made and visually inspected outside Git.
 
-Use the device's [built-in screen recording](https://support.apple.com/en-ie/guide/iphone/iph52f6e1987/ios), starting before tapping the app icon. Show the usual colony flow, save/load, then actual account and applicable UGC/paid flows. Confirm exact button labels, account deletion, blocking and browser destinations during that pass. Keep raw footage and any credentials outside this public repository; provide the finished video privately to Apple. Replace all bracketed text before posting the six sections to both the reply and Notes. Preserve the actual launch and interactions in the footage.
+Reviewed timestamps:
+
+| Time | Actual observed coverage |
+| --- | --- |
+| 00:00–00:03 | Phone Home Screen, then app main menu after launch |
+| 00:05–00:23 | Custom game map/player setup |
+| 00:24–01:24 | Rendered colony, touch navigation, building/radial controls, flags and zone tools |
+| 01:25–01:29 | In-game menu; Save/Load buttons visible but neither action demonstrated |
+| About 01:30 | Normal defeat/results screen, not an observed crash |
+| 01:38–01:43 | Guest connecting, then online hub at the original service host |
+| 01:44–01:49 | Main/More menu |
+
+The native version is **not legible in the reviewed launch/main-menu frames**. Build identity is supported by the separate archive/export/installation provenance above, not by a visible video label. The recording must be described as the original compiled archive with **development signing**, not a TestFlight installation, newly compiled development binary or bit-identical App Store-signed IPA.
+
+The clip does not demonstrate account registration/linking/login/deletion, map reporting/user blocking or a paid browser flow. No successful save/load, completed construction, online match or regional consistency is inferred from showing controls or reaching the guest hub. Keep footage, personal device names/IDs/serials, credentials, profile/certificate details and private paths outside this public repository. Provide the actual video privately to Apple with the completed written reply/Notes only after the user's choice above.
