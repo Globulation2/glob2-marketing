@@ -12,8 +12,9 @@ were retained. The former domain registration was not changed.
 
 The existing `glob2-staging` VM in `northamerica-northeast2-a` serves both
 `app.glob2.online` and `app.glob2online.com`. Its canonical origin and advertised
-realtime endpoint use the new hostname. The API, relay and edge retained their
-existing image references; no image build, image pull or game release was run.
+realtime endpoint use the new hostname. During the initial canonical-domain
+transition, the API, relay and edge retained their existing image references;
+no image build, image pull or game release was run for that transition.
 API and relay health checks passed. Active matches were checked immediately before
 service transitions and were zero. The aggregate account count was 307 before and
 after. Existing database, signing-key, certificate and other persistent volumes
@@ -66,6 +67,41 @@ image containing those changes is deployed:
 5. Retire the bridge file only after successful deployment and rollback review.
    Do not leave a host configuration silently overriding future image updates.
 
+## Frontend activation incident and recovery
+
+The first narrow frontend activation attempt failed its immediate TLS startup
+probe. That initial result remains inconclusive: it does not establish a
+candidate regression or a successful rollout. The frontend candidate is **not
+deployed**.
+
+The automatic rollback introduced a separate operator error. It restored the
+private backup's **0600** mode onto the non-secret public Caddy bridge rather
+than restoring the public file's original metadata. The old non-root Caddy then
+could not read its configuration, logged permission denied and restarted in a
+loop. This caused a real application-access outage; no duration is inferred
+from the available observations.
+
+Recovery restored the exact reviewed public bridge and old image digest
+`sha256:f1aaadea67d60630cab9a664f30b051975b0d6d2fe2d73535926d6949f1e82f0`,
+setting **only that non-secret public bridge** back to **0644**. Both application
+hosts independently passed TLS and `/api/v1/instance` **200** with the new
+canonical origin at **22:08:37 America/Toronto on 2026-10-30 / 02:08:37 UTC on
+2026-10-31**. These are recovery checks, not candidate acceptance or a completed
+multiplayer match.
+
+Private environment/instance files and backup contents/permissions remained
+unchanged. API, relay and database were not recreated during the activation
+attempt or recovery. The independently verified website deployment, live
+`220b965` identity and complete former-website redirects remain separate,
+unchanged outcomes.
+
+Before a retry, require both the bounded readiness and rollback-metadata
+corrections and the actual non-root file/start permission audit. Hosting corrected
+the original-metadata restore and readiness handling; three local operational
+checks passed. Inventory is auditing the actual container's read/start permissions.
+This is a hold on retry until those checks are reviewed, not evidence that a
+candidate is live. Preserve the failed activation and rollback/recovery evidence.
+
 ## Verified application behavior
 
 - New-host TLS is valid. Both instance endpoints advertise
@@ -89,7 +125,7 @@ image containing those changes is deployed:
 
 The currently deployed web assets still contain some former-domain website
 guide/download links. Their exact build provenance does not justify rebuilding
-unrelated application code during this cutover. These links depend on the pending
+unrelated application code during this cutover. These links now follow the verified
 former-website redirects until a separately qualified web release replaces them.
 The embedded design-system revision also keeps theme selection in the new app's
 origin-local storage but does not recognize the new shared website theme cookie;
@@ -191,8 +227,9 @@ The API-page bootstrap and asset-namespace CSP preservation follow-up is publish
 in [PR #1287](https://github.com/Globulation2/glob2/pull/1287), source `d01722f631`,
 merged as `3ca77178`. Focused real-Caddy cases passed. Candidate qualification is
 complete with explicit baseline-known failures retained by the implementation
-work unit. Hosting owns the approved narrow Caddy rollout; live deployment and
-runtime readback remain pending. This source integration alone does not update
+work unit. The first narrow Caddy activation was rolled back; the candidate is not deployed.
+The initial TLS startup failure is inconclusive, and retry is held for reviewed
+readiness, metadata restoration and non-root permission checks as recorded above. This source integration alone does not update
 the deployed frontend, API, edge or saved runtime preference state.
 
 ## Verification evidence and remaining operations
@@ -222,8 +259,10 @@ work is separate:
 3. Check the game repository's About homepage through its UI when the browser
    lease is available. The available REST update path returned 404; this does not
    establish that a maintainer cannot edit the website's About field.
-4. Replace former-domain links and reconcile theme-preference sharing in the
-   separately qualified application frontend. Remove the temporary edge bridge
+4. Review the incident readiness/rollback fixes and actual non-root file/start
+   permissions before retrying the qualified application frontend. A successful
+   future deployment must replace former-domain links and verify preference
+   sharing; the candidate is currently not deployed. Remove the temporary edge bridge
    on the next qualified image deployment, using the earlier cleanup checklist.
 
 The hourly `finish-glob2-domain-migration` follow-up is saved for unfinished
