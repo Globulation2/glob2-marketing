@@ -112,35 +112,55 @@ A replacement application check, `glob2-multiplayer-app-B2WF84Y7Drw`, targets
 five-minute interval and USA probe settings. The existing application availability
 policy now follows that check. The former check,
 `glob2-multiplayer-app-rI7tosdUrOI`, remains as **Glob2 app legacy compatibility**.
-The website check remains on its former host until the new website is ready.
-Notification recipients were not changed.
+After both new website names passed HTTPS, replacement website check
+`glob2-public-website-0-k989RRMuM` was created for `glob2.online`; existing policy
+`824494495873556283` was retargeted with the same settings. The former website
+check remains as **Glob2 website legacy compatibility**. Notification recipients
+were not changed.
 
-## Website gate and remaining operations
+## Website HTTPS and deployment transition
 
 Cloud DNS delegation and the new apex/WWW/application records are published.
 Firebase custom domains for `glob2.online` and `www.glob2.online` exist on the
 existing website site. Newly requested ACME TXT records were added to the personal
-Cloud DNS zone. Firebase is still validating certificates and its latest observed
-DNS discovery retained obsolete registrar parking answers. Direct HTTPS checks
-still rejected the certificate for the new website names. Preserve the old
-website and its certificates while this external provisioning completes.
+Cloud DNS zone. Earlier checks rejected the website certificates while Firebase
+retained obsolete registrar parking answers in its discovery cache.
 
-After both new website names have valid HTTPS:
+At **20:25 America/Toronto on 2026-10-30 / 00:25 UTC on 2026-10-31**, both new
+website names returned HTTPS **200** with valid hostname certificates. Firebase
+reported `HOST_ACTIVE` and `OWNERSHIP_ACTIVE`, with `CERT_PROPAGATING` / `TEMPORARY`
+and no issues. This establishes observed HTTPS readiness; managed-certificate
+propagation is still in progress.
 
-1. Deploy the qualified website source and verify canonical URLs, public routes,
-   app links and feed access.
+[Website PR #57](https://github.com/Globulation2/glob2-online-website/pull/57)
+merged as `7d0d5e401c42b8d61cbec3598f489311f5409964`. Its pull-request verification
+passed, including all three hosted browser projects. The [main workflow](https://github.com/Globulation2/glob2-online-website/actions/runs/41150137135)
+is in progress and will test a preview before promoting the exact immutable
+version. Production promotion and former-domain redirects are not yet recorded
+as complete.
+
+## Remaining operations
+
+1. Verify the main workflow's preview checks and production promotion, then check
+   canonical URLs, public routes, app links and feed access on the new hosts.
 2. Set the former Firebase custom domains' `redirectTarget` to `glob2.online`.
    The REST update mask is `redirectTarget`; this is a domain-level **301**.
    Verify HTTP/HTTPS, apex/WWW, deep paths and query strings before recording the
    redirect as complete. Set new WWW canonicalization separately as appropriate.
-3. Replace the website uptime resource and retarget its existing alert policy,
-   preserving operational settings and any notification channels.
-4. Update OAuth branding home/privacy/terms links to the new website once those
-   pages are reachable. The new authorized domain and application callback are
-   already saved. Browser ownership was yielded to the separate storefront work;
+   Preserve the old website's certificates throughout the redirect transition.
+3. Continue monitoring Firebase managed-certificate propagation; valid observed
+   HTTPS and a pending managed-certificate state are separate facts.
+4. Update OAuth branding home/privacy/terms links to the new website after the
+   migrated pages are verified. The new authorized domain and application callback
+   are already saved. Browser ownership remains with the separate publishing work;
    avoid competing UI actions.
+5. Follow the [storefront destination ledger](approved-storefront-rollout.md#destination-status)
+   for verified new-domain listing fields rather than duplicating their saves.
+   Apple's global privacy/service field still uses
+   `https://app.glob2online.com/account`; its service-destination migration remains
+   outstanding and must preserve its purpose.
 
-Firebase documents that certificate provisioning can take up to 24 hours after
-DNS changes. The configured records and a pending certificate are not proof of
-website availability or a completed redirect. See
-[Firebase custom-domain guidance](https://firebase.google.com/docs/hosting/custom-domain).
+The hourly `finish-glob2-domain-migration` follow-up is saved for unfinished
+migration work. A scheduled check does not establish deployment or redirect
+completion. Keep the temporary edge-bridge cleanup on the next qualified image's
+checklist even after the website redirects are complete.
