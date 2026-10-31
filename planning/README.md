@@ -5,6 +5,7 @@
 - [Domain migration](domain-migration.md): canonical `glob2.online` destinations, old-domain redirect work, verification and external-access gaps.
 - [Domain migration operations](domain-migration-operations.md): verified runtime transition, restart-safe edge bridge, rollback/cleanup boundaries and remaining website certificate/redirect steps.
 - [Approved storefront rollout](approved-storefront-rollout.md): 2026-10-30 user approval, exact approved copy/media and cross-store execution status.
+- [iOS App Review response draft](apple-app-review-response.md): internal six-section response with shipped-source evidence and unresolved physical-device footage/flow gaps; not sent or ready to submit.
 - [Launch positioning v1](../analysis/positioning-v1.md): current agreed headline, pitch and message emphasis; selected through discussion.
 - [Epic profile v1](epic-store-profile-v1.md): historical first-store draft and metadata checks; superseded as a copy source by the approved rollout record.
 - [Epic requirements](epic-store-requirements.md): current official field/media requirements and remaining portal checks.
