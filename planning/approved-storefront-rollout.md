@@ -118,7 +118,7 @@ The following actions are now authorized; their dependencies and results remain 
 | Epic | Required marketing fields saved in Dev; upload=false candidate 41157548760 uses immutable release plus reviewed Launcher compatibility backport 4a670dc028. Preflight passed; packaging outcome pending. | Inspect candidate launcher/runtime evidence before BPT upload, offer/platform review and Dev/Stage submission. Actual storefront preview remains unverified; no Stage/Live promotion recorded. |
 | SourceForge | Existing project; credentials unavailable. | Owner access remains necessary; no credential reset or account creation has been performed. |
 | Steam / GOG / itch.io and other stores | Controlled listing/account identity not yet verified in this pass. | Establish the existing product/account and platform requirements; do not assume enrollment, contractual consent or fee payment. |
-| AppStream / downstream catalogs | Approved upstream metadata merged; no Flathub submission recorded. | Verify actual downstream listing/submission state and the documented platform requirements before claiming distribution publication. |
+| AppStream / Flathub | Approved upstream metadata merged. No accepted Flathub entry or controlled update fork verified; latest update run failed for missing token, with no configured fork. | Flathub’s external generative-AI policy requires a human-authored eligible manifest/submission. The maintained recipe is recorded as AI-assisted and ineligible; first submission remains undone. |
 
 ## Destination status
 
@@ -324,3 +324,12 @@ The overall workflow failed because the project’s XML parser incorrectly requi
 The unchanged test package remains [artifact 13025694618](https://github.com/genixpro/glob2-release/actions/runs/41159767248/artifacts/13025694618), ZIP size **273,585,112 bytes**, at run source `7566d5a3264935e73a25c200e9edf27e49c41bfe`, Store version **1.11.400.0**, digest-pinned released payload **v0.11.4.0**, **upload=false**. There was no rebuild or new dispatch solely for the parser correction, and no further mirror write.
 
 **Windows client installation/runtime is unverified.** This is a remaining project qualification gap, not a fabricated Microsoft platform submission requirement. No accessible Windows client test machine was established in this pass. Passing submission validation is distinct from runtime qualification, Partner Center processing, certification and retail publication. No submission-encrypted upload or certification is claimed.
+
+
+## Flathub downstream state and submission policy — 2026-10-30
+
+[Approved upstream AppStream metadata](https://github.com/Globulation2/glob2/blob/master/data/org.globulation2.Globulation2.metainfo.xml) contains the colony-led copy, four approved hosted screenshots and `https://glob2.online/`. This source work is complete; it does not establish Flathub publication. The expected Flathub repository was not found, and the read-only submission search found no matching result. No accepted entry or configured controlled update fork was verified.
+
+The [latest observed update run](https://github.com/genixpro/glob2-release/actions/runs/39533134340), October 21, failed with **Missing FLATHUB_GH_TOKEN** and blank **FORK**. The update environment’s secret-name and variable inventories were empty; no secret values were read. No credentials, enrollment or submission were created.
+
+[Flathub’s generative-AI policy](https://docs.flathub.org/docs/for-app-authors/requirements#generative-ai-policy), observed October 30, forbids AI-assisted manifest content and AI-agent submission interactions, including submission PRs and generated review material. The [maintained source guide](https://github.com/Globulation2/glob2/blob/master/docs/releases/store-setup.md#snap-github-and-flathub) records the current recipe as AI-assisted and ineligible, requiring a human-authored initial manifest/submission. This is an external platform acceptance condition, not a skill instruction or an invented permission step. Flathub first submission remains undone; no submission automation is proposed here.
