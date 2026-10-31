@@ -6,11 +6,13 @@
 
 Approved English copy and core product art are prepared and locally reviewed. Released-payload package checks now pass for Windows, Mac arm64, Mac x86_64 and Linux, including native CI smoke/preservation checks; this is not full gameplay QA or GOG acceptance. Linux added-runtime source-delivery review remains open. See [actual outputs and limits](#linux-candidate-package-checks-completed--2026-10-31).
 
-The September 30 application/detail correction are recorded; accepted partnership, publisher access/product IDs, Staging/QA submission and Live remain unverified. After user-assisted authentication, the authorized application Google identity was selected but returned to Complete Sign Up; stopped before account creation. No publisher company/product access verified. The scoped connected-mail check found no new late-October reply; the separate publisher-contact inbox remains unverified. No new application/message was sent. Portal access, Mac architecture delivery mapping, trailer/product fields and dependency source-delivery work remain follow-ups.
+The September 30 application/detail correction remain recorded. The user subsequently clarified that **GOG approval is pending and no publisher/store account has been provided yet**; this is user-reported status, not independently verified rejection. Stop login attempts pending acceptance/invitation; no password-login workaround or new-account creation is needed. Product IDs, Staging/QA submission and Live remain unverified. Prepared copy/art/package outputs are retained; Linux dependency source delivery, Mac architecture delivery mapping and trailer/product fields remain independent follow-ups.
 
 ## Existing-account authentication checkpoint — 2026-10-31
 
 The user authorized an alternate Google-account attempt and browser coordination. Google SSO automatically selected another current identity and routed to new-account registration; execution stopped before creating an account. Normal existing-account **GOG Log in** was handed to the user. No company/product access, accepted onboarding, account creation, signup or security-setting change was verified. The user subsequently completed manual authentication preparation and asked for a recheck. The chooser offered the authorized application identity; selection succeeded, but GOG returned **Complete Sign Up**, indicating no linked existing GOG account for that Google identity in this flow. Execution again stopped before account creation or legal changes. This does not establish that no password-based GOG account exists or that the application was rejected. Accepted onboarding/invitation and company/product access remain unverified; no new external contact or submission occurred. Personal addresses and private authentication URLs are excluded from this record.
+
+The user then clarified that no publisher/store account exists yet because approval is pending. That clarification supersedes the earlier login handoff as the current action: **stop authentication attempts and await acceptance/invitation**. Do not interpret the registration screens as application rejection or pursue an account-creation/password workaround. No external contact/account action followed this clarification.
 
 ## English copy ready to transfer
 
@@ -142,7 +144,7 @@ The public-trailer gap remains as recorded above. This evidence preparation chan
 
 | Work | Owner / next evidence | Status |
 | --- | --- | --- |
-| Onboarding/access | Reconcile actual acceptance/invitation and controlled product identity; existing application only, no duplicate submission | Unresolved |
+| Onboarding/access | Await acceptance/invitation for the submitted application; user reports approval pending/no publisher account. Login attempts stopped; no workaround/account creation | Pending approval; no independent rejection finding |
 | Copy | Transfer approved blocks into actual portal fields, inspect limits and save/reload | Prepared locally, not applied |
 | Graphics | Official ZIP/artboards/embedded guides inspected; core approved-source derivatives and genuine layered PSDs prepared and visually reviewed | Complete locally; portal acceptance unverified |
 | Layered art / trailer | Layered product/key art prepared with genuine raster layers and disclosed native origins; confirm actual delivery acceptance. Public trailer remains absent | Layered exports reviewed; trailer/portal gaps remain |
