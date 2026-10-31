@@ -656,3 +656,9 @@ No accepted partner relationship, publisher portal access/product IDs, completed
 The user requested getting GOG ready for release. The [GOG handoff](gog-release-readiness.md) reproduces approved English copy, maps approved key art/logo/four screenshots and distinguishes official delivery requests from conditional features and unverified portal enforcement. Exact template exports, layered delivery and a public trailer remain gaps; no private Apple clip is treated as approved public marketing footage. Source/pipeline work is separately owned.
 
 This is local preparation, not accepted onboarding, a configured product, qualified GOG candidate, Staging upload, QA submission or Live release. No new application, external message, fees or declarations were submitted.
+
+## GOG product artwork prepared and locally reviewed — 2026-10-31
+
+The [GOG product kit](../assets/storefront-approved-v1/gog/README.md) now contains six PNGs and three genuinely layered raster PSDs derived only from approved pre-title colony art and original wordmark, with reproducible source hashes/crops/layouts. Official template artboards and embedded guides were inspected; coordinating visual review confirmed title fit, colony retention and no guide/mockup leakage. Native component resolutions and larger-canvas resampling are explicit. The existing four approved gameplay images are linked unchanged; application icon preserved. No new outside imagery or public trailer was introduced.
+
+This completes local core copy/art preparation, not onboarding or portal acceptance: the current access attempt remains at Login, no publisher company/product reached, and the separate original publisher-contact mailbox is not connected. Candidate qualification/Staging remains separately owned. No new application, message, declarations, upload, QA submission or Live result is claimed. See [current GOG readiness](gog-release-readiness.md).

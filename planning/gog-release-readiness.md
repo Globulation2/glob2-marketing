@@ -4,7 +4,7 @@
 
 ## Current state — 2026-10-31
 
-The user requested getting GOG ready for release. The September 30 application and subsequent detail correction are recorded; accepted partnership, publisher-portal access, product IDs, Staging upload, GOG QA submission and Live availability remain unverified. The scoped connected-mail check found no new late-October response; the separate publisher-contact inbox remains unverified. No new application or external message was sent.
+The user requested getting GOG ready for release. The September 30 application and subsequent detail correction are recorded; accepted partnership, publisher-portal access, product IDs, Staging upload, GOG QA submission and Live availability remain unverified. The current portal attempt remains at Login, with no publisher company reached. The scoped connected-mail check found no new late-October response; the separate publisher-contact inbox remains unverified. No new application or external message was sent.
 
 Three-platform depot/pipeline tooling exists in the [public release guide](https://github.com/Globulation2/glob2/blob/6a16670c6daafa34f1f86a47014f23e0d05fd4e3/docs/releases/gog-release.md) and [workflow](https://github.com/Globulation2/glob2/blob/6a16670c6daafa34f1f86a47014f23e0d05fd4e3/.github/workflows/gog-staging.yml). Prepared tooling is not a qualified candidate, configured publisher account or completed submission. The build worker owns source/workflow improvements separately.
 
@@ -52,10 +52,10 @@ A strategy game to play, explore and help shape.
 | Screenshot 2: battle | [2560×1440 PNG](../assets/storefront-approved-v1/02-river-battle.png) | Approved staged native River combat. |
 | Screenshot 3: strategy | [2560×1440 PNG](../assets/storefront-approved-v1/03-four-squares-strategic.png) | Approved developed Four Squares AI match. |
 | Screenshot 4: terrain | [2560×1440 PNG](../assets/storefront-approved-v1/04-lava-shield-terrain.png) | Approved staged Lava Shield terrain in use. |
-| Layered delivery | [Existing compositing script and source family](../assets/epic-v5/build-assets.py) | No editable PSD supplied in the approved kit. A future layered export must retain real source layers and accurately describe flattened/resampled components; a flat PNG renamed PSD is insufficient. |
+| Layered delivery | [Existing compositing script and source family](../assets/epic-v5/build-assets.py) | [Reviewed GOG layered derivatives](../assets/storefront-approved-v1/gog/README.md) now separate background/shadow/original-wordmark raster layers. The colony composite remains flattened and resampling is disclosed; no editable original scene/vector claim. |
 | Trailer | None prepared in the approved kit | Private Apple review clips are not an approved public GOG trailer. No new footage prepared or reused. |
 
-See the [desktop source manifest](../assets/storefront-approved-v1/README.md) for capture provenance. Only approved images or direct technical derivatives may be introduced. Keep gameplay frames separate from key art. GOG-specific exports remain pending the template-fit/guide review below; no speculative crops or new imagery have been created.
+See the [desktop source manifest](../assets/storefront-approved-v1/README.md) for capture provenance. Only approved images or direct technical derivatives may be introduced. Keep gameplay frames separate from key art. [Reviewed GOG product-format adapters](../assets/storefront-approved-v1/gog/README.md) now provide technical crops/layouts and layered delivery; no new imagery was created.
 
 ## Official requirements and their scope
 
@@ -79,13 +79,13 @@ Downloaded the [official ZIP](https://items.gog.com/templates/gog_art_assets.zip
 | `prod_web_icon` | 98×98 | Existing compiled icon preserved; no replacement export currently assigned. |
 | `prod_demo_box` | 342×482 | Demo-specific; no demo product selected, so not automatically needed. |
 
-The instruction PDF identifies green boards as editable, requires transparent logos within the safe area, and says to hide crop/cover/safe-space guides before export. Mockup boards must not be exported. A guide/smart-object visual inspection remains necessary before composing deliveries; matching the outer dimensions alone is insufficient.
+The instruction PDF identifies green boards as editable, requires transparent logos within the safe area, and says to hide crop/cover/safe-space guides before export. Mockup boards must not be exported. Embedded PSBs were subsequently inspected visually: main art and cover carry centered-title/corner-caution placeholders; the logo PSB is empty, with no numerical safe-margin specification. The prepared derivatives were reviewed against these guides.
 
 The other sheets contain campaign/PR formats, not proof every slot is mandatory for this product: promotional Galaxy banner 1540×270, product card 1540×404, desktop 2560×423, mobile 767×472, spot 444×740, navbar 747×550/logo 285×170 and takeover desktop 2560×360/mobile 960×570/logo 454×200; social square 1200×1200, Twitter 1200×675, Facebook 1200×630 and news 1550×490. Request the actually applicable slots through the accepted product/Assets Manager rather than treating all campaign formats as launch blockers.
 
 Icon-template names and some artboard bounds differ (for example, a board named `icon_128` measures 125×125); these are not grounds to modify the application icon or infer its required delivery sizes. Product/portal specifics remain unresolved. The inspected ZIP/templates are not redistributed in this public repository.
 
-**Next proposed asset unit, pending coordinating review:** core product derivatives from approved pre-title art and wordmark, unchanged approved gameplay files, and a genuinely layered source export where possible. Preserve actual component resolution and describe flattened/resampled components honestly. No exports or new trailer have been created by this inspection.
+**Core asset unit complete locally:** [six PNGs, three genuine layered PSDs, reproducible script and manifest](../assets/storefront-approved-v1/gog/README.md). Coordinating visual review confirmed centered title fit, retained colony imagery and no guide/mockup leakage. PSDs reopen with three raster layers, correct dimensions and at most one RGB code-value recomposition difference from alpha rounding. Higher-resolution canvases resample the disclosed 1672×941 background and 900×131 wordmark; they do not create native detail. No icon replacement, demo/campaign export, public trailer, portal upload or acceptance is claimed.
 
 ## Remaining work and ownership
 
@@ -93,8 +93,8 @@ Icon-template names and some artboard bounds differ (for example, a board named 
 | --- | --- | --- |
 | Onboarding/access | Reconcile actual acceptance/invitation and controlled product identity; existing application only, no duplicate submission | Unresolved |
 | Copy | Transfer approved blocks into actual portal fields, inspect limits and save/reload | Prepared locally, not applied |
-| Graphics | Official ZIP/artboard metadata inspected; inspect editable safe-area guides, then prepare approved-source derivatives and provenance for visual review | Template metadata complete; guide review/exports pending |
-| Layered art / trailer | Confirm requested delivery with actual template/portal; real compositing layers only, no newly invented imagery or unapproved public footage | Gaps recorded |
+| Graphics | Official ZIP/artboards/embedded guides inspected; core approved-source derivatives and genuine layered PSDs prepared and visually reviewed | Complete locally; portal acceptance unverified |
+| Layered art / trailer | Layered product/key art prepared with genuine raster layers and disclosed native origins; confirm actual delivery acceptance. Public trailer remains absent | Layered exports reviewed; trailer/portal gaps remain |
 | Candidate and QA | Build worker qualifies immutable source, DRM-free platform payloads and depot IDs, then protected Staging upload when configured | Tooling exists; no completed GOG candidate/upload claimed |
 | Product declarations | Verify developer/publisher, requirements/languages, rights, ratings/territories and price from current artifact/account evidence | Not filled with assumptions |
 | Release | GOG QA/approval and actual branch/publication outcome | Not submitted or live |

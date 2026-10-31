@@ -1,0 +1,199 @@
+{
+  "prepared": "2026-10-31",
+  "status": "Locally visually reviewed 2026-10-31; not uploaded or portal-accepted",
+  "source": "../../epic-v5/colony-native.png",
+  "source_dimensions": [
+    1672,
+    941
+  ],
+  "source_sha256": "a30d08e35ad0f74f2e5785250cac42460e4f0baa6a92bd53d9058acb53a0f657",
+  "logo_source": "../../epic-v5/product-logo-960x540.png",
+  "logo_source_sha256": "730891bc823683e26a22c739c1c5b1bf8db84cabc5eb440fb8698f849fcde110",
+  "logo_source_crop": [
+    30,
+    204,
+    930,
+    335
+  ],
+  "template_url": "https://items.gog.com/templates/gog_art_assets.zip",
+  "template_sha256": "50222fd566382488f2b7888ece1c0ae5596bf84d73b86600be229a587c9a2468",
+  "qualification": "Promotional artwork, not gameplay. Raster source is 1672x941, visible logo 900x131. Larger canvases resample those sources; no native-high-resolution/vector or independently editable colony elements claimed.",
+  "images": [
+    {
+      "file": "prod-main-banner-1600x740.png",
+      "dimensions": [
+        1600,
+        740
+      ],
+      "bytes": 2071266,
+      "sha256": "1c4ef8a1ba676ecdaa0c12d164d1641d8c64e57d2c54404cd830bbfab84efe05",
+      "treatment": {
+        "fit": "centered aspect-preserving crop and Lanczos resample",
+        "source_crop": null,
+        "title_width": 1280,
+        "title_top": "centered"
+      },
+      "layers": null
+    },
+    {
+      "file": "prod-main-banner-1600x740.psd",
+      "dimensions": [
+        1600,
+        740
+      ],
+      "bytes": 8864326,
+      "sha256": "3d5fc7b049211919805d02d6408360565abf125d629602b49f778414915850ef",
+      "treatment": {
+        "fit": "centered aspect-preserving crop and Lanczos resample",
+        "source_crop": null,
+        "title_width": 1280,
+        "title_top": "centered"
+      },
+      "layers": [
+        "Approved colony composite (flattened raster)",
+        "Wordmark shadow (same approved treatment)",
+        "Approved original wordmark (raster)"
+      ]
+    },
+    {
+      "file": "prod-box-342x482.png",
+      "dimensions": [
+        342,
+        482
+      ],
+      "bytes": 332798,
+      "sha256": "c7b16843f9d06e712f510c4c0b9b9946b41b85b06bb1e1b83847749013373663",
+      "treatment": {
+        "fit": "centered aspect-preserving crop and Lanczos resample",
+        "source_crop": [
+          483,
+          0,
+          1189,
+          941
+        ],
+        "title_width": 290,
+        "title_top": "centered"
+      },
+      "layers": null
+    },
+    {
+      "file": "prod-box-342x482.psd",
+      "dimensions": [
+        342,
+        482
+      ],
+      "bytes": 1236802,
+      "sha256": "7185fb7fe27d587d4611e07ccce5ff8f547ec19233cd554dec48e14bf231d029",
+      "treatment": {
+        "fit": "centered aspect-preserving crop and Lanczos resample",
+        "source_crop": [
+          483,
+          0,
+          1189,
+          941
+        ],
+        "title_width": 290,
+        "title_top": "centered"
+      },
+      "layers": [
+        "Approved colony composite (flattened raster)",
+        "Wordmark shadow (same approved treatment)",
+        "Approved original wordmark (raster)"
+      ]
+    },
+    {
+      "file": "prod-galaxy-background-2560x670.png",
+      "dimensions": [
+        2560,
+        670
+      ],
+      "bytes": 3045426,
+      "sha256": "8060c017b87e38bf141aaaf993a6bd1957a016cc7e75cc74ac821f560daea9c5",
+      "treatment": {
+        "fit": "centered aspect-preserving crop and Lanczos resample",
+        "source_crop": null,
+        "title_width": null,
+        "title_top": "centered"
+      },
+      "layers": null
+    },
+    {
+      "file": "key-art-layered-2560x1440.png",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "bytes": 5333621,
+      "sha256": "2ed88d7e351ebe0a5d313bf9080c92b7e1c0087036de2b8e365a101c4cdff4af",
+      "treatment": {
+        "fit": "centered aspect-preserving crop and Lanczos resample",
+        "source_crop": null,
+        "title_width": 1940,
+        "title_top": 115
+      },
+      "layers": null
+    },
+    {
+      "file": "key-art-layered-2560x1440.psd",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "bytes": 26573630,
+      "sha256": "2e649e7fa4673bc759c96a2fe6a5f8a36faef67cad1cfe09154d837691185645",
+      "treatment": {
+        "fit": "centered aspect-preserving crop and Lanczos resample",
+        "source_crop": null,
+        "title_width": 1940,
+        "title_top": 115
+      },
+      "layers": [
+        "Approved colony composite (flattened raster)",
+        "Wordmark shadow (same approved treatment)",
+        "Approved original wordmark (raster)"
+      ]
+    },
+    {
+      "file": "prod-bg-2560x655.png",
+      "dimensions": [
+        2560,
+        655
+      ],
+      "bytes": 2980626,
+      "sha256": "9d50dfe3d514c3db19a2db269f6dcb977a50f55d02c889dfe8ca2fbc2cb6a9f7",
+      "treatment": {
+        "source": "prod-galaxy-background-2560x670.png",
+        "crop": [
+          0,
+          0,
+          2560,
+          655
+        ]
+      },
+      "layers": null
+    },
+    {
+      "file": "prod-logo-1600x740.png",
+      "dimensions": [
+        1600,
+        740
+      ],
+      "bytes": 42314,
+      "sha256": "e2eaa7255a87d233a9df1770504add6a79029c109f4054f330ad198d95de54e7",
+      "treatment": {
+        "source_crop": [
+          30,
+          204,
+          930,
+          335
+        ],
+        "paste": [
+          350,
+          304
+        ],
+        "resampling": "none; native 900x131 visible raster"
+      },
+      "layers": null
+    }
+  ]
+}
