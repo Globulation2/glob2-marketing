@@ -1,0 +1,36 @@
+# Canonical storefront localization rollout
+
+[Planning index](README.md) · [Canonical catalogs](../translations/README.md) · [Approved English presentation](approved-storefront-rollout.md) · [Media audit](../translations/media-audit.md)
+
+Observed **2026-10-31**. This ledger distinguishes reviewed source files, extracted forms, saved drafts, submitted updates and public availability. Translation targets match the game's 32 non-English languages; English remains the source language. Platform locale support is a separate constraint. No game-language declarations, prices, regions, ratings, builds or review responses are changed by this localization work.
+
+## Current platform evidence
+
+| Destination | Actual observed state | Localization action / gate |
+| --- | --- | --- |
+| Google Play | Existing default listing Live in console, only English U.S. selected. Language manager exposes target locale choices except Esperanto. Title/short/full limits 30/80/4000. Current closed-test production eligibility remains separate. | Exact reviewed 31-language JSON uploaded to the console's existing-translation extraction tool; extraction in progress. No saved translation, review submission or public-display claim yet. Preserve English and inherited visual assets; compare all extracted fields before proceeding. |
+| Snap | Authenticated editor shows one Title/Summary/Description, approved English text and website; Save disabled. No localized-field controls observed. | Retain approved English; native translated-listing capability unverified. Canonical catalogs remain usable for AppStream/downstream sources. Do not concatenate languages into a single listing. |
+| iOS App Store | 0.11.400 Waiting for Review. Product-page locale selector explicitly disabled; existing English text fields remain editable. | New locales blocked by the current UI state. Do not cancel review to add them. |
+| Mac App Store | 0.11.2 Waiting for Review. Product-page locale selector explicitly disabled. | New locales blocked by current UI state. Preserve automatic release after approval. |
+| Shared Apple App Information | Locale selector disabled; changes released with next version. Existing subtitle is historical `Strategy without busywork`, distinct from the approved-source subtitle being localized. | Coordinate iOS/Mac shared name/subtitle changes as one unit when editable; adding a locale can affect both platforms. |
+| Microsoft Store | Retail Publishing continues. English U.S. is the only existing listing. Listing form/Save draft and Manage additional languages/Import/Export controls enabled. | Separate operator inspecting safe listing drafts and actual import template; no new localization-save receipt yet. Preserve current publishing submission. |
+| Amazon Appstore | SUBMITTED; English U.S. only. All listing text and Add localization explicitly disabled. Observed title/short/full limits 200/1200/4000; up to 10 feature bullets. | Wait for current review to finish, then submit metadata-only localized update. Do not cancel submission. |
+| Epic Games Store | Stage five entities Queued for review; Dev Push to Stage disabled because product is under review; Live 0. Dev localization lists three entities, each English only. | Template downloaded from the existing Dev localization flow. No localized import or Stage promotion yet. Do not rescind current review. |
+| SourceForge | Earlier access recovery gap remains unresolved; no new editor-access evidence. | Access-dependent handoff; no live edit claim. |
+| Steam / GOG / itch.io | Controlled listing identity and editor access remain unresolved in the rollout source record. | Verify existing product/account before applying; no new enrollment, agreements or fees inferred. |
+| AppStream / F-Droid / downstream catalogs | Upstream PR #1296 merged as `f5272df9776818fd1798d5369f5139c383333242`: 99 source files / 32 locales. Downstream ownership and acceptance differ by ecosystem. | Record upstream source changes separately from catalog publication. Flathub's documented human-authored first-submission condition remains unchanged. |
+
+## Platform references
+
+- [Google locale choices](https://support.google.com/googleplay/android-developer/answer/9844778?hl=en), [field limits and shared-track listing](https://support.google.com/googleplay/android-developer/answer/9859152?hl=en). Text translations can inherit default graphics.
+- [Apple localization workflow](https://developer.apple.com/help/app-store-connect/manage-app-information/localize-app-information), [supported locales](https://developer.apple.com/help/app-store-connect/reference/app-information/app-store-localizations), [review-state editing rules](https://developer.apple.com/help/app-store-connect/reference/app-information/app-and-submission-statuses/). Store languages differ from binary languages.
+- [Microsoft localized listings](https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/msix/add-and-edit-store-listing-info). The current gaming product's actual console/template governs its fields.
+- [Amazon locale support](https://www.developer.amazon.com/docs/app-submission/distribute-your-app-internationally.html), [review locks and metadata-only updates](https://www.developer.amazon.com/docs/app-submission/update-published-app.html). The prose locale list and embedded console screenshot differ for some regional English/Spanish variants; inspect the live enabled selector before adding those variants.
+- [Epic locale identifiers](https://dev.epicgames.com/docs/epic-games-store/store-presence/localize/supported-languages), [template/review workflow](https://dev.epicgames.com/docs/epic-games-store/store-presence/localize/localize-text?lang=en-US).
+- [Snap listing documentation](https://forum.snapcraft.io/t/store-listing-and-branding/16397) documents default fields; native multilingual publishing is not established by that page.
+
+## Access and verification boundaries
+
+Existing gcloud CLI authentication and a configured project were available; Cloud Translation API was already enabled. No API, billing, identity or access setting was changed. The team used existing Google Cloud Translation for initial drafting of 16 catalogs, followed by independent review; this does not assert a zero charge. The existing gcloud OAuth token lacks Android Publisher scope, so it was not repurposed for Play listing writes or expanded silently. No credentials or private console identifiers are stored here.
+
+For each editable platform, compare exact reviewed payloads with current fields, apply only intended locales/fields, save, reload from the server and compare again. Before submission, inspect the complete pending-change set to exclude unrelated concurrent work. Record review/approval/public-display receipts separately. Active platform reviews are preserved.
