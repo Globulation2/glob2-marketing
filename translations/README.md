@@ -84,3 +84,15 @@ python3 translations/tools/epic_template.py --template /path/to/downloaded-templ
 The adapter requires current independent reviews, matches explicit template field keys and exact canonical English, and fills only explicitly mapped locale columns that the actual template supports. Unknown rows, changed English in translated fields or conflicting nonempty translated cells stop generation. Identical existing translations are preserved; reconcile differing saved translations before import. Existing IDs, English values, technical specifications, developer/publisher identity, unsupported locale cells and footer rows are preserved. The adjacent JSON report records the actual locale intersection without product IDs.
 
 The inspected template exposes 24 canonical non-English locale columns; Greek is absent and generic Spanish is preserved because the canonical Spanish mapping targets `es-ES`. Language-neutral wordmarks and technical text are not invented translations. The generated file is ready for import review; importing, saving, server readback and any review/publication step remain separately verified platform actions.
+
+## Microsoft template adapter
+
+Export the current Store listings workbook from the authenticated Microsoft console. Keep the original export and generated import outside this public repository:
+
+```sh
+python3 translations/tools/microsoft_import.py /path/to/current-console-export.xlsx --out /tmp/glob2-microsoft-localized.csv
+```
+
+The adapter reads a single unmodified XLSX sheet or a UTF-8 CSV and writes the UTF-8 CSV accepted by the console. It preserves template rows, field IDs/types, existing English values and approved asset URLs, then adds supported translated descriptions, short text, reserved product title, four features, search term and desktop captions. Shared/inline strings, numeric field IDs and empty cells retain their original values; formulas, ambiguous sheets, unsupported cell types, missing expected fields, stale reviews and existing translated columns stop generation for reconciliation. English release notes, technical/legal fields and unrelated media are preserved rather than translated or changed.
+
+The actual 2026-10-31 template uses `Type (Type)` and `DesktopScreenshotCaption1` through `DesktopScreenshotCaption4`. It has 453 data rows and only `en-us`; 31 new locale columns are prepared. Indonesian `id` remains distinct from the reserved `ID` metadata column. Before applying a later export, inspect its current structure and submission state again. Import validation, fresh saved export comparison, screenshot checks and review/publication remain separate steps; a generated CSV does not establish any of them.
