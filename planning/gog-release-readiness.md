@@ -4,9 +4,9 @@
 
 ## Current state — 2026-10-31
 
-The user requested getting GOG ready for release. The September 30 application and subsequent detail correction are recorded; accepted partnership, publisher-portal access, product IDs, Staging upload, GOG QA submission and Live availability remain unverified. The current portal attempt remains at Login, with no publisher company reached. The scoped connected-mail check found no new late-October response; the separate publisher-contact inbox remains unverified. No new application or external message was sent.
+Approved English copy and core product art are prepared and locally reviewed. Released-payload package checks now pass for Windows, Mac arm64, Mac x86_64 and Linux, including native CI smoke/preservation checks; this is not full gameplay QA or GOG acceptance. Linux added-runtime source-delivery review remains open. See [actual outputs and limits](#linux-candidate-package-checks-completed--2026-10-31).
 
-Three-platform depot/pipeline tooling exists in the [public release guide](https://github.com/Globulation2/glob2/blob/6a16670c6daafa34f1f86a47014f23e0d05fd4e3/docs/releases/gog-release.md) and [workflow](https://github.com/Globulation2/glob2/blob/6a16670c6daafa34f1f86a47014f23e0d05fd4e3/.github/workflows/gog-staging.yml). Prepared tooling is not a qualified candidate, configured publisher account or completed submission. The build worker owns source/workflow improvements separately.
+The September 30 application/detail correction are recorded; accepted partnership, publisher access/product IDs, Staging/QA submission and Live remain unverified. The portal attempt remains at Login, no publisher company reached. The scoped connected-mail check found no new late-October reply; the separate publisher-contact inbox remains unverified. No new application/message was sent. Portal access, Mac architecture delivery mapping, trailer/product fields and dependency source-delivery work remain follow-ups.
 
 ## English copy ready to transfer
 
@@ -105,7 +105,19 @@ The normal release-mirror merge `f72ceca5541b6ac79fa58f661528771985bf9d08` retai
 
 All three artifact containers currently expire **2027-01-29 16:33:05 UTC**; none has been downloaded or published as a public release by this record. These are **GitHub API artifact digests**, not hashes of an inner depot archive. Native CI smoke/preservation checks do not establish GOG offline-installer delivery, full gameplay qualification, Staging or platform QA acceptance.
 
-[PR #1300](https://github.com/Globulation2/glob2/pull/1300), the narrow packaging dependency-list fix, merged as `5793d3f242bc35fd67d0e9d2844e3a653b50a7c0`. Normal mirror merge `070f2d642fedef6535133a0fbdb2729b70defd95` matches reviewed public tree `62321cd9ef3a71e4f19528534ebf4162bab241ff`. Corrected **Linux-only build** [run 41220918563](https://github.com/genixpro/glob2-release/actions/runs/41220918563) has verified workflow head `070f2d642fedef6535133a0fbdb2729b70defd95`, passed preflight and is executing dependency closure; its completion and final dependency/license provenance remain unverified. Released payload/source `a766230578dede730be43919240c5c80fafb44fe` is unchanged. No upload, GOG offline installer, QA submission or Live result is claimed.
+[PR #1300](https://github.com/Globulation2/glob2/pull/1300), the narrow packaging dependency-list fix, merged as `5793d3f242bc35fd67d0e9d2844e3a653b50a7c0`. Normal mirror merge `070f2d642fedef6535133a0fbdb2729b70defd95` matches reviewed public tree `62321cd9ef3a71e4f19528534ebf4162bab241ff`. Corrected **Linux-only build** [run 41220918563](https://github.com/genixpro/glob2-release/actions/runs/41220918563) had verified workflow head `070f2d642fedef6535133a0fbdb2729b70defd95` and passed preflight, then failed only while parsing the sentence period after an actual GPL-notice path. This attempt is superseded by the completed retry below. Released payload/source `a766230578dede730be43919240c5c80fafb44fe` is unchanged. No upload, GOG offline installer, QA submission or Live result is claimed.
+
+## Linux candidate package checks completed — 2026-10-31
+
+The notice-path parser correction [PR #1301](https://github.com/Globulation2/glob2/pull/1301) merged after **24 focused tests**, without changing the notices. Normal workflow-mirror merge `3e3c3546b2dfbace0dc2a3f2a5bbcb3d1002681b` matches public commit `0abe90bbb9d83e94841eb0202b1d83ebd0d66eee`, tree `ee398c007443b113bb1e148f6528cb8e6a8bd7d6`. Linux-only [run 41221438076](https://github.com/genixpro/glob2-release/actions/runs/41221438076) completed **Success**, including local depot assembly and a fresh pinned Ubuntu 22.04 desktop-baseline offline fixture of **10 ticks**. This is bounded CI evidence, not full gameplay QA.
+
+- Retained GitHub artifact `13050027417`: **174,506,498 bytes**, API container SHA-256 `27596f0cf5179437cabd5e143fa771635541e79f899c909faedadb632eca4867`, expires **2027-01-29 16:48:23 UTC**.
+- Independently read inner tar: **174,686,010 bytes**, SHA-256 `6e3c3af6bb494410c52d4a32546ff9dceed3be0379984b68fdc3ead200a7639a`. This is a distinct inner-archive hash, not the API digest.
+- Original released asset SHA-256 `c5a7544ee2d818e4eac501875c64a4721bd9163e5bfdfa54fddcb93aae5fd0db` and source `a766230578dede730be43919240c5c80fafb44fe` remain unchanged. Provenance checks matched all **18 added Ubuntu runtime library hashes**, actual copyright files and common-license hashes; **22 libraries total: four original private runtimes plus 18 Ubuntu libraries**.
+
+**Source-delivery follow-up remains open:** output explicitly records `runtime_licence_review_required=true`. `SOURCE.txt` links Glob2 source only; no corresponding-source archive or verified compliant source offer for the added Ubuntu runtime dependencies has been prepared. FriBidi's notice includes LGPL 2.1; mixed source-package notices do not establish blanket licensing of every shipped binary. Preserve exact provenance/notices and resolve applicable dependency source-delivery obligations before treating this depot as release-ready. These checks are not rights certification.
+
+All platform package checks now have successful outputs, but accepted GOG access/IDs, Mac architecture-to-product delivery mapping, trailer/product declarations and the source-delivery follow-up remain unresolved. No GOG upload, offline installer, QA submission or Live release is claimed.
 
 ## Product declarations evidence — 2026-10-31
 
@@ -130,8 +142,8 @@ The public-trailer gap remains as recorded above. This evidence preparation chan
 | Copy | Transfer approved blocks into actual portal fields, inspect limits and save/reload | Prepared locally, not applied |
 | Graphics | Official ZIP/artboards/embedded guides inspected; core approved-source derivatives and genuine layered PSDs prepared and visually reviewed | Complete locally; portal acceptance unverified |
 | Layered art / trailer | Layered product/key art prepared with genuine raster layers and disclosed native origins; confirm actual delivery acceptance. Public trailer remains absent | Layered exports reviewed; trailer/portal gaps remain |
-| Candidate and QA | Build worker qualifies immutable source, DRM-free platform payloads and depot IDs, then protected Staging upload when configured | [Windows and both Mac outputs passed native CI checks](#partial-candidate-results-and-linux-retry--2026-10-31); corrected Linux-only run ongoing. No GOG upload/offline installer/QA claimed |
-| Product declarations | Verify developer/publisher, requirements/languages, rights, ratings/territories and price from current artifact/account evidence | Not filled with assumptions |
+| Candidate and QA | Build worker qualifies immutable source, DRM-free platform payloads and depot IDs, then protected Staging upload when configured | [All platform package checks passed](#linux-candidate-package-checks-completed--2026-10-31); bounded CI smoke only. Mac delivery mapping/dependency source delivery remain open; no GOG upload/offline installer/QA |
+| Product declarations / source delivery | Verify product fields and exact Linux dependency obligations; current SOURCE.txt covers Glob2 only, added-runtime source archive/offer not prepared | Unresolved; runtime_licence_review_required remains true |
 | Release | GOG QA/approval and actual branch/publication outcome | Not submitted or live |
 
 No contact, fees, agreements, legal/rating declarations or external listing edits were made by this preparation unit.
