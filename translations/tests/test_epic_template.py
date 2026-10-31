@@ -16,23 +16,27 @@ class EpicTemplateTests(unittest.TestCase):
                          'fr': {'short_pitch': 'Texte français'}}
         self.mapping = {'en': 'en', 'fr': 'fr', 'el': 'el'}
         self.row = ['Offer', 'synthetic-id', 'Synthetic product', '', 'description',
-                    'Short description', 'string', 'English pitch', '', 'keep Spanish', 'keep Bulgarian']
+                    'Short description', 'string', 'English pitch', '', '', '']
 
     def template(self, *rows):
         output = io.StringIO(newline='')
         csv.writer(output).writerows([self.header, *rows])
         return output.getvalue()
 
-    def test_preserves_identity_english_unsupported_and_known_specs(self):
+    def test_preserves_identity_english_and_copies_known_specs(self):
         specs = ['Store Configs', 'synthetic-config', 'Synthetic config', '',
                  'technicalRequirements.windows.cpu.minimum', 'Technical Requirements',
-                 'string', 'Existing specification', 'existing French', '', '']
+                 'string', 'Existing specification', '', '', '']
         text, report = epic.adapt(self.template(self.row, specs, [], ['#Note. Keep footer']),
                                   self.catalogs, self.mapping)
         rows = list(csv.reader(io.StringIO(text)))
         self.assertEqual(rows[1][:8], self.row[:8])
-        self.assertEqual(rows[1][8:], ['Texte français', 'keep Spanish', 'keep Bulgarian'])
-        self.assertEqual(rows[2], specs)
+        self.assertEqual(rows[1][8:], ['Texte français'])
+        self.assertEqual(rows[2][:8], specs[:8])
+        self.assertEqual(rows[2][8], 'Existing specification')
+        self.assertEqual(rows[0], self.header[:9])
+        self.assertEqual(report['removed_unused_locale_columns'], ['es', 'bg'])
+        self.assertEqual(report['english_fallback_cells'], 1)
         self.assertEqual(rows[3:], [[], ['#Note. Keep footer']])
         self.assertEqual(report['configured_locales_missing_from_template'], ['el'])
         self.assertEqual(report['mapped_rows'], 1)
@@ -53,7 +57,23 @@ class EpicTemplateTests(unittest.TestCase):
             epic.adapt(self.template(existing), self.catalogs, self.mapping)
         existing[8] = self.catalogs['fr']['short_pitch']
         text, _ = epic.adapt(self.template(existing), self.catalogs, self.mapping)
-        self.assertEqual(list(csv.reader(io.StringIO(text)))[1], existing)
+        self.assertEqual(list(csv.reader(io.StringIO(text)))[1], existing[:9])
+
+    def test_rejects_removing_existing_unused_translation(self):
+        existing = self.row[:]
+        existing[9] = 'Saved Spanish text'
+        with self.assertRaisesRegex(ValueError, 'unused locale es has existing content'):
+            epic.adapt(self.template(existing), self.catalogs, self.mapping)
+
+    def test_rejects_missing_invariant_source_and_conflicting_fallback(self):
+        row = ['Store Configs', 'synthetic-config', 'Synthetic config', '',
+               'developerDisplayName', 'Developer', 'string', '', '', '', '']
+        with self.assertRaisesRegex(ValueError, 'invariant English source is empty'):
+            epic.adapt(self.template(row), self.catalogs, self.mapping)
+        row[7] = 'Existing developer'
+        row[8] = 'Different developer'
+        with self.assertRaisesRegex(ValueError, 'invariant differs'):
+            epic.adapt(self.template(row), self.catalogs, self.mapping)
 
     def test_roundtrips_commas_quotes_and_line_breaks_deterministically(self):
         self.catalogs['fr']['short_pitch'] = 'Texte, avec "guillemets"\net une ligne'

@@ -40,6 +40,13 @@ PRESERVED_CONFIGS.update(f'technicalRequirements.windows.{name}.{level}'
                          for level in ('minimum', 'recommended'))
 PRESERVED_CONFIGS.add('technicalRequirements.windows.additionalNotes.minimum')
 
+# Required per-locale identity/requirements need explicit values in Epic imports.
+# Preserve existing qualification wording as English fallback; these are not translations.
+INVARIANT_CONFIGS = {'developerDisplayName', 'publisherDisplayName', 'privacyLink',
+                     'socialLinks.homepage'}
+INVARIANT_CONFIGS.update(field for field in PRESERVED_CONFIGS
+                         if field.startswith('technicalRequirements.'))
+
 
 def adapt(template_text, catalogs, locale_map):
     rows = list(csv.reader(io.StringIO(template_text.lstrip('\ufeff'), newline='')))
@@ -53,16 +60,24 @@ def adapt(template_text, catalogs, locale_map):
                  if code != 'en' and column in index}
     if len(set(supported.values())) != len(supported):
         raise ValueError('Canonical locales map to duplicate destination columns')
-    result = [header[:]]
+    removed_columns = [column for column in header[7:]
+                       if column != 'en' and column not in supported.values()]
+    keep_indexes = [i for i, column in enumerate(header) if column not in removed_columns]
+    result = [[header[i] for i in keep_indexes]]
     mapped_rows = 0
+    invariant_rows = 0
+    invariant_cells = 0
     seen = set()
     for number, original in enumerate(rows[1:], start=2):
         # Empty separators and the official informational footer remain untouched.
         if not original or not any(original) or original[0].startswith('#Note.'):
-            result.append(original[:])
+            result.append([original[i] for i in keep_indexes] if len(original) == len(header) else original[:])
             continue
         if len(original) != len(header):
             raise ValueError(f'Row {number}: unexpected column count')
+        for column in removed_columns:
+            if original[index[column]]:
+                raise ValueError(f'Row {number}: unused locale {column} has existing content; reconcile before removing column')
         row = original[:]
         entity, field = row[index['Entity Type']], row[index['Localization Field']]
         identity = (entity, row[index['Entity Id']], field)
@@ -82,20 +97,34 @@ def adapt(template_text, catalogs, locale_map):
                     raise ValueError(f'Row {number} {entity}/{field}: existing {column} translation differs; reconcile before import')
                 row[index[column]] = translated
             mapped_rows += 1
+        elif entity == 'Store Configs' and field in INVARIANT_CONFIGS:
+            english = row[index['en']]
+            if not english:
+                raise ValueError(f'Row {number} {field}: invariant English source is empty; factual review required')
+            for column in supported.values():
+                existing = row[index[column]]
+                if existing and existing != english:
+                    raise ValueError(f'Row {number} {field}: existing {column} invariant differs; reconcile before import')
+                row[index[column]] = english
+                invariant_cells += 1
+            invariant_rows += 1
         elif entity == 'Store Configs' and field in PRESERVED_CONFIGS:
             pass
         else:
             raise ValueError(f'Row {number}: unknown source row {entity}/{field}; explicit source review required')
-        # IDs, English, field definitions and unsupported locale columns retain exact values.
-        result.append(row)
+        # IDs, English and field definitions retain exact values; unused blank locales are omitted.
+        result.append([row[i] for i in keep_indexes])
     stream = io.StringIO(newline='')
     csv.writer(stream, lineterminator='\r\n').writerows(result)
     report = {'mapped_rows': mapped_rows, 'translated_locale_count': len(supported),
               'translated_columns': sorted(supported.values()),
               'configured_locales_missing_from_template': sorted(
                   code for code, column in locale_map.items() if column not in index),
-              'preserved_unmapped_locale_columns': [column for column in header[7:]
-                   if column != 'en' and column not in supported.values()],
+              'removed_unused_locale_columns': removed_columns,
+              'translated_cells': mapped_rows * len(supported),
+              'english_fallback_rows': invariant_rows,
+              'english_fallback_cells': invariant_cells,
+              'english_fallback_note': 'Existing identity, URLs and system requirements copied exactly; not localized technical prose.',
               'english_and_metadata_preserved': True,
               'publication_status': 'prepared only; import/save/server readback required'}
     return stream.getvalue(), report
