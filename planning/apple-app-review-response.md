@@ -5,7 +5,7 @@
 ## Reviewer response
 
 1. Physical-device recording
-[RECORDING LINK OR ATTACHMENT; DEVICE MODEL; LATEST PUBLIC OS VERSION/BUILD; TIMESTAMPS]. The recording must show Globulation 2 0.11.400 (1002101) launching, normal gameplay and applicable online flows.
+[RECORDING LINK OR ATTACHMENT; DEVICE MODEL; LATEST SUPPORTED PUBLIC OS VERSION/BUILD FOR THIS DEVICE; TIMESTAMPS]. The recording must show Globulation 2 0.11.400 (1002101) launching, normal gameplay and applicable online flows.
 
 2. Purpose and audience
 Globulation 2 is a free, open-source real-time strategy game for players who enjoy colony building, economics and spatial strategy. Players balance food, construction and training while expanding and defending their colony. Autonomous creatures carry out assigned work so players can guide the colony as a whole. iPhone and iPad use touch controls.
@@ -31,7 +31,7 @@ Globulation 2 is a strategy game distributed under GPL-3.0-or-later. It includes
 
 ## Internal evidence and remaining gaps
 
-Observed 2026-10-31: authenticated UI reports Guideline 2.1.0 Performance / App Completeness rejection requesting six items, including a physical-device recording on the latest OS and the same information in App Review Notes. No crash is alleged in the observed request. No reply, Notes update, resubmission or recording has been performed. Related: [publishing ledger](approved-storefront-rollout.md).
+Observed 2026-10-31: authenticated UI reports Guideline 2.1.0 Performance / App Completeness rejection requesting six items, including a physical-device recording on the latest supported public OS for the hardware and the same information in App Review Notes. No crash is alleged in the observed request. No reply, Notes update, resubmission or recording has been performed. Related: [publishing ledger](approved-storefront-rollout.md).
 
 ### Exact candidate
 
@@ -50,6 +50,8 @@ Observed 2026-10-31: authenticated UI reports Guideline 2.1.0 Performance / App 
 
 ### Physical recording dependency
 
-Xcode's read-only device inventory found this Mac and simulators, **no physical iPhone/iPad**. Device identifiers remain outside Git. No new device actions are authorized by this draft. Once the user connects a trusted physical device, confirm its latest-public-OS status and exact TestFlight build before recording. A simulator or newly compiled development binary cannot stand in for Apple's requested submitted-build footage.
+The earlier read-only Xcode inventory found this Mac and simulators, with **no physical iPhone/iPad at that time**. On 2026-10-31, a physical test iPhone connected and its existing trust pairing validated. It runs **iOS 15.8.8 / build 19H422**, the latest supported public OS for this older hardware, checked against [Apple’s public software catalog](https://gdmf.apple.com/v2/pmv) and [Apple’s iOS 15.8.8 support record](https://support.apple.com/en-ca/127114). This does not impose the globally newest OS or a replacement-phone requirement.
+
+The newer Xcode CoreDevice path does not support this device/OS combination; that is a tooling limit, not evidence that the app cannot run. QuickTime’s actual **screen and speaker source picker recognizes the phone**. No source preview or recording has started. The exact installed **0.11.400 / 1002101** build remains unverified; confirm its TestFlight details on the phone before recording. A simulator or newly compiled development binary cannot stand in for the requested submitted-build footage. Personal device names, identifiers, serial numbers and accounts remain outside Git.
 
 Use the device's [built-in screen recording](https://support.apple.com/en-ie/guide/iphone/iph52f6e1987/ios), starting before tapping the app icon. Show the usual colony flow, save/load, then actual account and applicable UGC/paid flows. Confirm exact button labels, account deletion, blocking and browser destinations during that pass. Keep raw footage and any credentials outside this public repository; provide the finished video privately to Apple. Replace all bracketed text before posting the six sections to both the reply and Notes. Preserve the actual launch and interactions in the footage.
