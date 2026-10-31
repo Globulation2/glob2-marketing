@@ -356,3 +356,10 @@ Retained [artifact 13027282975](https://github.com/genixpro/glob2-release/action
 After verifying the current workflow/helper bytes still match the reviewed route, [new run 41197329053](https://github.com/genixpro/glob2-release/actions/runs/41197329053) was dispatched with **tag=v0.11.4.0**, **source_ref=4a670dc0284f05ed8c4b489f82cbfb89f025ee35**, **upload=true**, attempt **1**. Its actual workflow head is `7566d5a3264935e73a25c200e9edf27e49c41bfe`. This authorizes staging to the **existing Dev artifact**; the new run must pass its own source/build/smoke and complete manifest checks before BPT upload. Expected build version, **only if those gates pass**, is `0.11.4.0-win-4a670dc0284f-41197329053-1-store-launchfix`.
 
 **Actual Dev upload remains pending.** No actual Launcher installation, Stage promotion, review submission, Live page or product release is claimed from this dispatch.
+
+
+## Windows parser-fix mirror synchronization — 2026-10-31
+
+Normal mirror merge `dc1fb3e44c63130fb072c0bf5fa8a9e1f02eb757` preserves previous mirror parent `7566d5a3264935e73a25c200e9edf27e49c41bfe` and reviewed public parent `6a16670c6daafa34f1f86a47014f23e0d05fd4e3`. Its complete tree `8643b7dab960aab4dcb716cec8652e9df7d3e774` exactly matches reviewed public master; the delta is only PR #1294’s two-file parser/test correction. The remote was rechecked at the expected prior SHA before a normal non-force push. Existing release tag, domain/bootstrap work, environments/settings/secrets were preserved.
+
+No engine rebuild, workflow dispatch or submission upload occurred in this sync unit. A fresh Partner Center package-version check remains pending before selecting the draft-only encrypted upload candidate; no certification or retail publication is claimed.
