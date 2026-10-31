@@ -2,7 +2,8 @@
 
 [Migration ledger](domain-migration.md) · [Planning index](README.md)
 
-Observed and changed on **2026-10-30**. This record describes the live application
+Initial migration observed and changed on **2026-10-30**; browser metadata and
+domain-ownership follow-up observed on **2026-10-31**. This record describes the live application
 transition, completed website/qualified frontend deployment and remaining
 browser-only metadata handoff; it is not evidence of a new game release. All deployment operations targeted personal project
 `bradley-personal-20261027`. Existing buckets whose names contain `pharaoh-418820`
@@ -278,6 +279,36 @@ checks, the qualified frontend is now live as separately verified in the complet
 rollout record. All related source PRs #58, #1286 and #1287 are merged and mirrored;
 no further source changes are required for the remaining browser-only handoff.
 
+## Google branding and ownership follow-up — 2026-10-31
+
+The OAuth branding home, privacy and terms fields were saved as
+`https://glob2.online/`, `https://glob2.online/privacy/` and
+`https://glob2.online/terms/`. A fresh reload verified persistence, and all three
+URLs independently returned HTTPS **200**.
+
+The initial branding verification attempt required Search Console domain
+ownership. A domain property for `glob2.online` was added, and one public Google
+verification TXT record was appended to the personal Cloud DNS zone with TTL
+**300**. The original Firebase hosting TXT value was preserved. All four
+`ns-cloud-a1` through `ns-cloud-a4` authoritative nameservers returned both values,
+with no regression to the existing RRset. Search Console confirmed ownership via
+**Domain name provider** at **07:34 America/Toronto / 11:34 UTC on 2026-10-31**.
+No verification token value is reproduced in this public record.
+
+**Google branding verification is not yet confirmed.** The branding check
+explicitly instructed waiting at least **24 hours** after ownership verification
+before retrying. That minimum elapses at **2026-11-01 11:34 UTC / 06:34 Toronto**
+after the overnight clock change. Saved branding fields and verified Search
+Console ownership are separate from branding approval/status; no successful
+branding recheck is claimed.
+
+Screenshots remain outside Git in the game worktree's ignored
+`artifacts/domain-migration/branding/`: `saved-branding-links.png`,
+`ownership-verified.png` and `verification-issue.png`. Chrome control was released
+back to the separate publishing chat. GitHub is signed out; its retained login
+page requires user sign-in before the About editor's actual capability can be
+checked. No account permission changes were made.
+
 ## Verification evidence and remaining operations
 
 Sanitized operational outcomes are recorded above. Detailed local evidence is in
@@ -297,25 +328,25 @@ record the activation and public checks. Website evidence also includes
 `post-frontend-live-monitor.log`.
 
 The website deployment, full website redirect matrix and qualified application
-frontend rollout are complete. Remaining work requires the locked browser:
+frontend rollout are complete. Remaining work is limited to account/provider
+follow-up:
 
-1. Update OAuth branding home/privacy/terms links after verifying their current
-   console fields. The new authorized domain and application callback are already
-   saved. Browser ownership remains with the separate publishing work; avoid
-   competing UI actions.
+1. Retry Google branding verification after the instructed 24-hour ownership
+   propagation interval. The new branding URLs are persisted and reachable;
+   Search Console ownership is verified, but branding verification is unconfirmed.
 2. Follow the [storefront destination ledger](approved-storefront-rollout.md#destination-status)
    for verified new-domain listing fields rather than duplicating their saves.
    Apple's global privacy/service field still uses
-   `https://app.glob2online.com/account`; its service-destination migration remains
-   outstanding and must preserve its purpose.
-3. Check the game repository's About homepage through its UI when the browser
-   lease is available. The available REST update path returned 404; this does not
-   establish that a maintainer cannot edit the website's About field.
+   `https://app.glob2online.com/account`; its migration remains with the separate
+   publishing chat and must preserve its purpose.
+3. After the user signs in to GitHub, check the game repository's About homepage
+   through its UI while coordinating the publishing chat's browser lease. The
+   available REST update path returned 404; it does not establish that a maintainer
+   cannot edit the About website field.
 
 The hourly `finish-glob2-domain-migration` automation was **deleted** under its
-stop-on-user-action instruction once the remaining work required Mac unlock.
-The separate publishing chat already requested unlock; no duplicate request or
-competing UI action was made. Resume the authorized branding/About checks after
-unlock and coordinate the existing publishing lease; the Apple service field
-remains with that chat. Keep former-domain registrations, DNS and certificates
-maintained for inbound links and old application-client recovery.
+stop-on-user-action instruction when the earlier Mac-lock gate required user
+input. That gate has cleared, and no schedule has been recreated. Chrome was
+released back to the publishing chat; this documentation work made no competing
+UI action or duplicate sign-in request. Keep former-domain registrations, DNS and
+certificates maintained for inbound links and old application-client recovery.
