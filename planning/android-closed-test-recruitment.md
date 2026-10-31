@@ -42,6 +42,8 @@ Use both routes chosen by the user. Personal invitations are authorized for the 
 
 Discord is the only completed post recorded here; the remaining channels are potential sources, not recruitment partners or completed posts. Do not mass-message members or promise rewards, ratings or automatic reciprocal participation.
 
+**Facebook access gap, October 31:** the user authorized two additional personal invitations and a broad profile recruitment post. The existing-account sign-in requires the user's authentication step, so **0 Facebook direct messages and 0 profile posts were sent**. The two intended recipients remain private and are not included in the twelve completed direct invitations. The draft below is prepared, not published; no permalink or audience reach is established. Resume after the user completes sign-in.
+
 The read-only Discord check also identified an earlier recruitment-path problem: a historical Android invitation used an **internal-test link**, and direct APK installation was also suggested. Neither establishes closed-test opt-in. The new invitation must consistently use the verified **closed** route after allowlist admission. No private volunteer details or correspondence are retained here.
 
 ## Recruitment and onboarding drafts
@@ -65,6 +67,18 @@ Use the approved colony/economy message. No compensation, review exchange, incen
 > To join: **[verified private intake or group route]**. If admission uses an email list, we'll privately need the Google account address you use in Play. Please don't post your email publicly. Once eligible, join at https://play.google.com/apps/testing/org.globulation2.glob2 and install with that same account.
 >
 > Send feedback through **[verified feedback destination]**. This invitation is for testing and feedback; no public review or rating is requested.
+
+**Broad Facebook profile post — user-authorized, prepared but not published**
+
+> **Build a thriving colony in contested territory.**
+>
+> I'm getting Globulation 2 ready for its Android release and looking for around 20 volunteers for our Google Play closed test. Grow a colony, balance food and workers, and contend with rivals for land and resources.
+>
+> If you have an Android phone, can you stay opted in for at least 14 continuous days, play during that period, and share bugs or feedback? DM me the Google account email you use in Play so I can add you and send the closed-test joining steps—please don't post your email in the comments. An APK install or internal-test enrollment doesn't count toward this closed test.
+>
+> iPhone players are welcome to express interest too; our current TestFlight build is waiting for Apple's beta review, and I'll share joining steps after approval.
+>
+> More about the game: https://glob2.online/ . Thanks for helping me get this ready!
 
 **Personal invitation — draft for the user to send**
 
@@ -131,8 +145,9 @@ Avoid committing email addresses, handles, group membership, private messages or
 | Verify recruit installation route | Pending | Eligible-account opt-in and actual Android installation/open evidence needed. |
 | Prepare invitation, onboarding and test cadence | Discord copy approved and posted; other drafts prepared | Exact Discord copy above; adapt remaining drafts to actual channel rules and agreed intake. |
 | Select private intake and roster location | Discord DM intake selected; private roster location pending | Reply privately to the account operating the approved post; no participant identities belong in this repository. |
-| Send or publish recruitment | Discord invitation posted and verified | [Exact sent message](https://discord.com/channels/1545968030155280415/1545968030901604423/1566119400434700410), October 31 11:59 AM displayed local time. Twelve personal invitations also sent: eight WhatsApp and four email, plus one referral follow-up. Other public drafts await approval. |
+| Send or publish recruitment | Discord invitation posted and verified | [Exact sent message](https://discord.com/channels/1545968030155280415/1545968030901604423/1566119400434700410), October 31 11:59 AM displayed local time. Twelve personal invitations also sent: eight WhatsApp and four email, plus one referral follow-up. Facebook profile post authorized but blocked by sign-in; other public drafts await approval. |
 | Send personal invitations | 12 direct invitations verified: 8 WhatsApp + 4 email; 1 additional referral follow-up | No acceptance, device, referred-person reach or Play-account enrollment inferred from delivery. |
+| Send Facebook invitations and profile post | Blocked by user sign-in; 0 DMs / 0 posts sent | Two additional personal invitations and broad profile post authorized; prepared copy above, no publication or reach claimed. |
 | Follow up on Android onboarding | 1 WhatsApp follow-up sent and Delivered after a reply | Play account address requested before eligibility admission; no tester-list change, opt-in or installation verified. |
 | Reach 20 real opted-ins | Not started | Planning target only; dated aggregate console checks needed. |
 | Maintain qualifying cohort and collect feedback | Not started | At least 12 continuously opted in for 14 days; actual useful participation evidence. |
