@@ -279,3 +279,10 @@ Microsoft documents [MakePkg’s validator update and critical-failure flags](ht
 The normal conflict-free mirror merge `f69ef7fca4264a54a02ec6b95c336e2af684b0e0` preserves parents `68f7fc038c3d758daf67a69ed9bf65f11e2e08a2` and reviewed upstream `fda757562a53cf4cd37f12b3b1bd641822b71f9c`. Its entire tree `d72381f6b07acae4d85a589e9e546cace89c4e73` matches upstream, retaining the domain/sign-in bootstrap changes; existing release tag/settings/secrets remain unchanged.
 
 [Test retry 41155822915](https://github.com/genixpro/glob2-release/actions/runs/41155822915) has that exact mirror head SHA and the unchanged **version=1.11.400.0**, **payload_tag=v0.11.4.0**, **upload=false** inputs. Existing environment review approved; actual updated-validator outcome and Windows installation evidence remain pending. No submission-encrypted package upload or certification is claimed.
+
+
+## Windows retry stopped; evidence retrieval limited — 2026-10-30
+
+[Test retry 41155822915](https://github.com/genixpro/glob2-release/actions/runs/41155822915) completed **Failure** in **Build and validate MSIXVC package**, rather than masking the failed step as success. It retained [test artifact 13023969457](https://github.com/genixpro/glob2-release/actions/runs/41155822915/artifacts/13023969457), 273,585,212 bytes. This does not yet identify the remaining validator issue.
+
+Fetching the artifact, even a small range request for its XML, returned HTTP 503 **“Egress is over the account limit.”** The job-log endpoint also returned HTTP 503. API annotations confirmed only exit code 1. Actual retry XML/log inspection remains pending through the web log viewer or restored artifact access; no unsupported-version recurrence or new payload defect is inferred without that evidence. The original test report and preserved-payload comparison remain available locally. No submission upload, Windows installation success, certification or publication is claimed.
