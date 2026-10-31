@@ -87,6 +87,12 @@ Icon-template names and some artboard bounds differ (for example, a board named 
 
 **Core asset unit complete locally:** [six PNGs, three genuine layered PSDs, reproducible script and manifest](../assets/storefront-approved-v1/gog/README.md). Coordinating visual review confirmed centered title fit, retained colony imagery and no guide/mockup leakage. PSDs reopen with three raster layers, correct dimensions and at most one RGB code-value recomposition difference from alpha rounding. Higher-resolution canvases resample the disclosed 1672×941 background and 900×131 wordmark; they do not create native detail. No icon replacement, demo/campaign export, public trailer, portal upload or acceptance is claimed.
 
+## Released-payload build-only checkpoint — 2026-10-31
+
+[Game PR #1299](https://github.com/Globulation2/glob2/pull/1299) merged as `d2b20d330c86d031b717b5d72df5e30d84841b3c`, following 23 focused tests and Python/YAML/whitespace checks. The new credential-free reuse route pins released v0.11.4.0 source `a766230578dede730be43919240c5c80fafb44fe` and four original asset SHA-256s. Its intended packaging preserves Windows payload bytes and signed/notarized Mac apps, separates Mac architectures, and resolves Linux dependency/license provenance; actual output and native gates remain to verify. Reuse mode rejects Staging uploads.
+
+The normal release-mirror merge `f72ceca5541b6ac79fa58f661528771985bf9d08` retains both histories and has the exact reviewed public tree `a54eb9698cff5b78150e455ec5c415b2d651e5c0`. [Run 41220221276](https://github.com/genixpro/glob2-release/actions/runs/41220221276) was dispatched with `tag=v0.11.4.0`, `mode=build`, `platforms=all`, `reuse_released_payload=true`. This records a dispatch, **not completed candidates, successful native qualification or an upload**. No GOG credentials/product IDs/builder hash are verified; no source rebuild or GOG submission is claimed.
+
 ## Product declarations evidence — 2026-10-31
 
 This matrix uses immutable **v0.11.4.0 source `a766230578dede730be43919240c5c80fafb44fe`** as evidence, not older store-build declarations. The separately owned GOG candidate must supply actual package identity and qualification before these become portal promises.
@@ -110,7 +116,7 @@ The public-trailer gap remains as recorded above. This evidence preparation chan
 | Copy | Transfer approved blocks into actual portal fields, inspect limits and save/reload | Prepared locally, not applied |
 | Graphics | Official ZIP/artboards/embedded guides inspected; core approved-source derivatives and genuine layered PSDs prepared and visually reviewed | Complete locally; portal acceptance unverified |
 | Layered art / trailer | Layered product/key art prepared with genuine raster layers and disclosed native origins; confirm actual delivery acceptance. Public trailer remains absent | Layered exports reviewed; trailer/portal gaps remain |
-| Candidate and QA | Build worker qualifies immutable source, DRM-free platform payloads and depot IDs, then protected Staging upload when configured | Tooling exists; no completed GOG candidate/upload claimed |
+| Candidate and QA | Build worker qualifies immutable source, DRM-free platform payloads and depot IDs, then protected Staging upload when configured | [Released-payload build-only run dispatched](#released-payload-build-only-checkpoint--2026-10-31); completion/candidates/native qualification and upload unverified |
 | Product declarations | Verify developer/publisher, requirements/languages, rights, ratings/territories and price from current artifact/account evidence | Not filled with assumptions |
 | Release | GOG QA/approval and actual branch/publication outcome | Not submitted or live |
 
