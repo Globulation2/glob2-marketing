@@ -64,7 +64,8 @@
   "sources": {
     "google-play": "https://support.google.com/googleplay/android-developer/answer/9844778?hl=en",
     "apple": "https://developer.apple.com/help/app-store-connect/reference/app-information/app-store-localizations",
-    "epic": "https://dev.epicgames.com/docs/epic-games-store/store-presence/localization"
+    "epic": "https://dev.epicgames.com/docs/epic-games-store/store-presence/localization",
+    "apple-shortcodes": "https://developer.apple.com/documentation/appstoreconnectapi/managing-metadata-in-your-app-by-using-locale-shortcodes"
   },
   "platforms": {
     "google-play": {
@@ -153,19 +154,19 @@
     },
     "ios": {
       "locales": {
-        "ar": "ar",
+        "ar": "ar-SA",
         "pt-BR": "pt-BR",
         "ca": "ca",
         "cs": "cs",
-        "de": "de",
+        "de": "de-DE",
         "da": "da",
         "en": "en-US",
         "es": "es-ES",
-        "fr": "fr",
+        "fr": "fr-FR",
         "el": "el",
         "hu": "hu",
         "it": "it",
-        "nl": "nl",
+        "nl": "nl-NL",
         "pl": "pl",
         "pt-PT": "pt-PT",
         "ro": "ro",
@@ -180,7 +181,8 @@
         "id": "id",
         "vi": "vi",
         "ja": "ja",
-        "ko": "ko"
+        "ko": "ko",
+        "sl": "sl-SI"
       },
       "fields": {
         "name": {
@@ -249,19 +251,19 @@
     },
     "mac": {
       "locales": {
-        "ar": "ar",
+        "ar": "ar-SA",
         "pt-BR": "pt-BR",
         "ca": "ca",
         "cs": "cs",
-        "de": "de",
+        "de": "de-DE",
         "da": "da",
         "en": "en-US",
         "es": "es-ES",
-        "fr": "fr",
+        "fr": "fr-FR",
         "el": "el",
         "hu": "hu",
         "it": "it",
-        "nl": "nl",
+        "nl": "nl-NL",
         "pl": "pl",
         "pt-PT": "pt-PT",
         "ro": "ro",
@@ -276,7 +278,8 @@
         "id": "id",
         "vi": "vi",
         "ja": "ja",
-        "ko": "ko"
+        "ko": "ko",
+        "sl": "sl-SI"
       },
       "fields": {
         "name": {
