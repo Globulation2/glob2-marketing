@@ -4,6 +4,8 @@
 
 Checked **2026-10-26**. Listing existence, download availability, successful installation, current multiplayer compatibility, submission state and publisher account control are separate facts. No binaries were downloaded or installed. Version fields below are observations of each surface, not a single project-wide latest-version assertion.
 
+The original public audit below is dated October 26. [The October 31 GOG follow-up](#gog-application-follow-up--2026-10-31) adds execution evidence without rewriting that public audit. Current controlled-store rollout outcomes are in the [publishing ledger](../planning/approved-storefront-rollout.md).
+
 ## Publicly observed distribution
 
 | ID | Surface | Observed public state | Evidence / limits |
@@ -42,3 +44,12 @@ Source evidence: game repository [`docs/releases/`](https://github.com/Globulati
 The inspected surfaces disagree in **version and description context**: modern website experimental 0.11.4.0; Snap stable 0.11.2.0; legacy wiki 0.9.4.4; Debian/Fedora 0.9.4.4; Libregamewiki 0.9.4.1. The current website explains colony work and browser play; older surfaces retain YOG and older platform descriptions.
 
 The [legacy screenshot page](https://globulation2.org/wiki/Screenshots) explicitly labels Beta 2/0.9.2 captures and WinterDryad’s Beta 4 artwork. The live new homepage names three replay image files. SourceForge has a 2007 screenshot-update announcement. These establish different dated asset sets; no claim is made that every submitted platform currently uses a particular image. The subsequent [public platform audit](platform-audit.md) adds exact public image URLs, hashes, dimensions and observed copy for a bounded set of surfaces. The complete console-to-source matrix, publication dates, locales and account owners remain unresolved. See [assets](assets.md) and [task ledger](../planning/tasks.md).
+
+
+## GOG application follow-up — 2026-10-31
+
+A private execution receipt reviewed on **October 31** records successful **GOG application-form submission on September 30**, with a subsequent application-detail correction recorded. This establishes an application was submitted; it does **not** establish partner acceptance, publisher-portal access, product IDs, a Staging upload, GOG QA submission or a live listing. No private correspondence, identities, addresses or invitation links are reproduced.
+
+The public [GOG release guide](https://github.com/Globulation2/glob2/blob/6a16670c6daafa34f1f86a47014f23e0d05fd4e3/docs/releases/gog-release.md) and [three-platform candidate/Staging workflow](https://github.com/Globulation2/glob2/blob/6a16670c6daafa34f1f86a47014f23e0d05fd4e3/.github/workflows/gog-staging.yml) establish prepared Windows/macOS/Linux depot and protected-upload tooling. Tooling preparation is distinct from account onboarding and completed GOG QA/publication.
+
+A scoped **October 31 connected-mail check**, for new matching responses after October 20 and before November 1, found **no new onboarding reply, acceptance or invitation**. A separate publisher-contact inbox was not connected and remains **unverified**. This check does not cover all inboxes or establish that no response exists elsewhere. No new application or outreach was sent in this follow-up.
