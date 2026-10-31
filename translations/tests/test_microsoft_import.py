@@ -39,10 +39,33 @@ class MicrosoftImportTests(unittest.TestCase):
         self.assertEqual('Reviewed & translated',rows[1]['de'])
         self.assertEqual('https://approved.example/image.png',rows[-2]['de'])
 
+    def test_actual_console_header_and_caption_shape(self):
+        self.headers[2] = 'Type (Type)'
+        for row in self.rows: row['Type (Type)'] = row.pop('Type')
+        self.rows.append({'Field':'DesktopScreenshotCaption1','ID':'150','Type (Type)':'Text','default':'','en-us':'English caption'})
+        self.rows.extend([{key:'' for key in self.headers} for _ in range(2)])
+        self.write_template()
+        with patch.object(M,'validate',return_value=([],{'de':self.fields})):
+            M.build(self.template,self.out,self.root)
+        with self.out.open(encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+        self.assertEqual('colony',rows[-3]['de'])
+        self.assertEqual('Type (Type)',list(rows[0])[2])
+
     def test_refuses_existing_locale_overwrite(self):
         self.headers.append('de');self.write_template()
         with patch.object(M,'validate',return_value=([],{'de':self.fields})):
             self.assertRaisesRegex(ValueError,'Existing locale',M.build,self.template,self.out,self.root)
+
+    def test_indonesian_locale_does_not_collide_with_reserved_ID_header(self):
+        config = json.loads((self.root / 'platforms.json').read_text())
+        config['platforms']['microsoft']['locales'] = {'en':'en-us','id':'id'}
+        (self.root / 'platforms.json').write_text(json.dumps(config))
+        with patch.object(M,'validate',return_value=([],{'id':self.fields})):
+            result=M.build(self.template,self.out,self.root)
+        with self.out.open(encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+        self.assertEqual(1,result['new_locales'])
+        self.assertEqual('1',rows[1]['ID'])
+        self.assertEqual('Reviewed & translated',rows[1]['id'])
 
     def test_stale_review_prevents_output(self):
         with patch.object(M,'validate',return_value=(['review stale'],{})):
