@@ -270,3 +270,12 @@ The normal non-force release-mirror merge `fc90352cfcfa622e450121e094d4c6c43572b
 The prior eight license-name errors are cleared in this test report: **Foreign Files Check filecount 0**, with the released executable and 30 DLLs listed as passed in the binary scan. The test MSIXVC is 309,121,024 bytes. These successful checks do not override the remaining validator failure or establish Windows installation success.
 
 Microsoft documents [MakePkg’s validator update and critical-failure flags](https://learn.microsoft.com/en-us/gaming/gdk/docs/features/common/packaging/deployment/makepkg?view=gdk-2604). A follow-up will update the validator, make validation fail closed and preserve failed-test evidence before another test-only package attempt. Game payload/source/digest pins remain unchanged.
+
+
+## Windows validator repair and test retry — 2026-10-30
+
+[Game PR #1289](https://github.com/Globulation2/glob2/pull/1289) merged as `fda757562a53cf4cd37f12b3b1bd641822b71f9c` after 32 focused tests. MakePkg now requests `/updatesubval` and `/validationcritical`; an additional XML gate requires complete passing results and consistent detailed failure/warning counts before an upload. The gate rejected the actual previous report’s update failure. Failed test-package artifacts remain retained.
+
+The normal conflict-free mirror merge `f69ef7fca4264a54a02ec6b95c336e2af684b0e0` preserves parents `68f7fc038c3d758daf67a69ed9bf65f11e2e08a2` and reviewed upstream `fda757562a53cf4cd37f12b3b1bd641822b71f9c`. Its entire tree `d72381f6b07acae4d85a589e9e546cace89c4e73` matches upstream, retaining the domain/sign-in bootstrap changes; existing release tag/settings/secrets remain unchanged.
+
+[Test retry 41155822915](https://github.com/genixpro/glob2-release/actions/runs/41155822915) has that exact mirror head SHA and the unchanged **version=1.11.400.0**, **payload_tag=v0.11.4.0**, **upload=false** inputs. Existing environment review approved; actual updated-validator outcome and Windows installation evidence remain pending. No submission-encrypted package upload or certification is claimed.
