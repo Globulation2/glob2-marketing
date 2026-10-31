@@ -40,9 +40,9 @@ Use both routes chosen by the user. Personal invitations are authorized for the 
 | [r/BaseBuildingGames](https://www.reddit.com/r/BaseBuildingGames/) | Own-project links allowed for games substantially featuring base building; engage in replies, avoid reposting, use text posts for videos. | Secondary audience route; accurate colony RTS description, current rule check and destination approval required. |
 | [r/playmygame](https://www.reddit.com/r/playmygame/) | Requires currently freely playable game, direct playable link, developer participation, at most one post/month, no NDA and truthful claims. | Defer until closed enrollment genuinely works; seek moderator guidance if email admission friction does not fit the direct-play rule. |
 
-Discord is the only completed post recorded here; the remaining channels are potential sources, not recruitment partners or completed posts. Do not mass-message members or promise rewards, ratings or automatic reciprocal participation.
+Discord and the Facebook profile post below are completed posts; the remaining public channels are potential sources, not recruitment partners or completed posts. Do not mass-message members or promise rewards, ratings or automatic reciprocal participation.
 
-**Facebook access gap, October 31:** the user authorized two additional personal invitations and a broad profile recruitment post. The existing-account sign-in requires the user's authentication step, so **0 Facebook direct messages and 0 profile posts were sent**. The two intended recipients remain private and are not included in the twelve completed direct invitations. The draft below is prepared, not published; no permalink or audience reach is established. Resume after the user completes sign-in.
+**Facebook authentication history, October 31:** the user authorized two additional personal invitations and a broad profile recruitment post. The initial existing-account sign-in gate prevented action; at that point **0 Facebook direct messages and 0 profile posts had been sent**. The user subsequently completed sign-in, resolving that access gap. The profile post was then published as recorded below; the two direct invitations remain pending and are excluded from the twelve completed direct invitations. Recipient identities remain private.
 
 The read-only Discord check also identified an earlier recruitment-path problem: a historical Android invitation used an **internal-test link**, and direct APK installation was also suggested. Neither establishes closed-test opt-in. The new invitation must consistently use the verified **closed** route after allowlist admission. No private volunteer details or correspondence are retained here.
 
@@ -68,7 +68,9 @@ Use the approved colony/economy message. No compensation, review exchange, incen
 >
 > Send feedback through **[verified feedback destination]**. This invitation is for testing and feedback; no public review or rating is requested.
 
-**Broad Facebook profile post — user-authorized, prepared but not published**
+**Broad Facebook profile post — published and verified 2026-10-31**
+
+The [published profile post](https://www.facebook.com/brad.arsenault.211964/posts/pfbid02QXZxxTuG9DtNRD1N3HsJBv4huwQ8f18LrQqKFH9CrFtYvdSjMZs3cADaX34NYksTl) was verified through a fresh reload. The existing **Public** audience setting was preserved. The exact prepared copy below was published; no boost, story or group cross-post was made. This is a publication receipt, not evidence of views, responses or opted-in testers.
 
 > **Build a thriving colony in contested territory.**
 >
@@ -145,13 +147,14 @@ Avoid committing email addresses, handles, group membership, private messages or
 | Verify recruit installation route | Pending | Eligible-account opt-in and actual Android installation/open evidence needed. |
 | Prepare invitation, onboarding and test cadence | Discord copy approved and posted; other drafts prepared | Exact Discord copy above; adapt remaining drafts to actual channel rules and agreed intake. |
 | Select private intake and roster location | Discord DM intake selected; private roster location pending | Reply privately to the account operating the approved post; no participant identities belong in this repository. |
-| Send or publish recruitment | Discord invitation posted and verified | [Exact sent message](https://discord.com/channels/1545968030155280415/1545968030901604423/1566119400434700410), October 31 11:59 AM displayed local time. Twelve personal invitations also sent: eight WhatsApp and four email, plus one referral follow-up. Facebook profile post authorized but blocked by sign-in; other public drafts await approval. |
+| Send or publish recruitment | Discord invitation posted and verified | [Exact sent message](https://discord.com/channels/1545968030155280415/1545968030901604423/1566119400434700410), October 31 11:59 AM displayed local time. Twelve personal invitations also sent: eight WhatsApp and four email, plus one referral follow-up. Facebook profile post published and freshly verified; other public drafts await approval. |
 | Send personal invitations | 12 direct invitations verified: 8 WhatsApp + 4 email; 1 additional referral follow-up | No acceptance, device, referred-person reach or Play-account enrollment inferred from delivery. |
-| Send Facebook invitations and profile post | Blocked by user sign-in; 0 DMs / 0 posts sent | Two additional personal invitations and broad profile post authorized; prepared copy above, no publication or reach claimed. |
+| Publish Facebook profile post | Published; fresh reload verified | [Published post](https://www.facebook.com/brad.arsenault.211964/posts/pfbid02QXZxxTuG9DtNRD1N3HsJBv4huwQ8f18LrQqKFH9CrFtYvdSjMZs3cADaX34NYksTl), existing Public audience retained; no boost/story/groups or measured reach. |
+| Send Facebook personal invitations | 2 authorized direct invitations pending; 0 DMs sent | Excluded from twelve completed direct invitations; recipient identities remain private. |
 | Follow up on Android onboarding | 1 WhatsApp follow-up sent and Delivered after a reply | Play account address requested before eligibility admission; no tester-list change, opt-in or installation verified. |
 | Reach 20 real opted-ins | Not started | Planning target only; dated aggregate console checks needed. |
 | Maintain qualifying cohort and collect feedback | Not started | At least 12 continuously opted in for 14 days; actual useful participation evidence. |
 | Apply for production access | Blocked by current recorded gate | Confirm eligibility and answer recruitment/testing/readiness questions honestly. |
 | Publish Android production release | Not completed | Production access plus current artifact/platform preflight; track separately in publishing ledger. |
 
-Completed outreach recorded here consists of the approved Discord post, twelve direct personal invitations, one referral follow-up and one Android onboarding follow-up. No new enrollment, eligibility modification, paid recruitment, end-to-end installation, test completion or Android production release is claimed.
+Completed outreach recorded here consists of the approved Discord post, the Facebook profile post, twelve direct personal invitations, one referral follow-up and one Android onboarding follow-up. No new enrollment, eligibility modification, paid recruitment, end-to-end installation, test completion or Android production release is claimed.
