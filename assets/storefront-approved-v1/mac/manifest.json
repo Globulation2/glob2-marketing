@@ -1,0 +1,136 @@
+{
+  "prepared": "2026-10-30",
+  "role": "Mac App Store screenshot-size adapters using approved imagery and neutral padding only",
+  "portal_accepted_dimensions": [
+    [
+      2880,
+      1800
+    ],
+    [
+      2560,
+      1600
+    ],
+    [
+      1440,
+      900
+    ],
+    [
+      1280,
+      800
+    ]
+  ],
+  "images": [
+    {
+      "file": "01-colony-1280x800.png",
+      "source": "../01-colony.png",
+      "source_dimensions": [
+        1280,
+        720
+      ],
+      "source_sha256": "eff964acf6760d40299d1c45e2835a35c7bfbada5a4a84f9adf227dd0b21ecf5",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "mode": "RGB",
+      "padding_pixels": {
+        "left": 0,
+        "top": 40,
+        "right": 0,
+        "bottom": 40
+      },
+      "padding_rgb": [
+        0,
+        0,
+        0
+      ],
+      "bytes": 1709331,
+      "sha256": "a80130bd1fdf8fbc30e614ece6d7de3ddb5e9d11f9c92800a7c528fa61298054",
+      "treatment": "Full approved source RGB frame preserved pixel-for-pixel; neutral black vertical padding only. No crop, resize, added gameplay, retouching or outside imagery."
+    },
+    {
+      "file": "02-river-battle-2560x1600.png",
+      "source": "../02-river-battle.png",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "source_sha256": "314b532c9046547b753c88ab8868a44931628b911c4e06417b12b41592a9eabc",
+      "dimensions": [
+        2560,
+        1600
+      ],
+      "mode": "RGB",
+      "padding_pixels": {
+        "left": 0,
+        "top": 80,
+        "right": 0,
+        "bottom": 80
+      },
+      "padding_rgb": [
+        0,
+        0,
+        0
+      ],
+      "bytes": 5467547,
+      "sha256": "f0dd874fb1977de9586b9978419eabaccebc4e6d2cb8cbea5318b6616994a752",
+      "treatment": "Full approved source RGB frame preserved pixel-for-pixel; neutral black vertical padding only. No crop, resize, added gameplay, retouching or outside imagery."
+    },
+    {
+      "file": "03-four-squares-strategic-2560x1600.png",
+      "source": "../03-four-squares-strategic.png",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "source_sha256": "30f8f09cfd4684a981643b0299d2de792c4a6b76b89ee01778329878617b33d3",
+      "dimensions": [
+        2560,
+        1600
+      ],
+      "mode": "RGB",
+      "padding_pixels": {
+        "left": 0,
+        "top": 80,
+        "right": 0,
+        "bottom": 80
+      },
+      "padding_rgb": [
+        0,
+        0,
+        0
+      ],
+      "bytes": 1212787,
+      "sha256": "4dee989003c22e2dd5e40b03ade08501009cfa78ea5019ae77d328bb3cf60735",
+      "treatment": "Full approved source RGB frame preserved pixel-for-pixel; neutral black vertical padding only. No crop, resize, added gameplay, retouching or outside imagery."
+    },
+    {
+      "file": "04-lava-shield-terrain-2560x1600.png",
+      "source": "../04-lava-shield-terrain.png",
+      "source_dimensions": [
+        2560,
+        1440
+      ],
+      "source_sha256": "a360b32a468589c815e9da97c8700aada173cc01b8158c8cc32c86cca7f31ab2",
+      "dimensions": [
+        2560,
+        1600
+      ],
+      "mode": "RGB",
+      "padding_pixels": {
+        "left": 0,
+        "top": 80,
+        "right": 0,
+        "bottom": 80
+      },
+      "padding_rgb": [
+        0,
+        0,
+        0
+      ],
+      "bytes": 5835157,
+      "sha256": "78b7ab578cdc2a72ade8ed36978b2b80c6789d1325a688b8a1a0dec544f588f4",
+      "treatment": "Full approved source RGB frame preserved pixel-for-pixel; neutral black vertical padding only. No crop, resize, added gameplay, retouching or outside imagery."
+    }
+  ]
+}
