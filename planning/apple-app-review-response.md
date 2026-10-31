@@ -1,6 +1,6 @@
 # iOS App Review response draft
 
-**Draft only, 2026-10-31.** The six sections below are prepared for the same review reply and App Review Notes. The user has not yet chosen between supplementary footage and sending the existing clip with its coverage/signing disclosure. No reply, Notes update or resubmission is claimed.
+**Draft only, 2026-10-31.** The six sections below are prepared for the same review reply and App Review Notes. The user selected a short account/moderation supplement, primarily applicable Glob2 Online web flows, while retaining the existing core-gameplay clip. Supplement footage and updated final text remain pending. No reply, Notes update or resubmission is claimed.
 
 ## Reviewer response
 
@@ -34,9 +34,13 @@ Observed 2026-10-31: authenticated UI reports Guideline 2.1.0 Performance / App 
 
 The existing clip covers launch/core gameplay/automatic guest connection. Optional account-management and moderation flows remain unrecorded; user blocking and reachable paid browser flows have not been verified. Save/load was part of our suggested script, **not a separately stated Apple video requirement**. Showing Save/Load menu buttons does not establish either action.
 
-### User choice before sending
+### Selected supplementary-footage route
 
-The user may record a short supplement for applicable account/UGC/paid flows, or choose to send the existing clip with these explicit limitations and the development-signing disclosure. Neither route has been selected in this draft, and Apple's acceptance is not assumed. Keep the original clip intact; a supplement need not repeat the demonstrated core flow. No reviewer reply, App Review Notes save or resubmission has occurred.
+The user chose **“Add a short account/moderation clip”** and clarified that these are mostly **Glob2 Online web flows**. Keep the existing **1m49s core-gameplay recording intact**; no core gameplay redo is selected. Live web inspection and read-only source mapping are in progress to identify the actual applicable account/moderation flows. No supplemental recording or web-flow coverage is claimed yet. Update the unsent reviewer text only after the new footage is reviewed; Apple's acceptance is not assumed. No attachment upload, reviewer reply, App Review Notes save or resubmission has occurred.
+
+### Reply and Notes field readiness
+
+The actual Apple review-reply and App Review Notes fields are editable and each has a **4,000-character cap**. The attachment UI supports multiple attachments; no file-type/size cap was visible in the inspected UI. Upload of the original **88 MB** recording is **untested**, so UI visibility does not guarantee acceptance. No field save or attachment upload has occurred.
 
 ### Exact candidate
 
@@ -81,4 +85,4 @@ Reviewed timestamps:
 
 The native version is **not legible in the reviewed launch/main-menu frames**. Build identity is supported by the separate archive/export/installation provenance above, not by a visible video label. The recording must be described as the original compiled archive with **development signing**, not a TestFlight installation, newly compiled development binary or bit-identical App Store-signed IPA.
 
-The clip does not demonstrate account registration/linking/login/deletion, map reporting/user blocking or a paid browser flow. No successful save/load, completed construction, online match or regional consistency is inferred from showing controls or reaching the guest hub. Keep footage, personal device names/IDs/serials, credentials, profile/certificate details and private paths outside this public repository. Provide the actual video privately to Apple with the completed written reply/Notes only after the user's choice above.
+The clip does not demonstrate account registration/linking/login/deletion, map reporting/user blocking or a paid browser flow. No successful save/load, completed construction, online match or regional consistency is inferred from showing controls or reaching the guest hub. Keep footage, personal device names/IDs/serials, credentials, profile/certificate details and private paths outside this public repository. Provide the original and finished supplement privately to Apple with the updated written reply/Notes; the selected supplement remains unrecorded.
