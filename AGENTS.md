@@ -6,6 +6,8 @@ The coordinating agent must oversee sub-agents for all substantive work instead 
 
 ## Git workflow
 
+These Git workflow rules apply only to the `glob2-marketing` repository. On 2026-10-31, the user explicitly clarified that the no-pull-request rule does not apply to other repositories. Work in other repositories follows their own `AGENTS.md`, default-branch workflow, pull-request requirements and branch protections; this marketing policy does not authorize bypassing them.
+
 - Work directly on `main`. Use trunk-based development only: no feature branches and no pull requests.
 - Commit after completing work, including small amounts of work, and push directly to `origin/main`.
 - Use a concise subject and a thorough commit body. Record the marketing work completed, evidence reviewed, findings or uncertainty documented, validation performed, and remaining follow-up where relevant. Do not merely list changed files or use shallow descriptions.
