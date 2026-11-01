@@ -12,7 +12,7 @@ Magtayo ng maunlad na kolonya sa teritoryong pinag-aagawan.
 
 ## short_pitch
 
-Bumuo ng maunlad na kolonya sa agawang teritoryo. Balansehin ang pagkain, manggagawa at paglawak; bumuo ng malawak na base at makipag-agawan sa karibal sa lupa at yaman.
+Bumuo ng maunlad na kolonya sa pinag-aagawang lupa. Balansehin ang pagkain, manggagawa at paglawak; magpalawak ng base at makipag-agawan sa karibal sa lupa at yaman.
 
 ## about_intro
 
