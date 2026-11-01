@@ -12,7 +12,7 @@ import sys
 from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-CODES = 'ar pt-BR ca cs de da en es eo eu fa fr el hu it nl pl pt-PT ro ru sl sk sr-Cyrl fi sv tr zh-Hant zh-Hans uk id vi ja ko'.split()
+CODES = 'ar pt-BR ca cs de da en es eo eu fa fr el hu it nl pl pt-PT ro ru sl sk sr-Cyrl fi sv tr zh-Hant zh-Hans uk id vi ja ko hi ur sw bn nb ms mr ta te fil bg th'.split()
 
 
 def digest(value):

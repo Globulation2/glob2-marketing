@@ -26,4 +26,4 @@ Version: `storefront-v1`. These meaning constraints apply across all locales; lo
 | iPhone / iPad / Android | Preserve platform trademarks. |
 | skirmish / empire / map editor | Existing Apple keyword concepts only; keywords do not authorize adding new descriptive claims. |
 
-Arabic and Persian require appropriate right-to-left shaping and direction. Serbian uses Cyrillic. Portuguese Brazil/Portugal and Chinese Simplified/Traditional are separate canonical variants. Keep URLs, product name and proper names exact; do not mirror gameplay or the wordmark for RTL layouts.
+Arabic, Persian and Urdu require appropriate right-to-left shaping and direction. Serbian uses Cyrillic. Portuguese Brazil/Portugal and Chinese Simplified/Traditional are separate canonical variants. Keep URLs, product name and proper names exact; do not mirror gameplay or the wordmark for RTL layouts.

@@ -33,7 +33,19 @@
     "id",
     "vi",
     "ja",
-    "ko"
+    "ko",
+    "hi",
+    "ur",
+    "sw",
+    "bn",
+    "nb",
+    "ms",
+    "mr",
+    "ta",
+    "te",
+    "fil",
+    "bg",
+    "th"
   ],
   "description_paragraphs": [
     [
@@ -59,7 +71,8 @@
     "Mappings are export candidates, not evidence of current console support or editability. Reconcile against current platform locale selector before upload.",
     "No binary language declarations or release notes are exported.",
     "Epic and Amazon platform-specific existing tails/features must be preserved until exact saved fields are reconciled; generic export is preparation only.",
-    "Snap non-English locale fields remain unverified. Amazon documented supported language labels are exported even while current review prevents saving; exact API codes must be reconciled before use."
+    "Snap non-English locale fields remain unverified. Amazon documented supported language labels are exported even while current review prevents saving; exact API codes must be reconciled before use.",
+    "2026-11-01 roster expansion: hi, ur, sw, bn, nb, ms, mr, ta, te, fil, bg and th have canonical catalogs and upstream fragment IDs. Store console locale mappings and F-Droid locale directories for these twelve remain unverified and are intentionally omitted; exports report gaps rather than infer upload support."
   ],
   "sources": {
     "google-play": "https://support.google.com/googleplay/android-developer/answer/9844778?hl=en",
@@ -831,6 +844,18 @@
     "id": "id",
     "vi": "vi",
     "ja": "ja",
-    "ko": "ko"
+    "ko": "ko",
+    "hi": "hi",
+    "ur": "ur",
+    "sw": "sw",
+    "bn": "bn",
+    "nb": "nb",
+    "ms": "ms",
+    "mr": "mr",
+    "ta": "ta",
+    "te": "te",
+    "fil": "fil",
+    "bg": "bg",
+    "th": "th"
   }
 }
