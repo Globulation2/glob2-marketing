@@ -3,9 +3,10 @@
 [Migration ledger](domain-migration.md) · [Planning index](README.md)
 
 Initial migration observed and changed on **2026-10-30**; browser metadata and
-domain-ownership follow-up observed on **2026-10-31**. This record describes the live application
-transition, completed website/qualified frontend deployment and remaining
-browser-only metadata handoff; it is not evidence of a new game release. All deployment operations targeted personal project
+domain-ownership follow-up observed on **2026-10-31**, and final branding closure
+verified on **2026-11-01**. This record describes the live application
+transition, completed website/qualified frontend deployment and completed
+branding publication; it is not evidence of a new game release. All deployment operations targeted personal project
 `bradley-personal-20261027`. Existing buckets whose names contain `pharaoh-418820`
 were retained. The former domain registration was not changed.
 
@@ -295,17 +296,38 @@ with no regression to the existing RRset. Search Console confirmed ownership via
 **Domain name provider** at **07:34 America/Toronto / 11:34 UTC on 2026-10-31**.
 No verification token value is reproduced in this public record.
 
-**Google branding verification is not yet confirmed.** The branding check
-explicitly instructed waiting at least **24 hours** after ownership verification
-before retrying. That minimum elapses at **2026-11-01 11:34 UTC / 06:34 Toronto**
-after the overnight clock change. Saved branding fields and verified Search
-Console ownership are separate from branding approval/status; no successful
-branding recheck is claimed.
+**Historical verification gap on 2026-10-31:** the branding check required waiting
+at least **24 hours** after ownership verification before retrying. That minimum
+elapsed at **2026-11-01 11:34 UTC / 06:34 Toronto** after the overnight clock
+change. At that earlier stage, saved branding fields and verified Search Console
+ownership did not establish branding verification. The verification issue and
+wait evidence remain preserved; the successful later result follows below.
 
 Screenshots remain outside Git in the game worktree's ignored
 `artifacts/domain-migration/branding/`: `saved-branding-links.png`,
 `ownership-verified.png` and `verification-issue.png`. Chrome control was released
 back to the separate publishing chat. No account permission changes were made.
+
+## Google branding verified and published — 2026-11-01
+
+After the ownership-propagation interval, the **I have fixed issues** retry passed.
+Google then offered **Publish branding**, which was applied. At approximately
+**07:29 America/Toronto / 12:29 UTC on 2026-11-01**, the final console state said:
+
+> Your branding has been verified and is being shown to users.
+
+A fresh reload independently confirmed that exact state and the three correct
+saved URLs. All three public URLs returned HTTPS **200** again, and both the
+Google verification and original hosting TXT values resolved. The ignored
+screenshot `artifacts/domain-migration/branding/published-branding-20261101.png`
+records the final state alongside the earlier saved-link, ownership and
+verification-issue evidence. No authenticated console screenshot is committed.
+
+The final branding step changed no OAuth client, origins, secret, runtime,
+permissions, storefront or mirror configuration. Chrome was explicitly released.
+The newer `finish-google-branding-verification` timer was **deleted after
+successful completion**, separately from the earlier migration automation's
+already recorded deletion.
 
 ## Apple service field and retained legacy homepage — 2026-10-31
 
@@ -342,17 +364,21 @@ game worktree's ignored domain-migration artifacts, alongside `REVIEW.md`,
 record the activation and public checks. Website evidence also includes
 `post-frontend-live-monitor.log`.
 
-The website deployment, full website redirect matrix, qualified application
-frontend rollout and Apple service-field replacement are complete. The only
-remaining migration gate is **Google branding verification** after the instructed
-24-hour ownership-propagation interval. The new branding URLs are persisted and
-reachable, and Search Console ownership is verified; do not mark branding
-verification complete before a successful recheck. Retry no earlier than
-**2026-11-01 11:34 UTC / 06:34 Toronto** after the clock change.
+The recorded migration is **complete as of 2026-11-01**. Website deployment,
+the full website redirect matrix, qualified application frontend, Apple service
+field replacement, and final Google branding verification/publication are all
+verified above. There is no remaining active migration gate or user-action
+handoff.
 
-The hourly `finish-glob2-domain-migration` automation was **deleted** under its
-stop-on-user-action instruction when the earlier Mac-lock gate required user
-input. That gate has cleared, and no schedule has been recreated. Chrome remains
-released to the publishing chat; no GitHub login or About edit is required for the
-user-defined migration scope. Keep former-domain registrations, DNS and
-certificates maintained for inbound links and old application-client recovery.
+The game repository's legacy `globulation2.org` About homepage remains deliberately
+unchanged under the user's clarified scope. Historical source/capture URLs and
+former application API, browser recovery and old hashed asset endpoints remain
+intentionally available; these are compatibility/provenance records, not unfinished
+website redirects. Keep former-domain registrations, DNS and certificates
+maintained for inbound links and shipped-client recovery.
+
+The earlier `finish-glob2-domain-migration` automation was deleted when its
+stop-on-user-action condition was reached. A later
+`finish-google-branding-verification` timer handled the final recheck and was
+also deleted after success. No follow-up schedule was recreated or remains
+active. Chrome was released after the completed work.
