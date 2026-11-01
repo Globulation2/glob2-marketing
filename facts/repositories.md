@@ -36,6 +36,12 @@ Other access-restricted asset leads were excluded from the public inventory. The
 - R01 retains application/store identities and metadata under `data/`, `fastlane/metadata/`, `mobile/`, `darwin/`, `snap/`, `flatpak/`; [assets](assets.md) records the screenshot families and copy variations.
 - Website documentation says public pages use no analytics/account cookies; app source separately implements operational/account activity reporting. See [product measurement inventory](product.md#measurement-and-account-infrastructure).
 
+## Website localization update — 2026-11-01
+
+The current [main marketing website](https://glob2.online/) serves English plus 44 non-English game languages across its homepage, game explanation, downloads and community pages. [Website PR #59](https://github.com/Globulation2/glob2-online-website/pull/59) merged the 194-field catalogs and locale routing as `e6e7636fa10dbe8ea944affb7bf46d50527501cd`; the [main deployment workflow](https://github.com/Globulation2/glob2-online-website/actions/runs/41352253657) successfully verified and published that source. Independent public readback at **16:48 America/Toronto / 21:48 UTC on November 1** passed all 180 routes with HTTP 200 and zero gaps. Scope, comparison details and immutable deployment receipts are recorded in the [website localization ledger](../planning/website-localization-rollout.md#publication-receipts).
+
+Guides, history and other editorial/legal pages remain English. Independent AI review is recorded; human or native-speaker validation is unverified. The earlier repository revisions and domain rows above retain their October 26 observation context; current canonical-domain operations are in the [migration ledger](../planning/domain-migration.md).
+
 ## Scope gaps
 
 Public organization metadata checked by the foundation researcher reports five public repositories at [the organization API](https://api.github.com/orgs/Globulation2). Its creation timestamp is 26 December 2019, which is an organization-account date, not the game's founding date. Public repository enumeration is bounded to that organization and does not enumerate forks or other owners.
