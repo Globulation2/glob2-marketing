@@ -7,7 +7,7 @@ The initial research records evidence and explores options. The user subsequentl
 ## Start here
 
 - [Working rules](AGENTS.md): delegation, evidence, structure, and trunk-based commits.
-- [Canonical storefront translations](translations/README.md): approved English source, 32 reviewed language catalogs, terminology and platform exports.
+- [Canonical storefront translations](translations/README.md): approved English source, 44 reviewed non-English language catalogs, terminology and platform exports.
 - [Domain migration](planning/domain-migration.md): switch to `glob2.online` across maintained sources, hosting and controlled listings.
 - [Task ledger](planning/tasks.md): scope, progress, dependencies, and follow-up work.
 - [Facts](facts/README.md): existing repositories, channels, listings, websites, assets, product capabilities, and history.
