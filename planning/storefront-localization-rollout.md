@@ -294,3 +294,14 @@ The shared English subtitle was saved to the approved **“Colony strategy under
 Keywords occupy **82 UTF-8 bytes**, within the corrected 100-byte limit. The exact Mac build `2026111801`, automatic-release setting and existing URLs remained unchanged. The French locale showed zero localized screenshots and four approved primary-locale fallback placements/buttons; no image was uploaded. French shared App Information and French iOS fields remain unfinished and are not counted as saved by this pilot.
 
 Native bulk entry stopped when the computer-control session hit an actual 10-request-per-minute limit with resets around 294 seconds. The French Mac form is saved cleanly, with no stale unsaved form. A secure API helper is being implemented in a game worktree; **no API writes or new live workflow occurred at this checkpoint**. All 38 release-note strings are independently reviewed in marketing commit `d73a4ef`, ready for the separate bulk workflow. Both latest Apple candidates remain editable and not submitted for review; this pilot does not establish complete 38-locale application.
+
+## Microsoft public French and Hindi text verified — 2026-11-18
+
+A bounded independent public HTTP follow-up returned **HTTP 200** for the [French/France page](https://apps.microsoft.com/detail/9PH4FCRMX19F?hl=fr-FR&gl=FR) and [Hindi/India page](https://apps.microsoft.com/detail/9PH4FCRMX19F?hl=hi-IN&gl=IN). Both now contain the reviewed localized **product copy**, not just localized storefront interface labels. The public HTML's decoded `window.pageMetadata` values matched canonical source exactly for **eleven fields per locale**: title, short description, full description, four features and four ordered screenshot captions.
+
+| Sample | Public full-description SHA-256 |
+| --- | --- |
+| French / France | `a4e71786b46706d76fa3cd0f1b998c2a3d33aada3173b5c0399bca10c1e4d9c8` |
+| Hindi / India | `89025afb8e7e250b469a28325a39c663031a93287fefd187c1a993057cd57429` |
+
+This supersedes the earlier French English-fallback observation for this public URL and verifies one original-batch language plus one expansion language. It establishes public text/caption availability in these **two sampled locale/market combinations only**. It does not certify all 44 locales, other territories, image bytes, final visual layout or a package update. No authenticated editor or write action was used; no repeated polling was needed.

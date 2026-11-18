@@ -152,3 +152,7 @@ Following the user's translation-first decision, [the iOS 0.11.601 source/review
 ## French Mac saved pilot — 2026-11-18
 
 The [fresh French Mac pilot receipt](storefront-localization-rollout.md#french-mac-pilot-saved-secure-bulk-preparation--2026-11-18) confirms canonical promotional text, description and 82-byte keywords saved by exact hashes, with existing build/media/URLs preserved. Shared English subtitle now matches the approved text; French shared/iOS work remains unfinished. Native bulk entry stopped at the actual computer-control rate limit, with a clean saved form. Reviewed 38-locale release-note source is ready, while the secure helper remains implementation work with no API write or new live workflow claimed. Neither latest Apple version has been submitted for review.
+
+## Microsoft sampled public availability — 2026-11-18
+
+[Fresh public French/France and Hindi/India checks](storefront-localization-rollout.md#microsoft-public-french-and-hindi-text-verified--2026-11-18) now match eleven canonical product-copy fields each, including full descriptions, features and ordered screenshot captions. This is public localized content and supersedes the prior French English-fallback finding. Coverage is bounded to those two locale/market samples; all-44 availability and visual-layout certification remain unclaimed.
