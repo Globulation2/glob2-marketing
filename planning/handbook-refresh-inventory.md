@@ -26,9 +26,10 @@ Sources: the [237-asset manifest](https://github.com/Globulation2/glob2-online-w
 | Current first-session entry and scouting task | Bounded source unit [f7a625b](https://github.com/Globulation2/glob2-online-website/commit/f7a625bae9758e8e14ff7a157718d41636286d29) merged through [PR #62](https://github.com/Globulation2/glob2-online-website/pull/62) as [96e438a](https://github.com/Globulation2/glob2-online-website/commit/96e438ac2fac658499e3233337a7bd3d29b844ad) and is publicly live. Four genuine current-browser images, including a readable sidebar detail, use immutable v2 paths; independent public website GETs matched all byte lengths/hashes. Guide mechanics, two rendered rounds and live desktop/mobile views reviewed. |
 | Earlier first-session walkthrough | Its 17 original assets and original provenance retained in a collapsed, explicitly earlier-version reference, excluded from search indexing. It describes the retired lesson, not the current task order. |
 | Remaining phase: Control reference | Source-complete/uploaded/reviewed in [326a3cb](https://github.com/Globulation2/glob2-online-website/commit/326a3cb), draft PR #64; not yet published. Two current images supersede its two older active references, with original provenance retained. Exact payload qualification, Cancel-preserves-binding reproduction and two rendered rounds passed. |
-| Other 27 chapters in this phase | **218 older assets across 24 families remain to assess and refresh in source.** The production website still has the full 220-asset follow-up until PR #64 is published. The bounded Econo selector correction is not a completed AI family. |
+| Remaining phase: Controls and HUD | Source-complete in [036ae46](https://github.com/Globulation2/glob2-online-website/commit/036ae46), not yet published. Seven genuine prepared-Food-practice images replace its five older active references; public object hashes, mechanics and two rendered rounds verified. |
+| Other 26 chapters in this phase | **213 unique older active assets across 23 families remain to assess and refresh in committed source.** Counts follow actual chapter references and video posters, including shared reference-chapter consumers, rather than `supersededBy` metadata alone. The production website still has the full 220-asset follow-up until PR #64 is published. Econo has a reviewed/uploaded candidate in integration, not a published completed family. |
 
-The published manifest contains 241 assets: the original 237 plus four current first-session images. The reviewed PR #64 source adds two Control reference images (243 retained records), marks its two earlier objects superseded, and preserves their provenance. The original first-session family is not referenced by other chapters. The remaining 220 includes 13 videos and their supporting imagery; the four-image repair is not a complete five-task Introduction walkthrough.
+The published manifest contains 241 assets: the original 237 plus four current first-session images. The reviewed PR #64 source adds two Control reference images (243 retained records), marks its two earlier objects superseded, and preserves their provenance. The subsequent committed HUD unit adds seven more records (250 retained records), replacing five active older references. All older original objects remain retained for provenance. The original first-session family is not referenced by other chapters. The remaining 220 includes 13 videos and their supporting imagery; the four-image repair is not a complete five-task Introduction walkthrough.
 
 ## Family ledger
 
@@ -37,7 +38,7 @@ Counts below describe the original 237-asset inventory and include posters/detai
 | Capture family | Assets | Refresh state |
 | --- | ---: | --- |
 | getting-started | 17 | Earlier lesson retained; four current images added separately. |
-| controls-and-hud | 5 | Pending |
+| controls-and-hud | 5 | Source-complete in 036ae46; seven current images uploaded/hash-verified; independent mechanics/two rendered rounds passed; publication pending. |
 | resources-and-hauling | 9 | Pending |
 | jobs-and-flags | 4 | Pending |
 | sustainable-food | 8 | Pending |
@@ -56,7 +57,7 @@ Counts below describe the original 237-asset inventory and include posters/detai
 | choosing-an-ai | 8 | Pending |
 | ai-numbi | 8 | Pending |
 | ai-castor | 13 | Pending |
-| ai-econo | 11 | Pending |
+| ai-econo | 11 | Four current browser/native image candidates reviewed/uploaded/hash-verified; chapter integration/render pending. Old food clip retirement depends on current resources motion published in the same batch. |
 | ai-warrush | 12 | Pending |
 | ai-cortex | 13 | Pending |
 | ai-cabino | 12 | Pending |
