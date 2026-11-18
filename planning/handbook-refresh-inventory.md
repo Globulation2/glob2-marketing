@@ -20,6 +20,13 @@ Initial advanced/reference source review identified two concrete checks for the 
 
 Ownership is now split explicitly: the advanced worker authors eight AI lessons and native advanced candidates; the capture owner authors resources/sustainable-food/jobs and common tooling; the website author owns other chapter text and sole shared manifest/upload integration. Reciprocal review remains required. Runtime control is exclusive during graphics capture windows.
 
+### Current applied-High handoffs
+
+- Main marketing hero, two posters and provenance/docs are independently reviewed and committed in [design-system `38eee85`](https://github.com/Globulation2/glob2-design-system/commit/38eee85): fresh native GPU/High hero/posters only. Three separate FourSquares continuation crop candidates are coordinator-visually-approved in ignored delivery, awaiting independent gallery review/integration; they are not in that commit. Website integration/publication pending; old live Software imagery remains identified above.
+- Browser setup/rules: 15 applied-High objects reciprocally approved, immutable-uploaded and public byte/hash-verified, with explicit setting/reload/backend/payload evidence. The registered strategy derivatives cover Numbi/Econo. All eight panels exist as raw capture evidence, not all as registered assets; source/render/publication gates remain separate.
+- Native Econo: new GPU/High stills and motion await reciprocal review/registration; separately qualified browser profile is registered. Resource resolution is source-supported by bundle-before-working-directory lookup and no profile artwork override, without a per-file trace.
+- Native Numbi/Castor: bounded packaged-Resources GPU/High recapture completed; Numbi zero-warrior5:38/ten-warrior7:58, genuine normal-speed town motion, Population history and Castor stock/population views are being processed. No family completion/publication is claimed. Capture process closed before offline editing and the next browser window.
+
 ## Inventory and current status
 
 The pre-refresh website contained **29 current handbook chapters**, **26 capture families** and **237 media assets: 223 images and 14 videos**. All manifest assets were used, including video posters. Three reference chapters reuse other families, so chapter and family counts differ. These were active instructional images, not historical archive material merely because their original provenance was retained.
