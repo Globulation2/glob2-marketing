@@ -92,3 +92,7 @@ The [expanded mapping receipt](storefront-localization-rollout.md#expanded-local
 ## Maintained source preparation — 2026-11-17
 
 The [source expansion receipt](storefront-localization-rollout.md#maintained-source-expansion-pr-prepared--2026-11-17) links [game PR #1825](https://github.com/Globulation2/glob2/pull/1825), preparing all 45 locales in F-Droid/AppStream/desktop metadata and the applicable corrected Android fields. Independent export comparison passes. The PR remains distinct from merged source, a release or public catalog ingestion; the initial twelve-language maintained-source gap is addressed by this prepared change but not yet closed on master at this checkpoint.
+
+## Google rollout checkpoint — 2026-11-17
+
+The [Play import checkpoint](storefront-localization-rollout.md#google-expanded-import-preview-save-blocked--2026-11-17) records successful import into an **unsaved** sixteen-language editor draft: twelve additions plus four corrected existing locales. Only English/Hindi preview triplets received exact hash comparison before the Mac locked. Save, persisted readback, review submission and public display remain unverified; the draft page is preserved pending resumed computer access.
