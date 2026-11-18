@@ -382,3 +382,24 @@ stop-on-user-action condition was reached. A later
 `finish-google-branding-verification` timer handled the final recheck and was
 also deleted after success. No follow-up schedule was recreated or remains
 active. Chrome was released after the completed work.
+
+## Former-domain renewal disabled — 2026-11-18
+
+The user subsequently chose to cancel the `glob2online.com` registration entirely,
+superseding the earlier instruction to maintain its registration indefinitely.
+Live Cloud Domains inspection confirmed that this registration remains in GCP
+project `pharaoh-418820`, separately from the personal-project deployments above.
+
+Only this registration's automatic renewal was disabled. The supported
+`gcloud domains registrations configure management` command completed successfully,
+and a fresh server read confirmed both `preferredRenewalMethod` and
+`renewalMethod` are **`RENEWAL_DISABLED`**. The registration remains **`ACTIVE`**
+with expiration **`2027-10-02T02:30:43Z`**; its transfer lock remains **`LOCKED`**.
+This is verified non-renewal, not immediate cancellation or deletion.
+
+[Cloud Domains deletion rules](https://docs.cloud.google.com/domains/docs/delete-domain)
+prevent deleting an active registration until it expires or transfers out. No
+transfer, paid operation, DNS, hosting, nameserver, privacy, transfer-lock or other
+resource change was performed. The registration entry remains until it becomes
+eligible for deletion. No future expiration or deletion is claimed as completed,
+and no follow-up automation was created.
