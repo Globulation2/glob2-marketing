@@ -1,7 +1,7 @@
 {
   "status": "reviewed",
-  "translator": "platform_inventory",
-  "reviewer": "product_locales",
+  "translator": "translation_quality",
+  "reviewer": "language_coverage",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
@@ -64,7 +64,7 @@
     "ios_tail": "ba3104f1f116b799d7898d0689eb0ae184c9c9ab8014e15c0f7b5f6b7c839103",
     "windows_tail": "3d5b995c69b3dd84335fcff8b697072b34ba9e008ee6836da774187562e2d293",
     "ios_subtitle": "6de9623bc2c08174d87baa693e34ca3fc849060e6dd6bd10dc34d3dfde4a7d62",
-    "ios_keywords": "a6d3262f26773eb12936b4d77e70abe83bfd481cc83405ba64bb386957c96ecd",
+    "ios_keywords": "dc52a306e001bfbe8f41c39a788d8fd068ebc8532205a4f16b8114668272169e",
     "windows_feature_1": "c3568ed22c39cd2e008b1e8c355a78a733be038d40a3376845a854b1daa0d625",
     "windows_search_term": "645a921000e133f2a0f2ceb68ef75bd78b93b40d0a8f638c17fbc52a749c920f",
     "screenshot_caption_colony": "b0abf6bb45ceaca9957ec1cf31f7cb2c083cf0d2611581a0ad3845f5b075f534",
@@ -89,5 +89,21 @@
     "Clarified autonomous workers rather than potentially self-employed workers in feature fields.",
     "RTL rendering still requires platform preview verification.",
     "No human or native-speaker validation claimed; platform visual rendering and saved readback are separate rollout checks."
+  ],
+  "review_history": [
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "platform_inventory",
+        "reviewer": "product_locales",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "ios_keywords"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI review of whole-keyword adaptation to Apple 100 UTF-8 byte limit. Retains original strategy/RTS/colony tokens and only complete evidenced concepts; no new terms or truncation. Not human/native-speaker validation."
+    }
   ]
 }

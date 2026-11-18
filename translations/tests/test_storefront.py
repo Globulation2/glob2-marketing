@@ -65,6 +65,34 @@ class StorefrontTests(unittest.TestCase):
         self.assertEqual('Build & grow', payload['summary'])
         self.assertTrue(errors)
 
+    def test_multibyte_byte_limit_and_character_default(self):
+        fields = dict(self.fields, headline='戦略')  # Two characters, six UTF-8 bytes.
+        spec = {'paragraphs': [['headline']], 'limit': 2}
+        self.assertEqual([], S.platform_payload(fields, {'fields': {'keywords': spec}})[1])
+        spec['length_unit'] = 'byte'
+        payload, errors = S.platform_payload(fields, {'fields': {'keywords': spec}})
+        self.assertEqual('戦略', payload['keywords'])
+        self.assertIn('6 UTF-8 bytes exceeds 2', errors[0])
+        spec['limit'] = 6
+        self.assertEqual([], S.platform_payload(fields, {'fields': {'keywords': spec}})[1])
+        spec['length_unit'] = 'character'
+        spec['limit'] = 2
+        self.assertEqual([], S.platform_payload(fields, {'fields': {'keywords': spec}})[1])
+
+    def test_unknown_length_unit_rejected(self):
+        platform = {'fields': {'summary': {'paragraphs': [['headline']], 'length_unit': 'bytes'}}}
+        self.assertRaisesRegex(ValueError, 'unsupported length_unit', S.platform_payload, self.fields, platform)
+
+    def test_check_and_export_both_reject_oversize_destination_bytes(self):
+        spec = self.config['platforms']['example']['fields']['summary']
+        spec.update(limit=1, length_unit='byte')
+        (self.root / 'platforms.json').write_text(json.dumps(self.config))
+        errors, _ = S.validate(self.root, True)
+        self.assertTrue(any('example/zh-Hant' in e and 'UTF-8 bytes' in e for e in errors))
+        out = self.root / 'blocked'
+        self.assertRaisesRegex(ValueError, 'UTF-8 bytes', S.export, self.root, out)
+        self.assertFalse(out.exists())
+
     def test_refuses_nonempty_export_to_prevent_stale_locales(self):
         out = self.root / 'out'
         out.mkdir()

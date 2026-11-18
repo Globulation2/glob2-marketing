@@ -85,7 +85,8 @@
     "microsoft-import": "https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/import-and-export-store-listings?pivots=store-installer-msix",
     "microsoft-language-codes": "https://learn.microsoft.com/en-us/windows/apps/publish/store-submission-api#languages",
     "fdroid-fastlane": "https://f-droid.org/en/docs/All_About_Descriptions_Graphics_and_Screenshots/#fastlane-structure",
-    "fdroid-locales": "https://f-droid.org/en/docs/Build_Metadata_Reference/"
+    "fdroid-locales": "https://f-droid.org/en/docs/Build_Metadata_Reference/",
+    "apple-field-limits": "https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information"
   },
   "platforms": {
     "google-play": {
@@ -258,7 +259,8 @@
               "ios_keywords"
             ]
           ],
-          "limit": 100
+          "limit": 100,
+          "length_unit": "byte"
         },
         "description": {
           "paragraphs": [
@@ -365,7 +367,8 @@
               "ios_keywords"
             ]
           ],
-          "limit": 100
+          "limit": 100,
+          "length_unit": "byte"
         },
         "description": {
           "paragraphs": [

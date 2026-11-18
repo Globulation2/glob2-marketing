@@ -155,3 +155,31 @@ The [maintained production guide](https://github.com/Globulation2/glob2/blob/mas
 [Apple's manual-release reference](https://developer.apple.com/help/app-store-connect/manage-your-apps-availability/select-an-app-store-version-release-option/) treats Pending Developer Release as an approved version awaiting a deliberate release, with public appearance potentially delayed. [Platform-version metadata](https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information) ties localization editability to app state. Publication is a product-release action, not a guaranteed way to unlock description/keyword edits on the same version. No cancellation, invented new version or blind release is performed solely to bypass the localization gate; an editable version and a truthful artifact check remain separate from prepared translations.
 
 That same metadata reference states a **100-byte keywords limit**. A bounded follow-up check found twelve mapped Apple source keyword strings currently exceed 100 UTF-8 bytes despite passing the existing character-based gate: `ar`, `el`, `ru`, `uk`, `vi`, `ja`, `hi`, `bn`, `mr`, `ta`, `te`, `th`. This is an unresolved preparation/validation gap, not saved Apple data. The limit interpretation and affected adaptations require correction before those fields are applied.
+
+## Apple keyword byte fit corrected in source — 2026-11-17
+
+The [current Apple field reference](https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information) specifies 100 bytes for Keywords. The platform schema now supports explicit `length_unit: byte` (UTF-8) or `character` (backward-compatible default); only Apple keyword fields use byte counting. Both strict check and export enforce mapped destination fit. Other field limits retain character counting. Unknown length units fail explicitly, and values are never truncated.
+
+The complete 44-translation audit found fifteen oversize `ios_keywords` fields: twelve currently mapped to Apple plus `fa`, `sr-Cyrl` and `bg`, whose Apple destinations remain unsupported/unverified. All fifteen were adapted by selecting whole existing localized concepts. Strategy, RTS and colony remain the first three terms; no new keyword concepts, partial words or broken UTF-8 sequences were introduced. Long lower-priority terms were omitted where necessary. English and every non-keyword catalog field remain unchanged in this pass.
+
+| Locale | Previous UTF-8 bytes | Corrected UTF-8 bytes |
+| --- | ---: | ---: |
+| ar | 124 | 83 |
+| bg | 132 | 99 |
+| bn | 185 | 91 |
+| el | 170 | 79 |
+| fa | 118 | 92 |
+| hi | 164 | 79 |
+| ja | 112 | 87 |
+| mr | 164 | 82 |
+| ru | 123 | 97 |
+| sr-Cyrl | 129 | 88 |
+| ta | 218 | 100 |
+| te | 185 | 91 |
+| th | 187 | 94 |
+| uk | 125 | 99 |
+| vi | 118 | 85 |
+
+`translation_quality` authored the adaptations; `language_coverage` independently checked the exact diffs against English and original concept lists, then renewed hashes with prior provenance retained in review history. This is AI review, not native-speaker validation. All 45 catalogs now pass strict review and mapped-field-fit checks. All 23 tests pass, including multibyte character-versus-byte behavior, exact byte boundary, unknown-unit rejection and check/export rejection before output. A fresh export at `/tmp/glob2-storefront-keyword-fit-20261117` succeeds with the same 252 mapped payloads and 108 gaps.
+
+This closes the newly found keyword source/validation gap. No Apple field was applied because its observed edit controls remain disabled; no new Apple save or submission is inferred. Google Play payload values and the already submitted sixteen-change batch are unaffected because Apple keywords are not part of that adapter. Existing export snapshots remain historical; use the fresh byte-validated export for later Apple preparation.

@@ -1,7 +1,7 @@
 {
   "status": "reviewed",
-  "translator": "pre-existing interrupted-session draft (author unverified)",
-  "reviewer": "/root/review_south_asia",
+  "translator": "translation_quality",
+  "reviewer": "language_coverage",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
@@ -64,7 +64,7 @@
     "ios_tail": "d7176d7359ac9a22f06363cc8095bd79f15911a8ed7dfcc066f3451724eaaf5d",
     "windows_tail": "de0d6248821aba131d19745f419573f42f83b9a421277d37f215d612eaae7dac",
     "ios_subtitle": "9fb6d7fefad78662b54403612327b46d60e4a31d39e3d8edd5663c7527e0e030",
-    "ios_keywords": "75a4653ce2f1a026f36079c49c996f8cffd74ede0836c5682e1064f34c6dc9f2",
+    "ios_keywords": "8635559944120d6804e09e8a1818e17b591dd38e0767c73178bdfb3ed7fb57ab",
     "windows_feature_1": "57af7e22e9d31ce04b935980797750be5c73e6500951a13a31f11fec1c95dfa6",
     "windows_search_term": "a1bb299e01dec43bb4bfd36984c0bb14eba55e14d49c872944e18ca69fcede2c",
     "screenshot_caption_colony": "332c230024f5be64bc4a2a1b581578c22db5bb1b96b617dcb6c800b9b18dc4a6",
@@ -88,5 +88,21 @@
     "Independently compared all 38 fields against the English master and terminology, including colony/economy emphasis, autonomous workers, edition-specific account/offline and Amazon price/ads/IAP qualifications, protected names and exact URLs.",
     "Adapted the short pitch to preserve its central concepts within the 170-character promotional-text limit; platform locale acceptance remains unverified.",
     "No human or native-speaker validation claimed."
+  ],
+  "review_history": [
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "pre-existing interrupted-session draft (author unverified)",
+        "reviewer": "/root/review_south_asia",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "ios_keywords"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI review of whole-keyword adaptation to Apple 100 UTF-8 byte limit. Retains original strategy/RTS/colony tokens and only complete evidenced concepts; no new terms or truncation. Not human/native-speaker validation."
+    }
   ]
 }

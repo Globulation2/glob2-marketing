@@ -1,7 +1,7 @@
 {
   "status": "reviewed",
-  "translator": "language-inventory-agent",
-  "reviewer": "/root/canonical_inventory",
+  "translator": "translation_quality",
+  "reviewer": "language_coverage",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
@@ -64,7 +64,7 @@
     "ios_tail": "783c7482da367a1a03ef3110e1db67e4c7ebb2d7c1e6625db589fcdab3eae357",
     "windows_tail": "b809cb19fac86709efb3cfbaf1cbba3370242db28320e809bbe7f5fc41d3e051",
     "ios_subtitle": "8cf5612697a258ff67cfa16af6fad539887c99a106c3f9d45a893ef68249ad55",
-    "ios_keywords": "177c0ac445ed8fa1a3c3f77ddf23a887c23fce0fc02373abcee220f71cf4cc8c",
+    "ios_keywords": "2cc5e00ac8a43e903e289664622dbc2652dd74e4a017b093a9013a347d14e3d9",
     "windows_feature_1": "c14511cb92e1af600ee6d086e119011ddadc1a1e393d4957782c082aa1521e39",
     "windows_search_term": "83a65e9b282d821250b1d5095216102b85c2214589e5451bb9630b6ef77faa1f",
     "screenshot_caption_colony": "259693ef35160ca77dc57cba36d06fa3389445582000f06902024fef5e9bdc7f",
@@ -89,5 +89,21 @@
     "Checked all configured destination field compositions for character fit, including currently unmapped destinations. Platform mapping and current console acceptance remain unverified.",
     "No human or native-speaker validation claimed.",
     "Adapted short pitch and subtitle to fit Apple limits; changed ambiguous board-game wording to computer game in Android edition tail."
+  ],
+  "review_history": [
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "language-inventory-agent",
+        "reviewer": "/root/canonical_inventory",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "ios_keywords"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI review of whole-keyword adaptation to Apple 100 UTF-8 byte limit. Retains original strategy/RTS/colony tokens and only complete evidenced concepts; no new terms or truncation. Not human/native-speaker validation."
+    }
   ]
 }

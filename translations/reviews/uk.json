@@ -64,7 +64,7 @@
     "ios_tail": "7e59159c4ef8dddb110aaaac036a7b2031ada52808ea39050664558b7329b944",
     "windows_tail": "e2560b73c77b95c03b93cdb312237952a51c08f9e1dab1f88462813f4de9eca4",
     "ios_subtitle": "2859957a5be3fb7411701a436f460fce85c554e3e88c066ae0acda1818c08429",
-    "ios_keywords": "540955d1b77ed4403a386460b7066e60d1d70d3c3e9ae479f53d9ae301e0339b",
+    "ios_keywords": "c7f7b1dd3b02ca23699627022c20580bc4ef2fc2a19fbebca0fa166ee3732890",
     "windows_feature_1": "1f9c17ab70538c1bf579f14fcd54a3b2598b5eea7b827b1ce3af4f40235f7383",
     "windows_search_term": "b75ea73be2205bf185c9b8bbe1ea00982f602de6255ebffc73df03be8f51cc51",
     "screenshot_caption_colony": "3d9c7b7ba2550ca172da871318cd424c58a5b1fd9a930d560494836881a33e3b",
@@ -98,6 +98,20 @@
       "translator": "translation_quality",
       "reviewer": "language_coverage",
       "method": "Independent AI rereading of corrected fields against English and glossary; unchanged fields retain prior reviewed text. Not human/native-speaker validation."
+    },
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "translation_quality",
+        "reviewer": "language_coverage",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "ios_keywords"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI review of whole-keyword adaptation to Apple 100 UTF-8 byte limit. Retains original strategy/RTS/colony tokens and only complete evidenced concepts; no new terms or truncation. Not human/native-speaker validation."
     }
   ]
 }

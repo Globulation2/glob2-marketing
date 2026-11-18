@@ -1,7 +1,7 @@
 {
   "status": "reviewed",
-  "translator": "google-cloud-translation",
-  "reviewer": "canonical_copy",
+  "translator": "translation_quality",
+  "reviewer": "language_coverage",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
@@ -64,7 +64,7 @@
     "ios_tail": "a3e89466a5140084f31e3fa5182bfa9b225bbd72d7b578e3fc0961d6e307f239",
     "windows_tail": "fefbf3daffc1172aa8b091e34f22d1b0ecd451f4dc84e6faf6dc0a4577358d4f",
     "ios_subtitle": "03d22a33baff7ca9e6fd9044cd682368c4dc449cdbfb50b398b26b5e77a85f82",
-    "ios_keywords": "fa6d27f8828b85d001b262f9f092916de84724214901fdc990e6d01739f576a4",
+    "ios_keywords": "eb44b269243a9b75e50052fc5f3ec36b124fd1fc0ab46e62ff14b1a15a3050d2",
     "windows_feature_1": "770c7569a89e51ce47851e648366967f6107268b6b44cf9abad478adf294dc41",
     "windows_search_term": "765f42cb54d15df372c201dd9553dbf3e6d42c70f3c6378711c219d4a5230f5a",
     "screenshot_caption_colony": "52a8547c50fe0e31fbd3523b616ae78bacbef13839a295d2b41bee2c2083c904",
@@ -83,5 +83,21 @@
     "windows_feature_2": "5bc3ef42a8d876beb36961b712085d50c66a60688eeb188ff866a7d5fad302cb",
     "windows_feature_3": "d01906732ea7bb0c109238eae1848da9f1057629326418ca0a24fea391f34b75",
     "windows_feature_4": "59631377293c2f41580893463e5d4c3d7181d6948a53badc7c5ad84f28b6c6b4"
-  }
+  },
+  "review_history": [
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "google-cloud-translation",
+        "reviewer": "canonical_copy",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "ios_keywords"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI review of whole-keyword adaptation to Apple 100 UTF-8 byte limit. Retains original strategy/RTS/colony tokens and only complete evidenced concepts; no new terms or truncation. Not human/native-speaker validation."
+    }
+  ]
 }

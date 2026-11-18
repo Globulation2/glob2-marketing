@@ -1,7 +1,7 @@
 {
   "status": "reviewed",
-  "translator": "platform_inventory",
-  "reviewer": "product_locales",
+  "translator": "translation_quality",
+  "reviewer": "language_coverage",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
@@ -64,7 +64,7 @@
     "ios_tail": "76146058371c950cc5fbb1624228553790114f9d035b835c24942b4520301ab9",
     "windows_tail": "c56484c8345c07086c3e9a4ad1a6fb183b9cf7626adda5f5dd0d676d59c3f3f0",
     "ios_subtitle": "11be7a1398d4c05a74bf269417a4b30c88823118432943b90382eb092e8f12ed",
-    "ios_keywords": "b4f2d5b1fcac67825a8b0815609bea56493a2e5e72a1fc60b99f1348dae235c3",
+    "ios_keywords": "62edae5e1b66d0114c2a19c42915df2ef1dd1f5638e2cd812fe30933f17ff9e3",
     "windows_feature_1": "983a2bcd2b98efe07a6d6334140268b3b07d17351415705fd0cc019bca028a59",
     "windows_search_term": "9be73fab2443d8548b18ef4d025e0cea207d36100b4877aa98d6452d04814d46",
     "screenshot_caption_colony": "5cf6208b6f4014474d22cee170dd95ca41b6d042701f88f913a2f01fe6f0976c",
@@ -89,5 +89,21 @@
     "Shortened short_pitch naturally to 154 characters.",
     "Clarified built-in map editor rather than generic editor.",
     "No human or native-speaker validation claimed; platform visual rendering and saved readback are separate rollout checks."
+  ],
+  "review_history": [
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "platform_inventory",
+        "reviewer": "product_locales",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "ios_keywords"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI review of whole-keyword adaptation to Apple 100 UTF-8 byte limit. Retains original strategy/RTS/colony tokens and only complete evidenced concepts; no new terms or truncation. Not human/native-speaker validation."
+    }
   ]
 }

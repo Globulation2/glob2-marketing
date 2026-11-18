@@ -1,7 +1,7 @@
 {
   "status": "reviewed",
-  "translator": "language-inventory-agent",
-  "reviewer": "/root/canonical_inventory",
+  "translator": "translation_quality",
+  "reviewer": "language_coverage",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
@@ -64,7 +64,7 @@
     "ios_tail": "174a9bafd60afd845156b88e69fffa54682813e0ed42856c5e2e805bad4960ef",
     "windows_tail": "cdba06a89eced4325e755921dc0eda020b5529a22c34e4f42983fa914bd8cf55",
     "ios_subtitle": "9431f232d53c77e7f3e7e2c9a780e88f8717b91a979a2e7d59a891915d8853f8",
-    "ios_keywords": "6ddada6e47df9016d4932edba52f2067657d77939146c802cb9e7c108d057e11",
+    "ios_keywords": "b95bb46ffd2c888d5017f106fe2d2ad3a74476241d3268b839fb8c51d8f8caf5",
     "windows_feature_1": "fd43c0631c2f8c600ed13a4e6f1128bb8628ece7f32794954c08e9662a1b8023",
     "windows_search_term": "5f15a50f757f95c35fd7f9198be55f7a0ca2423c200ac614eb788a67ae0d354e",
     "screenshot_caption_colony": "07e4b9f492a4287c7b9517d8ab45c9dc14f74120b731f71326b99feac7124620",
@@ -88,5 +88,21 @@
     "Independently compared all 38 fields with English and glossary for meaning, colony/economy priority, autonomous-worker behavior, edition/account/offline qualifications, free price and source-code distinction, exact URLs and protected names.",
     "Checked all configured destination field compositions for character fit, including currently unmapped destinations. Platform mapping and current console acceptance remain unverified.",
     "No human or native-speaker validation claimed."
+  ],
+  "review_history": [
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "language-inventory-agent",
+        "reviewer": "/root/canonical_inventory",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "ios_keywords"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI review of whole-keyword adaptation to Apple 100 UTF-8 byte limit. Retains original strategy/RTS/colony tokens and only complete evidenced concepts; no new terms or truncation. Not human/native-speaker validation."
+    }
   ]
 }

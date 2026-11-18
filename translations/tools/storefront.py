@@ -94,6 +94,12 @@ def validate(root=ROOT, require_review=False):
                 errors.extend(check_review(root, code, fields, hashes))
         except (OSError, ValueError) as error:
             errors.append(str(error))
+    if not errors:
+        config = json.loads((root / 'platforms.json').read_text())
+        for platform_id, platform in config['platforms'].items():
+            for code in platform['locales']:
+                _, failures = platform_payload(catalogs[code], platform)
+                errors.extend(f'{platform_id}/{code}: {failure}' for failure in failures)
     return errors, catalogs
 
 
@@ -107,8 +113,13 @@ def platform_payload(fields, platform):
     errors = []
     for name, spec in platform['fields'].items():
         value = compose(fields, spec['paragraphs'])
-        if spec.get('limit') is not None and len(value) > spec['limit']:
-            errors.append(f'{name}: {len(value)} characters exceeds {spec["limit"]}; reviewed adaptation required')
+        unit = spec.get('length_unit', 'character')
+        if unit not in ('byte', 'character'):
+            raise ValueError(f'{name}: unsupported length_unit {unit!r}')
+        measured = len(value.encode('utf-8')) if unit == 'byte' else len(value)
+        label = 'UTF-8 bytes' if unit == 'byte' else 'characters'
+        if spec.get('limit') is not None and measured > spec['limit']:
+            errors.append(f'{name}: {measured} {label} exceeds {spec["limit"]}; reviewed adaptation required')
         payload[name] = value
     return payload, errors
 

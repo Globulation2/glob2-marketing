@@ -1,7 +1,7 @@
 {
   "status": "reviewed",
-  "translator": "platform_inventory",
-  "reviewer": "product_locales",
+  "translator": "translation_quality",
+  "reviewer": "language_coverage",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
@@ -64,7 +64,7 @@
     "ios_tail": "f55ac1e1c4431e13d0a6ad44be87c0b579a38937a37c35a5520b0aeda0d9f1d2",
     "windows_tail": "f815668a04fffa4a8de86ae62a207d1e48e0d9f26afad9231e811af09d6e0644",
     "ios_subtitle": "86792e8117d0a73e8baef390e562d761a10a81eb6c16062139b291d9d533cfd5",
-    "ios_keywords": "550d4a090936ebe24d7efdac96781d72b56f013cdff92cdaa890b18642964404",
+    "ios_keywords": "7a006afd71f57a2bd44c3b8aec9003d79a1479e4a9e3e2b3312737c648f8ba0d",
     "windows_feature_1": "0ba993625b123ce845625fba880dba3463f1c1c1e8c6e00ca65a6379304801ce",
     "windows_search_term": "01cf3f12ea80b49dc26d680993ecfa3f83a5764b5b2f6f9a2ff6b6924445ef4c",
     "screenshot_caption_colony": "186032bc24ec5eefcd5c5766806ac7fac0fda0d157e7ba78be6166993a1dd9fc",
@@ -89,5 +89,21 @@
     "No substantive semantic corrections required after full independent comparison.",
     "RTL rendering still requires platform preview verification.",
     "No human or native-speaker validation claimed; platform visual rendering and saved readback are separate rollout checks."
+  ],
+  "review_history": [
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "platform_inventory",
+        "reviewer": "product_locales",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "ios_keywords"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI review of whole-keyword adaptation to Apple 100 UTF-8 byte limit. Retains original strategy/RTS/colony tokens and only complete evidenced concepts; no new terms or truncation. Not human/native-speaker validation."
+    }
   ]
 }

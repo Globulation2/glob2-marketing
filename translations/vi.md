@@ -80,7 +80,7 @@ Thuộc địa dưới áp lực
 
 ## ios_keywords
 
-chiến lược,RTS,thuộc địa,mô phỏng,giao tranh,ngoại tuyến,đế chế,trình chỉnh sửa bản đồ
+chiến lược,RTS,thuộc địa,mô phỏng,giao tranh,ngoại tuyến,đế chế
 
 ## windows_feature_1
 
