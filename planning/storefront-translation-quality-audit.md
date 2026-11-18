@@ -96,3 +96,7 @@ The [source expansion receipt](storefront-localization-rollout.md#maintained-sou
 ## Google rollout checkpoint — 2026-11-17
 
 The [Play import checkpoint](storefront-localization-rollout.md#google-expanded-import-preview-save-blocked--2026-11-17) records successful import into an **unsaved** sixteen-language editor draft: twelve additions plus four corrected existing locales. Only English/Hindi preview triplets received exact hash comparison before the Mac locked. Save, persisted readback, review submission and public display remain unverified; the draft page is preserved pending resumed computer access.
+
+## Google persisted correction and expansion request — 2026-11-17
+
+The [fresh Google save/readback/submission receipt](storefront-localization-rollout.md#google-expansion-saved-freshly-verified-and-sent-for-review--2026-11-17) supersedes the unsaved checkpoint: all sixteen changed locale triplets plus English matched canonical hashes after fresh server reload (51 values). The full pending set was exactly twelve additions and four corrected full descriptions; the send confirmation and fresh Changes in review state persisted. Automated quick checks were still pending, so this is a queued-review request with no approval or public 44-locale claim. Media and policy/declaration fields remained unchanged.
