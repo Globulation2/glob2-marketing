@@ -160,3 +160,7 @@ The [fresh French Mac pilot receipt](storefront-localization-rollout.md#french-m
 ## Current Apple bulk gate — 2026-11-18
 
 The [current helper/review-lock receipt](storefront-localization-rollout.md#apple-helper-merged-current-ios-review-lock--2026-11-18) supersedes the earlier unsubmitted-iOS checkpoint: a separate submit-stage run preceded fresh read-only evidence of iOS 0.11.601/build1002501 and shared App Information Waiting for Review. The bulk helper stopped before writes, as designed. All 228 planned iOS fields match reviewed source, but no bulk API application is claimed. Mac review state awaits a fresh check after unlock; prior subtitle/French-pilot evidence is retained without extending it to complete localization.
+
+## iOS all-mapped-locale saved readback — 2026-11-18
+
+The [completed iOS localization receipt](storefront-localization-rollout.md#ios-review-withdrawal-and-verified-38-locale-application--2026-11-18) records withdrawal of only the current review item without deleting its version/build, followed by successful 38-locale bulk application. All 228 planned fields and complete protected media/build/URL/release/other-locale invariants passed saved readback. A bounded Arabic subtitle visual check also passed; no native-speaker certification, resubmission or release is claimed. The exact reviewed helper head is in PR #1837, still awaiting its fast gate/merge; Mac bulk work is only at its started-inspection checkpoint.
