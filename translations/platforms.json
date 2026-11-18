@@ -72,17 +72,20 @@
     "No binary language declarations or release notes are exported.",
     "Epic and Amazon platform-specific existing tails/features must be preserved until exact saved fields are reconciled; generic export is preparation only.",
     "Snap non-English locale fields remain unverified. Amazon documented supported language labels are exported even while current review prevents saving; exact API codes must be reconciled before use.",
-    "2026-11-01 roster expansion: hi, ur, sw, bn, nb, ms, mr, ta, te, fil, bg and th have canonical catalogs and upstream fragment IDs. Store console locale mappings and F-Droid locale directories for these twelve remain unverified and are intentionally omitted; exports report gaps rather than infer upload support."
+    "2026-11-17 official-documentation review adds supported preparation mappings for the twelve-language expansion: Play 12, Apple 9 per platform, Microsoft 12, Epic 6 and F-Droid 12. Current console/template reconciliation remains required before hosted-store writes; F-Droid source preparation uses documented BCP47 locale directories. See planning/storefront-localization-rollout.md for sources and exact remaining gaps."
   ],
   "sources": {
     "google-play": "https://support.google.com/googleplay/android-developer/answer/9844778?hl=en",
     "apple": "https://developer.apple.com/help/app-store-connect/reference/app-information/app-store-localizations",
-    "epic": "https://dev.epicgames.com/docs/epic-games-store/store-presence/localization",
+    "epic": "https://dev.epicgames.com/docs/epic-games-store/store-presence/localize/supported-languages?lang=en-US",
     "apple-shortcodes": "https://developer.apple.com/documentation/appstoreconnectapi/managing-metadata-in-your-app-by-using-locale-shortcodes",
     "amazon": "https://www.developer.amazon.com/docs/app-submission/distribute-your-app-internationally.html",
     "amazon-api-codes": "https://developer.amazon.com/docs/app-submission-api/flows.html#supported-languages",
     "microsoft": "https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/supported-languages?pivots=store-installer-msix",
-    "microsoft-import": "https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/import-and-export-store-listings?pivots=store-installer-msix"
+    "microsoft-import": "https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/import-and-export-store-listings?pivots=store-installer-msix",
+    "microsoft-language-codes": "https://learn.microsoft.com/en-us/windows/apps/publish/store-submission-api#languages",
+    "fdroid-fastlane": "https://f-droid.org/en/docs/All_About_Descriptions_Graphics_and_Screenshots/#fastlane-structure",
+    "fdroid-locales": "https://f-droid.org/en/docs/Build_Metadata_Reference/"
   },
   "platforms": {
     "google-play": {
@@ -118,7 +121,19 @@
         "id": "id",
         "vi": "vi",
         "ja": "ja-JP",
-        "ko": "ko-KR"
+        "ko": "ko-KR",
+        "hi": "hi-IN",
+        "ur": "ur",
+        "sw": "sw",
+        "bn": "bn-BD",
+        "nb": "no-NO",
+        "ms": "ms",
+        "mr": "mr-IN",
+        "ta": "ta-IN",
+        "te": "te-IN",
+        "fil": "fil",
+        "bg": "bg",
+        "th": "th"
       },
       "fields": {
         "title": {
@@ -167,7 +182,9 @@
           "limit": 4000
         }
       },
-      "mapping_status": "requires_current_console_verification"
+      "mapping_status": "requires_current_console_verification",
+      "mapping_verified_date": "2026-11-17",
+      "mapping_notes": "All twelve 2026-11-01 expansion locale choices verified in the authenticated Manage languages selector on 2026-11-17, including canonical nb -> no-NO and neutral ms -> ms (ms-MY is a distinct available choice). Prepared exports still require fresh exact-field save/readback."
     },
     "ios": {
       "locales": {
@@ -199,7 +216,16 @@
         "vi": "vi",
         "ja": "ja",
         "ko": "ko",
-        "sl": "sl-SI"
+        "sl": "sl-SI",
+        "hi": "hi",
+        "ur": "ur-PK",
+        "bn": "bn-BD",
+        "nb": "no",
+        "ms": "ms",
+        "mr": "mr-IN",
+        "ta": "ta-IN",
+        "te": "te-IN",
+        "th": "th"
       },
       "fields": {
         "name": {
@@ -264,7 +290,8 @@
           "limit": 4000
         }
       },
-      "mapping_status": "requires_current_console_verification"
+      "mapping_status": "requires_current_console_verification",
+      "mapping_verified_date": "2026-11-17"
     },
     "mac": {
       "locales": {
@@ -296,7 +323,16 @@
         "vi": "vi",
         "ja": "ja",
         "ko": "ko",
-        "sl": "sl-SI"
+        "sl": "sl-SI",
+        "hi": "hi",
+        "ur": "ur-PK",
+        "bn": "bn-BD",
+        "nb": "no",
+        "ms": "ms",
+        "mr": "mr-IN",
+        "ta": "ta-IN",
+        "te": "te-IN",
+        "th": "th"
       },
       "fields": {
         "name": {
@@ -358,7 +394,8 @@
           "limit": 4000
         }
       },
-      "mapping_status": "requires_current_console_verification"
+      "mapping_status": "requires_current_console_verification",
+      "mapping_verified_date": "2026-11-17"
     },
     "microsoft": {
       "locales": {
@@ -393,7 +430,19 @@
         "id": "id",
         "vi": "vi",
         "ja": "ja",
-        "ko": "ko"
+        "ko": "ko",
+        "hi": "hi",
+        "ur": "ur",
+        "sw": "sw",
+        "bn": "bn",
+        "nb": "nb",
+        "ms": "ms",
+        "mr": "mr",
+        "ta": "ta",
+        "te": "te",
+        "fil": "fil",
+        "bg": "bg",
+        "th": "th"
       },
       "fields": {
         "title": {
@@ -482,7 +531,8 @@
           "limit": 200
         }
       },
-      "mapping_status": "requires_current_console_verification"
+      "mapping_status": "requires_current_console_verification",
+      "mapping_verified_date": "2026-11-17"
     },
     "amazon": {
       "locales": {
@@ -623,7 +673,13 @@
         "id": "id",
         "vi": "vi",
         "ja": "ja",
-        "ko": "ko"
+        "ko": "ko",
+        "hi": "hi",
+        "nb": "no",
+        "ms": "ms",
+        "fil": "fil",
+        "bg": "bg",
+        "th": "th"
       },
       "fields": {
         "title": {
@@ -680,7 +736,8 @@
           "limit": null
         }
       },
-      "mapping_status": "requires_current_console_verification"
+      "mapping_status": "requires_current_console_verification",
+      "mapping_verified_date": "2026-11-17"
     },
     "snap": {
       "locales": {
@@ -758,7 +815,19 @@
         "id": "id",
         "vi": "vi",
         "ja": "ja",
-        "ko": "ko"
+        "ko": "ko",
+        "hi": "hi",
+        "ur": "ur",
+        "sw": "sw",
+        "bn": "bn",
+        "nb": "nb",
+        "ms": "ms",
+        "mr": "mr",
+        "ta": "ta",
+        "te": "te",
+        "fil": "fil",
+        "bg": "bg",
+        "th": "th"
       },
       "fields": {
         "title": {
@@ -807,8 +876,9 @@
           "limit": 4000
         }
       },
-      "mapping_status": "requires_current_console_verification",
-      "mapping_notes": "Maintained F-Droid Fastlane locale directories; generic locale IDs are intentional. Google Play payload uses the separate google-play adapter and must not consume these generic F-Droid directories as a ready Play upload."
+      "mapping_status": "documented_BCP47_source_directories_downstream_publication_unverified",
+      "mapping_notes": "Maintained F-Droid Fastlane locale directories; generic locale IDs are intentional. Google Play payload uses the separate google-play adapter and must not consume these generic F-Droid directories as a ready Play upload.",
+      "mapping_verified_date": "2026-11-17"
     }
   },
   "upstream_locales": {

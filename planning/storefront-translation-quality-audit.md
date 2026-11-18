@@ -6,7 +6,7 @@ Observed **2026-11-17**. Scope: supported game languages, canonical listing cove
 
 ## Audit outcome
 
-The canonical storefront catalogs cover **all 45 current game locales: English plus 44 translations**. Coverage agrees with the latest remote game `master` checked during this audit. This is not an all-language quality or public-listing signoff: independent rereading found eight field-level issues in eight languages, subsequently corrected and independently rechecked below, and destination mappings and maintained source metadata still omit the twelve-language expansion. Existing review hashes establish which text was reviewed, not that the translation is free of defects.
+The canonical storefront catalogs cover **all 45 current game locales: English plus 44 translations**. Coverage agrees with the latest remote game `master` checked during this audit. This is not an all-language quality or public-listing signoff: independent rereading found eight field-level issues in eight languages, subsequently corrected and independently rechecked below, and maintained source metadata still omits the twelve-language expansion. Destination preparation mappings were subsequently expanded as recorded below. Existing review hashes establish which text was reviewed, not that the translation is free of defects.
 
 The initial audit changed no storefront copy. The authorized correction pass below updates canonical source catalogs; no live listing, binary declaration or release was changed by that pass. The prior platform saves and submissions retain their historical status; they are not fresh public verification.
 
@@ -43,7 +43,7 @@ The absence of an issue in another field is not proof of native fluency. Distinc
 
 ## Destination and maintained-source gaps
 
-The [platform matrix](../translations/platforms.json) still omits `hi`, `ur`, `sw`, `bn`, `nb`, `ms`, `mr`, `ta`, `te`, `fil`, `bg` and `th` from every destination locale mapping. The omission is deliberate pending platform verification, not proof those destinations reject those languages. Do not infer platform support or invent locale wire identifiers from catalog existence.
+At initial audit, the [platform matrix](../translations/platforms.json) omitted `hi`, `ur`, `sw`, `bn`, `nb`, `ms`, `mr`, `ta`, `te`, `fil`, `bg` and `th` from every destination locale mapping. That initial omission was deliberate pending platform verification, not proof those destinations reject those languages; the follow-up below supersedes these initial export counts. Do not infer platform support or invent locale wire identifiers from catalog existence.
 
 | Export destination | Mapped locales including English | Missing canonical locales |
 | --- | ---: | --- |
@@ -84,3 +84,7 @@ The correction pass changed eleven fields across nine canonical catalogs. `trans
 The Tamil short pitch remains exactly 170 Unicode code points, meeting the existing Apple promotional-text limit without truncation. Product names, URLs, factual qualifications and untouched catalog fields remain unchanged. Updated review JSON preserves previous reviewer/translator provenance in `review_history` and records the exact changed field names; only accepted current text receives new hashes. This is independent AI review, with no human/native-speaker certification inferred.
 
 Validation after correction: strict review-gated check passes for all 45 catalogs; all 20 unit tests pass; whitespace validation passes. The eight audited issues and lower-severity Vietnamese terminology follow-up are closed in canonical source. Historical exported files, maintained game metadata and saved/public store payloads do not update themselves; their propagation remains separately tracked in the rollout ledger. Full all-platform live signoff remains open.
+
+## Mapping preparation follow-up — 2026-11-17
+
+The [expanded mapping receipt](storefront-localization-rollout.md#expanded-locale-mappings-prepared--2026-11-17) documents current official sources and exact remaining gaps after checking the full roster against destination listing-language references. Preparation now covers Play 44, Apple 38 per platform, Microsoft 44, Epic 31, Amazon 11, Snap 1 and F-Droid 45 locales including English: 252 mapped payloads and 108 gaps. Play's twelve additions were also verified selectable in the authenticated console. Other hosted-store additions still require a fresh template/console check. This closes the blanket twelve-language export omission; maintained source integration and saved/public rollout remain distinct outcomes.
