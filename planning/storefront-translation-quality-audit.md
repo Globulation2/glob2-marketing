@@ -168,3 +168,7 @@ The [completed iOS localization receipt](storefront-localization-rollout.md#ios-
 ## Both Apple platforms saved; review still separate — 2026-11-18
 
 The [Mac bulk/readback receipt](storefront-localization-rollout.md#mac-38-locale-saved-readback-helper-fix-merged--2026-11-18) completes verified saved application on both Apple platforms: iOS 228 fields and Mac 190 fields across each platform's 38 mapped locales, with protected invariants preserved. Mac updates left localized iOS data unchanged. PR #1837 is merged after its required fast gate and exact tested-tree comparison. Representative Arabic editor rendering also passed within its stated limits. Review submission/publication remain separate; opening Add for Review is not a submission receipt.
+
+## Localized iOS review submission — 2026-11-18
+
+The [fresh native iOS submission receipt](storefront-localization-rollout.md#localized-ios-submitted-mac-final-action-unconfirmed--2026-11-18) confirms the verified 38-locale iOS draft submitted as Waiting for Review, with one submitted item and zero draft submissions; manual release is unchanged. Mac's metadata is verified, but its final review action awaits fresh resulting-state verification after a screen lock. No Mac submission, approval or release is inferred, and no version deletion/replacement or new upload occurred in that Mac action sequence.
