@@ -64,7 +64,7 @@ Zgradite uspešno kolonijo
 
 ## android_tail
 
-Ta izdaja za Android prinaša klasično namizno igro na zaslone na dotik.
+Ta izdaja za Android prinaša klasično računalniško igro na zaslone na dotik.
 
 ## ios_tail
 

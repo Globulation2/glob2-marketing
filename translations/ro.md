@@ -116,7 +116,7 @@ Globulation 2 este un software gratuit și open-source. Codul sursă și licenț
 
 ## amazon_tail
 
-Joacă împotriva adversarilor de pe calculator, încearcă hărțile și campaniile incluse sau creează-ți propriile hărți. Globulation 2 este gratuit și nu include reclame sau achiziții în aplicație.
+Joacă împotriva adversarilor controlați de calculator, încearcă hărțile și campaniile incluse sau creează-ți propriile hărți. Globulation 2 este gratuit și nu include reclame sau achiziții în aplicație.
 
 ## amazon_feature_1
 

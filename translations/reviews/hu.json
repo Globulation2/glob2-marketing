@@ -1,7 +1,7 @@
 {
   "status": "reviewed",
-  "translator": "canonical_copy",
-  "reviewer": "product_locales",
+  "translator": "translation_quality",
+  "reviewer": "language_coverage",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
@@ -60,7 +60,7 @@
     "listing_intro": "cbef2932615d534d244394bd9648fb2a7764ec49de5b61e0d2ec177155bd0410",
     "listing_open_source": "c5934aabe2b025a11c5dab86213120067e337ca8ac488b3aa1806ffb0d3f2c15",
     "appstream_summary": "e5a69e67568353a24f98f48a8917caccc2556ea9569b9f32cf52884c4d1ecbd8",
-    "android_tail": "043df4af8249188acb614c781cb90b4bdfa2a0162fc2ba5ad10dcff5198250b7",
+    "android_tail": "9428b01df8ec1ccef5dc54b76fec6a73afe07d3e761a6e15effc89b5e788c93b",
     "ios_tail": "8d17d2e286d06c959856c00ff02ae8deef3c0cfabbf6bc6326551d0ff6b5cccd",
     "windows_tail": "7012bb7186c20e0c14980087b789b7a60e92325da6c9ea1c01fff59563080306",
     "ios_subtitle": "5d9ee5529550fa4975b21fc9af4c8a4e8f0de10d22f94f5806e566278c4ab9a9",
@@ -88,5 +88,21 @@
     "Compared all 38 fields to English source for meaning, colony/economy positioning, consistent terms, pricing/open-source distinction, edition/account qualifications, protected map names and URLs.",
     "Shortened short_pitch naturally to 165 characters.",
     "No human or native-speaker validation claimed; platform visual rendering and saved readback are separate rollout checks."
+  ],
+  "review_history": [
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "canonical_copy",
+        "reviewer": "product_locales",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "android_tail"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI rereading of corrected fields against English and glossary; unchanged fields retain prior reviewed text. Not human/native-speaker validation."
+    }
   ]
 }

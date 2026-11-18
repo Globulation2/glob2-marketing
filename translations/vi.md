@@ -52,7 +52,7 @@ Một trò chơi chiến lược để chơi, khám phá và góp phần định
 
 ## listing_intro
 
-Globulation 2 là một trò chơi chiến lược thời gian thực, nơi lương thực, công nhân và không gian định hình sự bành trướng của bạn. Phát triển một thuộc địa rộng lớn, cân bằng các nhu cầu cạnh tranh và cạnh tranh với các đối thủ để giành đất đai và tài nguyên. Các sinh vật của bạn hoạt động tự chủ, cho phép bạn dẫn dắt toàn bộ thuộc địa.
+Globulation 2 là một trò chơi chiến lược thời gian thực, nơi lương thực, nhân công và không gian định hình sự bành trướng của bạn. Phát triển một thuộc địa rộng lớn, cân bằng các nhu cầu cạnh tranh và cạnh tranh với các đối thủ để giành đất đai và tài nguyên. Các sinh vật của bạn hoạt động tự chủ, cho phép bạn dẫn dắt toàn bộ thuộc địa.
 
 ## listing_open_source
 
@@ -92,7 +92,7 @@ chiến lược thời gian thực
 
 ## screenshot_caption_colony
 
-Một thuộc địa đang phát triển với công nhân, các tòa nhà và nguồn cung cấp lương thực.
+Một thuộc địa đang phát triển với nhân công, các tòa nhà và nguồn cung cấp lương thực.
 
 ## screenshot_caption_battle
 
@@ -132,7 +132,7 @@ Cạnh tranh với các thuộc địa đối thủ để giành đất đai và
 
 ## amazon_feature_4
 
-Hướng dẫn người lao động tự chủ bằng cách thiết lập các ưu tiên.
+Dẫn dắt nhân công tự chủ bằng cách thiết lập ưu tiên.
 
 ## amazon_feature_5
 

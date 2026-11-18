@@ -48,7 +48,7 @@ Gratuito e open source.
 
 ## open_source_body
 
-Un gioco di strategia da giocare, esplorare e contribuire a sviluppare.
+Un gioco di strategia da giocare ed esplorare, al cui sviluppo puoi contribuire.
 
 ## listing_intro
 

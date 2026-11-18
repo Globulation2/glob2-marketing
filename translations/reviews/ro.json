@@ -1,7 +1,7 @@
 {
   "status": "reviewed",
-  "translator": "google-cloud-translation",
-  "reviewer": "canonical_copy",
+  "translator": "translation_quality",
+  "reviewer": "language_coverage",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
@@ -73,7 +73,7 @@
     "screenshot_caption_terrain": "246e6eb61fd2db42517b0d9226f8195797773f5e60ae4d31d82833ce58e3e571",
     "epic_tail": "a57ba29192f5d2be89f2c3a9591a8f5bc6a871397294bc3f29906571b29467ea",
     "epic_legal": "e98ddcdbc97e78304827b10845064f64cc51ee66aedc7ccfb64db4186063a2e0",
-    "amazon_tail": "c5e0b2aecfd164187921a156254bd6179e5e8efab6af4eb6a5567f64351aa6aa",
+    "amazon_tail": "8c3bd7bf76e28a5d280f5d717ab872c3d686e8c00592e8d06fa736b8bc2f8d02",
     "amazon_feature_1": "d034797f4c35532dde884901fa535e81f7ce911689c50ce5df14b8a71378d681",
     "amazon_feature_2": "6fb4b2290b9ecc6c053e955d2458c3a22eda6db566f2c59f2d4c3d686161e919",
     "amazon_feature_3": "37c06b7520e7156730ef0bdfc3de14f75b780c44b6c9675bd44af6fd8ced5b1d",
@@ -83,5 +83,21 @@
     "windows_feature_2": "ecc62c7b5a683bef16ebff6269fd4db2aa6db9b26204caea5d3c1f289aee7d37",
     "windows_feature_3": "19dca346b928b1838ad686018f06c33729c4f1d2e8b2ef88701b22fe840ab5ed",
     "windows_feature_4": "380a01bfb51e96730a8eea11c63b885adfa8e54a3992101976cc39a6ee0b2a5e"
-  }
+  },
+  "review_history": [
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "google-cloud-translation",
+        "reviewer": "canonical_copy",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "amazon_tail"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI rereading of corrected fields against English and glossary; unchanged fields retain prior reviewed text. Not human/native-speaker validation."
+    }
+  ]
 }

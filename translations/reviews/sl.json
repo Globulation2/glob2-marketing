@@ -1,7 +1,7 @@
 {
   "status": "reviewed",
-  "translator": "google-cloud-translation",
-  "reviewer": "canonical_copy",
+  "translator": "translation_quality",
+  "reviewer": "language_coverage",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
@@ -60,7 +60,7 @@
     "listing_intro": "2edd5546ce504d7cc1bba54090de86da4685c03a7ab398c4a59acc80185eca79",
     "listing_open_source": "2db4607c64456842d998d126f764fcf6540c5041bab728434c95352ca5e3fcdc",
     "appstream_summary": "7f354ffa30486c02fcc14e1aeb2b6b564c6503b999398beb9a871a06f53240ce",
-    "android_tail": "859f49e7707649e853ef6de5ee0493a812fdb84cdcf552b2c458eabc479b642e",
+    "android_tail": "8bd3ee17ade5c8413c20a4c6ad4460639a0c61db80dd7f7597cbe71c2e84271a",
     "ios_tail": "68a2258bcd4298767ea9c93f8a917b8486337b4492476f09d0bdb2174005ae42",
     "windows_tail": "3ad59e13d36d1dcb0e1620e472546301392f656b2050208ad3a0516c305d8f37",
     "ios_subtitle": "18b53e3b9c7e4d20726c30b40d48d650aec15ab74097579d24b7ee214c53f0ce",
@@ -83,5 +83,21 @@
     "windows_feature_2": "fdd8fb8ee37f6aa65ca3f9baf6037805cbeba67b2a5c35bbc5db7910e1507983",
     "windows_feature_3": "61bc8a2c47df99a36ea781896ddc46a929aabbf6f8eddfb6d08c32a9fd73fcbc",
     "windows_feature_4": "dbfb2f487798783ae44b2c5b8d443669dcbb728cf2bc29a930c462dc25e7b9da"
-  }
+  },
+  "review_history": [
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "google-cloud-translation",
+        "reviewer": "canonical_copy",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "android_tail"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI rereading of corrected fields against English and glossary; unchanged fields retain prior reviewed text. Not human/native-speaker validation."
+    }
+  ]
 }

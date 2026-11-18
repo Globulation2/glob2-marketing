@@ -112,7 +112,7 @@ Jogar offline não requer uma conta. O jogo online utiliza o serviço online Glo
 
 ## epic_legal
 
-O Globulation 2 é um software livre e de código aberto. Código-fonte e licenças: https://github.com/Globulation2/glob2 . Termos oficiais do serviço online: https://glob2.online/terms/ . Jogar offline não requer uma conta; jogar online cria uma conta no Globulation 2, inicialmente uma conta de convidado.
+O Globulation 2 é um software gratuito e de código aberto. Código-fonte e licenças: https://github.com/Globulation2/glob2 . Termos oficiais do serviço online: https://glob2.online/terms/ . Jogar offline não requer uma conta; jogar online cria uma conta no Globulation 2, inicialmente uma conta de convidado.
 
 ## amazon_tail
 

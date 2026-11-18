@@ -6,9 +6,9 @@ Observed **2026-11-17**. Scope: supported game languages, canonical listing cove
 
 ## Audit outcome
 
-The canonical storefront catalogs cover **all 45 current game locales: English plus 44 translations**. Coverage agrees with the latest remote game `master` checked during this audit. This is not an all-language quality or public-listing signoff: independent rereading found eight field-level issues in eight languages, and destination mappings and maintained source metadata still omit the twelve-language expansion. Existing review hashes establish which text was reviewed, not that the translation is free of defects.
+The canonical storefront catalogs cover **all 45 current game locales: English plus 44 translations**. Coverage agrees with the latest remote game `master` checked during this audit. This is not an all-language quality or public-listing signoff: independent rereading found eight field-level issues in eight languages, subsequently corrected and independently rechecked below, and destination mappings and maintained source metadata still omit the twelve-language expansion. Existing review hashes establish which text was reviewed, not that the translation is free of defects.
 
-No storefront copy, live listing, binary declaration or release was changed by this audit. The findings below remain open until corrected and independently rechecked. The prior platform saves and submissions retain their historical status; they are not fresh public verification.
+The initial audit changed no storefront copy. The authorized correction pass below updates canonical source catalogs; no live listing, binary declaration or release was changed by that pass. The prior platform saves and submissions retain their historical status; they are not fresh public verification.
 
 ## Source and language coverage
 
@@ -22,9 +22,9 @@ Non-identical game-code mappings are `br` → `pt-BR`, `cz` → `cs`, `dk` → `
 
 The [runtime incomplete list](https://github.com/Globulation2/glob2/blob/d0faaea4af903d125f23a46fdb0efd6d2e93b5df/content/data/texts.incomplete.txt) marks every non-English language incomplete. This is a qualification on the game catalogs, separate from the 38-field storefront catalogs. Runtime availability does not establish full in-game translation or support in every submitted artifact.
 
-## Open linguistic findings
+## Linguistic findings and correction status
 
-The fresh AI screening covered all **1,672 translated fields (38 × 44 catalogs)** against English and the glossary. Each issue was read against [the English master](../translations/en.md) and terminology constraints by an initial reviewer and a second agent. These are AI linguistic assessments, not native-speaker or human validation. Suggested directions below preserve the approved message; they are not accepted replacement strings or renewed reviews.
+The fresh AI screening covered all **1,672 translated fields (38 × 44 catalogs)** against English and the glossary. Each issue was read against [the English master](../translations/en.md) and terminology constraints by an initial reviewer and a second agent. These are AI linguistic assessments, not native-speaker or human validation. The initial findings and correction directions below are preserved as audit history; the follow-up section records accepted replacements and renewed review evidence.
 
 | Locale / field | Observed wording and issue | Required correction direction |
 | --- | --- | --- |
@@ -37,7 +37,7 @@ The fresh AI screening covered all **1,672 translated fields (38 × 44 catalogs)
 | [Simplified Chinese](../translations/zh-Hans.md), `android_tail` | `经典的桌面游戏` admits a tabletop-game reading. | Use an unambiguous computer-game expression such as `经典电脑游戏`. |
 | [Ukrainian](../translations/uk.md), `amazon_feature_5` | `Грайте в карти` means play cards, changing the included-map claim. | Use playing on maps and completing campaigns, preserving that both are included. |
 
-Vietnamese has an additional lower-severity terminology follow-up: workers varies among `nhân công`, `công nhân` and the formal `người lao động` in `amazon_feature_4`. Standardize the natural game term during the next editorial pass; this was not counted among the eight blocking field issues.
+Vietnamese has an additional lower-severity terminology follow-up: workers varies among `nhân công`, `công nhân` and the formal `người lao động` in `amazon_feature_4`. Standardize the natural game term during the next editorial pass; this was not counted among the eight blocking field issues. This terminology follow-up was also corrected in the pass below.
 
 The absence of an issue in another field is not proof of native fluency. Distinct translator/reviewer identities and current source/content hashes remain useful maintenance gates, but this rereading demonstrates that they cannot substitute for semantic review.
 
@@ -75,4 +75,12 @@ No authenticated console session was available for a fresh check of review locks
 - The full AI text screening found no unchanged-English translation fields beyond the fixed product name; URL multisets and occurrences of the proper names River, Four Squares and Lava Shield matched the English source throughout. Those mechanical checks do not resolve the linguistic findings.
 - Runtime/online/canonical locale-set comparison found 45 in each set and zero missing or extra locales; remote-master comparison confirmed the relevant language data is unchanged from the inspected checkout.
 
-The next quality milestone is correction and independent re-review of the eight fields above, followed by strict catalog/export validation. Destination locale verification, maintained-source expansion, saved-console readback and public-display verification remain separate work. An all-language high-quality/live claim is not supported by the present evidence.
+The eight field issues and Vietnamese terminology follow-up were corrected and independently rechecked in the pass below. Destination locale verification, maintained-source expansion, saved-console readback and public-display verification remain separate work. An all-language high-quality/live claim is not supported by the present evidence.
+
+## Authorized source corrections — 2026-11-17
+
+The correction pass changed eleven fields across nine canonical catalogs. `translation_quality` authored the replacements; `language_coverage` independently compared each exact diff to English and the glossary before accepting updated hashes. Italian now coordinates playing/exploring and contributing naturally; Portuguese legal text explicitly says `gratuito`; Romanian explicitly names computer-controlled opponents; Tamil uses transitive `வளர்க்கவும்`; Hungarian, Slovenian and Simplified Chinese explicitly say computer game; Ukrainian now says playing on maps and completing included campaigns. Vietnamese consistently uses `nhân công` in the three affected fields and retains autonomous workers guided by priorities.
+
+The Tamil short pitch remains exactly 170 Unicode code points, meeting the existing Apple promotional-text limit without truncation. Product names, URLs, factual qualifications and untouched catalog fields remain unchanged. Updated review JSON preserves previous reviewer/translator provenance in `review_history` and records the exact changed field names; only accepted current text receives new hashes. This is independent AI review, with no human/native-speaker certification inferred.
+
+Validation after correction: strict review-gated check passes for all 45 catalogs; all 20 unit tests pass; whitespace validation passes. The eight audited issues and lower-severity Vietnamese terminology follow-up are closed in canonical source. Historical exported files, maintained game metadata and saved/public store payloads do not update themselves; their propagation remains separately tracked in the rollout ledger. Full all-platform live signoff remains open.

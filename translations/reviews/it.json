@@ -1,7 +1,7 @@
 {
   "status": "reviewed",
-  "translator": "canonical_copy",
-  "reviewer": "product_locales",
+  "translator": "translation_quality",
+  "reviewer": "language_coverage",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
@@ -56,7 +56,7 @@
     "defense_heading": "8cbcbbb08b9bcf60231c84d24a72940aa1d7463372039040c29b2c6e18e4cca1",
     "defense_body": "7080bfa4cbc4ab169548b1ab722575334c52b9cd2c5f750faee4cb59bc1a2ac7",
     "open_source_heading": "09f9a725c33c5ad8c254ff544ba60bdc42a9dbd0111c27dbfb9b8a86e52a4b48",
-    "open_source_body": "b85a47b82352424f8fee57d34f02cc0bfed917ecdaa24e52a291d01bb89a744c",
+    "open_source_body": "8dde64b90ede7a325927c7ac8c97cd81e402f4d079ac891b4103744647a5a38b",
     "listing_intro": "a60bc018714485ad7ba065aa0d0c85d18f2679eff42840eac0ce383bb33d0935",
     "listing_open_source": "243adfd20273d5c7a457d055d2d2fc443d0e8a4a619099fc21c733ad94091299",
     "appstream_summary": "e1e50a8cbee1399b24a63f8ed0df67d765860d524030d3ddb74ecab9caf28dfc",
@@ -88,5 +88,21 @@
     "Compared all 38 fields to English source for meaning, colony/economy positioning, consistent terms, pricing/open-source distinction, edition/account qualifications, protected map names and URLs.",
     "Adapted subtitle naturally to 23 characters.",
     "No human or native-speaker validation claimed; platform visual rendering and saved readback are separate rollout checks."
+  ],
+  "review_history": [
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "canonical_copy",
+        "reviewer": "product_locales",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "open_source_body"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI rereading of corrected fields against English and glossary; unchanged fields retain prior reviewed text. Not human/native-speaker validation."
+    }
   ]
 }

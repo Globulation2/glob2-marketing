@@ -64,7 +64,7 @@ A Globulation 2 ingyenes és nyílt forráskódú.
 
 ## android_tail
 
-Ez az Android-kiadás érintőképernyőkre hozza el a klasszikus asztali játékot.
+Ez az Android-kiadás érintőképernyőkre hozza el a klasszikus számítógépes játékot.
 
 ## ios_tail
 

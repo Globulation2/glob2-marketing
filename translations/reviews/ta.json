@@ -1,7 +1,7 @@
 {
   "status": "reviewed",
-  "translator": "language-inventory-agent",
-  "reviewer": "/root/review_south_asia",
+  "translator": "translation_quality",
+  "reviewer": "language_coverage",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
@@ -47,7 +47,7 @@
   "translation_hashes": {
     "product_name": "d7130c6c87ffcb35cf1154c65141eabf7cc12557c72fa725e77749cc13f210f2",
     "headline": "361d0f7b8b351dd632897b1c39ecc22c6d0b2de6cbabebc8bdeb316cb831d292",
-    "short_pitch": "b6b0fe4288e472c2da80e253cc3bf401a5797b97b789521bde2e56221cca3656",
+    "short_pitch": "959c58dc95958a6ab88ec6e2de9e6d89a2bcdad2d7e3d2ebf15fead07bf8f1e6",
     "about_intro": "d9034d8b4184724abe0208939edff2980e08b07e0a30c87a5f723f3a9ae65ffe",
     "economy_heading": "24f2c838be9f839017339175376b79b03adaccb845fcfec9df2f89d120cbe494",
     "economy_body": "713f37255f89996c18472468149f8003ba5ef3f598773765457ff82b7f467523",
@@ -88,5 +88,21 @@
     "Independently compared all 38 fields against English and terminology for fidelity, colony/economy emphasis, autonomous workers, edition-specific account/offline and Amazon price/ads/IAP qualifications, exact URLs and protected names.",
     "Corrected campaign terminology to native game தொடர் ஆட்டம். Independently adapted promotional text and subtitle to fit configured limits while preserving core concepts.",
     "No human or native-speaker validation claimed."
+  ],
+  "review_history": [
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "language-inventory-agent",
+        "reviewer": "/root/review_south_asia",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "short_pitch"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI rereading of corrected fields against English and glossary; unchanged fields retain prior reviewed text. Not human/native-speaker validation."
+    }
   ]
 }

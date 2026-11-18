@@ -1,7 +1,7 @@
 {
   "status": "reviewed",
-  "translator": "google-cloud-translation",
-  "reviewer": "canonical_copy",
+  "translator": "translation_quality",
+  "reviewer": "language_coverage",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
@@ -57,7 +57,7 @@
     "defense_body": "25c57c860d49810a0a82bbebd91ea08ad2f8dcf29272e859c56365830f5f7e94",
     "open_source_heading": "afff81e63abb0de8ec9722ad23ffecd6a2731218dea5361ae492db4fef6769dc",
     "open_source_body": "7081ad3e5d7e1e0a118f6d9959f44fa36a389e9b2259211ff69d18c4c0d84c05",
-    "listing_intro": "405b53bf24d046d2b7806287f3b4a1bad443afaa375ea7443f67dab0d97a97c6",
+    "listing_intro": "bd923792f85e6d8b9e7e9536a62f6315a51482bba34075f78fcdbff8b79350a5",
     "listing_open_source": "1977c36ff50a948bc400141db6fea75f504f33922aa47ac9c9f71291ce1294d0",
     "appstream_summary": "378a6e1a033780df6b8df30e15059704310e55c126054309396ce138baaea106",
     "android_tail": "685202756fe644f53319de3198818802cb4a30c4fb22a7318bddcef4e541b8f0",
@@ -67,7 +67,7 @@
     "ios_keywords": "add3da905da0d6d39bd93580333adf5353c9d64da0829abc4274dcf4208f045b",
     "windows_feature_1": "6d62462a2d3e712741be548ea01b345a7f0f3f43a9de8c0bf354b87f22131d78",
     "windows_search_term": "1f22bfb5bf5862ac6bd411481baecaf2cfdc3f12f3b7cf0b86fe37a2c42ef4c4",
-    "screenshot_caption_colony": "db4931a3b75109116543623e7dbc11315808908f4f8a910ab6d54cd7b13bc8e3",
+    "screenshot_caption_colony": "475a4f9eebf072270a42b32c2b915cf8bd28b79b7d4b67574d32b1dccb906de3",
     "screenshot_caption_battle": "ee13f3fd7944a74d53e5456a8b8bf7c4fcc5ff1c01c03ce907a85f8452f35b4f",
     "screenshot_caption_strategic": "fa32a2985d639d466abe2bb27a804961855c450819f5aee6b7bc514d24c4e202",
     "screenshot_caption_terrain": "3e90ff9d39b124f758151a817129a404db546ea98fc42272ae78cacee5b02012",
@@ -77,11 +77,29 @@
     "amazon_feature_1": "d14cdec94156567903142cea70f6f50631c7eb97e26103e9d3f6ad6ba60f3824",
     "amazon_feature_2": "5015db354c58800bacccc52827478b41291ea41ab0bd0807eb2753cb74cd70c1",
     "amazon_feature_3": "014658e87e370e7e9f49d4405804ebcd3d43802432512da1a8a7ada264807ffc",
-    "amazon_feature_4": "2077563ca00b5b7db863f2217024d7f367d1928029ffdd946623fdc3a6076f5c",
+    "amazon_feature_4": "2d46539149aba1fbc04119a2f34a85f30c0bc522805c18d84f1e4a84108e3196",
     "amazon_feature_5": "483905e304a5c37abe0819d35cf9fd020743684d504847d327b564af631e4ccf",
     "amazon_feature_6": "82b69cb17a198dc19e9c3e1292be125a378005f634021a98f78d42204593e552",
     "windows_feature_2": "62fe46c985ea271ecf20b383783e0c436db35b1098309390dbd02728d6f55366",
     "windows_feature_3": "014658e87e370e7e9f49d4405804ebcd3d43802432512da1a8a7ada264807ffc",
     "windows_feature_4": "3e0ff060e4bf69ecc6345db7186da9a0bc164fea45bfe49f54852c0cb1e05357"
-  }
+  },
+  "review_history": [
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "google-cloud-translation",
+        "reviewer": "canonical_copy",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "listing_intro",
+        "screenshot_caption_colony",
+        "amazon_feature_4"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI rereading of corrected fields against English and glossary; unchanged fields retain prior reviewed text. Not human/native-speaker validation."
+    }
+  ]
 }

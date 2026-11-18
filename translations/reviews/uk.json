@@ -1,7 +1,7 @@
 {
   "status": "reviewed",
-  "translator": "google-cloud-translation",
-  "reviewer": "canonical_copy",
+  "translator": "translation_quality",
+  "reviewer": "language_coverage",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
@@ -78,10 +78,26 @@
     "amazon_feature_2": "c22c507cae9eb0961d9f9f752d09bb625ef2b7b41186c4d0a8c362787f4cc529",
     "amazon_feature_3": "b7dfd1a0cf87cf0eb0bc34c502fef31e1efd3e7647250a60fd133471a2a89af0",
     "amazon_feature_4": "8a21871c19197be972961abe3957fd41354885240d019bd071902a39720cbb5f",
-    "amazon_feature_5": "5433a23f786e165e5d62a03c952711f44bfcbc1bcfa6e9c5c8e03132709f38f4",
+    "amazon_feature_5": "64edada057fa16db757172bc7ebb9dba65bd49b71b09ab8b8f711a34f758f12c",
     "amazon_feature_6": "881bff424830761746197d9423671ccd11d4a631d634733382631c11d93f7e9f",
     "windows_feature_2": "002e0ce8a63e01df8e33b2e564064d6b4407e104053c6d53b22f490f447373fa",
     "windows_feature_3": "79b910310ac85a1c7c003649eff159b55abc42e5df6bace4f8548964051c0ea2",
     "windows_feature_4": "1a73a11fa2bc2c8c693b88b1f695df53e71895b659d3aa5b4acc7eeba24f4d0d"
-  }
+  },
+  "review_history": [
+    {
+      "date": "2026-11-17",
+      "previous_review": {
+        "translator": "google-cloud-translation",
+        "reviewer": "canonical_copy",
+        "method": "AI translation with independent AI linguistic review; not human/native-speaker validation"
+      },
+      "changed_fields": [
+        "amazon_feature_5"
+      ],
+      "translator": "translation_quality",
+      "reviewer": "language_coverage",
+      "method": "Independent AI rereading of corrected fields against English and glossary; unchanged fields retain prior reviewed text. Not human/native-speaker validation."
+    }
+  ]
 }
