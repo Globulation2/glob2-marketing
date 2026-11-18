@@ -252,3 +252,13 @@ The saved scope changes exactly **242 coordinates** from the expanded source: 14
 Fresh Hindi editor visual inspection confirms seven approved media roles: four gameplay images in the approved order, poster, box art and landscape promotional image. The compiled AppTile inherits unchanged; no explicit replacement icon was introduced. A brief Urdu editor check showed readable joined RTL text with the mixed-script brand. These are representative editor observations, not all-locale pixel checks or public-layout certification.
 
 The current workflow is at Review and submit/pending-scope inspection. **No Microsoft review submission or publication is claimed at this checkpoint.** Epic's five-entity review unit remains queued; Amazon remains explicitly deferred.
+
+## Microsoft actual 44-locale update submitted; Publishing — 2026-11-17
+
+After the saved 44-locale and exact-server verification above, the review step selected only changed **Store listings** plus the mandatory, disabled **unchanged Age ratings** item. The unrelated incomplete package draft was disabled and unchecked; properties, pricing and gaming metadata were unchanged and unchecked. The existing published retail package was preserved.
+
+**Publish** was accepted. A fresh console reload confirms **Retail Update — Publishing**, submitted **2026-11-18 03:18 UTC (2026-11-17 22:18 America/Toronto)**, with submitted changes exactly **“Age ratings, Store listings”**. **Cancel publish** is visible and was left untouched. This supersedes the saved-only checkpoint: the 44-locale update is actually submitted to the publishing pipeline. It does not establish public translated display, separate certification approval or a new package release.
+
+Sign-in recovered through a fresh official dashboard without requesting a new OTP; the connector's withheld email code was not retrieved or bypassed. No private contact, code or credential content is retained. No unsaved browser edits remain, and the concurrent submitted Steam support tab is preserved.
+
+Current bounded rollout summary: **Play's sixteen changes are explicitly In review; Epic's five-entity Stage review unit is Queued after three metadata promotions and two saved link fixes, with Live 0; Microsoft 44-locale Retail Update is Publishing; Apple localization remains version-state locked; Amazon remains explicitly owner-deferred.** Prepared canonical source, merged game metadata, saved console data, review/publishing states and public translated display remain distinct evidence levels.
