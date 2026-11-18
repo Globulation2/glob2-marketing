@@ -176,3 +176,5 @@ The [fresh native iOS submission receipt](storefront-localization-rollout.md#loc
 ## Mac readiness correction and saved URL repair — 2026-11-18
 
 The [Mac required-URL repair receipt](storefront-localization-rollout.md#mac-required-support-url-repair-saved-review-retry-pending--2026-11-18) resolves the prior unknown native outcome: Add for Review failed on 36 blank required Support URLs inherited into the baseline. Text readback was valid, but was not a complete review-readiness claim. The scoped repair now verifies 36 primary-locale URL fills across 38 locales with all text/media/build/release/shared/iOS invariants intact. PR #1838 remains under required CI. iOS stays submitted; Mac awaits unlock and fresh native validation, without a submission claim.
+
+The [required-URL helper merge receipt](storefront-localization-rollout.md#required-url-helper-fix-merged--2026-11-18) confirms PR #1838 merged after its current-head fast gate. This closes the source-fix CI/merge step, without extending saved repair to Mac review submission.
