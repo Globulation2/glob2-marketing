@@ -197,3 +197,15 @@ The independent Apple keyword-only corrections live in marketing commit `2b14393
 The final access checks reached genuine second-factor challenges after existing saved credentials: **Microsoft requires an email code**, **Epic requires an authenticator-app code**, and **Amazon requires an SMS code**. The owner was asked to enter these directly in the preserved Firefox tabs. Amazon's **“Don't require code”** option remains unchecked; no security setting was changed. Codes, email/phone details and credentials are excluded from this public record.
 
 No product editor, listing write or unsaved metadata form was reached on these three stores. The concurrent Steam support submitted tab remains preserved. Further storefront application depends on the owner completing those challenges and a fresh product/editor preflight; this handoff is not evidence of saved translations, submission, approval or public display. Independent canonical-copy, tooling and merged-source work is complete as recorded above.
+
+## Google automated checks complete; actual in-review state — 2026-11-17
+
+A fresh Publishing overview now explicitly states **“Your changes are now in review”**. The automated quick-check message is gone and the same sixteen change rows remain. This supersedes the queued-checks qualification in the prior receipt: the twelve additions and four description corrections are now in review after checks. Platform approval, publication and public 44-locale display remain unverified.
+
+## Epic current export structure and pre-application reconciliation — 2026-11-17
+
+A current server export retains SHA-256 `d26e677cb3fb808a7d0a9930b61bec42d9fc306539f97e8f298743a2e0855bdc`. Precise CSV structure: **39 columns: seven identity/field columns plus 32 locale headers**. The historical **25 locales** count means populated saved locales (English plus 24 translations), not total exported header count. Seven additional headers are empty placeholders. Six (`bg`, `fil`, `hi`, `ms`, `no`, `th`) now have reviewed canonical mappings and can receive prepared translations; the unused `es` placeholder is empty and is removed only from the upload copy, preserving the original server export.
+
+Reconciliation found exactly three differing nonempty canonical cells, each matching the prior reviewed source at marketing commit `6528f61`: Vietnamese `listing_intro` in two rows and Portuguese Portugal `epic_legal` in one. This ties the differing saved text to the previous approved catalog rather than authorizing a blind overwrite. Preparation includes 150 new canonical cells plus required invariant English fallbacks for the six added locales and those three reviewed corrections. No applied/save/readback outcome is claimed at this checkpoint.
+
+The current Epic Stage state is **Issues found**, superseding the older In review observation. Its details are being inspected; no new Stage promotion, review submission or publication is inferred from template preparation.

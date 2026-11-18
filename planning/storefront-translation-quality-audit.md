@@ -118,3 +118,7 @@ The [byte-limit correction receipt](storefront-localization-rollout.md#apple-key
 ## Final remaining-store access checkpoint — 2026-11-17
 
 The [owner MFA handoff](storefront-localization-rollout.md#owner-mfa-handoff-for-remaining-storefronts--2026-11-17) records Microsoft email-code, Epic authenticator-app and Amazon SMS challenges in preserved Firefox tabs. The owner must complete them directly. No security settings, product editors or listing fields were changed, and no unsaved metadata form remains. This is the current access boundary for the remaining stores, separate from completed source corrections, validated exports, merged game metadata and the Play queued-review request.
+
+## Play in-review confirmation and Epic export clarification — 2026-11-17
+
+The [fresh Play checkpoint](storefront-localization-rollout.md#google-automated-checks-complete-actual-in-review-state--2026-11-17) now explicitly says the same sixteen changes are in review and no longer shows automated checks. This closes the queued-checks uncertainty, without approval or public-display evidence. The [Epic reconciliation receipt](storefront-localization-rollout.md#epic-current-export-structure-and-pre-application-reconciliation--2026-11-17) distinguishes its 32 locale headers from 25 populated saved locales, documents six empty expansion columns and three prior-source differences, and records current Stage Issues found. Epic preparation remains separate from an applied import or verified save.
