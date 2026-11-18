@@ -280,3 +280,17 @@ The user chose completing Apple translations before review submission. [iOS 0.11
 `translation_quality` authored the translations; `language_coverage` independently reread all 185 non-English bullets for graphics/memory, animation/artwork/status detail, stability/replay handling, stone walls' 500 HP/4-stone cost and prestige's contribution to displayed win chance. The [review manifest](../translations/releases/reviews/ios-0.11.601.json) records accepted source/content SHA-256 values and identities, with no unresolved issues. This is AI linguistic review, not native-speaker certification. All 38 locale keys match the Apple mapping; maximum length is 504 characters against the 4,000-character field limit.
 
 This establishes reviewed release-note source for the translation-first work. It does not itself add store locales, write version metadata, submit App Review or release either candidate. Bulk application and exact saved-server readback remain separate verification steps.
+
+## French Mac pilot saved; secure bulk preparation — 2026-11-18
+
+The shared English subtitle was saved to the approved **“Colony strategy under pressure”**, with the product name unchanged. The French Mac pilot's promotional text, description and keywords were saved and freshly reloaded against canonical source:
+
+| Field | Exact saved SHA-256 |
+| --- | --- |
+| Promotional text | `aec9401c49abdadcdc724693ae4ee0e5ed2784d9b5de82b6f5699733d088267d` |
+| Description | `5852ab339ccc2f67c71d1cbf622164642793d4935f9e55d2c88ad59e7b03d963` |
+| Keywords | `83f8c52b666ec8b59fcf0f9e6c9e8bf2b3a73c389abcaca3eaf0b899e4666aeb` |
+
+Keywords occupy **82 UTF-8 bytes**, within the corrected 100-byte limit. The exact Mac build `2026111801`, automatic-release setting and existing URLs remained unchanged. The French locale showed zero localized screenshots and four approved primary-locale fallback placements/buttons; no image was uploaded. French shared App Information and French iOS fields remain unfinished and are not counted as saved by this pilot.
+
+Native bulk entry stopped when the computer-control session hit an actual 10-request-per-minute limit with resets around 294 seconds. The French Mac form is saved cleanly, with no stale unsaved form. A secure API helper is being implemented in a game worktree; **no API writes or new live workflow occurred at this checkpoint**. All 38 release-note strings are independently reviewed in marketing commit `d73a4ef`, ready for the separate bulk workflow. Both latest Apple candidates remain editable and not submitted for review; this pilot does not establish complete 38-locale application.

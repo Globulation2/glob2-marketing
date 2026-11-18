@@ -148,3 +148,7 @@ The [latest Apple draft receipt](storefront-localization-rollout.md#latest-apple
 ## Version-specific iOS translation review — 2026-11-18
 
 Following the user's translation-first decision, [the iOS 0.11.601 source/review receipt](storefront-localization-rollout.md#translation-first-apple-release-note-source-prepared--2026-11-18) covers the exact approved English and all 37 translated Apple locales. Independent AI review accepted every translated bullet, including numeric wall health/cost and prestige's display contribution; 38 hash-bound strings fit the field limit. This supplements the reusable listing catalogs without claiming native-speaker certification or completed store application/submission.
+
+## French Mac saved pilot — 2026-11-18
+
+The [fresh French Mac pilot receipt](storefront-localization-rollout.md#french-mac-pilot-saved-secure-bulk-preparation--2026-11-18) confirms canonical promotional text, description and 82-byte keywords saved by exact hashes, with existing build/media/URLs preserved. Shared English subtitle now matches the approved text; French shared/iOS work remains unfinished. Native bulk entry stopped at the actual computer-control rate limit, with a clean saved form. Reviewed 38-locale release-note source is ready, while the secure helper remains implementation work with no API write or new live workflow claimed. Neither latest Apple version has been submitted for review.
