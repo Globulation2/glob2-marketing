@@ -231,3 +231,24 @@ The Dev-to-Stage promotion selected **only the three updated metadata entities: 
 **Submit for Review** operates on a nonselective platform review unit, with no entity selector. It included **all five Stage entities**, although only three were changed/promoted: the three metadata entities plus unchanged regions/ratings and Windows artifact. A fresh server reload confirms **Queued for review for all five**, with **Rescind** available, Dev Push disabled because the product is under review, and **Live 0**. This is an actual review submission, not approval or Live publication. No artifact/package or media edit was performed.
 
 At this checkpoint Microsoft is still processing the reviewed CSV upload (38% observed), so no saved/readback outcome is claimed yet. Amazon remains explicitly deferred by the owner.
+
+## Microsoft 44-locale drafts saved and freshly verified — 2026-11-17
+
+The twelve added wire identifiers were established from the current console's expanded export rather than inferred. After the reviewed import completed, fresh reload showed **all 44 locales Complete**. This supersedes the prior processing-only checkpoint and establishes saved drafts, not submission or publication.
+
+Reproducible export/candidate fingerprints:
+
+| Input/outcome | SHA-256 |
+| --- | --- |
+| Original 32-locale workbook | `bb2ed2c0c50daa52e8e7ec973cd8ae0a14d6ed829afac18f51a1010b576fc004` |
+| Expanded 44-locale workbook | `a1e23da12aa5b03dc490eb516913cb4841b616c23e56d7b14317cfdd5191cfb0` |
+| Independently reviewed import CSV | `271b4eb3c98bba2daeee4197bc4ed0dc202e611fa236fef57a23fb98eba321c7` |
+| Fresh saved server workbook | `bb85183cce96b0e6441c79ad9a5eb10bd559e83e7fb0d54e973e4c321e0424bd` |
+
+Independent full comparison covered **21,744 cells**: **21,660 exact matches** and **84 new media references differing only in the `parentId` query value**. All other URL bytes/components, roles and order match the approved source references. All **516 non-English canonical cells** match the current reviewed catalogs. All 224 existing 32-locale media references, all 44 existing/server-created False flags and the four longer existing English screenshot-caption variants remain unchanged.
+
+The saved scope changes exactly **242 coordinates** from the expanded source: 144 new canonical text cells, 96 approved English media/studio fills and two prior-reviewed Vietnamese corrections. Old unrelated listing fields, default/English values and row identities remain unchanged. Media comparison establishes exact source-reference identity apart from locale-parent routing, not downloaded image-byte hashing.
+
+Fresh Hindi editor visual inspection confirms seven approved media roles: four gameplay images in the approved order, poster, box art and landscape promotional image. The compiled AppTile inherits unchanged; no explicit replacement icon was introduced. A brief Urdu editor check showed readable joined RTL text with the mixed-script brand. These are representative editor observations, not all-locale pixel checks or public-layout certification.
+
+The current workflow is at Review and submit/pending-scope inspection. **No Microsoft review submission or publication is claimed at this checkpoint.** Epic's five-entity review unit remains queued; Amazon remains explicitly deferred.
