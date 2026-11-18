@@ -172,3 +172,7 @@ The [Mac bulk/readback receipt](storefront-localization-rollout.md#mac-38-locale
 ## Localized iOS review submission — 2026-11-18
 
 The [fresh native iOS submission receipt](storefront-localization-rollout.md#localized-ios-submitted-mac-final-action-unconfirmed--2026-11-18) confirms the verified 38-locale iOS draft submitted as Waiting for Review, with one submitted item and zero draft submissions; manual release is unchanged. Mac's metadata is verified, but its final review action awaits fresh resulting-state verification after a screen lock. No Mac submission, approval or release is inferred, and no version deletion/replacement or new upload occurred in that Mac action sequence.
+
+## Mac readiness correction and saved URL repair — 2026-11-18
+
+The [Mac required-URL repair receipt](storefront-localization-rollout.md#mac-required-support-url-repair-saved-review-retry-pending--2026-11-18) resolves the prior unknown native outcome: Add for Review failed on 36 blank required Support URLs inherited into the baseline. Text readback was valid, but was not a complete review-readiness claim. The scoped repair now verifies 36 primary-locale URL fills across 38 locales with all text/media/build/release/shared/iOS invariants intact. PR #1838 remains under required CI. iOS stays submitted; Mac awaits unlock and fresh native validation, without a submission claim.
