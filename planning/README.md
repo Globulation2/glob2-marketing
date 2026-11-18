@@ -11,6 +11,7 @@
 - [Storefront localization rollout](storefront-localization-rollout.md): per-platform translation application, editability, verified saves/submissions and remaining access gaps.
 - [Main website localization](website-localization-rollout.md): 44 translated languages across four marketing pages, review evidence, website publication and public verification.
 - [Website release and media refresh](website-refresh-execution.md): November 18 public link checks, repaired Discord invitation, storefront-first website implementation, responsive review and pending current-release capture/publication.
+- [Player handbook refresh inventory](handbook-refresh-inventory.md): remaining current instructional media, the bounded first-session repair, capture-family counts and reproducible refresh requirements.
 - [Android closed-test recruitment](android-closed-test-recruitment.md): active Android release-testing preparation, admission preflight, recruitment drafts, private roster rules and the 12-testers/14-days production gate.
 - [iOS App Review response](apple-app-review-response.md): sent two-clip/six-answer response with verified Notes and signing/coverage evidence; same existing build resubmitted and Waiting for Review confirmed.
 - [Launch positioning v1](../analysis/positioning-v1.md): current agreed headline, pitch and message emphasis; selected through discussion.
