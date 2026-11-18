@@ -164,3 +164,7 @@ The [current helper/review-lock receipt](storefront-localization-rollout.md#appl
 ## iOS all-mapped-locale saved readback — 2026-11-18
 
 The [completed iOS localization receipt](storefront-localization-rollout.md#ios-review-withdrawal-and-verified-38-locale-application--2026-11-18) records withdrawal of only the current review item without deleting its version/build, followed by successful 38-locale bulk application. All 228 planned fields and complete protected media/build/URL/release/other-locale invariants passed saved readback. A bounded Arabic subtitle visual check also passed; no native-speaker certification, resubmission or release is claimed. The exact reviewed helper head is in PR #1837, still awaiting its fast gate/merge; Mac bulk work is only at its started-inspection checkpoint.
+
+## Both Apple platforms saved; review still separate — 2026-11-18
+
+The [Mac bulk/readback receipt](storefront-localization-rollout.md#mac-38-locale-saved-readback-helper-fix-merged--2026-11-18) completes verified saved application on both Apple platforms: iOS 228 fields and Mac 190 fields across each platform's 38 mapped locales, with protected invariants preserved. Mac updates left localized iOS data unchanged. PR #1837 is merged after its required fast gate and exact tested-tree comparison. Representative Arabic editor rendering also passed within its stated limits. Review submission/publication remain separate; opening Add for Review is not a submission receipt.
