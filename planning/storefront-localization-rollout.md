@@ -305,3 +305,13 @@ A bounded independent public HTTP follow-up returned **HTTP 200** for the [Frenc
 | Hindi / India | `89025afb8e7e250b469a28325a39c663031a93287fefd187c1a993057cd57429` |
 
 This supersedes the earlier French English-fallback observation for this public URL and verifies one original-batch language plus one expansion language. It establishes public text/caption availability in these **two sampled locale/market combinations only**. It does not certify all 44 locales, other territories, image bytes, final visual layout or a package update. No authenticated editor or write action was used; no repeated polling was needed.
+
+## Apple helper merged; current iOS review lock — 2026-11-18
+
+[Game PR #1832](https://github.com/Globulation2/glob2/pull/1832) merged the scoped localization helper as `6e3c9d995fa45ff2d97735766ba492030391ec04`. The documented owner-mirror sync is `0286df22e99b4ab4a693e638476b7f6c0d0d6b9d`, with exact source tree `de0eb0074ea50956c02067fb513f8be408dbacf1`.
+
+All **228 planned iOS fields** independently match reviewed marketing source `d73a4efe530c408bbd43b76e74bf2024912ea7e2`. However, [read-only bulk inspect 44250372022](https://github.com/genixpro/glob2-release/actions/runs/44250372022) correctly stopped before writes with **“Target must be an unsubmitted editable draft”**. **No bulk API write occurred.**
+
+[Trusted read-only production inspect 44249379649](https://github.com/genixpro/glob2-release/actions/runs/44249379649), at **2026-11-18 06:16:09 UTC**, reports **iOS 0.11.601 / build1002501 Waiting for Review**, manual release, and shared App Information Waiting for Review. Separate [workflow 44248459604](https://github.com/genixpro/glob2-release/actions/runs/44248459604) ran the submit stage at 06:08 UTC. This supersedes the earlier “both drafts not submitted” checkpoint for iOS. The record does not identify a person's action or infer a reason; the user's explicit translation-first choice remains the intended sequence.
+
+The Mac is currently locked pending unlock before editing can resume. Its review state has not been freshly checked, so no current Mac review-state claim is made. The previously verified approved English subtitle and three French Mac fields remain the saved pilot evidence; complete Apple localization application is not established.

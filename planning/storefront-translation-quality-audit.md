@@ -156,3 +156,7 @@ The [fresh French Mac pilot receipt](storefront-localization-rollout.md#french-m
 ## Microsoft sampled public availability — 2026-11-18
 
 [Fresh public French/France and Hindi/India checks](storefront-localization-rollout.md#microsoft-public-french-and-hindi-text-verified--2026-11-18) now match eleven canonical product-copy fields each, including full descriptions, features and ordered screenshot captions. This is public localized content and supersedes the prior French English-fallback finding. Coverage is bounded to those two locale/market samples; all-44 availability and visual-layout certification remain unclaimed.
+
+## Current Apple bulk gate — 2026-11-18
+
+The [current helper/review-lock receipt](storefront-localization-rollout.md#apple-helper-merged-current-ios-review-lock--2026-11-18) supersedes the earlier unsubmitted-iOS checkpoint: a separate submit-stage run preceded fresh read-only evidence of iOS 0.11.601/build1002501 and shared App Information Waiting for Review. The bulk helper stopped before writes, as designed. All 228 planned iOS fields match reviewed source, but no bulk API application is claimed. Mac review state awaits a fresh check after unlock; prior subtitle/French-pilot evidence is retained without extending it to complete localization.
