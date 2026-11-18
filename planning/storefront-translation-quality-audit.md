@@ -182,3 +182,7 @@ The [required-URL helper merge receipt](storefront-localization-rollout.md#requi
 ## Apple review submission complete — 2026-11-18
 
 The [final Apple submission receipt](storefront-localization-rollout.md#both-localized-latest-apple-versions-submitted--2026-11-18) confirms both latest versions Waiting for Review after complete verified 38-locale application: iOS 0.11.601/build1002501 and Mac 0.11.6/build2026111801. Mac's required URL errors are resolved, and fresh native state shows one submitted item and zero drafts. Historical screen-lock/pending-validation checkpoints are superseded. Existing automatic/manual release settings remain unchanged; Apple approval, public release and public translated display remain separate outcomes.
+
+## Current Apple release preference — 2026-11-18
+
+The [saved iOS release-preference receipt](storefront-localization-rollout.md#ios-automatic-release-preference-saved--2026-11-18) records the user's requested automatic release after approval, freshly verified with exact build/review state unchanged. Mac was already automatic. Both current Apple versions now use automatic release; previous iOS manual-setting checkpoints remain historical, and approval/publication are not inferred.
