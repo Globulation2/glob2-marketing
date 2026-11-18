@@ -4,6 +4,12 @@
 
 Observed **18 November 2026**. This records the remaining instructional refresh, separately from the live marketing-media and bounded first-session updates. Source completion, object upload and production publication are different states; use the execution record above for the publication receipts.
 
+## Remaining refresh authorized and active
+
+After reviewing this remaining scope, the user authorized the team to complete the handbook refresh using the game MCP interface. All 28 remaining chapters and their 25 older capture families are now active work, rather than a deferred proposal. The website author owns text/manifest integration; the capture owner qualifies the current deployed payload and owns shared tooling/foundational scenarios; an independent reviewer covers advanced/reference/AI mechanics and foundational family review, with disjoint advanced capture scenarios prepared only after the common contract is ready. Advanced captures receive review from the capture owner. The coordinator is the sole Git steward. Separate browser profiles or MCP sessions avoid competing runtime control.
+
+Baseline qualification, reproducible scenarios and initial source review are in progress. No additional family is marked complete by this authorization. Candidate-source findings, genuine current-game observations, approved asset objects, merged source and live published chapters will be recorded separately. Existing live marketing and first-session outcomes below remain valid.
+
 ## Inventory and current status
 
 The pre-refresh website contained **29 current handbook chapters**, **26 capture families** and **237 media assets: 223 images and 14 videos**. All manifest assets were used, including video posters. Three reference chapters reuse other families, so chapter and family counts differ. These were active instructional images, not historical archive material merely because their original provenance was retained.
