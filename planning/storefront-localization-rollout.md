@@ -355,3 +355,9 @@ The previously unconfirmed Mac Add for Review attempt **failed**: the native pag
 ## Required-URL helper fix merged — 2026-11-18
 
 [PR #1838](https://github.com/Globulation2/glob2/pull/1838) subsequently merged as `45188eed4bf124a61bbb49cb57a2dc3a1a3cf2bc` after the exact reviewed head `bf01ad2b3cc094aeae41db1a8f96638b8bfa5908` passed its fast gate: contracts 2m51s, Linux 9m1s and master-health 1m44s. Final fetch found master unchanged as an ancestor; no further source edit was needed. This supersedes the pending-CI/merge qualification above. Mac native validation/submission remains pending separately.
+
+## Both localized latest Apple versions submitted — 2026-11-18
+
+After unlock and fresh reload, **Mac 0.11.6/build2026111801** showed no required-URL errors. Add for Review and its Continue confirmation advanced the exact build to Ready for Review; Submit for Review completed. A fresh native view confirms **Waiting for Review**, **1 Item Submitted** and **0 draft submissions**. The sidebar also still shows **iOS 0.11.601/build1002501 Waiting for Review**.
+
+Both latest versions are now submitted **after** verified 38-locale translation application and the saved 36-locale Mac required Support URL repair. This supersedes the historical Mac-awaiting-unlock/validation checkpoints above. Mac automatic release and iOS manual release remain as preflighted. No Apple approval, completed public release or public translated display is claimed. Helper PRs #1837 and #1838 are merged and source work is clean; no additional version deletion, replacement or upload was needed in this final submission sequence.
