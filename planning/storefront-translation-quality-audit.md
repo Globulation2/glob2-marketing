@@ -6,7 +6,7 @@ Observed **2026-11-17**. Scope: supported game languages, canonical listing cove
 
 ## Audit outcome
 
-The canonical storefront catalogs cover **all 45 current game locales: English plus 44 translations**. Coverage agrees with the latest remote game `master` checked during this audit. This is not an all-language quality or public-listing signoff: independent rereading found eight field-level issues in eight languages, subsequently corrected and independently rechecked below, and maintained source metadata still omits the twelve-language expansion. Destination preparation mappings were subsequently expanded as recorded below. Existing review hashes establish which text was reviewed, not that the translation is free of defects.
+The canonical storefront catalogs cover **all 45 current game locales: English plus 44 translations**. Coverage agrees with the latest remote game `master` checked during this audit. This is not an all-language quality or public-listing signoff: independent rereading found eight field-level issues in eight languages, subsequently corrected and independently rechecked below, and initially found maintained source metadata omitted the twelve-language expansion. Destination mappings were subsequently expanded and game source integration merged as recorded below. Existing review hashes establish which text was reviewed, not that the translation is free of defects.
 
 The initial audit changed no storefront copy. The authorized correction pass below updates canonical source catalogs; no live listing, binary declaration or release was changed by that pass. The prior platform saves and submissions retain their historical status; they are not fresh public verification.
 
@@ -89,9 +89,9 @@ Validation after correction: strict review-gated check passes for all 45 catalog
 
 The [expanded mapping receipt](storefront-localization-rollout.md#expanded-locale-mappings-prepared--2026-11-17) documents current official sources and exact remaining gaps after checking the full roster against destination listing-language references. Preparation now covers Play 44, Apple 38 per platform, Microsoft 44, Epic 31, Amazon 11, Snap 1 and F-Droid 45 locales including English: 252 mapped payloads and 108 gaps. Play's twelve additions were also verified selectable in the authenticated console. Other hosted-store additions still require a fresh template/console check. This closes the blanket twelve-language export omission; maintained source integration and saved/public rollout remain distinct outcomes.
 
-## Maintained source preparation — 2026-11-17
+## Maintained source preparation and merge — 2026-11-17
 
-The [source expansion receipt](storefront-localization-rollout.md#maintained-source-expansion-pr-prepared--2026-11-17) links [game PR #1825](https://github.com/Globulation2/glob2/pull/1825), preparing all 45 locales in F-Droid/AppStream/desktop metadata and the applicable corrected Android fields. Independent export comparison passes. The PR remains distinct from merged source, a release or public catalog ingestion; the initial twelve-language maintained-source gap is addressed by this prepared change but not yet closed on master at this checkpoint.
+The [source expansion receipt](storefront-localization-rollout.md#maintained-source-expansion-prepared-then-merged--2026-11-17) links [game PR #1825](https://github.com/Globulation2/glob2/pull/1825), preparing all 45 locales in F-Droid/AppStream/desktop metadata and the applicable corrected Android fields. Independent export comparison passes. At the initial preparation checkpoint it had not yet merged. The confirmed merge receipt below closes the source gap on master; a release and public catalog ingestion remain separate.
 
 ## Google rollout checkpoint — 2026-11-17
 
@@ -110,3 +110,7 @@ A fresh official Apple field-reference check also found a separate unresolved pr
 ## Apple keyword fit follow-up — 2026-11-17
 
 The [byte-limit correction receipt](storefront-localization-rollout.md#apple-keyword-byte-fit-corrected-in-source--2026-11-17) closes the newly found keyword preparation gap: fifteen oversize source fields (twelve mapped, three currently unmapped) now contain independently reviewed whole-concept adaptations within 100 UTF-8 bytes. The tooling/matrix enforce bytes only for Apple keywords and preserve character counting elsewhere. All 45 strict-reviewed catalogs, mapped-field-fit checks, 23 tests and a fresh export pass. No Apple field was applied and the existing Play submission remains unchanged.
+
+## Final game master integration — 2026-11-17
+
+[PR #1825](https://github.com/Globulation2/glob2/pull/1825) merged as `2c9d43da024d6cf88d7fa44f685fa8808d1a9361` after rebasing onto newer master, preserving release 0.11.6.1/iOS changes and passing the current-head fast gate. The [merge receipt](storefront-localization-rollout.md#maintained-source-expansion-merged-on-current-master--2026-11-17) records exact source/CI evidence. Runtime, online and browser rosters remain exactly 45 locales; full maintained-metadata/export comparison and protected-field checks pass, and the post-merge tree equals the tested head. The twelve-language maintained-source gap is closed on game master. This establishes merged source coverage, not released artifacts or downstream public translations.
