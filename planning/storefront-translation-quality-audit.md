@@ -88,3 +88,7 @@ Validation after correction: strict review-gated check passes for all 45 catalog
 ## Mapping preparation follow-up — 2026-11-17
 
 The [expanded mapping receipt](storefront-localization-rollout.md#expanded-locale-mappings-prepared--2026-11-17) documents current official sources and exact remaining gaps after checking the full roster against destination listing-language references. Preparation now covers Play 44, Apple 38 per platform, Microsoft 44, Epic 31, Amazon 11, Snap 1 and F-Droid 45 locales including English: 252 mapped payloads and 108 gaps. Play's twelve additions were also verified selectable in the authenticated console. Other hosted-store additions still require a fresh template/console check. This closes the blanket twelve-language export omission; maintained source integration and saved/public rollout remain distinct outcomes.
+
+## Maintained source preparation — 2026-11-17
+
+The [source expansion receipt](storefront-localization-rollout.md#maintained-source-expansion-pr-prepared--2026-11-17) links [game PR #1825](https://github.com/Globulation2/glob2/pull/1825), preparing all 45 locales in F-Droid/AppStream/desktop metadata and the applicable corrected Android fields. Independent export comparison passes. The PR remains distinct from merged source, a release or public catalog ingestion; the initial twelve-language maintained-source gap is addressed by this prepared change but not yet closed on master at this checkpoint.
