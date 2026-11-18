@@ -72,6 +72,10 @@ Distinct identities are required. An English edit stales dependent source hashes
 
 The game repository maintains `fastlane/metadata/android/`, `data/org.globulation2.Globulation2.metainfo.xml` and `data/glob2.desktop`. Merge exported localized text into those existing records, preserving English qualifications, release history, screenshot URLs and launcher settings. AppStream and desktop exports are merge fragments, not full replacement manifests. The generated AppStream caption `source_role` attributes are hints for matching existing screenshot nodes and must not appear in final AppStream metadata. Follow [the game maintenance guide](https://github.com/Globulation2/glob2/blob/master/docs/releases/store-setup.md#canonical-listing-translations).
 
+## Version-specific release notes
+
+[Localized release notes](releases/README.md) are reviewed separately from reusable storefront fields. Each release binds its exact approved English, game tag/source commit and translated content to an independent review manifest. A reviewed source file does not establish a saved or submitted store version.
+
 ## Artwork and rollout
 
 The [artwork audit](media-audit.md) distinguishes language-neutral approved key art, unchanged brand wordmark/native gameplay UI and existing mobile gallery verification gaps. Reuse language-neutral approved files. Translate only actual marketing overlays discovered in the audit, using approved source images or direct derivatives; do not invent slogans to create image variants.

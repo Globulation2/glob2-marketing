@@ -144,3 +144,7 @@ Current outcomes: all 45 canonical catalogs are covered; audited linguistic and 
 ## Latest Apple preparation follow-up — 2026-11-17
 
 The [latest Apple draft receipt](storefront-localization-rollout.md#latest-apple-editable-drafts-and-locale-intersection--2026-11-17) replaces the old locked-version checkpoint: Mac 0.11.6/build2026111801 and iOS 0.11.601/build1002501 are qualified, saved editable candidates from exact `v0.11.6.1` source, with no review submission or release yet. The fresh selector's 50 choices still intersect the game roster in exactly the existing 38 mapped locales; no configuration expansion is needed. Exact Mac runtime catalogs cover all 45 languages, while missing `CFBundleLocalizations` is a distinct Apple-facing packaging declaration gap requiring follow-up. Storefront locale application remains pending the user's review-priority choice; this receipt records no translated field writes.
+
+## Version-specific iOS translation review — 2026-11-18
+
+Following the user's translation-first decision, [the iOS 0.11.601 source/review receipt](storefront-localization-rollout.md#translation-first-apple-release-note-source-prepared--2026-11-18) covers the exact approved English and all 37 translated Apple locales. Independent AI review accepted every translated bullet, including numeric wall health/cost and prestige's display contribution; 38 hash-bound strings fit the field limit. This supplements the reusable listing catalogs without claiming native-speaker certification or completed store application/submission.
