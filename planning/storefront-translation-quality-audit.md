@@ -114,3 +114,7 @@ The [byte-limit correction receipt](storefront-localization-rollout.md#apple-key
 ## Final game master integration — 2026-11-17
 
 [PR #1825](https://github.com/Globulation2/glob2/pull/1825) merged as `2c9d43da024d6cf88d7fa44f685fa8808d1a9361` after rebasing onto newer master, preserving release 0.11.6.1/iOS changes and passing the current-head fast gate. The [merge receipt](storefront-localization-rollout.md#maintained-source-expansion-merged-on-current-master--2026-11-17) records exact source/CI evidence. Runtime, online and browser rosters remain exactly 45 locales; full maintained-metadata/export comparison and protected-field checks pass, and the post-merge tree equals the tested head. The twelve-language maintained-source gap is closed on game master. This establishes merged source coverage, not released artifacts or downstream public translations.
+
+## Final remaining-store access checkpoint — 2026-11-17
+
+The [owner MFA handoff](storefront-localization-rollout.md#owner-mfa-handoff-for-remaining-storefronts--2026-11-17) records Microsoft email-code, Epic authenticator-app and Amazon SMS challenges in preserved Firefox tabs. The owner must complete them directly. No security settings, product editors or listing fields were changed, and no unsaved metadata form remains. This is the current access boundary for the remaining stores, separate from completed source corrections, validated exports, merged game metadata and the Play queued-review request.
