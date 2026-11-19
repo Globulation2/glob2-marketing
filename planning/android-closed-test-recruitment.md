@@ -4,6 +4,14 @@
 
 Prepared **2026-10-31** after the user requested help obtaining enough registered Android testers to release Glob2. The user selected **both personal invitations and public recruitment** and approved the exact Discord #general invitation below. That invitation is **posted and verified**. The user subsequently authorized personal recruitment to family and friends, with Android primary and iPhone interest welcomed. Fourteen people have been directly invited: eight through WhatsApp, four by individual email and two through Messenger. One additional referral follow-up asked a recipient to include another person; it is not counted as a direct invitation. No new participant enrollment or paid recruitment is recorded. This is a release-testing effort; the historical [three-player description interviews](three-player-recruitment.md) remain stopped and are not this cohort.
 
+## Signup form — 2026-11-19
+
+The user authorized creating a signup form for Android interest. The [Glob2 Android signup form](https://forms.gle/EK7fjtPZAryyHwhn6) is published; its [full responder URL](https://docs.google.com/forms/d/e/1FAIpQLScyFVQ-lpOIPFa1gcr3vkas9pEv-90ZcO01Y10KiDtQBjp3ow/viewform) is also available. A fresh Incognito load of the short link verified all three required fields and the Submit control without a required sign-in; Google offers optional sign-in to save progress. Email-format validation was verified. No response was submitted.
+
+The form requires a Google Play email address with email-format validation, a preference for testing invitations, release updates or both, and explicit consent. Automatic account-email collection, sign-in/one-response restriction and public response summaries are off. The confirmation explains that closed-test enrollment is manual. Keep responses and contact details private and outside this repository; respect each person's selected contact preference.
+
+This is an interest-intake form. A submission does not add someone to Play's eligible tester list, opt them into the closed test, establish installation or count toward the production gate. Admit willing testing volunteers through the current verified Play configuration before sending joining instructions. No response submission, response count, new outreach, tester admission or Play opt-in is established by creating the form. Existing posts have not been updated with this link.
+
 ## Requirement and starting evidence
 
 Fresh authenticated console inspection for this effort, **2026-10-31**, confirmed **0 currently opted-in testers**, **12 required continuously for the preceding 14 days**, **Apply for production disabled**, and **Production inactive**. Package `org.globulation2.glob2` has **Closed Alpha Active**, version **0.11.2.0 / code 87687438**, available in **178 countries**. The closed-testing release task is completed. The Testers tab uses **Email lists**; the selected **Main Testers** list has **4 eligible users**. **Google Groups is unselected.** Four allowlisted users do not equal four opted-in testers. This read-only inspection changed no settings. The [earlier console record](approved-storefront-rollout.md#google-console-publication-and-windows-availability-recheck--2026-10-31) is consistent; these counts are dated observations, not a live counter.
@@ -16,12 +24,12 @@ An expression of interest, addition to an email list or group, game-account regi
 
 ## Admission and installation checks
 
-Participant onboarding uses these steps. End-to-end installation remains unverified; this does not prevent collecting voluntary interest through the approved Discord invitation.
+Participant onboarding uses these steps. End-to-end installation remains unverified; voluntary interest can be collected through the signup form above or the existing private invitation routes.
 
 1. Use the verified email-list admission path: privately collect the Google account address used in Play, add it to the selected **Main Testers** list and save. Keep addresses and membership outside Git. Recheck settings before enrollment if the flow has changed; do not silently switch to a Google Group.
 2. Verify the participant route using an eligible Google account and supported Android device. Confirm that the account can opt in, reach the Play installation page and open the actual closed-test version. Record observed device/build evidence without claiming unperformed runtime checks.
 3. Confirm supported countries/devices and any current console restrictions. The 178-country observation does not mean every volunteer can install the app.
-4. The user-approved Discord invitation selects **DMs to the account operating that post** as private intake. With the current email allowlist, collect only the Google account address needed for Play eligibility. Do not request passwords, recovery codes, birth dates or account access. No volunteer intake or reply has yet been verified.
+4. The published signup form supplements the **DMs to the account operating the approved Discord post** and private replies requested by existing invitations. With the recorded email allowlist, the Google account address used in Play is needed for eligibility; the form separately records contact preference and consent. Do not request passwords, recovery codes, birth dates or account access. Form submissions and actual Play admission remain separate records.
 5. For additional public drafts, replace admission/contact placeholders with the agreed destination and obtain approval for the exact post/channel. Complete eligibility before telling an individual they can install.
 
 Verified console destinations: [Join the Glob2 closed test](https://play.google.com/apps/testing/org.globulation2.glob2), [Play installation page](https://play.google.com/store/apps/details?id=org.globulation2.glob2), and [configured feedback destination](https://github.com/Globulation2/glob2/issues). The link alone may not admit someone who is missing from the selected eligibility list. A working eligible-account route is not evidence that an unrestricted public visitor can join. The configured GitHub issue tracker is public: ask testers to omit email/account details and personal information from bug reports.
@@ -140,13 +148,14 @@ Avoid committing email addresses, handles, group membership, private messages or
 
 ## Execution ledger
 
-| Work | Status as of 2026-10-31 | Evidence / next dependency |
+| Work | Status / observation date | Evidence / next dependency |
 | --- | --- | --- |
 | Establish recorded production gate | Complete, dated evidence | October 31 console record: 0 opted in; 12 / 14 days; Apply disabled. |
 | Refresh live count and tester configuration | Complete, read-only October 31 inspection | 0 opted in; selected Main Testers email list has 4 eligible entries; Groups unselected; configured feedback is GitHub issues. |
 | Verify recruit installation route | Pending | Eligible-account opt-in and actual Android installation/open evidence needed. |
 | Prepare invitation, onboarding and test cadence | Discord copy approved and posted; other drafts prepared | Exact Discord copy above; adapt remaining drafts to actual channel rules and agreed intake. |
-| Select private intake and roster location | Discord DM intake selected; private roster location pending | Reply privately to the account operating the approved post; no participant identities belong in this repository. |
+| Publish Android interest signup form | Published and fresh Incognito responder page verified 2026-11-19 | [Signup form](https://forms.gle/EK7fjtPZAryyHwhn6); three required fields, Submit available, no required sign-in and email validation verified. No test submission or signup count recorded; manual Play admission still required. |
+| Select private intake and roster location | Signup form added 2026-11-19; existing DM/reply intake retained | Keep form responses and any working roster outside Git. No participant identities belong in this repository. |
 | Send or publish recruitment | Discord invitation posted and verified | [Exact sent message](https://discord.com/channels/1545968030155280415/1545968030901604423/1566119400434700410), October 31 11:59 AM displayed local time. Fourteen personal invitations also sent: eight WhatsApp, four email and two Messenger, plus one referral follow-up. Facebook profile post published and freshly verified; other public drafts await approval. |
 | Send personal invitations | 14 direct invitations verified: 8 WhatsApp + 4 email + 2 Messenger; 1 additional referral follow-up | No acceptance, device, referred-person reach or Play-account enrollment inferred from delivery. |
 | Publish Facebook profile post | Published; fresh reload verified | [Published post](https://www.facebook.com/brad.arsenault.211964/posts/pfbid02QXZxxTuG9DtNRD1N3HsJBv4huwQ8f18LrQqKFH9CrFtYvdSjMZs3cADaX34NYksTl), existing Public audience retained; no boost/story/groups or measured reach. |
