@@ -365,3 +365,9 @@ Both latest versions are now submitted **after** verified 38-locale translation 
 ## iOS automatic release preference saved — 2026-11-18
 
 At the user's explicit request, **iOS 0.11.601/build1002501** was changed from manual to **automatic release after approval**. Save completed, followed by full reload verifying automatic selected, manual/scheduled/phased options unselected, Save disabled, and the exact build still Waiting for Review. No withdrawal or resubmission occurred. Mac already had automatic release enabled and remains unchanged. Earlier manual-release receipts are historical; **both current Apple versions now use automatic release after approval**, without an approval or public-release claim.
+
+## Both Apple review items withdrawn for replacement — 2026-11-19
+
+At the user's explicit request while they prepare a new release, **iOS 0.11.601/build1002501** and **Mac 0.11.6/build2026111801** were removed from review. Final fresh browser reload confirms **Developer Rejected** for both versions and **Removed** on their current review rows. These are owner withdrawals, not Apple code-rejection findings. This supersedes Waiting for Review as the current state; earlier submission receipts remain historical.
+
+No version, build or localization was deleted or replaced, and no new submission, upload or release occurred. The 38-locale text and Mac required-URL repair remain the last verified saved data; this withdrawal did not include a fresh full-field audit. Prior automatic-release preferences were not newly rechecked. The user is rolling the replacement independently; no replacement target was identified or selected in this action. Both withdrawn versions await the separately qualified replacement workflow.

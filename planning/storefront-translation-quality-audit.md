@@ -186,3 +186,7 @@ The [final Apple submission receipt](storefront-localization-rollout.md#both-loc
 ## Current Apple release preference — 2026-11-18
 
 The [saved iOS release-preference receipt](storefront-localization-rollout.md#ios-automatic-release-preference-saved--2026-11-18) records the user's requested automatic release after approval, freshly verified with exact build/review state unchanged. Mac was already automatic. Both current Apple versions now use automatic release; previous iOS manual-setting checkpoints remain historical, and approval/publication are not inferred.
+
+## Current Apple owner withdrawals — 2026-11-19
+
+The [latest withdrawal receipt](storefront-localization-rollout.md#both-apple-review-items-withdrawn-for-replacement--2026-11-19) supersedes the prior Waiting for Review state: both current iOS/Mac versions are Developer Rejected with review rows Removed after the user requested withdrawal for a new release. No Apple code rejection, deletion/replacement or new upload/submission/release is inferred. Last verified 38-locale text and Mac URL repairs remain saved evidence without a fresh full-field audit; a replacement target has not been selected here.
