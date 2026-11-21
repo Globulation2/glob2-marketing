@@ -44,7 +44,9 @@ A fresh canonical-site browser emitted **zero Google requests before opt-in**. A
 
 The live check also confirmed host-only 90-day analytics cookies, zero Content Security Policy errors, and withdrawal through Reject analytics clearing the cookies and reloading. The source worker retained the detailed receipt in the website's ignored `artifacts/analytics/live-receipt.json`; raw client identifiers and browser artifacts are excluded from this public repository.
 
-**Publication and accepted live collection requests are verified. Provider-processed Realtime/report evidence remains pending at this checkpoint.** An HTTP 204 response alone does not establish usable processed acquisition reports or a traffic trend.
+An independent Firefox visit then allowed analytics and clicked the Microsoft store link at approximately **2026-11-21 04:38 UTC / November 20 at 23:38 Toronto**, using the internal/QA `analytics_verification` campaign and `firefoxcheck` label. The reviewer verified processed GA4 Realtime output: **one active user** in both the last-30-minute and last-five-minute views, **Downloads — one page view**, and event counts `first_visit` 1, `page_view` 1, `session_start` 1 and `store_click` 1. The `store_click` key-event count was also **one**. This is controlled operator traffic, not a LinkedIn visitor or genuine acquisition result.
+
+**Website analytics setup and provider-processed collection are verified.** The initial automated three-click batch was not visible in the reviewed Realtime output, so `play_click` and `download_click` remain verified as accepted HTTP 204 requests only, rather than provider-processed report entries. Ordinary acquisition/engagement reports and a meaningful comparison baseline require subsequent traffic and processing; no visitor-growth or campaign-lift conclusion is established.
 
 ## Measurement goals and interpretation
 
@@ -62,7 +64,8 @@ A Search Console domain property for `glob2.online` was verified on **2026-10-31
 
 Game administration reporting is a separate source-defined system for authenticated guest/registered account-day activity, with anonymous visitors excluded. Its implementation does not establish current live player totals or website visitor counts.
 
-## Remaining verification
+## Completed setup and subsequent measurement
 
-1. Verify provider-processed event receipt in Realtime, separately from the accepted browser requests.
-2. Record ordinary report availability and any collection/access limitations. Compare complete periods only after data exists; preserve any earlier server/platform evidence separately if subsequently found.
+MKT-063 is complete for the authorized setup: account/report configuration is saved, reviewed source is published, opt-in behavior and live collection are checked, and an independent controlled visit is visible in processed Realtime output.
+
+Subsequent measurement should record ordinary report availability, genuine traffic periods and any collection/access limitations, keeping operator checks separate. Compare complete periods only after data exists; preserve any earlier server/platform evidence separately if subsequently found. Processed `play_click`/`download_click` report entries were not observed in this bounded verification and remain a reporting follow-up, not a claimed result.
