@@ -24,6 +24,8 @@ The coordinating agent created a Google Analytics 4 property and web stream for 
 | Granular location/device collection | Off |
 | Advertising personalization | Disabled in all 307 listed regions |
 
+The Events console subsequently showed `play_click`, `download_click` and `store_click` enabled as key events, each created for code-emitted events, with no default monetary value and **once-per-session** key-event counting. This setting deduplicates each key-event conversion count within a session; it does not suppress raw click event counts. A fresh server reload also confirmed exactly one custom-dimension row: **Destination**, event scope, event parameter `destination`. These are saved reporting definitions, not evidence that any production events have arrived.
+
 Property creation and saved settings are complete. **Website instrumentation, production publication, event receipt and usable reports remain unverified at this checkpoint.** Account configuration alone does not establish collection from the live site. Website source review and deployment are in progress separately.
 
 ## Measurement goals and interpretation
