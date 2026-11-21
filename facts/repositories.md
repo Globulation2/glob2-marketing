@@ -34,7 +34,7 @@ Other access-restricted asset leads were excluded from the public inventory. The
 - R02 `README.md` says `src/data/events.json` deliberately stays empty until reviewed human-organized events exist. An events page is not proof of a current event program.
 - R01 `.github/workflows/` includes release/package paths for browser, Steam, Epic, Microsoft Store, GOG staging, Snap, Flathub updates, Android Play, F-Droid, Amazon, Mac App Store, iOS/TestFlight and direct downloads. Existence of automation is not listing acceptance; see [distribution](distribution.md).
 - R01 retains application/store identities and metadata under `data/`, `fastlane/metadata/`, `mobile/`, `darwin/`, `snap/`, `flatpak/`; [assets](assets.md) records the screenshot families and copy variations.
-- Website documentation says public pages use no analytics/account cookies; app source separately implements operational/account activity reporting. See [product measurement inventory](product.md#measurement-and-account-infrastructure).
+- The initial website-documentation inventory said public pages used no analytics/account cookies; app source separately implemented operational/account activity reporting. Website analytics setup was subsequently authorized on 2026-11-20; see the [current execution ledger](../planning/website-analytics.md) and [product measurement inventory](product.md#measurement-and-account-infrastructure) for verified state and remaining collection checks.
 
 ## Website localization update — 2026-11-01
 
