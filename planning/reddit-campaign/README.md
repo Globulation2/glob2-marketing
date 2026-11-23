@@ -21,6 +21,12 @@ Prepared November 23, 2026 for the free, open-source desktop remaster. These are
 | r/FreeGames | Optional. Submit the canonical free downloads page, with the disclosed maintainer comment ready. |
 | r/RealTimeStrategy and r/opensource | Leave off this campaign under the policies documented in the briefs. |
 
+## Final readiness review
+
+The team rechecked the copy against community rules and verified playback, capture versions and the approved screenshot. In the logged-in Reddit session, the r/OpenSourceGames composer exposed a text body and asked submitters to provide access to the game source. The draft links both tagged game source and original asset source. An available composer does not establish moderation approval.
+
+The account meets the r/IndieGaming age minimum and has visible posting history. Confirm the current two-week cadence and any local requirements before using that draft. Existing participation in r/StrategyGames was not established, so keep that submission on hold for this account. Indie Sunday remains conditional on the Sunday window and the game and developer's 60-day posting history. r/FreeGames has a complete link submission and maintainer comment prepared.
+
 ## Before any submission
 
 1. Verify the current [desktop release](https://github.com/Globulation2/glob2/releases/latest) and [download page](https://glob2.online/downloads/). The baseline for these materials is 0.11.7.0. The remaster spans multiple releases. Check version-specific claims and label older captures with their actual versions.

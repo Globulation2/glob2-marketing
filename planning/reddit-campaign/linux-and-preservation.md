@@ -6,13 +6,13 @@ Working material for the desktop release. Nothing on this page has been posted o
 
 ## r/linux_gaming
 
-**Format.** Maintainer-written text post. The community bars LLM-generated posts, so this is an internal checklist. The maintainer writes their own title, body, and replies. The subreddit welcomes developers to share Linux games when they engage, asks for transparency about AI assistance, and expects substantially assisted projects to have at least two months of development history. Link the public development history if it helps establish that. [Community rules](https://www.reddit.com/r/linux_gaming/) · [Native game developer precedent](https://www.reddit.com/r/linux_gaming/comments/1vefysn/i_released_a_native_linux_build_of_my_game_on/) · [Repository history](https://github.com/Globulation2/glob2/commits/v0.11.7.0/)
+**Format.** Maintainer-written text post. The community bars LLM-generated posts, so this is an internal checklist. The maintainer writes their own title, body, and replies. The subreddit welcomes developers to share Linux games when they engage, asks for transparency about AI assistance, and expects substantially assisted projects to have at least two months of development history. Have the public development history handy. One personal observation and one genuine game capture give readers something to discuss. [Community rules](https://www.reddit.com/r/linux_gaming/) · [Native game developer precedent](https://www.reddit.com/r/linux_gaming/comments/1vefysn/i_released_a_native_linux_build_of_my_game_on/) · [Repository history](https://github.com/Globulation2/glob2/commits/v0.11.7.0/)
 
 **What to cover in the maintainer’s own words**
 
 - Introduce your actual role and identify Globulation 2 as a free, open-source RTS with a native Linux build. Describe one thing you worked on or saw change.
 - Show the same scene in classic and high-resolution mode, with capture version, platform, and any settings readers need to interpret the comparison. If only one genuine scene is available, use it on its own.
-- Include one personally tested install and first-run route. Record the distro, version, architecture, package, and what you ran successfully. On release day, link the current x86-64 direct Flatpak bundle and its GNOME runtime instructions, or link the Snap Store if that is the path you verified. Describe the Flatpak as a direct bundle.
+- Include one personally tested install and first-run route. Record the distro, version, architecture, package, and what you ran successfully. Link the route you verified. The official downloads page explains the x86-64 direct Flatpak bundle and its GNOME runtime. It also links to the Snap Store and provides the Ubuntu tarball and Fedora RPM.
 - Describe AI assistance in your own words. Check the release for the scope of code assistance, generated terrain and sprite enhancement, and link the tagged provenance. Keep game opponent AI distinct from generative tools.
 - Follow the thread. Useful first responses cover the package source, tested distro versions, classic/HD art selection, and the steps that would let you reproduce an install issue. [Linux downloads](https://glob2.online/downloads/#linux) · [Snap Store](https://snapcraft.io/globulation2) · [Tagged graphics sources](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/README.md) · [HD pack notes](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/production/pack-metadata/README.md)
 
@@ -24,17 +24,21 @@ Working material for the desktop release. Nothing on this page has been posted o
 
 **Format.** English text post with a tagged source link, license and content notices, and one illustrative image if cleared for public use. The community requires OSI-licensed content. Verify the license and attribution for the specific example you show. [Community rules](https://www.reddit.com/r/OpenSourceGames/) · [Comparable developer release](https://www.reddit.com/r/opensourcegames/comments/1xsshqh/grandleon_tactical_rpg_engine_05_release_major/)
 
-**Working title:** Globulation 2’s open-source remaster uses recovered Blender rigs from the original RTS
+**Working title**
+
+Globulation 2 renders new unit animations from its original Blender rigs
 
 **Working body**
 
-I help maintain Globulation 2, a free RTS whose first alpha appeared in 2004. You set building priorities and place flags, and the globs decide how to get the work done.
+I help maintain Globulation 2, a free, open-source RTS that first appeared in 2004. The globs choose their own jobs and routes based on the priorities and flags you set.
 
-Stéphane Magnenat recovered an archive of original artwork for the remaster. We preserved original Blender rigs and used them to render 1,792 unit poses for the current art pack. The tagged source tree documents where the artwork came from and how it was exported. The remaster also includes AI-assisted code contributions, AI-generated terrain materials, and AI-enhanced sprites. The graphics notes link the original assets and document the later additions.
+Stéphane Magnenat recovered an archive of the original artwork. The remaster’s art pack contains 1,792 unit poses rendered from the original Blender rigs. The tagged source includes the worker’s walk rig and the steps used to turn it into game frames.
 
-The game code is GPLv3, and the licensing index points to the component-specific notices. You can try the current desktop release and open the in-game editor to see how the maps are put together.
+The code is GPLv3, with component-specific notices in the licensing index. The remaster includes AI-assisted code contributions, some AI-generated terrain and some AI-enhanced sprites. The art notes record the provenance of those assets.
 
-[Desktop downloads](https://glob2.online/downloads/) · [Tagged source](https://github.com/Globulation2/glob2/tree/v0.11.7.0) · [Licensing and notices](https://github.com/Globulation2/glob2/blob/v0.11.7.0/docs/development/licensing.md) · [Artwork sources and recipes](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/README.md)
+You can download the desktop release or explore the maps in the built-in editor.
+
+[Desktop downloads](https://glob2.online/downloads/) · [Tagged source](https://github.com/Globulation2/glob2/tree/v0.11.7.0) · [Licensing and notices](https://github.com/Globulation2/glob2/blob/v0.11.7.0/docs/development/licensing.md) · [Graphics provenance](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/README.md) · [HD pack notes](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/production/pack-metadata/README.md) · [Worker walk rig](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/originals/units/glob-worker-walk.blend) · [Rendering steps](https://github.com/Globulation2/glob2/blob/v0.11.7.0/tools/unit-animation/README.md)
 
 **Before approval.** Adapt the opening to the poster’s actual role, credit Stéphane Magnenat and the original artists as appropriate, confirm scope of AI use, and check the links and any attached image. If sharing a visual, use a credited original-rig example and identify the exact release or tagged source used. [Project history](https://glob2.online/history/project-history/)
 
@@ -46,9 +50,9 @@ The game code is GPLv3, and the licensing index points to the component-specific
 
 Subject — Would a Globulation 2 restoration post fit r/ObscureRTS?
 
-Hi moderators, I help maintain Globulation 2, an open-source RTS whose first alpha appeared in 2004. Would a one-off post showing a credited original image and a modern unit animation rendered from a recovered original Blender rig fit your Remaster/Remake flair?
+Hi moderators, I help maintain Globulation 2, an open-source RTS whose first alpha appeared in 2004. I’d like to share a one-off post under Remaster/Remake showing a credited archival image alongside a modern render from an original Blender rig.
 
-The current release includes AI-assisted code, some AI-generated terrain, and some AI-enhanced sprites. The comparison I’m proposing would focus on an original rig and its documented render. Would the project or comparison fall under your AI-content rule? If the post is eligible, may it link to the official page for the free desktop release under your download rules?
+The release also includes AI-assisted code, some AI-generated terrain and some AI-enhanced sprites. The proposed comparison would show only the original rig’s artwork. Would the remaster and comparison be eligible under your rules? If so, may I include the official page for the free desktop release?
 
 Thanks for helping me make sure the post fits the community.
 
