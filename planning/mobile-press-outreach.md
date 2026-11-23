@@ -2,7 +2,7 @@
 
 [Planning index](README.md) · [Publication and contact research](../analysis/mobile-games-press.md) · [Launch positioning](../analysis/positioning-v1.md) · [Storefront rollout](approved-storefront-rollout.md)
 
-The draft set covers 33 publications. On **2026-11-23**, 26 individual iOS pitches and two routing requests reached confirmed submission status across 28 publications. One additional title was dispositioned through the shared Pocket Gamer editorial network. Four titles remain unconfirmed or on hold.
+The draft set covers 33 publications. On **2026-11-23**, 29 unique publications had an attempt confirmed in Gmail Sent or by a publisher form. Of those, 28 have an attempt with no known hard bounce. Gamereactor’s only attempt hard-bounced. Inbox delivery remains unverified. Three publications are on hold and 148Apps has a shared editorial-network disposition.
 
 | Draft set | Publications | Working languages |
 | --- | ---: | --- |
@@ -68,7 +68,7 @@ Four public publisher forms displayed confirmation after submission. Apple’s s
 
 Mobi.gg received a review proposal. At 4Gamer.net, the Japanese headline was placed in the message under the developer news-release category.
 
-**Cultura Geek attempt.** The [contact form](https://culturageek.com.ar/contacto/) remained populated after the attempt with the subject “Globulation 2 en el App Store argentino para iPhone y iPad.” No confirmation appeared. Hold a repeat submission or use of the outlet’s public alternate address, `culturageeklabs@gmail.com`, until the initial attempt’s outcome is clear.
+**Cultura Geek attempt.** The [contact form](https://culturageek.com.ar/contacto/) remained populated after the attempt with the subject “Globulation 2 en el App Store argentino para iPhone y iPad.” No confirmation appeared. The later fallback email acknowledged that the form might also have arrived and asked the outlet to treat both as one pitch.
 
 ## Fifth wave sent on 2026-11-23
 
@@ -82,10 +82,23 @@ Two individual emails were verified in Gmail Sent. Both linked to the local App 
 - Gamezebo received two full-size App Store menu captures, labelled by device, and the approved 2560 × 1440 Four Squares screenshot labelled as desktop gameplay. [iPhone menu](https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0e/93/fd/0e93fd9e-f420-e772-8548-36200d8cc414/iphone-medium-main-menu.jpg/1206x2622bb.jpg) · [iPad menu](https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c0/bb/74/c0bb74a3-5ae3-d1f1-4434-415a42aacc23/ipad-13-main-menu.jpg/2064x2752bb.jpg) · [Desktop screenshot sent](https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront-approved-v1/03-four-squares-strategic.png) · [Approved asset manifest](../assets/storefront-approved-v1/README.md) · [Review submission requirements](https://www.gamezebo.com/get-reviewed/)
 - PocketGamer.biz received a tablet controls design tip with the version-tagged reference. The tip carried no interview offer. [Tablet control documentation sent](https://github.com/Globulation2/glob2/blob/v0.11.7.0/docs/mobile/gameplay-controls.md#tablet-layout) · [Editorial contact](https://www.pocketgamer.biz/staff/100175/craig-chapple/?page=15)
 
+## Delivery failures and fallback emails on 2026-11-23
+
+Two Gmail Mail Delivery Subsystem notices confirmed hard bounces for the previously recorded attempts to `info@gamereactor.com` and `bruno.blasi@canaltech.com.br`. The original sent entries remain in the history. Gamereactor Middle East is held pending a verified editorial route. The Swedish edition documented an editorial and ownership transition. [Gamereactor editorial transition](https://www.gamereactor.se/blog/parantes/1328973/Tack%2Bfor%2Ballt/)
+
+Gmail Sent confirmed these two fallback emails. Canaltech received an editorial pitch addressed to Games via its published newsroom inbox. Cultura Geek's listed fallback is a general contact and the prior form attempt remains unconfirmed.
+
+| Publication | Public recipient and source | Subject sent | Verified local storefront |
+| --- | --- | --- | --- |
+| Canaltech | `redacao@canaltech.com.br` · [Official story-suggestion inbox](https://canaltech.com.br/sobre/) | Sugestão para a editoria de Games: Globulation 2 no iPhone e iPad | [Brazil](https://apps.apple.com/br/app/globulation-2/id6817603328) |
+| Cultura Geek | `culturageeklabs@gmail.com` · [Official site contact](https://culturageek.com.ar/contacto/) | Globulation 2 en el App Store argentino para iPhone y iPad | [Argentina](https://apps.apple.com/ar/app/globulation-2/id6817603328) |
+
+The Argentine listing was reverified as free at version 0.11.700. The reply check found no relevant editorial replies. Public Google Play checks in the United States and Spain returned 404, and the mainland China App Store lookup returned zero results.
+
 ## Remaining dispositions
 
-- **148Apps:** The first-wave Pocket Gamer pitch reached the shared Steel Media network. Both publications list Dann Sullivan as editor-in-chief. There was no separate send or receipt for 148Apps, so it is outside the 28 confirmed outlet contacts. [148Apps contact](https://www.148apps.com/pages/contact/) · [Pocket Gamer masthead](https://www.pocketgamer.com/pages/about/)
-- **Cultura Geek:** The form attempt remains unconfirmed. A subsequent search found no acknowledgment. The alternate address is the site's general contact. Hold duplicate outreach pending resolution.
+- **148Apps:** The first-wave Pocket Gamer pitch reached the shared Steel Media network. Both publications list Dann Sullivan as editor-in-chief. There was no separate send or receipt for 148Apps, so it is outside the 29 unique outlets with confirmed attempts. [148Apps contact](https://www.148apps.com/pages/contact/) · [Pocket Gamer masthead](https://www.pocketgamer.com/pages/about/)
+- **Gamereactor Middle East:** The shared address hard-bounced. Hold pending a verified alternate editorial route.
 - **Android Authority and Xataka Android:** Hold until public Google Play production availability is verified in the intended market. The latest public US and Spain checks each returned HTTP 404.
 - **17173:** Hold a mainland China release pitch until local availability and editorial intake are verified.
 
@@ -93,7 +106,7 @@ Two individual emails were verified in Gmail Sent. Both linked to the local App 
 
 - **Mainland China:** 17173 is a routing inquiry. Hold a mainland release pitch until local availability and editorial intake are confirmed.
 - **Android:** Hold all Android pitches until the public Google Play production listing is verified in the target market. Android Authority and Xataka Android are on hold. Their drafts are for a confirmed Play release.
-- **General and shared contacts:** Await routing replies from MiniReview and Canaltech. Confirm editorial intake for Android Authority when the Android hold clears. Coordinate any Pocket Gamer France pitch with the Pocket Gamer email already sent. Use one contact for the intended Gamereactor edition.
+- **General and shared contacts:** Await MiniReview’s routing reply. Canaltech’s Games pitch was sent via the published newsroom address after the original routing email bounced. Confirm editorial intake for Android Authority when the Android hold clears. Coordinate any Pocket Gamer France pitch with the Pocket Gamer email already sent. Keep Gamereactor on hold pending a verified route.
 
 ## Release facts checked on 2026-11-23
 
