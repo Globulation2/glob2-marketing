@@ -19,6 +19,10 @@ The four initial maps have undergone evidence-boundary and peer review. No hypot
 
 - [Launch positioning v1](positioning-v1.md): agreed headline and pitch, message emphasis and decision limits. Colony building and economics lead; selected through discussion, without player testing.
 
+## Launch press research
+
+- [Mobile games press](mobile-games-press.md) lists public contacts and relevant coverage by language and market.
+
 ## Historical positioning draft phase
 
 - [Positioning options](positioning-options.md): four unranked audience/message candidates, draft headlines and pitches, source-backed proof, tradeoffs and tests.
