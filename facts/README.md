@@ -12,6 +12,7 @@ This section inventories what already exists and reconstructs the game's history
 - [Marketing assets](assets.md): logos, screenshot families, video, copy, provenance and gaps.
 - [Product and commercial capabilities](product.md): gameplay, creator systems, payment machinery and measurement limits.
 
+- [Social media accounts](social-media-accounts.md) records current public profiles, third-party and historical surfaces, access evidence and onboarding gaps.
 - [Communication channels](channels.md): current public surfaces, legacy community destinations and independent visibility.
 - [Distribution platforms](distribution.md): observed releases/listings, preparation-only stores and version/context differences.
 - [History](history.md): predecessor, development, releases, community and hosting milestones, with chronology gaps.

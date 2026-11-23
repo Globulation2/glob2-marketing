@@ -10,6 +10,7 @@ The initial research records evidence and explores options. The user subsequentl
 - [Canonical storefront translations](translations/README.md): approved English source, 44 reviewed non-English language catalogs, terminology and platform exports.
 - [Main website localization](planning/website-localization-rollout.md): 44 translated languages for the four marketing pages, independent AI review and deployment/readback receipts.
 - [Domain migration](planning/domain-migration.md): switch to `glob2.online` across maintained sources, hosting and controlled listings.
+- [Social media accounts](facts/social-media-accounts.md) and [strategy](planning/social-media-strategy.md) cover the public account inventory, access gaps, onboarding and editorial plan.
 - [Task ledger](planning/tasks.md): scope, progress, dependencies, and follow-up work.
 - [Facts](facts/README.md): existing repositories, channels, listings, websites, assets, product capabilities, and history.
 - [Analysis](analysis/README.md): hypotheses about audiences, jobs, channels, business models, and comparable games.
