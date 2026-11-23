@@ -2,7 +2,7 @@
 
 [Planning index](README.md) · [Channel inventory](../facts/social-media-accounts.md) · [Launch positioning](../analysis/positioning-v1.md) · [Approved media](../assets/storefront-approved-v1/README.md)
 
-Working plan drafted 2026-11-23. The channel order and publishing cadence are proposals. Track access, account creation and public verification in the channel inventory.
+Working plan drafted 2026-11-23. YouTube is the first new social channel. The publishing cadence and later channels are proposals. Track access, account creation and public verification in the channel inventory.
 
 ## Goals and channel roles
 
@@ -21,7 +21,7 @@ Turn discovery into a first browser session, help players get through the tutori
 
 | Period | Work | Exit criteria |
 | --- | --- | --- |
-| Days 1–14 | Confirm control of the existing Discord, set up the initial discovery profiles, and capture a tutorial clip and an approved colony screenshot for launch. | Public URLs and owner roles verified, backup access confirmed, profile links tested and first posts ready. |
+| Days 1–14 | Confirm control of the existing Discord, complete YouTube setup, and capture a tutorial clip and an approved colony screenshot for launch. | Public URLs and owner roles verified, backup access confirmed, profile links tested and first posts ready. |
 | Days 15–30 | Publish a browser tutorial tip, a colony screenshot showing an economic tradeoff, and a short introduction to the map editor. Publish the first YouTube tutorial when captions are ready. | Each post has one action and a destination. Capture the first baseline of outbound and website traffic. |
 | Days 31–60 | Rotate among colony decisions, map spotlights, replay breakdowns and release notes. Try a scheduled Discord match if a moderator can host. | Record which posts generate visits, play clicks and substantive player questions. |
 | Days 61–90 | Compare results by topic and format. Decide which channels to maintain, reduce or expand based on traffic, community participation and available time. | Record the review and next month's publishing plan. |
@@ -30,7 +30,9 @@ For each release, use the project release notes to verify what players can acces
 
 ## Profile setup copy
 
-- Display name: **Globulation 2**
+The YouTube form is prepared for **Globulation 2 Online** with `@Globulation2Online`. Channel creation is pending acceptance of the YouTube Terms. Verify the public channel and delegated access after creation.
+
+- Display name: **Globulation 2** by default. Use **Globulation 2 Online** where the legacy name conflicts.
 - Preferred handle: `globulation2` where supported and available. Use `glob2` as a fallback after checking for collisions. For Bluesky, consider `@glob2.online` once the DNS owner can verify it.
 - Website: `https://glob2.online/`
 - Short bio: **Build a thriving colony in contested territory. Free, open-source RTS. Play in your browser.**
