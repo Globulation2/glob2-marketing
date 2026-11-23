@@ -4,7 +4,7 @@
 
 ## Status on 2026-11-23
 
-The project owner authorized launching Globulation 2 on itch.io and tracking it here. Opening the [creator dashboard](https://itch.io/dashboard) redirected to the login page. Cloudflare's security verification remained visible on recheck, and an authenticated dashboard was unavailable. Project ownership, a saved draft, uploaded files and a public listing are unverified. Resume from the dashboard after the account owner completes the browser check and signs in to the project-controlled account. Check its project list for an existing Globulation 2 page before creating one.
+The project owner authorized launching Globulation 2 on itch.io and tracking it here. Opening the [creator dashboard](https://itch.io/dashboard) redirected to the login page. Cloudflare's security verification remained visible on recheck, and an authenticated dashboard was unavailable. Existing project ownership remains unverified. This attempt ended before draft creation, file upload or publication. Resume from the dashboard after the account owner completes the browser check and signs in to the project-controlled account. Check its project list for an existing Globulation 2 page before creating one.
 
 ## Listing
 
