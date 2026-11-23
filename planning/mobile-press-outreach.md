@@ -2,7 +2,7 @@
 
 [Planning index](README.md) · [Publication and contact research](../analysis/mobile-games-press.md) · [Launch positioning](../analysis/positioning-v1.md) · [Storefront rollout](approved-storefront-rollout.md)
 
-The draft set covers 33 publications. On **2026-11-23**, 29 unique publications had an attempt confirmed in Gmail Sent or by a publisher form. Of those, 28 have an attempt with no known hard bounce. Gamereactor’s only attempt hard-bounced. Inbox delivery remains unverified. Three publications are on hold and 148Apps has a shared editorial-network disposition.
+The draft set covers 33 publications. On **2026-11-23**, 29 unique publications had an attempt confirmed in Gmail Sent or by a publisher form. Of those, 28 have an attempt with no known hard bounce. Gamereactor’s only attempt hard-bounced. Inbox delivery remains unverified. Three publications are on hold and 148Apps has a shared editorial-network disposition. Saudi Gamer was contacted as a supplemental outlet outside the original list.
 
 | Draft set | Publications | Working languages |
 | --- | ---: | --- |
@@ -94,6 +94,12 @@ Gmail Sent confirmed these two fallback emails. Canaltech received an editorial 
 | Cultura Geek | `culturageeklabs@gmail.com` · [Official site contact](https://culturageek.com.ar/contacto/) | Globulation 2 en el App Store argentino para iPhone y iPad | [Argentina](https://apps.apple.com/ar/app/globulation-2/id6817603328) |
 
 The Argentine listing was reverified as free at version 0.11.700. The reply check found no relevant editorial replies. Public Google Play checks in the United States and Spain returned 404, and the mainland China App Store lookup returned zero results.
+
+## Supplemental Saudi Gamer pitch on 2026-11-23
+
+Gmail Sent confirmed an Arabic iPhone and iPad pitch to Saudi Gamer at its public general address, `info@saudigamer.com`. The subject was “اقتراح للتغطية: لعبة Globulation 2 الاستراتيجية على iPhone وiPad في السعودية”. The Saudi App Store listing was verified as free at version 0.11.700. This adds a Saudi Arabic outlet outside the original 33 while the Gamereactor Middle East route remains on hold. [Public contact source](https://www.youtube.com/channel/UCdHyMy7pxEYUUEJYhAK7pwQ) · [Mobile games coverage](https://www.saudigamer.com/best-free-multiplayer-mobile-games/) · [Saudi App Store](https://apps.apple.com/sa/app/globulation-2/id6817603328)
+
+The subsequent inbox sweep found the two delivery failures already recorded and no relevant editorial reply. Fresh US and Spain Google Play checks returned 404, and the mainland China App Store lookup returned zero results.
 
 ## Remaining dispositions
 
