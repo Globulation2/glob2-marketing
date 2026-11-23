@@ -30,7 +30,7 @@ For each release, use the project release notes to verify what players can acces
 
 ## Profile setup copy
 
-The YouTube form is prepared for **Globulation 2 Online** with `@Globulation2Online`. Channel creation is pending acceptance of the YouTube Terms. Verify the public channel and delegated access after creation.
+[Globulation 2 Online](https://www.youtube.com/@Globulation2Online) went live on 2026-11-23 with the project icon, channel description, and Play Globulation 2 link. Studio administrative access was confirmed for the setup session. Confirm backup access and prepare the first captioned tutorial.
 
 - Display name: **Globulation 2** by default. Use **Globulation 2 Online** where the legacy name conflicts.
 - Preferred handle: `globulation2` where supported and available. Use `glob2` as a fallback after checking for collisions. For Bluesky, consider `@glob2.online` once the DNS owner can verify it.
