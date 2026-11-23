@@ -2,7 +2,7 @@
 
 [Planning index](README.md) · [Publication and contact research](../analysis/mobile-games-press.md) · [Launch positioning](../analysis/positioning-v1.md) · [Storefront rollout](approved-storefront-rollout.md)
 
-The draft set covers 33 publications. Five individual iOS pitches were sent on **2026-11-23**. The other 28 publications remain pending or on hold.
+The draft set covers 33 publications. Eight individual iOS pitches were sent on **2026-11-23**. The other 25 publications remain pending or on hold.
 
 | Draft set | Publications | Working languages |
 | --- | ---: | --- |
@@ -22,12 +22,24 @@ Five individual emails were verified in Gmail Sent. Each was signed Bradley Arse
 | Famitsu.com | `kgl-famitsu-release@ml.kadokawa.jp` | 【ニュースリリース】コロニーを育てるRTS『Globulation 2』iPhone・iPad版のご案内 | [Japan](https://apps.apple.com/jp/app/globulation-2/id6817603328) |
 | Mobile Gamer Brasil | `contato@mobilegamer.com.br` | Globulation 2: estratégia em tempo real e construção de colônias no iPhone e iPad | [Brazil](https://apps.apple.com/br/app/globulation-2/id6817603328) |
 
+## Second wave sent on 2026-11-23
+
+Three individually tailored emails were verified in Gmail Sent. Each linked to the verified local listing for the free iPhone and iPad edition and used the November 23 **0.11.700 update** as the current milestone. The emails carried no attachments.
+
+| Publication | Public editorial recipient | Subject sent | Verified local storefront |
+| --- | --- | --- | --- |
+| Pocket Tactics | `ruby.spiers-unwin@pockettactics.com` | Globulation 2 on iPhone and iPad: can your colony afford to expand? | [United Kingdom](https://apps.apple.com/gb/app/globulation-2/id6817603328) |
+| Inven | `desk@inven.co.kr` | [iPhone·iPad 소식] 식량과 일손을 관리하는 RTS ‘Globulation 2’ | [South Korea](https://apps.apple.com/kr/app/globulation-2/id6817603328) |
+| GRYOnline.pl | `redakcja-pl@webedia-group.com` | Globulation 2 na iPhone’a i iPada — strategia czasu rzeczywistego z rozbudową kolonii | [Poland](https://apps.apple.com/pl/app/globulation-2/id6817603328) |
+
+The first five threads were rechecked. Each contained one sent message, and the related inbox search returned no relevant bounce or reply. Inbox delivery and coverage remain unverified.
+
 ## Holds and route checks
 
 - **Mainland China:** 17173 is a routing inquiry. Hold a mainland release pitch until local availability and editorial intake are confirmed.
 - **Android:** Hold all Android pitches until the public Google Play production listing is verified in the target market. Android Authority and Xataka Android are on hold. Their drafts are for a confirmed Play release.
 - **General and shared contacts:** Confirm intake for MiniReview and Android Authority, and ask Canaltech to route to Games. Coordinate any 148Apps or Pocket Gamer France pitch with the Pocket Gamer email already sent. Use one contact for the intended Gamereactor edition.
-- **Other holds:** Confirm the Thisisgame Southeast Asia address behind its public PR link. Hold PocketGamer.biz until an interviewee and a verified porting decision are available. Use Mobi.gg’s announcement draft within its stated 24–48 hour news window, or revise the angle for a later pitch.
+- **Other holds:** Gamezebo awaits approved high-resolution screenshots. Confirm the Thisisgame Southeast Asia address behind its public PR link. Hold PocketGamer.biz until an interviewee and a verified porting decision are available. Use Mobi.gg’s announcement draft within its stated 24–48 hour news window, or revise the angle for a later pitch.
 
 ## Release facts checked on 2026-11-23
 
