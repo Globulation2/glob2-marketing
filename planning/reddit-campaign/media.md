@@ -1,0 +1,35 @@
+# Reddit campaign media
+
+[Campaign index](README.md) · [Approved storefront imagery](../approved-storefront-rollout.md#approved-imagery-only--2026-10-30) · [Current desktop release](https://github.com/Globulation2/glob2/releases/tag/v0.11.7.0)
+
+Prepared on 2026-11-23. The campaign can reuse the approved storefront frames and link to already-public, reviewed gameplay from the official handbook. The files below retain their original capture provenance. No new media was published for this campaign.
+
+## Ready media and where to use it
+
+| Use | Asset | Provenance and limits |
+| --- | --- | --- |
+| **r/Games Indie Sunday** | [Direct MP4 showing the counterattack lesson](https://storage.googleapis.com/glob2-website-public/guide-media/v3/organizing-an-attack/attack-counterattack-clip-v3.mp4) | 29 seconds, 1440 × 900. Actual prepared browser lesson, version shown in game 0.11.6.0, High artwork and WebGL2. The War Flag request is visible, warriors attack the cyan practice Swarm, and the lesson completes. Credit it as earlier browser tutorial footage alongside the current desktop release link. [Capture record](https://github.com/Globulation2/glob2-online-website/blob/main/docs/handbook-high-guard-motion-evidence.json) |
+| **r/StrategyGames** | [Direct MP4 showing Inn food supply](https://storage.googleapis.com/glob2-website-public/guide-media/v3/sustainable-food/food-consumption-refill-clip-v3.mp4) | 34 seconds, 1440 × 900. An earlier browser lesson on 0.11.6.0. Inn Food falls from 10/10 to 9/10 with hauling stopped, then recovers after requesting two haulers at high priority. The clip illustrates the food-supply decision. Use a fresh clip if the post describes workers visibly switching away from construction. [Capture record](https://github.com/Globulation2/glob2-online-website/blob/main/docs/handbook-high-food-evidence.json) |
+| **r/IndieGaming** | [Approved Four Squares strategic-view PNG](../../assets/storefront-approved-v1/03-four-squares-strategic.png) | Native spectator capture from an earlier 0.11.4.0 build, with four Cortex-controlled colonies at 25,000 ticks. The strategic layer and HUD are visible. Works as a clear still if the maintainer wants to use a screenshot. Use the capture recipe below for the planned transition video. [Capture pack](../../assets/epic-gallery-v5/README.md) |
+| **r/OpenSourceGames** | [Tagged original-art catalog](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/CATALOG.md) and [recovered-runtime recipes](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/recovered-runtime.md) | These show inspectable preservation work. Use them alongside the tagged graphics README and licenses. For a specific example, pair the worker walk rig with the rendering instructions. This is also usable in a text-only post. [Worker walk source](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/originals/units/glob-worker-walk.blend) · [Animation workflow](https://github.com/Globulation2/glob2/blob/v0.11.7.0/tools/unit-animation/README.md) |
+| **r/linux_gaming** | [Approved Four Squares strategic-view PNG](../../assets/storefront-approved-v1/03-four-squares-strategic.png), optional illustration of the game | Caption as an earlier 0.11.4.0 desktop gameplay capture if used. Capture a current Linux pair to demonstrate the remaster in the Linux release. |
+| **r/ObscureRTS** | [Original game archive](https://globulation2.org/wiki/News_Archive) and [tagged artwork provenance](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/README.md), for private preparation | Prepare an archival frame and an original-rig render as a credited pair if moderators clear the post. Confirm reuse rights for the specific archival image. Keep media and download links out of the submission until the applicable rules are clarified. |
+| **r/FreeGames** | [Official desktop download landing page](https://glob2.online/downloads/) | The download page is the primary link. Media is optional. |
+
+The two existing public MP4s were checked on 2026-11-23. Their public bytes match the website's local generated copies and capture records. Local decoding confirmed a frame at the start, middle and near the end of each video, at the recorded dimensions and duration. The campaign uses links to those existing files, avoiding extra copies. The homepage's decorative colony loop is a live menu-colony simulation. Use the counterattack lesson as the direct gameplay footage for Indie Sunday.
+
+| MP4 | SHA-256 |
+| --- | --- |
+| Counterattack lesson | `e6e4327eaade7e34ebbb40bf72bf2eac4ce2e4fed2bb4a8a7406dc33dcc5034f` |
+| Food supply lesson | `5fb6b964546b5938d1a7359eb8bfa23cc210aa71cbf8d56da1d4f6b173ffda` |
+
+## Capture the remaining native shots
+
+Use the public desktop package, verify the in-game version and record the package name, platform, game/map, graphics setting and any scenario or AI conditions. Capture actual game output with its normal interface and keep a master file. Use the approved family above for imagery already cleared. Review any fresh capture before using it, including what it visibly contains and any narration, account names or private notifications.
+
+- **Linux classic/HD pair.** Install the [current official Linux build](https://glob2.online/downloads/#linux) on a Linux desktop. Load a local Four Squares save, pause, and capture the same camera, viewport and HUD with the Classic art setting and then with High resolution artwork. If switching graphics requires a restart, reload the same save. Verify the visual change and record the tested distro/version and package. The paired shots demonstrate art changes on that setup.
+- **StrategyGames native consequence clip.** On a live local colony, frame an active construction job and an inn with a need for wheat. Record the existing worker numbers, raise the inn's hauling demand or priority, and keep both counters visible long enough to show the actual response. If the workers do not visibly move from construction, use the documented food-supply clip and its narrower claim.
+- **IndieGaming native readability clip.** On Four Squares, hold the local view for several seconds, transition through the adaptive strategic view, then pause long enough to make the building icons, resource fields and neighboring territory legible. Capture the full HUD and review the export at normal feed size. The approved Four Squares still can accompany a text post if no clip is prepared.
+- **ObscureRTS preservation pair.** Once moderator guidance is available, choose a recovered original unit pose with clear archival credit and a matching frame from the tagged runtime render. Keep the direction and pose aligned, show both at comparable display scale, and caption which file and artist each image derives from. Link the public provenance if approved.
+
+For each final video, export a normal-speed MP4, review the opening, action and ending, and verify the exact public playback link before submission. Add the captured game version to the caption whenever it differs from the desktop release being announced.
