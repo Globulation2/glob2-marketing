@@ -92,15 +92,15 @@ Version 0.11.700 went live on November 23 in the [Canadian App Store](https://ap
 
 ## Android Authority
 
-**Route** [General enquiries form](https://www.androidauthority.com/contact/). Editorial intake is unconfirmed. Hold if the form cannot route editorial tips or if the desk requires Google Play availability.
+**On hold.** Use this draft after verifying public Google Play production availability in the target market. Confirm editorial routing through the [general enquiries form](https://www.androidauthority.com/contact/).
 
-**Subject** Android games tip: Globulation 2 brings colony economics to mobile
+**Conditional subject** Android games tip: Globulation 2 brings colony economics to Google Play
 
 Hi Android Authority team,
 
 Your mobile games roundup looked at how games like Cassette Beasts transferred from desktop to phones. Could you forward this to the team that covers Android games?
 
-Globulation 2 is a colony-building RTS. You decide what the colony needs, from food to new buildings, and the creatures carry out those priorities while rivals compete for the same resources. The project offers version 0.11.7.0 as a [direct APK download](https://glob2.online/downloads/#android) for Android 7.0 and later, installed by sideloading. The [release notes](https://github.com/Globulation2/glob2/releases/tag/v0.11.7.0) describe an improved tablet touch interface.
+Globulation 2 is a colony-building RTS. You decide what the colony needs, from food to new buildings, and the creatures carry out those priorities while rivals compete for the same resources. The Android version is available on Google Play in [verified market] as of [verified release date]. Here is the [public Google Play listing for that market].
 
 [Sender name], Globulation 2
 

@@ -2,11 +2,11 @@
 
 [Press research](../analysis/mobile-games-press.md) · [Approved positioning](../analysis/positioning-v1.md) · [Publishing ledger](approved-storefront-rollout.md) · [Approved media](../assets/storefront-approved-v1/README.md)
 
-Prepared for review on **2026-11-23**. Apple’s public lookup confirmed version 0.11.700 on 23 November for iPhone and iPad on the storefronts below. The [official Android downloads](https://glob2.online/downloads/#android) list a direct APK for Android 7.0+. Google Play production availability remains unverified. Before use, fill remaining bracketed fields and use the game team’s approved sender name and reply address. Use publicly shareable approved assets, with desktop footage or screenshots labelled by source platform. Recheck the local listing at send time.
+Prepared for review on **2026-11-23**. Apple’s public lookup confirmed version 0.11.700 on 23 November for iPhone and iPad on the storefronts below. The Android draft is on hold pending a verified public Google Play production listing in Spain. Before use, fill remaining bracketed fields and use the game team’s approved sender name and reply address. Use publicly shareable approved assets, with desktop footage or screenshots labelled by source platform. Recheck the local listing at send time.
 
 ## Pocket Gamer
 
-Use `news@pocketgamer.co.uk` for this announcement. For a distinct review request, the outlet lists `reviews@pocketgamer.co.uk` and asks for game details, assets and an authorized promo code or Android APK, ideally ahead of launch. Include an approved trailer link if available. The French edition lists the same inboxes. [Developer instructions](https://www.pocketgamer.com/pages/contact-us/) · [Dawnfolk coverage](https://www.pocketgamer.com/dawnfolk/coming-soon-to-mobile/)
+Use `news@pocketgamer.co.uk` for this announcement. For a distinct review request, the outlet lists `reviews@pocketgamer.co.uk` and asks for game details, assets and an authorized iOS promo code when applicable, ideally ahead of launch. Include an approved trailer link if available. The French edition lists the same inboxes. [Developer instructions](https://www.pocketgamer.com/pages/contact-us/) · [Dawnfolk coverage](https://www.pocketgamer.com/dawnfolk/coming-soon-to-mobile/)
 
 **Subject** — Globulation 2 brings its self-running colonies to iPhone and iPad
 
@@ -78,17 +78,17 @@ Globulation 2
 
 ## Xataka Android
 
-Use `prensa@xatakandroid.com` for press releases. This is a direct-download announcement. The official build requires Android 7.0 or later and manual APK installation. Use a separate Play announcement only after production availability is confirmed. [Contact](https://www.xatakandroid.com/contacto) · [Android strategy coverage](https://www.xatakandroid.com/aplicaciones-android/19-mejores-juegos-estrategia-para-android)
+**On hold.** Use this draft after verifying public Google Play production availability in Spain. Use `prensa@xatakandroid.com` for press releases. [Contact](https://www.xatakandroid.com/contacto) · [Android strategy coverage](https://www.xatakandroid.com/aplicaciones-android/19-mejores-juegos-estrategia-para-android)
 
-**Asunto** — Globulation 2 llega a Android con estrategia en tiempo real y colonias autónomas
+**Asunto condicionado** — Globulation 2 llega a Google Play con estrategia en tiempo real y colonias autónomas
 
 Hola, equipo de Xataka Android:
 
-Globulation 2, nuestro juego de estrategia en tiempo real de código abierto, ya está disponible para Android como descarga directa desde nuestra web. Os lo proponemos como novedad para quienes buscan juegos de gestión y estrategia en el móvil.
+Globulation 2, nuestro juego de estrategia en tiempo real de código abierto, ya está disponible en Google Play en España desde el [día y mes de lanzamiento verificados]. Os lo proponemos como novedad para quienes buscan juegos de gestión y estrategia en el móvil.
 
 Los habitantes de la colonia se encargan de sus tareas de forma autónoma. El reto es repartir el trabajo, mantener las reservas de comida y decidir por dónde crecer antes de que una colonia rival se haga con el terreno.
 
-El APK se descarga desde https://glob2.online/downloads/#android. Requiere Android 7.0 o posterior y se instala manualmente. La versión 0.11.7.0 renueva los controles táctiles en tabletas. Aquí tenéis las imágenes [enlace al material de prensa].
+Aquí tenéis la [ficha pública de Google Play en España] y las imágenes [enlace al material de prensa].
 
 Gracias,\
 [nombre]\
@@ -174,7 +174,7 @@ Send to Craig Chapple at `craig.chapple@steelmedianetwork.com`. Hold this draft 
 
 Hi Craig,
 
-Globulation 2 has reached the App Store for iPhone and iPad, and we offer a direct Android download. I’m writing to see whether you’d be interested in a developer interview about bringing a long-running open-source desktop strategy game to phones.
+Globulation 2 has reached the App Store for iPhone and iPad. I’m writing to see whether you’d be interested in a developer interview about bringing a long-running open-source desktop strategy game to phones.
 
 The game revolves around a colony with autonomous workers and competing demands for food and land. [One verified example of a mobile design or distribution decision and what the team learned.] [Confirmed interviewee and role] can walk through the decision and what it took to ship.
 
