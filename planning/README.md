@@ -7,6 +7,7 @@
 - [Domain migration operations](domain-migration-operations.md): verified runtime transition, restart-safe edge bridge, rollback/cleanup boundaries and remaining website certificate/redirect steps.
 - [Linux distro rollout](linux-distro-rollout.md): CMake packaging campaign, per-release submission routes, and evidence required for downloads and launch updates.
 - [Approved storefront rollout](approved-storefront-rollout.md): 2026-10-30 user approval, exact approved copy/media and cross-store execution status.
+- [itch.io launch](itch-io-launch.md) tracks listing preparation, desktop downloads, access and launch verification.
 - [GOG release readiness](gog-release-readiness.md): approved English copy/source assets, official delivery checklist and unresolved onboarding/build handoff.
 - [Canonical storefront translations](../translations/README.md): 44 non-English language catalogs, independent AI review, platform field exports, maintenance and artwork audit.
 - [Storefront translation quality audit](storefront-translation-quality-audit.md): current master language coverage, independent linguistic findings, destination/source gaps and quality-signoff limits.
