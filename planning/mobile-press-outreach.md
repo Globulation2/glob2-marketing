@@ -2,7 +2,7 @@
 
 [Planning index](README.md) · [Publication and contact research](../analysis/mobile-games-press.md) · [Launch positioning](../analysis/positioning-v1.md) · [Storefront rollout](approved-storefront-rollout.md)
 
-The draft set covers 33 publications. On **2026-11-23**, 20 individual iOS pitches and two routing requests were sent to 22 publications. The other 11 remain pending or on hold.
+The draft set covers 33 publications. On **2026-11-23**, 24 individual iOS pitches and two routing requests reached confirmed submission status across 26 publications. The other seven are pending, unconfirmed or on hold.
 
 | Draft set | Publications | Working languages |
 | --- | ---: | --- |
@@ -55,16 +55,31 @@ Gmail Sent confirmed 14 individual messages after a recipient deduplication chec
 | Canaltech (routing inquiry) | `bruno.blasi@canaltech.com.br` · [Contact source](https://canaltech.com.br/equipe/bruno-de-blasi/) | Sugestão de pauta para Games: Globulation 2 no iPhone e iPad | [Brazil](https://apps.apple.com/br/app/globulation-2/id6817603328) |
 | MiniReview / The Mobile Quest (routing inquiry) | `contact@minireview.io` · [Contact source](https://minireview.io/terms-conditions) | How can I suggest Globulation 2 for MiniReview’s RTS catalogue? | [Denmark](https://apps.apple.com/dk/app/globulation-2/id6817603328) |
 
+## Fourth wave submitted on 2026-11-23
+
+Four public publisher forms displayed confirmation after submission. Apple’s software lookup confirmed the free iPhone and iPad listing at 0.11.700 for each referenced market before submission. Publisher receipts confirm form submission. Editorial review, replies and coverage remain unverified.
+
+| Publication | Public form | Subject or body heading submitted | Verified storefront | On-screen confirmation |
+| --- | --- | --- | --- | --- |
+| GamerFocus | [Press contact](https://www.gamerfocus.co/contactanos/) | Globulation 2 para iPhone y iPad en Colombia | [Colombia](https://apps.apple.com/co/app/globulation-2/id6817603328) | Gracias por tu respuesta |
+| Shane the Gamer | [Reviews & Press](https://www.shanethegamer.com/contact-us/) | Globulation 2 on iPhone and iPad in New Zealand and Australia | [New Zealand](https://apps.apple.com/nz/app/globulation-2/id6817603328), [Australia](https://apps.apple.com/au/app/globulation-2/id6817603328) | Thank you for your message. It has been sent. |
+| Mobi.gg | [Publisher contact](https://mobi.gg/fr/contact/) | Proposition de test iPhone et iPad : Globulation 2 | [France](https://apps.apple.com/fr/app/globulation-2/id6817603328) | Merci de nous avoir contacté ! |
+| 4Gamer.net | [Developer news release form](https://www.4gamer.net/secure/mail/form.php) | 【ニュースリリース】コロニーを育てるRTS『Globulation 2』iPhone・iPad版のご案内 | [Japan](https://apps.apple.com/jp/app/globulation-2/id6817603328) | 問い合わせ内容を送信しました。 |
+
+Mobi.gg received a review proposal. At 4Gamer.net, the Japanese headline was placed in the message under the developer news-release category.
+
+**Cultura Geek attempt.** The [contact form](https://culturageek.com.ar/contacto/) remained populated after the attempt with the subject “Globulation 2 en el App Store argentino para iPhone y iPad.” No confirmation appeared. Hold a repeat submission or use of the outlet’s public alternate address, `culturageeklabs@gmail.com`, until the initial attempt’s outcome is clear.
+
 **Remaining publications**
 
-148Apps, Gamezebo, Android Authority, GamerFocus, Cultura Geek, Mobi.gg, Xataka Android, PocketGamer.biz, 4Gamer.net, 17173, and Shane the Gamer.
+148Apps, Gamezebo, Android Authority, Cultura Geek, Xataka Android, PocketGamer.biz, and 17173.
 
 ## Holds and route checks
 
 - **Mainland China:** 17173 is a routing inquiry. Hold a mainland release pitch until local availability and editorial intake are confirmed.
 - **Android:** Hold all Android pitches until the public Google Play production listing is verified in the target market. Android Authority and Xataka Android are on hold. Their drafts are for a confirmed Play release.
 - **General and shared contacts:** Await routing replies from MiniReview and Canaltech. Confirm editorial intake for Android Authority when the Android hold clears. Coordinate any 148Apps or Pocket Gamer France pitch with the Pocket Gamer email already sent. Use one contact for the intended Gamereactor edition.
-- **Other holds:** Gamezebo awaits approved high-resolution screenshots. GamerFocus, Cultura Geek, Mobi.gg, 4Gamer.net and Shane the Gamer still have public contact forms to review for a later wave. Hold PocketGamer.biz until an interviewee and a verified porting decision are available. Use Mobi.gg’s announcement draft within its stated 24–48 hour news window, or revise the angle for a later pitch.
+- **Other holds:** Gamezebo awaits approved high-resolution screenshots. Hold PocketGamer.biz until an interviewee and a verified porting decision are available. Cultura Geek’s submission attempt remains unconfirmed.
 
 ## Release facts checked on 2026-11-23
 
