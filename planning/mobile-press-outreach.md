@@ -2,7 +2,7 @@
 
 [Planning index](README.md) · [Publication and contact research](../analysis/mobile-games-press.md) · [Launch positioning](../analysis/positioning-v1.md) · [Storefront rollout](approved-storefront-rollout.md)
 
-The draft set covers 33 publications. On **2026-11-23**, 24 individual iOS pitches and two routing requests reached confirmed submission status across 26 publications. The other seven are pending, unconfirmed or on hold.
+The draft set covers 33 publications. On **2026-11-23**, 26 individual iOS pitches and two routing requests reached confirmed submission status across 28 publications. One additional title was dispositioned through the shared Pocket Gamer editorial network. Four titles remain unconfirmed or on hold.
 
 | Draft set | Publications | Working languages |
 | --- | ---: | --- |
@@ -70,16 +70,30 @@ Mobi.gg received a review proposal. At 4Gamer.net, the Japanese headline was pla
 
 **Cultura Geek attempt.** The [contact form](https://culturageek.com.ar/contacto/) remained populated after the attempt with the subject “Globulation 2 en el App Store argentino para iPhone y iPad.” No confirmation appeared. Hold a repeat submission or use of the outlet’s public alternate address, `culturageeklabs@gmail.com`, until the initial attempt’s outcome is clear.
 
-**Remaining publications**
+## Fifth wave sent on 2026-11-23
 
-148Apps, Gamezebo, Android Authority, Cultura Geek, Xataka Android, PocketGamer.biz, and 17173.
+Two individual emails were verified in Gmail Sent. Both linked to the local App Store listing and carried no attachments.
+
+| Publication | Public editorial recipient | Subject sent | Verified local storefront |
+| --- | --- | --- | --- |
+| Gamezebo | `editor@gamezebo.com` | Review consideration: Globulation 2 on iPhone and iPad | [United States](https://apps.apple.com/us/app/globulation-2/id6817603328) |
+| PocketGamer.biz | `craig.chapple@steelmedianetwork.com` | Mobile design tip — how Globulation 2 reworked its RTS controls for tablets | [United Kingdom](https://apps.apple.com/gb/app/globulation-2/id6817603328) |
+
+- Gamezebo received two full-size App Store menu captures, labelled by device, and the approved 2560 × 1440 Four Squares screenshot labelled as desktop gameplay. [iPhone menu](https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0e/93/fd/0e93fd9e-f420-e772-8548-36200d8cc414/iphone-medium-main-menu.jpg/1206x2622bb.jpg) · [iPad menu](https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c0/bb/74/c0bb74a3-5ae3-d1f1-4434-415a42aacc23/ipad-13-main-menu.jpg/2064x2752bb.jpg) · [Desktop screenshot sent](https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront-approved-v1/03-four-squares-strategic.png) · [Approved asset manifest](../assets/storefront-approved-v1/README.md) · [Review submission requirements](https://www.gamezebo.com/get-reviewed/)
+- PocketGamer.biz received a tablet controls design tip with the version-tagged reference. The tip carried no interview offer. [Tablet control documentation sent](https://github.com/Globulation2/glob2/blob/v0.11.7.0/docs/mobile/gameplay-controls.md#tablet-layout) · [Editorial contact](https://www.pocketgamer.biz/staff/100175/craig-chapple/?page=15)
+
+## Remaining dispositions
+
+- **148Apps:** The first-wave Pocket Gamer pitch reached the shared Steel Media network. Both publications list Dann Sullivan as editor-in-chief. There was no separate send or receipt for 148Apps, so it is outside the 28 confirmed outlet contacts. [148Apps contact](https://www.148apps.com/pages/contact/) · [Pocket Gamer masthead](https://www.pocketgamer.com/pages/about/)
+- **Cultura Geek:** The form attempt remains unconfirmed. A subsequent search found no acknowledgment. The alternate address is the site's general contact. Hold duplicate outreach pending resolution.
+- **Android Authority and Xataka Android:** Hold until public Google Play production availability is verified in the intended market. The latest public US and Spain checks each returned HTTP 404.
+- **17173:** Hold a mainland China release pitch until local availability and editorial intake are verified.
 
 ## Holds and route checks
 
 - **Mainland China:** 17173 is a routing inquiry. Hold a mainland release pitch until local availability and editorial intake are confirmed.
 - **Android:** Hold all Android pitches until the public Google Play production listing is verified in the target market. Android Authority and Xataka Android are on hold. Their drafts are for a confirmed Play release.
-- **General and shared contacts:** Await routing replies from MiniReview and Canaltech. Confirm editorial intake for Android Authority when the Android hold clears. Coordinate any 148Apps or Pocket Gamer France pitch with the Pocket Gamer email already sent. Use one contact for the intended Gamereactor edition.
-- **Other holds:** Gamezebo awaits approved high-resolution screenshots. Hold PocketGamer.biz until an interviewee and a verified porting decision are available. Cultura Geek’s submission attempt remains unconfirmed.
+- **General and shared contacts:** Await routing replies from MiniReview and Canaltech. Confirm editorial intake for Android Authority when the Android hold clears. Coordinate any Pocket Gamer France pitch with the Pocket Gamer email already sent. Use one contact for the intended Gamereactor edition.
 
 ## Release facts checked on 2026-11-23
 
