@@ -2,7 +2,7 @@
 
 [Planning index](README.md) · [Publication and contact research](../analysis/mobile-games-press.md) · [Launch positioning](../analysis/positioning-v1.md) · [Storefront rollout](approved-storefront-rollout.md)
 
-The draft set covers 33 publications. Eight individual iOS pitches were sent on **2026-11-23**. The other 25 publications remain pending or on hold.
+The draft set covers 33 publications. On **2026-11-23**, 20 individual iOS pitches and two routing requests were sent to 22 publications. The other 11 remain pending or on hold.
 
 | Draft set | Publications | Working languages |
 | --- | ---: | --- |
@@ -34,17 +34,42 @@ Three individually tailored emails were verified in Gmail Sent. Each linked to t
 
 The first five threads were rechecked. Each contained one sent message, and the related inbox search returned no relevant bounce or reply. Inbox delivery and coverage remain unverified.
 
+## Third wave sent on 2026-11-23
+
+Gmail Sent confirmed 14 individual messages after a recipient deduplication check. Twelve were iOS pitches. Canaltech and MiniReview received routing inquiries. The messages linked to verified free App Store listings for the cited markets. An inbox search by prior outreach subjects found no relevant replies or bounces. Inbox delivery and coverage remain unverified.
+
+| Publication | Public recipient and route source | Subject sent | Verified local storefront |
+| --- | --- | --- | --- |
+| Gimbot | `hello@gimbot.com` · [Contact source](https://www.gimbot.com/kontak/) | Globulation 2 hadir gratis di iPhone dan iPad: kelola pangan dan tenaga kerja koloni | [Indonesia](https://apps.apple.com/id/app/globulation-2/id6817603328) |
+| Gamebrott | `pr@gamebrott.com` · [Contact source](https://gamebrott.com/front/) | Globulation 2 di iPhone dan iPad, RTS dengan penghuni koloni yang bekerja mandiri | [Indonesia](https://apps.apple.com/id/app/globulation-2/id6817603328) |
+| GamingPH | `admin@gamingph.com` · [Contact source](https://gamingph.com/contact-us/) | Globulation 2 brings free colony-building strategy to iPhone and iPad in the Philippines | [Philippines](https://apps.apple.com/ph/app/globulation-2/id6817603328) |
+| Bahamut GNN | `news@gamer.com.tw` · [Contact source](https://gnn.gamer.com.tw/?k=8) | 【手機遊戲消息】即時策略遊戲《Globulation 2》可在台灣 App Store 免費下載 | [Taiwan](https://apps.apple.com/tw/app/globulation-2/id6817603328) |
+| Thisisgame Southeast Asia | `pr@grabbermedia.com` · [Contact source](https://thisisgamesea.com/?y=1000846922) | Globulation 2 is free on iPhone and iPad in six Southeast Asian markets | [Singapore](https://apps.apple.com/sg/app/globulation-2/id6817603328), [Malaysia](https://apps.apple.com/my/app/globulation-2/id6817603328), [Indonesia](https://apps.apple.com/id/app/globulation-2/id6817603328), [Thailand](https://apps.apple.com/th/app/globulation-2/id6817603328), [Philippines](https://apps.apple.com/ph/app/globulation-2/id6817603328), [Vietnam](https://apps.apple.com/vn/app/globulation-2/id6817603328) |
+| Multiplayer.it | `redazione@multiplayer.it` · [Contact source](https://multiplayer.it/contatti/) | Globulation 2, strategia in tempo reale e gestione di una colonia su iPhone e iPad | [Italy](https://apps.apple.com/it/app/globulation-2/id6817603328) |
+| appgefahren | `fabian@appgefahren.de` · [Contact source](https://www.appgefahren.de/author) | Für deine Spiele-Rubrik – Globulation 2 kostenlos für iPhone und iPad | [Germany](https://apps.apple.com/de/app/globulation-2/id6817603328) |
+| Gamereactor Middle East | `info@gamereactor.com` · [Contact source](https://www.gamereactor.me/contact/) | إلى تحرير Gamereactor الشرق الأوسط — لعبة Globulation 2 الاستراتيجية على iPhone وiPad | [Saudi Arabia](https://apps.apple.com/sa/app/globulation-2/id6817603328), [United Arab Emirates](https://apps.apple.com/ae/app/globulation-2/id6817603328) |
+| Oyungezer | `eser@oyungezer.com.tr` · [Contact source](https://oyungezer.com.tr/setimedia/yazarlar) | Koloni kurma odaklı strateji oyunu Globulation 2 iPhone ve iPad’de | [Türkiye](https://apps.apple.com/tr/app/globulation-2/id6817603328) |
+| GLITCHED | `info@glitched.online` · [Contact source](https://www.glitched.online/contact-glitched/) | Globulation 2 brings real-time colony strategy to iPhone and iPad in South Africa | [South Africa](https://apps.apple.com/za/app/globulation-2/id6817603328) |
+| MobileSyrup | `brad@mobilesyrup.com` · [Contact source](https://mobilesyrup.com/about-us/) | Canadian gaming tip: Globulation 2 on iPhone and iPad | [Canada](https://apps.apple.com/ca/app/globulation-2/id6817603328) |
+| 3DJuegos LATAM | `cesar.ovando@webedia-group.com` · [Contact source](https://www.3djuegos.lat/3djuegos-lat/resenas-3djuegos-latam) | Propuesta de reseña: Globulation 2 para iPhone y iPad | [Mexico](https://apps.apple.com/mx/app/globulation-2/id6817603328) |
+| Canaltech (routing inquiry) | `bruno.blasi@canaltech.com.br` · [Contact source](https://canaltech.com.br/equipe/bruno-de-blasi/) | Sugestão de pauta para Games: Globulation 2 no iPhone e iPad | [Brazil](https://apps.apple.com/br/app/globulation-2/id6817603328) |
+| MiniReview / The Mobile Quest (routing inquiry) | `contact@minireview.io` · [Contact source](https://minireview.io/terms-conditions) | How can I suggest Globulation 2 for MiniReview’s RTS catalogue? | [Denmark](https://apps.apple.com/dk/app/globulation-2/id6817603328) |
+
+**Remaining publications**
+
+148Apps, Gamezebo, Android Authority, GamerFocus, Cultura Geek, Mobi.gg, Xataka Android, PocketGamer.biz, 4Gamer.net, 17173, and Shane the Gamer.
+
 ## Holds and route checks
 
 - **Mainland China:** 17173 is a routing inquiry. Hold a mainland release pitch until local availability and editorial intake are confirmed.
 - **Android:** Hold all Android pitches until the public Google Play production listing is verified in the target market. Android Authority and Xataka Android are on hold. Their drafts are for a confirmed Play release.
-- **General and shared contacts:** Confirm intake for MiniReview and Android Authority, and ask Canaltech to route to Games. Coordinate any 148Apps or Pocket Gamer France pitch with the Pocket Gamer email already sent. Use one contact for the intended Gamereactor edition.
-- **Other holds:** Gamezebo awaits approved high-resolution screenshots. Confirm the Thisisgame Southeast Asia address behind its public PR link. Hold PocketGamer.biz until an interviewee and a verified porting decision are available. Use Mobi.gg’s announcement draft within its stated 24–48 hour news window, or revise the angle for a later pitch.
+- **General and shared contacts:** Await routing replies from MiniReview and Canaltech. Confirm editorial intake for Android Authority when the Android hold clears. Coordinate any 148Apps or Pocket Gamer France pitch with the Pocket Gamer email already sent. Use one contact for the intended Gamereactor edition.
+- **Other holds:** Gamezebo awaits approved high-resolution screenshots. GamerFocus, Cultura Geek, Mobi.gg, 4Gamer.net and Shane the Gamer still have public contact forms to review for a later wave. Hold PocketGamer.biz until an interviewee and a verified porting decision are available. Use Mobi.gg’s announcement draft within its stated 24–48 hour news window, or revise the angle for a later pitch.
 
 ## Release facts checked on 2026-11-23
 
 - The public Apple storefront lookup reported Globulation 2 version **0.11.700** with a current version release time of **2026-11-23 15:39 UTC** and an initial release date of **2026-11-14**. Records were returned for all 28 storefronts checked with `entity=software` (`ae ar au br ca co de es fr gb id it jp kr mx my nz ph pl sa se sg th tr tw us vn za`). The listing requires iOS 15 or later and shows iPhone and iPad support. The bare lookup returned stale zero-result responses for Brazil and the UK. The software-specific response confirmed both. Physical device installation and in-game language support remain unverified. [Apple lookup example](https://itunes.apple.com/lookup?id=6817603328&country=ca&entity=software) · [Canadian App Store listing](https://apps.apple.com/ca/app/globulation-2/id6817603328)
-- Android **0.11.7.0** is available from the project's downloads page as direct APKs requiring Android 7.0 or later. The release notes describe improved tablet touch controls. Google Play production availability remains unverified. The direct APK does not clear the Android outreach hold. [Official Android downloads](https://glob2.online/downloads/#android) · [Release notes](https://github.com/Globulation2/glob2/releases/tag/v0.11.7.0)
+- Android **0.11.7.0** is available from the project's downloads page as direct APKs requiring Android 7.0 or later. The release notes describe improved tablet touch controls. The public Google Play listing for `org.globulation2.glob2` returned HTTP 404 for the US, Canada, Mexico, Colombia, Argentina, Brazil, Spain, UK and Denmark. Google Play production availability remains unverified, and the Android outreach hold remains in effect. [Official Android downloads](https://glob2.online/downloads/#android) · [Release notes](https://github.com/Globulation2/glob2/releases/tag/v0.11.7.0)
 - Mainland China returned zero results in the Apple lookup. Hold China-specific release copy pending local availability and a confirmed editorial contact route. [Mainland China lookup](https://itunes.apple.com/lookup?id=6817603328&country=cn&entity=software)
 
 ## Review before outreach
@@ -59,5 +84,5 @@ The first five threads were rechecked. Each contained one sent message, and the 
 
 - The Europe researcher reviewed Global and Americas copy. Gamezebo now includes the requested high-resolution screenshot field, and MobileSyrup describes setting work priorities.
 - The Asia-Pacific researcher reviewed Europe, Middle East and Africa copy for Android versus Play wording, missing links and sender fields, offer language and localization. The Europe researcher tightened the Xataka Android description and made interview and review access conditional.
-- The Global and Americas researcher reviewed the Europe, Middle East, Africa and Asia-Pacific iOS pitches, rechecked all 21 referenced App Store markets and confirmed GRYOnline.pl’s public editorial address (`redakcja-pl@webedia-group.com`) and Shane the Gamer’s Reviews & Press form. Thisisgame’s masked inbox remained unresolved. The reviewer also checked Asia-Pacific copy for route accuracy, local availability, release-day timezone wording and platform claims. The Thisisgame subject now specifies six markets. The mainland China draft remains a routing inquiry.
+- The Global and Americas researcher reviewed the Europe, Middle East, Africa and Asia-Pacific iOS pitches, rechecked all 21 referenced App Store markets and confirmed GRYOnline.pl’s public editorial address (`redakcja-pl@webedia-group.com`) and Shane the Gamer’s Reviews & Press form. Thisisgame’s PR address was subsequently verified through its public PR link and used in the third wave. The reviewer also checked Asia-Pacific copy for route accuracy, local availability, release-day timezone wording and platform claims. The Thisisgame subject now specifies six markets. The mainland China draft remains a routing inquiry.
 - The coordinating reviewer matched the draft headings against the research list and verified storefront results. The team checked contacts and public listings. Editorial interest, inbox delivery and physical installs remain unverified.
