@@ -1,4 +1,6 @@
+import contextlib
 import csv
+import io
 import json
 from pathlib import Path
 import sys
@@ -100,7 +102,154 @@ class MicrosoftImportTests(unittest.TestCase):
     def test_refuses_existing_locale_overwrite(self):
         self.headers.append('de');self.write_template()
         with patch.object(M,'validate',return_value=([],{'de':self.fields})):
-            self.assertRaisesRegex(ValueError,'Existing locale',M.build,self.template,self.out,self.root)
+            self.assertRaisesRegex(ValueError,'Existing locale columns de .*--update-existing',M.build,self.template,self.out,self.root)
+        self.assertFalse(self.out.exists())
+
+    # --update-existing: a saved listing whose locale columns already hold earlier copy.
+
+    def saved_listing(self):
+        """Canonical English, a German column with older text and its own media reference, no French yet."""
+        config = json.loads((self.root / 'platforms.json').read_text())
+        config['platforms']['microsoft']['locales'] = {'en':'en-us','de':'de','fr':'fr'}
+        (self.root / 'platforms.json').write_text(json.dumps(config))
+        self.en = dict(self.fields, description='English description', short='English short', search='English term', screenshot_caption_colony='English caption', **{f'feature_{i}':f'English {i}' for i in range(1,5)})
+        self.fr = dict(self.fields, description='Description française', short='Court')
+        self.catalogs = {'en':self.en,'de':self.fields,'fr':self.fr}
+        self.rows.append({'Field':'DesktopScreenshotCaption1','ID':'150','Type':'Text','default':'','en-us':''})
+        self.mapped = {'Title':'product_name','Description':'description','ShortDescription':'short','SearchTerm1':'search','DesktopScreenshotCaption1':'screenshot_caption_colony', **{f'Feature{i}':f'feature_{i}' for i in range(1,5)}}
+        self.headers.append('de')
+        for row in self.rows:
+            row['de'] = 'old de ' + row['Field']
+            if row['Field'] in self.mapped: row['en-us'] = self.en[self.mapped[row['Field']]]
+        self.row('Title')['de'] = 'Globulation 2'
+        self.row('DesktopScreenshot1')['de'] = 'https://approved.example/image.png?parentId=de'
+        self.write_template()
+
+    def row(self, field, rows=None):
+        return next(row for row in (self.rows if rows is None else rows) if row['Field'] == field)
+
+    def update(self, **options):
+        with patch.object(M,'validate',return_value=([],self.catalogs)):
+            result = M.build(self.template,self.out,self.root,update_existing=True,**options)
+        with self.out.open(encoding='utf-8-sig',newline='') as f: return result, list(csv.DictReader(f))
+
+    def test_update_existing_replaces_only_mapped_fields_and_appends_missing_locales(self):
+        self.saved_listing()
+        result, rows = self.update()
+        changed = [field for field in self.mapped if field != 'Title']
+        self.assertEqual({'de':sorted(changed)},{'de':sorted(result['updated_locales']['de'])})
+        self.assertEqual((1,['fr'],len(changed)),(result['new_locales'],result['added_locales'],result['changed_cells']))
+        self.assertEqual({'column':'en-us','status':'matches canonical','changed':[]},result['english'])
+        self.assertEqual(['Field','ID','Type','default','en-us','de','fr'],list(rows[0]))
+        for before, after in zip(self.rows, rows):
+            field = before['Field']
+            self.assertEqual({k:before[k] for k in ('Field','ID','Type','default','en-us')},{k:after[k] for k in ('Field','ID','Type','default','en-us')})
+            if field in self.mapped:
+                self.assertEqual(self.fields[self.mapped[field]],after['de'])
+                self.assertEqual(self.fr[self.mapped[field]],after['fr'])
+            else:
+                self.assertEqual(before['de'],after['de'])  # Media reference, release notes: untouched.
+                self.assertEqual(before['en-us'],after['fr'])  # New locale still starts from English.
+        self.assertEqual('https://approved.example/image.png?parentId=de',self.row('DesktopScreenshot1',rows)['de'])
+        self.assertEqual('old de ReleaseNotes',self.row('ReleaseNotes',rows)['de'])
+
+    def test_update_existing_is_idempotent_and_reports_no_changes(self):
+        self.saved_listing()
+        self.update()
+        first = self.out.read_bytes()
+        self.template = self.root / 'second-export.csv'
+        self.template.write_bytes(first)
+        result, rows = self.update()
+        self.assertEqual(({'de':[],'fr':[]},0,0),(result['updated_locales'],result['changed_cells'],result['new_locales']))
+        self.assertEqual(first,self.out.read_bytes())
+
+    def test_update_existing_fails_on_stale_english_unless_explicitly_replaced(self):
+        self.saved_listing()
+        self.row('Description')['en-us'] = 'Earlier English description'
+        self.write_template()
+        with patch.object(M,'validate',return_value=([],self.catalogs)):
+            self.assertRaisesRegex(ValueError,r"English column en-us differs from canonical English in \['Description'\]",M.build,self.template,self.out,self.root,update_existing=True)
+            self.assertRaisesRegex(ValueError,'only applies together',M.build,self.template,self.out,self.root,update_english=True)
+        self.assertFalse(self.out.exists())
+        result, rows = self.update(update_english=True)
+        self.assertEqual({'column':'en-us','status':'updated','changed':['Description']},result['english'])
+        self.assertEqual('English description',self.row('Description',rows)['en-us'])
+        for field in ('DesktopScreenshot1','ReleaseNotes','Title'):
+            self.assertEqual(self.row(field)['en-us'],self.row(field,rows)['en-us'])
+
+    def test_update_existing_keeps_review_and_limit_gates(self):
+        self.saved_listing()
+        with patch.object(M,'validate',return_value=(['de: review source hashes stale'],{})):
+            self.assertRaisesRegex(ValueError,'review source hashes stale',M.build,self.template,self.out,self.root,update_existing=True)
+        config = json.loads((self.root / 'platforms.json').read_text())
+        config['platforms']['microsoft']['fields']['short_description']['limit'] = 6
+        (self.root / 'platforms.json').write_text(json.dumps(config))
+        with patch.object(M,'validate',return_value=([],self.catalogs)):
+            self.assertRaisesRegex(ValueError,'exceeds 6',M.build,self.template,self.out,self.root,update_existing=True)
+        self.assertFalse(self.out.exists())
+
+    def add_numbered_captions(self, count):
+        """Captions bound through platforms.json to arbitrary catalog field IDs, not the four legacy roles."""
+        config = json.loads((self.root / 'platforms.json').read_text())
+        for i in range(1,count+1):
+            config['platforms']['microsoft']['fields'][f'desktop_screenshot_caption_{i}'] = {'paragraphs':[[f'gallery_text_{i}']],'limit':200}
+            for code, catalog in self.catalogs.items(): catalog[f'gallery_text_{i}'] = f'{code} shot {i}'
+            if i > 1:
+                self.rows.append({'Field':f'DesktopScreenshot{i}','ID':str(200+i),'Type':'Relative path (or URL to file in Partner Center)','default':'','en-us':f'https://approved.example/{i}.png','de':f'https://approved.example/{i}.png?parentId=de' if i < 5 else ''})
+                self.rows.append({'Field':f'DesktopScreenshotCaption{i}','ID':str(150+i),'Type':'Text','default':'','en-us':'','de':f'old de caption {i}' if i < 5 else ''})
+            self.row(f'DesktopScreenshotCaption{i}')['en-us'] = f'en shot {i}'
+        (self.root / 'platforms.json').write_text(json.dumps(config))
+        self.write_template()
+
+    def test_caption_rows_follow_platform_fields_beyond_four_screenshots(self):
+        self.saved_listing()
+        self.add_numbered_captions(6)
+        result, rows = self.update()
+        for i in range(1,7):
+            self.assertEqual(f'de shot {i}',self.row(f'DesktopScreenshotCaption{i}',rows)['de'])
+            self.assertEqual(f'fr shot {i}',self.row(f'DesktopScreenshotCaption{i}',rows)['fr'])
+        self.assertEqual([f'DesktopScreenshotCaption{i}' for i in range(1,7)],result['mapped_text_fields'][-6:])
+        self.assertEqual('',self.row('DesktopScreenshot5',rows)['de'])  # Media is never filled in for an existing column.
+        self.assertEqual(['DesktopScreenshotCaption5: DesktopScreenshot5 is empty in 1 column(s): de; the text has no media to describe there','DesktopScreenshotCaption6: DesktopScreenshot6 is empty in 1 column(s): de; the text has no media to describe there'],result['warnings'])
+
+    def test_canonical_field_without_template_row_or_mapping_stops_generation(self):
+        self.saved_listing()
+        self.add_numbered_captions(6)
+        self.rows.remove(self.row('DesktopScreenshotCaption6'))
+        self.write_template()
+        with patch.object(M,'validate',return_value=([],self.catalogs)):
+            self.assertRaisesRegex(ValueError,'lacks expected text fields.*DesktopScreenshotCaption6',M.build,self.template,self.out,self.root,update_existing=True)
+        config = json.loads((self.root / 'platforms.json').read_text())
+        config['platforms']['microsoft']['fields']['tagline'] = {'paragraphs':[['short']]}
+        (self.root / 'platforms.json').write_text(json.dumps(config))
+        with patch.object(M,'validate',return_value=([],self.catalogs)):
+            self.assertRaisesRegex(ValueError,r"\['tagline'\] have no template row mapping; extend FIELD_FAMILIES",M.build,self.template,self.out,self.root,update_existing=True)
+        self.assertFalse(self.out.exists())
+
+    def test_update_existing_warns_about_numbered_rows_without_canonical_value(self):
+        self.saved_listing()
+        self.rows.append({'Field':'Feature5','ID':'77','Type':'Text','default':'','en-us':'','de':'old de fifth feature'})
+        self.headers.append('xx-yy')
+        for row in self.rows: row['xx-yy'] = 'unmapped locale ' + row['Field']
+        self.write_template()
+        result, rows = self.update()
+        self.assertEqual('old de fifth feature',self.row('Feature5',rows)['de'])
+        self.assertEqual('unmapped locale Description',self.row('Description',rows)['xx-yy'])
+        self.assertEqual(['Feature5: no canonical value; existing text left unchanged in 1 column(s): de','Locale columns without a canonical mapping left unchanged: xx-yy'],result['warnings'])
+
+    def test_command_line_requires_the_flag_and_prints_per_locale_changes(self):
+        self.saved_listing()
+        out, err = io.StringIO(), io.StringIO()
+        with patch.object(M,'validate',return_value=([],self.catalogs)), contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+            with patch.object(sys,'argv',['microsoft_import.py',str(self.template),'--out',str(self.out),'--root',str(self.root)]):
+                self.assertEqual(1,M.main())
+            self.assertIn('--update-existing',err.getvalue())
+            self.assertFalse(self.out.exists())
+            with patch.object(sys,'argv',['microsoft_import.py',str(self.template),'--out',str(self.out),'--root',str(self.root),'--update-existing']):
+                self.assertEqual(0,M.main())
+        summary = json.loads(out.getvalue())
+        self.assertEqual({'de':'Description, ShortDescription, Feature1, Feature2, Feature3, Feature4, SearchTerm1, DesktopScreenshotCaption1'},summary['updated_locales'])
+        self.assertEqual('fr',summary['added_locales'])
 
     def test_indonesian_locale_does_not_collide_with_reserved_ID_header(self):
         config = json.loads((self.root / 'platforms.json').read_text())

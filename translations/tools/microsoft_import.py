@@ -4,6 +4,19 @@
 Preserve all template rows/identifiers, existing locale values and asset URLs.
 New locales copy the English media/unchanged optional fields, then override only
 reviewed canonical listing text. No guessed asset paths or binary declarations.
+
+Locale columns the export already has stop generation unless --update-existing
+is given. Then only the mapped text rows are replaced with reviewed canonical
+values; every other cell in those columns (media URLs, technical/legal fields)
+is kept, missing locales are still appended, and the English column must
+already equal canonical English (or be replaced explicitly with --update-english).
+
+Extending the mapping: canonical values are the payload keys of platforms.json
+-> platforms.microsoft.fields (composed from catalog field IDs, limits enforced
+without truncation). FIELD_FAMILIES below binds each payload key to its template
+Field row. '{n}' families take as many numbered rows as platforms.json defines,
+so a fifth screenshot caption needs only a desktop_screenshot_caption_5 entry
+there. A new kind of translated text row needs one more FIELD_FAMILIES line.
 """
 import argparse
 import csv
@@ -19,6 +32,26 @@ from storefront import ROOT, platform_payload, validate
 
 XML = {'m': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
 REL = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships'
+
+# (payload key, candidate template Field names, companion media Field or None).
+# '{n}' is the same 1-based number in all three. Every payload key that
+# platforms.json defines must land on exactly one candidate row of the current
+# export, or generation stops. TrailerTitle{n} follows Microsoft's trailer
+# title rows but has not been observed in a project export yet.
+FIELD_FAMILIES = (
+    ('title', ('Title',), None),
+    ('description', ('Description',), None),
+    ('short_description', ('ShortDescription',), None),
+    ('feature_{n}', ('Feature{n}',), None),
+    ('search_term_{n}', ('SearchTerm{n}', 'SearchTerms{n}', 'Keyword{n}', 'Keywords{n}'), None),
+    ('desktop_screenshot_caption_{n}', ('DesktopScreenshotCaption{n}', 'DesktopScreenshot{n}AltText'), 'DesktopScreenshot{n}'),
+    ('trailer_title_{n}', ('TrailerTitle{n}',), 'Trailer{n}'),
+)
+PAYLOAD_ALIASES = {'search_term': 'search_term_1'}  # Unnumbered storefront-v1 key.
+# storefront-v1 fallback: catalog screenshot_caption_{role} fields in gallery order,
+# used only while platforms.json defines no desktop_screenshot_caption_{n} and
+# only for caption rows the export actually exposes.
+LEGACY_CAPTION_ROLES = ('colony', 'battle', 'strategic', 'terrain')
 
 
 def rich_text(element):
@@ -101,7 +134,54 @@ def read_template(path):
     return headers, rows
 
 
-def build(template, destination, root=ROOT):
+def numbered(pattern):
+    prefix, suffix = pattern.split('{n}')
+    return re.compile(re.escape(prefix) + '([1-9][0-9]*)' + re.escape(suffix))
+
+
+def canonical_payload(locale, fields, config):
+    """Return one locale's reviewed values keyed as FIELD_FAMILIES expects, plus the legacy-sourced keys."""
+    payload, failures = platform_payload(fields, config)
+    if failures: raise ValueError(f'{locale}: {failures}')
+    for old, new in PAYLOAD_ALIASES.items():
+        if old in payload:
+            if new in payload: raise ValueError(f'platforms.json microsoft defines both {old} and {new}')
+            payload[new] = payload.pop(old)
+    legacy = set()
+    if not any(numbered('desktop_screenshot_caption_{n}').fullmatch(key) for key in payload):
+        for index, role in enumerate(LEGACY_CAPTION_ROLES, 1):
+            if f'screenshot_caption_{role}' in fields:
+                payload[f'desktop_screenshot_caption_{index}'] = fields[f'screenshot_caption_{role}']
+                legacy.add(f'desktop_screenshot_caption_{index}')
+    return payload, legacy
+
+
+def bind(keys, legacy, by_field):
+    """Bind payload keys to template rows: ({Field: (payload key, companion Field or None)}, unsourced numbered Fields)."""
+    mapping, missing, bound = {}, [], set()
+    for pattern, candidates, companion in FIELD_FAMILIES:
+        if '{n}' in pattern:
+            matches = [numbered(pattern).fullmatch(key) for key in keys]
+            indexes = [str(index) for index in sorted(int(match[1]) for match in matches if match)]
+        else:
+            indexes = [''] if pattern in keys else []
+        for index in indexes:
+            key = pattern.replace('{n}', index)
+            bound.add(key)
+            options = [name for name in (item.replace('{n}', index) for item in candidates) if name in by_field]
+            if len(options) > 1: raise ValueError(f'Ambiguous template fields {options} for {key}; inspect actual template')
+            if options: mapping[options[0]] = (key, companion.replace('{n}', index) if companion else None)
+            elif key not in legacy: missing.append('/'.join(item.replace('{n}', index) for item in candidates))
+    unbound = sorted(set(keys) - bound)
+    if unbound: raise ValueError(f'platforms.json microsoft fields {unbound} have no template row mapping; extend FIELD_FAMILIES in microsoft_import.py')
+    if missing: raise ValueError(f'Actual template lacks expected text fields {sorted(missing)}; reconcile observed fields first')
+    unsourced = [field for pattern, candidates, companion in FIELD_FAMILIES if '{n}' in pattern
+                 for name in candidates for field in by_field if field not in mapping and numbered(name).fullmatch(field)]
+    return mapping, unsourced
+
+
+def build(template, destination, root=ROOT, update_existing=False, update_english=False):
+    if update_english and not update_existing: raise ValueError('--update-english only applies together with --update-existing')
     errors, catalogs = validate(root, require_review=True)
     if errors: raise ValueError('\n'.join(errors))
     config = json.loads((root / 'platforms.json').read_text())['platforms']['microsoft']
@@ -117,50 +197,86 @@ def build(template, destination, root=ROOT):
             continue  # Preserve all-empty trailing/separator rows from current XLSX export.
         if field in by_field: raise ValueError(f'Duplicate template Field: {field}')
         by_field[field] = row
-    mapping = {'Title': 'title', 'Description': 'description', 'ShortDescription': 'short_description', 'Feature1': 'feature_1', 'Feature2': 'feature_2', 'Feature3': 'feature_3', 'Feature4': 'feature_4'}
-    missing = mapping.keys() - by_field.keys()
-    if missing: raise ValueError(f'Actual template lacks expected text fields {sorted(missing)}; reconcile observed fields first')
-    keyword_fields = [key for key in ('SearchTerm1', 'SearchTerms1', 'Keyword1', 'Keywords1') if key in by_field]
-    if len(keyword_fields) == 1: mapping[keyword_fields[0]] = 'search_term'
-    # Text caption field names are only added when the current export explicitly exposes them.
-    for index, role in enumerate(('colony','battle','strategic','terrain'), 1):
-        options = [key for key in (f'DesktopScreenshot{index}AltText', f'DesktopScreenshotCaption{index}') if key in by_field]
-        if len(options) > 1: raise ValueError(f'Ambiguous desktop caption fields for screenshot {index}; inspect actual template')
-        if options: mapping[options[0]] = f'caption_{role}'
     planned = []
     for locale, platform_code in config['locales'].items():
-        if locale == 'en': continue  # Keep approved English exactly as exported.
-        match = next((header for header in headers[4:] if header.lower() == platform_code.lower()), None)
-        if match is not None:
-            raise ValueError(f'Existing locale {match} requires explicit current-value reconciliation, not blind overwrite')
-        payload, failures = platform_payload(catalogs[locale], config)
-        if failures: raise ValueError(f'{locale}: {failures}')
-        for role in ('colony','battle','strategic','terrain'):
-            payload[f'caption_{role}'] = catalogs[locale][f'screenshot_caption_{role}']
-        planned.append((platform_code, payload))
-    for platform_code, payload in planned:
-        headers.append(platform_code)
-        for row in rows:
-            # Current English URLs preserve approved media without uploading files.
-            row[platform_code] = row.get(source_column, '') or row.get('default', '')
-        for field, payload_key in mapping.items():
-            by_field[field][platform_code] = payload[payload_key]
+        if locale == 'en': continue  # English is never translated; update mode verifies it below.
+        matches = [header for header in headers[4:] if header.lower() == platform_code.lower()]
+        if len(matches) > 1: raise ValueError(f'Ambiguous existing locale columns {matches} for {locale}')
+        payload, legacy = canonical_payload(locale, catalogs[locale], config)
+        planned.append((matches[0] if matches else platform_code, payload, legacy, bool(matches)))
+    existing = [column for column, payload, legacy, exists in planned if exists]
+    if existing and not update_existing:
+        raise ValueError(f'Existing locale columns {", ".join(existing)} require explicit current-value reconciliation, not blind overwrite; rerun with --update-existing to replace only the mapped canonical text fields')
+    english = canonical_payload('en', catalogs['en'], config) if update_existing else None
+    sources = [(payload, legacy) for column, payload, legacy, exists in planned] + ([english] if english else [])
+    keys, legacy = (set(sources[0][0]), sources[0][1]) if sources else (set(), set())
+    if any(set(payload) != keys for payload, other in sources):
+        raise ValueError('Canonical catalogs expose different Microsoft fields; run storefront.py check first')
+    mapping, unsourced = bind(keys, legacy, by_field)
+
+    def current(field, column):  # A blank locale cell falls back to the default column in the Store.
+        return by_field[field].get(column) or by_field[field].get('default') or ''
+
+    report = {}
+    changed_cells = 0
+    if update_existing:
+        # The default-language listing must already carry canonical English unless explicitly replaced here.
+        stale = [field for field, (key, companion) in mapping.items() if current(field, source_column) != english[0][key]]
+        if stale and not update_english:
+            raise ValueError(f'English column {source_column} differs from canonical English in {stale}; save the approved English in the console and export again, or rerun with --update-english to replace exactly those fields')
+        if stale and source_column == 'default':
+            raise ValueError('Export has no en-us column; --update-english will not write English into the shared default column')
+        for field in stale: by_field[field][source_column] = english[0][mapping[field][0]]
+        changed_cells += len(stale)
+        report = {'column': source_column, 'status': 'updated' if stale else 'matches canonical', 'changed': stale}
+    added, updated = [], {}
+    for column, payload, other, exists in planned:
+        if exists:
+            # Only mapped text cells are touched; media URLs and every other row keep their saved values.
+            updated[column] = [field for field, (key, companion) in mapping.items() if (by_field[field].get(column) or '') != payload[key]]
+            changed_cells += len(updated[column])
+        else:
+            headers.append(column)
+            added.append(column)
+            for row in rows:
+                # Current English URLs preserve approved media without uploading files.
+                row[column] = row.get(source_column, '') or row.get('default', '')
+        for field, (key, companion) in mapping.items():
+            by_field[field][column] = payload[key]
+    targets = added + list(updated)
+    warnings = []
+    for field in unsourced:
+        columns = [column for column in dict.fromkeys([source_column] + targets) if current(field, column)]
+        if columns: warnings.append(f'{field}: no canonical value; existing text left unchanged in {len(columns)} column(s): {", ".join(columns)}')
+    for field, (key, companion) in mapping.items():
+        columns = [column for column in targets if companion in by_field and not current(companion, column)]
+        if columns: warnings.append(f'{field}: {companion} is empty in {len(columns)} column(s): {", ".join(columns)}; the text has no media to describe there')
+    unmapped = [header for header in headers[4:] if header != source_column and header not in targets]
+    if unmapped: warnings.append(f'Locale columns without a canonical mapping left unchanged: {", ".join(unmapped)}')
     with destination.open('w', encoding='utf-8-sig', newline='') as stream:
         writer = csv.DictWriter(stream, fieldnames=headers)
         writer.writeheader()
         writer.writerows(rows)
-    return {'new_locales': len(planned), 'rows_preserved': len(rows), 'source_column': source_column, 'mapped_text_fields': list(mapping), 'upload_eligible': False, 'note': 'Requires console validation, current submission preflight and saved readback. Existing English and template identifiers preserved.'}
+    result = {'new_locales': len(added), 'added_locales': added, 'updated_locales': updated, 'changed_cells': changed_cells, 'rows_preserved': len(rows), 'source_column': source_column, 'mapped_text_fields': list(mapping), 'warnings': warnings, 'upload_eligible': False, 'note': 'Requires console validation, current submission preflight and saved readback. Template identifiers and unmapped cells preserved; changed_cells counts overwritten cells in columns the export already had.'}
+    if update_existing: result['english'] = report
+    return result
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('template', type=Path)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--root', type=Path, default=ROOT)
+    parser.add_argument('--update-existing', action='store_true', help='Replace the mapped canonical text rows in locale columns the export already has; every other cell in those columns is kept')
+    parser.add_argument('--update-english', action='store_true', help='With --update-existing: also replace mapped text rows of the English column instead of stopping when they differ from canonical English')
     args = parser.parse_args()
     try:
         if args.template.resolve() == args.out.resolve(): raise ValueError('Preserve original console export; output must be a different path')
-        print(json.dumps(build(args.template, args.out, args.root), indent=2))
+        result = build(args.template, args.out, args.root, args.update_existing, args.update_english)
+        # One line per locale: the template Fields whose saved value was replaced.
+        result['updated_locales'] = {column: ', '.join(fields) or 'already current' for column, fields in result['updated_locales'].items()}
+        result['added_locales'] = ', '.join(result['added_locales'])
+        print(json.dumps(result, indent=2))
     except (ValueError, OSError, KeyError, ET.ParseError, zipfile.BadZipFile) as error:
         print(error, file=sys.stderr)
         return 1
