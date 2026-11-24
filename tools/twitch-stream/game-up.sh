@@ -20,6 +20,16 @@ if curl -s -o /dev/null --max-time 1 "http://127.0.0.1:$MCP_PORT/mcp"; then
   echo "game already listening on MCP port $MCP_PORT"; exit 0
 fi
 [[ -x "$GLOB2_BIN" ]] || { echo "No game binary at $GLOB2_BIN (see setup.sh --with-game)" >&2; exit 1; }
+# Stream-specific game settings, applied to the stream profile before every launch (the game reads
+# preferences only at start and may rewrite the file on exit). Default: no clouds or cloud shadows,
+# which turned to blocky smears after H.264 encoding.
+prefs="$GAME_PROFILE/preferences.txt"
+touch "$prefs"
+for kv in $STREAM_GAME_PREFS; do
+  k="${kv%%=*}"; v="${kv#*=}"
+  [[ "$k" =~ ^[A-Za-z][A-Za-z0-9_]*$ ]] || { echo "bad STREAM_GAME_PREFS entry: $kv" >&2; exit 2; }
+  if grep -q "^$k=" "$prefs"; then sed -i "s|^$k=.*|$k=$v|" "$prefs"; else echo "$k=$v" >> "$prefs"; fi
+done
 cd "$GLOB2_SRC"
 # SDL3 ignores PULSE_SINK on its PipeWire backend; the Pulse backend honours it, and
 # route-audio.sh catches PipeWire's remembered per-application routing.

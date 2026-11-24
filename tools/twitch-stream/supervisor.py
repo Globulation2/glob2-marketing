@@ -81,6 +81,7 @@ class Supervisor:
         self.mode = args.stream.split(":", 1)[0]
         self.low_disk = False
         self.player_token = None
+        self.player_last_code = None
 
     # --- helpers ------------------------------------------------------------------
     def mcp(self, tool, arguments=None, timeout=5):
@@ -115,6 +116,26 @@ class Supervisor:
                 pass
 
     # --- game ---------------------------------------------------------------------
+    def restart_game_if_requested(self):
+        """Between matches, restart the game when STATE_DIR/restart-game exists (touch it to apply game
+        settings or a new build without cutting a match short)."""
+        flag = self.state / "restart-game"
+        if not flag.exists():
+            return
+        log.info("restarting the game between matches as requested")
+        pid_file = self.log_dir / "game.pid"
+        try:
+            os.kill(int(pid_file.read_text()), signal.SIGTERM)
+        except (OSError, ValueError):
+            pass
+        for _ in range(20):
+            try:
+                self.mcp("ui_status", timeout=1)
+            except Exception:  # noqa: BLE001 - gone
+                break
+            time.sleep(1)
+        flag.unlink(missing_ok=True)
+
     def ensure_game(self):
         out = self.run_script("game-up.sh")
         if out.returncode:
@@ -386,6 +407,7 @@ class Supervisor:
                 out_path = self.player_logs / f"match-{stamp}-{cur['number']:05d}-{part:02d}.jsonl.gz"
                 began = time.time()
                 code, sid, cost = self.run_turn(self.player_cmd(session_id), prompt, out_path, deadline)
+                self.player_last_code = code
                 total_cost += cost or 0.0
                 session_id = sid or session_id
                 log.info("player turn %d exited with %s after %.0f s (cost so far $%.2f)",
@@ -494,8 +516,16 @@ class Supervisor:
                 played += 1
                 attempts = fast_failures = 0
                 self.sleep(20)  # intermission caption stays up briefly
+                self.restart_game_if_requested()
                 continue
-            attempts += 1
+            # Count only sessions that failed on their own and quickly. A session ended by a signal
+            # (an operator restart to apply changes, exit 143/137) or one that played for a while
+            # isn't a failed attempt: three such restarts once abandoned a live match (2026-11-24).
+            code = self.player_last_code
+            if code in (143, 137, -15, -9) or time.time() - began > 600:
+                attempts = 0
+            else:
+                attempts += 1
             if attempts >= SESSION_RETRIES:
                 self.abandon(cur, f"no result after {attempts} sessions")
                 played += 1
