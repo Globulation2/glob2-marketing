@@ -1,5 +1,7 @@
 # Launch positioning v1
 
+**Superseded by [positioning v2](positioning-v2.md) on 2026-11-24.**
+
 [Analysis index](README.md) · [Task ledger](../planning/tasks.md) · [Earlier options](positioning-options.md) · [Product facts](../facts/product.md)
 
 Selected by the user **2026-10-26** through discussion. This is the agreed working positioning for launch, open to later revision. It is a user decision, not a player-research finding or a claim that the wording has been validated with an audience. No live copy or listings have been changed.

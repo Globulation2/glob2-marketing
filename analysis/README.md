@@ -2,7 +2,7 @@
 
 [Repository overview](../README.md) · [Task ledger](../planning/tasks.md) · [Facts](../facts/README.md)
 
-This section explores hypotheses and alternatives, separate from the factual estate inventory. The [launch positioning v1](positioning-v1.md) records the user’s subsequent message decision; it does not represent validated market demand.
+This section explores hypotheses and alternatives, separate from the factual estate inventory. The [launch positioning v1](positioning-v1.md) records the user’s subsequent message decision, and [positioning v2](positioning-v2.md) the decision that replaced it on 2026-11-24; neither represents validated market demand.
 
 ## Possibility maps
 
@@ -17,7 +17,13 @@ The four initial maps have undergone evidence-boundary and peer review. No hypot
 
 ## Current positioning
 
-- [Launch positioning v1](positioning-v1.md): agreed headline and pitch, message emphasis and decision limits. Colony building and economics lead; selected through discussion, without player testing.
+- [Storefront positioning v2](positioning-v2.md): user decision of 2026-11-24. Mobile listings lead with real-time-strategy gameplay and the fair deal; desktop listings add AI co-play through MCP. Key messages per platform, proof points, banned and cautioned claims, and differences from v1. Not player-validated.
+- [Mobile store comparables](mobile-store-comparables.md): how comparable strategy games present their store listings; evidence for the v2 revamp.
+- [Player priorities](player-priorities.md): what players say they want from a strategy listing and its monetisation; evidence for the v2 revamp.
+
+## Superseded positioning
+
+- [Launch positioning v1](positioning-v1.md): superseded by v2 on 2026-11-24. Agreed headline and pitch, message emphasis and decision limits. Colony building and economics lead; selected through discussion, without player testing.
 
 ## Launch press research
 

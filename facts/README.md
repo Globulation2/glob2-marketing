@@ -17,6 +17,7 @@ This section inventories what already exists and reconstructs the game's history
 - [Distribution platforms](distribution.md): observed releases/listings, preparation-only stores and version/context differences.
 - [History](history.md): predecessor, development, releases, community and hosting milestones, with chronology gaps.
 - [Public platform audit](platform-audit.md): 21 presentation records, exact copy/version/destination observations, 18 visually inspected image assets and unresolved store/console coverage.
+- [Storefront v2 claims](storefront-v2-claims.md): each claim in the 2026-11-24 listing revamp checked against the game source, production and store declarations, with allowed and banned wording per store.
 
 The first bounded inventory pass is complete. Open verification work remains within each ledger; completeness of this pass does not establish an exhaustive estate audit.
 

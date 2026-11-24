@@ -3,13 +3,14 @@
 [Repository overview](../README.md) · [Facts](../facts/README.md) · [Analysis](../analysis/README.md)
 
 - [Social media strategy](social-media-strategy.md) covers onboarding, editorial cadence, profile copy, ownership and measurement.
-- [Gameplay video for marketing](gameplay-video.md) covers scene selection, capture and review for promotional clips.
+- [Gameplay video for marketing](gameplay-video.md) covers scene selection, capture and review for promotional clips. Binding for all store screenshots and trailer footage since 2026-11-24.
 - [Twitch streaming](twitch-streaming.md) records the 24/7 Claude Plays Glob format, weekly challenges, audience measurement and the verification of the tracked broadcast rig. Code and operating guide in [tools/twitch-stream](../tools/twitch-stream/README.md).
 - [Reddit campaign kit](reddit-campaign/README.md) contains community-specific desktop remaster briefs, submission drafts and media provenance.
 - [Domain migration](domain-migration.md): canonical `glob2.online` destinations, old-domain redirect work, verification and external-access gaps.
 - [Domain migration operations](domain-migration-operations.md): verified runtime transition, restart-safe edge bridge, rollback/cleanup boundaries and remaining website certificate/redirect steps.
 - [Linux distro rollout](linux-distro-rollout.md): CMake packaging campaign, per-release submission routes, and evidence required for downloads and launch updates.
-- [Approved storefront rollout](approved-storefront-rollout.md): 2026-10-30 user approval, exact approved copy/media and cross-store execution status.
+- [Storefront v2 rollout](storefront-v2-rollout.md): 2026-11-24 user decisions, work units, per-store timing and evidence levels for the revamped copy, key art, screenshots, icon and trailer. Message in [positioning v2](../analysis/positioning-v2.md); evidence in [mobile store comparables](../analysis/mobile-store-comparables.md), [player priorities](../analysis/player-priorities.md) and [storefront v2 claims](../facts/storefront-v2-claims.md).
+- [Approved storefront rollout](approved-storefront-rollout.md): 2026-10-30 user approval, exact approved copy/media and cross-store execution status. Storefront-v1; being replaced by the v2 revamp above.
 - [itch.io launch](itch-io-launch.md) tracks listing preparation, desktop downloads, access and launch verification.
 - [GOG release readiness](gog-release-readiness.md): approved English copy/source assets, official delivery checklist and unresolved onboarding/build handoff.
 - [Canonical storefront translations](../translations/README.md): 44 non-English language catalogs, independent AI review, platform field exports, maintenance and artwork audit.
@@ -23,7 +24,7 @@
 - [iOS App Review response](apple-app-review-response.md): sent two-clip/six-answer response with verified Notes and signing/coverage evidence; same existing build resubmitted and Waiting for Review confirmed.
 - [MCP outreach research](mcp-outreach/README.md) covers AI and game publications, creators, competing precedents, and the evidence needed for a multiplayer pitch.
 - [Mobile press outreach drafts](mobile-press-outreach.md) provides outlet-specific messages and the review checks for platform and regional release details.
-- [Launch positioning v1](../analysis/positioning-v1.md): current agreed headline, pitch and message emphasis; selected through discussion.
+- [Launch positioning v1](../analysis/positioning-v1.md): agreed headline, pitch and message emphasis; selected through discussion. Superseded by [positioning v2](../analysis/positioning-v2.md) on 2026-11-24.
 - [Epic profile v1](epic-store-profile-v1.md): historical first-store draft and metadata checks; superseded as a copy source by the approved rollout record.
 - [Epic requirements](epic-store-requirements.md): current official field/media requirements and remaining portal checks.
 - [Epic page presentation](../assets/epic-page-preview/README.md): coherent local desktop/mobile review of the current cover, genuine game gallery, approved positioning and About sections; not a live listing.

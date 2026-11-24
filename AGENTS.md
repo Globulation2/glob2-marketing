@@ -32,6 +32,8 @@ The user subsequently authorized a public platform audit and positioning-option 
 
 ## Selected launch v1
 
+**Superseded as the current message reference on 2026-11-24** by [positioning v2](analysis/positioning-v2.md); see [Storefront v2 revamp](#storefront-v2-revamp--2026-11-24). The text below is kept as the record of the earlier decision.
+
 The user subsequently stopped recruitment/testing as the immediate approach and selected a working launch positioning through discussion on 2026-10-26. Use [the agreed v1](analysis/positioning-v1.md) as the current message reference: colony building and economics lead, with spatial strategy and rival pressure supporting. Historical research plans remain preserved but are not active launch prerequisites. This is a user decision, not player validation or authorization to contact people or change live listings.
 
 ## Approved storefront rollout
@@ -40,6 +42,8 @@ On 2026-10-30, after reviewing the final Epic-style presentation, the user said:
 
 ## Approved imagery only
 
+**Superseded on 2026-11-24** by the [real-game-art-only rule](#real-game-art-only) in the storefront v2 section below. The text below is kept as the record of the earlier rule and still describes what was uploaded under storefront-v1. Its upload-verification requirement is unchanged and carries into v2: wait for uploads to finish before saving, then use a fresh server reload and visual comparison.
+
 On 2026-10-30, the user required using only approved images/screenshots or direct modifications of them, with no outside imagery. All new storefront uploads must come from the [approved source family and direct derivatives](planning/approved-storefront-rollout.md#approved-imagery-only--2026-10-30). Do not add unrelated, stock or newly generated imagery. Preserve existing mobile device galleries and compiled application icons unless an approved replacement is available. Wait for uploads to finish before saving, then use a fresh server reload and visual comparison to verify the saved images; an initiated upload or generic save success is insufficient evidence.
 
 ## Publishing and approval submission authorized
@@ -47,3 +51,71 @@ On 2026-10-30, the user required using only approved images/screenshots or direc
 On 2026-10-30, the user explicitly instructed: “We need to start getting these things live and start publishing, submitting them for approval, everything.” This supersedes the earlier marketing-only/no-release boundary. Proceed with review submissions and actual publication/releases of the current Glob2 products when the platform preflight and current-artifact checks allow; publication itself does not require another confirmation.
 
 Keep legal, fee, security and policy answers truthful and evidence-backed. Do not blindly accept payments, agreements or declarations to bypass a gate, invent release qualification, or publish an incomplete package. Existing approved imagery/direct-derivative restrictions and the user-selected `https://glob2.online/` main website remain in force. Record saved drafts, submitted reviews, approved versions and publicly live releases separately in the [publishing ledger](planning/approved-storefront-rollout.md#publishing-and-review-submission-authorized--2026-10-30). No future action is complete merely because it is authorized.
+
+## Storefront v2 revamp — 2026-11-24
+
+On 2026-11-24 the user asked for a revamp of the store listings and made the decisions below. They are binding for all storefront work from that date. The working records are [positioning v2](analysis/positioning-v2.md) and the [storefront v2 rollout ledger](planning/storefront-v2-rollout.md); work from those files, not from chat.
+
+Where the user's own words are available they are quoted. The other decisions were selected by the user from options the coordinating agent presented, and are recorded as user selections, not quotations.
+
+### What the user asked for
+
+> I want to refresh the visual appearance as best we can, especially the main store image and the game screenshots. We kind of look amateurish right now.
+
+> make sure we are mentioning some of our biggest advantages like being 100% ad-free while also free to play and also no annoying lootboxes or in-game currencies. For desktop users, being the first game you can play in tandem with AI through MCP is a selling point. For mobile users, its just great RTS gameplay.
+
+> for in-game footage, make sure it follows our marketing rules too about capturing exciting action scenes and not boring mostly empty scenes
+
+### Authorization
+
+The user authorized, as one piece of work:
+
+- revamping the canonical listing as storefront-v2: copy, key art, screenshots, icon and trailer;
+- translating it into all supported languages (the English source plus the 44 non-English catalogs in [translations](translations/README.md)), each with an independent review;
+- applying it to project-controlled stores and their maintained source metadata, without interrupting in-flight store reviews.
+
+**No sign-off stops** (user selection). The team runs end to end. Do not pause for user approval between phases; report results to the coordinating agent, which sends key deliverables to the user as they land without blocking on a reply.
+
+This does not widen anything else. Sign-in and multi-factor prompts stay with the user. A new agreement, fee or declaration is put to the user rather than accepted to clear a gate. The [publishing rules above](#publishing-and-approval-submission-authorized) on truthful legal, fee, security and policy answers still apply, and so does `https://glob2.online/` as the main website. Changes in other repositories follow those repositories' own rules. Authorization is not evidence that a listing has been updated; record prepared, reviewed, saved, submitted and publicly verified states separately in the ledger.
+
+**Rollout timing** (user selection). Update Snap, itch.io, Microsoft Store, Google Play and the maintained F-Droid/AppStream source metadata now. Update Apple (iOS and Mac), Epic and Amazon when each review clears or with the next version. Prepare Steam and GOG assets only. Before writing to any store, check that no review is in flight there.
+
+### Real game art only
+
+This replaces [Approved imagery only](#approved-imagery-only) (user selection).
+
+- Allowed: fresh in-engine captures, compositions of real game sprites and scenes, and design treatment of them (captions, framing, crops).
+- Not allowed: AI-generated imagery and stock imagery, in any storefront image or video.
+- The storefront-v1 source family is no longer the limit on what may be uploaded. A v1 image may be reused only if it meets this rule and the footage rule below; the v1 illustrated cover is replaced by key art built from real game art.
+- The earlier instruction to preserve existing mobile device galleries and application icons is lifted for v2: the galleries are replaced with fresh captures, and the icon with a faithful, sharp high-resolution redraw of the existing blue glob icon (same shape, not a redesign; user selection).
+- Upload verification is unchanged. Wait for uploads to finish before saving, then use a fresh server reload and visual comparison to verify the saved images. An initiated upload or a generic save success is insufficient evidence.
+
+Wherever an earlier section or ledger refers to the approved-imagery restriction as still in force, read it as this rule for v2 work.
+
+### Footage rule
+
+[Gameplay video for marketing](planning/gameplay-video.md) is binding for every store screenshot and all trailer footage, not only for social clips. In short: developed colonies with many visible buildings and units, visible activity from the first frame, the action recognisable at phone and feed size, and the actual match, interface and gameplay speed. No mostly empty terrain, early-game starts, fog-black frames or menu screens as gameplay shots. Label AI-versus-AI footage as a spectator view and record build, platform, map and capture conditions.
+
+### Monetisation: nothing is sold
+
+When asked what is sold to players, the user answered: "Nothing is sold". The listing says so flatly: free, no ads, no in-app purchases, no lootboxes, no in-game currency.
+
+The source contains payment and credit machinery for colony skins, Hive Mind and the Studios ([product ledger](facts/product.md#existing-commercial-machinery)). Those are not promoted in any listing. The claims verifier checks production and each store's ads and purchase declarations and records the result in [storefront v2 claims](facts/storefront-v2-claims.md). A claim that cannot be confirmed for a store is dropped or scoped there and reported to the user.
+
+### MCP: never claim "first"
+
+The user's first wording called Globulation 2 "the first game you can play in tandem with AI through MCP". After being shown the [prior-art research](planning/mcp-outreach/product-and-prior-art.md), the user chose to drop "first". Do not write "first" about MCP or AI play in any form, in any language, in copy, captions, images or video.
+
+The desktop pitch is: play the same colony alongside your own AI agent through the game's built-in MCP server. MCP is desktop-only (native Windows, macOS and Linux). It is not mentioned in mobile listings, and it is used for a desktop store only where the claims verifier has confirmed it for that store's build.
+
+### Platform split
+
+- **Mobile listings** lead with great real-time-strategy gameplay plus the fair deal (free, no ads, no in-app purchases).
+- **Desktop listings** carry the same, and add AI co-play through MCP.
+
+This supersedes [positioning v1](analysis/positioning-v1.md), including its line that AI tooling is not the lead promise. Positioning v2 is a user decision, not player validation.
+
+### Other user selections
+
+- **Trailer:** yes, 30–45 seconds, from real in-engine recordings.
+- **Localized screenshot captions:** captioned sets rendered by script for all 44 non-English languages and English; uploads are tiered, top languages first.

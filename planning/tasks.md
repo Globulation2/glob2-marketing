@@ -85,7 +85,20 @@ The three-player preparation task remains complete as historical work; the user 
 
 Epic Games Store is the selected first destination. The reusable copy and existing-asset brief remain source material for its concrete profile and artwork pack. The current local game source contains an [Epic Windows/free-base-offer workflow](https://github.com/Globulation2/glob2/blob/7ebec312cd2bdcb6b6f685e141726b8caaca9ef7/docs/releases/store-setup.md#epic-games-store), observed 2026-10-26; this is preparation evidence, not a verified live listing or account-access finding. The later user selection supplies the platform decision.
 
+## Storefront v2 revamp
+
+On 2026-11-24 the user asked for the store listings to be revamped and made the decisions recorded in [AGENTS.md](../AGENTS.md#storefront-v2-revamp--2026-11-24): real game art only, nothing is sold, never claim "first" for MCP, a mobile/desktop platform split, and rollout without interrupting in-flight reviews or stopping for sign-off. Work units V2-00 to V2-14 and per-store status live in the [storefront v2 rollout ledger](storefront-v2-rollout.md); this table only points to them.
+
+| ID | Task | Status | Dependency / completion evidence |
+| --- | --- | --- | --- |
+| MKT-067 | Record the user's 2026-11-24 storefront decisions | Complete | [Working rules](../AGENTS.md#storefront-v2-revamp--2026-11-24), [positioning v2](../analysis/positioning-v2.md) and the [rollout ledger](storefront-v2-rollout.md). [Positioning v1](../analysis/positioning-v1.md) is marked superseded. A record of decisions only; no copy, asset or listing changed. |
+| MKT-068 | Research and verify claims for storefront-v2 | In progress | [Mobile store comparables](../analysis/mobile-store-comparables.md), [player priorities](../analysis/player-priorities.md) and [storefront v2 claims](../facts/storefront-v2-claims.md). A claim that cannot be confirmed is dropped or scoped and reported to the user. |
+| MKT-069 | Produce storefront-v2: English copy, key art, screenshots, icon, trailer, and 44 reviewed translations | Planned | Depends on MKT-068. Work units V2-03 to V2-11 in the [rollout ledger](storefront-v2-rollout.md#work-units). All footage follows [gameplay video](gameplay-video.md). |
+| MKT-070 | Apply storefront-v2 to project-controlled stores and verify each by readback | Planned | Depends on MKT-069. [Per-store table](storefront-v2-rollout.md#per-store-rollout): Snap, itch.io, Microsoft Store, Google Play and source metadata now; Apple, Epic and Amazon when each review clears; Steam and GOG prepared only. |
+
 ## Deferred decisions
+
+On 2026-11-24, [positioning v2](../analysis/positioning-v2.md) superseded v1 for store listings, the user stated that nothing is sold to players, and storefront-v2 began replacing the presentation approved under MKT-030. The paragraph below is the earlier record.
 
 The [working launch positioning and copy](../analysis/positioning-v1.md) are selected. The current store presentation and canonical gallery are approved for use under MKT-030. Detailed audience targeting, commercial model, channel priorities and launch campaigns remain separate decisions. Earlier possibility maps remain research alternatives rather than adopted strategy.
 
