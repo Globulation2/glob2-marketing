@@ -17,6 +17,7 @@ import os
 import pathlib
 import subprocess
 import sys
+import time
 
 import rigconfig
 import rigstate
@@ -137,8 +138,13 @@ def camera_show(cfg, a) -> str:
 # The player's only way to let time pass. On stream the player drifted from short waits to
 # 9000-tick waits that woke only on hive failures while its base was attacked (2026-11-24), so the
 # cap and the wake-up events are enforced here, and its policy denies the raw game_wait.
-WAIT_MAX_TICKS = 600          # 20 s of game time at normal speed
-WAIT_TIMEOUT_MS = 20000
+WAIT_MAX_TICKS = 300          # 10 s of game time at normal speed
+WAIT_TIMEOUT_MS = 12000
+# Waits ran their full length and took about two thirds of the player's time (match 5), so a rolling
+# budget refuses a wait once waiting has used WAIT_BUDGET of the last WAIT_WINDOW seconds.
+WAIT_WINDOW = 120.0
+WAIT_BUDGET = 0.40
+_waits = []                   # (start, end) wall times of this session's waits
 WAIT_ALWAYS = ["attack", "building_lost", "conversion_lost", "enemy_sighted"]
 WAIT_EXTRA = ["building_completed", "enemy_building_gone", "hive_failure", "hive_wake", "conversion_gained"]
 
@@ -152,12 +158,20 @@ def match_wait(cfg, a) -> str:
     except (TypeError, ValueError):
         raise CtlError("ticks must be a whole number")
     ticks = max(30, min(ticks, WAIT_MAX_TICKS))
+    now = time.time()
+    waited = sum(max(0.0, min(e, now) - max(s, now - WAIT_WINDOW)) for s, e in _waits)
+    if waited > WAIT_BUDGET * WAIT_WINDOW:
+        raise CtlError(f"you've spent {waited:.0f} of the last {WAIT_WINDOW:.0f} s waiting: play instead. Check food, "
+                       "workers, construction and military with game_world and make a decision, narrate, or move the camera")
     extra = [e for e in (a.get("also_until") or []) if e in WAIT_EXTRA]
     args = {"ticks": ticks, "timeout_ms": WAIT_TIMEOUT_MS, "until": WAIT_ALWAYS + extra}
     if a.get("include"):
         args["include"] = [str(x) for x in a["include"]][:8]
     try:
+        started = time.time()
         out = camera._rpc("game_wait", args, timeout=WAIT_TIMEOUT_MS / 1000 + 10)
+        _waits.append((started, time.time()))
+        del _waits[:-50]
     except Exception as e:  # noqa: BLE001 - report, don't crash the server
         raise CtlError(f"wait failed: {type(e).__name__}") from None
     if "error" in out:
@@ -169,7 +183,7 @@ def match_wait(cfg, a) -> str:
 
 
 TOOLS = {
-    "match_wait": ("Let game time pass while nothing needs you: up to 600 ticks (20 s), waking early on attacks, "
+    "match_wait": ("Let game time pass while nothing needs you: up to 300 ticks (10 s), waking early on attacks, "
                    "lost buildings, conversions or enemy sightings (and also_until events). Returns why it woke "
                    "and the alerts since. Your only way to wait: act on what it reports, then narrate or move "
                    "the camera before waiting again.",
