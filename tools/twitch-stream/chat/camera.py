@@ -120,14 +120,14 @@ def clear_expired_label() -> None:
             pass
 
 
-def _rpc(name: str, arguments: dict) -> dict:
+def _rpc(name: str, arguments: dict, timeout: float = 15) -> dict:
     port = int(env("MCP_PORT", "27300"))
     body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": "tools/call",
                        "params": {"name": name, "arguments": arguments}}).encode()
     req = urllib.request.Request(f"http://127.0.0.1:{port}/mcp", body, {
         "Content-Type": "application/json", "Accept": "application/json, text/event-stream",
         "MCP-Protocol-Version": PROTOCOL, "Mcp-Method": "tools/call", "Mcp-Name": name})
-    with urllib.request.urlopen(req, timeout=15) as resp:
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
         return json.load(resp)
 
 
