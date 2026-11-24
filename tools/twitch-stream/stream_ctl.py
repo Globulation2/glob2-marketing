@@ -38,6 +38,9 @@ def clean(value, field: str) -> str:
         raise CtlError(f"{field}: empty")
     if any(ord(c) < 32 or ord(c) == 127 for c in value):
         raise CtlError(f"{field}: must be one line of plain text")
+    if field in ("goal", "last") and camera.COORDS.search(value):
+        raise CtlError(f"{field}: no coordinates or building ids on stream; describe the place the way viewers "
+                       "see it (\"Maxima's base in the north\", \"the wheat field south of our Swarm\")")
     if len(value) > LIMITS[field]:
         raise CtlError(f"{field}: {len(value)} characters; keep it to {LIMITS[field]} or fewer")
     return value
@@ -112,7 +115,8 @@ def result(cfg, outcome, note=None) -> str:
     rigstate.append_jsonl(rigstate.state_dir(cfg) / "games.jsonl", row)
     rec = f"overall {rigstate.record(games + [row])}"
     word = {"win": "Win", "loss": "Loss", "draw": "Draw", "aborted": "Match abandoned"}[outcome]
-    set_caption(cfg, f"Claude Plays Glob · Between matches\nGame {cur['number']}: {word} vs {cur['opponent']} · {rec}")
+    shown = f"Game {rigstate.decided(games + [row])}: " if outcome != "aborted" else ""
+    set_caption(cfg, f"Claude Plays Glob · Between matches\n{shown}{word} vs {cur['opponent']} · {rec}")
     cur.update(phase="intermission", result=outcome)
     rigstate.save_current(cfg, cur)
     return f"match {cur['number']} recorded: {outcome} vs {cur['opponent']} ({rec})"
@@ -180,29 +184,39 @@ def match_wait(cfg, a) -> str:
         raise CtlError(str(out["error"].get("message", "wait failed"))[:300])
     content = out.get("result", {}).get("content", [])
     text = content[0].get("text", "") if content else ""
-    return _wait_notes(text) + text
+    ff = bool(rigstate.current(cfg).get("fast_forward"))
+    return _wait_notes(text, ff) + text
 
 
 # In match 7 the player set 2x speed once and kept it through the attack that ended the match, and
 # never moved the camera; prompt rules didn't hold under pressure, so the wait reply enforces them.
-CRITICAL_KINDS = ("attack", "unit_attacked", "building_attacked", "building_destroyed", "building_lost",
-                  "unit_converted_away", "conversion")
+# Only real threats to the colony count (user: the slow-down shouldn't be so strict): own buildings
+# attacked or destroyed, or units converted away, reported within the last ~20 s of game time.
+# Units fighting (e.g. an offensive) and sightings don't.
+CRITICAL_KINDS = ("building_attacked", "building_destroyed", "building_lost", "unit_converted_away")
+CRITICAL_MAX_TICKS_AGO = 600
 CAMERA_IDLE_NUDGE = 60.0
 
 
-def _wait_notes(text: str) -> str:
+def _wait_notes(text: str, fast_forward: bool = False) -> str:
     notes = []
     try:
         reply = json.loads(text)
     except ValueError:
         reply = {}
-    kinds = " ".join(str(a.get("kind", "")) + " " + str(a.get("event", "")) for a in reply.get("alerts", []) or [])
-    critical = reply.get("reason") not in (None, "ticks", "timeout") or any(k in kinds for k in CRITICAL_KINDS)
+    critical = any(str(al.get("kind", "")) in CRITICAL_KINDS
+                   and int(al.get("ticks_ago", 0) or 0) <= CRITICAL_MAX_TICKS_AGO
+                   for al in reply.get("alerts", []) or [] if isinstance(al, dict))
     try:
         status = json.loads(camera._rpc("game_time", {"action": "status"})["result"]["content"][0]["text"])
         speed = int(status.get("speed_value", 0))
     except Exception:  # noqa: BLE001 - notes are best effort
         speed = None
+    if fast_forward:
+        notes.append("Fast-forwarding to the end of a lost match: keep the speed up (4x, up to 8x if it drags), "
+                     "point the camera at your colony's last stand and narrate it, with humour. Record the result "
+                     "with match_result when the game ends.")
+        critical = False
     if critical and speed and speed > 0:
         token = camera.read_token()
         try:
@@ -214,7 +228,7 @@ def _wait_notes(text: str) -> str:
             pass
     if speed is not None:
         notes.append(f"Game speed is {'normal' if speed == 0 else ('2x' if speed == 3 else f'level {speed}')}"
-                     + (" — drop to speed 0 the moment anything gets critical." if speed > 0 else "."))
+                     + (" — drop to speed 0 the moment anything gets critical." if speed > 0 and not fast_forward else "."))
     idle = camera.seconds_since_move()
     if idle > CAMERA_IDLE_NUDGE and camera.hold_remaining() <= 0:
         notes.append(f"The camera hasn't moved for {int(min(idle, 999))} s: show viewers something with "
@@ -222,7 +236,78 @@ def _wait_notes(text: str) -> str:
     return "\n".join(notes) + "\n"
 
 
+# Narration through stream-ctl (the player's raw game_chat is denied). Prompt rules for pace didn't
+# hold (match 12: ~4 messages a minute), so the pace and the no-coordinates rule are enforced here.
+NARRATE_MIN_INTERVAL = 30.0
+_last_narration = [0.0]
+
+
+def narrate(cfg, a) -> str:
+    for k in ("MCP_PORT", "STATE_DIR"):
+        if cfg.get(k):
+            os.environ.setdefault(k, str(cfg[k]))
+    text = " ".join(str(a.get("text") or "").split())
+    text = camera.strip_coords(text)
+    if not text:
+        raise CtlError("nothing to say")
+    raw = text.encode("utf-8")[:254]
+    text = raw.decode("utf-8", "ignore")
+    since = time.time() - _last_narration[0]
+    if since < NARRATE_MIN_INTERVAL:
+        return (f"not sent: your last message was {since:.0f} s ago (one every {NARRATE_MIN_INTERVAL:.0f} s at most). "
+                "Keep playing and say it later if it still matters.")
+    token = camera.read_token()
+    if not token:
+        raise CtlError("no game control right now; take control first")
+    out = camera._rpc("game_chat", {"text": text, "token": token})
+    if "error" in out:
+        raise CtlError(str(out["error"].get("message", "chat failed"))[:200])
+    result = out.get("result", {})
+    if result.get("isError"):
+        raise CtlError((result.get("content") or [{}])[0].get("text", "chat failed")[:200])
+    _last_narration[0] = time.time()
+    return "said in game chat: " + text
+
+
+FAST_FORWARD_SPEED = 5          # 4x; the player may go up to 7 (8x) if the end still drags
+
+
+def match_fast_forward(cfg, a) -> str:
+    """User decision (2026-11-24): a hopeless match isn't conceded or ground out at normal speed; the
+    game is sped up to its natural end while the player narrates and shows its colony's downfall."""
+    cur = assignment(cfg)
+    reason = clean(a.get("reason"), "note")
+    for k in ("MCP_PORT", "STATE_DIR"):
+        if cfg.get(k):
+            os.environ.setdefault(k, str(cfg[k]))
+    token = camera.read_token()
+    if not token:
+        raise CtlError("no game control right now; take control first")
+    out = camera._rpc("game_time", {"action": "status", "speed": FAST_FORWARD_SPEED, "token": token})
+    if "error" in out:
+        raise CtlError(str(out["error"].get("message", "couldn't change the speed"))[:200])
+    cur.update(fast_forward=True, fast_forward_reason=reason)
+    rigstate.save_current(cfg, cur)
+    try:
+        caption(cfg, cur.get("goal") or "Fast-forwarding to the end", "Fast-forwarding a lost match to its end")
+    except CtlError:
+        pass
+    return ("fast-forward on for the rest of this match: speed 4x (you may raise it to game_time speed 7, 8x, "
+            "if it still drags). The automatic slow-down is off. Keep the camera on the action, narrate your "
+            "colony's last stand with good humour, and call match_result when the game ends.")
+
+
 TOOLS = {
+    "narrate": ("Say something to viewers in the in-game chat (your narration). At most one message every 30 s; "
+                "extra messages are not sent. Up to 254 bytes; tile coordinates are removed, so describe places "
+                "the way viewers see them.",
+                _schema({"text": {"type": "string", "maxLength": 400}}, ["text"]), narrate),
+    "match_fast_forward": ("When the match is effectively done (win chance 10% or below for a while, or a long "
+                           "stalemate with no progress), speed the game to its natural end instead of grinding: sets 4x speed and "
+                           "turns off the automatic slow-down for the rest of the match. Then narrate and show "
+                           "the end. Give a short reason.",
+                           _schema({"reason": {"type": "string", "maxLength": 200}}, ["reason"]),
+                           match_fast_forward),
     "match_wait": ("Let game time pass while nothing needs you: up to 300 ticks (10 s), waking early on attacks, "
                    "lost buildings, conversions or enemy sightings (and also_until events). Returns why it woke "
                    "and the alerts since. Your only way to wait: act on what it reports, then narrate or move "
@@ -313,6 +398,8 @@ def main():
     p = sub.add_parser("result")
     p.add_argument("result", choices=rigstate.RESULTS)
     p.add_argument("--note")
+    p = sub.add_parser("fast-forward")
+    p.add_argument("--reason", required=True)
     args = parser.parse_args()
     cfg = rigconfig.load()
     if args.cmd == "mcp":
@@ -321,6 +408,7 @@ def main():
     try:
         print({"info": lambda: info(cfg),
                "setup-done": lambda: setup_done(cfg, args.generator),
+               "fast-forward": lambda: match_fast_forward(cfg, {"reason": args.reason}),
                "caption": lambda: caption(cfg, args.goal, args.last),
                "result": lambda: result(cfg, args.result, args.note)}[args.cmd]())
     except CtlError as exc:

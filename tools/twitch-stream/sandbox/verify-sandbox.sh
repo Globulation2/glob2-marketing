@@ -172,6 +172,7 @@ for l in sys.stdin:
   if [[ "$(declare -F as_agent)" ]]; then
     grep -q '"mcp__glob2-stream__game_view"' "$AGENT_INSTALL_DIR/policy/player.json" && ok "player policy denies game_view" || bad "player policy lacks the game_view deny"
     grep -q '"mcp__glob2-stream__game_wait"' "$AGENT_INSTALL_DIR/policy/player.json" && ok "player policy denies raw game_wait (capped match_wait instead)" || bad "player policy lacks the game_wait deny"
+    grep -q '"mcp__glob2-stream__game_chat"' "$AGENT_INSTALL_DIR/policy/player.json" && ok "player policy denies raw game_chat (paced narrate instead)" || bad "player policy lacks the game_chat deny"
   fi
 else
   echo "  note  $proxy not installed yet: run install-agent-sandbox.sh"

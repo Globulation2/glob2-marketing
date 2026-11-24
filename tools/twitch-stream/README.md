@@ -167,7 +167,7 @@ Each value is one line of at most 70 characters, so three lines fit beside the b
 | `GAME_RENDERER` | `sdl-gpu` | `software` works without a GPU but is slow. |
 | `STREAM_DISPLAY`, `STREAM_SIZE`, `STREAM_FPS` | `:99`, `1920x1080`, `60` | |
 | `CAMERA_OVERLAY_FILE`, `CAMERA_HOLD_SECONDS`, `CAMERA_MIN_INTERVAL`, `CAMERA_LABEL_SECONDS` | `overlay/camera.txt`, `40`, `8`, `12` | The camera label file and gate timings (see [Camera](#camera)). |
-| `CAMERA_DIRECTOR`, `CAMERA_IDLE_SECONDS` | `0`, `50` | The optional idle director. |
+| `CAMERA_DIRECTOR`, `CAMERA_IDLE_SECONDS` | `1`, `90` | Fallback director: shows the action (alerts, colony, explorers) when nobody has moved the camera for 90 s. On since 2026-11-24, after the camera sat still on empty ground in a long match. |
 | `STREAM_GAME_PREFS` | `clouds=0 cloudShadows=0` | Game settings (`preferences.txt` keys) forced in the stream profile by `game-up.sh` at every launch. Clouds are off because they turn into blocky smears after H.264 encoding. |
 | `AGENT_COMPACT_WINDOW`, `AGENT_COMPACT_PCT` | `100000`, `50` | Agent context compaction, passed by `agent-run` as `CLAUDE_CODE_AUTO_COMPACT_WINDOW` and `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` (validated whole numbers; window at least 100000). Aggressive on purpose: older turns are stale in a real-time match, and lessons live in the notes. Rerun the sandbox installer after changing. |
 | `AUTOSTART_STREAM`, `AUTOSTART_CHAT` | `live`, `1` | What the boot service runs (`autostart/install-autostart.sh`). |

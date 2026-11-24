@@ -82,6 +82,7 @@ class Supervisor:
         self.low_disk = False
         self.player_token = None
         self.player_last_code = None
+        self.low_since = None
 
     # --- helpers ------------------------------------------------------------------
     def mcp(self, tool, arguments=None, timeout=5):
@@ -236,10 +237,38 @@ class Supervisor:
             try:
                 self.write_status(inspect=tick % 3 == 0)
                 self.housekeeping()
+                if tick % 3 == 0:
+                    self.check_fast_forward()
             except Exception:  # noqa: BLE001 - status must never stop the supervisor
                 log.exception("status update failed")
             tick += 1
             self.sleep(10)
+
+    # User decision (2026-11-24): a match at 10% win chance or below is effectively done. If it stays
+    # there for FF_AFTER seconds, speed it to its natural end (fast-forward) even if the player hasn't.
+    FF_WIN_CHANCE = 10
+    FF_AFTER = 600
+
+    def check_fast_forward(self):
+        cur = rigstate.current(self.cfg)
+        if cur.get("phase") != "playing" or cur.get("fast_forward"):
+            self.low_since = None
+            return
+        try:
+            st = self.mcp("game_world", {"detail": "brief", "include": ["status"]})
+            win = int((st.get("status") or {}).get("win_chance"))
+        except Exception:  # noqa: BLE001 - no reading, no decision
+            return
+        if win > self.FF_WIN_CHANCE:
+            self.low_since = None
+            return
+        self.low_since = self.low_since or time.time()
+        if time.time() - self.low_since < self.FF_AFTER:
+            return
+        out = self.run_script("stream_ctl.py", "fast-forward", "--reason",
+                              f"supervisor: win chance {win}% or lower for {self.FF_AFTER // 60} minutes")
+        log.info("fast-forward: %s", (out.stdout + out.stderr).strip()[-200:])
+        self.low_since = None
 
     def write_status(self, inspect=True, mode=None):
         game = {"mcp": False, "screen": None}

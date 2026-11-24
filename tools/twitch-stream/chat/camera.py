@@ -96,10 +96,25 @@ def seconds_since_move() -> float:
     return time.time() - float(last_move().get("at", 0))
 
 
+# Tile coordinates and building ids mean nothing to viewers ("(48,45)", "at 138,147", "#16").
+COORDS = re.compile(r"\(?\s*\b\d{1,3}\s*(?:[-–]\s*\d{1,3}\s*)?,\s*\d{1,3}(?:\s*[-–]\s*\d{1,3})?\b\s*\)?|#\d+")
+
+
+def strip_coords(text: str) -> str:
+    # Drop a preposition that only introduced the coordinates ("the tower at (48,45) now").
+    text = re.sub(r"\s*\b(?:at|near|by|around|to)\s+(?=\(?\s*\d{1,3}\s*(?:[-–]\s*\d{1,3}\s*)?,\s*\d)", " ", text)
+    text = COORDS.sub("", text)
+    text = re.sub(r"\s+(?:at|near|by|around)\s*(?=[,.;:)]|$)", "", text)
+    text = re.sub(r"\(\s*(?:at|near|by|around)?\s*\)?\s*$", "", text)     # a bracket left empty or open
+    text = re.sub(r"\(\s*(?:at|near|by|around)?\s*\)", "", text)
+    text = re.sub(r"\s+([.,;:!?])", r"\1", " ".join(text.split()))
+    return text.strip(" ,;:-(")
+
+
 def clean_label(label) -> str:
     if not isinstance(label, str):
         return ""
-    text = " ".join(LABEL_DROP.sub("", label).split())
+    text = " ".join(LABEL_DROP.sub("", strip_coords(label)).split())
     if URLISH.search(text) or "@everyone" in text.lower() or "@here" in text.lower():
         return ""
     return text[:LABEL_MAX].strip()
@@ -169,9 +184,14 @@ def show(x=None, y=None, zoom=None, width=None, height=None, label="", source="c
     if held > 0 and source != "chat":
         return False, (f"the camera is showing a viewer request for {held:.0f} more s; keep playing and "
                        "narrate instead")
-    wait = min_interval() - seconds_since_move()
+    # Viewer requests win: a chat move is limited only by the previous chat move (and a 2 s floor),
+    # so the player's frequent moves can't lock viewers out (seen at the 15:40 check-in).
+    last = last_move()
+    since = time.time() - float(last.get("at", 0))
+    limit = min_interval() if (source != "chat" or last.get("source") == "chat") else 2.0
+    wait = limit - since
     if wait > 0:
-        return False, f"the camera moved {min_interval() - wait:.0f} s ago; wait {wait:.0f} s before moving it again"
+        return False, f"the camera moved {since:.0f} s ago; wait {wait:.0f} s before moving it again"
     token = read_token()
     if not token:
         return False, "camera unavailable right now (no match is being played)"
