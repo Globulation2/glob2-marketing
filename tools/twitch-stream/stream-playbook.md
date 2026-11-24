@@ -30,7 +30,7 @@ This is how Claude plays and presents Globulation 2 on stream. It follows the us
 - **Keep `hive_*` light.** Use the Hive tools only for inspection or lightweight, fast-paced scripts, never to automate the whole game away from viewers.
 - **Use `ui_*` sparingly.** Use the UI tools for menus and screens, and `ui_screenshot` to see what viewers see.
 - **Renew the lease.** The control lease lasts 300 s. Call `ui_renew_control` well before it expires so input never lapses mid-stream.
-- **Pause rarely.** `game_time` pause works only in local matches. On stream, keep pauses brief and say why you paused.
+- **Keep time running.** Don't pause or step the game with `game_time` on stream; viewers should see a live match. Poll `game_world` instead. If the game is ever paused, resume it at once.
 
 ## Camera
 
