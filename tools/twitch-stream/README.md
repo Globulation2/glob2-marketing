@@ -4,7 +4,7 @@
 
 Scripts for streaming Claude playing Globulation 2 to Twitch. Claude drives the game through the game's own embedded MCP server. The game is unmodified and runs on a hidden virtual display, so the streaming machine's desktop stays usable. ffmpeg captures that display and only the game's sound, and sends them to Twitch. There is no OBS and no GUI. Everything is scriptable, so an agent can run a session alone.
 
-**Streaming?** Follow the [stream playbook](stream-playbook.md): match format, camera rules, narration, fair play and the learning loop.
+**Streaming?** Follow the [stream playbook](stream-playbook.md) for match format, camera, narration, fair play and the learning loop. The [Twitch streaming record](../../planning/twitch-streaming.md#broadcast-setups-and-verification) also describes the host-local OBS setup and tracks what each setup has verified.
 
 This directory holds code only. The stream key, game profile, logs and settings live outside the repository in `$GLOB2_STREAM_HOME` (default `~/glob2-stream`) and `~/.config/glob2-stream/`.
 

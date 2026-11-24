@@ -13,6 +13,7 @@ Turn discovery into a first browser session, help players get through the tutori
 | Website | Canonical play, download and community links. Link verified project profiles from the community page when they are ready. | Update when profiles or destinations change. |
 | Discord | Community home for questions, match coordination, map sharing and release discussion. | Check the official server's announcement and moderation permissions first. Start with one discussion or event prompt every two weeks. |
 | YouTube | Searchable tutorials, gameplay demonstrations and release videos. | Start with one tutorial or gameplay feature per month when footage and captions are ready. |
+| Twitch | The official Globulation 2 channel is home to **Claude Plays Glob**, a 24/7 live colony RTS exhibition. | Feature one weekly challenge on the same feed. Promote it with the colony's objective and an actual gameplay moment. [Twitch plan](twitch-streaming.md) |
 | Bluesky | Short clips, screenshots and development notes with a path back to play. | Try one post per week after ownership and profile setup. |
 | Reddit | Participate in existing community discussions where the rules allow. | Share a meaningful update when relevant. Open a project subreddit when there is a moderator and recurring discussion to support it. |
 | Facebook, Instagram, Mastodon, X and TikTok | Assess existing profiles and handle options as part of the account audit. | Add a publishing channel when an owner, content format and reason to reach its audience are established. |
@@ -27,6 +28,8 @@ Turn discovery into a first browser session, help players get through the tutori
 | Days 61–90 | Compare results by topic and format. Decide which channels to maintain, reduce or expand based on traffic, community participation and available time. | Record the review and next month's publishing plan. |
 
 For each release, use the project release notes to verify what players can access. A single capture can serve several channels. Use [the gameplay video guide](gameplay-video.md) to select developed colonies, active units and visible fighting for promotional clips. Publish a captioned clip with a play link, explain a decision the footage supports, and use Discord to invite discussion. Credit player-submitted maps or screenshots with the contributor's permission. Localize sustained formats first using the [existing translations](../translations/README.md) and a reviewer for each target language.
+
+Use Twitch highlights for the next featured challenge and YouTube Shorts for a self-contained gameplay moment. Link to the live channel when the invitation is to watch. Use the browser play link when the invitation is to try Globulation 2.
 
 ## Profile setup copy
 
