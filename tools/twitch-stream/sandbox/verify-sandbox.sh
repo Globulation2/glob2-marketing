@@ -104,6 +104,8 @@ if [[ "$(sudo -n -l 2>/dev/null)" == *"(ALL : ALL) NOPASSWD: ALL"* || "$(sudo -n
   check "can write the overlay dir" as_agent test -w "$(dirname "$OVERLAY_FILE")"
   check "can write notes" as_agent test -w "$NOTES_DIR"
   check "can write state" as_agent test -w "$STATE_DIR"
+  refuse "cannot open the stream X display" as_agent env -i PATH=/usr/bin:/bin DISPLAY="$STREAM_DISPLAY" xdpyinfo
+  [[ "$STREAM_DISPLAY_BACKEND" != xorg ]] || refuse "cannot read the stream X auth cookie" as_agent test -r "$STREAM_XAUTHORITY"
   if [[ "$AGENT_EGRESS" == 1 ]]; then
     tcp() { as_agent /usr/bin/python3 -I -c 'import socket,sys; socket.create_connection((sys.argv[1], int(sys.argv[2])), timeout=5)' "$@"; }
     connect_via_proxy() {  # prints the proxy's status code for CONNECT host:443
