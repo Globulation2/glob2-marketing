@@ -34,16 +34,16 @@ Statuses: not started, in progress, complete, blocked. Update the row and add a 
 | ID | Work unit | Owner role | Output | Status |
 | --- | --- | --- | --- | --- |
 | V2-00 | Record the decisions | Decision recorder | [AGENTS.md section](../AGENTS.md#storefront-v2-revamp--2026-11-24), [positioning v2](../analysis/positioning-v2.md), this ledger, index entries | Complete with the commit that adds this ledger |
-| V2-01 | Research mobile store comparables and player priorities | Research analyst | [Mobile store comparables](../analysis/mobile-store-comparables.md), [player priorities](../analysis/player-priorities.md) | In progress |
-| V2-02 | Verify every claim against the game source, production and store declarations; write the per-store allowed and banned wording table | Claims verifier | [Storefront v2 claims](../facts/storefront-v2-claims.md) | In progress |
-| V2-03 | Write English copy v2: short fields, long description, fair-deal and desktop AI fields, overlay captions; update platform composition, glossary, tooling and tests | Copy lead | `translations/en.md` at `storefront-v2`, `translations/platforms.json`, `translations/tools/` | Not started |
-| V2-04 | Edit the English and review it against each store's metadata policy | Copy editor and store-policy reviewer (independent) | Per-store policy checklist | Not started |
-| V2-05 | Capture in-engine screenshots for each device class under the footage rule | Capture engineer | Captures and capture manifest in `assets/storefront-v2/` | Not started |
+| V2-01 | Research mobile store comparables and player priorities | Research analyst | [Mobile store comparables](../analysis/mobile-store-comparables.md), [player priorities](../analysis/player-priorities.md) | Complete |
+| V2-02 | Verify every claim against the game source, production and store declarations; write the per-store allowed and banned wording table | Claims verifier | [Storefront v2 claims](../facts/storefront-v2-claims.md) | Complete |
+| V2-03 | Write English copy v2: short fields, long description, fair-deal and desktop AI fields, overlay captions; update platform composition, glossary, tooling and tests | Copy lead | `translations/en.md` at `storefront-v2`, `translations/platforms.json`, `translations/tools/` | Complete |
+| V2-04 | Edit the English and review it against each store's metadata policy | Copy editor and store-policy reviewer (independent) | Per-store policy checklist | Complete; the review is recorded in `translations/en.md`, the [field map](../translations/storefront-v2-field-map.md) and the claims record, with no separate checklist file in the repository |
+| V2-05 | Capture in-engine screenshots for each device class under the footage rule | Capture engineer | Captures and capture manifest in `assets/storefront-v2/` | In progress |
 | V2-06 | Build key art, per-store derivatives, the caption renderer, build scripts and manifests | Compositor | `assets/storefront-v2/` | Not started |
-| V2-07 | Redraw the icon as a high-resolution master and regenerate platform icons | Icon artist | Icon master; game-repository pull request | Not started |
+| V2-07 | Redraw the icon as a high-resolution master and regenerate platform icons | Icon artist | Icon master; game-repository pull request | In progress |
 | V2-08 | Record, cut and encode the 30–45 second trailer | Trailer editor | Trailer master and per-store encodes | Not started |
 | V2-09 | Review rendered visuals in two rounds against comparables, store rules and the footage rule | Visual reviewer (independent) | Review notes and contact sheets | Not started |
-| V2-10 | Translate v2 into the 44 non-English languages, each with an independent review | Translators and independent reviewers | Locale catalogs, review records, exports | Not started |
+| V2-10 | Translate v2 into the 44 non-English languages, each with an independent review | Translators and independent reviewers | Locale catalogs, review records, exports | In progress |
 | V2-11 | Render localized captioned screenshot sets from the reviewed catalogs | Compositor | Per-locale captioned sets and manifests | Not started |
 | V2-12 | Update maintained source metadata in the game repository | Store steward | Pull request for F-Droid metadata, AppStream metainfo, Snap source and release documents | Not started |
 | V2-13 | Apply v2 to each store and verify by readback | Store stewards | The [per-store table](#per-store-rollout) and [log](#log) | Not started |
@@ -107,4 +107,7 @@ These were noticed while planning. They are not work units here and are not reso
 
 Append dated entries below, oldest first. One entry per event: date, store or work unit, what was done, the evidence level reached, and how it was checked. Keep private account details and credentials out.
 
-No entries yet.
+- **2026-11-24 — V2-01, V2-02.** Research and claims records are in the repository (commit `7251744`): [mobile store comparables](../analysis/mobile-store-comparables.md), [player priorities](../analysis/player-priorities.md) and [storefront v2 claims](../facts/storefront-v2-claims.md). Both units marked complete. Open in the claims record: the Play Console ads and in-app-purchase declarations have not been read.
+- **2026-11-24 — V2-03, V2-04.** The storefront-v2 English listing was accepted as canonical source (commit `05eb2b9`): `translations/en.md` (78 fields), the platform matrix, glossary additions, the [field map](../translations/storefront-v2-field-map.md), schema 2 composition and `check-source` in `storefront.py`, and the Epic adapter with update flags. Written by the copy lead, then copy-edited and policy-reviewed independently; the review added the "No premium currency" row to the claims record. Evidence level: source only; no store is Prepared. Checked with `storefront.py check-source` (pass) and `python3 -m unittest discover -s translations/tests` (72 tests, OK). The Epic adapter has run only against synthetic templates.
+- **2026-11-24 — V2-10.** Translation in progress. `source-hashes.json` now matches the v2 English, so `storefront.py check` fails as intended: 308 error lines, 7 for each of the 44 non-English locales, until each catalog is retranslated and independently reviewed.
+- **2026-11-24 — V2-05, V2-07.** Captures and the icon redraw are in progress. Nothing from either unit is committed to this repository yet; the game repository was not checked.
