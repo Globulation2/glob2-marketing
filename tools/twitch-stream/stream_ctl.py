@@ -141,9 +141,10 @@ def camera_show(cfg, a) -> str:
 WAIT_MAX_TICKS = 300          # 10 s of game time at normal speed
 WAIT_TIMEOUT_MS = 12000
 # Waits ran their full length and took about two thirds of the player's time (match 5), so a rolling
-# budget refuses a wait once waiting has used WAIT_BUDGET of the last WAIT_WINDOW seconds.
+# budget refuses a wait once waiting has used WAIT_BUDGET of the last WAIT_WINDOW seconds (0.40 made the
+# player spam refused waits and filler chat, so it's 0.55).
 WAIT_WINDOW = 120.0
-WAIT_BUDGET = 0.40
+WAIT_BUDGET = 0.55
 _waits = []                   # (start, end) wall times of this session's waits
 WAIT_ALWAYS = ["attack", "building_lost", "conversion_lost", "enemy_sighted"]
 WAIT_EXTRA = ["building_completed", "enemy_building_gone", "hive_failure", "hive_wake", "conversion_gained"]
@@ -162,7 +163,8 @@ def match_wait(cfg, a) -> str:
     waited = sum(max(0.0, min(e, now) - max(s, now - WAIT_WINDOW)) for s, e in _waits)
     if waited > WAIT_BUDGET * WAIT_WINDOW:
         raise CtlError(f"you've spent {waited:.0f} of the last {WAIT_WINDOW:.0f} s waiting: play instead. Check food, "
-                       "workers, construction and military with game_world and make a decision, narrate, or move the camera")
+                       "workers, construction and military and make one concrete change (a building, workers, production, a flag or zone). "
+                       "Don't fill the gap with chat")
     extra = [e for e in (a.get("also_until") or []) if e in WAIT_EXTRA]
     args = {"ticks": ticks, "timeout_ms": WAIT_TIMEOUT_MS, "until": WAIT_ALWAYS + extra}
     if a.get("include"):
