@@ -2,9 +2,9 @@
 
 [Twitch streaming record](../../planning/twitch-streaming.md) · [Planning index](../../planning/README.md) · [Glob2 MCP guide](https://github.com/Globulation2/glob2/blob/master/docs/development/mcp-ui-server.md)
 
-Scripts for streaming Claude playing Globulation 2 to Twitch. Claude drives the game through the game's own embedded MCP server. The game is unmodified and runs on a hidden virtual display, so the streaming machine's desktop stays usable. ffmpeg captures that display and only the game's sound, and sends them to Twitch. There is no OBS and no GUI. Everything is scriptable, so an agent can run a session alone.
+The Linux rig for streaming Claude playing Globulation 2 to Twitch. Claude drives the game through the game's embedded MCP server. The game runs on a hidden virtual display, so the streaming machine's desktop stays usable. ffmpeg captures that display and the game's sound and sends them to Twitch.
 
-**Streaming?** Follow the [stream playbook](stream-playbook.md) for match format, camera, narration, fair play and the learning loop. The [Twitch streaming record](../../planning/twitch-streaming.md#broadcast-setups-and-verification) also describes the host-local OBS setup and tracks what each setup has verified.
+**Streaming?** Follow the [stream playbook](stream-playbook.md) for match format, camera, narration, fair play and the learning loop. The [Twitch streaming record](../../planning/twitch-streaming.md#broadcast-setup-and-verification) tracks what this rig has verified.
 
 This directory holds code only. The stream key, game profile, logs and settings live outside the repository in `$GLOB2_STREAM_HOME` (default `~/glob2-stream`) and `~/.config/glob2-stream/`.
 
@@ -17,7 +17,7 @@ This directory holds code only. The stream key, game profile, logs and settings 
         │                                │  Vulkan renders on the real GPU and presents into Xvfb
         │                                └─ audio ──> null sink "glob2_stream" (Pulse/PipeWire)
         v                                                   │ .monitor
- ffmpeg x11grab ──┬─ drawtext caption, bottom-left (overlay/caption.txt, reloaded each second)
+ ffmpeg x11grab ──┬─ drawtext caption, bottom-left (overlay/caption.txt)
                   ├─ branding, bottom-right (assets/glob2-wordmark.png + "glob2.online")
                   └─ pulse input <──────────────────────────┘
         │
@@ -27,7 +27,7 @@ This directory holds code only. The stream key, game profile, logs and settings 
 - **Display.** Xvfb provides an invisible X display. OpenGL there would be llvmpipe (software), so the game uses its `sdl-gpu` renderer. Vulkan can present into Xvfb while rendering on the machine's GPU.
 - **Audio.** A null sink receives only the stream game's audio, and ffmpeg records its monitor. Desktop sounds and other games never reach the stream.
 - **Encoding.** NVIDIA NVENC is used when it works, otherwise x264 on the CPU. 1080p30, 4500 kbps CBR, 2-second keyframes and 160 kbps AAC match Twitch's ingest guidance.
-- **Caption.** A text bar at the bottom left shows whatever `caption.sh` last wrote. Agents can use it for a short commentary line.
+- **Caption.** A bottom-left text box shows match context or an intermission message from `caption.sh`. ffmpeg reloads it during capture.
 - **Branding.** A small Globulation 2 wordmark with `glob2.online` beneath it sits bottom right over the map, clear of the game's sidebar. See [Branding overlay](#branding-overlay).
 
 ## Quick start
@@ -72,10 +72,23 @@ Local state never lives here: `$GLOB2_STREAM_HOME` (default `~/glob2-stream`) ho
 | `stream.sh test [s]` | Twitch bandwidth test (`?bandwidthtest=true`). Default 30 s. |
 | `stream.sh live --i-mean-it` | Broadcast until stopped. Logs to `logs/stream.log`. |
 | `caption.sh "text"` | Set the on-stream caption. |
+| `caption.sh --match OPPONENT RECORD GOAL [LAST_MOVE]` | Show the opponent, record, goal and optional latest confirmed move. |
 | `route-audio.sh` | Move audio from processes on the stream display onto the sink. `game-up.sh` and `stream.sh` run it automatically. |
 | `down.sh` | Stop the stream, game, Xvfb and sink. |
 | `mcp/activate.py [--acquire] KEY` | Activate a game control by key over MCP (for example `menu/1`, then `tutorial/lesson/0`). |
 | `mcp/mcp_call.py TOOL [JSON]` | Call any game MCP tool over HTTP, for scripting without an agent. |
+
+## Match caption
+
+Use the completed games in the [playbook's game log](stream-playbook.md#learning-loop) to count wins, losses and draws against the current opponent. Pass short, single-line values to `caption.sh`. Start without a last move, then add one when it has been confirmed in-game. The game log remains the source of the record, so an interrupted or still-running game does not change the score.
+
+```sh
+./caption.sh --match Nicowar '3W–2L–0D' 'Keep the colony fed through the first raid'
+./caption.sh --match Nicowar '3W–2L–0D' 'Keep the colony fed through the first raid' 'Assigned two workers to the Inn'
+./caption.sh 'Between matches · Win against Nicowar · 4W–2L–0D'
+```
+
+The caption replaces the previous overlay in one update. Check the picture with `stream.sh file` when changing the caption layout or using longer text.
 
 ## Configuration
 

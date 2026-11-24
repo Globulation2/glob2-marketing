@@ -38,7 +38,7 @@ inputs=(-thread_queue_size 1024 -f x11grab -framerate "$STREAM_FPS" -video_size 
         -thread_queue_size 1024 -f pulse -ac 2 -ar 48000 -i "$STREAM_SINK.monitor")
 scale_px() { echo $(( ($1 * ${STREAM_SIZE#*x} + 540) / 1080 )); }   # sizes are given at 1080p
 font=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
-graph="[0:v]drawtext=fontfile=$font:textfile=$OVERLAY_FILE:reload=1:fontsize=$(scale_px 26):fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=$(scale_px 10):x=$(scale_px 20):y=h-th-$(scale_px 30)[cap]"
+graph="[0:v]drawtext=fontfile=$font:textfile=$OVERLAY_FILE:reload=1:expansion=none:fontsize=$(scale_px 26):fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=$(scale_px 10):x=$(scale_px 20):y=h-th-$(scale_px 30)[cap]"
 last=cap
 if [[ "$BRAND" != 0 ]]; then
   mr=$(scale_px "$BRAND_MARGIN_RIGHT"); mb=$(scale_px "$BRAND_MARGIN_BOTTOM")

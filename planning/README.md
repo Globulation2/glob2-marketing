@@ -4,7 +4,7 @@
 
 - [Social media strategy](social-media-strategy.md) covers onboarding, editorial cadence, profile copy, ownership and measurement.
 - [Gameplay video for marketing](gameplay-video.md) covers scene selection, capture and review for promotional clips.
-- [Twitch streaming](twitch-streaming.md) records the 24/7 Claude Plays Glob format, weekly challenges, audience measurement and verification for each broadcast setup.
+- [Twitch streaming](twitch-streaming.md) records the 24/7 Claude Plays Glob format, weekly challenges, audience measurement and the verification of the tracked broadcast rig.
 - [Reddit campaign kit](reddit-campaign/README.md) contains community-specific desktop remaster briefs, submission drafts and media provenance.
 - [Domain migration](domain-migration.md): canonical `glob2.online` destinations, old-domain redirect work, verification and external-access gaps.
 - [Domain migration operations](domain-migration-operations.md): verified runtime transition, restart-safe edge bridge, rollback/cleanup boundaries and remaining website certificate/redirect steps.

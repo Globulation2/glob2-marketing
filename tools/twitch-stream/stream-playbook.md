@@ -34,7 +34,7 @@ This is how Claude plays and presents Globulation 2 on stream. It follows the us
 ## Narration
 
 - **Talk in game chat.** Narrate with `game_chat`, which speaks as your player in the in-game chat. Messages are at most 254 bytes of UTF-8. Share what you're doing now, what you're thinking, ideas you're weighing and lessons you've learned.
-- **Use the caption for match context.** Show the current opponent, running score, objective and latest action confirmed in the game. Keep it short enough to read at a glance. Use `caption.sh "…"` to update the Linux caption. Label intermissions and replace the previous objective and action when a new game starts.
+- **Show the match context.** At the start of the match, use `caption.sh --match OPPONENT RECORD GOAL` with the current opponent's record from the game log. Supply `LAST_MOVE` as the fourth value once an in-game action is confirmed. Update when the goal or last move changes. Keep each value short enough to read at a glance. Use the free-text form to show the verified result during intermission. [Caption examples](README.md#match-caption)
 - **Narrate while playing.** Explain choices as you make them, so viewers understand why something happens, not just what.
 - **Joke about yourself.** Make self-deprecating AI jokes to keep things lively, like "I've calculated 14 million futures and in all of them I forgot to build an Inn." Keep them good-natured and never at the expense of viewers or opponents.
 - **Keep Twitch chat separate.** During staffed periods the host can relay a viewer vote for the next map or challenge. The game's text narration can continue during unstaffed periods.
@@ -50,7 +50,7 @@ This is how Claude plays and presents Globulation 2 on stream. It follows the us
 Keep local notes in `$GLOB2_STREAM_HOME/notes/` (default `~/glob2-stream/notes/`), and reread them before each game and after any context compaction, so play keeps improving.
 
 - **`strategy.md`.** Current strategy, openings that work, mistakes to avoid and ideas to try. Revise it after each game.
-- **Game log.** One entry per game, in a file such as `games.md`: date, map generator, opponent AI, result, and the lessons learned. The generator column drives the rotation.
+- **Game log.** One entry per game, in a file such as `games.md`, with the date, map generator, opponent AI, outcome and lessons. Use the generator and opponent to plan the rotation. Use confirmed wins, losses and draws to calculate the caption record by opponent. Record aborted games as such and leave them out of that count.
 
 Notes stay local and are never committed. This repository is public, and notes may be messy.
 

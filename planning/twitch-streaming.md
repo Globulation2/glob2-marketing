@@ -24,15 +24,7 @@ Use the first four weeks as a baseline. Review Twitch discovery sources, weekly 
 
 Public observations are directional. Claude Plays Pokémon averaged 1,551 viewers in its first tracked 48 hours and about 16–22 in tracked July 2025 sessions. The independent Claude Plays Games channel averaged about five over 579 tracked hours in a November 2026 snapshot. Beyond All Reason's established official channel averaged 272–304 during its November 7–8 Omega event and 79–93 during two regular King of the Hill streams. The seasons, games, audiences and promotional exposure differ. These observations motivate treating scheduled challenges and clips as ways to introduce the continuous feed. [Claude Plays Pokémon history](https://twitchtracker.com/claudeplayspokemon/streams) · [Claude Plays Games tracking](https://lurkology.com/claude_plays_games) · [Beyond All Reason tracking](https://streamervitals.com/beyondallreasonofficial)
 
-## Broadcast setups and verification
-
-### Local OBS setup
-
-The host automation uses `supervisor.py` to run Claude sessions from `play_prompt.md` and check game and OBS health. `status.py` reports stream and session status, and `chat.py` posts through the game's chat interface. The current prompt runs locally against Nicowar Medium and records map, opponent, result and a recap per game. It directs Claude to keep camera zoom at or below 100% and update `match-caption.json` with the current goal and latest confirmed move.
-
-`supervisor.py --preview-caption` shows the caption that the supervisor would send to OBS. The caption uses `results.csv` for the opponent's win/loss/draw record and the latest completed result. It adds the current goal and confirmed move from fresh match state for the next game number. Stale or invalid state falls back to the recorded results. Caption fixtures passed. Its placement in the capture and its updates in live OBS still need verification, as does the broader opponent rotation from the playbook. Runtime logs, account settings and credentials stay on the host.
-
-### Reusable Linux setup
+## Broadcast setup and verification
 
 The tracked [Linux rig](../tools/twitch-stream/README.md) ran local recordings and Twitch ingest tests on 2026-11-24. Twitch bandwidth-test sessions are hidden from the public channel. The game ran from Globulation2/glob2 master `898fb00afc` using its existing launch options. `stream.sh live` retains its explicit `--i-mean-it` switch.
 
@@ -40,7 +32,7 @@ The rig ran on the maintainer's Linux laptop: Ubuntu 24.04, an NVIDIA RTX 3070 T
 
 - The game draws on a hidden 1920×1080 Xvfb display. Vulkan (`sdl-gpu`) rendered on the NVIDIA GPU and presented into Xvfb. On Xvfb, OpenGL would have fallen back to software rendering.
 - Only the game's audio reaches the stream, through a dedicated null sink. SDL3's PipeWire backend ignored `PULSE_SINK`, and PipeWire's remembered routing sent the first test session's music to the laptop speakers. The scripts now force the PulseAudio backend and move audio by display (`route-audio.sh`).
-- ffmpeg captures the display and the sink and encodes with NVENC: H.264 1080p30 at 4500 kbps CBR, 2-second keyframes and 160 kbps AAC. A caption bar is drawn from a text file the agent can update.
+- ffmpeg captures the display and the sink and encodes with NVENC: H.264 1080p30 at 4500 kbps CBR, 2-second keyframes and 160 kbps AAC. The [match caption command](../tools/twitch-stream/README.md#match-caption) puts the opponent, record from the game log, goal and latest confirmed move into the overlay. Free text handles intermissions and results.
 - **Branding.** A small corner overlay sits bottom right over the map: the approved Globulation 2 wordmark (a crop-only derivative of the [Epic v5 product logo](../assets/epic-v5/product-logo-960x540.png), see [rig assets](../tools/twitch-stream/assets/README.md)), with `glob2.online` beneath it. It is 200 px wide at 1080p, 0.85 opacity, and 224 px from the right edge so it clears the game's sidebar and zoom controls. It is configurable or can be disabled (`BRAND=0`).
 - A separate Claude Code MCP server, `glob2-stream`, connects to that game on port 27300, so a desktop game on the default port is unaffected.
 
@@ -59,6 +51,6 @@ During script validation a short (2 s) Twitch bandwidth test also ran unintentio
 ## Gaps and next work
 
 - **24/7 operation.** Verify long-run picture and game audio, that the scoreboard follows completed matches and restarts, how the stream handles model quotas and MCP renewals, and that logs stay within available storage. For the Linux rig, run a final `stream.sh test` before using it for a public broadcast and verify restart behavior before unattended use. Long-run behavior and systemd user units remain unverified on Linux.
-- **Gameplay and overlays.** The playbook calls for 1v1 on random 256×256 maps, with default rules, map rotation and an opponent selected from Cortex, Nicowar, Cabino and Maxima. Verify each setup's match rotation and caption behavior before promising them to viewers. Confirm moderation coverage before announcing chat interaction.
+- **Gameplay and overlays.** The playbook calls for 1v1 on random 256×256 maps, with default rules, map rotation and an opponent selected from Cortex, Nicowar, Cabino and Maxima. Verify the match rotation and the updated caption layout in a Linux recording. Confirm moderation coverage before announcing chat interaction.
 - **Other Linux hardware.** Testing covered the NVIDIA/Vulkan setup above. The libx264 path was verified locally.
 - **Account readiness.** Backup access, recovery coverage and moderator roles for the channel remain unverified (see the [account inventory](../facts/social-media-accounts.md)).
