@@ -247,7 +247,7 @@ class Supervisor:
     # User decision (2026-11-24): a match at 10% win chance or below is effectively done. If it stays
     # there for FF_AFTER seconds, speed it to its natural end (fast-forward) even if the player hasn't.
     FF_WIN_CHANCE = 10
-    FF_AFTER = 600
+    FF_AFTER = 300
 
     def check_fast_forward(self):
         cur = rigstate.current(self.cfg)
