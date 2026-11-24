@@ -21,12 +21,12 @@ Turn discovery into a first browser session, help players get through the tutori
 
 | Period | Work | Exit criteria |
 | --- | --- | --- |
-| Days 1–14 | Confirm control of the existing Discord, complete YouTube setup, and capture a tutorial clip and an approved colony screenshot for launch. | Public URLs and owner roles verified, backup access confirmed, profile links tested and first posts ready. |
+| Days 1–14 | Confirm control of the existing Discord, complete YouTube setup, and prepare a mid-game gameplay clip and an approved colony screenshot for launch. | Public URLs and owner roles verified, backup access confirmed, profile links tested and first posts ready. |
 | Days 15–30 | Publish a browser tutorial tip, a colony screenshot showing an economic tradeoff, and a short introduction to the map editor. Publish the first YouTube tutorial when captions are ready. | Each post has one action and a destination. Capture the first baseline of outbound and website traffic. |
 | Days 31–60 | Rotate among colony decisions, map spotlights, replay breakdowns and release notes. Try a scheduled Discord match if a moderator can host. | Record which posts generate visits, play clicks and substantive player questions. |
 | Days 61–90 | Compare results by topic and format. Decide which channels to maintain, reduce or expand based on traffic, community participation and available time. | Record the review and next month's publishing plan. |
 
-For each release, use the project release notes to verify what players can access. A single capture can serve several channels. Publish a captioned clip with a play link, explain the gameplay decision in a short post, and use Discord to invite discussion. Credit player-submitted maps or screenshots with the contributor's permission. Localize sustained formats first using the [existing translations](../translations/README.md) and a reviewer for each target language.
+For each release, use the project release notes to verify what players can access. A single capture can serve several channels. Use [the gameplay video guide](gameplay-video.md) to select developed colonies, active units and visible fighting for promotional clips. Publish a captioned clip with a play link, explain a decision the footage supports, and use Discord to invite discussion. Credit player-submitted maps or screenshots with the contributor's permission. Localize sustained formats first using the [existing translations](../translations/README.md) and a reviewer for each target language.
 
 ## Profile setup copy
 

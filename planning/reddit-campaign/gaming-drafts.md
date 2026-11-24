@@ -8,19 +8,19 @@ Reviewed November 23, 2026 against the public subreddit rules, current desktop r
 
 **Title**
 
-> Feeding a colony in Globulation 2 means deciding which jobs can wait
+> What it looks like when two developed colonies clash in Globulation 2
 
 **Draft**
 
 > I’m [name], one of the maintainers of Globulation 2. We’ve been remastering the open-source RTS that first appeared in 2004.
 >
-> In this tutorial clip, food at the inn drops from 10 to 9. The player requests two haulers at high priority, and the inn stocks back up. Those workers come from the same pool that supplies construction. Once you start expanding, keeping the inns stocked means deciding what other jobs can wait.
+> Here’s a mid-game spectator view of computer opponents. Workers keep jobs moving around the colony while warriors fight for space. You guide the globs by requesting workers at buildings and placing flags. They pick their own routes and carry out the work.
 >
-> [Gameplay clip from the earlier 0.11.6.0 browser tutorial](https://storage.googleapis.com/glob2-website-public/guide-media/v3/sustainable-food/food-consumption-refill-clip-v3.mp4)
+> [Attach or link the verified mid-game AI-versus-AI clip. Use the version and map in the capture record.]
 >
 > The remaster is free on Linux, Windows and macOS. [Official release and downloads](https://glob2.online/downloads/)
 
-**Discussion.** Explain the hauler request and food counter if readers ask how to tell whether the inn is keeping up. The clip shows the food delivery. The construction tradeoff is a broader gameplay consequence.
+**Discussion.** Point to one visible front or building cluster and explain the tradeoff it illustrates. Only attribute a specific order to the AI if the footage or capture record establishes it.
 
 ## r/Games — Indie Sunday
 
@@ -34,9 +34,9 @@ Reviewed November 23, 2026 against the public subreddit rules, current desktop r
 
 > I’m [name], one of the developers maintaining Globulation 2. It’s a free, open-source RTS that first appeared in 2004. The remaster is playable now on Linux, Windows and macOS.
 >
-> A war flag tells the warriors where to go. In the tutorial clip below, they attack the rival swarm while the flag is active. Back at the colony, you can spend your time deciding how many workers to put on food and construction. The globs handle the trips.
+> The clip is a spectator view of a mid-game match between computer opponents. The colonies already have buildings and workers in motion when the warriors meet. In a match you can mark where you want warriors to go, then turn back to food or construction while the globs work out how to get there.
 >
-> [Watch the counterattack lesson. Captured on the earlier 0.11.6.0 browser build.](https://storage.googleapis.com/glob2-website-public/guide-media/v3/organizing-an-attack/attack-counterattack-clip-v3.mp4)
+> [Insert the direct URL for the reviewed mid-game AI-versus-AI clip. Use the version and map in the capture record.]
 >
 > Start with Tutorial if you’re new, then try a custom game against a computer opponent. If you played the original, look for the familiar unit animations. We re-rendered them from the original Blender rigs for the remaster.
 >

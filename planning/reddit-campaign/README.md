@@ -6,7 +6,7 @@ Prepared November 23, 2026 for the free, open-source desktop remaster. These are
 
 - [Linux, open-source and preservation briefs](linux-and-preservation.md) includes the Linux human-author checklist, the open-source draft, and the unsent moderator inquiry.
 - [Strategy and gaming drafts](gaming-drafts.md) contains four distinct submissions and a maintainer comment for r/FreeGames.
-- [Media, provenance and capture notes](media.md) maps approved screenshots and existing gameplay footage to each community.
+- [Media, provenance and capture notes](media.md) maps approved screenshots and gameplay footage to each community.
 
 ## Posting order and readiness
 
@@ -14,7 +14,7 @@ Prepared November 23, 2026 for the free, open-source desktop remaster. These are
 | --- | --- |
 | r/linux_gaming | First wave. A maintainer writes the title, text and replies. Add their actual Linux test details. A same-scene comparison is preferred. A single accurately labeled, relevant screenshot is acceptable if there is no comparison. |
 | r/OpenSourceGames | First wave. Adapt the draft to the actual author's role, with tagged source, license and asset provenance. Use the original Blender example if credit and license are verified. Text and source links are enough. |
-| r/StrategyGames | Next wave if an established participant meets the local 10% guideline. Use DevPost and one gameplay decision. |
+| r/StrategyGames | Next wave if an established participant meets the local 10% guideline. Use DevPost and a developed-match clip tied to one strategic decision. |
 | r/Games | Alternate next wave. Indie Sunday is a developer-only standalone text submission. If targeting November 29, confirm the current Sunday hub, 60-day eligibility and footage before submitting. |
 | r/ObscureRTS | Hold for explicit moderator clearance on project eligibility, AI artwork provenance and the official release link. Review the unsent message locally. |
 | r/IndieGaming | Optional. Verify account age and cadence and make the required AI disclosure. |
@@ -23,7 +23,7 @@ Prepared November 23, 2026 for the free, open-source desktop remaster. These are
 
 ## Final readiness review
 
-The team rechecked the copy against community rules and verified playback, capture versions and the approved screenshot. In the logged-in Reddit session, the r/OpenSourceGames composer exposed a text body and asked submitters to provide access to the game source. The draft links both tagged game source and original asset source. An available composer does not establish moderation approval.
+The team rechecked the copy against community rules and verified playback, capture versions and the approved screenshot. The earlier tutorial clips are instructional references. Use the mid-game spectator capture described in the [media notes](media.md) for promotional video, following the [marketing video guidance](../gameplay-video.md). In the logged-in Reddit session, the r/OpenSourceGames composer exposed a text body and asked submitters to provide access to the game source. The draft links both tagged game source and original asset source. An available composer does not establish moderation approval.
 
 The account meets the r/IndieGaming age minimum and has visible posting history. Confirm the current two-week cadence and any local requirements before using that draft. Existing participation in r/StrategyGames was not established, so keep that submission on hold for this account. Indie Sunday remains conditional on the Sunday window and the game and developer's 60-day posting history. r/FreeGames has a complete link submission and maintainer comment prepared.
 
