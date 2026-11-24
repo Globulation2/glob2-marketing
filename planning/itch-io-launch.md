@@ -64,3 +64,9 @@ The [public listing](https://genixpro.itch.io/globulation-2) now offers **Run ga
 Before publication, a guest on the private itch.io launcher hosted an invite-only Amphitheatre match. A guest on regular Glob2 Online joined, and both Chrome clients entered the same live match. Tab switching introduced lag in the test. Account sign-in and other browsers remain unverified.
 
 The hosted game uses the scoped framing support merged as `59289fff`. The validated production edge change enabled only the required framing origins for the dedicated route and retained `DENY` for ordinary `/play/`. The standard deployment workflow was still running at publication. [Merged implementation](https://github.com/Globulation2/glob2/pull/1896)
+
+## Discovery metadata update
+
+A fresh [public listing](https://genixpro.itch.io/globulation-2) check showed Windows restored to the platform list, and **Colony Sim** and **Economy** alongside the four existing tags. After saving, the editor showed mouse and keyboard controls, an average session of about half an hour, server-based multiplayer for 1–12 players, and an interactive tutorial. itch.io rejected saving all 45 languages, so ten language filters were saved: German, English, Spanish, French, Italian, Japanese, Polish, Brazilian Portuguese, Russian, and Simplified Chinese.
+
+The previously enabled sensitive content flag was turned off. **Unlisted in search & browse** and **Disable new downloads & purchases** were unchecked. The exact title was still absent from signed-out search immediately after the correction. No devlog was published. [itch.io indexing guidance](https://itch.io/docs/creators/getting-indexed)
