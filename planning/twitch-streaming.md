@@ -80,7 +80,7 @@ The caption shows the game number and overall record ("vs Nicowar · Game 2 · o
 
 ### Unattended operation (2026-11-24)
 
-At the user's request the rig now starts at boot without a login: a systemd user service runs the supervisor (live, with chat), on top of the enabled display, firewall and proxy system services and lingering for the operator. A reboot test is the acceptance check, recorded below once done. Hourly check-ins by Claude run for the rest of 2026-11-24 to tune prompts and fix issues.
+At the user's request the rig now starts at boot without a login: a systemd user service runs the supervisor (live, with chat), on top of the enabled display, firewall and proxy system services and lingering for the operator. **Reboot test passed (2026-11-24, 12:47 local).** With nobody logged in, the display, firewall and proxy services and the user service came up on their own. The supervisor's first start failed its Twitch token check before DNS was ready; systemd retried 20 s later and it ran, and `wait-ready.sh` now also waits for DNS. Within about 10 minutes: game at 59.6 fps on the NVIDIA display, the public stream 1080p60 with 953 of 960 frames distinct, the chat host connected and answering, and a player session running. The reboot ended match 3 mid-game, and the recovery session set up a fresh game under the same number, hiding the first one's outcome; match control now refuses a second setup on a different map for one match number, so the lost game gets recorded as aborted first. Hourly check-ins by Claude run for the rest of 2026-11-24 to tune prompts and fix issues.
 
 ## Gaps and next work
 

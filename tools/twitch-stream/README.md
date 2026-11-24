@@ -84,7 +84,7 @@ Run the scripts from anywhere; they find each other through their own location.
 - **What starts:** the systemd user service `glob2-stream.service` runs `supervisor.py`, which brings up the game, the stream, the player and (with `AUTOSTART_CHAT=1`) the chat host, and restarts any of them that exits. systemd restarts the supervisor itself if it exits.
 - **Lingering:** the installer enables lingering for the operator, so the user manager, PipeWire and the service start at boot without a login.
 - **System services it relies on:** `glob2-stream-xorg` (the NVIDIA display), `glob2-agent-egress` and `glob2-agent-proxy` (the agents' firewall and proxy), installed and enabled by `display/install-xorg-display.sh` and `sandbox/install-agent-sandbox.sh`.
-- **Order:** `autostart/wait-ready.sh` waits for the audio server and the stream display before the supervisor starts; on timeout systemd retries.
+- **Order:** `autostart/wait-ready.sh` waits for the audio server, DNS and the stream display before the supervisor starts; on timeout systemd retries. Verified by a reboot on 2026-11-24.
 - **Stopping and restarting:** `systemctl --user stop glob2-stream` ends the stream, chat and player but leaves the game and its match running (`KillMode=process`), so `restart` resumes the match. Logs: `logs/supervisor-console.log`, `journalctl --user -u glob2-stream`.
 - **Going live is a standing decision.** With `AUTOSTART_STREAM=live` (the default) every boot broadcasts. Use `none` or `file:PATH` for a machine that shouldn't go live on its own, or `--uninstall`.
 

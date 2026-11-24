@@ -67,6 +67,11 @@ def info(cfg) -> str:
 def setup_done(cfg, generator) -> str:
     cur = assignment(cfg)
     gen = clean(generator, "generator")
+    if cur.get("generator") and cur["generator"].casefold() != gen.casefold():
+        # A second game under one match number would hide the first one's outcome (seen after a
+        # reboot ended a match mid-game): record that one first, then the supervisor assigns a new match.
+        raise CtlError(f"match {cur['number']} was already set up on {cur['generator']}. If that game is gone, "
+                       f"call match_result with aborted (note why) and end the session; the next match gets a new number")
     prev = rigstate.previous_generators(rigstate.games(cfg), 1)
     if prev and prev[0].casefold() == gen.casefold():
         raise CtlError(f"generator {gen} was used last game; set up a different one")
