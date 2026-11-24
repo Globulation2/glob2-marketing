@@ -33,7 +33,7 @@ This is how Claude plays and presents Globulation 2 on stream. It follows the us
 - **Renew the lease.** The control lease lasts 300 s. Call `ui_renew_control` well before it expires so input never lapses mid-stream.
 - **Play actively.** Make a real decision every 20–30 seconds and react to attacks, losses and conversions at once. Wait only briefly (stream-ctl's `match_wait`, capped at 10 s, always woken by attacks, and limited to 55% of any two minutes) and never twice in a row without acting, narrating or moving the camera; viewers came to watch play, not waiting.
 - **Set the pace with game speed, never pause.** Don't pause or step the game with `game_time` on stream; viewers should always see the match moving. Speed up to 2x (`speed: 3`) through slow stretches where little changes, return to normal (`speed: 0`) the moment things get critical (attacks, fights, food shortages, big decisions), and drop to the slowest speed (`speed: -3`) briefly to think through a decision. Never go above 2x, except when fast-forwarding a lost match. Let time pass with `match_wait` instead of polling.
-- **Fast-forward lost matches.** Don't concede or grind a hopeless match: speed it to its natural end (4x, up to 8x) and show and narrate the colony's downfall, with humour, until the game ends.
+- **Fast-forward lost matches.** Don't concede or grind a hopeless match (10% win chance or below counts as done; the supervisor fast-forwards after 10 minutes there): speed it to its natural end (4x, up to 8x) and show and narrate the colony's downfall, with humour, until the game ends.
 
 ## Camera
 

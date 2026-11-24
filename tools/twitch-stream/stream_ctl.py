@@ -264,8 +264,8 @@ def match_fast_forward(cfg, a) -> str:
 
 
 TOOLS = {
-    "match_fast_forward": ("When the match is clearly lost (for example win chance under 5% for 10+ minutes with no "
-                           "progress), speed the game to its natural end instead of grinding: sets 4x speed and "
+    "match_fast_forward": ("When the match is effectively done (win chance 10% or below for a while, or a long "
+                           "stalemate with no progress), speed the game to its natural end instead of grinding: sets 4x speed and "
                            "turns off the automatic slow-down for the rest of the match. Then narrate and show "
                            "the end. Give a short reason.",
                            _schema({"reason": {"type": "string", "maxLength": 200}}, ["reason"]),
@@ -360,6 +360,8 @@ def main():
     p = sub.add_parser("result")
     p.add_argument("result", choices=rigstate.RESULTS)
     p.add_argument("--note")
+    p = sub.add_parser("fast-forward")
+    p.add_argument("--reason", required=True)
     args = parser.parse_args()
     cfg = rigconfig.load()
     if args.cmd == "mcp":
@@ -368,6 +370,7 @@ def main():
     try:
         print({"info": lambda: info(cfg),
                "setup-done": lambda: setup_done(cfg, args.generator),
+               "fast-forward": lambda: match_fast_forward(cfg, {"reason": args.reason}),
                "caption": lambda: caption(cfg, args.goal, args.last),
                "result": lambda: result(cfg, args.result, args.note)}[args.cmd]())
     except CtlError as exc:
