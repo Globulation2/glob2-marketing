@@ -2,7 +2,7 @@
 
 [Campaign overview](README.md)
 
-Working material for the desktop release. Nothing on this page has been posted or sent. The baseline is the 0.11.7.0 release published November 22, 2026. Describe the larger remaster separately from the changes in this specific build. [Release notes](https://github.com/Globulation2/glob2/releases/tag/v0.11.7.0) · [Official downloads](https://glob2.online/downloads/)
+Working material for the desktop release. See the [submission record](README.md#submission-record) for posting status. The baseline is the 0.11.7.0 release published November 22, 2026. Describe the larger remaster separately from the changes in this specific build. [Release notes](https://github.com/Globulation2/glob2/releases/tag/v0.11.7.0) · [Official downloads](https://glob2.online/downloads/)
 
 ## r/linux_gaming
 

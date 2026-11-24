@@ -2,7 +2,7 @@
 
 [Planning index](../README.md) · [Launch positioning](../../analysis/positioning-v1.md)
 
-Prepared November 23, 2026 for the free, open-source desktop remaster. These are internal working materials in the marketing repository. Reddit submissions and moderator messages remain unsent. Android and iOS are outside this campaign. The release story is the modernization of the whole RTS, including current desktop support, HD graphics and rebuilt online play. The recovered Blender artwork is one example of the work.
+Prepared November 23, 2026 for the free, open-source desktop remaster. These are internal working materials in the marketing repository. The submission record below tracks Reddit outcomes. Android and iOS are outside this campaign. The release story is the modernization of the whole RTS, including current desktop support, HD graphics and rebuilt online play. The recovered Blender artwork is one example of the work.
 
 - [Linux, open-source and preservation briefs](linux-and-preservation.md) includes the Linux human-author checklist, the open-source draft, and the unsent moderator inquiry.
 - [Strategy and gaming drafts](gaming-drafts.md) contains four distinct submissions and a maintainer comment for r/FreeGames.
@@ -26,6 +26,13 @@ Prepared November 23, 2026 for the free, open-source desktop remaster. These are
 The team rechecked the copy against community rules and verified playback, capture versions and the approved screenshot. The earlier tutorial clips are instructional references. Use the mid-game spectator capture described in the [media notes](media.md) for promotional video, following the [marketing video guidance](../gameplay-video.md). In the logged-in Reddit session, the r/OpenSourceGames composer exposed a text body and asked submitters to provide access to the game source. The draft links both tagged game source and original asset source. An available composer does not establish moderation approval.
 
 The account meets the r/IndieGaming age minimum and has visible posting history. Confirm the current two-week cadence and any local requirements before using that draft. Existing participation in r/StrategyGames was not established, so keep that submission on hold for this account. Indie Sunday remains conditional on the Sunday window and the game and developer's 60-day posting history. r/FreeGames has a complete link submission and maintainer comment prepared.
+
+## Submission record
+
+| Community | Status at submission |
+| --- | --- |
+| [r/OpenSourceGames](https://www.reddit.com/r/opensourcegames/comments/1y40lpu/globulation_2_remastered_the_free_opensource_rts/) | Submitted under the maintainer account. Reddit displayed awaiting moderator approval. |
+| [r/FreeGames](https://www.reddit.com/r/freegames/comments/1y40n7k/globulation_2_a_free_opensource_colony_rts_for/) | Submitted with the Indie Game flair and official downloads link. Reddit displayed removed by the moderators, with no specific reason visible in the thread. The planned follow-up comment was left unsent. |
 
 ## Before any submission
 

@@ -1,6 +1,6 @@
 # Reddit gaming submissions
 
-Reviewed November 23, 2026 against the public subreddit rules, current desktop release and media records. All drafts remain unsent. Confirm the posting account’s eligibility and replace name placeholders with the maintainer’s public name or handle before posting. [Desktop release 0.11.7.0](https://github.com/Globulation2/glob2/releases/tag/v0.11.7.0) · [Media and capture notes](media.md)
+Reviewed November 23, 2026 against the public subreddit rules, current desktop release and media records. See the [submission record](README.md#submission-record) for posting status. Confirm the posting account’s eligibility and replace name placeholders with the maintainer’s public name or handle before posting. [Desktop release 0.11.7.0](https://github.com/Globulation2/glob2/releases/tag/v0.11.7.0) · [Media and capture notes](media.md)
 
 ## r/StrategyGames
 
