@@ -30,7 +30,7 @@ The public rollout and Internet match remained unverified at dispatch. Any post-
 
 ### Remaining campaign reviewed November 23, 2026
 
-Of the 16 planned contacts, 13 have confirmed dispatches. Each received one personal message. The seven additional emails appeared in Gmail Sent in a separate readback. The three forms displayed the receipts below. A targeted inbox search found no immediate bounce for any of the ten emails as of this check. Delivery to a person's inbox and any editorial or creator response remain unverified.
+At this stage, 13 of the 16 planned contacts had confirmed dispatches. Each received one personal message. The seven additional emails appeared in Gmail Sent in a separate readback. The three forms displayed the receipts below. A targeted inbox search found no immediate bounce for any of the ten emails as of this check. Delivery to a person's inbox and any editorial or creator response remain unverified.
 
 | Recipient | Published route | Subject or form heading | Outreach receipt |
 | --- | --- | --- | --- |
@@ -47,12 +47,19 @@ Of the 16 planned contacts, 13 have confirmed dispatches. Each received one pers
 
 [AI media copy](remaining-ai-dispatch.md) · [Creator copy](remaining-creator-dispatch.md) · [Games and open-source copy](remaining-games-dispatch.md)
 
-### Pending suitable contact access
+### Two creator emails sent later on November 23
+
+Bradley completed YouTube’s business-contact verification. Both addresses were visible in their official channels. Gmail Sent confirmed both preview emails in a separate readback. This brought the campaign to **15 of 16 planned recipients**, with twelve emails and three publisher form receipts.
+
+| Recipient | Published route | Subject sent | Receipt |
+| --- | --- | --- | --- |
+| Harstem | [Official YouTube business-email control](https://www.youtube.com/@Harstem) | One job for an AI in a human RTS duel | Gmail Sent |
+| Turin | [Official YouTube business-email control](https://www.youtube.com/@turinRTS) | A colony RTS round with one job handed to an AI | Gmail Sent |
+
+### Deferred contact
 
 | Recipient | Outcome |
 | --- | --- |
-| Simon Willison | The [public social profile](https://bsky.app/profile/simonwillison.net) was reachable. The browser was signed out and there was no verified project posting account. His publicly listed email was offered for consulting or private workshops. The public mention remains drafted. |
-| Harstem | The verified Twitch account blocks whispers from strangers. His [official YouTube business-email control](https://www.youtube.com/@Harstem) requires human verification. The tailored message remains unsent. |
-| Turin | The verified Twitch account also blocks whispers from strangers. His [official YouTube business-email control](https://www.youtube.com/@turinRTS) requires human verification. The tailored message remains unsent. |
+| Simon Willison | The [public social profile](https://bsky.app/profile/simonwillison.net) was reachable. The browser was signed out and there was no verified project posting account. His publicly listed email was offered for consulting or private workshops. The public mention remains drafted. Bradley deferred Bluesky. |
 
 Bradley requested respectful, individual outreach. Keep one message per recipient and use the route intended for that kind of pitch. Follow up in the existing thread if someone asks or if there is a substantive release update for them. The production recheck still listed ordinary ranked and casual queues, so the sent copy describes assisted matchmaking as planned.

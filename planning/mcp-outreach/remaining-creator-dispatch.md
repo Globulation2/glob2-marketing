@@ -42,7 +42,7 @@ Bradley Arsenault
 
 ## Harstem
 
-**Route** · Direct message to [@HarstemSc2](https://x.com/HarstemSc2) if the account accepts it. His team lists that profile and [Twitch](https://www.twitch.tv/harstem/about) on its [official StarCraft roster](https://shopifyrebellion.gg/pages/starcraft). No dedicated public pitch inbox verified. [Negative Zero match](https://www.youtube.com/watch?v=Xq4C2HnEHZs)
+**Route** · Business email revealed through the **View email address** control on [Harstem’s official YouTube channel](https://www.youtube.com/@Harstem), verified November 23. [Negative Zero match](https://www.youtube.com/watch?v=Xq4C2HnEHZs)
 
 **Subject** · One job for an AI in a human RTS duel
 
@@ -60,7 +60,7 @@ Bradley Arsenault
 
 ## Turin
 
-**Route** · Direct message to [@TurinRTS](https://x.com/TurinRTS) if the account accepts it. The [RTS Gameday stream](https://www.youtube.com/watch?v=aIrcchjmLAw) links that account. [Creator Twitch profile](https://www.twitch.tv/turinrts/about). No dedicated public pitch inbox verified.
+**Route** · Business email revealed through the **View email address** control on [Turin’s official YouTube channel](https://www.youtube.com/@turinRTS), verified November 23. [RTS Gameday stream](https://www.youtube.com/watch?v=aIrcchjmLAw)
 
 **Subject** · A colony RTS round with one job handed to an AI
 
