@@ -2,7 +2,7 @@
 
 [Planning index](../README.md) · [Working launch positioning](../../analysis/positioning-v1.md) · [Mobile press activity](../mobile-press-outreach.md)
 
-**Research completed November 23, 2026.** The dossiers contain 39 editorial leads and 23 creator leads, plus 10 ecosystem and collaboration routes. The outreach angle is a free, open-source colony strategy game where a player can share controls with a coding agent over Model Context Protocol (MCP), ask it to write one small colony-management routine, and keep playing alongside it. The project owner expects public-server deployment overnight November 23–24. The recommended launch story leads with human-plus-agent online competition once the rollout is visible. The local standing-order demo gives journalists and creators an accessible way to try the underlying idea. No outreach was sent for this project.
+**Research completed November 23, 2026.** The dossiers contain 39 editorial leads and 23 creator leads, plus 10 ecosystem and collaboration routes. The outreach angle is a free, open-source colony strategy game where a player can share controls with a coding agent over Model Context Protocol (MCP), ask it to write one small colony-management routine, and keep playing alongside it. The project owner expects public-server deployment overnight November 23–24. The recommended launch story leads with human-plus-agent online competition once the rollout is visible. The local standing-order demo gives journalists and creators an accessible way to try the underlying idea.
 
 ## What the research found
 
@@ -32,6 +32,8 @@ For the **online launch**, start with **Turing Games** for a human-plus-agent ch
 
 ## Outreach drafts
 
+[Online launch dispatch](launch-dispatch.md) tracks the authorized first wave, timing, and contact status.
+
 [First-touch outreach](outreach-drafts.md) contains tailored draft messages, recommended first recipients and timing for the expected public rollout.
 
 ## Research files
@@ -48,4 +50,4 @@ For the **online launch**, start with **Turing Games** for a human-plus-agent ch
 
 Three parallel research lanes searched official bylines, publisher policies, issue archives and creator-owned channels for relevant evidence. Priority favors direct coverage of agents playing games, recent hands-on work on MCP or coding agents, or a demonstrated audience for free RTS games and human-versus-bot challenges. A public tip or business route raises confidence when it fits that request. Public profiles, sponsorship forms, community channels and developer-submitted placements have different uses, which the dossiers identify. We kept multiple bylines at one newsroom as alternative routes and included promising leads with weaker evidence in the individual files.
 
-The coverage is English-first with selected German and French leads. This is a targeted editorial map, with public routes and dated examples. Audience size, editorial interest, delivery and willingness to collaborate are unverified. Creator statistics, where available, are dated snapshots of individual items. The project links to public information and excludes private contact data. The desktop endpoint was independently smoke-tested on macOS. The full co-play demonstration, Internet exhibition and sending remain open.
+The coverage is English-first with selected German and French leads. This is a targeted editorial map, with public routes and dated examples. Audience size, editorial interest, delivery and willingness to collaborate are unverified. Creator statistics, where available, are dated snapshots of individual items. The project links to public information and excludes private contact data. The desktop endpoint was independently smoke-tested on macOS. The full co-play demonstration and Internet exhibition remain open.

@@ -2,7 +2,7 @@
 
 [Research project](README.md) · [Product evidence](product-and-prior-art.md) · [Demonstration brief](demo-and-pitch-brief.md)
 
-Drafted for Bradley Arsenault, Globulation 2. The set covers 16 recipients. Each message gives its recipient a concrete thing to try, report on, or discuss based on their published work. The copy uses a direct maintainer voice and gives recipients room to make their own judgment. No messages have been sent.
+Drafted for Bradley Arsenault, Globulation 2. The set covers 16 recipients. Each message gives its recipient a concrete thing to try, report on, or discuss based on their published work. The copy uses a direct maintainer voice and gives recipients room to make their own judgment. The [launch dispatch log](launch-dispatch.md) records subsequent sends and the exact versions used.
 
 ## Pick the version that matches the release
 
