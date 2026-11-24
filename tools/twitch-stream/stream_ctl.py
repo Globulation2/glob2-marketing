@@ -187,7 +187,7 @@ def match_wait(cfg, a) -> str:
 # never moved the camera; prompt rules didn't hold under pressure, so the wait reply enforces them.
 CRITICAL_KINDS = ("attack", "unit_attacked", "building_attacked", "building_destroyed", "building_lost",
                   "unit_converted_away", "conversion")
-CAMERA_IDLE_NUDGE = 90.0
+CAMERA_IDLE_NUDGE = 60.0
 
 
 def _wait_notes(text: str) -> str:
@@ -217,8 +217,8 @@ def _wait_notes(text: str) -> str:
                      + (" — drop to speed 0 the moment anything gets critical." if speed > 0 else "."))
     idle = camera.seconds_since_move()
     if idle > CAMERA_IDLE_NUDGE and camera.hold_remaining() <= 0:
-        notes.append(f"The camera hasn't moved for {int(min(idle, 999))} s: show viewers what's happening with "
-                     "camera_show (and narrate it).")
+        notes.append(f"The camera hasn't moved for {int(min(idle, 999))} s: show viewers something with "
+                     "camera_show: a pan, a zoom step or a cut to another part of the colony.")
     return "\n".join(notes) + "\n"
 
 
