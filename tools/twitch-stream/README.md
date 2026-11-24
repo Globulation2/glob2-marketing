@@ -24,9 +24,13 @@ This directory holds code only. The stream key, game profile, logs and settings 
         └─ h264_nvenc (or libx264) + AAC ── FLV/RTMP ──> rtmp://live.twitch.tv/app/<key>
 ```
 
-- **Display.** Xvfb provides an invisible X display. OpenGL there would be llvmpipe (software), so the game uses its `sdl-gpu` renderer. Vulkan can present into Xvfb while rendering on the machine's GPU.
+- **Display.** The game draws on an invisible X display, chosen by `STREAM_DISPLAY_BACKEND`:
+  - `xorg` (recommended with an NVIDIA GPU): a headless X server on NVIDIA's own X driver, installed as a system service by `display/install-xorg-display.sh`. The game presents natively and holds 60 fps. It has no outputs or input devices and doesn't switch VTs, so the desktop session is unaffected. Connections need its auth cookie (`STREAM_XAUTHORITY`).
+  - `xvfb` (works anywhere): Xvfb has no DRI3, so every GPU frame is copied through the CPU and the game managed only about 12 fps on the maintainer laptop. Viewers saw that as 5–10 fps.
+  - A headless Wayland compositor with Xwayland was also tried: the game drew about 40 fps there, but x11grab captured black frames.
+  Either way the game uses its `sdl-gpu` (Vulkan) renderer.
 - **Audio.** A null sink receives only the stream game's audio, and ffmpeg records its monitor. Desktop sounds and other games never reach the stream.
-- **Encoding.** NVIDIA NVENC is used when it works, otherwise x264 on the CPU. 1080p60, 6000 kbps CBR, 2-second keyframes and 160 kbps AAC (Twitch's ceiling for non-partners). 60 fps matters: the game draws at an uneven 30–60 fps on Xvfb, and sampling that at 30 fps judders visibly even with no dropped frames. The filter graph converts to yuv420p before the overlays; drawing them in RGB cost about 3 CPU cores and starved capture.
+- **Encoding.** NVIDIA NVENC is used when it works, otherwise x264 on the CPU. 1080p60, 6000 kbps CBR, 2-second keyframes and 160 kbps AAC (Twitch's ceiling for non-partners). 60 fps matters: sampling a game that draws faster than the stream rate judders visibly even with no dropped frames. The filter graph converts to yuv420p before the overlays; drawing them in RGB cost about 3 CPU cores and starved capture.
 - **Caption.** A bottom-left text box shows match context or an intermission message from `caption.sh`. ffmpeg reloads it during capture.
 - **Branding.** A small Globulation 2 wordmark with `glob2.online` beneath it sits bottom right over the map, clear of the game's sidebar. See [Branding overlay](#branding-overlay).
 
@@ -56,7 +60,8 @@ This directory holds code only. The stream key, game profile, logs and settings 
 ./setup.sh --with-game                                # packages, ~/glob2-stream, GPU report, glob2 checkout
 install -m 600 /dev/stdin ~/.config/glob2-stream/twitch.key   # paste the key from Twitch > Settings > Stream, then Ctrl-D
 (cd ~/glob2-stream/src && python3 tools/dev_build.py perf=1)  # build the game (setup.sh prints SDL3 notes)
-./game-up.sh                                          # Xvfb, audio sink, game with MCP on 27300
+./display/install-xorg-display.sh                     # NVIDIA GPU: headless X server for a 60 fps game; then STREAM_DISPLAY_BACKEND=xorg
+./game-up.sh                                          # display (Xvfb, or checks the xorg service), audio sink, game with MCP on 27300
 ./register-mcp.sh                                     # Claude Code MCP server "glob2-stream"; open a new session
 ./sandbox/install-agent-sandbox.sh                    # agent user, agent code, policies, shared dirs, sudo rule, firewall
 claude setup-token                                    # then install the token it prints (Security and sandboxing)
@@ -131,7 +136,8 @@ Each value is one line of at most 70 characters, so three lines fit beside the b
 | --- | --- | --- |
 | `GLOB2_SRC`, `GLOB2_BIN` | `~/glob2-stream/src`, its perf build | Game checkout and binary. |
 | `GAME_RENDERER` | `sdl-gpu` | `software` works without a GPU but is slow. |
-| `STREAM_DISPLAY`, `STREAM_SIZE`, `STREAM_FPS` | `:99`, `1920x1080`, `30` | |
+| `STREAM_DISPLAY`, `STREAM_SIZE`, `STREAM_FPS` | `:99`, `1920x1080`, `60` | |
+| `STREAM_DISPLAY_BACKEND`, `STREAM_XAUTHORITY` | `xvfb`, `$GLOB2_STREAM_HOME/display/Xauthority` | `xorg` uses the headless NVIDIA X server (`display/install-xorg-display.sh`); its auth cookie is the second setting. |
 | `STREAM_VBITRATE`, `STREAM_ABITRATE` | `6000k`, `160k` | Keep video at or below 6000k for Twitch. |
 | `STREAM_ENCODER` | auto | `h264_nvenc`, `libx264`, or another ffmpeg encoder. |
 | `STREAM_SINK` | `glob2_stream` | |
@@ -252,10 +258,12 @@ Only approved imagery or direct derivatives may be used ([assets README](assets/
 
 - **Game sound plays on the speakers, or the stream is silent.** SDL3's PipeWire backend ignores `PULSE_SINK`, and PipeWire remembers per-application routing, so a stream named `glob2` can return to the speakers. `game-up.sh` forces SDL's PulseAudio backend, and `route-audio.sh` moves every audio stream whose process has `DISPLAY` set to the stream display. Run it again if the sound moves.
 - **The window is small in the corner.** Fullscreen is not applied on Xvfb, so the game is sized with `--window-size` instead.
-- **Low frame rate, or `llvmpipe` in the logs.** The game fell back to OpenGL on Xvfb. Keep `GAME_RENDERER=sdl-gpu` and check that `setup.sh` lists a Vulkan GPU. The "No DRI3 support" warnings come from Mesa drivers and are harmless when another device presents.
+- **Choppy stream.** Measure the game's own draw rate: two `mcp/mcp_call.py ui_status` calls a few seconds apart give `frame_id` per second. About 12 means Xvfb is the bottleneck: use `STREAM_DISPLAY_BACKEND=xorg`. If the game is near 60 but the stream isn't, check the `frame=`/`drop=` counters in `logs/stream.log` and the encoder's CPU. To see what viewers get, pull a sample with `streamlink` and count distinct frames (ffmpeg `mpdecimate`).
+- **`llvmpipe` in the logs.** The game fell back to software OpenGL. Keep `GAME_RENDERER=sdl-gpu` and check that `setup.sh` lists a Vulkan GPU. The "No DRI3 support" warnings come from Mesa drivers.
+- **xorg backend won't start.** `journalctl -u glob2-stream-xorg` and `/var/log/glob2-stream-xorg.log`. It needs NVIDIA's X driver matching the kernel module (Ubuntu: `xserver-xorg-video-nvidia-<version>`).
 - **Stopping processes.** Stop them by PID file or exact command line (`down.sh`). `pkill -f <pattern>` run from a shell can match and kill that shell.
 - **Branding covers the HUD or looks wrong.** Check `BRAND_MARGIN_RIGHT` (at least about 210 at 1080p) and that `BRAND_LOGO` exists; the warning `brand logo ... not found` means text only. `BRAND=0` isolates overlay problems.
-- **Watching the hidden display.** `ffplay -f x11grab -video_size 1920x1080 -i :99`, or `stream.sh file` and play the result.
+- **Watching the hidden display.** `ffplay -f x11grab -video_size 1920x1080 -i :99` (with the xorg backend, set `XAUTHORITY` to `STREAM_XAUTHORITY` first), or `stream.sh file` and play the result.
 - **The player isn't moving.** Run `status.py`, then check `logs/supervisor.log` and the newest `logs/player/match-*.jsonl.gz` (`zcat … | tail`). The supervisor ends a session after `--game-timeout` minutes and retries the match.
 - **Stale MCP token.** `mcp/activate.py --acquire` takes control again and saves a fresh token.
 

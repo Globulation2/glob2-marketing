@@ -51,7 +51,7 @@ def set_caption(cfg: dict, *args: str) -> None:
 def info(cfg) -> str:
     cur = assignment(cfg)
     games = rigstate.games(cfg)
-    lines = [f"match {cur['number']} vs {cur['opponent']} (record {rigstate.record(games, cur['opponent'])})",
+    lines = [f"match {cur['number']} vs {cur['opponent']} (record vs them {rigstate.record(games, cur['opponent'])}, overall {rigstate.record(games)})",
              f"phase: {cur.get('phase', 'setup')}; generator: {cur.get('generator') or 'not set up yet'}"]
     prev = rigstate.previous_generators(games)
     lines.append("previous generators (newest first): " + (", ".join(prev) if prev else "none"))
@@ -79,7 +79,7 @@ def caption(cfg, goal, last=None) -> str:
     cur = assignment(cfg)
     goal = clean(goal, "goal")
     last = clean(last, "last") if last else None
-    rec = rigstate.record(rigstate.games(cfg), cur["opponent"])
+    rec = rigstate.caption_record(rigstate.games(cfg), cur["number"])
     set_caption(cfg, "--match", cur["opponent"], rec, goal, *([last] if last else []))
     cur.update(goal=goal, last_move=last)
     rigstate.save_current(cfg, cur)
@@ -99,9 +99,9 @@ def result(cfg, outcome, note=None) -> str:
     row = {"number": cur["number"], "date": rigstate.now(), "opponent": cur["opponent"],
            "generator": cur.get("generator"), "result": outcome, "note": note}
     rigstate.append_jsonl(rigstate.state_dir(cfg) / "games.jsonl", row)
-    rec = rigstate.record(games + [row], cur["opponent"])
+    rec = f"overall {rigstate.record(games + [row])}"
     word = {"win": "Win", "loss": "Loss", "draw": "Draw", "aborted": "Match abandoned"}[outcome]
-    set_caption(cfg, f"Claude Plays Glob · Between matches\n{word} vs {cur['opponent']} · record {rec}")
+    set_caption(cfg, f"Claude Plays Glob · Between matches\nGame {cur['number']}: {word} vs {cur['opponent']} · {rec}")
     cur.update(phase="intermission", result=outcome)
     rigstate.save_current(cfg, cur)
     return f"match {cur['number']} recorded: {outcome} vs {cur['opponent']} ({rec})"

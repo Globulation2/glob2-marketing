@@ -238,7 +238,8 @@ class Supervisor:
             "stream": {"running": stream_running, "since": stream_since if stream_running else None},
             "game": game,
             "match": {"number": cur.get("number"), "opponent": opp,
-                      "record": rigstate.record(games, opp) if opp else None,
+                      "record": rigstate.record(games),            # overall, what viewers ask about
+                      "record_vs_opponent": rigstate.record(games, opp) if opp else None,
                       "generator": cur.get("generator"), "goal": cur.get("goal"),
                       "last_move": cur.get("last_move"),
                       "phase": "offline" if mode == "offline" else cur.get("phase", "setup")},
@@ -456,7 +457,7 @@ class Supervisor:
                 continue
             cur, recovery = self.assign()
             recovery = recovery or attempts > 0
-            rec = rigstate.record(rigstate.games(self.cfg), cur["opponent"])
+            rec = rigstate.caption_record(rigstate.games(self.cfg), cur["number"])
             if recovery and cur.get("goal"):  # keep the running match's caption
                 self.run_script("caption.sh", "--match", cur["opponent"], rec, cur["goal"],
                                 *([cur["last_move"]] if cur.get("last_move") else []))

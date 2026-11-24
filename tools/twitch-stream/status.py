@@ -42,7 +42,8 @@ def game_status(cfg):
 
 def collect(cfg):
     log_dir, state = pathlib.Path(cfg["LOG_DIR"]), pathlib.Path(cfg["STATE_DIR"])
-    xvfb = subprocess.run(["xdpyinfo", "-display", cfg["STREAM_DISPLAY"]], capture_output=True).returncode == 0
+    xenv = dict(os.environ, **({"XAUTHORITY": cfg["STREAM_XAUTHORITY"]} if cfg.get("STREAM_DISPLAY_BACKEND") == "xorg" else {}))
+    xvfb = subprocess.run(["xdpyinfo", "-display", cfg["STREAM_DISPLAY"]], capture_output=True, env=xenv).returncode == 0
     ui = game_status(cfg)
     status = rigstate.read_json(state / "status.json", {}) or {}
     sup_pid = alive(log_dir / "supervisor.pid")
@@ -50,7 +51,7 @@ def collect(cfg):
     by_opp = {o: rigstate.record(games, o) for o in rigstate.OPPONENTS}
     disk = {str(p): round(shutil.disk_usage(p).free / 1024 ** 3, 1) for p in {log_dir, state} if p.exists()}
     return {
-        "display": {"name": cfg["STREAM_DISPLAY"], "up": xvfb},
+        "display": {"name": cfg["STREAM_DISPLAY"], "backend": cfg.get("STREAM_DISPLAY_BACKEND"), "up": xvfb},
         "game": {"mcp": ui is not None, "size": f"{ui['width']}x{ui['height']}" if ui else None,
                  "controller": ui.get("controller") if ui else None,
                  "screen": (status.get("game") or {}).get("screen")},

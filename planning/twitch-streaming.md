@@ -66,7 +66,17 @@ During script validation a short (2 s) Twitch bandwidth test also ran unintentio
 
 ### Smoothness fix (2026-11-24)
 
-The first live hour looked like 5–10 fps on Twitch. Two causes, both measured: the overlay filter graph ran in RGB and used about 3 CPU cores, starving capture; and the game draws at an uneven 30–60 fps on the virtual display, which judders when sampled at 30 fps. Converting to yuv420p before the overlays cut encoder CPU to about half a core, and streaming 1080p60 at 6000 kbps keeps every drawn frame. A 16 s pull of the public stream with streamlink then showed 1920×1080 at 60 fps with 860 of 960 frames distinct (about 54 per second, against 30 before). Twitch accepts at most 60 fps, and the game is capped at 60, so higher rates wouldn't help.
+The first live hour looked like 5–10 fps on Twitch. Three measured causes, fixed in turn:
+
+1. **Overlays in RGB.** The caption and logo graph used about 3 CPU cores and starved capture. Converting to yuv420p first cut it to about half a core.
+2. **30 fps sampling.** Sampling a game that draws unevenly faster than 30 fps judders. The stream now runs 1080p60 at 6000 kbps (Twitch's maximum frame rate and non-partner bitrate).
+3. **Xvfb.** The game itself drew only about 12 fps (its MCP `frame_id` counter), because Xvfb lacks DRI3 and every GPU frame went through the CPU. Weston with Xwayland reached about 40 fps but captured black. A headless X server on NVIDIA's X driver (`display/install-xorg-display.sh`, `STREAM_DISPLAY_BACKEND=xorg`) holds 59–60 fps without touching the desktop session.
+
+After all three, a 16 s pull of the public stream with streamlink showed 1920×1080 at 60 fps with 959 of 960 frames distinct, and the user confirmed it looks good. Earlier pulls: 30 distinct frames per second at 30 fps, then about 54 at 60 fps on Xvfb (mostly repeated content).
+
+### Scoreboard
+
+The caption shows the game number and overall record ("vs Nicowar · Game 2 · overall 1W–0L–0D"); the head-to-head record stays in `match_info` and the chat host's status. The first caption showed only the record against the current opponent, which read as 0 wins right after a win against a different AI.
 
 ## Gaps and next work
 

@@ -5,7 +5,7 @@
 GLOB2_STREAM_HOME="${GLOB2_STREAM_HOME:-$HOME/glob2-stream}"
 # shellcheck disable=SC2034  # used by the scripts that source this file
 RIG_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
-RIG_SETTINGS=(GLOB2_SRC GLOB2_BIN GAME_RENDERER GAME_USERNAME STREAM_DISPLAY STREAM_SIZE STREAM_FPS STREAM_VBITRATE
+RIG_SETTINGS=(GLOB2_SRC GLOB2_BIN GAME_RENDERER GAME_USERNAME STREAM_DISPLAY STREAM_DISPLAY_BACKEND STREAM_XAUTHORITY STREAM_SIZE STREAM_FPS STREAM_VBITRATE
   STREAM_ABITRATE STREAM_ENCODER STREAM_SINK MCP_PORT GAME_PROFILE TWITCH_INGEST TWITCH_KEY_FILE
   OVERLAY_FILE LOG_DIR BRAND BRAND_LOGO BRAND_TEXT BRAND_TEXT_SIZE BRAND_WIDTH BRAND_OPACITY
   BRAND_MARGIN_RIGHT BRAND_MARGIN_BOTTOM STATE_DIR NOTES_DIR PLAYER_MODEL CHAT_MODEL
@@ -24,6 +24,8 @@ fi
 : "${GAME_RENDERER:=sdl-gpu}"
 : "${GAME_USERNAME:=Claude}"                    # player name shown in game chat and the score screen
 : "${STREAM_DISPLAY:=:99}"
+: "${STREAM_DISPLAY_BACKEND:=xvfb}"   # xvfb (anywhere, ~12 fps game) or xorg (headless NVIDIA X, 60 fps; display/install-xorg-display.sh)
+: "${STREAM_XAUTHORITY:=$GLOB2_STREAM_HOME/display/Xauthority}"
 : "${STREAM_SIZE:=1920x1080}"
 : "${STREAM_FPS:=60}"
 : "${STREAM_VBITRATE:=6000k}"
@@ -67,3 +69,4 @@ if [[ -n "$AGENT_USER" ]]; then : "${AGENT_SHARED_DIR:=/var/lib/glob2-stream}"; 
 : "${TWITCH_CHAT_TOKEN_FILE:=$HOME/.config/glob2-stream/twitch-chat.token}"
 : "${TWITCH_CLI_ENV:=$HOME/.config/twitch-cli/.twitch-cli.env}"   # Twitch CLI credentials used to refresh the chat token
 export GLOB2_STREAM_HOME MCP_PORT LOG_DIR
+if [[ "$STREAM_DISPLAY_BACKEND" == xorg ]]; then export XAUTHORITY="$STREAM_XAUTHORITY"; fi

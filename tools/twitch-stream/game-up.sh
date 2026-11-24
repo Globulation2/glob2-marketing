@@ -3,7 +3,10 @@
 set -euo pipefail
 source "$(dirname "$(readlink -f "$0")")/lib.sh"
 mkdir -p "$LOG_DIR" "$GAME_PROFILE"
-if ! xdpyinfo -display "$STREAM_DISPLAY" >/dev/null 2>&1; then
+if [[ "$STREAM_DISPLAY_BACKEND" == xorg ]]; then
+  xdpyinfo -display "$STREAM_DISPLAY" >/dev/null 2>&1 ||
+    { echo "stream X server on $STREAM_DISPLAY isn't up: sudo systemctl start glob2-stream-xorg (display/install-xorg-display.sh)" >&2; exit 1; }
+elif ! xdpyinfo -display "$STREAM_DISPLAY" >/dev/null 2>&1; then
   setsid Xvfb "$STREAM_DISPLAY" -screen 0 "${STREAM_SIZE}x24" -nolisten tcp >"$LOG_DIR/xvfb.log" 2>&1 < /dev/null &
   for _ in $(seq 50); do xdpyinfo -display "$STREAM_DISPLAY" >/dev/null 2>&1 && break; sleep 0.1; done
   echo "Xvfb $STREAM_DISPLAY up"

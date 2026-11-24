@@ -90,13 +90,18 @@ def games(cfg: dict) -> list:
     return read_jsonl(state_dir(cfg) / "games.jsonl")
 
 
-def record(all_games: list, opponent: str) -> str:
-    """Wins, losses and draws against one opponent; aborted games never count."""
+def record(all_games: list, opponent: str = None) -> str:
+    """Wins, losses and draws, overall or against one opponent; aborted games never count."""
     counts = {"win": 0, "loss": 0, "draw": 0}
     for g in all_games:
-        if g.get("opponent") == opponent and g.get("result") in counts:
+        if (opponent is None or g.get("opponent") == opponent) and g.get("result") in counts:
             counts[g["result"]] += 1
     return f"{counts['win']}W–{counts['loss']}L–{counts['draw']}D"
+
+
+def caption_record(all_games: list, number) -> str:
+    """The caption's record field: the game number and the overall record viewers expect."""
+    return f"Game {number} · overall {record(all_games)}"
 
 
 def next_opponent(all_games: list) -> str:
