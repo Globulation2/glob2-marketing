@@ -25,8 +25,8 @@ fi
 : "${GAME_USERNAME:=Claude}"                    # player name shown in game chat and the score screen
 : "${STREAM_DISPLAY:=:99}"
 : "${STREAM_SIZE:=1920x1080}"
-: "${STREAM_FPS:=30}"
-: "${STREAM_VBITRATE:=4500k}"
+: "${STREAM_FPS:=60}"
+: "${STREAM_VBITRATE:=6000k}"
 : "${STREAM_ABITRATE:=160k}"
 : "${STREAM_ENCODER:=}"
 : "${STREAM_SINK:=glob2_stream}"

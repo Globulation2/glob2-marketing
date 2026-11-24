@@ -26,7 +26,7 @@ This directory holds code only. The stream key, game profile, logs and settings 
 
 - **Display.** Xvfb provides an invisible X display. OpenGL there would be llvmpipe (software), so the game uses its `sdl-gpu` renderer. Vulkan can present into Xvfb while rendering on the machine's GPU.
 - **Audio.** A null sink receives only the stream game's audio, and ffmpeg records its monitor. Desktop sounds and other games never reach the stream.
-- **Encoding.** NVIDIA NVENC is used when it works, otherwise x264 on the CPU. 1080p30, 4500 kbps CBR, 2-second keyframes and 160 kbps AAC match Twitch's ingest guidance.
+- **Encoding.** NVIDIA NVENC is used when it works, otherwise x264 on the CPU. 1080p60, 6000 kbps CBR, 2-second keyframes and 160 kbps AAC (Twitch's ceiling for non-partners). 60 fps matters: the game draws at an uneven 30–60 fps on Xvfb, and sampling that at 30 fps judders visibly even with no dropped frames. The filter graph converts to yuv420p before the overlays; drawing them in RGB cost about 3 CPU cores and starved capture.
 - **Caption.** A bottom-left text box shows match context or an intermission message from `caption.sh`. ffmpeg reloads it during capture.
 - **Branding.** A small Globulation 2 wordmark with `glob2.online` beneath it sits bottom right over the map, clear of the game's sidebar. See [Branding overlay](#branding-overlay).
 
@@ -132,7 +132,7 @@ Each value is one line of at most 70 characters, so three lines fit beside the b
 | `GLOB2_SRC`, `GLOB2_BIN` | `~/glob2-stream/src`, its perf build | Game checkout and binary. |
 | `GAME_RENDERER` | `sdl-gpu` | `software` works without a GPU but is slow. |
 | `STREAM_DISPLAY`, `STREAM_SIZE`, `STREAM_FPS` | `:99`, `1920x1080`, `30` | |
-| `STREAM_VBITRATE`, `STREAM_ABITRATE` | `4500k`, `160k` | Keep video at or below 6000k for Twitch. |
+| `STREAM_VBITRATE`, `STREAM_ABITRATE` | `6000k`, `160k` | Keep video at or below 6000k for Twitch. |
 | `STREAM_ENCODER` | auto | `h264_nvenc`, `libx264`, or another ffmpeg encoder. |
 | `STREAM_SINK` | `glob2_stream` | |
 | `MCP_PORT` | `27300` | A desktop game normally uses 27202. |

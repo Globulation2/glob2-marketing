@@ -48,7 +48,7 @@ The rig ran on the maintainer's Linux laptop: Ubuntu 24.04, an NVIDIA RTX 3070 T
 
 - The game draws on a hidden 1920×1080 Xvfb display. Vulkan (`sdl-gpu`) rendered on the NVIDIA GPU and presented into Xvfb. On Xvfb, OpenGL would have fallen back to software rendering.
 - Only the game's audio reaches the stream, through a dedicated null sink. SDL3's PipeWire backend ignored `PULSE_SINK`, and PipeWire's remembered routing sent the first test session's music to the laptop speakers. The scripts now force the PulseAudio backend and move audio by display (`route-audio.sh`).
-- ffmpeg captures the display and the sink and encodes with NVENC: H.264 1080p30 at 4500 kbps CBR, 2-second keyframes and 160 kbps AAC. The [match caption command](../tools/twitch-stream/README.md#match-caption) puts the opponent, record from the game log, goal and latest confirmed move into the overlay. Free text handles intermissions and results.
+- ffmpeg captures the display and the sink and encodes with NVENC: H.264 1080p60 at 6000 kbps CBR (1080p30 at 4500 kbps until 2026-11-24, when viewers saw judder), 2-second keyframes and 160 kbps AAC. The [match caption command](../tools/twitch-stream/README.md#match-caption) puts the opponent, record from the game log, goal and latest confirmed move into the overlay. Free text handles intermissions and results.
 - **Branding.** A small corner overlay sits bottom right over the map: the approved Globulation 2 wordmark (a crop-only derivative of the [Epic v5 product logo](../assets/epic-v5/product-logo-960x540.png), see [rig assets](../tools/twitch-stream/assets/README.md)), with `glob2.online` beneath it. It is 200 px wide at 1080p, 0.85 opacity, and 224 px from the right edge so it clears the game's sidebar and zoom controls. It is configurable or can be disabled (`BRAND=0`).
 - A separate Claude Code MCP server, `glob2-stream`, connects to that game on port 27300, so a desktop game on the default port is unaffected.
 
@@ -63,6 +63,10 @@ The rig ran on the maintainer's Linux laptop: Ubuntu 24.04, an NVIDIA RTX 3070 T
 | Key handling | ffmpeg prints the full ingest URL on connection errors. `stream.sh` masks the key in its output and logs; checked with a fake key against an unreachable ingest. |
 
 During script validation a short (2 s) Twitch bandwidth test also ran unintentionally, because a local settings file overrode test variables. That precedence bug is fixed. The run was bandwidth-test only, and no key appeared in its log.
+
+### Smoothness fix (2026-11-24)
+
+The first live hour looked like 5–10 fps on Twitch. Two causes, both measured: the overlay filter graph ran in RGB and used about 3 CPU cores, starving capture; and the game draws at an uneven 30–60 fps on the virtual display, which judders when sampled at 30 fps. Converting to yuv420p before the overlays cut encoder CPU to about half a core, and streaming 1080p60 at 6000 kbps keeps every drawn frame. A 16 s pull of the public stream with streamlink then showed 1920×1080 at 60 fps with 860 of 960 frames distinct (about 54 per second, against 30 before). Twitch accepts at most 60 fps, and the game is capped at 60, so higher rates wouldn't help.
 
 ## Gaps and next work
 

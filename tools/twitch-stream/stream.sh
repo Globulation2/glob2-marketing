@@ -34,11 +34,13 @@ esac
 echo "encoder: $encoder" >&2
 
 # --- inputs and filter graph -------------------------------------------------
+# The graph converts to yuv420p first: drawing and overlaying in RGB cost ~3 CPU cores at 1080p30
+# (measured 2026-11-24) and starved capture, so viewers saw ~5-10 fps; in yuv420p it is ~0.6 cores.
 inputs=(-thread_queue_size 1024 -f x11grab -framerate "$STREAM_FPS" -video_size "$STREAM_SIZE" -draw_mouse 1 -i "$STREAM_DISPLAY"
         -thread_queue_size 1024 -f pulse -ac 2 -ar 48000 -i "$STREAM_SINK.monitor")
 scale_px() { echo $(( ($1 * ${STREAM_SIZE#*x} + 540) / 1080 )); }   # sizes are given at 1080p
 font=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
-graph="[0:v]drawtext=fontfile=$font:textfile=$OVERLAY_FILE:reload=1:expansion=none:fontsize=$(scale_px 26):fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=$(scale_px 10):x=$(scale_px 20):y=h-th-$(scale_px 30)[cap]"
+graph="[0:v]format=yuv420p,drawtext=fontfile=$font:textfile=$OVERLAY_FILE:reload=1:expansion=none:fontsize=$(scale_px 26):fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=$(scale_px 10):x=$(scale_px 20):y=h-th-$(scale_px 30)[cap]"
 last=cap
 if [[ "$BRAND" != 0 ]]; then
   mr=$(scale_px "$BRAND_MARGIN_RIGHT"); mb=$(scale_px "$BRAND_MARGIN_BOTTOM")
@@ -51,8 +53,8 @@ if [[ "$BRAND" != 0 ]]; then
   fi
   if [[ -f "$BRAND_LOGO" ]]; then
     inputs+=(-loop 1 -framerate "$STREAM_FPS" -i "$BRAND_LOGO")
-    graph+=";[2:v]scale=$(scale_px "$BRAND_WIDTH"):-1,format=rgba,colorchannelmixer=aa=${BRAND_OPACITY}[logo]"
-    graph+=";[$last][logo]overlay=x=W-w-$mr:y=H-h-$mb-$text_block:format=auto[blogo]"
+    graph+=";[2:v]scale=$(scale_px "$BRAND_WIDTH"):-1,format=rgba,colorchannelmixer=aa=${BRAND_OPACITY},format=yuva420p[logo]"
+    graph+=";[$last][logo]overlay=x=W-w-$mr:y=H-h-$mb-$text_block:format=yuv420[blogo]"
     last=blogo
   else
     echo "warning: brand logo $BRAND_LOGO not found; showing text only" >&2
@@ -69,7 +71,7 @@ args=(-hide_banner -loglevel warning -stats "${inputs[@]}"
 # --- outputs -----------------------------------------------------------------
 # The key is read into a variable and passed to ffmpeg only. ffmpeg prints the full
 # ingest URL on connection errors, so its output is filtered to mask the key.
-mask() { sed -u "s|$1|<stream-key>|g"; }
+mask() { stdbuf -o0 tr '\r' '\n' | sed -u "s|$1|<stream-key>|g"; }   # ffmpeg -stats ends lines with \r
 key() {
   [[ -s "$TWITCH_KEY_FILE" ]] || { echo "No stream key: install -m 600 /dev/stdin $TWITCH_KEY_FILE" >&2; exit 2; }
   local k; k="$(tr -d ' \n' < "$TWITCH_KEY_FILE")"
