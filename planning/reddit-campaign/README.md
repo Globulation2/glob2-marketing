@@ -12,10 +12,10 @@ Prepared November 23, 2026 for the free, open-source desktop remaster. These are
 
 | Community | Use and remaining decision |
 | --- | --- |
-| r/linux_gaming | First wave. A maintainer writes the title, text and replies. Add their actual Linux test details. A same-scene comparison is preferred. A single accurately labeled, relevant screenshot is acceptable if there is no comparison. |
+| r/linux_gaming | First wave. A maintainer writes the title, text and replies. The maintainer reports extensive desktop testing. Add the distro, package or build, and version for the example they choose. A same-scene comparison is preferred. A single accurately labeled, relevant screenshot is acceptable if there is no comparison. |
 | r/OpenSourceGames | First wave. Adapt the draft to the actual author's role, with tagged source, license and asset provenance. Lead with modern desktop support, HD graphics and rebuilt online play. Use the recovered Blender artwork as one concrete example. The approved battle clip is available if adding gameplay. |
 | r/StrategyGames | Next wave if an established participant meets the local 10% guideline. Use DevPost and a developed-match clip tied to one strategic decision. |
-| r/Games | Alternate next wave. Indie Sunday is a developer-only standalone text submission. If targeting November 29, confirm the current Sunday hub, 60-day eligibility and footage before submitting. |
+| r/Games | Alternate next wave. Indie Sunday is a developer-only standalone text submission. A one-time check-in is scheduled for November 29 at 12:05 a.m. Toronto time. Confirm the current Sunday hub, 60-day eligibility and footage before submitting. |
 | r/ObscureRTS | Hold for explicit moderator clearance on project eligibility, AI artwork provenance and the official release link. Review the unsent message locally. |
 | r/IndieGaming | Optional. Verify account age and cadence and make the required AI disclosure. |
 | r/FreeGames | Optional. Submit the canonical free downloads page, with the disclosed maintainer comment ready. |
