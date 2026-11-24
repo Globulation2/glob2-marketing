@@ -77,6 +77,10 @@ if [[ -n "$AGENT_USER" ]]; then : "${AGENT_SHARED_DIR:=/var/lib/glob2-stream}"; 
 : "${TWITCH_BOT_USER:=}"                        # account the chat agent speaks as; empty = read-only
 : "${TWITCH_CHAT_TOKEN_FILE:=$HOME/.config/glob2-stream/twitch-chat.token}"
 : "${TWITCH_CLI_ENV:=$HOME/.config/twitch-cli/.twitch-cli.env}"   # Twitch CLI credentials used to refresh the chat token
+# Context compaction for the agents (env-vars docs: CLAUDE_CODE_AUTO_COMPACT_WINDOW, CLAUDE_AUTOCOMPACT_PCT_OVERRIDE).
+# Aggressive by default: the smallest window and compaction at half of it (~50k tokens).
+: "${AGENT_COMPACT_WINDOW:=100000}"
+: "${AGENT_COMPACT_PCT:=50}"
 # Autostart at boot (autostart/install-autostart.sh).
 : "${AUTOSTART_STREAM:=live}"          # live, none or file:PATH
 : "${AUTOSTART_CHAT:=1}"

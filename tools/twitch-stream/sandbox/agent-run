@@ -188,6 +188,14 @@ def main():
     }
     if role == "chat":
         env["CLAUDE_CODE_SKIP_PROMPT_HISTORY"] = "1"
+    # Aggressive compaction for the player (user decision 2026-11-24): in a real-time match older
+    # context is stale, and lessons live in the notes it rereads. Validated whole numbers only:
+    # window >= 100000 tokens (the documented floor), threshold 1-100 percent of it.
+    window, pct = conf.get("AGENT_COMPACT_WINDOW", ""), conf.get("AGENT_COMPACT_PCT", "")
+    if window.isdigit() and 100000 <= int(window) <= 1000000:
+        env["CLAUDE_CODE_AUTO_COMPACT_WINDOW"] = str(int(window))
+    if pct.isdigit() and 1 <= int(pct) <= 100:
+        env["CLAUDE_AUTOCOMPACT_PCT_OVERRIDE"] = str(int(pct))
     pathlib.Path(env["TMPDIR"]).mkdir(mode=0o700, exist_ok=True)
     os.umask(0o002)
     os.chdir(cwd)

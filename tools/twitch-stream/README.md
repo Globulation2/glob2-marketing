@@ -166,6 +166,7 @@ Each value is one line of at most 70 characters, so three lines fit beside the b
 | `STREAM_DISPLAY`, `STREAM_SIZE`, `STREAM_FPS` | `:99`, `1920x1080`, `60` | |
 | `CAMERA_OVERLAY_FILE`, `CAMERA_HOLD_SECONDS`, `CAMERA_MIN_INTERVAL`, `CAMERA_LABEL_SECONDS` | `overlay/camera.txt`, `40`, `8`, `12` | The camera label file and gate timings (see [Camera](#camera)). |
 | `CAMERA_DIRECTOR`, `CAMERA_IDLE_SECONDS` | `0`, `50` | The optional idle director. |
+| `AGENT_COMPACT_WINDOW`, `AGENT_COMPACT_PCT` | `100000`, `50` | Agent context compaction, passed by `agent-run` as `CLAUDE_CODE_AUTO_COMPACT_WINDOW` and `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` (validated whole numbers; window at least 100000). Aggressive on purpose: older turns are stale in a real-time match, and lessons live in the notes. Rerun the sandbox installer after changing. |
 | `AUTOSTART_STREAM`, `AUTOSTART_CHAT` | `live`, `1` | What the boot service runs (`autostart/install-autostart.sh`). |
 | `STREAM_DISPLAY_BACKEND`, `STREAM_XAUTHORITY` | `xvfb`, `$GLOB2_STREAM_HOME/display/Xauthority` | `xorg` uses the headless NVIDIA X server (`display/install-xorg-display.sh`); its auth cookie is the second setting. |
 | `STREAM_VBITRATE`, `STREAM_ABITRATE` | `6000k`, `160k` | Keep video at or below 6000k for Twitch. |
