@@ -58,7 +58,7 @@ install -m 600 /dev/stdin ~/.config/glob2-stream/twitch.key   # paste the key fr
 (cd ~/glob2-stream/src && python3 tools/dev_build.py perf=1)  # build the game (setup.sh prints SDL3 notes)
 ./game-up.sh                                          # Xvfb, audio sink, game with MCP on 27300
 ./register-mcp.sh                                     # Claude Code MCP server "glob2-stream"; open a new session
-./sandbox/install-agent-sandbox.sh                    # agent user, root-owned agent code, shared dirs, sudo rule
+./sandbox/install-agent-sandbox.sh                    # agent user, agent code, policies, shared dirs, sudo rule, firewall
 claude setup-token                                    # then install the token it prints (Security and sandboxing)
 ./sandbox/verify-sandbox.sh                           # check the sandbox, including one cheap call per agent
 ./stream.sh file ~/glob2-stream/logs/check.mp4 15     # local check: picture, caption and sound
@@ -84,7 +84,7 @@ Run the scripts from anywhere; they find each other through their own location.
 | `stream_ctl.py`, `rigstate.py`, `rigconfig.py` | Match bookkeeping: the CLI, and the `stream-ctl` MCP server the player uses; shared state and settings for the Python tools. |
 | `prompts/` | [`player.md`](prompts/player.md), the player's role brief (the playbook is appended to it), and `chat.md`, the chat host's prompt. |
 | [`chat/`](chat/README.md) | The Twitch chat host: IRC client, agent loop, read-only game proxy, token refresh and its setup guide. |
-| `sandbox/` | `install-agent-sandbox.sh` (install, resync, `--uninstall`), `verify-sandbox.sh` and `agent-run`, the wrapper every agent starts through. See [Security and sandboxing](#security-and-sandboxing). |
+| `sandbox/` | `install-agent-sandbox.sh` (install, resync, `--uninstall`), `verify-sandbox.sh`, `agent-run` (the wrapper every agent starts through), `policy/` (the Claude Code `--settings` file for each role) and `egress_proxy.py` (the agents' only way to the internet). See [Security and sandboxing](#security-and-sandboxing). |
 | `mcp/` | Python helpers that drive the game over MCP without an agent (`mcp_call.py`, `activate.py`). Standard library only. |
 | [`stream-playbook.md`](stream-playbook.md) | How Claude plays and presents on stream: setup checks, camera, narration, fair play, notes. |
 | `assets/` | Branding image and its [provenance](assets/README.md). |
@@ -161,23 +161,34 @@ Viewers can write anything in chat, and the agents read game text and their own 
 
 ### Layers
 
-| Layer | Player | Chat host |
-| --- | --- | --- |
-| OS user | `AGENT_USER` (`glob2agent`): a system user with no login shell, no extra groups and its own home. Your home is closed to it (mode 750 or tighter). | Same user, for the model call only. The Twitch connection, filtering and rate limits run as you. |
-| How it starts | `sudo -n -u glob2agent /opt/glob2-stream-agent/agent-run player --model M [--resume ID]` | `… agent-run chat --model M [--max-budget-usd N] [--max-game-calls N \| --no-game]` |
-| Code it runs | A root-owned copy in `AGENT_INSTALL_DIR`, including its own `claude` binary, never anything in your home. | Same. |
-| Environment | `agent-run` clears it and sets HOME, PATH, umask 002, the working directory and the token. It sets `ENABLE_CLAUDEAI_MCP_SERVERS=false` and disables auto-update. | Same. |
-| Claude tools | Read, Edit and Write only, confined to the notes directory (`--restricted`). No shell, no web. Unlisted tools are refused (`--permission-mode dontAsk`). | No built-in tools (`--tools ""`). Answers in a fixed JSON schema. A $0.50 cap per reply by default. |
-| MCP servers | Only the game (`glob2-stream`, over HTTP to 127.0.0.1) and `stream-ctl` (match bookkeeping) (`--strict-mcp-config`, fixed by `agent-run`). | Only `glob2-readonly`: an allowlist of read tools, no control token, a few calls per reply. |
-| Files | Its home, plus `AGENT_SHARED_DIR` (notes, state, overlay; operator and agent group, mode 2770). The notes directory is sticky (3770) and the supervisor writes `session-brief.md` mode 644, so the player can read its rules but can't edit, delete or replace them. | Same, with `state/chat-sandbox` as its empty working directory. |
-| Output | Game actions, captions, and the result in `games.jsonl`. | One JSON reply. Code filters it before Twitch sees it: no links except glob2.online and the channel, no internals, one line, rate-limited. |
+Every layer below is independent: a mistake or bypass in one still leaves the others. The Claude Code controls follow the official documentation: [settings](https://code.claude.com/docs/en/settings), [settings reference](https://code.claude.com/docs/en/settings-reference), [permissions](https://code.claude.com/docs/en/permissions), [CLI reference](https://code.claude.com/docs/en/cli-reference), [environment variables](https://code.claude.com/docs/en/env-vars), [MCP](https://code.claude.com/docs/en/mcp), [memory](https://code.claude.com/docs/en/memory), [skills](https://code.claude.com/docs/en/skills), [sub-agents](https://code.claude.com/docs/en/sub-agents), [headless mode](https://code.claude.com/docs/en/headless) and [sandboxing](https://code.claude.com/docs/en/sandboxing).
 
-The sudo rule (`AGENT_SUDOERS`) lets only the operator run `agent-run` as `AGENT_USER`: no shell, no other command. `agent-run` accepts only the options shown above, each checked against a pattern, and builds every other flag itself. So the rule can't be used to start Claude with other tools, MCP servers or settings. `AGENT_USER` itself has no sudo rights.
+| # | Layer | Player | Chat host |
+| --- | --- | --- | --- |
+| 1 | **OS user** | `AGENT_USER` (`glob2agent`): a system user with no login shell, no extra groups and its own home. Your home is closed to it (mode 750 or tighter). | Same user, for the model call only. The Twitch connection, filtering and rate limits run as you. |
+| 2 | **File permissions** | `AGENT_SHARED_DIR` (notes, state, overlay) is `operator:glob2agent` 2770. Notes are sticky (3770) and `session-brief.md` is written 644, so the player can read its rules but not change, delete or replace them. `AGENT_INSTALL_DIR` and `AGENT_ETC_DIR` are root-owned. | Same, with `state/chat-sandbox` as its empty working directory. |
+| 3 | **Sudo rule and wrapper** | The sudo rule (`AGENT_SUDOERS`) lets only the operator run `agent-run` as `AGENT_USER`. `agent-run` (root-owned) accepts only `player --model M [--resume ID]`, each value checked against a pattern, and builds every other flag itself. | `chat --model M [--max-budget-usd N] [--max-game-calls N \| --no-game]`. |
+| 4 | **Claude binary** | A root-owned copy in `AGENT_INSTALL_DIR/bin`, never anything in your home; updates are disabled. | Same. |
+| 5 | **CLI flags** | `--restricted` (no code-running tools or WebFetch, file tools confined to the working directory, user and project settings ignored), `--tools Read,Edit,Write`, `--disable-slash-commands`, `--strict-mcp-config` with a fixed `--mcp-config`, `--permission-mode dontAsk` and `--permission-prompts none` (anything not pre-approved is denied), and an `--allowedTools` list of the two MCP servers plus `Read(./**)` and `Edit(./**)`. | `--tools ""` (no built-in tools), `--restricted`, the same permission flags, `--no-session-persistence`, a JSON schema for the answer, a budget cap. `--no-game` adds `--disallowedTools "mcp__*"`. |
+| 6 | **Policy file** (`--settings`) | `sandbox/policy/player.json`, installed root-owned in `AGENT_INSTALL_DIR/policy`: deny rules for every other built-in tool (Bash, web, subagents, skills, tasks, cron, artifacts, workflows and more) and for `mcp__claude_ai_*`; deny rules for writing `CLAUDE.md`, `AGENTS.md`, `CLAUDE.local.md`, `.claude/`, `.mcp.json` and `session-brief.md` in the notes directory; `blockReadsOutsideWorkingDirectories` and `blockWritesOutsideWorkingDirectories`; bypass and auto modes disabled; `allowedMcpServers` exactly `glob2-stream` and `stream-ctl`; claude.ai connectors, hooks, bundled skills, skill shell execution, auto memory, artifacts and workflows off; built-in plugins other than the privacy plugin disabled. Deny rules win over any allow. | `chat.json`: the same, with Read, Edit and Write denied too and `allowedMcpServers` exactly `glob2-readonly`. `chat-nogame.json` allows no MCP servers at all. |
+| 7 | **Environment** | `agent-run` clears the environment, then sets only HOME, PATH, umask 002, the token and documented switches: `ENABLE_CLAUDEAI_MCP_SERVERS=false`, `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` (also stops claude.ai skill and plugin sync), no updates, telemetry, error reports, feedback or feature flags, `CLAUDE_CODE_DISABLE_CLAUDE_MDS`, no auto memory, bundled skills, built-in subagents, web fetch, artifacts, workflows, cron or background tasks, and `CLAUDE_CODE_RESTRICTED=1`. | Same, plus `CLAUDE_CODE_SKIP_PROMPT_HISTORY`. |
+| 8 | **Extension points** | The agent's `~/.claude` is `root:glob2agent` 1770; `plugins/`, `skills/`, `agents/`, `commands/`, `CLAUDE.md` and `settings.json` in it are root-owned and empty, so nothing can be installed or loaded from there. Session files (`projects/`, used by `--resume`) stay writable. | Same. |
+| 9 | **MCP tools** | Only the game (HTTP to 127.0.0.1) and `stream-ctl` (match bookkeeping, no shell). | Only `glob2-readonly`: an allowlist of eight read tools, tokens stripped, a few calls per reply. |
+| 10 | **Network** | An nftables table (`glob2-agent-egress.service`) lets `glob2agent`'s packets reach only 127.0.0.1 on the game's MCP port and the egress proxy port; everything else, DNS included, is rejected. The proxy (`glob2-agent-proxy.service`, `sandbox/egress_proxy.py`, running as you) tunnels only to `EGRESS_ALLOW` (`api.anthropic.com`) on port 443 and logs every decision to the journal. `agent-run` refuses to start Claude if a direct connection to the internet succeeds or the proxy is down. | Same. |
+| 11 | **Output filters** | Game actions, captions and the result in `games.jsonl`. | One JSON reply. Code filters it before Twitch sees it: no links except glob2.online and the channel, no internals, one line, rate-limited. |
+
+#### What the documentation says isn't covered
+
+- **Managed settings.** Claude Code's strongest controls (managed-only keys such as `allowManagedModsOnly` and `disableSideloadFlags`, and the built-in mod guard) need `/etc/claude-code/managed-settings.json`. Those apply to every account on the machine, including your own Claude Code, with no per-user scoping documented, so the rig doesn't install them. A session signed in with a long-lived `CLAUDE_CODE_OAUTH_TOKEN` doesn't count for the mod guard either. The compensating controls are layers 6 to 8: plugins and synced skills are off by policy and environment, the places they would load from are root-owned and empty, and the policy denies or disables every other extension point. A dedicated streaming machine could add managed settings safely; see the [managed settings](https://code.claude.com/docs/en/settings#settings-files) docs.
+- **Claude Code's own sandbox** (`sandbox.*` settings) only covers shell commands. The agents have no shell, so the rig relies on the OS user and the nftables rule instead.
+- **The account's server-side settings.** Claude Code fetches remote settings and policy limits for the signed-in account; those come from Anthropic for your account and can only tighten.
 
 ### What the agents can't reach
 
 - Your home: dotfiles, SSH keys, `~/.config` (including the stream key, the Twitch chat token and the Twitch CLI login), `~/.claude` and your own Claude login, your gh and gcloud configs, and other projects.
-- Your claude.ai connectors: `--strict-mcp-config` and `ENABLE_CLAUDEAI_MCP_SERVERS=false`. `verify-sandbox.sh` checks that each session lists only the rig's servers.
+- Your claude.ai connectors: `--strict-mcp-config`, `ENABLE_CLAUDEAI_MCP_SERVERS=false`, `disableClaudeAiConnectors`, a deny rule for `mcp__claude_ai_*` and an `allowedMcpServers` list of the rig's servers only. `verify-sandbox.sh` checks that each session lists only the rig's servers.
+- Any other network service: the firewall allows only loopback, and the proxy only `api.anthropic.com`. The agents can't fetch web pages, call other APIs or send data anywhere else, even through a bug in a Claude Code control.
+- Plugins, skills, subagents, hooks and slash commands: off by flag, policy and environment, with nothing installable in the agent's `~/.claude`. `verify-sandbox.sh` checks the session's lists are empty apart from the built-in privacy plugin.
 - The game's code and files: the player has no shell, and its file tools can't leave the notes directory. The game is reached only over MCP, which follows fog of war.
 - The Claude token itself: it is readable by the agent user, so that `claude` can authenticate, but the file tools can't reach `AGENT_ETC_DIR`. `verify-sandbox.sh` asks the player to read it and checks the refusal.
 
@@ -195,7 +206,11 @@ The sudo rule (`AGENT_SUDOERS`) lets only the operator run `agent-run` as `AGENT
    - installs `AGENT_INSTALL_DIR`, with a copy of the current `claude` (override it with `CLAUDE_BIN`);
    - writes `AGENT_ETC_DIR/agent.env`;
    - creates `AGENT_SHARED_DIR`, moving `notes/`, `state/` and the caption from `~/glob2-stream` the first time;
-   - installs and validates the sudo rule.
+   - installs and validates the sudo rule;
+   - installs the policy files and locks the agent's `~/.claude`;
+   - with `AGENT_EGRESS=1` (the default), installs and starts `glob2-agent-egress.service` (nftables) and `glob2-agent-proxy.service`.
+
+   It needs nftables (`/usr/sbin/nft`). Installing the firewall cuts off any agent session that started before it, because older sessions don't use the proxy; install between matches, or let the supervisor's recovery start a fresh session.
 
    It warns if `stream.env` still points `STATE_DIR`, `NOTES_DIR` or `OVERLAY_FILE` elsewhere.
 2. Create the agents' Claude token. This is interactive: it opens a browser to sign in with the Claude subscription. `claude setup-token` creates a long-lived (one-year) OAuth token for non-interactive use. Install it for the agent user without echoing it:
@@ -206,12 +221,14 @@ The sudo rule (`AGENT_SUDOERS`) lets only the operator run `agent-run` as `AGENT
    ```
 
    Paste the token, press Enter, then Ctrl-D. Use `AGENT_USER` and `AGENT_ETC_DIR` if you changed them. The token is never copied from your own login.
-3. Run `sandbox/verify-sandbox.sh`. It checks users, ownership and modes, the sudo rule and the option allowlist, and probes file access as the agent user. It then makes one cheap call per agent (`claude-haiku-5-5`), checking the tools and MCP servers and that reads outside the sandbox are refused. Without a token, `--dummy-token` checks start-up up to the (expected) login failure.
+3. Run `sandbox/verify-sandbox.sh`. It checks users, ownership and modes, the sudo rule and the option allowlist, and probes file access as the agent user. It checks the policy files and the locked `~/.claude`, the two services and the nftables table, and probes the network as the agent user: no direct connection or DNS, the game port reachable, the proxy refusing example.com and tunnelling to api.anthropic.com. It then makes one cheap call per agent (`claude-haiku-5-5`), checking the tools, MCP servers, plugins, skills, subagents and slash commands, and that reads outside the sandbox and writing `./CLAUDE.md` are refused. Without a token, `--dummy-token` checks start-up up to the (expected) login failure.
 
 ### Updating and uninstalling
 
 - After `git pull`, or a `claude` update you want the agents to use, rerun `sandbox/install-agent-sandbox.sh`. It resyncs the root-owned copy and removes stale files. Stop the supervisor first, so that no agent is mid-session.
-- `sandbox/install-agent-sandbox.sh --uninstall` removes the sudo rule, `AGENT_INSTALL_DIR`, `AGENT_ETC_DIR` (including the token) and the agent user with its home. It keeps `AGENT_SHARED_DIR` and prints the command to delete it.
+- `sandbox/install-agent-sandbox.sh --uninstall` removes the two services and the nftables table, the sudo rule, `AGENT_INSTALL_DIR`, `AGENT_ETC_DIR` (including the token) and the agent user with its home. It keeps `AGENT_SHARED_DIR` and prints the command to delete it.
+- The proxy's decisions are in the journal: `journalctl -u glob2-agent-proxy`. To allow another host, set `EGRESS_ALLOW` in `stream.env` and rerun the installer; only add hosts the official [network configuration](https://code.claude.com/docs/en/network-config) docs list as required.
+- `AGENT_EGRESS=0` skips the firewall and proxy. The other layers still apply, but the agents then have direct internet access.
 - `AGENT_USER=""` in `stream.env` runs the agents as you, with only the Claude-level restrictions. That is less isolated: a steered agent would be one permission bug away from your files and connectors. Use it for development only.
 
 ## Branding overlay

@@ -395,6 +395,25 @@ class Supervisor:
             self.release_control()
         return finished()
 
+    def release_stale_control(self):
+        """At startup, free a lease left by a player session of an earlier supervisor run (one that
+        was killed or stopped before it could release), using the token in the newest transcript."""
+        token = None
+        try:
+            newest = max(self.player_logs.glob("*.jsonl.gz"), key=lambda f: f.stat().st_mtime, default=None)
+            if newest is None:
+                return
+            with gzip.open(newest, "rb") as fh:
+                for line in fh:
+                    m = TOKEN_RE.search(line) if b"token" in line else None
+                    if m:
+                        token = m.group(1).decode()
+        except (OSError, EOFError) as e:  # a truncated transcript still yields what was read
+            log.debug("stale control scan: %s", e)
+        if token:
+            self.player_token = token
+            self.release_control()
+
     def release_control(self):
         """Free the game's control lease the last player session held, so the next session (a
         recovery, or the next match) doesn't wait up to five minutes for it to expire."""
@@ -495,6 +514,7 @@ class Supervisor:
         try:
             if not self.ensure_game():
                 log.warning("game not ready yet; the play loop keeps retrying")
+            self.release_stale_control()
             for t in threads:
                 t.start()
             self.play_loop()

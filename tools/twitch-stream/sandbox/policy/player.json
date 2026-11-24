@@ -1,0 +1,82 @@
+{
+  "permissions": {
+    "defaultMode": "dontAsk",
+    "disableBypassPermissionsMode": "disable",
+    "denyInsteadOfPrompting": true,
+    "blockReadsOutsideWorkingDirectories": true,
+    "blockWritesOutsideWorkingDirectories": true,
+    "deny": [
+      "Bash",
+      "PowerShell",
+      "Monitor",
+      "WebFetch",
+      "WebSearch",
+      "Agent",
+      "Task",
+      "Skill",
+      "NotebookEdit",
+      "TodoWrite",
+      "TaskCreate",
+      "TaskUpdate",
+      "TaskGet",
+      "TaskList",
+      "TaskStop",
+      "TaskOutput",
+      "Artifact",
+      "Workflow",
+      "CronCreate",
+      "CronDelete",
+      "CronList",
+      "RemoteTrigger",
+      "SendMessage",
+      "EnterWorktree",
+      "ExitWorktree",
+      "EnterPlanMode",
+      "ExitPlanMode",
+      "AskUserQuestion",
+      "LSP",
+      "Glob",
+      "Grep",
+      "ToolSearch",
+      "ListMcpResourcesTool",
+      "ReadMcpResourceTool",
+      "mcp__claude_ai_*",
+      "Edit(./CLAUDE.md)",
+      "Edit(./CLAUDE.local.md)",
+      "Edit(./AGENTS.md)",
+      "Edit(./.claude/**)",
+      "Edit(./.mcp.json)",
+      "Edit(./.claude.json)",
+      "Edit(./session-brief.md)"
+    ],
+    "allow": [
+      "Read(./**)",
+      "Edit(./**)",
+      "mcp__glob2-stream__*",
+      "mcp__stream-ctl__*"
+    ]
+  },
+  "disableAutoMode": "disable",
+  "allowedMcpServers": [
+    {
+      "serverName": "glob2-stream"
+    },
+    {
+      "serverName": "stream-ctl"
+    }
+  ],
+  "disableClaudeAiConnectors": true,
+  "disableAllHooks": true,
+  "disableSkillShellExecution": true,
+  "disableBundledSkills": true,
+  "syncClaudeAiSkills": false,
+  "syncClaudeAiPlugins": false,
+  "autoMemoryEnabled": false,
+  "enableArtifact": false,
+  "disableWorkflows": true,
+  "enabledPlugins": {
+    "cc-plugin-agents-md@builtin": false,
+    "cc-plugin-plugin-authoring@builtin": false,
+    "cc-plugin-telemetry@builtin": false
+  }
+}

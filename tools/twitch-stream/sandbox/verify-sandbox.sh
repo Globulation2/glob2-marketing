@@ -8,8 +8,10 @@
 #   sandbox/verify-sandbox.sh --no-model      install and permission checks only (no Claude calls)
 #
 # The live model checks start one cheap call per role (claude-haiku-5-5). Each asks Claude to read
-# files it must not reach, then checks that the reads were refused and that the session's tools
-# and MCP servers are exactly the expected ones. The direct file probes run commands as AGENT_USER
+# files it must not reach (and the player to create ./CLAUDE.md), then checks that those calls
+# were refused and that the session's tools, MCP servers, plugins, skills, subagents and slash
+# commands are exactly the expected ones. The egress checks connect as AGENT_USER directly and
+# through the allowlist proxy. The direct file probes run commands as AGENT_USER
 # with the operator's own sudo rights; without general sudo, they are skipped.
 # shellcheck disable=SC2015,SC2016  # ok() always succeeds; the literal $(id) is a deliberate bad value
 set -uo pipefail
@@ -48,6 +50,28 @@ for d in "$AGENT_SHARED_DIR" "$NOTES_DIR" "$STATE_DIR" "$(dirname "$OVERLAY_FILE
   want=2770; [[ "$d" == "$NOTES_DIR" ]] && want=3770   # notes: sticky, so the session brief stays read-only
   [[ "$(stat -c '%U:%G %a' "$d" 2>/dev/null)" == "$operator:$AGENT_USER $want" ]] && ok "shared $d" || bad "shared $d is $(stat -c '%U:%G %a' "$d" 2>/dev/null), want $want"
 done
+echo "Claude Code policy and extension points"
+for f in player chat chat-nogame; do
+  pf="$AGENT_INSTALL_DIR/policy/$f.json"
+  [[ "$(stat -c '%U %a' "$pf" 2>/dev/null)" == "root 644" ]] && python3 -c 'import json,sys; json.load(open(sys.argv[1]))' "$pf" 2>/dev/null \
+    && ok "policy $f.json root-owned, valid" || bad "policy $f.json missing, not root-owned or invalid"
+done
+check "agent-run passes the role policy with --settings" grep -q 'POLICY / "player.json"' "$run"
+agent_home="$(getent passwd "$AGENT_USER" | cut -d: -f6)"
+[[ "$(sudo -n stat -c '%U:%G %a' "$agent_home/.claude" 2>/dev/null)" == "root:$AGENT_USER 1770" ]] && ok "$agent_home/.claude root:$AGENT_USER 1770" || bad "$agent_home/.claude is $(sudo -n stat -c '%U:%G %a' "$agent_home/.claude" 2>/dev/null)"
+for d in plugins skills agents commands; do
+  [[ "$(sudo -n stat -c '%U %a' "$agent_home/.claude/$d" 2>/dev/null)" == "root 755" && -z "$(sudo -n ls -A "$agent_home/.claude/$d" 2>/dev/null)" ]] \
+    && ok "$agent_home/.claude/$d root-owned and empty" || bad "$agent_home/.claude/$d not root-owned and empty"
+done
+[[ "$(sudo -n stat -c '%U %s' "$agent_home/.claude/CLAUDE.md" 2>/dev/null)" == "root 0" ]] && ok "$agent_home/.claude/CLAUDE.md root-owned and empty" || bad "$agent_home/.claude/CLAUDE.md not root-owned and empty"
+
+if [[ "$AGENT_EGRESS" == 1 ]]; then
+  echo "network egress"
+  check "glob2-agent-egress.service active" systemctl is-active --quiet glob2-agent-egress.service
+  check "glob2-agent-proxy.service active" systemctl is-active --quiet glob2-agent-proxy.service
+  check "nftables table inet glob2_agent loaded" sudo -n nft list table inet glob2_agent
+fi
+
 check "sudoers valid" sudo -n visudo -cq
 rule="$(sudo -n grep -v '^#' "$AGENT_SUDOERS" 2>/dev/null | grep -v '^Defaults' | grep -v '^$')"
 [[ "$rule" == "$operator ALL=($AGENT_USER) NOPASSWD: $run" ]] && ok "sudo rule allows only agent-run as $AGENT_USER" || bad "unexpected sudo rule: $rule"
@@ -80,6 +104,22 @@ if [[ "$(sudo -n -l 2>/dev/null)" == *"(ALL : ALL) NOPASSWD: ALL"* || "$(sudo -n
   check "can write the overlay dir" as_agent test -w "$(dirname "$OVERLAY_FILE")"
   check "can write notes" as_agent test -w "$NOTES_DIR"
   check "can write state" as_agent test -w "$STATE_DIR"
+  if [[ "$AGENT_EGRESS" == 1 ]]; then
+    tcp() { as_agent /usr/bin/python3 -I -c 'import socket,sys; socket.create_connection((sys.argv[1], int(sys.argv[2])), timeout=5)' "$@"; }
+    connect_via_proxy() {  # prints the proxy's status code for CONNECT host:443
+      as_agent /usr/bin/python3 -I -c '
+import socket, sys
+s = socket.create_connection(("127.0.0.1", int(sys.argv[1])), timeout=10)
+s.sendall(f"CONNECT {sys.argv[2]}:443 HTTP/1.1\r\nHost: {sys.argv[2]}:443\r\n\r\n".encode())
+print(s.recv(64).split()[1].decode())' "$EGRESS_PROXY_PORT" "$1" 2>/dev/null
+    }
+    refuse "cannot connect directly to 1.1.1.1:443" tcp 1.1.1.1 443
+    refuse "cannot connect directly to api.anthropic.com:443" tcp api.anthropic.com 443
+    refuse "cannot reach DNS" tcp 127.0.0.53 53
+    check "can reach the game MCP port" tcp 127.0.0.1 "$MCP_PORT"
+    [[ "$(connect_via_proxy example.com)" == 403 ]] && ok "proxy refuses example.com" || bad "proxy did not refuse example.com"
+    [[ "$(connect_via_proxy api.anthropic.com)" == 200 ]] && ok "proxy tunnels to api.anthropic.com" || bad "proxy did not tunnel to api.anthropic.com"
+  fi
   if [[ -f "$NOTES_DIR/session-brief.md" ]]; then
     refuse "cannot modify the session brief" as_agent sh -c ": >> '$NOTES_DIR/session-brief.md'"
     refuse "cannot delete or replace the session brief" as_agent mv "$NOTES_DIR/session-brief.md" "$NOTES_DIR/brief-probe"
@@ -120,11 +160,19 @@ else:
         fails.append(f"foreign MCP tools {foreign[:3]}")
     if init.get("cwd", "").startswith(home + "/"):
         fails.append("runs inside the operator home")
+    plugins = sorted(p.get("name") for p in init.get("plugins", []))
+    if plugins != ["cc-plugin-privacy"]:
+        fails.append(f"plugins {plugins}")
+    for key in ("agents", "skills", "slash_commands"):
+        if init.get(key):
+            fails.append(f"{key} {init.get(key)[:3]}")
 if live == "1":
     if not result or result.get("is_error"):
         fails.append("live call failed: " + str((result or {}).get("result", "no result"))[:120])
     elif role == "player" and not (any(home in d for d in denied) and any(token in d for d in denied)):
         fails.append(f"reads were not refused (denials: {denied})")
+    elif role == "player" and not any("CLAUDE.md" in d for d in denied):
+        fails.append(f"writing ./CLAUDE.md was not refused (denials: {denied})")
 elif result and not result.get("is_error"):
     fails.append("dummy token unexpectedly worked")
 print("; ".join(fails) if fails else "ok")
@@ -144,9 +192,9 @@ if [[ "$mode" != --no-model ]]; then
   if [[ $have_token == 1 || $dummy == 1 ]]; then
     live=$((1 - dummy))
     echo "model checks ($([[ $live == 1 ]] && echo "live, claude-haiku-5-5" || echo "dummy token: start-up only, login must fail"))"
-    p_prompt="Permission test. Use the Read tool on $HOME/.bashrc, then on $token. Use no other tools. Then reply DONE."
+    p_prompt="Permission test. Use the Read tool on $HOME/.bashrc, then on $token, then use the Write tool to create ./CLAUDE.md containing x. Use no other tools. Then reply DONE."
     r="$(model_check player "$p_prompt" "glob2-stream,stream-ctl" "Edit,Read,Write" "$live")"
-    [[ "$r" == ok ]] && ok "player: tools, MCP servers$([[ $live == 1 ]] && echo ', refused reads')" || bad "player: $r"
+    [[ "$r" == ok ]] && ok "player: tools, MCP servers, plugins, no skills/agents/commands$([[ $live == 1 ]] && echo ', refused reads and ./CLAUDE.md')" || bad "player: $r"
     r="$(model_check chat "Status check: reply with null and no suggestion." "glob2-readonly" "" "$live")"
     [[ "$r" == ok ]] && ok "chat: no built-in tools, only the read-only game proxy" || bad "chat: $r"
     [[ $dummy == 1 ]] && sudo -n rm -f "$token" && echo "  note  dummy token removed"

@@ -19,12 +19,14 @@ import pathlib
 import pwd
 import re
 import signal
+import socket
 import sys
 
 INSTALL = pathlib.Path("@AGENT_INSTALL_DIR@")   # replaced by install-agent-sandbox.sh
 ETC = pathlib.Path("@AGENT_ETC_DIR@")             # replaced by install-agent-sandbox.sh
 CONF = ETC / "agent.env"
 TOKEN = ETC / "claude-oauth-token"
+POLICY = INSTALL / "policy"                       # root-owned --settings files, one per role
 
 MODEL_RE = re.compile(r"^(claude-[a-z0-9.-]{1,60}|sonnet|opus|haiku)$")
 UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
@@ -72,10 +74,35 @@ def read_conf() -> dict:
         if line and not line.startswith("#") and "=" in line:
             k, v = line.split("=", 1)
             conf[k.strip()] = v.strip()
-    for key in ("AGENT_USER", "AGENT_SHARED_DIR", "STATE_DIR", "NOTES_DIR", "OVERLAY_FILE", "MCP_PORT"):
+    for key in ("AGENT_USER", "AGENT_SHARED_DIR", "STATE_DIR", "NOTES_DIR", "OVERLAY_FILE", "MCP_PORT",
+                "AGENT_EGRESS", "EGRESS_PROXY_PORT"):
         if not conf.get(key):
             die(f"{CONF} lacks {key}; rerun install-agent-sandbox.sh", 78)
     return conf
+
+
+def can_connect(host: str, port: int, timeout: float = 3.0) -> bool:
+    try:
+        with socket.create_connection((host, port), timeout=timeout):
+            return True
+    except OSError:
+        return False
+
+
+def check_egress(conf: dict) -> dict:
+    """Fail closed: with AGENT_EGRESS=1 the firewall must already block direct connections and the
+    allowlist proxy must be up. Returns the proxy environment for Claude."""
+    if conf["AGENT_EGRESS"] != "1":
+        return {}
+    if can_connect("1.1.1.1", 443) or can_connect("2606:4700:4700::1111", 443):
+        die("direct internet access is not blocked for this user (is glob2-agent-egress.service loaded?); "
+            "refusing to start", 79)
+    port = int(conf["EGRESS_PROXY_PORT"])
+    if not can_connect("127.0.0.1", port):
+        die(f"the egress proxy is not listening on 127.0.0.1:{port} (glob2-agent-proxy.service)", 79)
+    proxy = f"http://127.0.0.1:{port}"
+    return {"HTTPS_PROXY": proxy, "HTTP_PROXY": proxy, "https_proxy": proxy, "http_proxy": proxy,
+            "NO_PROXY": "127.0.0.1,localhost", "no_proxy": "127.0.0.1,localhost"}
 
 
 def main():
@@ -92,11 +119,17 @@ def main():
         die(f"no Claude token in {TOKEN}: run `claude setup-token`, then "
             f"`sudo install -o root -g {conf['AGENT_USER']} -m 640 /dev/stdin {TOKEN}`", 78)
 
+    proxy_env = check_egress(conf)
+
     py = ["/usr/bin/python3", "-E", "-s"]           # our MCP servers: no env-driven imports, no user site
     shared_env = {k: conf[k] for k in ("AGENT_SHARED_DIR", "STATE_DIR", "NOTES_DIR", "OVERLAY_FILE", "MCP_PORT")}
     shared_env.update(AGENT_USER=conf["AGENT_USER"], GLOB2_STREAM_HOME=conf["AGENT_SHARED_DIR"])
     game_url = f"http://127.0.0.1:{int(conf['MCP_PORT'])}/mcp"
     claude = str(INSTALL / "bin" / "claude")
+    # Flags shared by both roles: no slash commands or skills, nobody to answer a permission
+    # prompt (so anything not pre-approved is denied), and the role's root-owned policy file.
+    common = ["--disable-slash-commands", "--permission-mode", "dontAsk", "--permission-prompts", "none",
+              "--strict-mcp-config", "--output-format", "stream-json", "--verbose"]
 
     if role == "player":
         servers = {
@@ -104,35 +137,54 @@ def main():
             "stream-ctl": {"command": py[0], "args": py[1:] + [str(INSTALL / "stream_ctl.py"), "mcp"], "env": shared_env},
         }
         cwd = conf["NOTES_DIR"]
-        cmd = [claude, "-p", "--model", opts["--model"], "--restricted", "--tools", "Read,Edit,Write",
-               "--strict-mcp-config", "--mcp-config", json.dumps({"mcpServers": servers}),
-               "--permission-mode", "dontAsk",
-               "--allowedTools", "mcp__glob2-stream__*", "mcp__stream-ctl__*", "Edit(./**)",
-               "--output-format", "stream-json", "--verbose"]
+        cmd = [claude, "-p", "--model", opts["--model"], "--restricted", "--tools", "Read,Edit,Write", *common,
+               "--settings", str(POLICY / "player.json"),
+               "--mcp-config", json.dumps({"mcpServers": servers}),
+               "--allowedTools", "mcp__glob2-stream__*", "mcp__stream-ctl__*", "Read(./**)", "Edit(./**)"]
         if "--resume" in opts:
             cmd += ["--resume", opts["--resume"]]
     else:
         cwd = str(pathlib.Path(conf["STATE_DIR"]) / "chat-sandbox")
-        cmd = [claude, "-p", "--model", opts["--model"], "--tools", "", "--restricted", "--strict-mcp-config",
-               "--permission-mode", "dontAsk", "--no-session-persistence",
+        no_game = "--no-game" in opts
+        cmd = [claude, "-p", "--model", opts["--model"], "--tools", "", "--restricted", *common,
+               "--no-session-persistence",
+               "--settings", str(POLICY / ("chat-nogame.json" if no_game else "chat.json")),
                "--max-budget-usd", opts.get("--max-budget-usd", "0.50"),
-               "--output-format", "stream-json", "--verbose",
                "--json-schema", (INSTALL / "chat" / "reply_schema.json").read_text(),
                "--system-prompt", (INSTALL / "prompts" / "chat.md").read_text()]
-        if "--no-game" not in opts:
-            proxy_env = {"MCP_PORT": conf["MCP_PORT"], "READONLY_MCP_MAX_CALLS": opts.get("--max-game-calls", "4")}
+        if no_game:
+            cmd += ["--disallowedTools", "mcp__*"]
+        else:
+            ro_env = {"MCP_PORT": conf["MCP_PORT"], "READONLY_MCP_MAX_CALLS": opts.get("--max-game-calls", "4")}
             servers = {"glob2-readonly": {"command": py[0], "args": py[1:] + [str(INSTALL / "chat" / "readonly_mcp.py")],
-                                          "env": proxy_env}}
+                                          "env": ro_env}}
             cmd += ["--mcp-config", json.dumps({"mcpServers": servers}), "--allowedTools", "mcp__glob2-readonly__*"]
 
     env = {
         "HOME": me.pw_dir, "USER": me.pw_name, "LOGNAME": me.pw_name, "SHELL": "/bin/sh",
         "PATH": f"{INSTALL / 'bin'}:/usr/bin:/bin", "LANG": "C.UTF-8", "TMPDIR": str(pathlib.Path(me.pw_dir) / "tmp"),
         "CLAUDE_CODE_OAUTH_TOKEN": token,
-        "ENABLE_CLAUDEAI_MCP_SERVERS": "false",      # never load the account's claude.ai connectors
-        "DISABLE_AUTOUPDATER": "1",                  # the installed binary is root-owned and fixed
-        "DISABLE_TELEMETRY": "1", "DISABLE_ERROR_REPORTING": "1",
+        # Documented switches (https://code.claude.com/docs/en/env-vars), each a second layer to the
+        # policy file and flags: no claude.ai connectors, no updates, telemetry, error reports,
+        # feature flags or claude.ai skill/plugin sync (nonessential traffic), no CLAUDE.md or auto
+        # memory, no bundled skills, built-in subagents, web fetch, artifacts, workflows, cron or
+        # background tasks, and restricted mode even if a flag were dropped.
+        "ENABLE_CLAUDEAI_MCP_SERVERS": "false",
+        "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+        "DISABLE_AUTOUPDATER": "1", "DISABLE_UPDATES": "1",
+        "DISABLE_TELEMETRY": "1", "DISABLE_ERROR_REPORTING": "1", "DISABLE_FEEDBACK_COMMAND": "1",
+        "CLAUDE_CODE_DISABLE_FEATURE_FLAGS": "1",
+        "CLAUDE_CODE_DISABLE_CLAUDE_MDS": "1", "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1",
+        "CLAUDE_CODE_DISABLE_BUNDLED_SKILLS": "1", "CLAUDE_AGENT_SDK_DISABLE_BUILTIN_AGENTS": "1",
+        "CLAUDE_CODE_DISABLE_WEB_FETCH": "1", "CLAUDE_CODE_DISABLE_ARTIFACT": "1",
+        "CLAUDE_CODE_DISABLE_WORKFLOWS": "1", "CLAUDE_CODE_DISABLE_CRON": "1",
+        "CLAUDE_CODE_DISABLE_BACKGROUND_TASKS": "1", "CLAUDE_CODE_DISABLE_AGENT_VIEW": "1",
+        "CLAUDE_CODE_DISABLE_OFFICIAL_MARKETPLACE_AUTOINSTALL": "1",
+        "CLAUDE_CODE_RESTRICTED": "1",
+        **proxy_env,
     }
+    if role == "chat":
+        env["CLAUDE_CODE_SKIP_PROMPT_HISTORY"] = "1"
     pathlib.Path(env["TMPDIR"]).mkdir(mode=0o700, exist_ok=True)
     os.umask(0o002)
     os.chdir(cwd)

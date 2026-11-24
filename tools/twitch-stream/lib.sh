@@ -10,7 +10,7 @@ RIG_SETTINGS=(GLOB2_SRC GLOB2_BIN GAME_RENDERER GAME_USERNAME STREAM_DISPLAY STR
   OVERLAY_FILE LOG_DIR BRAND BRAND_LOGO BRAND_TEXT BRAND_TEXT_SIZE BRAND_WIDTH BRAND_OPACITY
   BRAND_MARGIN_RIGHT BRAND_MARGIN_BOTTOM STATE_DIR NOTES_DIR PLAYER_MODEL CHAT_MODEL
   TWITCH_CHANNEL TWITCH_BOT_USER TWITCH_CHAT_TOKEN_FILE TWITCH_CLI_ENV
-  AGENT_USER AGENT_SHARED_DIR AGENT_INSTALL_DIR AGENT_ETC_DIR AGENT_SUDOERS)
+  AGENT_USER AGENT_SHARED_DIR AGENT_INSTALL_DIR AGENT_ETC_DIR AGENT_SUDOERS AGENT_EGRESS EGRESS_PROXY_PORT EGRESS_ALLOW)
 if [[ -f "$GLOB2_STREAM_HOME/stream.env" ]]; then
   declare -A rig_env=()
   for v in "${RIG_SETTINGS[@]}"; do [[ -n "${!v+x}" ]] && rig_env[$v]="${!v}"; done
@@ -41,6 +41,10 @@ fi
 : "${AGENT_INSTALL_DIR:=/opt/glob2-stream-agent}"   # root-owned copy of the agent-side code and claude
 : "${AGENT_ETC_DIR:=/etc/glob2-stream}"              # agent.env and the Claude token (claude-oauth-token)
 : "${AGENT_SUDOERS:=/etc/sudoers.d/glob2-stream}"    # the one sudo rule: operator may run agent-run as AGENT_USER
+: "${AGENT_EGRESS:=1}"                               # 1: firewall the agent user to loopback; it reaches the
+                                                    # Anthropic API only through the allowlist egress proxy
+: "${EGRESS_PROXY_PORT:=3129}"                      # egress_proxy.py on 127.0.0.1 (systemd: glob2-agent-proxy)
+: "${EGRESS_ALLOW:=api.anthropic.com}"              # hosts the proxy tunnels to (port 443 only), space-separated
 if [[ -n "$AGENT_USER" ]]; then : "${AGENT_SHARED_DIR:=/var/lib/glob2-stream}"; else : "${AGENT_SHARED_DIR:=$GLOB2_STREAM_HOME}"; fi
 : "${OVERLAY_FILE:=$AGENT_SHARED_DIR/overlay/caption.txt}"
 : "${LOG_DIR:=$GLOB2_STREAM_HOME/logs}"
