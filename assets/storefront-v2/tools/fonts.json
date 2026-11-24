@@ -1,0 +1,48 @@
+{
+  "notes": [
+    "Caption fonts for the captioned store screenshots. fetch_fonts.py downloads every file below into .cache/fonts/ (not committed) and refuses a file whose sha256 differs.",
+    "Glob2 Sans, the brand heading font, is a Latin subset of DejaVu Sans Book and has no bold. Captions are bold (weight 700), so every Latin, Greek, Cyrillic, Vietnamese and Romanian caption is set in DejaVu Sans Bold 2.37: the same family and licence. It comes from the full DejaVu 2.37 release archive (dejavu-fonts-ttf-2.37.zip); the sans-only archive has the Book weight alone.",
+    "weight and size are set per script so stroke weight and apparent size match DejaVu Sans Bold; see README.md for how they were measured. weight on a static font (DejaVu Sans Bold) is the only weight it serves.",
+    "shift moves the caption down by that many ems so scripts with tall marks above the headline sit optically centred in the band.",
+    "wrap is the rule for breaking a caption into two lines when no space, U+200B or CJK punctuation gives a good break: free (the browser's rules for the language; the default), words (between ICU dictionary words; Chinese), none (never; Thai, whose dictionary segmentation splits loanwords)."
+  ],
+  "sources": {
+    "google-fonts": "https://raw.githubusercontent.com/google/fonts/83c62e30d87daa70216dab6b984d00d20d96d585/ofl/",
+    "dejavu": "https://github.com/dejavu-fonts/dejavu-fonts/releases/download/version_2_37/"
+  },
+  "fonts": {
+    "DejaVu Sans Bold": {"file": "DejaVuSans-Bold.ttf", "weight": 700, "source": "dejavu", "path": "dejavu-fonts-ttf-2.37.zip", "member": "dejavu-fonts-ttf-2.37/ttf/DejaVuSans-Bold.ttf", "licence": "Bitstream Vera / DejaVu (permissive)", "licence_member": "dejavu-fonts-ttf-2.37/LICENSE", "licence_file": "LICENSE-DejaVu-2.37.txt", "version": "2.37", "sha256": "e6476c1b80502924294eed40894c5b18e06c181444ca953e5334262df9c27724", "archive_sha256": "7576310b219e04159d35ff61dd4a4ec4cdba4f35c00e002a136f00e96a908b0a"},
+    "Noto Sans": {"file": "NotoSans[wdth,wght].ttf", "source": "google-fonts", "path": "notosans/NotoSans[wdth,wght].ttf", "licence": "SIL Open Font License 1.1", "licence_path": "notosans/OFL.txt", "licence_file": "OFL-NotoSans.txt", "sha256": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d"},
+    "Noto Sans Arabic": {"file": "NotoSansArabic[wdth,wght].ttf", "source": "google-fonts", "path": "notosansarabic/NotoSansArabic[wdth,wght].ttf", "licence": "SIL Open Font License 1.1", "licence_path": "notosansarabic/OFL.txt", "licence_file": "OFL-NotoSansArabic.txt", "sha256": "63111b5b2e074dd48cc67692e0a2726d86ee94c1c37fe8598257b7b4e87e869e"},
+    "Noto Nastaliq Urdu": {"file": "NotoNastaliqUrdu[wght].ttf", "source": "google-fonts", "path": "notonastaliqurdu/NotoNastaliqUrdu[wght].ttf", "licence": "SIL Open Font License 1.1", "licence_path": "notonastaliqurdu/OFL.txt", "licence_file": "OFL-NotoNastaliqUrdu.txt", "sha256": "98a4787f34eb6fde57fb9a1121a8f216301196ab0da98ea110cad581be8abbcd"},
+    "Noto Sans Devanagari": {"file": "NotoSansDevanagari[wdth,wght].ttf", "source": "google-fonts", "path": "notosansdevanagari/NotoSansDevanagari[wdth,wght].ttf", "licence": "SIL Open Font License 1.1", "licence_path": "notosansdevanagari/OFL.txt", "licence_file": "OFL-NotoSansDevanagari.txt", "sha256": "14ec4af41f27482216d1c2229f417ff9b1425e1babb014e57d1d40d03229853e"},
+    "Noto Sans Bengali": {"file": "NotoSansBengali[wdth,wght].ttf", "source": "google-fonts", "path": "notosansbengali/NotoSansBengali[wdth,wght].ttf", "licence": "SIL Open Font License 1.1", "licence_path": "notosansbengali/OFL.txt", "licence_file": "OFL-NotoSansBengali.txt", "sha256": "dcd42978094e584a849c84a51450eeac40c8826057d566ea6d4b9627a403a05a"},
+    "Noto Sans Tamil": {"file": "NotoSansTamil[wdth,wght].ttf", "source": "google-fonts", "path": "notosanstamil/NotoSansTamil[wdth,wght].ttf", "licence": "SIL Open Font License 1.1", "licence_path": "notosanstamil/OFL.txt", "licence_file": "OFL-NotoSansTamil.txt", "sha256": "aa3a9b321f4b0bb2c40203ffbde9af89713227866e0e13f76e5b9eeea727cf88"},
+    "Noto Sans Telugu": {"file": "NotoSansTelugu[wdth,wght].ttf", "source": "google-fonts", "path": "notosanstelugu/NotoSansTelugu[wdth,wght].ttf", "licence": "SIL Open Font License 1.1", "licence_path": "notosanstelugu/OFL.txt", "licence_file": "OFL-NotoSansTelugu.txt", "sha256": "e618af7bf999df192ed4f388eba2e563f2b5015034e9cbb317b5bd793bd7334d"},
+    "Noto Sans Thai": {"file": "NotoSansThai[wdth,wght].ttf", "source": "google-fonts", "path": "notosansthai/NotoSansThai[wdth,wght].ttf", "licence": "SIL Open Font License 1.1", "licence_path": "notosansthai/OFL.txt", "licence_file": "OFL-NotoSansThai.txt", "sha256": "5a1c559bb539583c8a1fd99d1c5b9491e5e14478c9cd2bd0970d5c3096cc9ef8"},
+    "Noto Sans SC": {"file": "NotoSansSC[wght].ttf", "source": "google-fonts", "path": "notosanssc/NotoSansSC[wght].ttf", "licence": "SIL Open Font License 1.1", "licence_path": "notosanssc/OFL.txt", "licence_file": "OFL-NotoSansSC.txt", "sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da"},
+    "Noto Sans TC": {"file": "NotoSansTC[wght].ttf", "source": "google-fonts", "path": "notosanstc/NotoSansTC[wght].ttf", "licence": "SIL Open Font License 1.1", "licence_path": "notosanstc/OFL.txt", "licence_file": "OFL-NotoSansTC.txt", "sha256": "864727d210d54f2537bbe23b3a839436c3992af72de9322af5270897246bd44f"},
+    "Noto Sans JP": {"file": "NotoSansJP[wght].ttf", "source": "google-fonts", "path": "notosansjp/NotoSansJP[wght].ttf", "licence": "SIL Open Font License 1.1", "licence_path": "notosansjp/OFL.txt", "licence_file": "OFL-NotoSansJP.txt", "sha256": "c2f3b4d463500a2ddcd3849cded1fceeb9fd6d1c32e6cbecd568453ba50fc68f"},
+    "Noto Sans KR": {"file": "NotoSansKR[wght].ttf", "source": "google-fonts", "path": "notosanskr/NotoSansKR[wght].ttf", "licence": "SIL Open Font License 1.1", "licence_path": "notosanskr/OFL.txt", "licence_file": "OFL-NotoSansKR.txt", "sha256": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252"}
+  },
+  "profiles": {
+    "latin-greek-cyrillic": {"stack": ["DejaVu Sans Bold"], "single_font": true, "weight": 700, "size": 1.0, "line_height": 1.16, "letter_spacing": "-0.02em"},
+    "arabic": {"stack": ["Noto Sans Arabic", "Noto Sans"], "dir": "rtl", "weight": 850, "size": 1.04, "line_height": 1.3},
+    "urdu": {"stack": ["Noto Nastaliq Urdu", "Noto Sans"], "dir": "rtl", "weight": 700, "size": 0.96, "line_height": 1.75},
+    "devanagari": {"stack": ["Noto Sans Devanagari", "Noto Sans"], "weight": 800, "size": 1.0, "line_height": 1.26, "shift": 0.1},
+    "bengali": {"stack": ["Noto Sans Bengali", "Noto Sans"], "weight": 800, "size": 1.0, "line_height": 1.26, "shift": 0.1},
+    "tamil": {"stack": ["Noto Sans Tamil", "Noto Sans"], "weight": 850, "size": 0.94, "line_height": 1.26},
+    "telugu": {"stack": ["Noto Sans Telugu", "Noto Sans"], "weight": 900, "size": 1.0, "line_height": 1.3},
+    "thai": {"stack": ["Noto Sans Thai", "Noto Sans"], "weight": 850, "size": 1.0, "line_height": 1.3, "wrap": "none", "one_line_floor": 0.6, "shift": 0.08},
+    "chinese-simplified": {"stack": ["Noto Sans SC"], "weight": 850, "size": 0.9, "line_height": 1.24, "wrap": "words"},
+    "chinese-traditional": {"stack": ["Noto Sans TC"], "weight": 850, "size": 0.9, "line_height": 1.24, "wrap": "words"},
+    "japanese": {"stack": ["Noto Sans JP"], "weight": 850, "size": 0.9, "line_height": 1.24, "word_break": "auto-phrase"},
+    "korean": {"stack": ["Noto Sans KR"], "weight": 850, "size": 0.92, "line_height": 1.24, "word_break": "keep-all"}
+  },
+  "default_profile": "latin-greek-cyrillic",
+  "locale_profiles": {
+    "ar": "arabic", "fa": "arabic", "ur": "urdu",
+    "hi": "devanagari", "mr": "devanagari", "bn": "bengali", "ta": "tamil", "te": "telugu", "th": "thai",
+    "zh-Hans": "chinese-simplified", "zh-Hant": "chinese-traditional", "ja": "japanese", "ko": "korean"
+  }
+}

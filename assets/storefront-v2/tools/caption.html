@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Store screenshot caption layer</title>
+<!-- Rendered by screenshots.py in headless Chromium. Draws everything except the
+     gameplay capture: background, the card's ring and shadow, and the caption.
+     The capture itself is composited by Pillow and never passes through the browser. -->
+<style id="faces"></style>
+<style>
+  html, body { margin: 0; padding: 0; overflow: hidden; }
+  body {
+    position: relative;
+    width: var(--w); height: var(--h);
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+  /* The background is its own box of exactly the canvas size, so nothing else on the page can change it. */
+  #background { position: absolute; left: 0; top: 0; width: var(--w); height: var(--h); background: var(--background); }
+  #card {
+    position: absolute; left: var(--card-x); top: var(--card-y); width: var(--card-w); height: var(--card-h);
+    border-radius: var(--card-radius);
+    background: var(--ring);
+    box-shadow: var(--card-shadow);
+  }
+  #band {
+    position: absolute; left: var(--band-x); top: var(--band-y); width: var(--band-w); height: var(--band-h);
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  #text {
+    display: inline-block;
+    transform: translateY(var(--shift, 0px));
+    color: var(--ink);
+    text-align: center;
+    font-kerning: normal;
+    font-feature-settings: "kern", "liga";
+    font-optical-sizing: auto;
+    hanging-punctuation: none;
+    overflow-wrap: normal;
+    hyphens: manual;
+  }
+  body.no-text #text { visibility: hidden; }
+</style>
+</head>
+<body>
+<div id="background"></div>
+<div id="card"></div>
+<div id="band"><span id="text"></span></div>
+<script>
+'use strict';
+
+// Lines as laid out: group grapheme rectangles by their vertical position.
+function laidOutLines(el) {
+  const range = document.createRange();
+  const lines = [];
+  const segmenter = new Intl.Segmenter(el.lang || undefined, { granularity: 'grapheme' });
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+    for (const part of segmenter.segment(node.data)) {
+      range.setStart(node, part.index);
+      range.setEnd(node, part.index + part.segment.length);
+      const rects = range.getClientRects();
+      if (!rects.length) {  // a space collapsed at a line end
+        if (lines.length) lines[lines.length - 1].text += part.segment;
+        continue;
+      }
+      const rect = rects[0];
+      const middle = (rect.top + rect.bottom) / 2;
+      let line = lines.find(l => middle > l.top && middle < l.bottom);
+      if (!line) {
+        line = { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right, text: '' };
+        lines.push(line);
+      }
+      line.left = Math.min(line.left, rect.left);
+      line.right = Math.max(line.right, rect.right);
+      line.text += part.segment;
+    }
+  }
+  return lines.sort((p, q) => p.top - q.top).map(l => ({ text: l.text.replace(/\u200b/g, '').replace(/^ +| +$/g, ''), width: l.right - l.left }));
+}
+
+// The caption as DOM, with the places a line may break decided here rather than left to chance.
+//   'free'  : the browser's rules for the language (UAX #14, kinsoku, word-break).
+//   'hint'  : only at a zero-width space (U+200B) the caption's editor put in.
+//   'clause': only after punctuation that ends a clause (comma, full stop and their kin in any script).
+//   'safe'  : only at a space or U+200B, or after CJK punctuation. Hyphenated compounds stay whole,
+//             and a number stays with the word after it.
+//   'words' : only between dictionary words (ICU segmentation), for Chinese.
+function setText(el, text, mode, lang) {
+  el.textContent = '';
+  if (mode === 'free') { el.textContent = text; return; }
+  const keep = piece => {
+    const span = document.createElement('span');
+    span.style.whiteSpace = 'nowrap';
+    span.textContent = piece;
+    el.appendChild(span);
+  };
+  if (mode === 'hint') {
+    text.split('\u200b').forEach((part, index) => {
+      if (index) el.appendChild(document.createTextNode('\u200b'));
+      if (part) keep(part);
+    });
+    return;
+  }
+  if (mode === 'clause') {
+    text.split(/(?<=[,.;:!?\u060c\u061b\u06d4\u0964]) +/).forEach((clause, index) => {
+      if (index) el.appendChild(document.createTextNode(' '));
+      clause.split(/(?<=[\u3001\u3002\uff0c\uff01\uff1f\uff1b\uff1a])/).filter(Boolean).forEach(keep);
+    });
+    return;
+  }
+  const pieces = text.split(/( +|\u200b)/).filter(Boolean);
+  for (let i = 0; i < pieces.length; i += 1) {
+    let piece = pieces[i];
+    if (/^( +|\u200b)$/.test(piece)) { el.appendChild(document.createTextNode(piece)); continue; }
+    // A number stays with the word it counts ("67 map", never "67" at a line end).
+    while (/\p{Nd}$/u.test(piece) && pieces[i + 1] === ' ' && pieces[i + 2]) { piece += ' ' + pieces[i + 2]; i += 2; }
+    let parts = piece.split(/(?<=[\u3001\u3002\uff0c\uff01\uff1f\uff1b\uff1a])/);
+    if (mode === 'words') {
+      parts = [];
+      for (const { segment, isWordLike } of new Intl.Segmenter(lang, { granularity: 'word' }).segment(piece)) {
+        // Punctuation and closing marks stay with the word before them; opening brackets with the word after.
+        if (parts.length && (!isWordLike || /[\uff08\u300c\u300e\u3010(\[]$/.test(parts[parts.length - 1]))) parts[parts.length - 1] += segment;
+        else parts.push(segment);
+      }
+    }
+    parts.filter(Boolean).forEach(keep);
+  }
+}
+
+function setCanvas(vars) {
+  document.getElementById('text').textContent = '';
+  for (const [name, value] of Object.entries(vars)) document.documentElement.style.setProperty(name, value);
+}
+
+// Every caption of one store set and locale is set at one type size, so a gallery reads evenly when
+// swiped. screenshots.py first asks measureCaption for the largest size each caption can take, then
+// sets every caption at the smallest of those with setCaption.
+//
+// A caption fits at a size if it fits the band on one line, or on two balanced lines broken:
+//   - at a zero-width space, if the caption has one (and nowhere else, provided it fits that way);
+//   - otherwise, in order of preference, between clauses, at a safe place, or by the script's own
+//     rule (o.wrap: 'free', 'words', or 'none'). measureCaption counts a less preferred break only
+//     when it sets the caption clearly larger (a safe break by more than 15% over a clause break, a
+//     rule break by more than 10% over a safe one), and a rule break that leaves a number at the end
+//     of the first line only when nothing else fits.
+// One line may go down to one.floor, two lines down to two.min; two lines never above two.max.
+function captionTools(o) {
+  const el = document.getElementById('text');
+  el.lang = o.lang;
+  el.dir = o.dir;
+  const s = el.style;
+  s.fontFamily = o.family;
+  s.fontWeight = String(o.weight);
+  s.letterSpacing = o.letterSpacing;
+  s.lineHeight = String(o.lineHeight);
+  s.wordBreak = o.wordBreak || 'normal';
+  s.lineBreak = o.lineBreak || 'auto';
+  s.setProperty('--shift', '0px');
+  const box = () => el.getBoundingClientRect();
+  const t = {};
+  t.done = (wrap, size) => {
+    s.setProperty('--shift', (o.shift * size).toFixed(2) + 'px');
+    const b = box();
+    const lines = laidOutLines(el).map(l => l.text);
+    return { ok: true, mode: lines.length > 1 ? 'two' : 'one', wrap, size, lines, width: b.width, height: b.height };
+  };
+  t.setOne = (size) => {
+    setText(el, o.text, 'free', o.lang);
+    s.whiteSpace = 'nowrap'; s.maxWidth = 'none'; s.textWrap = 'nowrap';
+    s.fontSize = size + 'px';
+  };
+  t.oneFits = (size) => { t.setOne(size); const b = box(); return b.width <= o.maxWidth && b.height <= o.maxHeight; };
+  // Largest one-line size from `largest` down to `smallest`, or 0.
+  t.oneMax = (largest, smallest) => {
+    t.setOne(largest);
+    const b = box();
+    let size = largest;
+    if (b.width > o.maxWidth || b.height > o.maxHeight) {
+      size = Math.min(largest, Math.floor(largest * Math.min(o.maxWidth / b.width, o.maxHeight / b.height)) + 1);
+      while (size >= smallest && !t.oneFits(size)) size -= 1;
+    }
+    return size >= smallest ? size : 0;
+  };
+  t.setTwo = (mode, size) => {
+    setText(el, o.text, mode, o.lang);
+    s.whiteSpace = 'normal'; s.maxWidth = o.maxWidth + 'px'; s.textWrap = 'balance';
+    if (size) s.fontSize = size + 'px';
+  };
+  t.twoFits = (mode, size) => {
+    t.setTwo(mode, size);
+    if (box().height > o.maxHeight || el.scrollWidth > Math.ceil(o.maxWidth)) return false;
+    const lines = laidOutLines(el);
+    return lines.length === 2 && lines.every(l => l.width <= o.maxWidth + 0.5);
+  };
+  // Largest two-line size for a break mode, from `largest` down to `smallest`, or 0. Two lines can
+  // be at most twice as long as the band is wide, so sizes above that bound are not tried.
+  t.twoMax = (mode, largest, smallest) => {
+    t.setOne(largest);
+    const bound = Math.floor(largest * 2 * o.maxWidth / Math.max(1, box().width)) + 2;
+    for (let size = Math.min(largest, bound); size >= smallest; size -= 1) if (t.twoFits(mode, size)) return size;
+    return 0;
+  };
+  t.stranded = () => /\p{Nd}$/u.test(laidOutLines(el)[0].text);
+  return t;
+}
+
+// The largest size, in px, at which this caption can be set: {ok, size, wrap, one, clause} or
+// {ok: false, reason}. one and clause are the largest sizes on one line and broken between clauses
+// (0 where that does not fit, or where a zero-width space decides the break).
+function measureCaption(o) {
+  const t = captionTools(o);
+  const one = t.oneMax(o.one.max, o.one.floor);
+  let two = 0, wrap = null, stranded = 0, clause = 0;
+  if (o.text.includes('\u200b')) {
+    two = t.twoMax('hint', o.two.max, o.two.min);
+    if (two) wrap = 'hint';
+  }
+  if (!two) {
+    clause = t.twoMax('clause', o.two.max, o.two.min);
+    const safe = clause >= o.two.max ? 0 : t.twoMax('safe', o.two.max, o.two.min);
+    let rule = (o.wrap !== 'none' && Math.max(clause, safe) < o.two.max) ? t.twoMax(o.wrap, o.two.max, o.two.min) : 0;
+    if (rule && t.stranded()) { stranded = rule; rule = 0; }
+    if (clause && clause >= 0.85 * Math.max(safe, rule)) { two = clause; wrap = 'clause'; }
+    else if (safe && safe >= 0.9 * rule) { two = safe; wrap = 'safe'; }
+    else if (rule) { two = rule; wrap = o.wrap; }
+  }
+  if (one && one >= two) return { ok: true, size: one, wrap: 'none', one, clause };
+  if (two) return { ok: true, size: two, wrap, one, clause };
+  if (stranded) return { ok: true, size: stranded, wrap: o.wrap, one, clause };
+  return { ok: false, reason: `does not fit: one line needs less than ${o.one.floor}px, and two lines at ${o.two.min}px do not fit ${o.maxWidth}x${o.maxHeight}px` +
+    (o.wrap === 'none' ? ' when broken only at a space (this script is never broken by dictionary; add a space or U+200B at a phrase boundary, or shorten the caption)' : '') };
+}
+
+// Lay the caption out at exactly `size` px: one line if it fits, otherwise two lines broken at the
+// most preferred place that fits at this size: zero-width space, clause, safe place, the script's rule.
+// Returns {ok, mode, wrap, size, lines, width, height} or {ok: false, reason}.
+function setCaption(o, size) {
+  const t = captionTools(o);
+  if (t.oneFits(size)) return t.done('none', size);
+  if (o.text.includes('\u200b') && t.twoFits('hint', size)) return t.done('hint', size);
+  for (const mode of ['clause', 'safe']) if (t.twoFits(mode, size)) return t.done(mode, size);
+  if (o.wrap !== 'none' && t.twoFits(o.wrap, size)) return t.done(o.wrap, size);
+  return { ok: false, reason: `does not fit at ${size}px in ${o.maxWidth}x${o.maxHeight}px` };
+}
+</script>
+</body>
+</html>
