@@ -26,6 +26,8 @@ sys.path.insert(0, str(HERE.parent))
 sys.path.insert(0, str(HERE))
 import rigconfig  # noqa: E402
 import twitch_chat  # noqa: E402
+import camera  # noqa: E402
+import director  # noqa: E402
 
 PROMPT_FILE = HERE.parent / "prompts" / "chat.md"
 READONLY_SERVER = "glob2-readonly"
@@ -135,6 +137,15 @@ class ChatAgent:
         self.dry_run = dry_run or not self.can_send
         self.prompt = PROMPT_FILE.read_text()
         self.last_call = {}
+        # Camera: camera.py reads its settings from the environment (as the sandboxed proxy does).
+        for k in ("STATE_DIR", "MCP_PORT", "OVERLAY_FILE", "CAMERA_OVERLAY_FILE", "CAMERA_MIN_INTERVAL",
+                  "CAMERA_LABEL_SECONDS", "CAMERA_HOLD_SECONDS"):
+            if cfg.get(k):
+                os.environ[k] = str(cfg[k])
+        # The player runs the show camera; the idle director is optional (CAMERA_DIRECTOR=1).
+        self.director = director.Director() if cfg.get("CAMERA_DIRECTOR", "0") == "1" else None
+        self.idle_seconds = float(cfg.get("CAMERA_IDLE_SECONDS") or 50)
+        self.last_director_try = 0.0
         # Read-only game access through the allowlisting proxy (CHAT_GAME_ACCESS=0 turns it off).
         self.game_access = os.environ.get("CHAT_GAME_ACCESS", "1") != "0"
         self.agent_user = cfg.get("AGENT_USER", "")
@@ -144,7 +155,12 @@ class ChatAgent:
             write_json_atomic(self.mcp_config, {"mcpServers": {READONLY_SERVER: {
                 "command": sys.executable, "args": [str(HERE / "readonly_mcp.py")],
                 "env": {"MCP_PORT": str(cfg.get("MCP_PORT", "27300")),
-                        "READONLY_MCP_MAX_CALLS": os.environ.get("CHAT_MAX_GAME_CALLS", "4")}}}})
+                        "READONLY_MCP_MAX_CALLS": os.environ.get("CHAT_MAX_GAME_CALLS", "4"),
+                        "STATE_DIR": str(self.state_dir), "OVERLAY_FILE": str(cfg.get("OVERLAY_FILE", "")),
+                        "CAMERA_OVERLAY_FILE": str(cfg.get("CAMERA_OVERLAY_FILE", "")),
+                        "CAMERA_MIN_INTERVAL": str(cfg.get("CAMERA_MIN_INTERVAL") or 8),
+                        "CAMERA_LABEL_SECONDS": str(cfg.get("CAMERA_LABEL_SECONDS") or 12),
+                        "CAMERA_HOLD_SECONDS": str(cfg.get("CAMERA_HOLD_SECONDS") or 40)}}}})
 
     # -- input ------------------------------------------------------------------
     def start_input(self):
@@ -290,6 +306,25 @@ class ChatAgent:
             "last_reply_at": self.last_reply_at,
         })
 
+    # -- camera -----------------------------------------------------------------
+    def camera_tick(self, t: float):
+        """Expire on-screen camera labels; when nobody has moved the camera for a while and no
+        viewer is waiting for a reply, let the director pick the next shot (no model call)."""
+        try:
+            camera.clear_expired_label()
+        except OSError:
+            pass
+        if not self.director or self.pending or t - self.last_director_try < 5:
+            return
+        self.last_director_try = t
+        if camera.seconds_since_move() < self.idle_seconds or camera.hold_remaining() > 0 or not camera.read_token():
+            return
+        ok, msg, shot = self.director.step()
+        if ok:
+            self.log({"event": "camera", "source": "director", "shot": shot})
+            if self.simulate:
+                print(f"  [director] {msg}", flush=True)
+
     # -- loop -------------------------------------------------------------------
     def process(self):
         batch, self.pending = self.pending, []
@@ -343,6 +378,7 @@ class ChatAgent:
             if t - last_status > 10:
                 self.write_status()
                 last_status = t
+            self.camera_tick(t)
             if eof and not self.pending:
                 self.write_status()
                 return

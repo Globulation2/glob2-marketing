@@ -155,7 +155,10 @@ def main():
         if no_game:
             cmd += ["--disallowedTools", "mcp__*"]
         else:
-            ro_env = {"MCP_PORT": conf["MCP_PORT"], "READONLY_MCP_MAX_CALLS": opts.get("--max-game-calls", "4")}
+            # The proxy can also move the stream camera (chat/camera.py): it reads the player's control
+            # token from STATE_DIR/control-token and writes the camera label next to the caption.
+            ro_env = {"MCP_PORT": conf["MCP_PORT"], "READONLY_MCP_MAX_CALLS": opts.get("--max-game-calls", "4"),
+                      "STATE_DIR": conf["STATE_DIR"], "OVERLAY_FILE": conf["OVERLAY_FILE"]}
             servers = {"glob2-readonly": {"command": py[0], "args": py[1:] + [str(INSTALL / "chat" / "readonly_mcp.py")],
                                           "env": ro_env}}
             cmd += ["--mcp-config", json.dumps({"mcpServers": servers}), "--allowedTools", "mcp__glob2-readonly__*"]

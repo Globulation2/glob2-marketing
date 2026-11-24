@@ -32,6 +32,8 @@ This directory holds code only. The stream key, game profile, logs and settings 
 - **Audio.** A null sink receives only the stream game's audio, and ffmpeg records its monitor. Desktop sounds and other games never reach the stream.
 - **Encoding.** NVIDIA NVENC is used when it works, otherwise x264 on the CPU. 1080p60, 6000 kbps CBR, 2-second keyframes and 160 kbps AAC (Twitch's ceiling for non-partners). 60 fps matters: sampling a game that draws faster than the stream rate judders visibly even with no dropped frames. The filter graph converts to yuv420p before the overlays; drawing them in RGB cost about 3 CPU cores and starved capture.
 - **Caption.** A bottom-left text box shows match context or an intermission message from `caption.sh`. ffmpeg reloads it during capture.
+- **Camera.** The player moves the camera for the show; when a viewer asks to see something, the chat host shows it and holds the camera for about 40 s. Both go through one gate, `chat/camera.py`. See [Camera](#camera).
+- **Camera label.** While a viewer request holds the camera (or briefly after a labelled player move), "Showing: … · asked by @name" appears centred over the map under the top bar (`CAMERA_OVERLAY_FILE`; empty draws nothing).
 - **Branding.** A small Globulation 2 wordmark with `glob2.online` beneath it sits bottom right over the map, clear of the game's sidebar. See [Branding overlay](#branding-overlay).
 
 ### Agents and the supervisor
@@ -50,7 +52,7 @@ This directory holds code only. The stream key, game profile, logs and settings 
 - **One session per match.** The supervisor assigns the opponent, rotating through Cortex, Nicowar, Cabino and Maxima with the least recently played first, and starts a fresh player session. The session sets up a 1v1 on a random 256×256 map with a new generator, plays it, records the result and ends. If the model ends its turn mid-match, the supervisor resumes the same session (`claude -p --resume`) with a nudge to keep playing. A session that crashes or reaches `--game-timeout` without a result is retried as a recovery session, which first checks whether the match can continue. After three tries, the match is recorded as aborted.
 - **Sandbox.** Both agents run as a separate unprivileged user with a restricted tool set. See [Security and sandboxing](#security-and-sandboxing).
 - **Score.** `$STATE_DIR/games.jsonl` is the official record. `match_result` appends to it, and the captions and record come from it. Aborted matches are logged but never counted.
-- **Chat host.** The chat host is a separate process with its own sandbox. It knows the game only through `status.json`, and can pass viewer ideas to the player only as untrusted suggestions between matches. See [chat/README.md](chat/README.md).
+- **Chat host.** The chat host is a separate process with its own sandbox. It reads the game through `status.json` and a read-only proxy, can point the camera at what viewers ask about, and can pass viewer ideas to the player only as untrusted suggestions between matches. See [chat/README.md](chat/README.md).
 - **Cost.** Every player turn's cost is logged in `logs/supervisor.log`. The first supervised test measured about **$1.09 for 2.5 minutes** of setup and early play with Sonnet 5.5 (roughly $25 an hour if sustained). Check real usage before an unattended 24/7 run.
 - **Logs and disk.** Player transcripts are gzipped per match (the newest 100 are kept). Stream and chat logs rotate at 20 MB, and the supervisor log at 5 MB. A local recording stops if less than 2 GiB is free.
 
@@ -89,6 +91,17 @@ Run the scripts from anywhere; they find each other through their own location.
 - **Going live is a standing decision.** With `AUTOSTART_STREAM=live` (the default) every boot broadcasts. Use `none` or `file:PATH` for a machine that shouldn't go live on its own, or `--uninstall`.
 
 Don't run a hand-started `supervisor.py` while the service is active: stop the service first.
+
+## Camera
+
+One gate, `chat/camera.py`, moves the stream camera for everyone. It calls the game's `game_view` with the player's control token, which the supervisor publishes to `$STATE_DIR/control-token` (mode 0640, agent group) and deletes when the session ends; no model ever sees the token, and tool replies never contain it.
+
+- **Player:** `camera_show` on its stream-ctl MCP server. Its policy denies `game_view`, so it can't bypass the gate.
+- **Chat host:** `camera_show` in its read-only proxy, one move per reply, with `asked_by`. A chat move sets a hold (`$STATE_DIR/camera-hold.json`, `CAMERA_HOLD_SECONDS`, default 40 s) during which the player's moves are refused with "keep playing and narrate instead"; the chat host can still move it.
+- **For every source:** zoom 0 to 1 only (above 1 is refused; a framed `width`/`height` is widened to at least the 100% view, about 54×34 tiles at 1080p), at least `CAMERA_MIN_INTERVAL` (8 s) between moves, labels cleaned to letters, digits and plain punctuation with links and mass mentions dropped, at most 60 characters.
+- **Label:** chat moves show "Showing: … · asked by @name" for the hold; labelled player moves show for `CAMERA_LABEL_SECONDS` (12 s). The supervisor and chat host clear expired labels.
+- **Director:** `chat/director.py` can also move the camera when nobody has for `CAMERA_IDLE_SECONDS` (alerts first, then a rotation of the colony, buildings, resources, frontier, enemy buildings seen and the whole map), but it is off by default (`CAMERA_DIRECTOR=0`) because the player runs the show camera.
+- The sandboxed agents use the default hold, interval and label times; the operator-side settings in `stream.env` only affect the chat host's unsandboxed mode and the director.
 
 ## File layout
 
@@ -151,6 +164,8 @@ Each value is one line of at most 70 characters, so three lines fit beside the b
 | `GLOB2_SRC`, `GLOB2_BIN` | `~/glob2-stream/src`, its perf build | Game checkout and binary. |
 | `GAME_RENDERER` | `sdl-gpu` | `software` works without a GPU but is slow. |
 | `STREAM_DISPLAY`, `STREAM_SIZE`, `STREAM_FPS` | `:99`, `1920x1080`, `60` | |
+| `CAMERA_OVERLAY_FILE`, `CAMERA_HOLD_SECONDS`, `CAMERA_MIN_INTERVAL`, `CAMERA_LABEL_SECONDS` | `overlay/camera.txt`, `40`, `8`, `12` | The camera label file and gate timings (see [Camera](#camera)). |
+| `CAMERA_DIRECTOR`, `CAMERA_IDLE_SECONDS` | `0`, `50` | The optional idle director. |
 | `AUTOSTART_STREAM`, `AUTOSTART_CHAT` | `live`, `1` | What the boot service runs (`autostart/install-autostart.sh`). |
 | `STREAM_DISPLAY_BACKEND`, `STREAM_XAUTHORITY` | `xvfb`, `$GLOB2_STREAM_HOME/display/Xauthority` | `xorg` uses the headless NVIDIA X server (`display/install-xorg-display.sh`); its auth cookie is the second setting. |
 | `STREAM_VBITRATE`, `STREAM_ABITRATE` | `6000k`, `160k` | Keep video at or below 6000k for Twitch. |
@@ -194,7 +209,7 @@ Every layer below is independent: a mistake or bypass in one still leaves the ot
 | 6 | **Policy file** (`--settings`) | `sandbox/policy/player.json`, installed root-owned in `AGENT_INSTALL_DIR/policy`: deny rules for every other built-in tool (Bash, web, subagents, skills, tasks, cron, artifacts, workflows and more) and for `mcp__claude_ai_*`; deny rules for writing `CLAUDE.md`, `AGENTS.md`, `CLAUDE.local.md`, `.claude/`, `.mcp.json` and `session-brief.md` in the notes directory; `blockReadsOutsideWorkingDirectories` and `blockWritesOutsideWorkingDirectories`; bypass and auto modes disabled; `allowedMcpServers` exactly `glob2-stream` and `stream-ctl`; claude.ai connectors, hooks, bundled skills, skill shell execution, auto memory, artifacts and workflows off; built-in plugins other than the privacy plugin disabled. Deny rules win over any allow. | `chat.json`: the same, with Read, Edit and Write denied too and `allowedMcpServers` exactly `glob2-readonly`. `chat-nogame.json` allows no MCP servers at all. |
 | 7 | **Environment** | `agent-run` clears the environment, then sets only HOME, PATH, umask 002, the token and documented switches: `ENABLE_CLAUDEAI_MCP_SERVERS=false`, `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` (also stops claude.ai skill and plugin sync), no updates, telemetry, error reports, feedback or feature flags, `CLAUDE_CODE_DISABLE_CLAUDE_MDS`, no auto memory, bundled skills, built-in subagents, web fetch, artifacts, workflows, cron or background tasks, and `CLAUDE_CODE_RESTRICTED=1`. | Same, plus `CLAUDE_CODE_SKIP_PROMPT_HISTORY`. |
 | 8 | **Extension points** | The agent's `~/.claude` is `root:glob2agent` 1770; `plugins/`, `skills/`, `agents/`, `commands/`, `CLAUDE.md` and `settings.json` in it are root-owned and empty, so nothing can be installed or loaded from there. Session files (`projects/`, used by `--resume`) stay writable. | Same. |
-| 9 | **MCP tools** | Only the game (HTTP to 127.0.0.1) and `stream-ctl` (match bookkeeping, no shell). | Only `glob2-readonly`: an allowlist of eight read tools, tokens stripped, a few calls per reply. |
+| 9 | **MCP tools** | Only the game (HTTP to 127.0.0.1) and `stream-ctl` (match bookkeeping and `camera_show`, no shell). `game_view` is denied, so every camera move passes the camera gate. | Only `glob2-readonly`: an allowlist of eight read tools plus `camera_show`, tokens stripped, a few calls and one camera move per reply. |
 | 10 | **Network** | An nftables table (`glob2-agent-egress.service`) lets `glob2agent`'s packets reach only 127.0.0.1 on the game's MCP port and the egress proxy port; everything else, DNS included, is rejected. The proxy (`glob2-agent-proxy.service`, `sandbox/egress_proxy.py`, running as you) tunnels only to `EGRESS_ALLOW` (`api.anthropic.com`) on port 443 and logs every decision to the journal. `agent-run` refuses to start Claude if a direct connection to the internet succeeds or the proxy is down. | Same. |
 | 11 | **Output filters** | Game actions, captions and the result in `games.jsonl`. | One JSON reply. Code filters it before Twitch sees it: no links except glob2.online and the channel, no internals, one line, rate-limited. |
 
@@ -215,7 +230,7 @@ Every layer below is independent: a mistake or bypass in one still leaves the ot
 
 ### Prompt-injection paths
 
-- **Chat → chat host.** Viewer text is wrapped and labelled untrusted, and the host has no tools beyond the read-only game view. Its reply passes code-enforced filters and rate limits before reaching Twitch.
+- **Chat → chat host.** Viewer text is wrapped and labelled untrusted, and the host has no tools beyond the read-only game view and `camera_show`. The camera is the only state it can change: a steered host can at worst move the camera (zoom 100% or wider, at least 8 s apart, one move per reply, each hold at most `CAMERA_HOLD_SECONDS`) and put a filtered label of up to 60 characters on screen. Its reply passes code-enforced filters and rate limits before reaching Twitch.
 - **Chat → player.** Only through `viewer-suggestions.jsonl`, which the player sees through `match_info` between matches, labelled as untrusted ideas that never override its rules. The player never reads Twitch chat.
 - **Game → agents.** Game text reaches them only through the game's MCP tools. Nothing they can do reaches beyond the game, the notes and the caption.
 - **Player → its own rules.** A steered player could try to rewrite the brief it rereads after compaction. The brief is read-only to it and is regenerated from the repo's `prompts/player.md` and `stream-playbook.md` for every session; `verify-sandbox.sh` checks it can't be modified or replaced.

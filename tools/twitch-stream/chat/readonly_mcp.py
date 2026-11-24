@@ -9,12 +9,19 @@ tools outside the allowlist are hidden from tools/list and rejected on call, the
 screenshots are clamped small. Each proxy process (one per chat reply) also caps
 the number of game calls (READONLY_MCP_MAX_CALLS, default 4) so the chat host
 never competes with the player for the game's attention.
+
+One exception to read-only: `camera_show` moves the stream camera through the shared
+camera gate (camera.py: game_view on the player's lease). It never zooms in past 100%, is
+rate limited across processes, holds the camera for the viewer briefly, counts toward
+the call cap and never sees or returns the control token.
 """
 import json
 import os
 import sys
 import urllib.error
 import urllib.request
+
+import camera
 
 PROTOCOL = "2025-11-25"
 SHOT_MAX_W, SHOT_MAX_H = 960, 540
@@ -57,8 +64,28 @@ def sanitize(name: str, args) -> dict:
     return clean
 
 
+CAMERA_TOOL = {
+    "name": "camera_show",
+    "description": ("Move the stream camera so viewers see something: centre on tile x/y, or frame a tile "
+                    "rectangle with width/height, or leave x/y out to centre on Claude's colony. zoom 1 is 100% "
+                    "(closest allowed, and the default), 0.7 and 0.5 zoom out, 0 fits the whole map; never above 1. label is a short "
+                    "on-screen caption (max 60 chars) naming what's shown, e.g. \"Claude's main base\"; asked_by is the "
+                    "viewer who asked (shown as \"asked by @name\"). The shot holds the camera for about 40 s so the "
+                    "player doesn't move away. Fog of war still applies: hidden areas stay dark. One move per reply; "
+                    "moves are rate limited."),
+    "inputSchema": {"type": "object", "properties": {
+        "x": {"type": "integer", "minimum": 0}, "y": {"type": "integer", "minimum": 0},
+        "width": {"type": "integer", "minimum": 1, "maximum": 256},
+        "height": {"type": "integer", "minimum": 1, "maximum": 256},
+        "zoom": {"type": "number", "minimum": 0, "maximum": 1},
+        "label": {"type": "string", "maxLength": 60},
+        "asked_by": {"type": "string", "maxLength": 25, "description": "the viewer's name, without @"}}},
+}
+CAMERA_ARGS = {"x", "y", "width", "height", "zoom", "label", "asked_by"}
+
+
 def filtered_tools() -> list:
-    tools = []
+    tools = [CAMERA_TOOL]
     for t in game_rpc("tools/list", {})["result"]["tools"]:
         if t["name"] not in ALLOW:
             continue
@@ -81,6 +108,7 @@ def tool_error(text: str) -> dict:
 class Proxy:
     def __init__(self):
         self.calls = 0
+        self.camera_moves = 0
         self.max_calls = int(os.environ.get("READONLY_MCP_MAX_CALLS", "4"))
 
     def handle(self, req: dict):
@@ -92,8 +120,9 @@ class Proxy:
                 result = {"protocolVersion": params.get("protocolVersion", PROTOCOL),
                           "capabilities": {"tools": {"listChanged": False}},
                           "serverInfo": {"name": "glob2-readonly", "version": "1"},
-                          "instructions": "Read-only view of the Globulation 2 match being streamed. "
-                                          "It follows fog of war. Use sparingly: at most a few calls per reply."}
+                          "instructions": "Read-only view of the Globulation 2 match being streamed, plus camera_show "
+                                          "to point the stream camera. It follows fog of war. Use sparingly: "
+                                          "at most a few calls and one camera move per reply."}
             elif method == "ping":
                 result = {}
             elif method == "tools/list":
@@ -107,6 +136,19 @@ class Proxy:
         return {"jsonrpc": "2.0", "id": rid, "result": result}
 
     def call(self, name, args) -> dict:
+        if name == "camera_show":
+            if self.calls >= self.max_calls:
+                return tool_error(f"call limit reached ({self.max_calls} per reply); answer with what you have")
+            if self.camera_moves >= 1:
+                return tool_error("one camera move per reply")
+            self.calls += 1
+            args = {k: v for k, v in (args if isinstance(args, dict) else {}).items() if k in CAMERA_ARGS}
+            by = args.pop("asked_by", "")
+            ok, msg = camera.show(source="chat", by=by if isinstance(by, str) else "", **args)
+            if ok:
+                self.camera_moves += 1
+                return {"content": [{"type": "text", "text": msg}]}
+            return tool_error(msg)
         if name not in ALLOW:
             return tool_error(f"{name} is not available: this connection is read-only")
         if self.calls >= self.max_calls:

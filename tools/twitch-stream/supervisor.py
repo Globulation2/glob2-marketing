@@ -33,6 +33,9 @@ TOKEN_RE = re.compile(rb'\\?"token\\?":\s*\\?"([A-Za-z0-9+/]{20,}={0,2})')
 import rigconfig
 import rigstate
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "chat"))
+import camera  # noqa: E402  the shared camera gate (labels expire here)
+
 SESSION_RETRIES = 3          # sessions per match before the supervisor records it aborted
 KEEP_PLAYER_LOGS = 100
 LOG_CAP_BYTES = 20 * 1024 * 1024
@@ -62,6 +65,9 @@ class Supervisor:
         self.log_dir = pathlib.Path(self.cfg["LOG_DIR"])
         self.notes = pathlib.Path(self.cfg["NOTES_DIR"])
         self.state = rigstate.state_dir(self.cfg)
+        for k in ("STATE_DIR", "MCP_PORT", "OVERLAY_FILE", "CAMERA_OVERLAY_FILE", "CAMERA_LABEL_SECONDS"):
+            if self.cfg.get(k):
+                os.environ.setdefault(k, str(self.cfg[k]))  # read by the camera gate
         self.player_logs = self.log_dir / "player"
         for d in (self.log_dir, self.notes, self.player_logs):
             d.mkdir(parents=True, exist_ok=True)
@@ -247,6 +253,10 @@ class Supervisor:
             "supervisor": {"pid": os.getpid(), "since": self.started, "low_disk": self.low_disk},
         }
         rigstate.write_json(self.state / "status.json", status)
+        try:  # expire on-stream camera labels even when no chat host is running
+            camera.clear_expired_label()
+        except OSError as e:
+            log.debug("camera label: %s", e)
 
     def housekeeping(self):
         for path in [self.log_dir / n for n in ("stream.log", "stream-supervised.log", "chat.log", "file.log", "test.log")] + \
@@ -332,8 +342,9 @@ class Supervisor:
                     dst.write(line)
                     if b"token" in line:  # remember the player's control token, to release it later
                         m = TOKEN_RE.search(line)
-                        if m:
+                        if m and m.group(1).decode() != self.player_token:
                             self.player_token = m.group(1).decode()
+                            self.share_token(self.player_token)
                     if b'"session_id"' in line or b'"total_cost_usd"' in line:
                         try:
                             msg = json.loads(line)
@@ -415,10 +426,22 @@ class Supervisor:
             self.player_token = token
             self.release_control()
 
+    def share_token(self, token):
+        """Publish the player's control token for the stream camera (chat/camera.py). Group-readable
+        by the agent user only (the state dir is setgid to its group); never shown to a model."""
+        try:
+            if token:
+                rigstate.write_text(self.state / "control-token", token + "\n", mode=0o640)
+            else:
+                (self.state / "control-token").unlink(missing_ok=True)
+        except OSError as e:
+            log.warning("camera token: %s", e)
+
     def release_control(self):
         """Free the game's control lease the last player session held, so the next session (a
         recovery, or the next match) doesn't wait up to five minutes for it to expire."""
         token, self.player_token = self.player_token, None
+        self.share_token(None)
         if not token:
             return
         try:

@@ -10,6 +10,7 @@ mode="${1:-}"; shift || true
 case "$mode" in file|test|live) ;; *) sed -n 2,6p "$0"; exit 2 ;; esac
 mkdir -p "$LOG_DIR" "$(dirname "$OVERLAY_FILE")"
 [[ -f "$OVERLAY_FILE" ]] || printf 'Claude is playing Globulation 2 via MCP' > "$OVERLAY_FILE"
+mkdir -p "$(dirname "$CAMERA_OVERLAY_FILE")"; [[ -f "$CAMERA_OVERLAY_FILE" ]] || : > "$CAMERA_OVERLAY_FILE"   # camera label; empty draws nothing
 "$RIG_DIR/route-audio.sh"
 
 # --- encoder -----------------------------------------------------------------
@@ -40,7 +41,10 @@ inputs=(-thread_queue_size 1024 -f x11grab -framerate "$STREAM_FPS" -video_size 
         -thread_queue_size 1024 -f pulse -ac 2 -ar 48000 -i "$STREAM_SINK.monitor")
 scale_px() { echo $(( ($1 * ${STREAM_SIZE#*x} + 540) / 1080 )); }   # sizes are given at 1080p
 font=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
-graph="[0:v]format=yuv420p,drawtext=fontfile=$font:textfile=$OVERLAY_FILE:reload=1:expansion=none:fontsize=$(scale_px 26):fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=$(scale_px 10):x=$(scale_px 20):y=h-th-$(scale_px 30)[cap]"
+graph="[0:v]format=yuv420p,drawtext=fontfile=$font:textfile=$OVERLAY_FILE:reload=1:expansion=none:fontsize=$(scale_px 26):fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=$(scale_px 10):x=$(scale_px 20):y=h-th-$(scale_px 30)[cap0]"
+# Camera label ("Showing: ..." from the chat host or director), centred over the map under the top bar
+# (the game shows its own alerts at the top left).
+graph+=";[cap0]drawtext=fontfile=$font:textfile=$CAMERA_OVERLAY_FILE:reload=1:expansion=none:fontsize=$(scale_px 24):fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=$(scale_px 8):x=($(scale_px 1716)-tw)/2:y=$(scale_px 40)[cap]"
 last=cap
 if [[ "$BRAND" != 0 ]]; then
   mr=$(scale_px "$BRAND_MARGIN_RIGHT"); mb=$(scale_px "$BRAND_MARGIN_BOTTOM")

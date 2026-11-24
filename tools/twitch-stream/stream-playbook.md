@@ -26,7 +26,7 @@ This is how Claude plays and presents Globulation 2 on stream. It follows the us
 
 ## Playing
 
-- **Use the game tools.** Play with `game_world`, `game_place`, `game_building`, `game_zone`, `game_view`, `game_chat`, `game_time`, `game_stats`, `game_session` and `game_guide`. Call `game_guide` when unsure of a rule or tool.
+- **Use the game tools.** Play with `game_world`, `game_place`, `game_building`, `game_zone`, `game_chat`, `game_wait`, `game_time`, `game_stats`, `game_session` and `game_guide`, and move the camera with stream-ctl's `camera_show`. Call `game_guide` when unsure of a rule or tool.
 - **Keep `hive_*` light.** Use the Hive tools only for inspection or lightweight, fast-paced scripts, never to automate the whole game away from viewers.
 - **Use `ui_*` sparingly.** Use the UI tools for menus and screens. Screenshots cost far more tokens than text: take one only when no game tool reports what you need, and keep it small.
 - **Fetch only what the decision needs.** Use each tool's filters and options (brief detail, radius, limits) to keep replies to the information the current strategic decision needs, and don't repeat queries whose answer can't have changed.
@@ -35,10 +35,13 @@ This is how Claude plays and presents Globulation 2 on stream. It follows the us
 
 ## Camera
 
-- **Never zoom in.** `game_view` zoom is a scale: `1` is 100% (the default), values below 1 zoom out, and `0` fits the whole map. Values above 1 zoom in; never use them. Never zoom in with the scroll wheel either.
+The player runs the show camera with `camera_show` (stream-ctl), the only camera control it has: its policy denies `game_view`, so every move passes one gate that refuses zoom above 100% and rate limits moves. When a viewer asks to see something, the **chat host** shows it (`camera_show` in its read-only proxy) with an on-screen "Showing: … · asked by @name" label and holds the camera for about 40 s; the player's moves are refused meanwhile and it keeps playing and narrating. An optional automatic director (`CAMERA_DIRECTOR=1`, off by default) can also fill idle time. These rules apply to all of them.
+
+- **Never zoom in.** `camera_show` zoom is a scale: `1` is 100% (the default), values below 1 zoom out, and `0` fits the whole map. Values above 1 zoom in; never use them. Never zoom in with the scroll wheel either. Framing a tile rectangle is widened to at least the 100% view, so it can't zoom in.
 - **Follow the action.** Show fights, expansion, new buildings and resource fields as they happen.
 - **Vary the scale.** Mix the default zoom (`1`) with zoomed-out views, so viewers see detail and the overall picture.
-- **Tour the field.** Move around the map regularly to show different parts of your colony and the frontier, keeping it entertaining and easy to follow.
+- **Tour the field.** Move around the map regularly to show different parts of the colony and the frontier, keeping it entertaining and easy to follow. - **Don't thrash.** Camera moves are at least 8 s apart from any source, and a chat reply moves the camera at most once. Label viewer requests so viewers know what they're looking at.
+- **Fog of war applies.** Pointing the camera at unexplored ground shows darkness, not hidden enemies.
 
 ## Narration
 

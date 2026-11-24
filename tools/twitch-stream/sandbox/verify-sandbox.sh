@@ -130,6 +130,52 @@ else
   echo "  note  $operator has no general sudo: direct probes as $AGENT_USER skipped (the sudo rule allows only agent-run)"
 fi
 
+echo "camera gate (installed player and chat paths; nothing is moved)"
+proxy="$AGENT_INSTALL_DIR/chat/readonly_mcp.py"
+if [[ -r "$proxy" ]]; then
+  if [[ "$(declare -F as_agent)" ]]; then run_proxy() { as_agent env -i PATH=/usr/bin:/bin MCP_PORT="$MCP_PORT" STATE_DIR="$STATE_DIR" OVERLAY_FILE="$OVERLAY_FILE" /usr/bin/python3 -E -s "$proxy"; }
+  else run_proxy() { env -i PATH=/usr/bin:/bin MCP_PORT="$MCP_PORT" STATE_DIR="$STATE_DIR" OVERLAY_FILE="$OVERLAY_FILE" /usr/bin/python3 -E -s "$proxy"; }; fi
+  out="$(printf '%s\n' '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' \
+    '{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}' \
+    '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"game_place","arguments":{"building":"inn","x":1,"y":1}}}' \
+    '{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"game_view","arguments":{"x":1,"y":1}}}' \
+    '{"jsonrpc":"2.0","id":5,"method":"tools/call","params":{"name":"camera_show","arguments":{"x":1,"y":1,"zoom":2}}}' | run_proxy 2>&1)"
+  tools="$(printf '%s\n' "$out" | python3 -c 'import json,sys
+for l in sys.stdin:
+    d=json.loads(l)
+    if d.get("id")==2: print(",".join(sorted(t["name"] for t in d["result"]["tools"])))' 2>/dev/null)"
+  [[ "$tools" == "camera_show,game_guide,game_stats,game_world,hive_api,hive_status,ui_inspect,ui_screenshot,ui_status" ]] &&
+    ok "proxy lists only the read tools plus camera_show" || bad "proxy tools: ${tools:-$out}"
+  [[ "$out" == *"game_place is not available"* && "$out" == *"game_view is not available"* ]] &&
+    ok "proxy refuses game_place and raw game_view" || bad "proxy write refusal: ${out:0:200}"
+  [[ "$out" == *"zoom above 1"* ]] && ok "camera_show refuses zoom above 100%" || bad "zoom refusal missing"
+  tok="$(cat "$STATE_DIR/control-token" 2>/dev/null)"
+  [[ -z "$tok" || "$out" != *"$tok"* ]] && ok "proxy output never contains the control token" || bad "control token leaked in proxy output"
+  # The viewer-request hold blocks the player's camera moves. Checked against a throwaway state
+  # dir with a hold and no token, so nothing moves on stream.
+  holddir="$(mktemp -d)"; chmod 755 "$holddir"
+  printf '{"until": %s, "label": "verify", "by": "verify"}' "$(( $(date +%s) + 60 ))" > "$holddir/camera-hold.json"
+  chmod 644 "$holddir/camera-hold.json"
+  hold_out="$(printf '%s\n' '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' \
+    '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"camera_show","arguments":{"x":1,"y":1,"zoom":0.5}}}' \
+    '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"camera_show","arguments":{"x":1,"y":1,"zoom":3}}}' |
+    env -i PATH=/usr/bin:/bin STATE_DIR="$holddir" OVERLAY_FILE="$holddir/caption.txt" MCP_PORT=1 \
+      /usr/bin/python3 -E -s "$AGENT_INSTALL_DIR/stream_ctl.py" mcp 2>&1)"
+  rm -rf "$holddir"
+  [[ "$hold_out" == *"showing a viewer request"* ]] && ok "a viewer-request hold blocks the player's camera moves" ||
+    bad "hold didn't block the player: ${hold_out:0:200}"
+  [[ "$hold_out" == *"zoom above 1"* ]] && ok "player camera_show refuses zoom above 100%" || bad "player zoom refusal missing"
+  if [[ -f "$STATE_DIR/control-token" ]]; then
+    [[ "$(stat -c '%a %G' "$STATE_DIR/control-token")" == "640 $AGENT_USER" ]] && ok "control token file 640, group $AGENT_USER" ||
+      bad "control token file is $(stat -c '%a %G' "$STATE_DIR/control-token")"
+  fi
+  if [[ "$(declare -F as_agent)" ]]; then
+    grep -q '"mcp__glob2-stream__game_view"' "$AGENT_INSTALL_DIR/policy/player.json" && ok "player policy denies game_view" || bad "player policy lacks the game_view deny"
+  fi
+else
+  echo "  note  $proxy not installed yet: run install-agent-sandbox.sh"
+fi
+
 MODEL_CHECK_PY='
 import json, sys
 role, servers, builtins, live, home, token = sys.argv[1:7]
@@ -157,6 +203,10 @@ else:
     plain = sorted(t for t in tools if not t.startswith("mcp__") and t != "StructuredOutput")
     if plain != sorted(filter(None, builtins.split(","))):
         fails.append(f"built-in tools {plain}")
+    if role == "player" and "mcp__glob2-stream__game_view" in tools:
+        fails.append("player can call game_view directly (bypassing the camera gate)")
+    if role == "player" and "mcp__stream-ctl__camera_show" not in tools and tools:
+        fails.append("player lacks stream-ctl camera_show")
     foreign = [t for t in tools if t.startswith("mcp__") and t.split("__")[1] not in want]
     if foreign:
         fails.append(f"foreign MCP tools {foreign[:3]}")
