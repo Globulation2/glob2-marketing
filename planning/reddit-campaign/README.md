@@ -2,7 +2,7 @@
 
 [Planning index](../README.md) · [Launch positioning](../../analysis/positioning-v1.md)
 
-Prepared November 23, 2026 for the free, open-source desktop remaster. These are internal working materials in the marketing repository. Reddit submissions and moderator messages remain unsent. Android and iOS are outside this campaign.
+Prepared November 23, 2026 for the free, open-source desktop remaster. These are internal working materials in the marketing repository. Reddit submissions and moderator messages remain unsent. Android and iOS are outside this campaign. The release story is the modernization of the whole RTS, including current desktop support, HD graphics and rebuilt online play. The recovered Blender artwork is one example of the work.
 
 - [Linux, open-source and preservation briefs](linux-and-preservation.md) includes the Linux human-author checklist, the open-source draft, and the unsent moderator inquiry.
 - [Strategy and gaming drafts](gaming-drafts.md) contains four distinct submissions and a maintainer comment for r/FreeGames.
@@ -13,7 +13,7 @@ Prepared November 23, 2026 for the free, open-source desktop remaster. These are
 | Community | Use and remaining decision |
 | --- | --- |
 | r/linux_gaming | First wave. A maintainer writes the title, text and replies. Add their actual Linux test details. A same-scene comparison is preferred. A single accurately labeled, relevant screenshot is acceptable if there is no comparison. |
-| r/OpenSourceGames | First wave. Adapt the draft to the actual author's role, with tagged source, license and asset provenance. Use the original Blender example if credit and license are verified. Text and source links are enough. |
+| r/OpenSourceGames | First wave. Adapt the draft to the actual author's role, with tagged source, license and asset provenance. Lead with modern desktop support, HD graphics and rebuilt online play. Use the recovered Blender artwork as one concrete example. The approved battle clip is available if adding gameplay. |
 | r/StrategyGames | Next wave if an established participant meets the local 10% guideline. Use DevPost and a developed-match clip tied to one strategic decision. |
 | r/Games | Alternate next wave. Indie Sunday is a developer-only standalone text submission. If targeting November 29, confirm the current Sunday hub, 60-day eligibility and footage before submitting. |
 | r/ObscureRTS | Hold for explicit moderator clearance on project eligibility, AI artwork provenance and the official release link. Review the unsent message locally. |

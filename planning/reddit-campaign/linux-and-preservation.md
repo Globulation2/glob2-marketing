@@ -10,7 +10,7 @@ Working material for the desktop release. Nothing on this page has been posted o
 
 **What to cover in the maintainer’s own words**
 
-- Introduce your actual role and identify Globulation 2 as a free, open-source RTS with a native Linux build. Describe one thing you worked on or saw change.
+- Introduce your actual role and identify Globulation 2 as a free, open-source RTS with a native Linux build. Lead with the modern native Linux release. Give HD graphics and the rebuilt online platform as examples of the broader remaster, then describe one specific Linux improvement you worked on or tried.
 - Show the same scene in classic and high-resolution mode, with capture version, platform, and any settings readers need to interpret the comparison. If only one genuine scene is available, use it on its own.
 - Include one personally tested install and first-run route. Record the distro, version, architecture, package, and what you ran successfully. Link the route you verified. The official downloads page explains the x86-64 direct Flatpak bundle and its GNOME runtime. It also links to the Snap Store and provides the Ubuntu tarball and Fedora RPM.
 - Describe AI assistance in your own words. Check the release for the scope of code assistance, generated terrain and sprite enhancement, and link the tagged provenance. Keep game opponent AI distinct from generative tools.
@@ -26,21 +26,23 @@ Working material for the desktop release. Nothing on this page has been posted o
 
 **Working title**
 
-Globulation 2 renders new unit animations from its original Blender rigs
+Globulation 2 remastered — the free, open-source RTS returns with HD graphics and online play
 
 **Working body**
 
 I help maintain Globulation 2, a free, open-source RTS that first appeared in 2004. The globs choose their own jobs and routes based on the priorities and flags you set.
 
-Stéphane Magnenat recovered an archive of the original artwork. The remaster’s art pack contains 1,792 unit poses rendered from the original Blender rigs. The tagged source includes the worker’s walk rig and the steps used to turn it into game frames.
+We’ve modernized the game across the board. It has native builds for current Linux, Windows and macOS, HD artwork and a redesigned interface. The rebuilt multiplayer platform has guest rooms for casual games, ranked matches, leaderboards and match records. We’ve also expanded the procedural map generators. The desktop release is free, and browser play is in early access.
+
+Part of the HD work came from an archive of original artwork recovered by Stéphane Magnenat. The remaster includes 1,792 unit poses rendered from those Blender rigs. The tagged source includes the worker’s walk rig and the steps used to turn it into game frames.
 
 The code is GPLv3, with component-specific notices in the licensing index. The remaster includes AI-assisted code contributions, some AI-generated terrain and some AI-enhanced sprites. The art notes record the provenance of those assets.
 
-You can download the desktop release or explore the maps in the built-in editor.
+Start a match from the desktop release, try the new generators in a custom game, or open the built-in map editor. [Hedgerow Country gameplay clip](https://storage.googleapis.com/glob2-website-public/campaign-media/reddit/v1/hedgerow-country-battle-d8838a88.mp4)
 
-[Desktop downloads](https://glob2.online/downloads/) · [Tagged source](https://github.com/Globulation2/glob2/tree/v0.11.7.0) · [Licensing and notices](https://github.com/Globulation2/glob2/blob/v0.11.7.0/docs/development/licensing.md) · [Graphics provenance](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/README.md) · [HD pack notes](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/production/pack-metadata/README.md) · [Worker walk rig](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/originals/units/glob-worker-walk.blend) · [Rendering steps](https://github.com/Globulation2/glob2/blob/v0.11.7.0/tools/unit-animation/README.md)
+[Desktop downloads](https://glob2.online/downloads/) · [Online play](https://app.glob2.online/) · [Tagged source](https://github.com/Globulation2/glob2/tree/v0.11.7.0) · [Licensing and notices](https://github.com/Globulation2/glob2/blob/v0.11.7.0/docs/development/licensing.md) · [Graphics provenance](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/README.md) · [HD pack notes](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/production/pack-metadata/README.md) · [Worker walk rig](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/originals/units/glob-worker-walk.blend) · [Rendering steps](https://github.com/Globulation2/glob2/blob/v0.11.7.0/tools/unit-animation/README.md)
 
-**Before approval.** Adapt the opening to the poster’s actual role, credit Stéphane Magnenat and the original artists as appropriate, confirm scope of AI use, and check the links and any attached image. If sharing a visual, use a credited original-rig example and identify the exact release or tagged source used. [Project history](https://glob2.online/history/project-history/)
+**Before approval.** Adapt the opening to the poster’s actual role, credit Stéphane Magnenat and the original artists as appropriate, confirm scope of AI use, and check the links and any attached image. Use the approved Hedgerow Country gameplay clip if adding a visual of the remaster. Credit the original-rig material if including it as a second example. [Project history](https://glob2.online/history/project-history/)
 
 ## r/ObscureRTS
 

@@ -18,7 +18,7 @@ Reviewed November 23, 2026 against the public subreddit rules, current desktop r
 >
 > [Attach the Hedgerow Country battle MP4 from the media notes. Captured on macOS in 0.11.7.0.]
 >
-> The remaster is free on Linux, Windows and macOS. [Official release and downloads](https://glob2.online/downloads/)
+> The remaster brings Globulation 2 to current Linux, Windows and macOS systems with HD graphics, new map generators and rebuilt online play with casual rooms and ranked matches. It’s free and open source. [Official release and downloads](https://glob2.online/downloads/)
 
 **Discussion.** Point to one visible front or building cluster and explain the tradeoff it illustrates. Only attribute a specific order to the AI if the footage or capture record establishes it.
 
@@ -28,17 +28,17 @@ Reviewed November 23, 2026 against the public subreddit rules, current desktop r
 
 **Title**
 
-> Globulation 2 - [verified developer name] - Free colony RTS with autonomous units
+> Globulation 2 - [verified developer name] - Free open-source RTS remaster with autonomous units
 
 **Draft**
 
-> I’m [name], one of the developers maintaining Globulation 2. It’s a free, open-source RTS that first appeared in 2004. The remaster is playable now on Linux, Windows and macOS.
+> I’m [name], one of the developers maintaining Globulation 2. It’s a free, open-source RTS that first appeared in 2004. We’ve updated it for modern Linux, Windows and macOS systems, rebuilt the graphics in HD and brought online multiplayer up to date with casual rooms, ranked matches and match history.
 >
 > This is Hedgerow Country about 18 minutes into a match between two computer opponents. Red and cyan warriors converge around a cluster of colony buildings. In a match you can mark where you want warriors to go, then turn back to food or construction while the globs work out how to get there.
 >
 > [Watch the 22-second Hedgerow Country battle, captured on macOS in 0.11.7.0](https://storage.googleapis.com/glob2-website-public/campaign-media/reddit/v1/hedgerow-country-battle-d8838a88.mp4)
 >
-> Start with Tutorial if you’re new, then try a custom game against a computer opponent. If you played the original, look for the familiar unit animations. We re-rendered them from the original Blender rigs for the remaster.
+> Start with Tutorial if you’re new, then try a generated map against a computer opponent or join an online match. If you remember the original, you’ll recognize the unit animations. We re-rendered them in HD from the original Blender rigs.
 >
 > [Desktop downloads](https://glob2.online/downloads/) · [Release notes and source](https://github.com/Globulation2/glob2/releases/tag/v0.11.7.0)
 
@@ -56,7 +56,7 @@ Reviewed November 23, 2026 against the public subreddit rules, current desktop r
 >
 > [Attach the approved Four Squares strategic-view screenshot. Caption it as a native spectator capture from an earlier 0.11.4.0 build.]
 >
-> Globulation 2 is a free, open-source colony RTS for Linux, Windows and macOS. [Desktop downloads](https://glob2.online/downloads/)
+> The strategic view is part of a broader remaster with current Linux, Windows and macOS support, HD graphics and rebuilt online multiplayer. The game is free and open source. [Desktop downloads](https://glob2.online/downloads/)
 >
 > We used generative AI to assist code contributions, generate some terrain materials, enhance some HD sprites, and help prepare this post. [Artwork provenance](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/README.md) · [HD artwork credits](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/production/pack-metadata/README.md)
 
@@ -76,6 +76,6 @@ Reviewed November 23, 2026 against the public subreddit rules, current desktop r
 
 **Maintainer comment draft**
 
-> I’m [name], one of the maintainers. The desktop game is free to download and keep. Start with Tutorial if you’re new. It shows how to keep the inn stocked while your globs choose and carry out jobs on their own.
+> I’m [name], one of the maintainers. The remastered desktop game is free to download and keep. It runs on current Linux, Windows and macOS systems and includes HD graphics and rebuilt online multiplayer. Start with Tutorial if you’re new. It shows how to keep the inn stocked while your globs choose and carry out jobs on their own.
 >
 > If you get stuck installing, tell me which package and OS version you’re using.
