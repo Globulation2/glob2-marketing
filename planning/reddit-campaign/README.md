@@ -33,6 +33,7 @@ The account meets the r/IndieGaming age minimum and has visible posting history.
 | --- | --- |
 | [r/OpenSourceGames](https://www.reddit.com/r/opensourcegames/comments/1y40lpu/globulation_2_remastered_the_free_opensource_rts/) | Submitted under the maintainer account. Reddit displayed awaiting moderator approval. |
 | [r/FreeGames](https://www.reddit.com/r/freegames/comments/1y40n7k/globulation_2_a_free_opensource_colony_rts_for/) | Submitted with the Indie Game flair and official downloads link. Reddit displayed removed by the moderators, with no specific reason visible in the thread. The planned follow-up comment was left unsent. |
+| [r/linux_gaming](https://www.reddit.com/r/linux_gaming/comments/1y41ei1/globulation_2_an_old_linux_rts_classic_remastered/) | Submitted the maintainer’s dictated post with approved corrections and the remaster’s AI disclosures. Verified the thread and its appearance in the subreddit feed immediately after submission. |
 
 ## Before any submission
 
