@@ -180,8 +180,46 @@ def match_wait(cfg, a) -> str:
         raise CtlError(str(out["error"].get("message", "wait failed"))[:300])
     content = out.get("result", {}).get("content", [])
     text = content[0].get("text", "") if content else ""
-    return (f"waited up to {ticks} ticks (capped at {WAIT_MAX_TICKS}; always wakes on attacks, lost buildings, "
-            f"conversions and enemy sightings). Now act on what changed.\n" + text)
+    return _wait_notes(text) + text
+
+
+# In match 7 the player set 2x speed once and kept it through the attack that ended the match, and
+# never moved the camera; prompt rules didn't hold under pressure, so the wait reply enforces them.
+CRITICAL_KINDS = ("attack", "unit_attacked", "building_attacked", "building_destroyed", "building_lost",
+                  "unit_converted_away", "conversion")
+CAMERA_IDLE_NUDGE = 90.0
+
+
+def _wait_notes(text: str) -> str:
+    notes = []
+    try:
+        reply = json.loads(text)
+    except ValueError:
+        reply = {}
+    kinds = " ".join(str(a.get("kind", "")) + " " + str(a.get("event", "")) for a in reply.get("alerts", []) or [])
+    critical = reply.get("reason") not in (None, "ticks", "timeout") or any(k in kinds for k in CRITICAL_KINDS)
+    try:
+        status = json.loads(camera._rpc("game_time", {"action": "status"})["result"]["content"][0]["text"])
+        speed = int(status.get("speed_value", 0))
+    except Exception:  # noqa: BLE001 - notes are best effort
+        speed = None
+    if critical and speed and speed > 0:
+        token = camera.read_token()
+        try:
+            if token:
+                camera._rpc("game_time", {"action": "status", "speed": 0, "token": token})
+                notes.append("Something critical happened, so the game is back to normal speed: deal with it now.")
+                speed = 0
+        except Exception:  # noqa: BLE001
+            pass
+    if speed is not None:
+        notes.append(f"Game speed is {'normal' if speed == 0 else ('2x' if speed == 3 else f'level {speed}')}"
+                     + (" — drop to speed 0 the moment anything gets critical." if speed > 0 else "."))
+    idle = camera.seconds_since_move()
+    if idle > CAMERA_IDLE_NUDGE and camera.hold_remaining() <= 0:
+        notes.append(f"The camera hasn't moved for {int(min(idle, 999))} s: show viewers what's happening with "
+                     "camera_show (and narrate it).")
+    return "\n".join(notes) + "\n"
 
 
 TOOLS = {
