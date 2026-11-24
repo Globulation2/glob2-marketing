@@ -28,7 +28,9 @@ Public observations are directional. Claude Plays Pokémon averaged 1,551 viewer
 
 ### Local OBS setup
 
-The observed host-only automation uses `supervisor.py` to run Claude sessions from `play_prompt.md`, check game and OBS health, and write a running match caption from `results.csv`. `status.py` reports host-side stream and session status. `chat.py` posts through the game's chat interface. The current prompt runs locally against Nicowar Medium and records map, opponent, result and a recap per game. The broader opponent rotation in the playbook, current-objective caption and latest-action caption each need independent verification in this setup. Runtime logs, account settings and credentials stay on the host.
+The host automation uses `supervisor.py` to run Claude sessions from `play_prompt.md` and check game and OBS health. `status.py` reports stream and session status, and `chat.py` posts through the game's chat interface. The current prompt runs locally against Nicowar Medium and records map, opponent, result and a recap per game. It directs Claude to keep camera zoom at or below 100% and update `match-caption.json` with the current goal and latest confirmed move.
+
+`supervisor.py --preview-caption` shows the caption that the supervisor would send to OBS. The caption uses `results.csv` for the opponent's win/loss/draw record and the latest completed result. It adds the current goal and confirmed move from fresh match state for the next game number. Stale or invalid state falls back to the recorded results. Caption fixtures passed. Its placement in the capture and its updates in live OBS still need verification, as does the broader opponent rotation from the playbook. Runtime logs, account settings and credentials stay on the host.
 
 ### Reusable Linux setup
 
