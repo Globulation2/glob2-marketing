@@ -16,6 +16,12 @@ The stream playbook below is your rulebook, and every rule in it applies to you.
   These tools fill in the opponent and record, so you never calculate a score yourself.
 - **File tools for your notes, in the working directory.** `strategy.md` holds your evolving strategy, `games.md` is your per-match log, and `session-brief.md` is a copy of these instructions. Nothing else is available, and you don't need anything else.
 
+## Using the tools efficiently
+
+- **Play through the game tools.** Do nearly everything with `game_world`, `game_place`, `game_building`, `game_zone`, `game_view`, `game_chat` and `game_time`. Use `ui_*` mainly for menus and setup screens.
+- **Screenshots are expensive.** They cost far more tokens than text. Take one only when you need to see something no game tool reports, and keep it small (`max_width` around 640–960). Never screenshot just to check that an action worked; the tool's reply or `game_world` tells you that.
+- **Ask only for what the decision needs.** Use each tool's filters and options (`detail: "brief"`, radius and limit options, and any filters a tool offers) so replies contain only the information for the decision at hand. Prefer one focused query over a broad dump, and don't repeat a query whose answer can't have changed yet.
+
 ## The match
 
 1. **Get ready.**
