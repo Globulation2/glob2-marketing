@@ -1,13 +1,16 @@
+# shellcheck shell=bash
 # Shared configuration for the stream rig scripts. Source it; do not run it.
 # Precedence: environment variables, then $GLOB2_STREAM_HOME/stream.env
 # (default ~/glob2-stream), then the defaults below.
 GLOB2_STREAM_HOME="${GLOB2_STREAM_HOME:-$HOME/glob2-stream}"
 # shellcheck disable=SC2034  # used by the scripts that source this file
 RIG_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
-RIG_SETTINGS=(GLOB2_SRC GLOB2_BIN GAME_RENDERER STREAM_DISPLAY STREAM_SIZE STREAM_FPS STREAM_VBITRATE
+RIG_SETTINGS=(GLOB2_SRC GLOB2_BIN GAME_RENDERER GAME_USERNAME STREAM_DISPLAY STREAM_SIZE STREAM_FPS STREAM_VBITRATE
   STREAM_ABITRATE STREAM_ENCODER STREAM_SINK MCP_PORT GAME_PROFILE TWITCH_INGEST TWITCH_KEY_FILE
   OVERLAY_FILE LOG_DIR BRAND BRAND_LOGO BRAND_TEXT BRAND_TEXT_SIZE BRAND_WIDTH BRAND_OPACITY
-  BRAND_MARGIN_RIGHT BRAND_MARGIN_BOTTOM)
+  BRAND_MARGIN_RIGHT BRAND_MARGIN_BOTTOM STATE_DIR NOTES_DIR PLAYER_MODEL CHAT_MODEL
+  TWITCH_CHANNEL TWITCH_BOT_USER TWITCH_CHAT_TOKEN_FILE TWITCH_CLI_ENV
+  AGENT_USER AGENT_SHARED_DIR AGENT_INSTALL_DIR AGENT_ETC_DIR AGENT_SUDOERS)
 if [[ -f "$GLOB2_STREAM_HOME/stream.env" ]]; then
   declare -A rig_env=()
   for v in "${RIG_SETTINGS[@]}"; do [[ -n "${!v+x}" ]] && rig_env[$v]="${!v}"; done
@@ -19,6 +22,7 @@ fi
 : "${GLOB2_SRC:=$GLOB2_STREAM_HOME/src}"
 : "${GLOB2_BIN:=$GLOB2_SRC/build/linux/client/perf/src/glob2}"
 : "${GAME_RENDERER:=sdl-gpu}"
+: "${GAME_USERNAME:=Claude}"                    # player name shown in game chat and the score screen
 : "${STREAM_DISPLAY:=:99}"
 : "${STREAM_SIZE:=1920x1080}"
 : "${STREAM_FPS:=30}"
@@ -30,7 +34,15 @@ fi
 : "${GAME_PROFILE:=$GLOB2_STREAM_HOME/profile}"
 : "${TWITCH_INGEST:=rtmp://live.twitch.tv/app}"
 : "${TWITCH_KEY_FILE:=$HOME/.config/glob2-stream/twitch.key}"
-: "${OVERLAY_FILE:=$GLOB2_STREAM_HOME/overlay/caption.txt}"
+# Agent sandbox (sandbox/README.md): the Claude agents run as AGENT_USER from AGENT_INSTALL_DIR and
+# share notes, state and the caption with the rig through AGENT_SHARED_DIR. AGENT_USER="" runs them
+# as the current user instead, which is less isolated.
+: "${AGENT_USER=glob2agent}"
+: "${AGENT_INSTALL_DIR:=/opt/glob2-stream-agent}"   # root-owned copy of the agent-side code and claude
+: "${AGENT_ETC_DIR:=/etc/glob2-stream}"              # agent.env and the Claude token (claude-oauth-token)
+: "${AGENT_SUDOERS:=/etc/sudoers.d/glob2-stream}"    # the one sudo rule: operator may run agent-run as AGENT_USER
+if [[ -n "$AGENT_USER" ]]; then : "${AGENT_SHARED_DIR:=/var/lib/glob2-stream}"; else : "${AGENT_SHARED_DIR:=$GLOB2_STREAM_HOME}"; fi
+: "${OVERLAY_FILE:=$AGENT_SHARED_DIR/overlay/caption.txt}"
 : "${LOG_DIR:=$GLOB2_STREAM_HOME/logs}"
 # Branding overlay (sizes in pixels at 1080p; scaled to STREAM_SIZE).
 : "${BRAND:=1}"
@@ -41,4 +53,13 @@ fi
 : "${BRAND_OPACITY:=0.85}"
 : "${BRAND_MARGIN_RIGHT:=224}"          # clears the ~200 px right sidebar and its zoom controls
 : "${BRAND_MARGIN_BOTTOM:=16}"
+# Agents and Twitch chat.
+: "${STATE_DIR:=$AGENT_SHARED_DIR/state}"         # status.json, games.jsonl, chat.json, viewer-suggestions.jsonl
+: "${NOTES_DIR:=$AGENT_SHARED_DIR/notes}"         # the player agent's strategy notes and game log
+: "${PLAYER_MODEL:=claude-sonnet-5-5}"          # the agent playing the game
+: "${CHAT_MODEL:=claude-sonnet-5-5}"            # the agent answering Twitch chat
+: "${TWITCH_CHANNEL:=globulation2}"
+: "${TWITCH_BOT_USER:=}"                        # account the chat agent speaks as; empty = read-only
+: "${TWITCH_CHAT_TOKEN_FILE:=$HOME/.config/glob2-stream/twitch-chat.token}"
+: "${TWITCH_CLI_ENV:=$HOME/.config/twitch-cli/.twitch-cli.env}"   # Twitch CLI credentials used to refresh the chat token
 export GLOB2_STREAM_HOME MCP_PORT LOG_DIR

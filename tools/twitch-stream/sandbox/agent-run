@@ -1,0 +1,145 @@
+#!/usr/bin/python3 -I
+"""Start one sandboxed Claude agent for the Claude Plays Glob stream rig.
+
+  sudo -n -u AGENT_USER AGENT_INSTALL_DIR/agent-run player --model M [--resume SESSION_ID]
+  sudo -n -u AGENT_USER AGENT_INSTALL_DIR/agent-run chat --model M [--max-budget-usd N]
+                                                     [--max-game-calls N | --no-game]
+
+Installed root-owned by install-agent-sandbox.sh and reached only through a narrow sudoers
+rule (README "Security and sandboxing"). It must run as the agent user. It clears the environment, sets HOME, PATH, umask 002
+and the working directory, reads the Claude token from a root-owned file, and runs the
+installed `claude` with fixed flags for the role. Callers can choose only the values above,
+so the sudo rule can't start Claude with other tools, MCP servers or settings. The prompt
+arrives on stdin.
+"""
+import ctypes
+import json
+import os
+import pathlib
+import pwd
+import re
+import signal
+import sys
+
+INSTALL = pathlib.Path("@AGENT_INSTALL_DIR@")   # replaced by install-agent-sandbox.sh
+ETC = pathlib.Path("@AGENT_ETC_DIR@")             # replaced by install-agent-sandbox.sh
+CONF = ETC / "agent.env"
+TOKEN = ETC / "claude-oauth-token"
+
+MODEL_RE = re.compile(r"^(claude-[a-z0-9.-]{1,60}|sonnet|opus|haiku)$")
+UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
+ROLES = {
+    "player": {"--model": MODEL_RE, "--resume": UUID_RE},
+    "chat": {"--model": MODEL_RE, "--max-budget-usd": re.compile(r"^(?:[0-4](?:\.\d{1,2})?|5(?:\.0{1,2})?)$"),
+             "--max-game-calls": re.compile(r"^(?:[0-9]|10)$"), "--no-game": None},
+}
+
+
+def die(msg: str, code: int = 64):
+    sys.stderr.write(f"agent-run: {msg}\n")
+    sys.exit(code)
+
+
+def parse(argv: list) -> tuple:
+    if not argv or argv[0] not in ROLES:
+        die("usage: agent-run player|chat [options]; see the file header")
+    role, allowed, opts, i = argv[0], ROLES[argv[0]], {}, 1
+    while i < len(argv):
+        flag = argv[i]
+        if flag not in allowed or flag in opts:
+            die(f"option not allowed for {role}: {flag[:40]!r}")
+        if allowed[flag] is None:
+            opts[flag] = True
+            i += 1
+            continue
+        if i + 1 >= len(argv) or not allowed[flag].match(argv[i + 1]):
+            die(f"bad or missing value for {flag}")
+        opts[flag] = argv[i + 1]
+        i += 2
+    if "--model" not in opts:
+        die("--model is required")
+    return role, opts
+
+
+def read_conf() -> dict:
+    conf = {}
+    try:
+        text = CONF.read_text()
+    except OSError as e:
+        die(f"cannot read {CONF} ({e.strerror}); run install-agent-sandbox.sh", 78)
+    for line in text.splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            k, v = line.split("=", 1)
+            conf[k.strip()] = v.strip()
+    for key in ("AGENT_USER", "AGENT_SHARED_DIR", "STATE_DIR", "NOTES_DIR", "OVERLAY_FILE", "MCP_PORT"):
+        if not conf.get(key):
+            die(f"{CONF} lacks {key}; rerun install-agent-sandbox.sh", 78)
+    return conf
+
+
+def main():
+    role, opts = parse(sys.argv[1:])
+    conf = read_conf()
+    me = pwd.getpwuid(os.geteuid())
+    if me.pw_name != conf["AGENT_USER"]:
+        die(f"must run as {conf['AGENT_USER']} (through sudo -u), not {me.pw_name}", 77)
+    try:
+        token = TOKEN.read_text().strip()
+    except OSError:
+        token = ""
+    if not token:
+        die(f"no Claude token in {TOKEN}: run `claude setup-token`, then "
+            f"`sudo install -o root -g {conf['AGENT_USER']} -m 640 /dev/stdin {TOKEN}`", 78)
+
+    py = ["/usr/bin/python3", "-E", "-s"]           # our MCP servers: no env-driven imports, no user site
+    shared_env = {k: conf[k] for k in ("AGENT_SHARED_DIR", "STATE_DIR", "NOTES_DIR", "OVERLAY_FILE", "MCP_PORT")}
+    shared_env.update(AGENT_USER=conf["AGENT_USER"], GLOB2_STREAM_HOME=conf["AGENT_SHARED_DIR"])
+    game_url = f"http://127.0.0.1:{int(conf['MCP_PORT'])}/mcp"
+    claude = str(INSTALL / "bin" / "claude")
+
+    if role == "player":
+        servers = {
+            "glob2-stream": {"type": "http", "url": game_url},
+            "stream-ctl": {"command": py[0], "args": py[1:] + [str(INSTALL / "stream_ctl.py"), "mcp"], "env": shared_env},
+        }
+        cwd = conf["NOTES_DIR"]
+        cmd = [claude, "-p", "--model", opts["--model"], "--restricted", "--tools", "Read,Edit,Write",
+               "--strict-mcp-config", "--mcp-config", json.dumps({"mcpServers": servers}),
+               "--permission-mode", "dontAsk",
+               "--allowedTools", "mcp__glob2-stream__*", "mcp__stream-ctl__*", "Edit(./**)",
+               "--output-format", "stream-json", "--verbose"]
+        if "--resume" in opts:
+            cmd += ["--resume", opts["--resume"]]
+    else:
+        cwd = str(pathlib.Path(conf["STATE_DIR"]) / "chat-sandbox")
+        cmd = [claude, "-p", "--model", opts["--model"], "--tools", "", "--restricted", "--strict-mcp-config",
+               "--permission-mode", "dontAsk", "--no-session-persistence",
+               "--max-budget-usd", opts.get("--max-budget-usd", "0.50"),
+               "--output-format", "stream-json", "--verbose",
+               "--json-schema", (INSTALL / "chat" / "reply_schema.json").read_text(),
+               "--system-prompt", (INSTALL / "prompts" / "chat.md").read_text()]
+        if "--no-game" not in opts:
+            proxy_env = {"MCP_PORT": conf["MCP_PORT"], "READONLY_MCP_MAX_CALLS": opts.get("--max-game-calls", "4")}
+            servers = {"glob2-readonly": {"command": py[0], "args": py[1:] + [str(INSTALL / "chat" / "readonly_mcp.py")],
+                                          "env": proxy_env}}
+            cmd += ["--mcp-config", json.dumps({"mcpServers": servers}), "--allowedTools", "mcp__glob2-readonly__*"]
+
+    env = {
+        "HOME": me.pw_dir, "USER": me.pw_name, "LOGNAME": me.pw_name, "SHELL": "/bin/sh",
+        "PATH": f"{INSTALL / 'bin'}:/usr/bin:/bin", "LANG": "C.UTF-8", "TMPDIR": str(pathlib.Path(me.pw_dir) / "tmp"),
+        "CLAUDE_CODE_OAUTH_TOKEN": token,
+        "ENABLE_CLAUDEAI_MCP_SERVERS": "false",      # never load the account's claude.ai connectors
+        "DISABLE_AUTOUPDATER": "1",                  # the installed binary is root-owned and fixed
+        "DISABLE_TELEMETRY": "1", "DISABLE_ERROR_REPORTING": "1",
+    }
+    pathlib.Path(env["TMPDIR"]).mkdir(mode=0o700, exist_ok=True)
+    os.umask(0o002)
+    os.chdir(cwd)
+    # If sudo is killed outright, take Claude with it rather than leave it playing unattended.
+    ctypes.CDLL("libc.so.6", use_errno=True).prctl(1, signal.SIGTERM)  # PR_SET_PDEATHSIG
+    os.execve(claude, cmd, env)
+
+
+if __name__ == "__main__":
+    main()

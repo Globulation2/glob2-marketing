@@ -10,5 +10,5 @@ claude mcp remove --scope user "$name" >/dev/null 2>&1 || true
 claude mcp add --scope user "$name" \
   -e DISPLAY="$STREAM_DISPLAY" -e SDL_AUDIO_DRIVER=pulseaudio -e PULSE_SINK="$STREAM_SINK" -e GLOB2_USER_DIR="$GAME_PROFILE" \
   -- python3 "$GLOB2_SRC/tools/mcp_stdio.py" --executable "$GLOB2_BIN" --cwd "$GLOB2_SRC" \
-  --url "http://127.0.0.1:$MCP_PORT/mcp" -- play --renderer "$GAME_RENDERER" --window-size "$STREAM_SIZE"
+  --url "http://127.0.0.1:$MCP_PORT/mcp" -- play --renderer "$GAME_RENDERER" --window-size "$STREAM_SIZE" --username "$GAME_USERNAME"
 echo "registered $name; start a new Claude Code session to load its tools"

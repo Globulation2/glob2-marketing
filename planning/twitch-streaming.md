@@ -2,6 +2,14 @@
 
 [Planning index](README.md) · [Social account inventory](../facts/social-media-accounts.md) · [Social media strategy](social-media-strategy.md) · [Channel C06: long-form video and livestreams](../analysis/channels-and-business-models.md) · [Stream rig code](../tools/twitch-stream/README.md)
 
+## Status — 2026-11-24
+
+- **One setup.** Claude Plays Glob runs only on the tracked [stream rig](../tools/twitch-stream/README.md). The separate host-local OBS automation recorded earlier was retired in favour of this rig.
+- **Nothing broadcast yet.** Only Twitch bandwidth tests have reached Twitch, and Twitch never shows those on the channel. No live broadcast has run.
+- **Going live needs the user's go-ahead.** A go-ahead to start a continuous run covers that supervisor run, including its automatic restarts, until it is stopped. `supervisor.py run --stream live` and `stream.sh live` refuse to start without `--i-mean-it`.
+- **Sandboxed agents.** Both agents run as a separate unprivileged OS user (`glob2agent`) from root-owned code, through one narrow sudo rule. They use restricted Claude tools and only the rig's own MCP servers, so viewers' prompt injection can't reach the operator's files, keys, accounts or claude.ai connectors. Their Claude token is a long-lived `claude setup-token` token on the user's subscription. Every system change comes from `sandbox/install-agent-sandbox.sh`, checked by `sandbox/verify-sandbox.sh` ([Security and sandboxing](../tools/twitch-stream/README.md#security-and-sandboxing)).
+- **Two agents, both Sonnet 5.5 by default.** The player plays one sandboxed session per match under the supervisor, with a prompt built from the [playbook](../tools/twitch-stream/stream-playbook.md) word for word. A separate [chat host](../tools/twitch-stream/chat/README.md) talks with Twitch viewers and never touches the game, so chat can't distract or steer the player.
+
 ## Channel and show
 
 The project selected **Claude Plays Glob** on 2026-11-24 as the 24/7 show on the official [Globulation 2 Twitch channel](https://www.twitch.tv/globulation2). Claude controls one colony through the game's embedded MCP server in live local matches. The format uses game audio, on-screen text and no microphone. The channel keeps the Globulation 2 identity and links viewers to [Play Globulation 2](https://glob2.online/).
@@ -9,10 +17,11 @@ The project selected **Claude Plays Glob** on 2026-11-24 as the 24/7 show on the
 - **Stream title** `Claude Plays Glob | 24/7 live colony RTS`
 - **Category and language** Globulation 2, English.
 - **Tags added** `OpenSource` and `NoCommentary`. [Twitch tags](https://help.twitch.tv/s/article/guide-to-tags?language=en_US)
+- **Tags recommended** Add `AI`, `Claude`, `RTS` and `Strategy` for discovery (Twitch allows up to 10). `NoCommentary` means no voice; the narration is on-screen and in-game text, so keep it only if it describes the show accurately. These recommendations have not been applied: the dashboard needs a signed-in browser.
 - **Go-live notification** “Claude is running a colony live. Can it keep the globs fed?”
 - **About copy for the show** “Claude plays live local matches in Globulation 2, a free, open-source colony RTS. Watch it keep workers fed, expand and face the game's built-in opponents. Game audio and on-screen updates.”
 - **On screen** Show the opponent and running score, current objective, and the latest action verified in the game. An example is “Goal: survive the first raid · Last action: assigned two workers to the Inn.” Keep the text and approved Globulation 2 branding clear of the HUD. Label between-match, paused or recovery states when possible, and reset stale match text before starting the next game.
-- **Chat** In-game captions can explain observable decisions at any time. Offer Twitch chat interaction only when a moderator is staffed. A staffed host can take a next-map or next-challenge vote and apply it between matches. Use the [playbook](../tools/twitch-stream/stream-playbook.md) for camera, match settings and fog-of-war rules.
+- **Chat** The player narrates in game chat and the caption. A separate [chat host agent](../tools/twitch-stream/chat/README.md) answers Twitch viewers from the published match status. It discloses that it is an AI bot, and its replies pass code-enforced filters and rate limits. Viewer ideas reach the player only as untrusted suggestions between matches. Arrange human moderator coverage before promoting chat interaction. Use the [playbook](../tools/twitch-stream/stream-playbook.md) for camera, match settings and fog-of-war rules.
 
 On 2026-11-24, the saved title, category, language, tags and notification were verified by reopening Edit Stream Info. The Creator Dashboard showed the channel offline after the save. Clips and Store past broadcasts were enabled when inspected.
 
@@ -27,6 +36,12 @@ Public observations are directional. Claude Plays Pokémon averaged 1,551 viewer
 ## Broadcast setup and verification
 
 The tracked [Linux rig](../tools/twitch-stream/README.md) ran local recordings and Twitch ingest tests on 2026-11-24. Twitch bandwidth-test sessions are hidden from the public channel. The game ran from Globulation2/glob2 master `898fb00afc` using its existing launch options. `stream.sh live` retains its explicit `--i-mean-it` switch.
+
+`supervisor.py` runs the show:
+- **Game and stream.** It keeps the game, stream and chat host running and checks the 1920×1080 window before every match.
+- **Opponents.** It assigns each match an opponent, rotating through Cortex, Nicowar and Cabino (Medium in the game's AI list) and Maxima (Hard), least recently played first.
+- **Player sessions.** It runs one sandboxed `claude -p` player session per match.
+- **Bookkeeping.** The player records setup, captions and results through the `stream-ctl` MCP tools. The supervisor keeps the official record in local state and publishes `status.json` for the chat host and `status.py`.
 
 The rig ran on the maintainer's Linux laptop: Ubuntu 24.04, an NVIDIA RTX 3070 Ti Laptop GPU and PipeWire audio.
 
@@ -50,7 +65,15 @@ During script validation a short (2 s) Twitch bandwidth test also ran unintentio
 
 ## Gaps and next work
 
-- **24/7 operation.** Verify long-run picture and game audio, that the scoreboard follows completed matches and restarts, how the stream handles model quotas and MCP renewals, and that logs stay within available storage. For the Linux rig, run a final `stream.sh test` before using it for a public broadcast and verify restart behavior before unattended use. Long-run behavior and systemd user units remain unverified on Linux.
-- **Gameplay and overlays.** The playbook calls for 1v1 on random 256×256 maps, with default rules, map rotation and an opponent selected from Cortex, Nicowar, Cabino and Maxima. Verify the match rotation and the updated caption layout in a Linux recording. Confirm moderation coverage before announcing chat interaction.
+- **24/7 operation.** The supervisor restarts failed streams, sessions and the chat host, and caps log growth. Still to verify before an unattended public run:
+  - several hours of picture and audio;
+  - long matches near the session limit;
+  - model quota or sign-in expiry (set up long-lived authentication, for example with `claude setup-token`);
+  - systemd user units, so the run survives a reboot.
+- **Model cost.** The first supervised test cost about $1.09 for 2.5 minutes of match setup and early play with Sonnet 5.5, roughly $25 an hour if sustained, or about $600 a day for 24/7. Confirm the budget, or plan scheduled hours, before an unattended run. The supervisor logs every turn's cost.
+- **Gameplay quality.** Watch the first supervised matches for setup accuracy, camera variety, narration pace and lease renewal, and refine `prompts/player.md` and the playbook from what is seen.
+- **Agent sandbox.** On the streaming machine: run `sandbox/install-agent-sandbox.sh`, have the user create and install the agents' Claude token (`claude setup-token`), then run `sandbox/verify-sandbox.sh` until all checks pass. Rerun the installer after each `git pull`.
+- **Chat host.** The `globulation2` account is authorized for `chat:read` and `chat:edit`, and the rig refreshes its token automatically over HTTPS. Replies need `TWITCH_BOT_USER`, the user's go-ahead and a staffed human moderator before chat interaction is promoted.
+- **Tags.** Apply the recommended tags in Stream Manager.
 - **Other Linux hardware.** Testing covered the NVIDIA/Vulkan setup above. The libx264 path was verified locally.
 - **Account readiness.** Backup access, recovery coverage and moderator roles for the channel remain unverified (see the [account inventory](../facts/social-media-accounts.md)).

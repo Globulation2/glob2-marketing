@@ -1,0 +1,33 @@
+{
+ "type": "object",
+ "properties": {
+  "reply": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "suggestion": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "properties": {
+    "user": {
+     "type": "string"
+    },
+    "text": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "user",
+    "text"
+   ]
+  }
+ },
+ "required": [
+  "reply",
+  "suggestion"
+ ]
+}

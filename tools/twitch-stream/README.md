@@ -2,7 +2,7 @@
 
 [Twitch streaming record](../../planning/twitch-streaming.md) · [Planning index](../../planning/README.md) · [Glob2 MCP guide](https://github.com/Globulation2/glob2/blob/master/docs/development/mcp-ui-server.md)
 
-The Linux rig for streaming Claude playing Globulation 2 to Twitch. Claude drives the game through the game's embedded MCP server. The game runs on a hidden virtual display, so the streaming machine's desktop stays usable. ffmpeg captures that display and the game's sound and sends them to Twitch.
+The single setup for **Claude Plays Glob**: Claude playing Globulation 2 around the clock on the official Twitch channel. A supervisor keeps the game, the stream and the agents running. One Claude agent plays each match through the game's embedded MCP server. A second, separate Claude agent talks with viewers in Twitch chat, so it never distracts the player. The game runs on a hidden virtual display, so the streaming machine's desktop stays usable. ffmpeg captures that display and the game's sound and sends them to Twitch.
 
 **Streaming?** Follow the [stream playbook](stream-playbook.md) for match format, camera, narration, fair play and the learning loop. The [Twitch streaming record](../../planning/twitch-streaming.md#broadcast-setup-and-verification) tracks what this rig has verified.
 
@@ -30,6 +30,26 @@ This directory holds code only. The stream key, game profile, logs and settings 
 - **Caption.** A bottom-left text box shows match context or an intermission message from `caption.sh`. ffmpeg reloads it during capture.
 - **Branding.** A small Globulation 2 wordmark with `glob2.online` beneath it sits bottom right over the map, clear of the game's sidebar. See [Branding overlay](#branding-overlay).
 
+### Agents and the supervisor
+
+```text
+ supervisor.py run ──┬─ game-up.sh (display, sink, game) and a 1920x1080 window check before every match
+                     ├─ stream.sh file|live   (restarted if it dies; live needs --i-mean-it)
+                     ├─ per match: claude -p  PLAYER (PLAYER_MODEL, Sonnet 5.5)
+                     │     prompt = prompts/player.md + stream-playbook.md + this match's assignment
+                     │     tools: glob2-stream MCP (the game), stream-ctl MCP (match_info, match_setup_done,
+                     │            match_caption, match_result), Read/Edit/Write inside NOTES_DIR only
+                     ├─ --chat: chat/chat_agent.py  CHAT HOST (CHAT_MODEL, Sonnet 5.5), no game tools
+                     └─ every 10 s: $STATE_DIR/status.json (read by the chat host and status.py)
+```
+
+- **One session per match.** The supervisor assigns the opponent, rotating through Cortex, Nicowar, Cabino and Maxima with the least recently played first, and starts a fresh player session. The session sets up a 1v1 on a random 256×256 map with a new generator, plays it, records the result and ends. If the model ends its turn mid-match, the supervisor resumes the same session (`claude -p --resume`) with a nudge to keep playing. A session that crashes or reaches `--game-timeout` without a result is retried as a recovery session, which first checks whether the match can continue. After three tries, the match is recorded as aborted.
+- **Sandbox.** Both agents run as a separate unprivileged user with a restricted tool set. See [Security and sandboxing](#security-and-sandboxing).
+- **Score.** `$STATE_DIR/games.jsonl` is the official record. `match_result` appends to it, and the captions and record come from it. Aborted matches are logged but never counted.
+- **Chat host.** The chat host is a separate process with its own sandbox. It knows the game only through `status.json`, and can pass viewer ideas to the player only as untrusted suggestions between matches. See [chat/README.md](chat/README.md).
+- **Cost.** Every player turn's cost is logged in `logs/supervisor.log`. The first supervised test measured about **$1.09 for 2.5 minutes** of setup and early play with Sonnet 5.5 (roughly $25 an hour if sustained). Check real usage before an unattended 24/7 run.
+- **Logs and disk.** Player transcripts are gzipped per match (the newest 100 are kept). Stream and chat logs rotate at 20 MB, and the supervisor log at 5 MB. A local recording stops if less than 2 GiB is free.
+
 ## Quick start
 
 ```sh
@@ -38,9 +58,14 @@ install -m 600 /dev/stdin ~/.config/glob2-stream/twitch.key   # paste the key fr
 (cd ~/glob2-stream/src && python3 tools/dev_build.py perf=1)  # build the game (setup.sh prints SDL3 notes)
 ./game-up.sh                                          # Xvfb, audio sink, game with MCP on 27300
 ./register-mcp.sh                                     # Claude Code MCP server "glob2-stream"; open a new session
+./sandbox/install-agent-sandbox.sh                    # agent user, root-owned agent code, shared dirs, sudo rule
+claude setup-token                                    # then install the token it prints (Security and sandboxing)
+./sandbox/verify-sandbox.sh                           # check the sandbox, including one cheap call per agent
 ./stream.sh file ~/glob2-stream/logs/check.mp4 15     # local check: picture, caption and sound
 ./stream.sh test 30                                   # Twitch bandwidth test: reaches Twitch, never goes live
-./stream.sh live --i-mean-it                          # real broadcast, only with the go-ahead
+./supervisor.py run --stream file:$HOME/glob2-stream/logs/run.mp4 --max-games 1   # one supervised match, recorded locally
+./status.py                                           # what is running, the current match and the record
+./supervisor.py run --stream live --i-mean-it --chat  # Claude Plays Glob 24/7, only with the user's go-ahead
 ./down.sh                                             # stop everything
 ```
 
@@ -55,11 +80,16 @@ Run the scripts from anywhere; they find each other through their own location.
 | `setup.sh`, `register-mcp.sh` | One-time machine setup and Claude Code MCP registration. |
 | `game-up.sh`, `down.sh`, `route-audio.sh` | Start and stop the display, audio sink and game; keep game audio on the sink. |
 | `stream.sh`, `caption.sh` | Capture, overlays, encoding and output; caption text. |
+| `supervisor.py`, `status.py` | The 24/7 run (game, stream, player sessions, chat host, status) and its read-only status report. |
+| `stream_ctl.py`, `rigstate.py`, `rigconfig.py` | Match bookkeeping: the CLI, and the `stream-ctl` MCP server the player uses; shared state and settings for the Python tools. |
+| `prompts/` | [`player.md`](prompts/player.md), the player's role brief (the playbook is appended to it), and `chat.md`, the chat host's prompt. |
+| [`chat/`](chat/README.md) | The Twitch chat host: IRC client, agent loop, read-only game proxy, token refresh and its setup guide. |
+| `sandbox/` | `install-agent-sandbox.sh` (install, resync, `--uninstall`), `verify-sandbox.sh` and `agent-run`, the wrapper every agent starts through. See [Security and sandboxing](#security-and-sandboxing). |
 | `mcp/` | Python helpers that drive the game over MCP without an agent (`mcp_call.py`, `activate.py`). Standard library only. |
 | [`stream-playbook.md`](stream-playbook.md) | How Claude plays and presents on stream: setup checks, camera, narration, fair play, notes. |
 | `assets/` | Branding image and its [provenance](assets/README.md). |
 
-Local state never lives here: `$GLOB2_STREAM_HOME` (default `~/glob2-stream`) holds `stream.env`, `logs/`, `profile/`, `notes/`, `overlay/caption.txt` and usually the game checkout `src/`; the key stays in `~/.config/glob2-stream/`.
+Local state never lives here: `$GLOB2_STREAM_HOME` (default `~/glob2-stream`) holds `stream.env`, `logs/`, `profile/` and usually the game checkout `src/`. The keys stay in `~/.config/glob2-stream/`. Notes, state and the caption live in `AGENT_SHARED_DIR` (default `/var/lib/glob2-stream`), shared with the sandboxed agents.
 
 ## Commands
 
@@ -74,21 +104,24 @@ Local state never lives here: `$GLOB2_STREAM_HOME` (default `~/glob2-stream`) ho
 | `caption.sh "text"` | Set the on-stream caption. |
 | `caption.sh --match OPPONENT RECORD GOAL [LAST_MOVE]` | Show the opponent, record, goal and optional latest confirmed move. |
 | `route-audio.sh` | Move audio from processes on the stream display onto the sink. `game-up.sh` and `stream.sh` run it automatically. |
-| `down.sh` | Stop the stream, game, Xvfb and sink. |
+| `supervisor.py run [--stream none\|file:PATH\|live] [--i-mean-it] [--chat] [--max-games N] [--game-timeout MIN] [--down]` | Run matches continuously. Defaults: no capture, no chat, unlimited matches, 120-minute sessions. `--down` stops everything on exit. |
+| `status.py [--json]` | Display, game, supervisor, stream, current match, player, chat host, record by opponent, recent results and free disk. |
+| `stream_ctl.py info\|setup-done\|caption\|result` | The player's match tools from a shell, for operators and tests. `stream_ctl.py mcp` serves them to the player. |
+| `down.sh` | Stop the supervisor, stream, game, Xvfb and sink. |
 | `mcp/activate.py [--acquire] KEY` | Activate a game control by key over MCP (for example `menu/1`, then `tutorial/lesson/0`). |
 | `mcp/mcp_call.py TOOL [JSON]` | Call any game MCP tool over HTTP, for scripting without an agent. |
 
 ## Match caption
 
-Use the completed games in the [playbook's game log](stream-playbook.md#learning-loop) to count wins, losses and draws against the current opponent. Pass short, single-line values to `caption.sh`. Start without a last move, then add one when it has been confirmed in-game. The game log remains the source of the record, so an interrupted or still-running game does not change the score.
+During a supervised run, the player sets the caption through `match_caption` (goal and last confirmed move), and the tool fills in the opponent and the record from `games.jsonl`. `match_result` shows the result between matches. By hand, the same actions are available from a shell:
 
 ```sh
-./caption.sh --match Nicowar '3W–2L–0D' 'Keep the colony fed through the first raid'
-./caption.sh --match Nicowar '3W–2L–0D' 'Keep the colony fed through the first raid' 'Assigned two workers to the Inn'
-./caption.sh 'Between matches · Win against Nicowar · 4W–2L–0D'
+./stream_ctl.py caption --goal 'Keep the colony fed through the first raid' --last 'Assigned two workers to the Inn'
+./caption.sh --match Nicowar '3W–2L–0D' 'Keep the colony fed through the first raid'   # lower level, any values
+./caption.sh 'Between matches · Win against Nicowar · 4W–2L–0D'                        # free text
 ```
 
-The caption replaces the previous overlay in one update. Check the picture with `stream.sh file` when changing the caption layout or using longer text.
+Each value is one line of at most 70 characters, so three lines fit beside the branding. The caption replaces the previous overlay in one update. Check the picture with `stream.sh file` after changing the caption layout.
 
 ## Configuration
 
@@ -105,6 +138,81 @@ The caption replaces the previous overlay in one update. Check the picture with 
 | `MCP_PORT` | `27300` | A desktop game normally uses 27202. |
 | `TWITCH_INGEST`, `TWITCH_KEY_FILE` | auto ingest, `~/.config/glob2-stream/twitch.key` | |
 | `BRAND*` | on | See [Branding overlay](#branding-overlay). |
+| `PLAYER_MODEL`, `CHAT_MODEL` | `claude-sonnet-5-5` | Models for the player and the chat host. See [Models](#models). |
+| `STATE_DIR`, `NOTES_DIR`, `OVERLAY_FILE` | `state/`, `notes/`, `overlay/caption.txt` in `AGENT_SHARED_DIR` | Match state and score; the player's notes and working directory; the caption text. |
+| `AGENT_USER`, `AGENT_INSTALL_DIR`, `AGENT_ETC_DIR`, `AGENT_SUDOERS`, `AGENT_SHARED_DIR` | `glob2agent`, `/opt/glob2-stream-agent`, `/etc/glob2-stream`, `/etc/sudoers.d/glob2-stream`, `/var/lib/glob2-stream` | The agent sandbox. `AGENT_USER=""` runs the agents as you, with `AGENT_SHARED_DIR` defaulting to `~/glob2-stream`. Rerun the installer after changing any of these. |
+| `TWITCH_CLI_ENV` | `~/.config/twitch-cli/.twitch-cli.env` | Twitch CLI login used to refresh the chat token. |
+| `TWITCH_CHANNEL`, `TWITCH_BOT_USER`, `TWITCH_CHAT_TOKEN_FILE` | `globulation2`, none, `~/.config/glob2-stream/twitch-chat.token` | Chat host account. Without a bot user and token it only reads. |
+| Chat tuning (environment only) | see [chat/README.md](chat/README.md#running) | `CHAT_GAME_ACCESS`, `CHAT_MAX_GAME_CALLS`, `CHAT_MAX_BUDGET_USD`, `CHAT_MIN_INTERVAL`, `CHAT_MAX_PER_MIN`, `CHAT_BATCH_WAIT`, `CHAT_MODEL_TIMEOUT`. |
+
+## Models
+
+Both agents default to **Sonnet 5.5** (`claude-sonnet-5-5`). Set `PLAYER_MODEL` or `CHAT_MODEL` in `stream.env` to change one. With the sandbox, the agents use a long-lived token from `claude setup-token`, tied to your Claude subscription and installed for the agent user only. See [Security and sandboxing](#security-and-sandboxing). Without the sandbox, they use your own `claude` sign-in, which expires.
+
+## Security and sandboxing
+
+Viewers can write anything in chat, and the agents read game text and their own notes. Assume any of that may try to steer an agent (prompt injection). The sandbox makes sure a steered agent still can't reach anything that matters on the machine: your files, keys, accounts, connected services or other projects.
+
+### Threat model
+
+- **Untrusted input:** Twitch chat, which only the chat host reads, and anything shown in game.
+- **Protected:** your home directory, SSH, cloud and GitHub credentials, the stream and Twitch keys, your Claude login, and your claude.ai connectors (Gmail, Drive, Calendar and so on).
+- **Out of scope:** someone who already controls your account. The operator account starts and stops everything, and the sandbox protects it from the agents, not the other way round.
+
+### Layers
+
+| Layer | Player | Chat host |
+| --- | --- | --- |
+| OS user | `AGENT_USER` (`glob2agent`): a system user with no login shell, no extra groups and its own home. Your home is closed to it (mode 750 or tighter). | Same user, for the model call only. The Twitch connection, filtering and rate limits run as you. |
+| How it starts | `sudo -n -u glob2agent /opt/glob2-stream-agent/agent-run player --model M [--resume ID]` | `… agent-run chat --model M [--max-budget-usd N] [--max-game-calls N \| --no-game]` |
+| Code it runs | A root-owned copy in `AGENT_INSTALL_DIR`, including its own `claude` binary, never anything in your home. | Same. |
+| Environment | `agent-run` clears it and sets HOME, PATH, umask 002, the working directory and the token. It sets `ENABLE_CLAUDEAI_MCP_SERVERS=false` and disables auto-update. | Same. |
+| Claude tools | Read, Edit and Write only, confined to the notes directory (`--restricted`). No shell, no web. Unlisted tools are refused (`--permission-mode dontAsk`). | No built-in tools (`--tools ""`). Answers in a fixed JSON schema. A $0.50 cap per reply by default. |
+| MCP servers | Only the game (`glob2-stream`, over HTTP to 127.0.0.1) and `stream-ctl` (match bookkeeping) (`--strict-mcp-config`, fixed by `agent-run`). | Only `glob2-readonly`: an allowlist of read tools, no control token, a few calls per reply. |
+| Files | Its home, plus `AGENT_SHARED_DIR` (notes, state, overlay; operator and agent group, mode 2770). The notes directory is sticky (3770) and the supervisor writes `session-brief.md` mode 644, so the player can read its rules but can't edit, delete or replace them. | Same, with `state/chat-sandbox` as its empty working directory. |
+| Output | Game actions, captions, and the result in `games.jsonl`. | One JSON reply. Code filters it before Twitch sees it: no links except glob2.online and the channel, no internals, one line, rate-limited. |
+
+The sudo rule (`AGENT_SUDOERS`) lets only the operator run `agent-run` as `AGENT_USER`: no shell, no other command. `agent-run` accepts only the options shown above, each checked against a pattern, and builds every other flag itself. So the rule can't be used to start Claude with other tools, MCP servers or settings. `AGENT_USER` itself has no sudo rights.
+
+### What the agents can't reach
+
+- Your home: dotfiles, SSH keys, `~/.config` (including the stream key, the Twitch chat token and the Twitch CLI login), `~/.claude` and your own Claude login, your gh and gcloud configs, and other projects.
+- Your claude.ai connectors: `--strict-mcp-config` and `ENABLE_CLAUDEAI_MCP_SERVERS=false`. `verify-sandbox.sh` checks that each session lists only the rig's servers.
+- The game's code and files: the player has no shell, and its file tools can't leave the notes directory. The game is reached only over MCP, which follows fog of war.
+- The Claude token itself: it is readable by the agent user, so that `claude` can authenticate, but the file tools can't reach `AGENT_ETC_DIR`. `verify-sandbox.sh` asks the player to read it and checks the refusal.
+
+### Prompt-injection paths
+
+- **Chat → chat host.** Viewer text is wrapped and labelled untrusted, and the host has no tools beyond the read-only game view. Its reply passes code-enforced filters and rate limits before reaching Twitch.
+- **Chat → player.** Only through `viewer-suggestions.jsonl`, which the player sees through `match_info` between matches, labelled as untrusted ideas that never override its rules. The player never reads Twitch chat.
+- **Game → agents.** Game text reaches them only through the game's MCP tools. Nothing they can do reaches beyond the game, the notes and the caption.
+- **Player → its own rules.** A steered player could try to rewrite the brief it rereads after compaction. The brief is read-only to it and is regenerated from the repo's `prompts/player.md` and `stream-playbook.md` for every session; `verify-sandbox.sh` checks it can't be modified or replaced.
+
+### Setting up a machine
+
+1. Install the rig and build the game (Quick start), then run `sandbox/install-agent-sandbox.sh` as the operator. It is idempotent and uses sudo:
+   - creates `AGENT_USER`;
+   - installs `AGENT_INSTALL_DIR`, with a copy of the current `claude` (override it with `CLAUDE_BIN`);
+   - writes `AGENT_ETC_DIR/agent.env`;
+   - creates `AGENT_SHARED_DIR`, moving `notes/`, `state/` and the caption from `~/glob2-stream` the first time;
+   - installs and validates the sudo rule.
+
+   It warns if `stream.env` still points `STATE_DIR`, `NOTES_DIR` or `OVERLAY_FILE` elsewhere.
+2. Create the agents' Claude token. This is interactive: it opens a browser to sign in with the Claude subscription. `claude setup-token` creates a long-lived (one-year) OAuth token for non-interactive use. Install it for the agent user without echoing it:
+
+   ```sh
+   claude setup-token
+   sudo install -o root -g glob2agent -m 640 /dev/stdin /etc/glob2-stream/claude-oauth-token
+   ```
+
+   Paste the token, press Enter, then Ctrl-D. Use `AGENT_USER` and `AGENT_ETC_DIR` if you changed them. The token is never copied from your own login.
+3. Run `sandbox/verify-sandbox.sh`. It checks users, ownership and modes, the sudo rule and the option allowlist, and probes file access as the agent user. It then makes one cheap call per agent (`claude-haiku-5-5`), checking the tools and MCP servers and that reads outside the sandbox are refused. Without a token, `--dummy-token` checks start-up up to the (expected) login failure.
+
+### Updating and uninstalling
+
+- After `git pull`, or a `claude` update you want the agents to use, rerun `sandbox/install-agent-sandbox.sh`. It resyncs the root-owned copy and removes stale files. Stop the supervisor first, so that no agent is mid-session.
+- `sandbox/install-agent-sandbox.sh --uninstall` removes the sudo rule, `AGENT_INSTALL_DIR`, `AGENT_ETC_DIR` (including the token) and the agent user with its home. It keeps `AGENT_SHARED_DIR` and prints the command to delete it.
+- `AGENT_USER=""` in `stream.env` runs the agents as you, with only the Claude-level restrictions. That is less isolated: a steered agent would be one permission bug away from your files and connectors. Use it for development only.
 
 ## Branding overlay
 
@@ -131,11 +239,13 @@ Only approved imagery or direct derivatives may be used ([assets README](assets/
 - **Stopping processes.** Stop them by PID file or exact command line (`down.sh`). `pkill -f <pattern>` run from a shell can match and kill that shell.
 - **Branding covers the HUD or looks wrong.** Check `BRAND_MARGIN_RIGHT` (at least about 210 at 1080p) and that `BRAND_LOGO` exists; the warning `brand logo ... not found` means text only. `BRAND=0` isolates overlay problems.
 - **Watching the hidden display.** `ffplay -f x11grab -video_size 1920x1080 -i :99`, or `stream.sh file` and play the result.
+- **The player isn't moving.** Run `status.py`, then check `logs/supervisor.log` and the newest `logs/player/match-*.jsonl.gz` (`zcat … | tail`). The supervisor ends a session after `--game-timeout` minutes and retries the match.
 - **Stale MCP token.** `mcp/activate.py --acquire` takes control again and saves a fresh token.
 
 ## Safety
 
-- `stream.sh live` refuses to start without `--i-mean-it`. Agents broadcast only after the user explicitly says to go live. Use `test` and `file` for checks.
+- `stream.sh live` and `supervisor.py run --stream live` refuse to start without `--i-mean-it`. Agents broadcast only after the user explicitly says to go live. A go-ahead for a continuous run covers that supervisor run until it's stopped. Use `test`, `file` or `--stream none` for checks.
+- Both agents run in the OS-level sandbox described in [Security and sandboxing](#security-and-sandboxing). The chat host has no game tools, and its replies pass code-enforced filters and rate limits ([chat/README.md](chat/README.md)).
 - The stream key never enters this repository, the command line output or the logs. Keep it at mode 600. `.gitignore` excludes `stream.env`, `*.key`, `logs/` and `profile/` here as a backstop.
 - The game's agent tools respect fog of war: they never reveal hidden enemy state, so on-stream commentary only reflects what a player could see.
 - The stream shows only the virtual display and the game's audio, never the host desktop or microphone.

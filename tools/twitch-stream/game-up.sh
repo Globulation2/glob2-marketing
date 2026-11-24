@@ -22,6 +22,7 @@ cd "$GLOB2_SRC"
 # route-audio.sh catches PipeWire's remembered per-application routing.
 DISPLAY="$STREAM_DISPLAY" SDL_AUDIO_DRIVER=pulseaudio PULSE_SINK="$STREAM_SINK" GLOB2_USER_DIR="$GAME_PROFILE" \
   setsid "$GLOB2_BIN" play --mcp-port "$MCP_PORT" --renderer "$GAME_RENDERER" --window-size "$STREAM_SIZE" \
+  --username "$GAME_USERNAME" \
   >"$LOG_DIR/game.log" 2>&1 < /dev/null &
 echo $! > "$LOG_DIR/game.pid"
 for _ in $(seq 60); do

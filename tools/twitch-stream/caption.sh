@@ -21,4 +21,5 @@ mkdir -p "$(dirname "$OVERLAY_FILE")"
 tmp="$(mktemp "$OVERLAY_FILE.XXXXXX")"
 trap 'rm -f "$tmp"' EXIT
 printf '%s' "$caption" > "$tmp"
+chmod 664 "$tmp"   # ffmpeg (the operator) reads captions the sandboxed agent writes
 mv "$tmp" "$OVERLAY_FILE"
