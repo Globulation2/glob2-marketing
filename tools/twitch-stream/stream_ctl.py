@@ -213,7 +213,7 @@ def _wait_notes(text: str, fast_forward: bool = False) -> str:
     except Exception:  # noqa: BLE001 - notes are best effort
         speed = None
     if fast_forward:
-        notes.append("Fast-forwarding to the end of a lost match: keep the speed up (8x, or unlimited with game_time speed 10 while it's just winding down), "
+        notes.append("Fast-forwarding to the end of a lost match at maximum speed: don't slow it down, "
                      "point the camera at your colony's last stand and narrate it, with humour. Record the result "
                      "with match_result when the game ends.")
         critical = False
@@ -269,7 +269,7 @@ def narrate(cfg, a) -> str:
     return "said in game chat: " + text
 
 
-FAST_FORWARD_SPEED = 7          # 8x; the player may go up to 10 (unlimited) while it's just winding down
+FAST_FORWARD_SPEED = 10         # the game's maximum speed: a lost game ends as fast as the machine runs it
 
 
 def match_fast_forward(cfg, a) -> str:
@@ -292,8 +292,7 @@ def match_fast_forward(cfg, a) -> str:
         caption(cfg, cur.get("goal") or "Fast-forwarding to the end", "Fast-forwarding a lost match to its end")
     except CtlError:
         pass
-    return ("fast-forward on for the rest of this match: speed 8x (raise it to game_time speed 10, unlimited, "
-            "while it's just winding down). The automatic slow-down is off. Keep the camera on the action, narrate your "
+    return ("fast-forward on for the rest of this match: maximum speed (game_time speed 10). The automatic slow-down is off. Keep the camera on the action, narrate your "
             "colony's last stand with good humour, and call match_result when the game ends.")
 
 
@@ -303,7 +302,7 @@ TOOLS = {
                 "the way viewers see them.",
                 _schema({"text": {"type": "string", "maxLength": 400}}, ["text"]), narrate),
     "match_fast_forward": ("When the match is effectively done (win chance 10% or below for a while, or a long "
-                           "stalemate with no progress), speed the game to its natural end instead of grinding: sets 8x speed and "
+                           "stalemate with no progress), speed the game to its natural end instead of grinding: sets maximum speed and "
                            "turns off the automatic slow-down for the rest of the match. Then narrate and show "
                            "the end. Give a short reason.",
                            _schema({"reason": {"type": "string", "maxLength": 200}}, ["reason"]),
