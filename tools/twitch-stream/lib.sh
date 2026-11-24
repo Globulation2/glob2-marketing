@@ -81,6 +81,8 @@ if [[ -n "$AGENT_USER" ]]; then : "${AGENT_SHARED_DIR:=/var/lib/glob2-stream}"; 
 # Aggressive by default: the smallest window and compaction at half of it (~50k tokens).
 : "${AGENT_COMPACT_WINDOW:=100000}"
 : "${AGENT_COMPACT_PCT:=50}"
+# Game settings forced in the stream profile at each launch (space-separated key=value, preferences.txt keys).
+: "${STREAM_GAME_PREFS:=clouds=0 cloudShadows=0}"
 # Autostart at boot (autostart/install-autostart.sh).
 : "${AUTOSTART_STREAM:=live}"          # live, none or file:PATH
 : "${AUTOSTART_CHAT:=1}"

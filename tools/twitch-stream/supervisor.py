@@ -116,6 +116,26 @@ class Supervisor:
                 pass
 
     # --- game ---------------------------------------------------------------------
+    def restart_game_if_requested(self):
+        """Between matches, restart the game when STATE_DIR/restart-game exists (touch it to apply game
+        settings or a new build without cutting a match short)."""
+        flag = self.state / "restart-game"
+        if not flag.exists():
+            return
+        log.info("restarting the game between matches as requested")
+        pid_file = self.log_dir / "game.pid"
+        try:
+            os.kill(int(pid_file.read_text()), signal.SIGTERM)
+        except (OSError, ValueError):
+            pass
+        for _ in range(20):
+            try:
+                self.mcp("ui_status", timeout=1)
+            except Exception:  # noqa: BLE001 - gone
+                break
+            time.sleep(1)
+        flag.unlink(missing_ok=True)
+
     def ensure_game(self):
         out = self.run_script("game-up.sh")
         if out.returncode:
@@ -496,6 +516,7 @@ class Supervisor:
                 played += 1
                 attempts = fast_failures = 0
                 self.sleep(20)  # intermission caption stays up briefly
+                self.restart_game_if_requested()
                 continue
             # Count only sessions that failed on their own and quickly. A session ended by a signal
             # (an operator restart to apply changes, exit 143/137) or one that played for a while
