@@ -32,7 +32,7 @@ This is how Claude plays and presents Globulation 2 on stream. It follows the us
 - **Fetch only what the decision needs.** Use each tool's filters and options (brief detail, radius, limits) to keep replies to the information the current strategic decision needs, and don't repeat queries whose answer can't have changed.
 - **Renew the lease.** The control lease lasts 300 s. Call `ui_renew_control` well before it expires so input never lapses mid-stream.
 - **Play actively.** Make a real decision every 20–30 seconds and react to attacks, losses and conversions at once. Wait only briefly (stream-ctl's `match_wait`, capped at 10 s, always woken by attacks, and limited to 55% of any two minutes) and never twice in a row without acting, narrating or moving the camera; viewers came to watch play, not waiting.
-- **Slow down to think, never pause.** Don't pause or step the game with `game_time` on stream; viewers should always see the match moving. To think through a decision, drop the game to its slowest speed (`game_time` `speed: -3`), then return to normal (`speed: 0`) once you've acted. Don't leave it slowed for long or speed it past normal. Let time pass with `match_wait` instead of polling.
+- **Set the pace with game speed, never pause.** Don't pause or step the game with `game_time` on stream; viewers should always see the match moving. Speed up to 2x (`speed: 3`) through slow stretches where little changes, return to normal (`speed: 0`) the moment things get critical (attacks, fights, food shortages, big decisions), and drop to the slowest speed (`speed: -3`) briefly to think through a decision. Never go above 2x. Let time pass with `match_wait` instead of polling.
 
 ## Camera
 
