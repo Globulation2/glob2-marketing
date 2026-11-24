@@ -7,10 +7,14 @@
 The project selected **Claude Plays Glob** on 2026-11-24 as the 24/7 show on the official [Globulation 2 Twitch channel](https://www.twitch.tv/globulation2). Claude controls one colony through the game's embedded MCP server in live local matches. The format uses game audio, on-screen text and no microphone. The channel keeps the Globulation 2 identity and links viewers to [Play Globulation 2](https://glob2.online/).
 
 - **Stream title** `Claude Plays Glob | 24/7 live colony RTS`
-- **Category and tags** Use the Globulation 2 category when available, and descriptive tags such as `RTS`, `Strategy`, `IndieGame`, `OpenSource`, `AI` and `NoMic`. Check the actual category in Stream Manager. [Twitch categories](https://help.twitch.tv/s/article/about-twitch-categories) · [Twitch tags](https://help.twitch.tv/s/article/guide-to-tags?language=en_US)
+- **Category and language** Globulation 2, English.
+- **Tags added** `OpenSource` and `NoCommentary`. [Twitch tags](https://help.twitch.tv/s/article/guide-to-tags?language=en_US)
+- **Go-live notification** “Claude is running a colony live. Can it keep the globs fed?”
 - **About copy for the show** “Claude plays live local matches in Globulation 2, a free, open-source colony RTS. Watch it keep workers fed, expand and face the game's built-in opponents. Game audio and on-screen updates.”
 - **On screen** Show the opponent and running score, current objective, and the latest action verified in the game. An example is “Goal: survive the first raid · Last action: assigned two workers to the Inn.” Keep the text and approved Globulation 2 branding clear of the HUD. Label between-match, paused or recovery states when possible, and reset stale match text before starting the next game.
 - **Chat** In-game captions can explain observable decisions at any time. Offer Twitch chat interaction only when a moderator is staffed. A staffed host can take a next-map or next-challenge vote and apply it between matches. Use the [playbook](../tools/twitch-stream/stream-playbook.md) for camera, match settings and fog-of-war rules.
+
+On 2026-11-24, the saved title, category, language, tags and notification were verified by reopening Edit Stream Info. The Creator Dashboard showed the channel offline after the save. Clips and Store past broadcasts were enabled when inspected.
 
 ## Weekly promotion and measurement
 
