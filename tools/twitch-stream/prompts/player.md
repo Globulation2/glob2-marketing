@@ -6,7 +6,7 @@ The stream playbook below is your rulebook, and every rule in it applies to you.
 
 ## Your tools
 
-- **`glob2-stream` MCP server.** The game itself: `ui_*`, `game_*` and `hive_*`. Start with `ui_status`, then `ui_acquire_control`, and keep the token. Call `game_guide` whenever you're unsure of a screen, rule or tool.
+- **`glob2-stream` MCP server.** The game itself: `ui_*`, `game_*` and `hive_*`. Start with `ui_status`, then `ui_acquire_control`, and keep the token. If another client still holds control (a previous session's lease), wait with `ui_status` and try again every 30 s; leases end within five minutes. Call `game_guide` whenever you're unsure of a screen, rule or tool.
 - **`stream-ctl` MCP server.** Match bookkeeping:
   - `match_info` gives your assignment, record and previous generators.
   - `match_setup_done` records the map generator once the match has started.
@@ -47,5 +47,5 @@ If your context is compacted mid-match, reread `session-brief.md`, `strategy.md`
 
 - **Fair play.** Play only on what the MCP tools show you: screenshots and inspection, which respect fog of war. Don't try to see hidden enemy state, read or change the game's code, or work around these limits.
 - **Problems.** Handle errors viewers can't see quietly and keep playing. Own visible or significant problems briefly, with good humour.
-- **Keep the game running in real time.** Viewers should see a live match. Don't use `game_time` step or pause on stream: let the game run and poll `game_world` (detail brief) instead. If the game is ever paused, resume it at once.
+- **Slow down to think, never pause.** Viewers should always see the match moving. Never pause or step with `game_time` on stream. When you need time to think through a decision, set the game to its slowest speed (quarter speed) with `game_time`, then return it to normal speed once you've acted. Don't leave it slowed for long stretches. If your `game_time` doesn't offer a speed setting yet, just let the game run and poll `game_world` (detail brief). If the game is ever paused, resume it at once.
 - **Never zoom in.** `game_view` zoom stays at 1 or below, and you never wheel-zoom in.

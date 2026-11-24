@@ -24,7 +24,11 @@ import subprocess
 import sys
 import threading
 import time
+import re
 import urllib.request
+
+# A control token in the player transcript (JSON, possibly escaped inside a tool result).
+TOKEN_RE = re.compile(rb'\\?"token\\?":\s*\\?"([A-Za-z0-9+/]{20,}={0,2})')
 
 import rigconfig
 import rigstate
@@ -70,6 +74,7 @@ class Supervisor:
         self.started = rigstate.now()
         self.mode = args.stream.split(":", 1)[0]
         self.low_disk = False
+        self.player_token = None
 
     # --- helpers ------------------------------------------------------------------
     def mcp(self, tool, arguments=None, timeout=5):
@@ -324,6 +329,10 @@ class Supervisor:
                 last_flush = time.time()
                 for line in proc.stdout:
                     dst.write(line)
+                    if b"token" in line:  # remember the player's control token, to release it later
+                        m = TOKEN_RE.search(line)
+                        if m:
+                            self.player_token = m.group(1).decode()
                     if b'"session_id"' in line or b'"total_cost_usd"' in line:
                         try:
                             msg = json.loads(line)
@@ -383,7 +392,20 @@ class Supervisor:
         finally:
             with self.lock:
                 self.player_since = None
+            self.release_control()
         return finished()
+
+    def release_control(self):
+        """Free the game's control lease the last player session held, so the next session (a
+        recovery, or the next match) doesn't wait up to five minutes for it to expire."""
+        token, self.player_token = self.player_token, None
+        if not token:
+            return
+        try:
+            self.mcp("ui_release_control", {"token": token})
+            log.info("released the previous player session's game control")
+        except Exception as e:  # already released or expired: nothing to do
+            log.debug("release control: %s", e)
 
     def assign(self):
         cur = rigstate.current(self.cfg)
