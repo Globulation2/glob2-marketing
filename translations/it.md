@@ -1,6 +1,6 @@
 # Globulation 2 storefront translations — it
 
-Source version: storefront-v1. Locale: it. Translation: canonical_copy. Independent AI linguistic review: product_locales; no native-speaker or human validation claimed. Review hashes: [record](reviews/it.json).
+Source version: storefront-v2. Observation date: 2026-11-24. Locale: it. Translation: AI translation of the storefront-v2 English master, with independent AI linguistic review; not human/native-speaker validation. Building, resource and unit names follow the game's own Italian translation. Review hashes: [record](reviews/it.json).
 
 ## product_name
 
@@ -8,103 +8,207 @@ Globulation 2
 
 ## headline
 
-Costruisci una colonia prospera in un territorio conteso.
+Strategia in tempo reale in cui comandi la colonia, non ogni singola unità.
+
+## fair_deal_line
+
+Gratis. Niente pubblicità. Niente acquisti in-app. Niente loot box. Niente valuta premium.
 
 ## short_pitch
 
-Costruisci una colonia prospera in un territorio conteso. Bilancia cibo, lavoratori ed espansione, crea una base estesa e competi con colonie rivali per terre e risorse.
+Strategia in tempo reale senza pubblicità né acquisti in-app. Fai crescere una colonia e contendi la terra ai rivali. Tu decidi le priorità, al lavoro pensa la colonia.
 
-## about_intro
+## play_short_description
 
-Cibo, lavoratori e spazio determinano la tua espansione. Sviluppa una colonia estesa, bilancia le sue esigenze in conflitto e contendi terre e risorse ai rivali. Le tue creature agiscono autonomamente, permettendoti di guidare la colonia nel suo insieme.
-
-## economy_heading
-
-Sviluppa un’economia capace di sostenere le tue ambizioni.
-
-## economy_body
-
-Cibo, costruzione e addestramento competono per la tua forza lavoro. Decidi dove servono i lavoratori e bilancia le nuove ambizioni con le necessità della colonia che hai già.
-
-## map_heading
-
-Fai della mappa una parte della tua strategia.
-
-## map_body
-
-Mappe diverse richiedono strategie diverse. Adatta la tua espansione al terreno, scegli cosa difendere e trova i percorsi e le risorse di cui la colonia ha bisogno.
-
-## defense_heading
-
-Difendi ciò che hai costruito.
-
-## defense_body
-
-La tua economia sostiene sia la crescita sia la difesa. Bilancia le necessità della colonia mentre i rivali competono per terre e risorse e preparati a conflitti che possono decidere la partita.
-
-## open_source_heading
-
-Gratuito e open source.
-
-## open_source_body
-
-Un gioco di strategia da giocare ed esplorare, al cui sviluppo puoi contribuire.
-
-## listing_intro
-
-Globulation 2 è un gioco di strategia in tempo reale in cui cibo, lavoratori e spazio determinano la tua espansione. Sviluppa una colonia estesa, bilancia le sue esigenze in conflitto e contendi terre e risorse ai rivali. Le tue creature agiscono autonomamente, permettendoti di guidare la colonia nel suo insieme.
-
-## listing_open_source
-
-Globulation 2 è gratuito e open source.
-
-## appstream_summary
-
-Costruisci una colonia prospera
-
-## android_tail
-
-Questa edizione Android porta il classico gioco per desktop sugli schermi tattili.
-
-## ios_tail
-
-Su iPhone e iPad, i comandi tattili permettono di esplorare il mondo e gestire la colonia. Non serve un account per giocare in singolo.
-
-## windows_tail
-
-Le partite in singolo si possono giocare offline senza un account. Il multigiocatore online richiede una connessione a Internet.
+Strategia in tempo reale senza pubblicità. Comanda la colonia, non ogni unità.
 
 ## ios_subtitle
 
-Colonie sotto pressione
+Strategia in tempo reale
 
 ## ios_keywords
 
-strategia,RTS,colonia,simulazione,schermaglia,offline,impero,editor di mappe
+RTS,guerra,esercito,base,costruzione,offline,senza,internet,pubblicità,multiplayer,LAN,mappe,editor
 
-## windows_feature_1
+## appstream_summary
 
-Costruisci una colonia prospera e bilancia cibo, lavoratori ed espansione.
+Strategia in tempo reale: sviluppa una colonia e contendi la terra ai rivali
 
-## windows_search_term
+## desktop_short_pitch
+
+Strategia in tempo reale gratuita, senza pubblicità né acquisti in-app. Fai crescere una colonia e contendi la terra ai rivali. Tu decidi le priorità, al lavoro pensa la colonia. Facoltativo: gioca insieme al tuo agente IA personale tramite il server MCP integrato.
+
+## windows_search_term_1
 
 strategia in tempo reale
 
-## screenshot_caption_colony
+## windows_search_term_2
 
-Una colonia in crescita con lavoratori, edifici e scorte di cibo
+RTS
 
-## screenshot_caption_battle
+## windows_search_term_3
 
-Guerrieri blu e dorati si scontrano su River
+costruzione di basi
 
-## screenshot_caption_strategic
+## windows_search_term_4
 
-Colonie sviluppate ed eserciti nella visuale strategica di Four Squares
+colonia
 
-## screenshot_caption_terrain
+## windows_search_term_5
 
-Attività della colonia e percorsi attorno al terreno di Lava Shield
+strategia offline
+
+## windows_search_term_6
+
+open source
+
+## windows_search_term_7
+
+gioco agente IA MCP
+
+## listing_intro
+
+Globulation 2 è un gioco di strategia in tempo reale incentrato su una colonia di glob: piccole creature indaffarate che lavorano, mangiano, si addestrano e combattono. Tu fai crescere la colonia, la sfami e combatti contro le colonie rivali che vogliono la stessa terra.
+
+## control_heading
+
+Tu decidi. Al lavoro pensano i tuoi glob.
+
+## control_body
+
+Scegli cosa costruire e quanti glob devono lavorarci. Trovano la strada da soli, raccolgono i materiali e costruiscono, e quando hanno fame vanno a mangiare. Per esplorare nuove terre o attaccare un rivale, piazza una bandiera e stabilisci quanti glob devono andarci. Non ci sono unità da selezionare una per una: pianifichi per l’intera colonia.
+
+## economy_heading
+
+Sfama la colonia.
+
+## economy_body
+
+Le mense sfamano i tuoi glob. Gli sciami ne fanno nascere di nuovi. Scuole, circuiti, piscine e caserme li addestrano, e gli ospedali li curano. Tutti questi edifici si contendono gli stessi operai, quindi ogni nuovo progetto ne toglie a un altro: un esercito più grande non serve a niente se non resta nessuno a raccogliere il grano.
+
+## map_heading
+
+Pianifica dove espanderti.
+
+## map_body
+
+Grano, legna e roccia non sono quasi mai dove li vorresti, e i percorsi che li collegano contano quanto le risorse stesse. Decidi dove espanderti, cosa proteggere con i muri e per cosa vale la pena combattere. Gioca su 23 mappe realizzate a mano, oppure genera una nuova mappa da uno qualsiasi dei 67 paesaggi casuali.
+
+## defense_heading
+
+Combatti per la terra.
+
+## defense_body
+
+Anche le colonie rivali crescono, e vogliono la stessa terra. Addestra guerrieri, costruisci torri di difesa e muri di pietra, e piazza bandiere di attacco dove il tuo esercito deve colpire. Un attacco dura solo finché reggono il cibo e gli ospedali che lo sostengono: una guerra si vince nelle mense tanto quanto al fronte.
+
+## features_heading
+
+Cosa trovi nel gioco.
+
+## feature_control
+
+Comanda la colonia, non ogni singola unità: tu scegli cosa costruire e dove attaccare, e i tuoi operai e guerrieri fanno il lavoro da soli
+
+## feature_maps
+
+23 mappe realizzate a mano, più nuove mappe generate da 67 paesaggi casuali
+
+## feature_opponents
+
+8 avversari controllati dal computer, dal più facile al più difficile
+
+## feature_colonies
+
+Fino a 16 colonie in una sola partita
+
+## feature_tutorial
+
+Un tutorial in 10 lezioni
+
+## feature_editor
+
+Editor di mappe integrato
+
+## feature_replays
+
+Salva e riguarda i replay
+
+## feature_offline
+
+Modalità giocatore singolo offline, senza bisogno di un account
+
+## feature_scripting
+
+Programma in JavaScript il tuo avversario controllato dal computer
+
+## feature_languages
+
+Disponibile in 45 lingue
+
+## feature_ai_coplay
+
+Facoltativo: guida la stessa colonia insieme al tuo agente IA personale tramite il server MCP integrato
+
+## multiplayer_heading
+
+Gioca in compagnia.
+
+## multiplayer_online_body
+
+Vai online per partite rapide 1v1, classificate o amichevoli, oppure crea una stanza e invita gli amici con un codice. Se nessun giocatore è in attesa, giochi contro un avversario controllato dal computer. Online puoi giocare come ospite; per le partite classificate devi accedere.
+
+## multiplayer_crossplay
+
+Chi gioca su desktop, browser e dispositivi mobili partecipa alle stesse partite online, con la stessa versione del gioco.
+
+## multiplayer_crossplay_apple
+
+Chi gioca su altri dispositivi partecipa alle stesse partite online, con la stessa versione del gioco.
+
+## multiplayer_lan_body
+
+Gioca in rete locale senza account e senza connessione a Internet.
+
+## ai_heading
+
+Gioca insieme al tuo agente IA personale.
+
+## ai_body
+
+Globulation 2 ha un server MCP integrato. Attivalo nelle Impostazioni, e un agente IA sul tuo computer potrà vedere la partita e guidare la stessa colonia insieme a te. Mouse e tastiera continuano a funzionare per tutto il tempo, quindi puoi dividere il lavoro come preferisci: lascia che l’agente gestisca i rifornimenti di cibo mentre tu pianifichi l’attacco, oppure limitati a guardare cosa fa. Funziona nelle partite locali contro avversari controllati dal computer. È facoltativo: il server resta spento finché non lo attivi tu, e funziona solo sul tuo computer. L’agente IA lo porti tu: il gioco non ne include uno ed è completo anche senza.
+
+## ai_guide
+
+Guida alla configurazione: https://glob2.online/learn/mcp-server/
+
+## open_source_heading
+
+Open source, realizzato da volontari.
+
+## open_source_body
+
+Lo sviluppo di Globulation 2 è iniziato nel 2001 e il gioco è stato reso disponibile al pubblico nel 2004. A realizzarlo, nell’arco di due decenni, sono stati dei volontari. È gratuito e open source, sotto licenza GPL, versione 3: il codice è pubblico e chiunque può leggerlo, modificarlo e contribuire a migliorare il gioco.
+
+## android_tail
+
+Su Android puoi giocare su telefono o tablet, in verticale o in orizzontale, con interfacce tattili distinte per telefoni e tablet. La modalità giocatore singolo funziona offline e non richiede un account.
+
+## ios_tail
+
+Su iPhone e iPad puoi giocare in verticale o in orizzontale, con interfacce tattili distinte per iPhone e iPad. La modalità giocatore singolo funziona offline e non richiede un account.
+
+## mac_tail
+
+Richiede un Mac con chip Apple. La modalità giocatore singolo funziona offline e non richiede un account.
+
+## amazon_tail
+
+Questa edizione per tablet Fire è pensata per giocare offline e in rete locale. Non ha il multigiocatore online e non prevede account.
+
+## itch_downloads_note
+
+Su itch.io, il server MCP e il gioco in rete locale si trovano nei download desktop per Windows, macOS e Linux. La versione per browser è in accesso anticipato e non li include.
 
 ## epic_tail
 
@@ -114,42 +218,98 @@ Non serve un account per giocare offline. Il gioco online utilizza il servizio o
 
 Globulation 2 è un software gratuito e open source. Codice sorgente e licenze: https://github.com/Globulation2/glob2 . Termini ufficiali del servizio online: https://glob2.online/terms/ . Non serve un account per giocare offline; il gioco online crea un account Globulation 2, inizialmente un account ospite.
 
-## amazon_tail
+## shot_overlay_hero
 
-Gioca contro avversari controllati dal computer, prova le mappe e le campagne incluse o crea le tue mappe. Globulation 2 è gratuito e non include pubblicità né acquisti in-app.
+Strategia in tempo reale
 
-## amazon_feature_1
+## shot_overlay_build
 
-Sviluppa una colonia e bilancia cibo, lavoratori ed espansione
+Tu decidi. Loro costruiscono
 
-## amazon_feature_2
+## shot_overlay_economy
 
-Adatta la tua strategia a mappe diverse
+Sfama la colonia
 
-## amazon_feature_3
+## shot_overlay_battle
 
-Competi con colonie rivali per terre e risorse
+Combatti per la terra
 
-## amazon_feature_4
+## shot_overlay_territory
 
-Guida lavoratori autonomi stabilendo le priorità
+Scegli dove espanderti
 
-## amazon_feature_5
+## shot_overlay_maps
 
-Gioca alle mappe e alle campagne incluse
+23 mappe, 67 generatori
 
-## amazon_feature_6
+## shot_overlay_opponents
 
-Crea mappe con l’editor integrato
+8 rivali mossi dal computer
 
-## windows_feature_2
+## shot_overlay_fair_deal
 
-Adatta espansione e difesa a mappe e terreni diversi.
+No annunci o acquisti in-app
 
-## windows_feature_3
+## shot_overlay_ai_coplay
 
-Competi con colonie rivali per terre e risorse.
+Gioca con il tuo agente IA
 
-## windows_feature_4
+## shot_caption_hero
 
-Guida lavoratori autonomi stabilendo le priorità e assegnando i compiti.
+Comanda un’intera colonia: operai, edifici e guerrieri nel pieno di una partita.
+
+## shot_caption_build
+
+Scegli un edificio e quanti operai assegnargli: raccolgono i materiali e lo costruiscono.
+
+## shot_caption_economy
+
+Gli operai portano il grano alle mense e agli sciami che sfamano e fanno crescere la colonia.
+
+## shot_caption_battle
+
+Guerrieri di colonie rivali combattono per la stessa terra.
+
+## shot_caption_territory
+
+Una visuale più ampia della mappa mostra dove si incontrano le colonie rivali.
+
+## shot_caption_maps
+
+Una delle mappe del gioco, ognuna con terreno, risorse e percorsi propri.
+
+## shot_caption_opponents
+
+Più colonie condividono la stessa mappa e si contendono la stessa terra.
+
+## shot_caption_fair_deal
+
+Il gioco così come lo installi: senza pubblicità, acquisti in-app, loot box o valuta premium.
+
+## shot_caption_ai_coplay
+
+Una partita locale condivisa con il proprio agente IA, collegato tramite il server MCP integrato.
+
+## trailer_title
+
+Globulation 2: trailer di gameplay
+
+## trailer_line_1
+
+Tu decidi. Loro costruiscono.
+
+## trailer_line_2
+
+Sfama la colonia.
+
+## trailer_line_3
+
+Contendi la terra ai rivali.
+
+## trailer_line_4
+
+No pubblicità o acquisti in-app.
+
+## trailer_line_ai_coplay
+
+Gioca con il tuo agente IA.

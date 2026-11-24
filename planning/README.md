@@ -14,6 +14,7 @@
 - [itch.io launch](itch-io-launch.md) tracks listing preparation, desktop downloads, access and launch verification.
 - [GOG release readiness](gog-release-readiness.md): approved English copy/source assets, official delivery checklist and unresolved onboarding/build handoff.
 - [Canonical storefront translations](../translations/README.md): 44 non-English language catalogs, independent AI review, platform field exports, maintenance and artwork audit.
+- [Storefront v2 translation review record](storefront-v2-translation-review.md): 2026-11-24 AI translation and independent AI review of the 44 non-English storefront-v2 catalogs: method and limits, patterns worth a human check, per-locale ratings, the errors reviewers fixed and the residual concerns a native speaker should check. Not human or native-speaker validation.
 - [Storefront translation quality audit](storefront-translation-quality-audit.md): current master language coverage, independent linguistic findings, destination/source gaps and quality-signoff limits.
 - [Storefront localization rollout](storefront-localization-rollout.md): per-platform translation application, editability, verified saves/submissions and remaining access gaps.
 - [Main website localization](website-localization-rollout.md): 44 translated languages across four marketing pages, review evidence, website publication and public verification.

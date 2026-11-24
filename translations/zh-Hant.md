@@ -1,6 +1,6 @@
 # Globulation 2 storefront translations — zh-Hant
 
-Source version: storefront-v1. Locale: zh-Hant. Drafted with Google Cloud Translation; pending independent linguistic review.
+Source version: storefront-v2. Observation date: 2026-11-24. Locale: zh-Hant (Traditional Chinese, Taiwan usage). AI translation with independent AI linguistic review; not human or native-speaker validation. Game terms (球球, 士兵, 客棧, 孢子堆, 跑道, 攻擊旗幟, 地形類型, 積分賽, 快速配對 and others) follow the game's own zh-tw strings. `epic_tail` and `epic_legal` keep the storefront-v1 text.
 
 ## product_name
 
@@ -8,103 +8,207 @@ Globulation 2
 
 ## headline
 
-在爭奪激烈的領土上建立繁榮的殖民地。
+即時戰略遊戲：你指揮的是整個殖民地，不是每一個單位。
+
+## fair_deal_line
+
+免費。沒有廣告。沒有應用程式內購買。沒有戰利品箱。沒有付費貨幣。
 
 ## short_pitch
 
-在爭奪激烈的領土上建立一個繁榮的殖民地。平衡食物、工人和擴張，打造一個龐大的基地，並與敵對殖民地爭奪土地和資源。
+即時戰略遊戲，沒有廣告，也沒有應用程式內購買。壯大你的殖民地，與對手爭奪土地。優先順序由你決定，工作交給殖民地。
 
-## about_intro
+## play_short_description
 
-食物、勞力和空間決定你的擴張。發展一個龐大的殖民地，平衡各種相互衝突的需求，並與競爭對手爭奪土地和資源。你的生物會自主行動，讓你能夠統籌管理整個殖民地。
-
-## economy_heading
-
-發展能夠支撐你實現抱負的經濟。
-
-## economy_body
-
-食物生產、建設和訓練爭相占用你的勞動力。決定哪裡需要工人，在新抱負與現有殖民地的需求之間取得平衡。
-
-## map_heading
-
-將地圖納入你的戰略考量。
-
-## map_body
-
-不同的地圖需要不同的策略。根據地形調整你的擴張路線，選擇防守重點，並找到殖民地所需的路線和資源。
-
-## defense_heading
-
-捍衛你所建立的一切。
-
-## defense_body
-
-你的經濟既要支持成長又要支持防禦。在競爭對手爭奪土地和資源的同時，平衡你殖民地的需求，並為可能決定勝負的衝突做好準備。
-
-## open_source_heading
-
-免費開源。
-
-## open_source_body
-
-一款可以遊玩、探索和參與塑造的策略遊戲。
-
-## listing_intro
-
-《Globulation 2》是一款即時戰略遊戲，食物、工人和空間決定你的擴張。發展一個龐大的殖民地，平衡各種相互衝突的需求，並與競爭對手爭奪土地和資源。你的生物會自主行動，讓你能夠統籌管理整個殖民地。
-
-## listing_open_source
-
-Globulation 2 是免費開源的。
-
-## appstream_summary
-
-建立一個繁榮的殖民地
-
-## android_tail
-
-這個 Android 版本將經典電腦遊戲帶到觸控螢幕上。
-
-## ios_tail
-
-在 iPhone 和 iPad 上，你可以透過觸控操作探索世界並管理殖民地。單人遊戲無需帳號。
-
-## windows_tail
-
-單人遊戲無需帳號即可離線遊玩。線上多人遊戲需要網路連線。
+可離線遊玩的即時戰略遊戲，沒有廣告。指揮整個殖民地，而不是每一個單位。
 
 ## ios_subtitle
 
-壓力下的殖民地策略
+殖民地即時戰略
 
 ## ios_keywords
 
-策略,即時戰略,殖民地,模擬,遭遇戰,離線,帝國,地圖編輯器
+RTS,策略,基地,建造,單機,離線,無廣告,戰爭,戰鬥,對戰,多人連線,戰術,經營
 
-## windows_feature_1
+## appstream_summary
 
-建立一個繁榮的殖民地，平衡食物、工人和擴張。
+即時戰略：壯大殖民地，與對手爭奪土地
 
-## windows_search_term
+## desktop_short_pitch
+
+一款免費的即時戰略遊戲，沒有廣告，也沒有應用程式內購買。壯大你的殖民地，與對手爭奪土地。優先順序由你決定，工作交給殖民地。選用功能：透過內建的 MCP 伺服器，和你自己的 AI 代理一起玩。
+
+## windows_search_term_1
 
 即時戰略
 
-## screenshot_caption_colony
+## windows_search_term_2
 
-一個不斷發展的殖民地，擁有工人、建築物和食物供應。
+RTS
 
-## screenshot_caption_battle
+## windows_search_term_3
 
-藍色與金色戰士在 River 交鋒
+基地建設
 
-## screenshot_caption_strategic
+## windows_search_term_4
 
-Four Squares 戰略視圖中的成熟殖民地和軍隊
+殖民地
 
-## screenshot_caption_terrain
+## windows_search_term_5
 
-Lava Shield 地形周圍的殖民地活動和路線
+單機策略遊戲
+
+## windows_search_term_6
+
+開源遊戲
+
+## windows_search_term_7
+
+MCP AI 代理遊戲
+
+## listing_intro
+
+Globulation 2 是一款即時戰略遊戲，主角是一整個殖民地的「球球」：一群忙個不停的小生物，會工作、吃飯、訓練和戰鬥。你要壯大殖民地、讓牠們吃飽，並對抗想搶同一片土地的敵對殖民地。
+
+## control_heading
+
+你做決定，球球動手。
+
+## control_body
+
+選好要蓋什麼，再決定派多少球球去做。牠們會自己找路、收集材料、把建築蓋好，餓了也會自己去吃飯。想探索新土地或進攻對手時，放置一面旗幟，再設定要派多少球球前往。這裡沒有需要逐一點選的單位：你規劃的是整個殖民地。
+
+## economy_heading
+
+餵飽你的殖民地。
+
+## economy_body
+
+客棧讓球球吃飽，孢子堆生產更多球球。學校、跑道、游泳池和兵營負責訓練牠們，醫院負責治療牠們。這一切都在搶同一批工人，所以每開一項新工程，就得從別處抽走工人：要是沒有人留下來收割小麥，軍隊再龐大也沒有用。
+
+## map_heading
+
+規劃往哪裡擴張。
+
+## map_body
+
+小麥、木材和石頭很少剛好出現在你想要的地方，而連接它們的路線和資源本身一樣重要。決定往哪裡擴張、哪些地方要築牆保護、哪些地方值得一戰。你可以玩 23 張手工製作的地圖，也可以從 67 種隨機地形類型中任選一種，產生全新的地圖。
+
+## defense_heading
+
+為土地而戰。
+
+## defense_body
+
+敵對殖民地也在成長，而且想要同一片土地。訓練士兵，建造防禦塔和石牆，並在你要軍隊進攻的地方放置攻擊旗幟。一場進攻能撐多久，要看支援它的食物和醫院能撐多久，所以戰爭的勝負不只取決於前線，也取決於客棧。
+
+## features_heading
+
+遊戲內容。
+
+## feature_control
+
+指揮整個殖民地，而不是每一個單位：你決定要蓋什麼、進攻哪裡，工人和士兵會自己把工作完成
+
+## feature_maps
+
+23 張手工製作的地圖，還能從 67 種隨機地形類型產生新地圖
+
+## feature_opponents
+
+8 個電腦對手，難度從簡單到困難
+
+## feature_colonies
+
+單場對局最多 16 個殖民地
+
+## feature_tutorial
+
+10 堂教學課程
+
+## feature_editor
+
+內建地圖編輯器
+
+## feature_replays
+
+可儲存並觀看重播
+
+## feature_offline
+
+單人遊戲可離線遊玩，不需要帳號
+
+## feature_scripting
+
+用 JavaScript 撰寫你自己的電腦對手
+
+## feature_languages
+
+支援 45 種語言
+
+## feature_ai_coplay
+
+選用功能：透過內建的 MCP 伺服器，和你自己的 AI 代理一起玩同一個殖民地
+
+## multiplayer_heading
+
+一起玩。
+
+## multiplayer_online_body
+
+上線進行 1v1 快速配對，可以選積分賽或休閒賽；也可以建立房間，用代碼邀請朋友加入。如果沒有玩家在等待，你會改為和電腦對手對戰。線上遊玩可以用訪客身分；要打積分賽則需要登入。
+
+## multiplayer_crossplay
+
+電腦、瀏覽器和行動裝置的玩家，只要遊戲版本相同，就能在同一場線上對局中一起玩。
+
+## multiplayer_crossplay_apple
+
+其他裝置上的玩家，只要遊戲版本相同，就能和你在同一場線上對局中一起玩。
+
+## multiplayer_lan_body
+
+透過區域網路遊玩，不需要帳號，也不需要網際網路連線。
+
+## ai_heading
+
+和你自己的 AI 代理一起玩。
+
+## ai_body
+
+Globulation 2 內建 MCP 伺服器。在「設定」中把它開啟後，你電腦上的 AI 代理就能看到遊戲，和你一起玩同一個殖民地。你的滑鼠和鍵盤全程都能照常使用，所以要怎麼分工由你決定：讓 AI 代理管理食物供應，你來規劃進攻，或者只是看看它怎麼做。這項功能適用於和電腦對手進行的本機對局。這是選用功能：除非你自己開啟，否則伺服器是關閉的，而且它只在你自己的電腦上執行。AI 代理要由你自己準備；遊戲不附帶 AI 代理，沒有它也是一款完整的遊戲。
+
+## ai_guide
+
+設定指南：https://glob2.online/learn/mcp-server/
+
+## open_source_heading
+
+開源，由志工打造。
+
+## open_source_body
+
+Globulation 2 的開發始於 2001 年，並在 2004 年公開發布。二十年來，這款遊戲由志工打造。它免費且開源，採用 GPL 第 3 版授權：程式碼是公開的，任何人都可以閱讀、修改，並協助改進這款遊戲。
+
+## android_tail
+
+在 Android 上，手機和平板都能玩，直向或橫向皆可，手機和平板各有專屬的觸控介面配置。單人遊戲可離線遊玩，不需要帳號。
+
+## ios_tail
+
+在 iPhone 和 iPad 上，直向或橫向都能玩，iPhone 和 iPad 各有專屬的觸控介面配置。單人遊戲可離線遊玩，不需要帳號。
+
+## mac_tail
+
+需要搭載 Apple 晶片的 Mac。單人遊戲可離線遊玩，不需要帳號。
+
+## amazon_tail
+
+這個 Fire 平板電腦版本供離線和區域網路遊玩使用，沒有線上多人遊戲，也沒有帳號功能。
+
+## itch_downloads_note
+
+在 itch.io 上，MCP 伺服器和區域網路遊玩包含在 Windows、macOS 和 Linux 的電腦版下載檔中。瀏覽器版目前處於搶先體驗階段，不包含這兩項功能。
 
 ## epic_tail
 
@@ -114,42 +218,98 @@ Lava Shield 地形周圍的殖民地活動和路線
 
 Globulation 2 是一款免費開源軟體。原始碼和授權協議：https://github.com/Globulation2/glob2 。官方線上服務條款：https://glob2.online/terms/ 。離線遊戲無需註冊帳號；線上遊戲會建立一個 Globulation 2 帳號，初始為訪客帳號。
 
-## amazon_tail
+## shot_overlay_hero
 
-與電腦對手對戰，體驗內建地圖和戰役，或創建自己的地圖。 《Globulation 2》完全免費，不含廣告或應用程式內購項目。
+殖民地即時戰略
 
-## amazon_feature_1
+## shot_overlay_build
 
-發展殖民地，平衡食物、工人和擴張。
+你做決定，工人來蓋
 
-## amazon_feature_2
+## shot_overlay_economy
 
-根據不同地圖調整策略
+餵飽你的殖民地
 
-## amazon_feature_3
+## shot_overlay_battle
 
-與敵對殖民地爭奪土地和資源
+為土地而戰
 
-## amazon_feature_4
+## shot_overlay_territory
 
-透過設定優先順序來引導自主行動的工人
+決定往哪裡擴張
 
-## amazon_feature_5
+## shot_overlay_maps
 
-遊玩內建地圖和戰役
+23 張地圖，67 種地圖產生器
 
-## amazon_feature_6
+## shot_overlay_opponents
 
-使用內建編輯器建立地圖
+迎戰 8 個電腦對手
 
-## windows_feature_2
+## shot_overlay_fair_deal
 
-根據不同的地圖和地形調整你的擴張和防禦策略。
+沒有廣告，沒有應用程式內購買
 
-## windows_feature_3
+## shot_overlay_ai_coplay
 
-與敵對殖民地爭奪土地和資源。
+和你的 AI 代理一起玩
 
-## windows_feature_4
+## shot_caption_hero
 
-透過設定優先順序和分配任務來引導自主行動的工人。
+指揮一整個殖民地：對局進行中的工人、建築和士兵。
+
+## shot_caption_build
+
+選擇一棟建築，並決定分配多少工人；工人會收集材料，把它蓋好。
+
+## shot_caption_economy
+
+工人把小麥運到客棧和孢子堆，讓殖民地吃飽並成長。
+
+## shot_caption_battle
+
+來自敵對殖民地的士兵，為同一片土地而戰。
+
+## shot_caption_territory
+
+從更廣的視角看地圖，可以看到敵對殖民地在哪裡交會。
+
+## shot_caption_maps
+
+遊戲中的一張地圖；每張地圖都有自己的地形、資源和路線。
+
+## shot_caption_opponents
+
+多個殖民地共用一張地圖，爭奪同一片土地。
+
+## shot_caption_fair_deal
+
+安裝後的遊戲就是這樣：沒有廣告、沒有應用程式內購買、沒有戰利品箱，也沒有付費貨幣。
+
+## shot_caption_ai_coplay
+
+玩家和自己的 AI 代理共同進行的本機對局，AI 代理透過內建的 MCP 伺服器連線。
+
+## trailer_title
+
+Globulation 2：實機遊玩預告片
+
+## trailer_line_1
+
+你做決定，工人來蓋。
+
+## trailer_line_2
+
+餵飽你的殖民地。
+
+## trailer_line_3
+
+與對手爭奪土地。
+
+## trailer_line_4
+
+沒有廣告。沒有應用程式內購買。
+
+## trailer_line_ai_coplay
+
+和你的 AI 代理一起玩。

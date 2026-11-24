@@ -1,6 +1,6 @@
 # Globulation 2 storefront translations — sv
 
-Source version: storefront-v1. Locale: sv. Drafted with Google Cloud Translation; pending independent linguistic review.
+Source version: storefront-v2. Observation date: 2026-11-24. Locale: sv. Translation: AI translation from [canonical English](en.md) with independent AI linguistic review; not human/native-speaker validation. Building and interface names follow the game's own Swedish text (`content/data/texts.sv.txt`); "globs" is kept as the creatures' name. Review hashes: [record](reviews/sv.json).
 
 ## product_name
 
@@ -8,148 +8,308 @@ Globulation 2
 
 ## headline
 
-Bygg en blomstrande koloni i omtvistat territorium.
+Realtidsstrategi där du styr kolonin, inte varje enskild enhet.
+
+## fair_deal_line
+
+Gratis. Ingen reklam. Inga köp i appen. Inga lootlådor. Ingen premiumvaluta.
 
 ## short_pitch
 
-Bygg en blomstrande koloni. Balansera mat, arbetare och expansion, forma en vidsträckt bas och tävla med rivaliserande kolonier om mark och resurser.
+Realtidsstrategi utan reklam och utan köp i appen. Bygg upp en koloni och slåss mot rivaler om marken. Du prioriterar, din koloni gör jobbet.
 
-## about_intro
+## play_short_description
 
-Mat, arbetare och utrymme formar din expansion. Utveckla en vidsträckt koloni, balansera dess konkurrerande behov och tävla mot rivaler om mark och resurser. Dina varelser agerar autonomt och låter dig vägleda kolonin som helhet.
-
-## economy_heading
-
-Skapa en ekonomi som kan upprätthålla dina ambitioner.
-
-## economy_body
-
-Mat, byggnation och utbildning konkurrerar om din arbetskraft. Bestäm var arbetskraft behövs och balansera nya ambitioner med behoven hos den koloni du redan har.
-
-## map_heading
-
-Gör kartan till en del av din strategi.
-
-## map_body
-
-Olika kartor kräver olika strategier. Anpassa din expansion till terrängen, välj vad du ska försvara och hitta de rutter och resurser din koloni behöver.
-
-## defense_heading
-
-Försvara det du har byggt upp.
-
-## defense_body
-
-Din ekonomi stöder både tillväxt och försvar. Balansera din kolonis behov medan rivaler tävlar om mark och resurser, och förbered dig på konflikter som kan avgöra matchen.
-
-## open_source_heading
-
-Gratis och öppen källkod.
-
-## open_source_body
-
-Ett strategispel att spela, utforska och hjälpa till att forma.
-
-## listing_intro
-
-Globulation 2 är ett realtidsstrategispel där mat, arbetare och utrymme formar din expansion. Utveckla en vidsträckt koloni, balansera dess konkurrerande behov och tävla mot rivaler om mark och resurser. Dina varelser agerar autonomt och låter dig styra kolonin som helhet.
-
-## listing_open_source
-
-Globulation 2 är gratis och har öppen källkod.
-
-## appstream_summary
-
-Bygg en blomstrande koloni
-
-## android_tail
-
-Den här Android-utgåvan ger dig det klassiska skrivbordsspelet till pekskärmar.
-
-## ios_tail
-
-På iPhone och iPad kan du använda pekstyrning för att utforska världen och hantera din koloni. Enspelarläget kräver inget konto.
-
-## windows_tail
-
-Enspelarspel kan spelas offline utan ett konto. Online multiplayer kräver en internetanslutning.
+Realtidsstrategi offline utan reklam. Styr kolonin, inte varje enskild enhet.
 
 ## ios_subtitle
 
-Kolonistrategi under press
+Realtidsstrategi om kolonier
 
 ## ios_keywords
 
-strategi,RTS,koloni,simulering,skärmytsling,offline,imperium,kartredigerare
+RTS,strategispel,krigsspel,bygga,bas,offline,utan,reklam,krig,armé,multiplayer,LAN,ekonomi,taktik
 
-## windows_feature_1
+## appstream_summary
 
-Bygg en blomstrande koloni och balansera mat, arbetare och expansion.
+Realtidsstrategi: bygg upp en koloni och slåss mot rivaler om marken
 
-## windows_search_term
+## desktop_short_pitch
+
+Ett gratis realtidsstrategispel utan reklam och utan köp i appen. Bygg upp en koloni och slåss mot rivaler om marken. Du prioriterar, din koloni gör jobbet. Valfritt: spela tillsammans med din egen AI-agent via den inbyggda MCP-servern.
+
+## windows_search_term_1
 
 realtidsstrategi
 
-## screenshot_caption_colony
+## windows_search_term_2
 
-En växande koloni med arbetare, byggnader och matförråd
+RTS
 
-## screenshot_caption_battle
+## windows_search_term_3
 
-Blå och gyllene krigare drabbar samman på River
+basbygge
 
-## screenshot_caption_strategic
+## windows_search_term_4
 
-Utvecklade kolonier och arméer i den strategiska vyn av Four Squares
+koloni
 
-## screenshot_caption_terrain
+## windows_search_term_5
 
-Koloniaktivitet och rutter runt terrängen i Lava Shield
+strategispel offline
 
-## epic_tail
+## windows_search_term_6
 
-Offlinespel kräver inget konto. Onlinespel använder Globulation 2 onlinetjänst och skapar ett konto, initialt ett gästkonto. Integritetspolicy: https://glob2.online/privacy/ . Villkor för onlinetjänsten: https://glob2.online/terms/ .
+öppen källkod
 
-## epic_legal
+## windows_search_term_7
 
-Globulation 2 är fri programvara med öppen källkod. Källkod och licenser: https://github.com/Globulation2/glob2 . Officiella villkor för onlinetjänsten: https://glob2.online/terms/ . Offline-spel kräver inget konto; online-spel skapar ett Globulation 2-konto, initialt ett gästkonto.
+MCP AI-agent spel
+
+## listing_intro
+
+Globulation 2 är ett realtidsstrategispel om en koloni av globs: små, flitiga varelser som arbetar, äter, tränar och slåss. Du får kolonin att växa, håller den mätt och slåss mot rivaliserande kolonier som vill åt samma mark.
+
+## control_heading
+
+Du bestämmer. Dina globs gör jobbet.
+
+## control_body
+
+Välj vad som ska byggas och hur många globs som ska arbeta med det. De hittar vägen själva, samlar in materialet och bygger, och de äter när de är hungriga. Vill du utforska ny mark eller anfalla en rival placerar du ut en flagga och anger hur många globs som ska ge sig av. Här finns inga enheter att markera en i taget: du planerar för hela kolonin.
+
+## economy_heading
+
+Håll kolonin mätt.
+
+## economy_body
+
+Värdshus ger dina globs mat. Svärmar producerar fler av dem. Skolor, löparbanor, simbassänger och kaserner tränar dem, och sjukhus läker dem. Allt konkurrerar om samma arbetare, så varje nytt projekt tar arbetare från ett annat: en större armé är till ingen nytta om ingen finns kvar som kan skörda vetet.
+
+## map_heading
+
+Planera var du ska expandera.
+
+## map_body
+
+Vete, trä och sten finns sällan där du vill ha dem, och vägarna mellan dem är lika viktiga som själva resurserna. Bestäm var du ska expandera, vad du ska skydda med murar och vad som är värt att slåss för. Spela på 23 handgjorda kartor, eller generera en ny karta utifrån något av 67 slumplandskap.
+
+## defense_heading
+
+Slåss om marken.
+
+## defense_body
+
+Rivaliserande kolonier växer också, och de vill åt samma mark. Träna krigare, bygg försvarstorn och stenmurar och placera krigsflaggor där din armé ska anfalla. Ett anfall håller bara så länge som maten och sjukhusen bakom det räcker till, så ett krig vinns lika mycket på värdshusen som vid fronten.
+
+## features_heading
+
+Det här finns i spelet.
+
+## feature_control
+
+Styr kolonin, inte varje enskild enhet: du väljer vad som ska byggas och var du ska anfalla, och dina arbetare och krigare sköter jobbet på egen hand
+
+## feature_maps
+
+23 handgjorda kartor, plus nya kartor som genereras utifrån 67 slumplandskap
+
+## feature_opponents
+
+8 datormotståndare, från lätta till svåra
+
+## feature_colonies
+
+Upp till 16 kolonier i samma match
+
+## feature_tutorial
+
+En handledning med 10 lektioner
+
+## feature_editor
+
+Inbyggd kartredigerare
+
+## feature_replays
+
+Spara och titta på repriser
+
+## feature_offline
+
+Enspelarläge offline, inget konto behövs
+
+## feature_scripting
+
+Skriv din egen datormotståndare i JavaScript
+
+## feature_languages
+
+Finns på 45 språk
+
+## feature_ai_coplay
+
+Valfritt: spela samma koloni tillsammans med din egen AI-agent via den inbyggda MCP-servern
+
+## multiplayer_heading
+
+Spela tillsammans.
+
+## multiplayer_online_body
+
+Spela online i rankade eller orankade 1v1-snabbmatcher, eller skapa ett rum och bjud in vänner med en kod. Om ingen spelare väntar möter du en datormotståndare i stället. Du kan spela online som gäst; logga in för att spela rankat.
+
+## multiplayer_crossplay
+
+Spelare på dator, i webbläsare och på mobil möts i samma onlinematcher, med samma version av spelet.
+
+## multiplayer_crossplay_apple
+
+Spelare på andra enheter möts i samma onlinematcher, med samma version av spelet.
+
+## multiplayer_lan_body
+
+Spela över ditt lokala nätverk, utan konto och utan internetanslutning.
+
+## ai_heading
+
+Spela tillsammans med din egen AI-agent.
+
+## ai_body
+
+Globulation 2 har en inbyggd MCP-server. Slå på den under Inställningar, så kan en AI-agent på din dator se spelet och spela samma koloni tillsammans med dig. Din mus och ditt tangentbord fungerar hela tiden, så du kan fördela arbetet som du vill: låt agenten sköta matförsörjningen medan du planerar anfallet, eller bara titta på vad den gör. Det här fungerar i lokala matcher mot datormotståndare. Funktionen är valfri: servern är avstängd om du inte själv slår på den, och den körs bara på din egen dator. Du använder din egen AI-agent; det ingår ingen i spelet, och spelet är komplett utan en sådan.
+
+## ai_guide
+
+Guide för att komma igång: https://glob2.online/learn/mcp-server/
+
+## open_source_heading
+
+Öppen källkod, byggt av frivilliga.
+
+## open_source_body
+
+Arbetet med Globulation 2 började 2001, och spelet släpptes till allmänheten 2004. Frivilliga har byggt det under två decennier. Det är gratis och har öppen källkod under GPL, version 3: koden är offentlig, och vem som helst kan läsa den, ändra den och hjälpa till att förbättra spelet.
+
+## android_tail
+
+På Android spelar du på telefon eller surfplatta, i stående eller liggande läge, med separata pekgränssnitt för telefoner och surfplattor. Enspelarläget fungerar offline och kräver inget konto.
+
+## ios_tail
+
+På iPhone och iPad spelar du i stående eller liggande läge, med separata pekgränssnitt för iPhone och iPad. Enspelarläget fungerar offline och kräver inget konto.
+
+## mac_tail
+
+Kräver en Mac med Apple Silicon. Enspelarläget fungerar offline och kräver inget konto.
 
 ## amazon_tail
 
-Spela mot datormotståndare, prova de medföljande kartorna och kampanjerna, eller skapa dina egna kartor. Globulation 2 är gratis och inkluderar inte annonser eller köp i appen.
+Den här utgåvan för Fire-surfplattor är avsedd för spel offline och över lokalt nätverk. Den har inget flerspelarläge online och inga konton.
 
-## amazon_feature_1
+## itch_downloads_note
 
-Utveckla en koloni och balansera mat, arbetare och expansion
+På itch.io finns MCP-servern och spel över lokalt nätverk i de nedladdningsbara datorversionerna för Windows, macOS och Linux. Webbläsarversionen är i early access, och där ingår de inte.
 
-## amazon_feature_2
+## epic_tail
 
-Anpassa din strategi till olika kartor
+Offlinespel kräver inget konto. Onlinespel använder Globulation 2:s onlinetjänst och skapar ett konto, initialt ett gästkonto. Integritetspolicy: https://glob2.online/privacy/ . Villkor för onlinetjänsten: https://glob2.online/terms/ .
 
-## amazon_feature_3
+## epic_legal
 
-Tävla med rivaliserande kolonier om mark och resurser
+Globulation 2 är fri programvara med öppen källkod. Källkod och licenser: https://github.com/Globulation2/glob2 . Officiella villkor för onlinetjänsten: https://glob2.online/terms/ . Offlinespel kräver inget konto; onlinespel skapar ett Globulation 2-konto, initialt ett gästkonto.
 
-## amazon_feature_4
+## shot_overlay_hero
 
-Vägled självständiga arbetare genom att prioritera
+Realtidsstrategi om kolonier
 
-## amazon_feature_5
+## shot_overlay_build
 
-Spela de medföljande kartorna och kampanjerna
+Du bestämmer. De bygger.
 
-## amazon_feature_6
+## shot_overlay_economy
 
-Skapa kartor med den inbyggda redigeraren
+Håll kolonin mätt
 
-## windows_feature_2
+## shot_overlay_battle
 
-Anpassa din expansion och ditt försvar till olika kartor och terräng.
+Slåss om marken
 
-## windows_feature_3
+## shot_overlay_territory
 
-Tävla med rivaliserande kolonier om mark och resurser.
+Välj var du ska expandera
 
-## windows_feature_4
+## shot_overlay_maps
 
-Vägled självständiga arbetare genom att prioritera och tilldela arbetsuppgifter.
+23 kartor, 67 slumplandskap
+
+## shot_overlay_opponents
+
+Möt 8 datormotståndare
+
+## shot_overlay_fair_deal
+
+Utan reklam och köp i appen
+
+## shot_overlay_ai_coplay
+
+Spela ihop med din AI-agent
+
+## shot_caption_hero
+
+Styr en hel koloni: arbetare, byggnader och krigare mitt i en match.
+
+## shot_caption_build
+
+Välj en byggnad och hur många arbetare den får; de samlar in materialet och bygger den.
+
+## shot_caption_economy
+
+Arbetare bär vete till värdshusen och svärmarna, som mättar kolonin och får den att växa.
+
+## shot_caption_battle
+
+Krigare från rivaliserande kolonier slåss om samma mark.
+
+## shot_caption_territory
+
+En bredare vy över kartan visar var rivaliserande kolonier möts.
+
+## shot_caption_maps
+
+En av spelets kartor, var och en med egen terräng, egna resurser och egna vägar.
+
+## shot_caption_opponents
+
+Flera kolonier delar på en karta och tävlar om samma mark.
+
+## shot_caption_fair_deal
+
+Spelet som det installeras: ingen reklam, inga köp i appen, inga lootlådor och ingen premiumvaluta.
+
+## shot_caption_ai_coplay
+
+En lokal match som delas med spelarens egen AI-agent, ansluten via den inbyggda MCP-servern.
+
+## trailer_title
+
+Globulation 2: gameplaytrailer
+
+## trailer_line_1
+
+Du bestämmer. De bygger.
+
+## trailer_line_2
+
+Håll kolonin mätt.
+
+## trailer_line_3
+
+Slåss mot rivaler om marken.
+
+## trailer_line_4
+
+Ingen reklam. Inga köp i appen.
+
+## trailer_line_ai_coplay
+
+Spela ihop med din AI-agent.
