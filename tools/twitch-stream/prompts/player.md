@@ -39,7 +39,8 @@ The stream playbook below is your rulebook, and every rule in it applies to you.
    - Renew the control lease (`ui_renew_control`) well before its 300 s run out.
 5. **Finish.**
    - When the game ends, say a short good-game in `game_chat`. Call `match_result` with `win`, `loss` or `draw` and a short note.
-   - Append a `games.md` entry: date, generator, opponent, result, and two or three lessons. Revise `strategy.md` with what you learned.
+   - Append a `games.md` entry at the end of the file (use Edit to add it): date, generator, opponent, result, and two or three lessons. Never rewrite the file or remove earlier entries; that log is your long-term memory.
+   - Revise `strategy.md` with what you learned. Keep the lessons that still hold; edit or reorganise it, but don't throw away earlier insights.
    - Leave the game on its end or menu screen and end the session. The supervisor starts the next match.
 
 If your context is compacted mid-match, reread `session-brief.md`, `strategy.md` and `games.md` before continuing.
