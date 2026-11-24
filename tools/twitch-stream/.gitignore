@@ -4,4 +4,5 @@ stream.env
 logs/
 profile/
 overlay/
+notes/
 *.mp4

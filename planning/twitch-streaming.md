@@ -8,6 +8,7 @@ This record tracks streaming Claude playing Globulation 2 on the project's [Twit
 
 - **Rig built and tested; nothing broadcast.** The reusable scripts are in [tools/twitch-stream](../tools/twitch-stream/README.md). A Twitch bandwidth test reached Twitch's ingest. Bandwidth-test sessions are accepted by Twitch but never appear on the channel.
 - **No live stream has run.** Going live needs the user's explicit go-ahead for that session. `stream.sh live` refuses to start without `--i-mean-it`.
+- **Playbook written.** The [stream playbook](../tools/twitch-stream/stream-playbook.md) records the user's 2026-11-24 streaming recommendations: the match format, camera rules (never zoom in), game-chat narration, fair play within fog of war, and local notes for learning.
 - **Game unmodified.** The game ran from Globulation2/glob2 master `898fb00afc` with its existing `--mcp-port`, `--renderer sdl-gpu` and `--window-size` options. No OBS or other broadcast software was involved.
 
 ## Setup tested
@@ -34,7 +35,7 @@ During script validation a short (2 s) Twitch bandwidth test also ran unintentio
 
 ## Gaps and next work
 
-- **First live session.** Choose the content (an Introduction tutorial walkthrough, a match against a built-in AI, or an online match), the title, category and tags, and the caption commentary style. Do a final `stream.sh test` immediately before going live.
+- **First live session.** The format was decided by the user on 2026-11-24: 1v1 against an AI with default rules, on randomly generated 256×256 maps, rotating the map generator each game (see the [playbook](../tools/twitch-stream/stream-playbook.md)). Still to choose: the stream title, category and tags, and the session length. Run a final `stream.sh test` immediately before going live.
 - **Overlays and chat.** Viewer chat, a reasoning or commentary panel and a stream schedule are not built. Any chat-driven control needs moderation and abuse limits first.
 - **Long sessions.** systemd user units for automatic restarts are not set up. Long runs are untested for memory, disk use of logs, or MCP token renewal (control leases are 300 s).
 - **Other hardware.** Untested on non-NVIDIA GPUs, without Vulkan, or on non-Debian distributions. The libx264 path is only verified locally.

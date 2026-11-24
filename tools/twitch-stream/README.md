@@ -4,6 +4,8 @@
 
 Scripts for streaming Claude playing Globulation 2 to Twitch. Claude drives the game through the game's own embedded MCP server. The game is unmodified and runs on a hidden virtual display, so the streaming machine's desktop stays usable. ffmpeg captures that display and only the game's sound, and sends them to Twitch. There is no OBS and no GUI. Everything is scriptable, so an agent can run a session alone.
 
+**Streaming?** Follow the [stream playbook](stream-playbook.md): match format, camera rules, narration, fair play and the learning loop.
+
 This directory holds code only. The stream key, game profile, logs and settings live outside the repository in `$GLOB2_STREAM_HOME` (default `~/glob2-stream`) and `~/.config/glob2-stream/`.
 
 ## How it works
@@ -54,9 +56,10 @@ Run the scripts from anywhere; they find each other through their own location.
 | `game-up.sh`, `down.sh`, `route-audio.sh` | Start and stop the display, audio sink and game; keep game audio on the sink. |
 | `stream.sh`, `caption.sh` | Capture, overlays, encoding and output; caption text. |
 | `mcp/` | Python helpers that drive the game over MCP without an agent (`mcp_call.py`, `activate.py`). Standard library only. |
+| [`stream-playbook.md`](stream-playbook.md) | How Claude plays and presents on stream: setup checks, camera, narration, fair play, notes. |
 | `assets/` | Branding image and its [provenance](assets/README.md). |
 
-Local state never lives here: `$GLOB2_STREAM_HOME` (default `~/glob2-stream`) holds `stream.env`, `logs/`, `profile/`, `overlay/caption.txt` and usually the game checkout `src/`; the key stays in `~/.config/glob2-stream/`.
+Local state never lives here: `$GLOB2_STREAM_HOME` (default `~/glob2-stream`) holds `stream.env`, `logs/`, `profile/`, `notes/`, `overlay/caption.txt` and usually the game checkout `src/`; the key stays in `~/.config/glob2-stream/`.
 
 ## Commands
 

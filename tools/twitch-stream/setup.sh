@@ -15,7 +15,7 @@ else
   echo "packages: all present"
 fi
 
-mkdir -p "$GLOB2_STREAM_HOME"/{logs,profile,overlay}
+mkdir -p "$GLOB2_STREAM_HOME"/{logs,profile,overlay,notes}
 if [[ ! -f "$GLOB2_STREAM_HOME/stream.env" ]]; then
   cp "$RIG_DIR/stream.env.example" "$GLOB2_STREAM_HOME/stream.env"
   echo "created $GLOB2_STREAM_HOME/stream.env (edit to taste)"
