@@ -189,8 +189,11 @@ def match_wait(cfg, a) -> str:
 
 # In match 7 the player set 2x speed once and kept it through the attack that ended the match, and
 # never moved the camera; prompt rules didn't hold under pressure, so the wait reply enforces them.
-CRITICAL_KINDS = ("attack", "unit_attacked", "building_attacked", "building_destroyed", "building_lost",
-                  "unit_converted_away", "conversion")
+# Only real threats to the colony count (user: the slow-down shouldn't be so strict): own buildings
+# attacked or destroyed, or units converted away, reported within the last ~20 s of game time.
+# Units fighting (e.g. an offensive) and sightings don't.
+CRITICAL_KINDS = ("building_attacked", "building_destroyed", "building_lost", "unit_converted_away")
+CRITICAL_MAX_TICKS_AGO = 600
 CAMERA_IDLE_NUDGE = 60.0
 
 
@@ -200,8 +203,9 @@ def _wait_notes(text: str, fast_forward: bool = False) -> str:
         reply = json.loads(text)
     except ValueError:
         reply = {}
-    kinds = " ".join(str(a.get("kind", "")) + " " + str(a.get("event", "")) for a in reply.get("alerts", []) or [])
-    critical = reply.get("reason") not in (None, "ticks", "timeout") or any(k in kinds for k in CRITICAL_KINDS)
+    critical = any(str(al.get("kind", "")) in CRITICAL_KINDS
+                   and int(al.get("ticks_ago", 0) or 0) <= CRITICAL_MAX_TICKS_AGO
+                   for al in reply.get("alerts", []) or [] if isinstance(al, dict))
     try:
         status = json.loads(camera._rpc("game_time", {"action": "status"})["result"]["content"][0]["text"])
         speed = int(status.get("speed_value", 0))
