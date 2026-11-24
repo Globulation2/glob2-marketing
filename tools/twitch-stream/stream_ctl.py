@@ -134,7 +134,49 @@ def camera_show(cfg, a) -> str:
     return msg
 
 
+# The player's only way to let time pass. On stream the player drifted from short waits to
+# 9000-tick waits that woke only on hive failures while its base was attacked (2026-11-24), so the
+# cap and the wake-up events are enforced here, and its policy denies the raw game_wait.
+WAIT_MAX_TICKS = 600          # 20 s of game time at normal speed
+WAIT_TIMEOUT_MS = 20000
+WAIT_ALWAYS = ["attack", "building_lost", "conversion_lost", "enemy_sighted"]
+WAIT_EXTRA = ["building_completed", "enemy_building_gone", "hive_failure", "hive_wake", "conversion_gained"]
+
+
+def match_wait(cfg, a) -> str:
+    for k in ("MCP_PORT",):
+        if cfg.get(k):
+            os.environ.setdefault(k, str(cfg[k]))
+    try:
+        ticks = int(a.get("ticks", 450))
+    except (TypeError, ValueError):
+        raise CtlError("ticks must be a whole number")
+    ticks = max(30, min(ticks, WAIT_MAX_TICKS))
+    extra = [e for e in (a.get("also_until") or []) if e in WAIT_EXTRA]
+    args = {"ticks": ticks, "timeout_ms": WAIT_TIMEOUT_MS, "until": WAIT_ALWAYS + extra}
+    if a.get("include"):
+        args["include"] = [str(x) for x in a["include"]][:8]
+    try:
+        out = camera._rpc("game_wait", args, timeout=WAIT_TIMEOUT_MS / 1000 + 10)
+    except Exception as e:  # noqa: BLE001 - report, don't crash the server
+        raise CtlError(f"wait failed: {type(e).__name__}") from None
+    if "error" in out:
+        raise CtlError(str(out["error"].get("message", "wait failed"))[:300])
+    content = out.get("result", {}).get("content", [])
+    text = content[0].get("text", "") if content else ""
+    return (f"waited up to {ticks} ticks (capped at {WAIT_MAX_TICKS}; always wakes on attacks, lost buildings, "
+            f"conversions and enemy sightings). Now act on what changed.\n" + text)
+
+
 TOOLS = {
+    "match_wait": ("Let game time pass while nothing needs you: up to 600 ticks (20 s), waking early on attacks, "
+                   "lost buildings, conversions or enemy sightings (and also_until events). Returns why it woke "
+                   "and the alerts since. Your only way to wait: act on what it reports, then narrate or move "
+                   "the camera before waiting again.",
+                   _schema({"ticks": {"type": "integer", "minimum": 30, "maximum": WAIT_MAX_TICKS},
+                            "also_until": {"type": "array", "items": {"type": "string", "enum": WAIT_EXTRA}},
+                            "include": {"type": "array", "items": {"type": "string"}, "maxItems": 8}}, []),
+                   match_wait),
     "camera_show": ("Move the stream camera for viewers: centre on tile x/y, frame a tile rectangle with "
                     "width/height, or leave x/y out to centre on your colony. zoom 1 is 100% (the default and "
                     "the closest allowed), 0.7 and 0.5 zoom out, 0 fits the whole map; never above 1. Optional "

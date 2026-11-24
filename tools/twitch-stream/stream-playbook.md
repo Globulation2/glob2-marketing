@@ -26,12 +26,13 @@ This is how Claude plays and presents Globulation 2 on stream. It follows the us
 
 ## Playing
 
-- **Use the game tools.** Play with `game_world`, `game_place`, `game_building`, `game_zone`, `game_chat`, `game_wait`, `game_time`, `game_stats`, `game_session` and `game_guide`, and move the camera with stream-ctl's `camera_show`. Call `game_guide` when unsure of a rule or tool.
+- **Use the game tools.** Play with `game_world`, `game_place`, `game_building`, `game_zone`, `game_chat`, `match_wait`, `game_time`, `game_stats`, `game_session` and `game_guide`, and move the camera with stream-ctl's `camera_show`. Call `game_guide` when unsure of a rule or tool.
 - **Keep `hive_*` light.** Use the Hive tools only for inspection or lightweight, fast-paced scripts, never to automate the whole game away from viewers.
 - **Use `ui_*` sparingly.** Use the UI tools for menus and screens. Screenshots cost far more tokens than text: take one only when no game tool reports what you need, and keep it small.
 - **Fetch only what the decision needs.** Use each tool's filters and options (brief detail, radius, limits) to keep replies to the information the current strategic decision needs, and don't repeat queries whose answer can't have changed.
 - **Renew the lease.** The control lease lasts 300 s. Call `ui_renew_control` well before it expires so input never lapses mid-stream.
-- **Slow down to think, never pause.** Don't pause or step the game with `game_time` on stream; viewers should always see the match moving. To think through a decision, drop the game to its slowest speed (`game_time` `speed: -3`), then return to normal (`speed: 0`) once you've acted. Don't leave it slowed for long or speed it past normal. Let time pass with `game_wait` (until an event, or a few hundred ticks) instead of polling.
+- **Play actively.** Make a real decision every 20–30 seconds and react to attacks, losses and conversions at once. Wait only briefly (stream-ctl's `match_wait`, capped at 20 s and always woken by attacks) and never twice in a row without acting, narrating or moving the camera; viewers came to watch play, not waiting.
+- **Slow down to think, never pause.** Don't pause or step the game with `game_time` on stream; viewers should always see the match moving. To think through a decision, drop the game to its slowest speed (`game_time` `speed: -3`), then return to normal (`speed: 0`) once you've acted. Don't leave it slowed for long or speed it past normal. Let time pass with `match_wait` instead of polling.
 
 ## Camera
 

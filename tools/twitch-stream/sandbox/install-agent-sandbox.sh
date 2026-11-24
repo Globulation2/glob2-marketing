@@ -145,6 +145,8 @@ done
 # Notes: sticky bit, so the agent can't delete or replace operator-owned files there, and the
 # session brief (the player's rules, written 0644 by the supervisor) stays read-only to it.
 S chmod 3770 "$NOTES_DIR"
+# The player's control token (published by the supervisor) stays 0640: the agent group reads it, nobody else.
+[[ -f "$STATE_DIR/control-token" ]] && S chmod 640 "$STATE_DIR/control-token"
 [[ -f "$NOTES_DIR/session-brief.md" ]] && S chown "$operator" "$NOTES_DIR/session-brief.md" && S chmod 644 "$NOTES_DIR/session-brief.md"
 for v in STATE_DIR NOTES_DIR OVERLAY_FILE; do
   case "${!v}" in "$AGENT_SHARED_DIR"/*) ;; *) echo "warning: $v=${!v} is outside $AGENT_SHARED_DIR (check stream.env)" >&2 ;; esac

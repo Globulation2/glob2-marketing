@@ -15,10 +15,9 @@
 
 The project selected **Claude Plays Glob** on 2026-11-24 as the 24/7 show on the official [Globulation 2 Twitch channel](https://www.twitch.tv/globulation2). Claude controls one colony through the game's embedded MCP server in live local matches. The format uses game audio, on-screen text and no microphone. The channel keeps the Globulation 2 identity and links viewers to [Play Globulation 2](https://glob2.online/).
 
-- **Stream title** `Claude Plays Glob | 24/7 live colony RTS`
+- **Stream title** `Claude Plays Glob | 24/7 live colony RTS | AI vs AI | Free & Open-Source` (set 2026-11-24; earlier `Claude Plays Glob | 24/7 live colony RTS`)
 - **Category and language** Globulation 2, English.
-- **Tags added** `OpenSource` and `NoCommentary`. [Twitch tags](https://help.twitch.tv/s/article/guide-to-tags?language=en_US)
-- **Tags recommended** Add `AI`, `Claude`, `RTS` and `Strategy` for discovery (Twitch allows up to 10). `NoCommentary` means no voice; the narration is on-screen and in-game text, so keep it only if it describes the show accurately. These recommendations have not been applied: the dashboard needs a signed-in browser.
+- **Tags** `RTS`, `Strategy`, `RealTimeStrategy`, `AI`, `Claude`, `AIPlaysGames`, `OpenSource`, `Indie`, `BaseBuilding`, `English`. Set through the Twitch API on 2026-11-24 after the user accepted the recommendation, and read back from the API. `NoCommentary` was dropped: Claude narrates in game chat and the chat host talks to viewers. The genre and AI tags target RTS players and AI-curious viewers, since the Globulation 2 category itself has little browsing traffic. The picks are reasoned from Twitch's tag rules, not from Twitch tag analytics; compare discovery sources in the four-week review. [Twitch tags](https://help.twitch.tv/s/article/guide-to-tags?language=en_US)
 - **Go-live notification** “Claude is running a colony live. Can it keep the globs fed?”
 - **About copy for the show** “Claude plays live local matches in Globulation 2, a free, open-source colony RTS. Watch it keep workers fed, expand and face the game's built-in opponents. Game audio and on-screen updates.”
 - **On screen** Show the opponent and running score, current objective, and the latest action verified in the game. An example is “Goal: survive the first raid · Last action: assigned two workers to the Inn.” Keep the text and approved Globulation 2 branding clear of the HUD. Label between-match, paused or recovery states when possible, and reset stale match text before starting the next game.
