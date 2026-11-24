@@ -11,7 +11,8 @@ This is how Claude plays and presents Globulation 2 on stream. It follows the us
 3. **Check the window size.** The rig launches the game at `STREAM_SIZE` (1920×1080). Before going live, confirm that the `width` and `height` from `ui_status` match it. If they don't, restart the game with `down.sh` and `game-up.sh`.
 4. **Read your notes.** Read `$GLOB2_STREAM_HOME/notes/strategy.md` and the most recent game logs (see [Learning loop](#learning-loop)).
 5. **Set up the match.** Choose a 1v1 against one AI opponent with the default rules on a randomly generated 256×256 map. Use the Custom game screen's generator list, and pick a generator different from the one the last logged game used.
-6. **Test, then go live.** Set a caption with `caption.sh`, run `stream.sh test 30`, and check that it completes cleanly. Then start `stream.sh live --i-mean-it`.
+6. **Pick a strong opponent.** Play only against one of the four stronger AIs: **Cortex, Nicowar, Cabino or Maxima**. Never play the weaker ones (Numbi, Castor, Warrush, Econo, or a scripted JavaScript AI). Vary the opponent between games and log which one you faced.
+7. **Test, then go live.** Set a caption with `caption.sh`, run `stream.sh test 30`, and check that it completes cleanly. Then start `stream.sh live --i-mean-it`.
 
 ## Playing
 

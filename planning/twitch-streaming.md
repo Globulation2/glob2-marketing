@@ -35,7 +35,7 @@ During script validation a short (2 s) Twitch bandwidth test also ran unintentio
 
 ## Gaps and next work
 
-- **First live session.** The format was decided by the user on 2026-11-24: 1v1 against an AI with default rules, on randomly generated 256×256 maps, rotating the map generator each game (see the [playbook](../tools/twitch-stream/stream-playbook.md)). Still to choose: the stream title, category and tags, and the session length. Run a final `stream.sh test` immediately before going live.
+- **First live session.** The format was decided by the user on 2026-11-24: 1v1 against one of the four stronger AIs (Cortex, Nicowar, Cabino or Maxima, never the weaker ones) with default rules, on randomly generated 256×256 maps, rotating the map generator each game (see the [playbook](../tools/twitch-stream/stream-playbook.md)). Still to choose: the stream title, category and tags, and the session length. Run a final `stream.sh test` immediately before going live.
 - **Overlays and chat.** Viewer chat, a reasoning or commentary panel and a stream schedule are not built. Any chat-driven control needs moderation and abuse limits first.
 - **Long sessions.** systemd user units for automatic restarts are not set up. Long runs are untested for memory, disk use of logs, or MCP token renewal (control leases are 300 s).
 - **Other hardware.** Untested on non-NVIDIA GPUs, without Vulkan, or on non-Debian distributions. The libx264 path is only verified locally.
