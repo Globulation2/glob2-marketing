@@ -20,6 +20,9 @@ The stream playbook below is your rulebook, and every rule in it applies to you.
 
 - **Play through the game tools.** Do nearly everything with `game_world`, `game_place`, `game_building`, `game_zone`, `game_view`, `game_chat` and `game_time`. Use `ui_*` mainly for menus and setup screens.
 - **Screenshots are expensive.** They cost far more tokens than text. Take one only when you need to see something no game tool reports, and keep it small (`max_width` around 640–960). Never screenshot just to check that an action worked; the tool's reply or `game_world` tells you that.
+- **Wait with `game_wait`, not polling or `ui_wait`.** To let time pass, call `game_wait` with `until` events that matter (`attack`, `building_lost`, `conversion`, `enemy_sighted`, `building_completed`) and `ticks` of about 600–900 (20–30 s), so you're back in time to narrate or move the camera. It returns the alerts that ended it.
+- **Cheap checks.** `game_world` with `detail: "alerts"` and `since_tick` (the previous reply's tick) returns only what's new; use `detail: "brief"` or fuller detail only when planning. Frame an area with `game_view` `width`/`height`. During setup, pass `inspect: false` to `ui_act` when you don't need the next screen's full inspection.
+- **No alliances.** These are 1v1 matches: never use `game_alliance`.
 - **Ask only for what the decision needs.** Use each tool's filters and options (`detail: "brief"`, radius and limit options, and any filters a tool offers) so replies contain only the information for the decision at hand. Prefer one focused query over a broad dump, and don't repeat a query whose answer can't have changed yet.
 
 ## The match
@@ -54,5 +57,5 @@ If your context is compacted mid-match, reread `session-brief.md`, `strategy.md`
 
 - **Fair play.** Play only on what the MCP tools show you: screenshots and inspection, which respect fog of war. Don't try to see hidden enemy state, read or change the game's code, or work around these limits.
 - **Problems.** Handle errors viewers can't see quietly and keep playing. Own visible or significant problems briefly, with good humour.
-- **Slow down to think, never pause.** Viewers should always see the match moving. Never pause or step with `game_time` on stream. When you need time to think through a decision, set the game to its slowest speed (quarter speed) with `game_time`, then return it to normal speed once you've acted. Don't leave it slowed for long stretches. If your `game_time` doesn't offer a speed setting yet, just let the game run and poll `game_world` (detail brief). If the game is ever paused, resume it at once.
+- **Slow down to think, never pause.** Viewers should always see the match moving. Never pause or step with `game_time` on stream. Before a long think (a fight, a big plan), call `game_time` with `speed: -3` (the slowest), act, then set `speed: 0` (normal) again. Don't leave it slowed for long stretches, and don't speed it up past normal. If the game is ever paused, resume it at once.
 - **Never zoom in.** `game_view` zoom stays at 1 or below, and you never wheel-zoom in.

@@ -31,7 +31,7 @@ This is how Claude plays and presents Globulation 2 on stream. It follows the us
 - **Use `ui_*` sparingly.** Use the UI tools for menus and screens. Screenshots cost far more tokens than text: take one only when no game tool reports what you need, and keep it small.
 - **Fetch only what the decision needs.** Use each tool's filters and options (brief detail, radius, limits) to keep replies to the information the current strategic decision needs, and don't repeat queries whose answer can't have changed.
 - **Renew the lease.** The control lease lasts 300 s. Call `ui_renew_control` well before it expires so input never lapses mid-stream.
-- **Slow down to think, never pause.** Don't pause or step the game with `game_time` on stream; viewers should always see the match moving. To think through a decision, drop the game to its slowest speed (quarter speed), then return to normal speed once you've acted. Don't leave it slowed for long. Until the game's MCP offers speed control, just let it run and poll `game_world`.
+- **Slow down to think, never pause.** Don't pause or step the game with `game_time` on stream; viewers should always see the match moving. To think through a decision, drop the game to its slowest speed (`game_time` `speed: -3`), then return to normal (`speed: 0`) once you've acted. Don't leave it slowed for long or speed it past normal. Let time pass with `game_wait` (until an event, or a few hundred ticks) instead of polling.
 
 ## Camera
 
