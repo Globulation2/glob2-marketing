@@ -36,7 +36,7 @@ Reviewed November 23, 2026 against the public subreddit rules, current desktop r
 >
 > This is Hedgerow Country about 18 minutes into a match between two computer opponents. Red and cyan warriors converge around a cluster of colony buildings. In a match you can mark where you want warriors to go, then turn back to food or construction while the globs work out how to get there.
 >
-> [Insert a verified direct playback link for the Hedgerow Country battle, captured on macOS in 0.11.7.0. The repository copy is available for review in the media notes.]
+> [Watch the 22-second Hedgerow Country battle, captured on macOS in 0.11.7.0](https://storage.googleapis.com/glob2-website-public/campaign-media/reddit/v1/hedgerow-country-battle-d8838a88.mp4)
 >
 > Start with Tutorial if you’re new, then try a custom game against a computer opponent. If you played the original, look for the familiar unit animations. We re-rendered them from the original Blender rigs for the remaster.
 >

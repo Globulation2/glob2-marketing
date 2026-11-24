@@ -2,7 +2,7 @@
 
 [Campaign index](README.md) · [Marketing gameplay video standards](../gameplay-video.md) · [Approved storefront imagery](../approved-storefront-rollout.md#approved-imagery-only--2026-10-30) · [Current desktop release](https://github.com/Globulation2/glob2/releases/tag/v0.11.7.0)
 
-Updated on November 23, 2026. The lead video is a mid-game battle captured for the campaign. The approved storefront screenshot and earlier tutorial clips are documented below.
+Approved on November 23, 2026. The lead video is the Hedgerow Country mid-game battle. The approved storefront screenshot and earlier tutorial clips are documented below.
 
 ## Ready media and where to use it
 
@@ -15,7 +15,7 @@ Updated on November 23, 2026. The lead video is a mid-game battle captured for t
 | **r/ObscureRTS** | [Original game archive](https://globulation2.org/wiki/News_Archive) and [tagged artwork provenance](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/README.md), for private preparation | Prepare an archival frame and an original-rig render as a credited pair if moderators clear the post. Confirm reuse rights for the specific archival image. Keep media and download links out of the submission until the applicable rules are clarified. |
 | **r/FreeGames** | [Official desktop download landing page](https://glob2.online/downloads/) | The download page is the primary link. Media is optional. |
 
-The repository download responds successfully, but GitHub serves it as a binary attachment. Before submitting to Indie Sunday, use a direct video link verified to play while logged out. For a subreddit that accepts video uploads, the checked-in MP4 is ready to attach.
+Use the [public playback MP4](https://storage.googleapis.com/glob2-website-public/campaign-media/reddit/v1/hedgerow-country-battle-d8838a88.mp4) for Indie Sunday. An unauthenticated request returned inline `video/mp4`, supported byte ranges, and matched the repository file’s SHA-256. The checked-in MP4 is ready for subreddits that accept native video uploads.
 
 ## Tutorial footage for follow-up
 
