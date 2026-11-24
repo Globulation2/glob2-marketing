@@ -4,6 +4,7 @@
 
 - [Social media strategy](social-media-strategy.md) covers onboarding, editorial cadence, profile copy, ownership and measurement.
 - [Gameplay video for marketing](gameplay-video.md) covers scene selection, capture and review for promotional clips.
+- [Twitch streaming](twitch-streaming.md): headless rig for streaming Claude playing over MCP, 2026-11-24 test results (bandwidth test only, nothing broadcast) and the work left before a first live session. Code in [tools/twitch-stream](../tools/twitch-stream/README.md).
 - [Reddit campaign kit](reddit-campaign/README.md) contains community-specific desktop remaster briefs, submission drafts and media provenance.
 - [Domain migration](domain-migration.md): canonical `glob2.online` destinations, old-domain redirect work, verification and external-access gaps.
 - [Domain migration operations](domain-migration-operations.md): verified runtime transition, restart-safe edge bridge, rollback/cleanup boundaries and remaining website certificate/redirect steps.

@@ -1,0 +1,7 @@
+# Local rig state belongs in $GLOB2_STREAM_HOME, never here; these are a backstop.
+stream.env
+*.key
+logs/
+profile/
+overlay/
+*.mp4
