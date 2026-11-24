@@ -44,3 +44,11 @@ The verified files were uploaded directly to itch.io. The listing covers Windows
 For each update, reload the editor and compare the cover and gallery with the approved sources. Open the public page signed out and check installation instructions, downloads, cover, gallery and tutorial destination. Track search indexing separately from public visibility. [itch.io indexing requirements](https://itch.io/docs/creators/getting-indexed)
 
 Use itch.io views and downloads and, where available, consented Glob2 Online play-click data attributed to the listing. Record the first month's observed counts and coverage before deciding whether to embed a web build. [itch.io creator analytics](https://itch.io/docs/creators/faq) · [Glob2 website analytics notice](https://glob2.online/downloads/)
+
+## Private browser preview
+
+A separate private draft, **Globulation 2 Browser Preview**, tested the full released 0.11.7.0 browser package (`4fd11cca47d9d3ab`). The upload archive contained 484 files, about 135 MB zipped and 217 MB extracted. The largest file was 30.15 MB. The locally served package entered a Lava Shield custom game.
+
+The first itch.io upload failed with a core short read. The CDN labeled an entire mixed-format asset blob as gzip because it began with a gzip member. Only that leading member was delivered or decoded. The corrected archive moved a non-gzip entry first and recalculated offsets in both runtimes. All 865 embedded files matched byte for byte. With SharedArrayBuffer enabled, the corrected private draft ran an interactive introductory match in Chrome. The default small embed triggered the phone layout on desktop.
+
+Save and reload, other browsers, a full skirmish inside itch.io, and multiplayer remain untested. The browser shell currently selects the hosting origin and the app API returned HTTP 404 to a preflight from `https://html.itch.zone`. Shared rooms require client and backend integration. The public desktop listing was unchanged.
