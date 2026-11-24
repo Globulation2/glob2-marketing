@@ -224,7 +224,7 @@ Stratégie en temps réel
 
 ## shot_overlay_build
 
-Vous décidez. Ils bâtissent
+Vous décidez. La colonie bâtit
 
 ## shot_overlay_economy
 
@@ -240,15 +240,15 @@ Choisissez où vous étendre
 
 ## shot_overlay_maps
 
-23 cartes, 67 générateurs
+23 cartes, ou aléatoires
 
 ## shot_overlay_opponents
 
-8 adversaires ordinateur
+8 adversaires informatiques
 
 ## shot_overlay_fair_deal
 
-Sans pub ni achats intégrés
+Ni pub, ni achats in-app
 
 ## shot_overlay_ai_coplay
 

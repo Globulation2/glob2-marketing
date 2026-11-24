@@ -228,7 +228,7 @@ Vi decidas. Ili konstruas.
 
 ## shot_overlay_economy
 
-Tenu la kolonion sata
+Nutru la kolonion
 
 ## shot_overlay_battle
 
@@ -240,7 +240,7 @@ Elektu, kien vastiĝi
 
 ## shot_overlay_maps
 
-23 mapoj, 67 mapgeneriloj
+23 mapoj, aŭ hazardaj
 
 ## shot_overlay_opponents
 
@@ -248,7 +248,7 @@ Elektu, kien vastiĝi
 
 ## shot_overlay_fair_deal
 
-Sen reklamoj kaj enaj aĉetoj
+Sen reklamoj kaj enludaj aĉetoj
 
 ## shot_overlay_ai_coplay
 

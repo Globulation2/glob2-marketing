@@ -220,7 +220,7 @@ Globulation 2 er gratis software med åben kildekode. Kildekode og licenser: htt
 
 ## shot_overlay_hero
 
-Realtidsstrategi om kolonier
+Kolonistrategi i realtid
 
 ## shot_overlay_build
 
@@ -236,19 +236,19 @@ Kæmp om landet
 
 ## shot_overlay_territory
 
-Vælg, hvor du vil udvide
+Vælg, hvor du udvider
 
 ## shot_overlay_maps
 
-23 kort, 67 kortgeneratorer
+23 kort, eller et tilfældigt
 
 ## shot_overlay_opponents
 
-Mød 8 computermodstandere
+Spil mod 8 bots
 
 ## shot_overlay_fair_deal
 
-Uden reklamer og køb i appen
+Uden reklamer. Uden køb i appen
 
 ## shot_overlay_ai_coplay
 

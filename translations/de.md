@@ -220,7 +220,7 @@ Globulation 2 ist kostenlose, quelloffene Software. Quellcode und Lizenzen: http
 
 ## shot_overlay_hero
 
-Kolonie-Echtzeitstrategie
+Koloniestrategie in Echtzeit
 
 ## shot_overlay_build
 
@@ -232,23 +232,23 @@ Ernähre deine Kolonie
 
 ## shot_overlay_battle
 
-Kämpfe um das Land
+Kämpfe ums Land
 
 ## shot_overlay_territory
 
-Wähle, wohin du expandierst
+Wähle, wohin du wächst
 
 ## shot_overlay_maps
 
-23 Karten, 67 Generatoren
+23 Karten oder Zufallskarten
 
 ## shot_overlay_opponents
 
-Stell dich 8 Computergegnern
+8 CPU-Gegner
 
 ## shot_overlay_fair_deal
 
-Werbefrei, ohne In-App-Käufe
+Keine Werbung. Kein In-App-Kauf
 
 ## shot_overlay_ai_coplay
 

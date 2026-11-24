@@ -220,7 +220,7 @@ Globulation 2 برنامج مجاني ومفتوح المصدر. الشيفرة 
 
 ## shot_overlay_hero
 
-استراتيجية في الوقت الحقيقي
+استراتيجية آنية للمستعمرات
 
 ## shot_overlay_build
 
@@ -228,11 +228,11 @@ Globulation 2 برنامج مجاني ومفتوح المصدر. الشيفرة 
 
 ## shot_overlay_economy
 
-وفّر الغذاء لمستعمرتك
+أطعم مستعمرتك
 
 ## shot_overlay_battle
 
-قاتل من أجل الأرض
+قاتل من أجل الأرض
 
 ## shot_overlay_territory
 
@@ -240,15 +240,15 @@ Globulation 2 برنامج مجاني ومفتوح المصدر. الشيفرة 
 
 ## shot_overlay_maps
 
-23 خريطة و67 مولّد خرائط
+23 خريطة، أو خرائط عشوائية
 
 ## shot_overlay_opponents
 
-8 خصوم يتحكم بهم الحاسوب
+8 خصوم يديرهم الحاسوب
 
 ## shot_overlay_fair_deal
 
-بدون إعلانات ومشتريات داخلية
+لا إعلانات. لا شراء داخل اللعبة
 
 ## shot_overlay_ai_coplay
 

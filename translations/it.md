@@ -220,11 +220,11 @@ Globulation 2 è un software gratuito e open source. Codice sorgente e licenze: 
 
 ## shot_overlay_hero
 
-Strategia in tempo reale
+Strategia ​in tempo reale
 
 ## shot_overlay_build
 
-Tu decidi. Loro costruiscono
+Tu decidi, loro costruiscono
 
 ## shot_overlay_economy
 
@@ -240,19 +240,19 @@ Scegli dove espanderti
 
 ## shot_overlay_maps
 
-23 mappe, 67 generatori
+23 mappe, o mappe casuali
 
 ## shot_overlay_opponents
 
-8 rivali mossi dal computer
+8 rivali gestiti dal computer
 
 ## shot_overlay_fair_deal
 
-No annunci o acquisti in-app
+Senza pubblicità ​o acquisti in-app
 
 ## shot_overlay_ai_coplay
 
-Gioca con il tuo agente IA
+Gioca insieme al tuo agente IA
 
 ## shot_caption_hero
 

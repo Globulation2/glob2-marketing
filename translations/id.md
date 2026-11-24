@@ -224,7 +224,7 @@ Strategi koloni real-time
 
 ## shot_overlay_build
 
-Kamu pilih. Mereka membangun
+Kamu putuskan, mereka dirikan
 
 ## shot_overlay_economy
 
@@ -240,15 +240,15 @@ Tentukan arah perluasan
 
 ## shot_overlay_maps
 
-23 peta, 67 generator peta
+23 peta, atau peta acak
 
 ## shot_overlay_opponents
 
-Hadapi 8 lawan komputer
+Hadapi 8 ​lawan komputer
 
 ## shot_overlay_fair_deal
 
-Tanpa iklan/pembelian in-app
+Tanpa iklan dan pembelian in-app
 
 ## shot_overlay_ai_coplay
 

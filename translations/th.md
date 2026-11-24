@@ -220,7 +220,7 @@ Globulation 2 เป็นซอฟต์แวร์ฟรีและโอเ
 
 ## shot_overlay_hero
 
-เกมวางแผนอาณานิคมเรียลไทม์
+เกมวางแผน​อาณานิคมเรียลไทม์
 
 ## shot_overlay_build
 
@@ -228,7 +228,7 @@ Globulation 2 เป็นซอฟต์แวร์ฟรีและโอเ
 
 ## shot_overlay_economy
 
-เลี้ยงอาณานิคมให้อิ่มท้อง
+เลี้ยงอาณานิคม​ให้อิ่มท้อง
 
 ## shot_overlay_battle
 
@@ -236,15 +236,15 @@ Globulation 2 เป็นซอฟต์แวร์ฟรีและโอเ
 
 ## shot_overlay_territory
 
-เลือกว่าจะขยายไปทางไหน
+เลือกว่า​จะขยายไปทางไหน
 
 ## shot_overlay_maps
 
-23 แผนที่ 67 ตัวสร้างแผนที่
+แผนที่ 23 แบบ​หรือแผนที่สุ่ม
 
 ## shot_overlay_opponents
 
-คู่ต่อสู้คอมพิวเตอร์ 8 แบบ
+คู่ต่อสู้​คอมพิวเตอร์ 8 แบบ
 
 ## shot_overlay_fair_deal
 
@@ -252,7 +252,7 @@ Globulation 2 เป็นซอฟต์แวร์ฟรีและโอเ
 
 ## shot_overlay_ai_coplay
 
-เล่นร่วมกับเอเจนต์ AI ของคุณ
+เล่นคู่กับ​เอเจนต์ AI ของคุณ
 
 ## shot_caption_hero
 

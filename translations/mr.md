@@ -240,7 +240,7 @@ Globulation 2 हे विनामूल्य आणि मुक्त स�
 
 ## shot_overlay_maps
 
-23 नकाशे, 67 नकाशा जनरेटर
+23 नकाशे, किंवा यादृच्छिक नकाशे
 
 ## shot_overlay_opponents
 

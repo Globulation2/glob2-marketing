@@ -242,15 +242,15 @@ Choose where to expand
 
 ## shot_overlay_maps
 
-23 maps, 67 map generators
+23 maps, or random ones
 
 ## shot_overlay_opponents
 
-Face 8 computer opponents
+8 computer opponents
 
 ## shot_overlay_fair_deal
 
-No ads, no in-app purchases
+No ads. No in-app buys
 
 ## shot_overlay_ai_coplay
 

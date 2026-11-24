@@ -220,39 +220,39 @@ Globulation 2 és programari gratuït i de codi obert. Codi font i llicències: 
 
 ## shot_overlay_hero
 
-Estratègia en temps real
+Estratègia en temps real
 
 ## shot_overlay_build
 
-Tu manes. Ells construeixen
+Tu decideixes. Ells construeixen
 
 ## shot_overlay_economy
 
-Mantén la colònia alimentada
+Que la colònia no passi gana
 
 ## shot_overlay_battle
 
-Lluita pel territori
+Lluita pel territori
 
 ## shot_overlay_territory
 
-Tria on expandir-te
+Tria on expandir-te
 
 ## shot_overlay_maps
 
-23 mapes, 67 generadors
+23 mapes, o bé aleatoris
 
 ## shot_overlay_opponents
 
-8 oponents de l'ordinador
+8 rivals dirigits per l'ordinador
 
 ## shot_overlay_fair_deal
 
-Ni anuncis ni compres al joc
+Ni anuncis ni compres al joc
 
 ## shot_overlay_ai_coplay
 
-Juga amb el teu agent d'IA
+Juga al costat del teu agent d'IA
 
 ## shot_caption_hero
 

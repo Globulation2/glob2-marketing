@@ -228,7 +228,7 @@ Globulation 2는 무료 오픈 소스 소프트웨어입니다. 소스 코드 �
 
 ## shot_overlay_economy
 
-식민지를 먹여 살리세요
+식민지를 ​먹여 살리세요
 
 ## shot_overlay_battle
 
@@ -240,15 +240,15 @@ Globulation 2는 무료 오픈 소스 소프트웨어입니다. 소스 코드 �
 
 ## shot_overlay_maps
 
-지도 23개, 지도 생성기 67종
+지도 23개 또는 무작위 생성 지도
 
 ## shot_overlay_opponents
 
-컴퓨터 상대 8종과 대결하세요
+컴퓨터 상대 8종
 
 ## shot_overlay_fair_deal
 
-광고 없음, 인앱 구매 없음
+광고 없음. 인앱 구매 없음
 
 ## shot_overlay_ai_coplay
 

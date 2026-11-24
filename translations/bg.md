@@ -220,7 +220,7 @@ Globulation 2 е безплатен софтуер с отворен код. И�
 
 ## shot_overlay_hero
 
-Стратегия в реално време
+Стратегия в реално време
 
 ## shot_overlay_build
 
@@ -236,11 +236,11 @@ Globulation 2 е безплатен софтуер с отворен код. И�
 
 ## shot_overlay_territory
 
-Решете къде да се разширите
+Решете къде да се разширите
 
 ## shot_overlay_maps
 
-23 карти и 67 генератора
+23 карти или случайни
 
 ## shot_overlay_opponents
 
@@ -248,7 +248,7 @@ Globulation 2 е безплатен софтуер с отворен код. И�
 
 ## shot_overlay_fair_deal
 
-Без реклами и микроплащания
+Без реклами и игрови покупки
 
 ## shot_overlay_ai_coplay
 

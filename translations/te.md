@@ -240,7 +240,7 @@ Globulation 2 ఉచిత మరియు ఓపెన్ సోర్స్ �
 
 ## shot_overlay_maps
 
-23 మ్యాప్‌లు, 67 జనరేటర్లు
+23 మ్యాప్‌లు, రాండమ్ మ్యాప్‌లూ
 
 ## shot_overlay_opponents
 
@@ -248,7 +248,7 @@ Globulation 2 ఉచిత మరియు ఓపెన్ సోర్స్ �
 
 ## shot_overlay_fair_deal
 
-యాడ్స్, యాప్ కొనుగోళ్లు లేవు
+యాడ్స్ లేవు. గేమ్లో కొనుగోళ్లు లేవు
 
 ## shot_overlay_ai_coplay
 

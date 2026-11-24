@@ -240,7 +240,7 @@ Globulation 2 मुफ़्त और ओपन-सोर्स सॉफ़�
 
 ## shot_overlay_maps
 
-23 नक्शे, 67 नक्शा जनरेटर
+23 नक्शे, या रैंडम नक्शे
 
 ## shot_overlay_opponents
 
@@ -252,7 +252,7 @@ Globulation 2 मुफ़्त और ओपन-सोर्स सॉफ़�
 
 ## shot_overlay_ai_coplay
 
-AI एजेंट के साथ मिलकर खेलें
+अपने AI एजेंट के साथ मिलकर खेलें
 
 ## shot_caption_hero
 

@@ -240,15 +240,15 @@ Globulation 2 是一款免費開源軟體。原始碼和授權協議：https://g
 
 ## shot_overlay_maps
 
-23 張地圖，67 種地圖產生器
+23 張地圖，或隨機產生新地圖
 
 ## shot_overlay_opponents
 
-迎戰 8 個電腦對手
+8 個電腦對手
 
 ## shot_overlay_fair_deal
 
-沒有廣告，沒有應用程式內購買
+沒有廣告，沒有內購
 
 ## shot_overlay_ai_coplay
 

@@ -220,7 +220,7 @@ Globulation 2 este un software gratuit și open-source. Codul sursă și licenț
 
 ## shot_overlay_hero
 
-Strategie în timp real
+Strategie RTS cu colonii
 
 ## shot_overlay_build
 
@@ -240,7 +240,7 @@ Alege unde te extinzi
 
 ## shot_overlay_maps
 
-Hărți: 23. Generatoare: 67
+23 de hărți sau hărți aleatorii
 
 ## shot_overlay_opponents
 
@@ -248,11 +248,11 @@ Hărți: 23. Generatoare: 67
 
 ## shot_overlay_fair_deal
 
-Fără reclame, fără achiziții
+Fără reclame, fără plăți în joc
 
 ## shot_overlay_ai_coplay
 
-În echipă cu agentul tău AI
+Joacă alături de agentul tău AI
 
 ## shot_caption_hero
 

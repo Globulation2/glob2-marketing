@@ -228,27 +228,27 @@ Jij beslist. Zij bouwen.
 
 ## shot_overlay_economy
 
-Houd je kolonie gevoed
+Voed je kolonie
 
 ## shot_overlay_battle
 
-Vecht om het land
+Vecht om land
 
 ## shot_overlay_territory
 
-Kies waar je uitbreidt
+Breid uit waar je wilt
 
 ## shot_overlay_maps
 
-23 kaarten, 67 generatoren
+23 kaarten, of willekeurige
 
 ## shot_overlay_opponents
 
-8 computertegenstanders
+8 ingebouwde computerspelers
 
 ## shot_overlay_fair_deal
 
-Geen ads of in-app aankopen
+Geen reclame of in-app aankopen
 
 ## shot_overlay_ai_coplay
 

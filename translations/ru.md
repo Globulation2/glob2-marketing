@@ -220,7 +220,7 @@ Globulation 2 — это бесплатное программное обесп�
 
 ## shot_overlay_hero
 
-Стратегия в реальном времени
+RTS о колонии
 
 ## shot_overlay_build
 
@@ -228,7 +228,7 @@ Globulation 2 — это бесплатное программное обесп�
 
 ## shot_overlay_economy
 
-Не дайте колонии голодать
+Кормите колонию
 
 ## shot_overlay_battle
 
@@ -236,11 +236,11 @@ Globulation 2 — это бесплатное программное обесп�
 
 ## shot_overlay_territory
 
-Выбирайте, куда расширяться
+Выбирайте, куда расти
 
 ## shot_overlay_maps
 
-23 карты, 67 генераторов
+23 карты или случайные
 
 ## shot_overlay_opponents
 
@@ -248,11 +248,11 @@ Globulation 2 — это бесплатное программное обесп�
 
 ## shot_overlay_fair_deal
 
-Без рекламы и покупок в игре
+Без рекламы и покупок в игре
 
 ## shot_overlay_ai_coplay
 
-Играйте вместе с ИИ-агентом
+Играйте вместе со своим ИИ-агентом
 
 ## shot_caption_hero
 

@@ -179,6 +179,36 @@ class StorefrontTests(unittest.TestCase):
         self.assertIn('eo/shot_overlay_hero: 15 characters exceeds 8; reviewed adaptation required', errors)
         self.assertFalse(any(error.startswith('en/') for error in errors))
 
+    def test_field_limits_follow_script_groups_with_a_default(self):
+        self.fields.update(shot_overlay_hero='Short', trailer_line_1='Short')
+        for code in S.CODES: self.write(code, self.fields)
+        self.config['field_limits'] = [
+            {'fields': 'shot_overlay_*', 'limit': 28, 'script_groups': {
+                'japanese': {'limit': 20, 'target': 18, 'locales': ['ja']},
+                'devanagari': {'limit': 48, 'target': 40, 'locales': ['hi', 'mr']}}},
+            {'fields': 'trailer_line_*', 'limit': 44}]
+        self.config['asset_text'] = {'screenshot_roles': ['hero'], 'overlay_fields': 'shot_overlay_{role}', 'trailer_lines': ['trailer_line_1']}
+        self.save_config()
+        self.write('ja', dict(self.fields, shot_overlay_hero='あ' * 21))  # Over the Japanese ceiling, under the default.
+        self.write('hi', dict(self.fields, shot_overlay_hero='क' * 45))  # Over the default, under the Devanagari ceiling.
+        self.write('mr', dict(self.fields, shot_overlay_hero='क' * 49))
+        self.write('fr', dict(self.fields, shot_overlay_hero='a' * 29))  # In no group: the default binds.
+        self.write('de', dict(self.fields, shot_overlay_hero='a' * 28, trailer_line_1='a' * 44))
+        self.write('ko', dict(self.fields, trailer_line_1='가' * 45))  # A rule without groups binds every locale alike.
+        errors = [error for error in S.validate(self.root)[0] if 'exceeds' in error]
+        self.assertEqual(['fr/shot_overlay_hero: 29 characters exceeds 28; reviewed adaptation required',
+                          'ja/shot_overlay_hero: 21 characters exceeds 20; reviewed adaptation required',
+                          'ko/trailer_line_1: 45 characters exceeds 44; reviewed adaptation required',
+                          'mr/shot_overlay_hero: 49 characters exceeds 48; reviewed adaptation required'], sorted(errors))
+        rule = self.config['field_limits'][0]
+        self.assertEqual([20, 48, 28], [S.field_limit(rule, code) for code in ('ja', 'hi', 'xx')])
+        # A code outside the roster (the renderer's test strings, a locale not yet assigned) gets the default.
+        self.assertEqual([], S.field_limit_errors(self.config, 'xx', {'shot_overlay_hero': 'a' * 28}))
+        self.assertEqual(['xx/shot_overlay_hero: 29 characters exceeds 28; reviewed adaptation required'],
+                         S.field_limit_errors(self.config, 'xx', {'shot_overlay_hero': 'a' * 29}))
+        rule['script_groups']['kana'] = {'limit': 18, 'locales': ['ja']}
+        self.assertRaisesRegex(ValueError, 'more than one script group', S.field_limit, rule, 'ja')
+
     def test_missing_destination_field_is_reported_not_raised(self):
         self.config['platforms']['example']['fields']['summary']['paragraphs'] = [['headline', 'not_in_catalog']]
         self.save_config()
@@ -257,8 +287,58 @@ class EnglishSourceTests(unittest.TestCase):
         for key in overlays + assets['trailer_lines'] + assets['trailer_desktop_only_lines'] + [assets['trailer_title']]:
             self.assertIsNone(re.search(r'\b(free|price|sale|discount|paid|buy)\b|[$€£]', self.fields[key], re.I), key)
         for key in overlays:
-            self.assertTrue(2 <= len(self.fields[key].split()) <= 5 and len(self.fields[key]) <= 28, key)
+            self.assertTrue(2 <= len(self.fields[key].split()) <= 5, key)
+        # Length is whatever field_limits says for English (the Latin ceiling), the same rule the renderer applies.
+        self.assertEqual([], S.field_limit_errors(self.config, 'en', self.fields))
         self.assertLessEqual(len(assets['trailer_lines']) + len(assets['trailer_desktop_only_lines']), 5)
+
+    def rule(self, pattern):
+        return next(rule for rule in self.config['field_limits'] if rule['fields'] == pattern)
+
+    def test_overlay_limits_follow_the_measured_script_ceilings(self):
+        """Ceilings from assets/storefront-v2/tools/README.md, "How long a caption can be" (measured 2026-11-24)."""
+        rule = self.rule('shot_overlay_*')
+        groups = rule['script_groups']
+        assigned = [code for group in groups.values() for code in group['locales']]
+        self.assertEqual(sorted(self.config['locales']), sorted(assigned), 'every locale is in exactly one script group')
+        self.assertEqual(sorted(S.CODES), sorted(assigned))
+        self.assertEqual({'latin': (40, 32), 'cyrillic_greek': (36, 28), 'chinese': (24, 20), 'japanese': (20, 18), 'korean': (32, 22),
+                          'devanagari': (48, 40), 'bengali': (46, 36), 'telugu': (50, 32), 'tamil': (32, 24), 'arabic_persian': (48, 40),
+                          'urdu': (28, 28), 'thai': (28, 28)},
+                         {name: (group['limit'], group['target']) for name, group in groups.items()})
+        self.assertEqual(20, groups['thai']['target_without_break'])
+        expected = {'en': 40, 'de': 40, 'vi': 40, 'sw': 40, 'ru': 36, 'sr-Cyrl': 36, 'el': 36, 'zh-Hans': 24, 'zh-Hant': 24, 'ja': 20, 'ko': 32,
+                    'hi': 48, 'mr': 48, 'bn': 46, 'te': 50, 'ta': 32, 'ar': 48, 'fa': 48, 'ur': 28, 'th': 28, 'not-a-locale': 28}
+        self.assertEqual(expected, {code: S.field_limit(rule, code) for code in expected})
+        for code, limit in expected.items():
+            self.assertEqual([], S.field_limit_errors(self.config, code, {'shot_overlay_hero': '字' * limit}), code)
+            self.assertEqual([f'{code}/shot_overlay_hero: {limit + 1} characters exceeds {limit}; reviewed adaptation required'],
+                             S.field_limit_errors(self.config, code, {'shot_overlay_hero': '字' * (limit + 1)}))
+        self.assertTrue(S.field_limit_errors(self.config, 'zh-Hans', {'shot_overlay_maps': '图' * 25}))
+        self.assertEqual([], S.field_limit_errors(self.config, 'hi', {'shot_overlay_maps': 'क' * 45}))
+
+    def test_trailer_and_caption_limits_are_the_same_in_every_locale(self):
+        for pattern, limit in (('trailer_line_*', 44), ('trailer_title', 50), ('shot_caption_*', 100)):
+            rule = self.rule(pattern)
+            self.assertNotIn('script_groups', rule, pattern)
+            self.assertEqual({limit}, {S.field_limit(rule, code) for code in S.CODES + ['not-a-locale']}, pattern)
+
+    def test_gallery_orders_cover_the_roles_and_match_the_desktop_caption_numbering(self):
+        assets = self.config['asset_text']
+        mobile, desktop = assets['mobile_gallery_order'], assets['desktop_gallery_order']
+        # App Store search results show the first three portrait screenshots, so the fair deal is third.
+        self.assertEqual(['hero', 'build', 'fair_deal', 'battle', 'economy', 'territory', 'maps', 'opponents'], mobile)
+        self.assertEqual(['hero', 'build', 'economy', 'battle', 'territory', 'maps', 'opponents', 'ai_coplay'], desktop)
+        self.assertEqual(set(assets['screenshot_roles']), set(mobile) | set(desktop))
+        self.assertFalse(set(mobile) & set(assets['desktop_only_roles']))
+        self.assertNotIn('fair_deal', desktop)
+        # Microsoft's DesktopScreenshotCaptionN rows and the AppStream caption list are numbered in the desktop order.
+        captions = [assets['caption_fields'].format(role=role) for role in desktop]
+        microsoft = self.config['platforms']['microsoft']['fields']
+        numbered = sorted((int(key.rsplit('_', 1)[1]), spec) for key, spec in microsoft.items() if key.startswith('desktop_screenshot_caption_'))
+        self.assertEqual(captions, [next(iter(S.referenced(spec['paragraphs']))) for _, spec in numbered])
+        self.assertEqual(desktop, list(self.config['appstream']['screenshot_captions']))
+        self.assertEqual(captions, list(self.config['appstream']['screenshot_captions'].values()))
 
     def test_short_store_fields_carry_no_price_words(self):
         for platform, names in {'google-play': ('title', 'short_description'), 'fastlane': ('title', 'short_description'),

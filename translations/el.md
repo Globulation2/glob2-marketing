@@ -228,7 +228,7 @@ offline στρατηγική
 
 ## shot_overlay_economy
 
-Κρατήστε την αποικία χορτάτη
+Ταΐστε την αποικία
 
 ## shot_overlay_battle
 
@@ -240,7 +240,7 @@ offline στρατηγική
 
 ## shot_overlay_maps
 
-23 χάρτες, 67 τυχαία τοπία
+23 χάρτες ή τυχαίοι
 
 ## shot_overlay_opponents
 
@@ -248,11 +248,11 @@ offline στρατηγική
 
 ## shot_overlay_fair_deal
 
-Χωρίς διαφημίσεις ή αγορές
+Καμία διαφήμιση ή in-app αγορά
 
 ## shot_overlay_ai_coplay
 
-Μαζί με τον πράκτορα AI σας
+Παίξτε μαζί με τον πράκτορα AI σας
 
 ## shot_caption_hero
 

@@ -232,7 +232,7 @@ Håll kolonin mätt
 
 ## shot_overlay_battle
 
-Slåss om marken
+Slåss om marken
 
 ## shot_overlay_territory
 
@@ -240,15 +240,15 @@ Välj var du ska expandera
 
 ## shot_overlay_maps
 
-23 kartor, 67 slumplandskap
+23 kartor, eller slumpade
 
 ## shot_overlay_opponents
 
-Möt 8 datormotståndare
+8 motståndare styrda av datorn
 
 ## shot_overlay_fair_deal
 
-Utan reklam och köp i appen
+Ingen reklam. Inga köp i appen
 
 ## shot_overlay_ai_coplay
 

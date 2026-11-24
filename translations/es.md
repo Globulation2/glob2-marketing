@@ -220,7 +220,7 @@ Globulation 2 es software gratuito y de código abierto. Código fuente y licenc
 
 ## shot_overlay_hero
 
-Estrategia en tiempo real
+Estrategia ​en tiempo real
 
 ## shot_overlay_build
 
@@ -228,11 +228,11 @@ Tú decides. Ellos construyen
 
 ## shot_overlay_economy
 
-Mantén la colonia alimentada
+Alimenta ​a tu colonia
 
 ## shot_overlay_battle
 
-Lucha por el territorio
+Lucha ​por el territorio
 
 ## shot_overlay_territory
 
@@ -240,15 +240,15 @@ Elige dónde expandirte
 
 ## shot_overlay_maps
 
-23 mapas y 67 generadores
+23 mapas, o uno aleatorio
 
 ## shot_overlay_opponents
 
-Enfréntate a 8 rivales CPU
+8 rivales CPU
 
 ## shot_overlay_fair_deal
 
-Sin anuncios ni compras
+Sin anuncios ni micropagos
 
 ## shot_overlay_ai_coplay
 

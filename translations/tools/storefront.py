@@ -140,17 +140,28 @@ def config_fields(config):
     return found
 
 
+def field_limit(rule, code):
+    """The limit one field_limits rule sets for a locale: its script group's, else the rule's default."""
+    groups = [name for name, group in rule.get('script_groups', {}).items() if code in group['locales']]
+    if len(groups) > 1: raise ValueError(f'field_limits {rule["fields"]}: locale {code} is in more than one script group: {groups}')
+    return rule['script_groups'][groups[0]]['limit'] if groups else rule['limit']
+
+
 def field_limit_errors(config, code, fields):
-    """Limits that hold for a field in every locale (image overlays, captions, trailer text)."""
+    """Limits that bind in every locale (image overlays, captions, trailer text).
+
+    A rule's "limit" is the default; "script_groups" may give listed locales their own limit.
+    """
     errors = []
     for rule in config.get('field_limits', []):
         unit = rule.get('length_unit', 'character')
         if unit not in ('byte', 'character'): raise ValueError(f'field_limits: unsupported length_unit {unit!r}')
+        limit = field_limit(rule, code)
         for key, value in fields.items():
             if not fnmatchcase(key, rule['fields']): continue
             measured = len(value.encode('utf-8')) if unit == 'byte' else len(value)
-            if measured > rule['limit']:
-                errors.append(f'{code}/{key}: {measured} {"UTF-8 bytes" if unit == "byte" else "characters"} exceeds {rule["limit"]}; reviewed adaptation required')
+            if measured > limit:
+                errors.append(f'{code}/{key}: {measured} {"UTF-8 bytes" if unit == "byte" else "characters"} exceeds {limit}; reviewed adaptation required')
     return errors
 
 

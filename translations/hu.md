@@ -228,27 +228,27 @@ Te döntesz. Ők építenek.
 
 ## shot_overlay_economy
 
-Lásd el élelemmel a kolóniát
+Etesd a kolóniát
 
 ## shot_overlay_battle
 
-Harcolj a földért
+Harcolj a területért
 
 ## shot_overlay_territory
 
-Döntsd el, merre terjeszkedj
+Válaszd ki, hol terjeszkedsz
 
 ## shot_overlay_maps
 
-23 térkép, 67 generátor
+23 kész térkép, vagy véletlen
 
 ## shot_overlay_opponents
 
-8 számítógépes ellenfél vár
+8 számítógépes ellenfél
 
 ## shot_overlay_fair_deal
 
-Nincs reklám, nincs vásárlás
+Se reklám, se in-app vásárlás
 
 ## shot_overlay_ai_coplay
 

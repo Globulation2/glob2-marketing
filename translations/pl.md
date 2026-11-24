@@ -240,7 +240,7 @@ Wybierz kierunek ekspansji
 
 ## shot_overlay_maps
 
-23 mapy, 67 generatorów map
+23 mapy lub losowe
 
 ## shot_overlay_opponents
 
@@ -248,11 +248,11 @@ Wybierz kierunek ekspansji
 
 ## shot_overlay_fair_deal
 
-Bez reklam i zakupów w grze
+Bez reklam i zakupów w grze
 
 ## shot_overlay_ai_coplay
 
-Graj razem z agentem AI
+Graj razem z własnym agentem AI
 
 ## shot_caption_hero
 

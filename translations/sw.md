@@ -240,19 +240,19 @@ Chagua mahali pa kupanukia
 
 ## shot_overlay_maps
 
-Ramani 23, aina 67 za nasibu
+Ramani 23, au za nasibu
 
 ## shot_overlay_opponents
 
-Wapinzani 8 wa kompyuta
+Wapinzani 8 ​wa kompyuta
 
 ## shot_overlay_fair_deal
 
-Bila matangazo, bila ununuzi
+Bila matangazo wala ununuzi mchezoni
 
 ## shot_overlay_ai_coplay
 
-Cheza pamoja na wakala wa AI
+Cheza pamoja na wakala wako wa AI
 
 ## shot_caption_hero
 

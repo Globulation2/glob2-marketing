@@ -220,15 +220,15 @@ Globulation 2 مفت اور اوپن سورس سافٹ ویئر ہے۔ سورس 
 
 ## shot_overlay_hero
 
-بستی کی ریئل ٹائم حکمت عملی
+بستی بسانے کا RTS کھیل
 
 ## shot_overlay_build
 
-فیصلہ آپ کا۔ تعمیر ان کی۔
+فیصلہ آپ کا، تعمیر ان کی
 
 ## shot_overlay_economy
 
-بستی کو بھوکا نہ رہنے دیں
+بستی کو کھلاتے رہیں
 
 ## shot_overlay_battle
 
@@ -240,15 +240,15 @@ Globulation 2 مفت اور اوپن سورس سافٹ ویئر ہے۔ سورس 
 
 ## shot_overlay_maps
 
-23 نقشے، 67 نقشہ جنریٹر
+23 نقشے، یا اتفاقی نقشے
 
 ## shot_overlay_opponents
 
-8 کمپیوٹر حریفوں سے مقابلہ
+8 کمپیوٹر حریف
 
 ## shot_overlay_fair_deal
 
-نہ اشتہار نہ ایپ میں خریداری
+نہ اشتہار، نہ ایپ میں خرید
 
 ## shot_overlay_ai_coplay
 

@@ -228,7 +228,7 @@ Chiến lược thời gian thực
 
 ## shot_overlay_build
 
-Bạn quyết định. Chúng xây.
+Bạn quyết định. Thuộc địa xây.
 
 ## shot_overlay_economy
 
@@ -244,19 +244,19 @@ Chọn hướng mở rộng
 
 ## shot_overlay_maps
 
-23 bản đồ, 67 bộ tạo bản đồ
+23 bản đồ có sẵn, hoặc ngẫu nhiên
 
 ## shot_overlay_opponents
 
-Đấu với 8 đối thủ máy tính
+8 đối thủ máy tính
 
 ## shot_overlay_fair_deal
 
-Không quảng cáo & mua in-app
+Không quảng cáo hay mua in-app
 
 ## shot_overlay_ai_coplay
 
-Chơi cùng tác nhân AI
+Chơi cùng tác nhân AI của bạn
 
 ## shot_caption_hero
 

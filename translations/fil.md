@@ -224,7 +224,7 @@ Real-time strategy
 
 ## shot_overlay_build
 
-Pasya mo. Sila ang magtatayo
+Pasya mo. Sila ang gagawa
 
 ## shot_overlay_economy
 
@@ -240,7 +240,7 @@ Piliin kung saan lalawak
 
 ## shot_overlay_maps
 
-23 mapa, 67 map generator
+23 mapa, o mga random
 
 ## shot_overlay_opponents
 
@@ -252,7 +252,7 @@ Walang ads o in-app purchase
 
 ## shot_overlay_ai_coplay
 
-Kakampi mo ang AI agent mo
+Maglaro kasama ang AI agent mo
 
 ## shot_caption_hero
 

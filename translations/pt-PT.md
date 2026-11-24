@@ -220,7 +220,7 @@ O Globulation 2 é um software gratuito e de código aberto. Código-fonte e lic
 
 ## shot_overlay_hero
 
-Estratégia em tempo real
+RTS de colónias
 
 ## shot_overlay_build
 
@@ -228,7 +228,7 @@ Tu decides. Eles constroem.
 
 ## shot_overlay_economy
 
-Mantém a colónia alimentada
+Alimenta a colónia
 
 ## shot_overlay_battle
 
@@ -240,19 +240,19 @@ Escolhe para onde expandir
 
 ## shot_overlay_maps
 
-23 mapas, 67 geradores
+23 mapas, ou aleatórios
 
 ## shot_overlay_opponents
 
-8 adversários do computador
+8 rivais CPU
 
 ## shot_overlay_fair_deal
 
-Sem anúncios nem compras
+Sem anúncios ou compras na app
 
 ## shot_overlay_ai_coplay
 
-Joga com o teu agente de IA
+Joga ao lado do teu agente de IA
 
 ## shot_caption_hero
 

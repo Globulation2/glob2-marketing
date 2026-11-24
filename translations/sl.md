@@ -220,7 +220,7 @@ Globulation 2 je brezplačna programska oprema z odprto kodo. Izvorna koda in li
 
 ## shot_overlay_hero
 
-Strategija v realnem času
+Strategija kolonij v realnem času
 
 ## shot_overlay_build
 
@@ -240,7 +240,7 @@ Izberite, kam se širiti
 
 ## shot_overlay_maps
 
-23 zemljevidov, 67 pokrajin
+23 zemljevidov ali naključni
 
 ## shot_overlay_opponents
 
@@ -248,7 +248,7 @@ Izberite, kam se širiti
 
 ## shot_overlay_fair_deal
 
-Brez oglasov in nakupov
+Brez oglasov in nakupov v igri
 
 ## shot_overlay_ai_coplay
 

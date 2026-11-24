@@ -240,15 +240,15 @@ Velg hvor du vil utvide
 
 ## shot_overlay_maps
 
-23 kart, 67 kartgeneratorer
+23 kart, eller tilfeldige
 
 ## shot_overlay_opponents
 
-Møt 8 datastyrte motstandere
+8 datastyrte motstandere
 
 ## shot_overlay_fair_deal
 
-Uten reklame og kjøp i appen
+Uten reklame. Uten kjøp i appen
 
 ## shot_overlay_ai_coplay
 

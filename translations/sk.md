@@ -220,11 +220,11 @@ Globulation 2 je bezplatný softvér s otvoreným zdrojovým kódom. Zdrojový k
 
 ## shot_overlay_hero
 
-Stratégia v reálnom čase
+RTS o kolónii
 
 ## shot_overlay_build
 
-Vy rozhodujete. Oni stavajú.
+Vy rozhodujete, kolónia stavia.
 
 ## shot_overlay_economy
 
@@ -240,7 +240,7 @@ Zvoľte, kam sa rozšírite
 
 ## shot_overlay_maps
 
-23 máp, 67 generátorov máp
+23 máp alebo náhodné mapy
 
 ## shot_overlay_opponents
 
@@ -248,11 +248,11 @@ Zvoľte, kam sa rozšírite
 
 ## shot_overlay_fair_deal
 
-Bez reklám a nákupov v hre
+Bez reklám a nákupov v hre
 
 ## shot_overlay_ai_coplay
 
-Hrajte s vlastným AI agentom
+Hrajte spolu so svojím AI agentom
 
 ## shot_caption_hero
 

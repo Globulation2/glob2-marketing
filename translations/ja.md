@@ -220,7 +220,7 @@ Globulation 2は無料のオープンソースソフトウェアです。ソー�
 
 ## shot_overlay_hero
 
-コロニーを指揮するリアルタイムストラテジー
+コロニーを指揮する​リアルタイム戦略
 
 ## shot_overlay_build
 
@@ -228,7 +228,7 @@ Globulation 2は無料のオープンソースソフトウェアです。ソー�
 
 ## shot_overlay_economy
 
-コロニーの食料を確保しよう
+コロニーの食料を​確保しよう
 
 ## shot_overlay_battle
 
@@ -236,23 +236,23 @@ Globulation 2は無料のオープンソースソフトウェアです。ソー�
 
 ## shot_overlay_territory
 
-コロニーをどこへ広げるか選ぼう
+コロニーを​どこへ広げるか選ぼう
 
 ## shot_overlay_maps
 
-23のマップと67種類のランダム生成地形
+23のマップか、ランダムマップ
 
 ## shot_overlay_opponents
 
-8種類のコンピューター対戦相手に挑もう
+コンピューターの​対戦相手が8種類
 
 ## shot_overlay_fair_deal
 
-広告なし、アプリ内課金なし
+広告なし。アプリ内課金なし
 
 ## shot_overlay_ai_coplay
 
-自分のAIエージェントと一緒に遊ぼう
+自分のAIエージェントと​一緒に遊ぼう
 
 ## shot_caption_hero
 

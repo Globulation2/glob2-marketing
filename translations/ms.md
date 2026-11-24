@@ -236,19 +236,19 @@ Bertempur merebut wilayah
 
 ## shot_overlay_territory
 
-Pilih arah untuk berkembang
+Pilih arah perluasan
 
 ## shot_overlay_maps
 
-23 peta, 67 penjana peta
+23 peta, atau peta rawak
 
 ## shot_overlay_opponents
 
-Hadapi 8 lawan komputer
+8 lawan komputer
 
 ## shot_overlay_fair_deal
 
-Tiada iklan/belian dalam apl
+Tiada iklan atau belian dalam apl
 
 ## shot_overlay_ai_coplay
 

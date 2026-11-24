@@ -220,7 +220,7 @@ Globulation 2 doako eta kode irekiko softwarea da. Iturburu-kodea eta lizentziak
 
 ## shot_overlay_hero
 
-Denbora errealeko estrategia
+Denbora errealeko kolonia-estrategia
 
 ## shot_overlay_build
 
@@ -228,7 +228,7 @@ Zuk erabaki, haiek eraiki
 
 ## shot_overlay_economy
 
-Eduki kolonia ondo elikatuta
+Eduki kolonia elikatuta
 
 ## shot_overlay_battle
 
@@ -240,7 +240,7 @@ Aukeratu nora hedatu
 
 ## shot_overlay_maps
 
-23 mapa, 67 mapa-sortzaile
+23 mapa, edo ausazkoak
 
 ## shot_overlay_opponents
 
@@ -248,11 +248,11 @@ Ordenagailuko 8 aurkari
 
 ## shot_overlay_fair_deal
 
-Iragarki eta erosketa gabe
+Ez iragarki, ez jokoko erosketa
 
 ## shot_overlay_ai_coplay
 
-Zure AI agentearekin batera
+Jokatu zure AI agentearekin batera
 
 ## shot_caption_hero
 

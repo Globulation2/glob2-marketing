@@ -240,19 +240,19 @@ Valitse, minne laajennat
 
 ## shot_overlay_maps
 
-23 karttaa, 67 generaattoria
+23 karttaa tai satunnaisia
 
 ## shot_overlay_opponents
 
-8 tietokonevastustajaa
+8 tietokonetta vastassasi
 
 ## shot_overlay_fair_deal
 
-Mainokseton, ei mikromaksuja
+Ei mainoksia. Ei ostoja pelissä
 
 ## shot_overlay_ai_coplay
 
-Tekoälyagentti rinnallasi
+Pelaa tekoälyagenttisi rinnalla
 
 ## shot_caption_hero
 

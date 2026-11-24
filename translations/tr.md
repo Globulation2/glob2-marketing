@@ -220,7 +220,7 @@ Globulation 2 ücretsiz ve açık kaynaklı bir yazılımdır. Kaynak kodu ve li
 
 ## shot_overlay_hero
 
-Gerçek zamanlı strateji
+Gerçek zamanlı koloni stratejisi
 
 ## shot_overlay_build
 
@@ -236,23 +236,23 @@ Toprak için savaşın
 
 ## shot_overlay_territory
 
-Genişleyeceğiniz yeri seçin
+Yayılacağınız yeri seçin
 
 ## shot_overlay_maps
 
-23 harita, 67 harita üreteci
+23 harita ya da rastgele harita
 
 ## shot_overlay_opponents
 
-8 bilgisayar rakibine karşı
+8 bilgisayar rakibi
 
 ## shot_overlay_fair_deal
 
-Reklam ve oyun içi alım yok
+Ne reklam ne oyun içi alım
 
 ## shot_overlay_ai_coplay
 
-Yapay zekâ ajanınız takımda
+Yapay zekâ ajanınızla birlikte oynayın
 
 ## shot_caption_hero
 

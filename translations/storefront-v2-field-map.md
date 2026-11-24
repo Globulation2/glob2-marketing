@@ -2,7 +2,7 @@
 
 [Translation contract](README.md) · [English master](en.md) · [Terminology](glossary.md) · [Platform matrix](platforms.json) · [Storefront v2 claims](../facts/storefront-v2-claims.md) · [Positioning v2](../analysis/positioning-v2.md)
 
-Written 2026-11-24 for the `storefront-v2` English source and revised the same day after an independent copy and store-policy review. It lists every field, how it differs from `storefront-v1`, its limits, where players see it, and how to handle the tight ones. It records the prepared source only; it does not show that any store listing has changed.
+Written 2026-11-24 for the `storefront-v2` English source and revised the same day after an independent copy and store-policy review, and again when the caption renderer measured how much text fits on a screenshot: overlay captions now have a limit per script instead of 28 characters everywhere, and trailer lines have 44 instead of 32 ([overlay caption length by script](#overlay-caption-length-by-script)). It lists every field, how it differs from `storefront-v1`, its limits, where players see it, and how to handle the tight ones. It records the prepared source only; it does not show that any store listing has changed.
 
 ## What changed, in short
 
@@ -58,7 +58,7 @@ Status: **unchanged** (keep the reviewed v1 translation), **renamed** (move the 
 
 ## Limits and where each field appears
 
-Units are characters unless marked bytes. "Bytes" means UTF-8 bytes: a Latin letter is 1, an accented Latin letter or a Cyrillic, Greek, Arabic or Hebrew letter is 2, and a CJK, Thai or Indic character is 3. A "character" is one Unicode code point, so in Indic scripts, Thai, Arabic and Hebrew every vowel sign, tone mark or other combining mark counts as one character, and a space or punctuation mark counts as one.
+Units are characters unless marked bytes. "Bytes" means UTF-8 bytes: a Latin letter is 1, an accented Latin letter or a Cyrillic, Greek, Arabic or Hebrew letter is 2, and a CJK, Thai or Indic character is 3. A "character" is one Unicode code point, so in Indic scripts, Thai, Arabic and Hebrew every vowel sign, tone mark or other combining mark counts as one character, and a space or punctuation mark counts as one. A zero-width space (U+200B) also counts as one.
 
 ### Short fields (the tight ones)
 
@@ -71,10 +71,10 @@ Units are characters unless marked bytes. "Bytes" means UTF-8 bytes: a Latin let
 | `desktop_short_pitch` | 270 | Microsoft Store short description; Steam and GOG (prepared) | Desktop only. The three sentences of `short_pitch` with "free" added, then the optional AI-agent sentence. It must not repeat `headline` word for word: Microsoft shows it directly above the description. English uses 235. |
 | `appstream_summary` | 78 | Snap summary; AppStream summary; desktop launcher comment | No final full stop. Snapcraft's schema sets the 78-character maximum. It must not repeat `headline` word for word: Snap shows it directly above the description. English uses 59. |
 | `windows_search_term_1` … `_7` | 30 each | Microsoft Store search terms (not shown) | Lower case unless a name. Microsoft's own pages give 30 and 40 characters in different places; 30 is used here. Microsoft also allows at most 21 different words across all seven; English uses 14. No price word ("free") and no other product's name ([Store policy 10.1.3](https://learn.microsoft.com/en-us/windows/apps/publish/store-policies)). Term 7 is about the AI agent; keep "MCP". |
-| `shot_overlay_<role>` | 28 | Drawn onto screenshots for Google Play, App Store, Amazon, F-Droid and itch.io | 2 to 5 words, no final full stop, must make sense alone, one caption per picture. No price word and never "free". `ai_coplay` is used on desktop sets only. English uses 18 to 28. |
+| `shot_overlay_<role>` | By script: 20 to 50, Latin 40. Aim for the target, Latin 32. See [overlay caption length by script](#overlay-caption-length-by-script) | Drawn onto screenshots for Google Play, App Store, Amazon, F-Droid and itch.io | 2 to 5 words in English, no final full stop, must make sense alone, one caption per picture. No price word and never "free". `ai_coplay` is used on desktop sets only. English uses 18 to 28; the phone sets are set at 95% (iPhone) and 97% (Android phone) of full size. |
 | `shot_caption_<role>` | 100 | Caption field under screenshots: Microsoft Store, AppStream | One plain sentence saying what the picture shows. Names no map. |
 | `trailer_title` | 50 | Microsoft Store trailer title; video title elsewhere | |
-| `trailer_line_1` … `_4`, `trailer_line_ai_coplay` | 32 | Text on screen in the trailer | Shown one at a time, in order: control, economy, battle, the deal. Each line must make sense alone. The AI line is in desktop cuts only, after line 3. No price word. English uses 20 to 29. |
+| `trailer_line_1` … `_4`, `trailer_line_ai_coplay` | 44 | Text on screen in the trailer | Shown one at a time, in order: control, economy, battle, the deal. Each line must make sense alone. The AI line is in desktop cuts only, after line 3. No price word. The limit is the same in every locale: a trailer card is the full width of a 16:9 frame. English uses 20 to 29. |
 | `feature_*`, `fair_deal_line` | 200 | Microsoft Store feature list; Amazon bullets; description bullet lists | English is far below the limit. |
 
 ### Description blocks
@@ -108,13 +108,22 @@ Every description starts with `headline` on line one and `fair_deal_line` on lin
 
 ### Which locales reach which store
 
-A locale file must hold all 78 fields, but a limit only binds where the locale is mapped to that store in the [platform matrix](platforms.json). The 28-, 32-, 50- and 100-character limits on overlay, trailer and caption fields bind in every locale, because the images and video are rendered for all 45.
+A locale file must hold all 78 fields, but a limit only binds where the locale is mapped to that store in the [platform matrix](platforms.json). The limits on overlay, trailer and caption fields bind in every locale, because the images and video are rendered for all 45: the overlay limit of the locale's script, 44 for a trailer line, 50 for the trailer title and 100 for a caption sentence.
 
 ## Advice for the tight fields
 
-Long-word languages (German, Finnish, Hungarian, Dutch, the Nordic and Slavic languages, Greek, Turkish, Tamil, Telugu, Malay, Filipino) will not fit a literal translation into the four tightest fields. Adapt in this order of priority.
+Long-word languages (German, Finnish, Hungarian, Dutch, the Nordic and Slavic languages, Greek, Turkish, Tamil, Telugu, Malay, Filipino) will not fit a literal translation into the tightest fields. Adapt in this order of priority.
 
-**`shot_overlay_<role>` (28).** Keep the one idea, drop everything else. Prefer two strong words to five weak ones. Articles and "your" can go. English is already at or near the limit in `fair_deal` (27), `ai_coplay` (28), `maps` (26) and `opponents` (25), so most languages must adapt these four. For `fair_deal`, the two facts are "no ads" and "no in-app purchases"; a compound such as an "ad-free" adjective is fine, and if both still do not fit, keep both facts and use the store's shortest standard term for in-app purchases rather than dropping one. For `maps`, keep both numbers; "map generators" are the 67 random landscapes, and the shortest clear word for "random maps" will do. For `opponents`, keep the number 8 and "computer"; the verb can go. For `ai_coplay`, keep "AI agent" and the sense of playing on the same side; never a word that means playing against it. For `build`, see the note on "they" above. For `hero`, use the same genre term as your `ios_subtitle`. Do not use all capitals to save space. In right-to-left scripts write the caption normally; the renderer handles direction.
+**`shot_overlay_<role>` (limit and target by script, [table below](#overlay-caption-length-by-script)).** Say the whole idea in the words players know, and stay within your script's target. The earlier limit of 28 characters in every script forced cuts that are no longer needed, so restore the full wording wherever it fits the target:
+
+- `fair_deal`: the two facts are "no ads" and "no in-app purchases". English writes them as two short sentences, "No ads. No in-app buys", so the line breaks between the two facts; "in-app buys" is only the shorter English for "in-app purchases", chosen because "No ads, no in-app purchases" could break only as "No ads, no / in-app purchases" and set the whole English gallery at 78%. Keep the break between the two facts (two sentences, or a comma). Use the term your app stores use for in-app purchases, or a shorter form that still clearly means purchases inside the game, never a bare "no purchases". A compound such as an "ad-free" adjective is fine. Never drop one of the two facts.
+- `maps`: "23 maps, or random ones" says that you play one of the 23 hand-made maps or a randomly generated one. Keep the number 23 and make clear that the random ones are game maps (say "random maps" if "ones" does not carry that in your language); never a bare "generators", and do not add the number 67, "infinite" or "endless". The break falls after the comma.
+- `hero`: use the same genre term as your `ios_subtitle`, and keep "colony" where it fits the target.
+- `opponents`: keep the number 8 and "computer"; the verb can go (English: "8 computer opponents", without the verb).
+- `ai_coplay`: keep "AI agent" and the sense of playing on the same side; never a word that means playing against it.
+- `build`: see the note on "they" above.
+
+Articles and "your" can still go, and two strong words still beat five weak ones: a caption is read at thumbnail size. Do not pad a caption because there is room. Do not use all capitals to save space. In right-to-left scripts write the caption normally; the renderer handles direction. One long word that cannot be broken (a German, Dutch or Finnish compound) can fill a whole line and make the type shrink, so check the caption with the renderer as described below.
 
 **`ios_subtitle` (30).** This is a search field first. Keep the genre term your players search for ("RTS" if they use it), then "colony" if it fits. Drop "real-time" before you drop "strategy".
 
@@ -124,9 +133,60 @@ Long-word languages (German, Finnish, Hungarian, Dutch, the Nordic and Slavic la
 
 **`windows_search_term_*` (30 each, 21 different words in all).** One search phrase per field, as players type it. Keep each to as few words as the English.
 
-**`trailer_line_*` (32).** Each line is on screen for about two seconds. Keep them as short as the English or shorter. `trailer_line_1` is the same text as `shot_overlay_build`, `trailer_line_4` the same facts as `shot_overlay_fair_deal`, and `trailer_line_ai_coplay` the same text as `shot_overlay_ai_coplay`: use the same wording in both.
+**`trailer_line_*` (44).** Each line is on screen for about two seconds, so the limit is room for the full wording, not a length to aim for. Keep each line as close to the length of the English as the full wording allows. `trailer_line_1` is the same text as `shot_overlay_build`, `trailer_line_4` the same facts as `shot_overlay_fair_deal` (the trailer card is wide enough for "No ads. No in-app purchases."; the overlay may use the shorter form for in-app purchases), and `trailer_line_ai_coplay` the same text as `shot_overlay_ai_coplay`: use the same wording in both.
 
 **`short_pitch` (170) and `desktop_short_pitch` (270).** English uses 147 and 235, so a language that runs more than about 15% longer must cut. Cut whole sentences, in this order: first "You set the priorities; your colony does the work.", which leaves room for a translation about 75% longer than the English in `short_pitch` and about 45% longer in `desktop_short_pitch`; then shorten "Grow a colony and fight rivals for land." Never cut the opening sentence (genre, no ads, no in-app purchases) or, on desktop, the AI-agent sentence.
+
+## Overlay caption length by script
+
+A caption is drawn in the band above the screenshot, on one line or on two balanced lines. The caption renderer measured on 2026-11-24 how long a caption can be on the narrowest image, the portrait iPhone screenshot ([how long a caption can be](../assets/storefront-v2/tools/README.md#how-long-a-caption-can-be)). Two numbers follow from that for each script, both counted in characters as defined above:
+
+- **Target:** up to this length a caption is normally set at 85% of full type size or more. Write to the target.
+- **Limit:** the ceiling, up to which a caption can still be set at 70% of full size or more. `check` and the renderer reject a longer caption. Between target and limit the caption is accepted but may be set visibly smaller than its neighbours, so go there only when the full wording needs it, and check the result with the renderer.
+
+| Script group | Locales | Target | Limit |
+| --- | --- | --- | --- |
+| Latin | `en`, `pt-BR`, `ca`, `cs`, `de`, `da`, `es`, `eo`, `eu`, `fr`, `hu`, `it`, `nl`, `pl`, `pt-PT`, `ro`, `sl`, `sk`, `fi`, `sv`, `tr`, `id`, `vi`, `sw`, `nb`, `ms`, `fil` | 32 | 40 |
+| Cyrillic, Greek | `ru`, `uk`, `bg`, `sr-Cyrl`, `el` | 28 | 36 |
+| Chinese | `zh-Hans`, `zh-Hant` | 20 | 24 |
+| Japanese | `ja` | 18 | 20 |
+| Korean | `ko` | 22 | 32 |
+| Devanagari | `hi`, `mr` | 40 | 48 |
+| Bengali | `bn` | 36 | 46 |
+| Telugu | `te` | 32 | 50 |
+| Tamil | `ta` | 24 | 32 |
+| Arabic, Persian | `ar`, `fa` | 40 | 48 |
+| Urdu | `ur` | 28, on one line | 28 |
+| Thai | `th` | 28 with a break point at a phrase boundary; about 20 without | 28 |
+
+The limits are `field_limits` → `shot_overlay_*` → `script_groups` in [platforms.json](platforms.json), which also records each target. All 45 locales are assigned to a group. A locale code that is in no group gets the default limit of 28.
+
+**Thai.** Thai is written without spaces between words, and the renderer never breaks a Thai caption inside a run of letters, because automatic word breaking cuts loanwords and compounds in the wrong place. A caption with no break point is therefore set on one line and shrinks once it is longer than about 20 characters. Where a caption has no natural space, put a zero-width space (U+200B) at each phrase boundary, never inside a word or a name. It is invisible in the catalog and in the image, and it counts as one character. Use it in `shot_overlay_*` fields only.
+
+**Urdu** is set in Nastaliq, which is tall: keep the caption to one line.
+
+**Chinese, Japanese and Korean** captions count every character, including digits, Latin letters and spaces, so "AI" is 2 and "67" is 2.
+
+### Checking legibility with the renderer
+
+The character limit is a coarse filter. Whether a caption reads well is decided by setting it in the real font on every image size, which the renderer's `fit` command does without writing any image:
+
+```sh
+cd assets/storefront-v2/tools    # from the marketing repository root
+uv run screenshots.py fit --locale <code>
+```
+
+`<code>` is one locale, a comma-separated list, or `all` (about three minutes). The fonts must have been downloaded once with `python3 fetch_fonts.py` in that directory; the [renderer's README](../assets/storefront-v2/tools/README.md) has the other options.
+
+What it prints (run on 2026-11-24 against the catalogs of that day):
+
+- One line per store set and a total, when everything fits. For `en`: `apple-iphone-6.9: 1 locale(s) fit` and the same for the other six sets, then `51 captions fit`, exit status 0.
+- A list headed `N caption(s) worth a look (no good break at a space, so a fallback was used):` for captions that were set, but not in the preferred way. Each entry gives the store set, locale and role, the caption as set with ` | ` at the line break, the type size used in pixels, and the reason: `one line at reduced size`, or `line break by the 'free' rule` (or `'words'`) when the break was not at a space, a zero-width space or punctuation. For `th`: `apple-iphone-6.9 / th / hero: เกมวางแผนอาณานิคมเรียลไทม์  (90px, one line at reduced size)`. For `ja`: `apple-iphone-6.9 / ja / opponents: 8種類の | コンピューター対戦相手に挑もう  (74px, line break by the 'free' rule)`. The exit status is still 0 if nothing else is wrong.
+- A list headed `N caption(s) could not be rendered:` and exit status 1 for a caption that is over its limit, uses a banned word or a character no bundled font has, or cannot be set at the smallest allowed size. For `ja`: `apple-iphone-6.9 / ja / hero: ja/shot_overlay_hero: 21 characters exceeds 20; reviewed adaptation required`.
+
+Reading the pixel figure: full type size is 128 px on `apple-iphone-6.9`, 145 px on `apple-ipad-13`, 90 px on the phone sets of Google Play and F-Droid, 93 px on `google-play-tablet-7` and 124 px on the 10-inch tablet sets, multiplied by 0.90 for Chinese and Japanese, 0.92 for Korean, 0.94 for Tamil, 0.96 for Urdu and 1.04 for Arabic and Persian. So 90 px for the Thai caption above is 70% of full size and 74 px for the Japanese one is 64%: both should be reworded, shortened or given a break point. A flagged caption at full size (Japanese `economy` at 115 px) only needs a look at where the line broke.
+
+`fit` does not print a percentage, and it lists only the two fallback cases. A caption that broke at a space or at punctuation is not listed even when it was shrunk to fit, so a run with no list does not prove that every caption is at 85% or more. Staying within the target is what keeps a caption there. For an exact figure after `render`, each `manifest.json` records `caption.font_size` and `caption.full_size` for every image.
 
 ## Per-store switches
 
@@ -147,7 +207,18 @@ With `ai_coplay` on, Microsoft also gets the AI-agent short description, feature
 
 ## Screenshot roles and order
 
-The story order for galleries is `hero`, `build`, `economy`, `battle`, `territory`, `maps`, `opponents`, then `fair_deal` on captioned mobile sets and `ai_coplay` on desktop sets. `platforms.microsoft.fields.desktop_screenshot_caption_1` … `_8` and the AppStream caption list follow that order without `fair_deal`. If the final clean desktop gallery uses a different order or fewer images, change those entries to match before export; a caption must describe the picture it sits under.
+The gallery orders are recorded in `asset_text` in [platforms.json](platforms.json).
+
+| Gallery | Key | Order |
+| --- | --- | --- |
+| Captioned mobile sets (App Store, Google Play, Amazon, F-Droid) | `mobile_gallery_order` | `hero`, `build`, `fair_deal`, `battle`, `economy`, `territory`, `maps`, `opponents` |
+| Clean desktop galleries (Microsoft Store, Steam, Epic, AppStream) | `desktop_gallery_order` | `hero`, `build`, `economy`, `battle`, `territory`, `maps`, `opponents`, `ai_coplay` |
+
+The fair-deal slide is third on mobile because App Store search results show the first three portrait screenshots, so the deal is seen without opening the listing. `fair_deal` is not in desktop galleries and `ai_coplay` is not in mobile ones. A device class with fewer captures keeps the same relative order.
+
+The desktop order is unchanged: `platforms.microsoft.fields.desktop_screenshot_caption_1` … `_8` and the AppStream caption list are numbered in it, and a test holds the three together. If the final clean desktop gallery uses a different order or fewer images, change `desktop_gallery_order` and those entries together before export; a caption must describe the picture it sits under.
+
+The matrix records the mobile order; it does not apply it. The caption renderer takes its slots from `assets/storefront-v2/captures/mobile/selection.json`, or from `provisional_gallery` in its `gallery.json` until that file exists, so those lists must be written in this order.
 
 `shot_caption_fair_deal` is supplied for a store that shows a caption beside a captioned image. No store composes it today.
 
