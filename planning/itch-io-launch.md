@@ -74,3 +74,5 @@ The previously enabled sensitive content flag was turned off. **Unlisted in sear
 ## Published launch devlog
 
 The signed-out [launch devlog](https://genixpro.itch.io/globulation-2/devlog/1802485/globulation-2-is-now-playable-on-itchio) was verified after publication under **Major Update or Launch**. It announces fullscreen browser play, guest rooms shared with Glob2 Online, and the Windows, macOS and Linux downloads. The post asks players to name their browser when reporting problems. It uses one approved gameplay image from the Four Squares strategic view. [Image source and provenance](../assets/storefront-approved-v1/snap/README.md)
+
+A subsequent signed-out [exact-title search](https://itch.io/search?q=Globulation+2) returned **Globulation 2** with a direct link to the [official listing](https://genixpro.itch.io/globulation-2). This verifies search indexing.
