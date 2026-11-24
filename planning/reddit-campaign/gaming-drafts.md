@@ -14,9 +14,9 @@ Reviewed November 23, 2026 against the public subreddit rules, current desktop r
 
 > I’m [name], one of the maintainers of Globulation 2. We’ve been remastering the open-source RTS that first appeared in 2004.
 >
-> Here’s a mid-game spectator view of computer opponents. Workers keep jobs moving around the colony while warriors fight for space. You guide the globs by requesting workers at buildings and placing flags. They pick their own routes and carry out the work.
+> Here’s a mid-game spectator view of four Cortex opponents on Four Squares. At the south edge of the red colony, green globs attack through the gap between the forests while units move among the red buildings. You guide globs by requesting workers at buildings and placing flags, and they pick their own routes.
 >
-> [Attach or link the verified mid-game AI-versus-AI clip. Use the version and map in the capture record.]
+> [Four Squares mid-game battle, captured on macOS in 0.11.7.0](https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/reddit-campaign/four-squares-ai-midgame.mp4)
 >
 > The remaster is free on Linux, Windows and macOS. [Official release and downloads](https://glob2.online/downloads/)
 
@@ -34,9 +34,9 @@ Reviewed November 23, 2026 against the public subreddit rules, current desktop r
 
 > I’m [name], one of the developers maintaining Globulation 2. It’s a free, open-source RTS that first appeared in 2004. The remaster is playable now on Linux, Windows and macOS.
 >
-> The clip is a spectator view of a mid-game match between computer opponents. The colonies already have buildings and workers in motion when the warriors meet. In a match you can mark where you want warriors to go, then turn back to food or construction while the globs work out how to get there.
+> This is Four Squares about 14 minutes into a match between four computer opponents. The camera holds on the south edge of the red colony as green units attack. In a match you can mark where you want warriors to go, then turn back to food or construction while the globs work out how to get there.
 >
-> [Insert the direct URL for the reviewed mid-game AI-versus-AI clip. Use the version and map in the capture record.]
+> [Watch the 24-second Four Squares battle, captured on macOS in 0.11.7.0](https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/reddit-campaign/four-squares-ai-midgame.mp4)
 >
 > Start with Tutorial if you’re new, then try a custom game against a computer opponent. If you played the original, look for the familiar unit animations. We re-rendered them from the original Blender rigs for the remaster.
 >

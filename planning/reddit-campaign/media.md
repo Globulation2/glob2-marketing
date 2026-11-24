@@ -2,13 +2,13 @@
 
 [Campaign index](README.md) · [Marketing gameplay video standards](../gameplay-video.md) · [Approved storefront imagery](../approved-storefront-rollout.md#approved-imagery-only--2026-10-30) · [Current desktop release](https://github.com/Globulation2/glob2/releases/tag/v0.11.7.0)
 
-Prepared on 2026-11-23. The campaign can reuse the approved storefront frames and link to already-public, reviewed gameplay from the official handbook. The files below retain their original capture provenance. No new media was published for this campaign.
+Updated on November 23, 2026. The lead video is a mid-game battle captured for the campaign. The approved storefront screenshot and earlier tutorial clips are documented below.
 
 ## Ready media and where to use it
 
 | Use | Asset | Provenance and limits |
 | --- | --- | --- |
-| **r/Games Indie Sunday and r/StrategyGames** | Mid-game AI-versus-AI battle | Lead with active troops, visible fighting, and developed colonies. Indie Sunday needs a direct playback link in the post body. |
+| **r/Games Indie Sunday and r/StrategyGames** | [Four Squares mid-game AI battle](../../assets/reddit-campaign/four-squares-ai-midgame.mp4) | Four Cortex opponents on the native macOS build, shown at 68% zoom. The view holds on the red colony’s southern edge as green units attack. [Capture details](../../assets/reddit-campaign/README.md) |
 | **r/IndieGaming** | [Approved Four Squares strategic-view PNG](../../assets/storefront-approved-v1/03-four-squares-strategic.png) | Native spectator capture from an earlier 0.11.4.0 build, with four Cortex-controlled colonies at 25,000 ticks. The 2560 × 1440 still shows the strategic layer and spectator HUD at 32% zoom, with two colonies centered, building-purpose icons, army markers and territory colors. Use it for a strategic-view post. Use the capture recipe below for the planned transition video. [Capture pack](../../assets/epic-gallery-v5/README.md) |
 | **r/OpenSourceGames** | [Tagged original-art catalog](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/CATALOG.md) and [recovered-runtime recipes](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/recovered-runtime.md) | These show inspectable preservation work. Use them alongside the tagged graphics README and licenses. For a specific example, pair the worker walk rig with the rendering instructions. This is also usable in a text-only post. [Worker walk source](https://github.com/Globulation2/glob2/blob/v0.11.7.0/content-src/gfx/originals/units/glob-worker-walk.blend) · [Animation workflow](https://github.com/Globulation2/glob2/blob/v0.11.7.0/tools/unit-animation/README.md) |
 | **r/linux_gaming** | [Approved Four Squares strategic-view PNG](../../assets/storefront-approved-v1/03-four-squares-strategic.png), optional illustration of the game | Caption as an earlier 0.11.4.0 desktop spectator capture if used. A text-only submission with verified Linux install context is viable while the current Linux comparison is pending. |
