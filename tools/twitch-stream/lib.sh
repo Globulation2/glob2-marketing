@@ -10,7 +10,8 @@ RIG_SETTINGS=(GLOB2_SRC GLOB2_BIN GAME_RENDERER GAME_USERNAME STREAM_DISPLAY STR
   OVERLAY_FILE LOG_DIR BRAND BRAND_LOGO BRAND_TEXT BRAND_TEXT_SIZE BRAND_WIDTH BRAND_OPACITY
   BRAND_MARGIN_RIGHT BRAND_MARGIN_BOTTOM STATE_DIR NOTES_DIR PLAYER_MODEL CHAT_MODEL
   TWITCH_CHANNEL TWITCH_BOT_USER TWITCH_CHAT_TOKEN_FILE TWITCH_CLI_ENV
-  AGENT_USER AGENT_SHARED_DIR AGENT_INSTALL_DIR AGENT_ETC_DIR AGENT_SUDOERS AGENT_EGRESS EGRESS_PROXY_PORT EGRESS_ALLOW)
+  AGENT_USER AGENT_SHARED_DIR AGENT_INSTALL_DIR AGENT_ETC_DIR AGENT_SUDOERS AGENT_EGRESS EGRESS_PROXY_PORT EGRESS_ALLOW
+  AUTOSTART_STREAM AUTOSTART_CHAT)
 if [[ -f "$GLOB2_STREAM_HOME/stream.env" ]]; then
   declare -A rig_env=()
   for v in "${RIG_SETTINGS[@]}"; do [[ -n "${!v+x}" ]] && rig_env[$v]="${!v}"; done
@@ -68,5 +69,8 @@ if [[ -n "$AGENT_USER" ]]; then : "${AGENT_SHARED_DIR:=/var/lib/glob2-stream}"; 
 : "${TWITCH_BOT_USER:=}"                        # account the chat agent speaks as; empty = read-only
 : "${TWITCH_CHAT_TOKEN_FILE:=$HOME/.config/glob2-stream/twitch-chat.token}"
 : "${TWITCH_CLI_ENV:=$HOME/.config/twitch-cli/.twitch-cli.env}"   # Twitch CLI credentials used to refresh the chat token
+# Autostart at boot (autostart/install-autostart.sh).
+: "${AUTOSTART_STREAM:=live}"          # live, none or file:PATH
+: "${AUTOSTART_CHAT:=1}"
 export GLOB2_STREAM_HOME MCP_PORT LOG_DIR
 if [[ "$STREAM_DISPLAY_BACKEND" == xorg ]]; then export XAUTHORITY="$STREAM_XAUTHORITY"; fi

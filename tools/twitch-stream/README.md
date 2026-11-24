@@ -71,10 +71,24 @@ claude setup-token                                    # then install the token i
 ./supervisor.py run --stream file:$HOME/glob2-stream/logs/run.mp4 --max-games 1   # one supervised match, recorded locally
 ./status.py                                           # what is running, the current match and the record
 ./supervisor.py run --stream live --i-mean-it --chat  # Claude Plays Glob 24/7, only with the user's go-ahead
+./autostart/install-autostart.sh                     # or run it as a boot-time service (see Running unattended)
 ./down.sh                                             # stop everything
 ```
 
 Run the scripts from anywhere; they find each other through their own location.
+
+## Running unattended
+
+`autostart/install-autostart.sh` makes the whole rig come up at boot with nobody logged in:
+
+- **What starts:** the systemd user service `glob2-stream.service` runs `supervisor.py`, which brings up the game, the stream, the player and (with `AUTOSTART_CHAT=1`) the chat host, and restarts any of them that exits. systemd restarts the supervisor itself if it exits.
+- **Lingering:** the installer enables lingering for the operator, so the user manager, PipeWire and the service start at boot without a login.
+- **System services it relies on:** `glob2-stream-xorg` (the NVIDIA display), `glob2-agent-egress` and `glob2-agent-proxy` (the agents' firewall and proxy), installed and enabled by `display/install-xorg-display.sh` and `sandbox/install-agent-sandbox.sh`.
+- **Order:** `autostart/wait-ready.sh` waits for the audio server and the stream display before the supervisor starts; on timeout systemd retries.
+- **Stopping and restarting:** `systemctl --user stop glob2-stream` ends the stream, chat and player but leaves the game and its match running (`KillMode=process`), so `restart` resumes the match. Logs: `logs/supervisor-console.log`, `journalctl --user -u glob2-stream`.
+- **Going live is a standing decision.** With `AUTOSTART_STREAM=live` (the default) every boot broadcasts. Use `none` or `file:PATH` for a machine that shouldn't go live on its own, or `--uninstall`.
+
+Don't run a hand-started `supervisor.py` while the service is active: stop the service first.
 
 ## File layout
 
@@ -137,6 +151,7 @@ Each value is one line of at most 70 characters, so three lines fit beside the b
 | `GLOB2_SRC`, `GLOB2_BIN` | `~/glob2-stream/src`, its perf build | Game checkout and binary. |
 | `GAME_RENDERER` | `sdl-gpu` | `software` works without a GPU but is slow. |
 | `STREAM_DISPLAY`, `STREAM_SIZE`, `STREAM_FPS` | `:99`, `1920x1080`, `60` | |
+| `AUTOSTART_STREAM`, `AUTOSTART_CHAT` | `live`, `1` | What the boot service runs (`autostart/install-autostart.sh`). |
 | `STREAM_DISPLAY_BACKEND`, `STREAM_XAUTHORITY` | `xvfb`, `$GLOB2_STREAM_HOME/display/Xauthority` | `xorg` uses the headless NVIDIA X server (`display/install-xorg-display.sh`); its auth cookie is the second setting. |
 | `STREAM_VBITRATE`, `STREAM_ABITRATE` | `6000k`, `160k` | Keep video at or below 6000k for Twitch. |
 | `STREAM_ENCODER` | auto | `h264_nvenc`, `libx264`, or another ffmpeg encoder. |

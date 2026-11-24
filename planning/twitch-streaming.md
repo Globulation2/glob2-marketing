@@ -78,6 +78,10 @@ After all three, a 16 s pull of the public stream with streamlink showed 1920×1
 
 The caption shows the game number and overall record ("vs Nicowar · Game 2 · overall 1W–0L–0D"); the head-to-head record stays in `match_info` and the chat host's status. The first caption showed only the record against the current opponent, which read as 0 wins right after a win against a different AI.
 
+### Unattended operation (2026-11-24)
+
+At the user's request the rig now starts at boot without a login: a systemd user service runs the supervisor (live, with chat), on top of the enabled display, firewall and proxy system services and lingering for the operator. A reboot test is the acceptance check, recorded below once done. Hourly check-ins by Claude run for the rest of 2026-11-24 to tune prompts and fix issues.
+
 ## Gaps and next work
 
 - **24/7 operation.** The supervisor restarts failed streams, sessions and the chat host, and caps log growth. Still to verify before an unattended public run:
