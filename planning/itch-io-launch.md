@@ -70,3 +70,7 @@ The hosted game uses the scoped framing support merged as `59289fff`. The valida
 A fresh [public listing](https://genixpro.itch.io/globulation-2) check showed Windows restored to the platform list, and **Colony Sim** and **Economy** alongside the four existing tags. After saving, the editor showed mouse and keyboard controls, an average session of about half an hour, server-based multiplayer for 1–12 players, and an interactive tutorial. itch.io rejected saving all 45 languages, so ten language filters were saved: German, English, Spanish, French, Italian, Japanese, Polish, Brazilian Portuguese, Russian, and Simplified Chinese.
 
 The previously enabled sensitive content flag was turned off. **Unlisted in search & browse** and **Disable new downloads & purchases** were unchecked. The exact title was still absent from signed-out search immediately after the correction. No devlog was published. [itch.io indexing guidance](https://itch.io/docs/creators/getting-indexed)
+
+## Published launch devlog
+
+The signed-out [launch devlog](https://genixpro.itch.io/globulation-2/devlog/1802485/globulation-2-is-now-playable-on-itchio) was verified after publication under **Major Update or Launch**. It announces fullscreen browser play, guest rooms shared with Glob2 Online, and the Windows, macOS and Linux downloads. The post asks players to name their browser when reporting problems. It uses one approved gameplay image from the Four Squares strategic view. [Image source and provenance](../assets/storefront-approved-v1/snap/README.md)
