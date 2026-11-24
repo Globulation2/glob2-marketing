@@ -236,6 +236,39 @@ def _wait_notes(text: str, fast_forward: bool = False) -> str:
     return "\n".join(notes) + "\n"
 
 
+# Narration through stream-ctl (the player's raw game_chat is denied). Prompt rules for pace didn't
+# hold (match 12: ~4 messages a minute), so the pace and the no-coordinates rule are enforced here.
+NARRATE_MIN_INTERVAL = 30.0
+_last_narration = [0.0]
+
+
+def narrate(cfg, a) -> str:
+    for k in ("MCP_PORT", "STATE_DIR"):
+        if cfg.get(k):
+            os.environ.setdefault(k, str(cfg[k]))
+    text = " ".join(str(a.get("text") or "").split())
+    text = camera.strip_coords(text)
+    if not text:
+        raise CtlError("nothing to say")
+    raw = text.encode("utf-8")[:254]
+    text = raw.decode("utf-8", "ignore")
+    since = time.time() - _last_narration[0]
+    if since < NARRATE_MIN_INTERVAL:
+        return (f"not sent: your last message was {since:.0f} s ago (one every {NARRATE_MIN_INTERVAL:.0f} s at most). "
+                "Keep playing and say it later if it still matters.")
+    token = camera.read_token()
+    if not token:
+        raise CtlError("no game control right now; take control first")
+    out = camera._rpc("game_chat", {"text": text, "token": token})
+    if "error" in out:
+        raise CtlError(str(out["error"].get("message", "chat failed"))[:200])
+    result = out.get("result", {})
+    if result.get("isError"):
+        raise CtlError((result.get("content") or [{}])[0].get("text", "chat failed")[:200])
+    _last_narration[0] = time.time()
+    return "said in game chat: " + text
+
+
 FAST_FORWARD_SPEED = 5          # 4x; the player may go up to 7 (8x) if the end still drags
 
 
@@ -265,6 +298,10 @@ def match_fast_forward(cfg, a) -> str:
 
 
 TOOLS = {
+    "narrate": ("Say something to viewers in the in-game chat (your narration). At most one message every 30 s; "
+                "extra messages are not sent. Up to 254 bytes; tile coordinates are removed, so describe places "
+                "the way viewers see them.",
+                _schema({"text": {"type": "string", "maxLength": 400}}, ["text"]), narrate),
     "match_fast_forward": ("When the match is effectively done (win chance 10% or below for a while, or a long "
                            "stalemate with no progress), speed the game to its natural end instead of grinding: sets 4x speed and "
                            "turns off the automatic slow-down for the rest of the match. Then narrate and show "

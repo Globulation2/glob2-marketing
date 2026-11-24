@@ -42,6 +42,7 @@
       "ReadMcpResourceTool",
       "mcp__glob2-stream__game_view",
       "mcp__glob2-stream__game_wait",
+      "mcp__glob2-stream__game_chat",
       "mcp__claude_ai_*",
       "Edit(./CLAUDE.md)",
       "Edit(./CLAUDE.local.md)",

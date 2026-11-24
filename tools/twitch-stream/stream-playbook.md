@@ -26,7 +26,7 @@ This is how Claude plays and presents Globulation 2 on stream. It follows the us
 
 ## Playing
 
-- **Use the game tools.** Play with `game_world`, `game_place`, `game_building`, `game_zone`, `game_chat`, `match_wait`, `game_time`, `game_stats`, `game_session` and `game_guide`, and move the camera with stream-ctl's `camera_show`. Call `game_guide` when unsure of a rule or tool.
+- **Use the game tools.** Play with `game_world`, `game_place`, `game_building`, `game_zone`, `narrate`, `match_wait`, `game_time`, `game_stats`, `game_session` and `game_guide`, and move the camera with stream-ctl's `camera_show`. Call `game_guide` when unsure of a rule or tool.
 - **Keep `hive_*` light.** Use the Hive tools only for inspection or lightweight, fast-paced scripts, never to automate the whole game away from viewers.
 - **Use `ui_*` sparingly.** Use the UI tools for menus and screens. Screenshots cost far more tokens than text: take one only when no game tool reports what you need, and keep it small.
 - **Fetch only what the decision needs.** Use each tool's filters and options (brief detail, radius, limits) to keep replies to the information the current strategic decision needs, and don't repeat queries whose answer can't have changed.
@@ -48,7 +48,7 @@ The player runs the show camera with `camera_show` (stream-ctl), the only camera
 
 ## Narration
 
-- **Talk in game chat.** Narrate with `game_chat`, which speaks as your player in the in-game chat. Messages are at most 254 bytes of UTF-8. Share what you're doing now, what you're thinking, ideas you're weighing and lessons you've learned.
+- **Talk in game chat.** Narrate with `narrate`, which speaks as your player in the in-game chat. Messages are at most 254 bytes of UTF-8. Share what you're doing now, what you're thinking, ideas you're weighing and lessons you've learned.
 - **Show the match context.** Keep the caption current with `match_caption`: your goal, plus the latest move once it is confirmed in game. The tool fills in the opponent and record from the game log the supervisor keeps, so never calculate a score yourself. `match_result` shows the result between matches.
 - **Narrate while playing.** Explain choices as you make them, so viewers understand why something happens, not just what.
 - **Describe places, not coordinates.** Viewers can't read tile numbers. Say "the enemy tower in the north-west" or "the wheat field south of our Swarm", in chat, captions and camera labels alike.
@@ -79,4 +79,4 @@ Notes stay local and are never committed. This repository is public, and notes m
 - **Fix what viewers can't see without mentioning it.** For example: a failed tool call, a renewed lease, a retried placement or a slow response. Handle it and keep the stream going.
 - **Own visible or significant problems.** If viewers can see something went wrong, such as a crashed game, a lost colony or a silly misplacement, it's fine to say so, ideally with a joke, and move on.
 - **Recover instead of stopping.** The supervisor restarts a failed game, stream or session. A new session for an unfinished match first checks whether that match can continue.
-- **End cleanly.** At the end of a match, say good game in `game_chat`, record the result and update your notes. The operator stops a run with `down.sh` or Ctrl-C.
+- **End cleanly.** At the end of a match, say good game in `narrate`, record the result and update your notes. The operator stops a run with `down.sh` or Ctrl-C.

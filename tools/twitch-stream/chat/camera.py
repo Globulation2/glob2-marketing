@@ -101,11 +101,14 @@ COORDS = re.compile(r"\(?\s*\b\d{1,3}\s*(?:[-–]\s*\d{1,3}\s*)?,\s*\d{1,3}(?:\s
 
 
 def strip_coords(text: str) -> str:
+    # Drop a preposition that only introduced the coordinates ("the tower at (48,45) now").
+    text = re.sub(r"\s*\b(?:at|near|by|around|to)\s+(?=\(?\s*\d{1,3}\s*(?:[-–]\s*\d{1,3}\s*)?,\s*\d)", " ", text)
     text = COORDS.sub("", text)
     text = re.sub(r"\s+(?:at|near|by|around)\s*(?=[,.;:)]|$)", "", text)
     text = re.sub(r"\(\s*(?:at|near|by|around)?\s*\)?\s*$", "", text)     # a bracket left empty or open
     text = re.sub(r"\(\s*(?:at|near|by|around)?\s*\)", "", text)
-    return " ".join(text.split()).strip(" ,;:-(")
+    text = re.sub(r"\s+([.,;:!?])", r"\1", " ".join(text.split()))
+    return text.strip(" ,;:-(")
 
 
 def clean_label(label) -> str:
