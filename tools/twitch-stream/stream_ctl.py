@@ -115,7 +115,8 @@ def result(cfg, outcome, note=None) -> str:
     rigstate.append_jsonl(rigstate.state_dir(cfg) / "games.jsonl", row)
     rec = f"overall {rigstate.record(games + [row])}"
     word = {"win": "Win", "loss": "Loss", "draw": "Draw", "aborted": "Match abandoned"}[outcome]
-    set_caption(cfg, f"Claude Plays Glob · Between matches\nGame {cur['number']}: {word} vs {cur['opponent']} · {rec}")
+    shown = f"Game {rigstate.decided(games + [row])}: " if outcome != "aborted" else ""
+    set_caption(cfg, f"Claude Plays Glob · Between matches\n{shown}{word} vs {cur['opponent']} · {rec}")
     cur.update(phase="intermission", result=outcome)
     rigstate.save_current(cfg, cur)
     return f"match {cur['number']} recorded: {outcome} vs {cur['opponent']} ({rec})"

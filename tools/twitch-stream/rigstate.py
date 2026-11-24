@@ -99,9 +99,15 @@ def record(all_games: list, opponent: str = None) -> str:
     return f"{counts['win']}W–{counts['loss']}L–{counts['draw']}D"
 
 
-def caption_record(all_games: list, number) -> str:
-    """The caption's record field: the game number and the overall record viewers expect."""
-    return f"Game {number} · overall {record(all_games)}"
+def decided(all_games: list) -> int:
+    """Games with a real outcome; aborted ones (operator restarts, setup failures) aren't games to viewers."""
+    return sum(1 for g in all_games if g.get("result") in ("win", "loss", "draw"))
+
+
+def caption_record(all_games: list, number=None) -> str:
+    """The caption's record field: the viewer-facing game number (decided games so far, plus this one)
+    and the overall record. The internal match number also counts aborted matches, so it isn't shown."""
+    return f"Game {decided(all_games) + 1} · overall {record(all_games)}"
 
 
 def next_opponent(all_games: list) -> str:
