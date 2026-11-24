@@ -43,7 +43,7 @@ The verified files were uploaded directly to itch.io. The listing covers Windows
 
 For each update, reload the editor and compare the cover and gallery with the approved sources. Open the public page signed out and check installation instructions, downloads, cover, gallery and tutorial destination. Track search indexing separately from public visibility. [itch.io indexing requirements](https://itch.io/docs/creators/getting-indexed)
 
-Use itch.io views and downloads and, where available, consented Glob2 Online play-click data attributed to the listing. Record the first month's observed counts and coverage before deciding whether to embed a web build. [itch.io creator analytics](https://itch.io/docs/creators/faq) · [Glob2 website analytics notice](https://glob2.online/downloads/)
+Use itch.io views and downloads and, where available, consented Glob2 Online play-click data attributed to the listing. Record the first month's observed counts and coverage, including browser launches where reported. [itch.io creator analytics](https://itch.io/docs/creators/faq) · [Glob2 website analytics notice](https://glob2.online/downloads/)
 
 ## Private browser preview
 
@@ -51,8 +51,16 @@ A separate private draft, **Globulation 2 Browser Preview**, tested the full rel
 
 The first itch.io upload failed with a core short read. The CDN labeled an entire mixed-format asset blob as gzip because it began with a gzip member. Only that leading member was delivered or decoded. The corrected archive moved a non-gzip entry first and recalculated offsets in both runtimes. All 865 embedded files matched byte for byte, the corrected ZIP passed `unzip -tq`, and the itch.io CDN core blob matched its local SHA-256 (`1f038b2a4c4218331399458ff75077884b06298716712fc7cbfe7ecdf18f960a`). With SharedArrayBuffer enabled, the corrected private draft ran an interactive introductory match in Chrome. The default small embed triggered the phone layout on desktop.
 
-Save and reload, other browsers, a full skirmish inside itch.io, and multiplayer remain untested. The browser shell currently selects the hosting origin and the app API returned HTTP 404 to a preflight from `https://html.itch.zone`. Shared rooms require client and backend integration. The public desktop listing was unchanged.
+At this stage, the browser shell selected the hosting origin and the app API returned HTTP 404 to a preflight from `https://html.itch.zone`. Shared rooms, save and reload, other browsers, and a full skirmish inside itch.io were untested.
 
 The private draft switched to **Click to launch in fullscreen**. Chrome verified that the game filled the browser viewport and opened the desktop main menu. The public desktop listing was unchanged.
 
-A multiplayer implementation draft serves the game from Glob2 Online with embedding permitted only for the opted-in route, keeping credentials on the Glob2 Online origin. Caddy checks passed with embedding disabled and enabled. The deployed endpoint currently returns HTTP 404. The private launcher still uses the previous build, and embedded multiplayer remains unverified. [Draft implementation PR](https://github.com/Globulation2/glob2/pull/1896)
+A multiplayer implementation draft serves the game from Glob2 Online with embedding permitted only for the opted-in route, keeping credentials on the Glob2 Online origin. Caddy checks passed with embedding disabled and enabled. Before deployment, the endpoint returned HTTP 404 and the private launcher still used the previous build. [Implementation PR](https://github.com/Globulation2/glob2/pull/1896)
+
+## Public browser launch
+
+The [public listing](https://genixpro.itch.io/globulation-2) now offers **Run game** in click-to-launch fullscreen mode. Chrome reached the game menu and online lobby from the public listing. A signed-out page check confirmed the launch button and all four desktop downloads.
+
+Before publication, a guest on the private itch.io launcher hosted an invite-only Amphitheatre match. A guest on regular Glob2 Online joined, and both Chrome clients entered the same live match. Tab switching introduced lag in the test. Account sign-in and other browsers remain unverified.
+
+The hosted game uses the scoped framing support merged as `59289fff`. The validated production edge change enabled only the required framing origins for the dedicated route and retained `DENY` for ordinary `/play/`. The standard deployment workflow was still running at publication. [Merged implementation](https://github.com/Globulation2/glob2/pull/1896)
