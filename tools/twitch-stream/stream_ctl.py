@@ -38,6 +38,9 @@ def clean(value, field: str) -> str:
         raise CtlError(f"{field}: empty")
     if any(ord(c) < 32 or ord(c) == 127 for c in value):
         raise CtlError(f"{field}: must be one line of plain text")
+    if field in ("goal", "last") and camera.COORDS.search(value):
+        raise CtlError(f"{field}: no coordinates or building ids on stream; describe the place the way viewers "
+                       "see it (\"Maxima's base in the north\", \"the wheat field south of our Swarm\")")
     if len(value) > LIMITS[field]:
         raise CtlError(f"{field}: {len(value)} characters; keep it to {LIMITS[field]} or fewer")
     return value
