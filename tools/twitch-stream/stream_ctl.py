@@ -183,7 +183,8 @@ def match_wait(cfg, a) -> str:
         raise CtlError(str(out["error"].get("message", "wait failed"))[:300])
     content = out.get("result", {}).get("content", [])
     text = content[0].get("text", "") if content else ""
-    return _wait_notes(text) + text
+    ff = bool(rigstate.current(cfg).get("fast_forward"))
+    return _wait_notes(text, ff) + text
 
 
 # In match 7 the player set 2x speed once and kept it through the attack that ended the match, and
@@ -193,7 +194,7 @@ CRITICAL_KINDS = ("attack", "unit_attacked", "building_attacked", "building_dest
 CAMERA_IDLE_NUDGE = 60.0
 
 
-def _wait_notes(text: str) -> str:
+def _wait_notes(text: str, fast_forward: bool = False) -> str:
     notes = []
     try:
         reply = json.loads(text)
@@ -206,6 +207,11 @@ def _wait_notes(text: str) -> str:
         speed = int(status.get("speed_value", 0))
     except Exception:  # noqa: BLE001 - notes are best effort
         speed = None
+    if fast_forward:
+        notes.append("Fast-forwarding to the end of a lost match: keep the speed up (4x, up to 8x if it drags), "
+                     "point the camera at your colony's last stand and narrate it, with humour. Record the result "
+                     "with match_result when the game ends.")
+        critical = False
     if critical and speed and speed > 0:
         token = camera.read_token()
         try:
@@ -217,7 +223,7 @@ def _wait_notes(text: str) -> str:
             pass
     if speed is not None:
         notes.append(f"Game speed is {'normal' if speed == 0 else ('2x' if speed == 3 else f'level {speed}')}"
-                     + (" — drop to speed 0 the moment anything gets critical." if speed > 0 else "."))
+                     + (" — drop to speed 0 the moment anything gets critical." if speed > 0 and not fast_forward else "."))
     idle = camera.seconds_since_move()
     if idle > CAMERA_IDLE_NUDGE and camera.hold_remaining() <= 0:
         notes.append(f"The camera hasn't moved for {int(min(idle, 999))} s: show viewers something with "
@@ -225,7 +231,41 @@ def _wait_notes(text: str) -> str:
     return "\n".join(notes) + "\n"
 
 
+FAST_FORWARD_SPEED = 5          # 4x; the player may go up to 7 (8x) if the end still drags
+
+
+def match_fast_forward(cfg, a) -> str:
+    """User decision (2026-11-24): a hopeless match isn't conceded or ground out at normal speed; the
+    game is sped up to its natural end while the player narrates and shows its colony's downfall."""
+    cur = assignment(cfg)
+    reason = clean(a.get("reason"), "note")
+    for k in ("MCP_PORT", "STATE_DIR"):
+        if cfg.get(k):
+            os.environ.setdefault(k, str(cfg[k]))
+    token = camera.read_token()
+    if not token:
+        raise CtlError("no game control right now; take control first")
+    out = camera._rpc("game_time", {"action": "status", "speed": FAST_FORWARD_SPEED, "token": token})
+    if "error" in out:
+        raise CtlError(str(out["error"].get("message", "couldn't change the speed"))[:200])
+    cur.update(fast_forward=True, fast_forward_reason=reason)
+    rigstate.save_current(cfg, cur)
+    try:
+        caption(cfg, cur.get("goal") or "Fast-forwarding to the end", "Fast-forwarding a lost match to its end")
+    except CtlError:
+        pass
+    return ("fast-forward on for the rest of this match: speed 4x (you may raise it to game_time speed 7, 8x, "
+            "if it still drags). The automatic slow-down is off. Keep the camera on the action, narrate your "
+            "colony's last stand with good humour, and call match_result when the game ends.")
+
+
 TOOLS = {
+    "match_fast_forward": ("When the match is clearly lost (for example win chance under 5% for 10+ minutes with no "
+                           "progress), speed the game to its natural end instead of grinding: sets 4x speed and "
+                           "turns off the automatic slow-down for the rest of the match. Then narrate and show "
+                           "the end. Give a short reason.",
+                           _schema({"reason": {"type": "string", "maxLength": 200}}, ["reason"]),
+                           match_fast_forward),
     "match_wait": ("Let game time pass while nothing needs you: up to 300 ticks (10 s), waking early on attacks, "
                    "lost buildings, conversions or enemy sightings (and also_until events). Returns why it woke "
                    "and the alerts since. Your only way to wait: act on what it reports, then narrate or move "
