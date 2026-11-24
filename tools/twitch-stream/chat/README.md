@@ -114,3 +114,14 @@ With Sonnet 5.5, a reply answered from the status costs about $0.007, and one th
 - `$STATE_DIR/viewer-suggestions.jsonl` holds noted viewer ideas.
 
 All of these stay on the streaming machine and are never committed.
+
+### Channel settings from the CLI
+
+The Twitch CLI login also carries `channel:manage:broadcast` (authorized 2026-11-24 with `twitch token -u -s 'chat:read chat:edit channel:manage:broadcast'`), so the operator can update the title and tags without the dashboard:
+
+```sh
+twitch api get channels -q broadcaster_id=1613269448
+twitch api patch channels -q broadcaster_id=1613269448 -b '{"title":"...","tags":["RTS","Strategy"]}'
+```
+
+Request all three scopes whenever you reauthorize: the chat token is refreshed from the same CLI login, and a login without the chat scopes stops the chat host. The chat host's code uses the token only for chat; the chat model never sees it.
