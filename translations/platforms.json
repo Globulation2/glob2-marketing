@@ -1,5 +1,6 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "source_version": "storefront-v2",
   "locales": [
     "ar",
     "pt-BR",
@@ -47,30 +48,13 @@
     "bg",
     "th"
   ],
-  "description_paragraphs": [
-    [
-      "listing_intro"
-    ],
-    [
-      "economy_heading",
-      "economy_body"
-    ],
-    [
-      "map_heading",
-      "map_body"
-    ],
-    [
-      "defense_heading",
-      "defense_body"
-    ],
-    [
-      "listing_open_source"
-    ]
-  ],
   "notes": [
     "Mappings are export candidates, not evidence of current console support or editability. Reconcile against current platform locale selector before upload.",
     "No binary language declarations or release notes are exported.",
-    "Epic and Amazon platform-specific existing tails/features must be preserved until exact saved fields are reconciled; generic export is preparation only.",
+    "storefront-v2 (2026-11-24): each store composes its description from shared blocks. A paragraph is a list of lines, or an object with lines, bullets and an optional when/unless switch; a line is a field ID, a {field, when/unless} reference, or a list of those joined into one line. See translations/README.md.",
+    "Switches follow facts/storefront-v2-claims.md. ai_coplay is false for the Mac App Store (R7) and Epic (R8) until each is verified. online_play is false for Microsoft and Epic while their packages are older than 0.11.7.0 (R6); the Amazon edition has no online play, so its composition never references it. Flip a switch only when the claims record changes.",
+    "Numbered Microsoft keys (feature_N, search_term_N, desktop_screenshot_caption_N, trailer_title_N) follow tools/microsoft_import.py FIELD_FAMILIES. desktop_screenshot_caption_N must match the final gallery order of the clean desktop screenshot set.",
+    "Epic About text is entered as heading and body items; the composed epic description shows their order and content. tools/epic_template.py still maps the storefront-v1 item layout and must be updated before an Epic import.",
     "Snap non-English locale fields remain unverified. Amazon documented supported language labels are exported even while current review prevents saving; exact API codes must be reconciled before use.",
     "2026-11-17 official-documentation review adds supported preparation mappings for the twelve-language expansion: Play 12, Apple 9 per platform, Microsoft 12, Epic 6 and F-Droid 12. Current console/template reconciliation remains required before hosted-store writes; F-Droid source preparation uses documented BCP47 locale directories. See planning/storefront-localization-rollout.md for sources and exact remaining gaps."
   ],
@@ -87,6 +71,148 @@
     "fdroid-fastlane": "https://f-droid.org/en/docs/All_About_Descriptions_Graphics_and_Screenshots/#fastlane-structure",
     "fdroid-locales": "https://f-droid.org/en/docs/Build_Metadata_Reference/",
     "apple-field-limits": "https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information"
+  },
+  "protected_terms": [
+    "Globulation 2",
+    "MCP",
+    "JavaScript",
+    "GPL",
+    "23",
+    "67",
+    "16",
+    "45",
+    "2001",
+    "2004"
+  ],
+  "field_limits": [
+    {
+      "fields": "shot_overlay_*",
+      "limit": 28
+    },
+    {
+      "fields": "shot_caption_*",
+      "limit": 100
+    },
+    {
+      "fields": "trailer_title",
+      "limit": 50
+    },
+    {
+      "fields": "trailer_line_*",
+      "limit": 32
+    }
+  ],
+  "asset_text": {
+    "screenshot_roles": [
+      "hero",
+      "build",
+      "economy",
+      "battle",
+      "territory",
+      "maps",
+      "opponents",
+      "fair_deal",
+      "ai_coplay"
+    ],
+    "desktop_only_roles": [
+      "ai_coplay"
+    ],
+    "overlay_fields": "shot_overlay_{role}",
+    "caption_fields": "shot_caption_{role}",
+    "trailer_title": "trailer_title",
+    "trailer_lines": [
+      "trailer_line_1",
+      "trailer_line_2",
+      "trailer_line_3",
+      "trailer_line_4"
+    ],
+    "trailer_desktop_only_lines": [
+      "trailer_line_ai_coplay"
+    ]
+  },
+  "appstream": {
+    "summary_field": "appstream_summary",
+    "comment_field": "appstream_summary",
+    "switches": {
+      "ai_coplay": true,
+      "online_play": true
+    },
+    "description_paragraphs": [
+      [
+        "headline",
+        "fair_deal_line"
+      ],
+      [
+        "listing_intro"
+      ],
+      [
+        "control_heading",
+        "control_body"
+      ],
+      [
+        "economy_heading",
+        "economy_body"
+      ],
+      [
+        "map_heading",
+        "map_body"
+      ],
+      [
+        "defense_heading",
+        "defense_body"
+      ],
+      {
+        "lines": [
+          "features_heading"
+        ],
+        "bullets": [
+          "feature_maps",
+          "feature_opponents",
+          "feature_colonies",
+          "feature_tutorial",
+          "feature_editor",
+          "feature_replays",
+          "feature_offline",
+          "feature_scripting",
+          "feature_languages"
+        ]
+      },
+      [
+        "multiplayer_heading",
+        [
+          {
+            "field": "multiplayer_online_body",
+            "when": "online_play"
+          },
+          {
+            "field": "multiplayer_crossplay",
+            "when": "online_play"
+          },
+          "multiplayer_lan_body"
+        ]
+      ],
+      {
+        "when": "ai_coplay",
+        "lines": [
+          "ai_heading",
+          "ai_body"
+        ]
+      },
+      [
+        "open_source_heading",
+        "open_source_body"
+      ]
+    ],
+    "screenshot_captions": {
+      "hero": "shot_caption_hero",
+      "build": "shot_caption_build",
+      "economy": "shot_caption_economy",
+      "battle": "shot_caption_battle",
+      "territory": "shot_caption_territory",
+      "maps": "shot_caption_maps",
+      "opponents": "shot_caption_opponents",
+      "ai_coplay": "shot_caption_ai_coplay"
+    }
   },
   "platforms": {
     "google-play": {
@@ -136,6 +262,9 @@
         "bg": "bg",
         "th": "th"
       },
+      "switches": {
+        "online_play": true
+      },
       "fields": {
         "title": {
           "paragraphs": [
@@ -148,7 +277,7 @@
         "short_description": {
           "paragraphs": [
             [
-              "headline"
+              "play_short_description"
             ]
           ],
           "limit": 80
@@ -156,10 +285,15 @@
         "full_description": {
           "paragraphs": [
             [
-              "headline"
+              "headline",
+              "fair_deal_line"
             ],
             [
               "listing_intro"
+            ],
+            [
+              "control_heading",
+              "control_body"
             ],
             [
               "economy_heading",
@@ -173,8 +307,38 @@
               "defense_heading",
               "defense_body"
             ],
+            {
+              "lines": [
+                "features_heading"
+              ],
+              "bullets": [
+                "feature_maps",
+                "feature_opponents",
+                "feature_colonies",
+                "feature_tutorial",
+                "feature_editor",
+                "feature_replays",
+                "feature_offline",
+                "feature_languages"
+              ]
+            },
             [
-              "listing_open_source"
+              "multiplayer_heading",
+              [
+                {
+                  "field": "multiplayer_online_body",
+                  "when": "online_play"
+                },
+                {
+                  "field": "multiplayer_crossplay",
+                  "when": "online_play"
+                },
+                "multiplayer_lan_body"
+              ]
+            ],
+            [
+              "open_source_heading",
+              "open_source_body"
             ],
             [
               "android_tail"
@@ -228,6 +392,9 @@
         "te": "te-IN",
         "th": "th"
       },
+      "switches": {
+        "online_play": true
+      },
       "fields": {
         "name": {
           "paragraphs": [
@@ -265,10 +432,15 @@
         "description": {
           "paragraphs": [
             [
-              "headline"
+              "headline",
+              "fair_deal_line"
             ],
             [
               "listing_intro"
+            ],
+            [
+              "control_heading",
+              "control_body"
             ],
             [
               "economy_heading",
@@ -282,8 +454,37 @@
               "defense_heading",
               "defense_body"
             ],
+            {
+              "lines": [
+                "features_heading"
+              ],
+              "bullets": [
+                "feature_maps",
+                "feature_opponents",
+                "feature_colonies",
+                "feature_tutorial",
+                "feature_editor",
+                "feature_replays",
+                "feature_offline"
+              ]
+            },
             [
-              "listing_open_source"
+              "multiplayer_heading",
+              [
+                {
+                  "field": "multiplayer_online_body",
+                  "when": "online_play"
+                },
+                {
+                  "field": "multiplayer_crossplay_apple",
+                  "when": "online_play"
+                },
+                "multiplayer_lan_body"
+              ]
+            ],
+            [
+              "open_source_heading",
+              "open_source_body"
             ],
             [
               "ios_tail"
@@ -336,6 +537,10 @@
         "te": "te-IN",
         "th": "th"
       },
+      "switches": {
+        "ai_coplay": false,
+        "online_play": true
+      },
       "fields": {
         "name": {
           "paragraphs": [
@@ -373,10 +578,15 @@
         "description": {
           "paragraphs": [
             [
-              "headline"
+              "headline",
+              "fair_deal_line"
             ],
             [
               "listing_intro"
+            ],
+            [
+              "control_heading",
+              "control_body"
             ],
             [
               "economy_heading",
@@ -390,8 +600,47 @@
               "defense_heading",
               "defense_body"
             ],
+            {
+              "lines": [
+                "features_heading"
+              ],
+              "bullets": [
+                "feature_maps",
+                "feature_opponents",
+                "feature_colonies",
+                "feature_tutorial",
+                "feature_editor",
+                "feature_replays",
+                "feature_offline"
+              ]
+            },
             [
-              "listing_open_source"
+              "multiplayer_heading",
+              [
+                {
+                  "field": "multiplayer_online_body",
+                  "when": "online_play"
+                },
+                {
+                  "field": "multiplayer_crossplay_apple",
+                  "when": "online_play"
+                },
+                "multiplayer_lan_body"
+              ]
+            ],
+            {
+              "when": "ai_coplay",
+              "lines": [
+                "ai_heading",
+                "ai_body"
+              ]
+            },
+            [
+              "open_source_heading",
+              "open_source_body"
+            ],
+            [
+              "mac_tail"
             ]
           ],
           "limit": 4000
@@ -447,6 +696,10 @@
         "bg": "bg",
         "th": "th"
       },
+      "switches": {
+        "ai_coplay": true,
+        "online_play": false
+      },
       "fields": {
         "title": {
           "paragraphs": [
@@ -459,7 +712,14 @@
         "short_description": {
           "paragraphs": [
             [
-              "short_pitch"
+              {
+                "field": "desktop_short_pitch",
+                "when": "ai_coplay"
+              },
+              {
+                "field": "short_pitch",
+                "unless": "ai_coplay"
+              }
             ]
           ],
           "limit": 270
@@ -467,10 +727,15 @@
         "description": {
           "paragraphs": [
             [
-              "headline"
+              "headline",
+              "fair_deal_line"
             ],
             [
               "listing_intro"
+            ],
+            [
+              "control_heading",
+              "control_body"
             ],
             [
               "economy_heading",
@@ -484,11 +749,46 @@
               "defense_heading",
               "defense_body"
             ],
+            {
+              "lines": [
+                "features_heading"
+              ],
+              "bullets": [
+                "feature_maps",
+                "feature_opponents",
+                "feature_colonies",
+                "feature_tutorial",
+                "feature_editor",
+                "feature_replays",
+                "feature_offline",
+                "feature_scripting",
+                "feature_languages"
+              ]
+            },
             [
-              "listing_open_source"
+              "multiplayer_heading",
+              [
+                {
+                  "field": "multiplayer_online_body",
+                  "when": "online_play"
+                },
+                {
+                  "field": "multiplayer_crossplay",
+                  "when": "online_play"
+                },
+                "multiplayer_lan_body"
+              ]
             ],
+            {
+              "when": "ai_coplay",
+              "lines": [
+                "ai_heading",
+                "ai_body"
+              ]
+            },
             [
-              "windows_tail"
+              "open_source_heading",
+              "open_source_body"
             ]
           ],
           "limit": 10000
@@ -496,23 +796,15 @@
         "feature_1": {
           "paragraphs": [
             [
-              "windows_feature_1"
+              "feature_control"
             ]
           ],
           "limit": 200
         },
-        "search_term": {
-          "paragraphs": [
-            [
-              "windows_search_term"
-            ]
-          ],
-          "limit": 40
-        },
         "feature_2": {
           "paragraphs": [
             [
-              "windows_feature_2"
+              "fair_deal_line"
             ]
           ],
           "limit": 200
@@ -520,7 +812,16 @@
         "feature_3": {
           "paragraphs": [
             [
-              "windows_feature_3"
+              [
+                {
+                  "field": "feature_ai_coplay",
+                  "when": "ai_coplay"
+                },
+                {
+                  "field": "feature_tutorial",
+                  "unless": "ai_coplay"
+                }
+              ]
             ]
           ],
           "limit": 200
@@ -528,10 +829,176 @@
         "feature_4": {
           "paragraphs": [
             [
-              "windows_feature_4"
+              "feature_maps"
             ]
           ],
           "limit": 200
+        },
+        "feature_5": {
+          "paragraphs": [
+            [
+              "feature_opponents"
+            ]
+          ],
+          "limit": 200
+        },
+        "feature_6": {
+          "paragraphs": [
+            [
+              "feature_colonies"
+            ]
+          ],
+          "limit": 200
+        },
+        "feature_7": {
+          "paragraphs": [
+            [
+              "feature_offline"
+            ]
+          ],
+          "limit": 200
+        },
+        "feature_8": {
+          "paragraphs": [
+            [
+              "feature_editor"
+            ]
+          ],
+          "limit": 200
+        },
+        "search_term_1": {
+          "paragraphs": [
+            [
+              "windows_search_term_1"
+            ]
+          ],
+          "limit": 30
+        },
+        "search_term_2": {
+          "paragraphs": [
+            [
+              "windows_search_term_2"
+            ]
+          ],
+          "limit": 30
+        },
+        "search_term_3": {
+          "paragraphs": [
+            [
+              "windows_search_term_3"
+            ]
+          ],
+          "limit": 30
+        },
+        "search_term_4": {
+          "paragraphs": [
+            [
+              "windows_search_term_4"
+            ]
+          ],
+          "limit": 30
+        },
+        "search_term_5": {
+          "paragraphs": [
+            [
+              "windows_search_term_5"
+            ]
+          ],
+          "limit": 30
+        },
+        "search_term_6": {
+          "paragraphs": [
+            [
+              "windows_search_term_6"
+            ]
+          ],
+          "limit": 30
+        },
+        "search_term_7": {
+          "paragraphs": [
+            [
+              {
+                "field": "windows_search_term_7",
+                "when": "ai_coplay"
+              }
+            ]
+          ],
+          "limit": 30
+        },
+        "desktop_screenshot_caption_1": {
+          "paragraphs": [
+            [
+              "shot_caption_hero"
+            ]
+          ],
+          "limit": 200
+        },
+        "desktop_screenshot_caption_2": {
+          "paragraphs": [
+            [
+              "shot_caption_build"
+            ]
+          ],
+          "limit": 200
+        },
+        "desktop_screenshot_caption_3": {
+          "paragraphs": [
+            [
+              "shot_caption_economy"
+            ]
+          ],
+          "limit": 200
+        },
+        "desktop_screenshot_caption_4": {
+          "paragraphs": [
+            [
+              "shot_caption_battle"
+            ]
+          ],
+          "limit": 200
+        },
+        "desktop_screenshot_caption_5": {
+          "paragraphs": [
+            [
+              "shot_caption_territory"
+            ]
+          ],
+          "limit": 200
+        },
+        "desktop_screenshot_caption_6": {
+          "paragraphs": [
+            [
+              "shot_caption_maps"
+            ]
+          ],
+          "limit": 200
+        },
+        "desktop_screenshot_caption_7": {
+          "paragraphs": [
+            [
+              "shot_caption_opponents"
+            ]
+          ],
+          "limit": 200
+        },
+        "desktop_screenshot_caption_8": {
+          "paragraphs": [
+            [
+              {
+                "field": "shot_caption_ai_coplay",
+                "when": "ai_coplay"
+              }
+            ]
+          ],
+          "limit": 200
+        },
+        "trailer_title_1": {
+          "paragraphs": [
+            [
+              "trailer_title"
+            ]
+          ],
+          "limit": 255
         }
       },
       "mapping_status": "requires_current_console_verification",
@@ -571,10 +1038,15 @@
         "description": {
           "paragraphs": [
             [
-              "headline"
+              "headline",
+              "fair_deal_line"
             ],
             [
               "listing_intro"
+            ],
+            [
+              "control_heading",
+              "control_body"
             ],
             [
               "economy_heading",
@@ -588,8 +1060,27 @@
               "defense_heading",
               "defense_body"
             ],
+            {
+              "lines": [
+                "features_heading"
+              ],
+              "bullets": [
+                "feature_maps",
+                "feature_opponents",
+                "feature_colonies",
+                "feature_tutorial",
+                "feature_editor",
+                "feature_replays",
+                "feature_offline"
+              ]
+            },
             [
-              "listing_open_source"
+              "multiplayer_heading",
+              "multiplayer_lan_body"
+            ],
+            [
+              "open_source_heading",
+              "open_source_body"
             ],
             [
               "amazon_tail"
@@ -600,7 +1091,7 @@
         "feature_1": {
           "paragraphs": [
             [
-              "amazon_feature_1"
+              "feature_control"
             ]
           ],
           "limit": null
@@ -608,7 +1099,7 @@
         "feature_2": {
           "paragraphs": [
             [
-              "amazon_feature_2"
+              "feature_maps"
             ]
           ],
           "limit": null
@@ -616,7 +1107,7 @@
         "feature_3": {
           "paragraphs": [
             [
-              "amazon_feature_3"
+              "feature_opponents"
             ]
           ],
           "limit": null
@@ -624,7 +1115,7 @@
         "feature_4": {
           "paragraphs": [
             [
-              "amazon_feature_4"
+              "feature_offline"
             ]
           ],
           "limit": null
@@ -632,15 +1123,7 @@
         "feature_5": {
           "paragraphs": [
             [
-              "amazon_feature_5"
-            ]
-          ],
-          "limit": null
-        },
-        "feature_6": {
-          "paragraphs": [
-            [
-              "amazon_feature_6"
+              "fair_deal_line"
             ]
           ],
           "limit": null
@@ -684,6 +1167,11 @@
         "bg": "bg",
         "th": "th"
       },
+      "switches": {
+        "ai_coplay": false,
+        "online_play": false
+      },
+      "bullet_prefix": "- ",
       "fields": {
         "title": {
           "paragraphs": [
@@ -704,10 +1192,15 @@
         "description": {
           "paragraphs": [
             [
-              "headline"
+              "headline",
+              "fair_deal_line"
             ],
             [
               "listing_intro"
+            ],
+            [
+              "control_heading",
+              "control_body"
             ],
             [
               "economy_heading",
@@ -721,14 +1214,50 @@
               "defense_heading",
               "defense_body"
             ],
+            {
+              "lines": [
+                "features_heading"
+              ],
+              "bullets": [
+                "feature_maps",
+                "feature_opponents",
+                "feature_colonies",
+                "feature_tutorial",
+                "feature_editor",
+                "feature_replays",
+                "feature_offline"
+              ]
+            },
             [
-              "listing_open_source"
+              "multiplayer_heading",
+              [
+                {
+                  "field": "multiplayer_online_body",
+                  "when": "online_play"
+                },
+                {
+                  "field": "multiplayer_crossplay",
+                  "when": "online_play"
+                },
+                "multiplayer_lan_body"
+              ]
+            ],
+            {
+              "when": "ai_coplay",
+              "lines": [
+                "ai_heading",
+                "ai_body"
+              ]
+            },
+            [
+              "open_source_heading",
+              "open_source_body"
             ],
             [
               "epic_tail"
             ]
           ],
-          "limit": null
+          "limit": 10000
         },
         "legal": {
           "paragraphs": [
@@ -746,22 +1275,32 @@
       "locales": {
         "en": "en"
       },
+      "switches": {
+        "ai_coplay": true,
+        "online_play": true
+      },
+      "bullet_prefix": "- ",
       "fields": {
         "summary": {
           "paragraphs": [
             [
-              "headline"
+              "appstream_summary"
             ]
           ],
-          "limit": 79
+          "limit": 78
         },
         "description": {
           "paragraphs": [
             [
-              "headline"
+              "headline",
+              "fair_deal_line"
             ],
             [
               "listing_intro"
+            ],
+            [
+              "control_heading",
+              "control_body"
             ],
             [
               "economy_heading",
@@ -775,11 +1314,50 @@
               "defense_heading",
               "defense_body"
             ],
+            {
+              "lines": [
+                "features_heading"
+              ],
+              "bullets": [
+                "feature_maps",
+                "feature_opponents",
+                "feature_colonies",
+                "feature_tutorial",
+                "feature_editor",
+                "feature_replays",
+                "feature_offline",
+                "feature_scripting",
+                "feature_languages"
+              ]
+            },
             [
-              "listing_open_source"
+              "multiplayer_heading",
+              [
+                {
+                  "field": "multiplayer_online_body",
+                  "when": "online_play"
+                },
+                {
+                  "field": "multiplayer_crossplay",
+                  "when": "online_play"
+                },
+                "multiplayer_lan_body"
+              ]
+            ],
+            {
+              "when": "ai_coplay",
+              "lines": [
+                "ai_heading",
+                "ai_body",
+                "ai_guide"
+              ]
+            },
+            [
+              "open_source_heading",
+              "open_source_body"
             ]
           ],
-          "limit": null
+          "limit": 4096
         }
       },
       "mapping_status": "requires_current_console_verification"
@@ -832,6 +1410,9 @@
         "bg": "bg",
         "th": "th"
       },
+      "switches": {
+        "online_play": true
+      },
       "fields": {
         "title": {
           "paragraphs": [
@@ -844,7 +1425,7 @@
         "short_description": {
           "paragraphs": [
             [
-              "headline"
+              "play_short_description"
             ]
           ],
           "limit": 80
@@ -852,10 +1433,15 @@
         "full_description": {
           "paragraphs": [
             [
-              "headline"
+              "headline",
+              "fair_deal_line"
             ],
             [
               "listing_intro"
+            ],
+            [
+              "control_heading",
+              "control_body"
             ],
             [
               "economy_heading",
@@ -869,8 +1455,38 @@
               "defense_heading",
               "defense_body"
             ],
+            {
+              "lines": [
+                "features_heading"
+              ],
+              "bullets": [
+                "feature_maps",
+                "feature_opponents",
+                "feature_colonies",
+                "feature_tutorial",
+                "feature_editor",
+                "feature_replays",
+                "feature_offline",
+                "feature_languages"
+              ]
+            },
             [
-              "listing_open_source"
+              "multiplayer_heading",
+              [
+                {
+                  "field": "multiplayer_online_body",
+                  "when": "online_play"
+                },
+                {
+                  "field": "multiplayer_crossplay",
+                  "when": "online_play"
+                },
+                "multiplayer_lan_body"
+              ]
+            ],
+            [
+              "open_source_heading",
+              "open_source_body"
             ],
             [
               "android_tail"
@@ -882,6 +1498,317 @@
       "mapping_status": "documented_BCP47_source_directories_downstream_publication_unverified",
       "mapping_notes": "Maintained F-Droid Fastlane locale directories; generic locale IDs are intentional. Google Play payload uses the separate google-play adapter and must not consume these generic F-Droid directories as a ready Play upload.",
       "mapping_verified_date": "2026-11-17"
+    },
+    "itch": {
+      "locales": {
+        "en": "en"
+      },
+      "switches": {
+        "ai_coplay": true,
+        "online_play": true
+      },
+      "fields": {
+        "title": {
+          "paragraphs": [
+            [
+              "product_name"
+            ]
+          ],
+          "limit": null
+        },
+        "short_description": {
+          "paragraphs": [
+            [
+              "short_pitch"
+            ]
+          ],
+          "limit": null
+        },
+        "description": {
+          "paragraphs": [
+            [
+              "headline",
+              "fair_deal_line"
+            ],
+            [
+              "listing_intro"
+            ],
+            [
+              "control_heading",
+              "control_body"
+            ],
+            [
+              "economy_heading",
+              "economy_body"
+            ],
+            [
+              "map_heading",
+              "map_body"
+            ],
+            [
+              "defense_heading",
+              "defense_body"
+            ],
+            {
+              "lines": [
+                "features_heading"
+              ],
+              "bullets": [
+                "feature_maps",
+                "feature_opponents",
+                "feature_colonies",
+                "feature_tutorial",
+                "feature_editor",
+                "feature_replays",
+                "feature_offline",
+                "feature_scripting",
+                "feature_languages"
+              ]
+            },
+            [
+              "multiplayer_heading",
+              [
+                {
+                  "field": "multiplayer_online_body",
+                  "when": "online_play"
+                },
+                {
+                  "field": "multiplayer_crossplay",
+                  "when": "online_play"
+                },
+                "multiplayer_lan_body"
+              ]
+            ],
+            {
+              "when": "ai_coplay",
+              "lines": [
+                "ai_heading",
+                "ai_body",
+                "ai_guide",
+                "itch_downloads_note"
+              ]
+            },
+            [
+              "open_source_heading",
+              "open_source_body"
+            ]
+          ],
+          "limit": null
+        }
+      },
+      "mapping_status": "manual_page_editor_single_language_page",
+      "mapping_notes": "itch.io has one page in one language; only English is mapped. The page also offers browser play, so itch_downloads_note scopes the MCP server and local network play to the desktop downloads. Field limits are not documented by itch.io and are left unset."
+    },
+    "steam": {
+      "locales": {
+        "en": "en"
+      },
+      "switches": {
+        "ai_coplay": true,
+        "online_play": true
+      },
+      "fields": {
+        "title": {
+          "paragraphs": [
+            [
+              "product_name"
+            ]
+          ],
+          "limit": null
+        },
+        "short_description": {
+          "paragraphs": [
+            [
+              {
+                "field": "desktop_short_pitch",
+                "when": "ai_coplay"
+              },
+              {
+                "field": "short_pitch",
+                "unless": "ai_coplay"
+              }
+            ]
+          ],
+          "limit": 300
+        },
+        "description": {
+          "paragraphs": [
+            [
+              "headline",
+              "fair_deal_line"
+            ],
+            [
+              "listing_intro"
+            ],
+            [
+              "control_heading",
+              "control_body"
+            ],
+            [
+              "economy_heading",
+              "economy_body"
+            ],
+            [
+              "map_heading",
+              "map_body"
+            ],
+            [
+              "defense_heading",
+              "defense_body"
+            ],
+            {
+              "lines": [
+                "features_heading"
+              ],
+              "bullets": [
+                "feature_maps",
+                "feature_opponents",
+                "feature_colonies",
+                "feature_tutorial",
+                "feature_editor",
+                "feature_replays",
+                "feature_offline",
+                "feature_scripting",
+                "feature_languages"
+              ]
+            },
+            [
+              "multiplayer_heading",
+              [
+                {
+                  "field": "multiplayer_online_body",
+                  "when": "online_play"
+                },
+                {
+                  "field": "multiplayer_crossplay",
+                  "when": "online_play"
+                },
+                "multiplayer_lan_body"
+              ]
+            ],
+            {
+              "when": "ai_coplay",
+              "lines": [
+                "ai_heading",
+                "ai_body"
+              ]
+            },
+            [
+              "open_source_heading",
+              "open_source_body"
+            ]
+          ],
+          "limit": null
+        }
+      },
+      "mapping_status": "prepared_only_no_store_account_yet",
+      "mapping_notes": "Prepared copy only; no listing exists. Only English is mapped until the store account and its locale list are verified. Steam screenshots must show gameplay only, so no overlay captions are used there."
+    },
+    "gog": {
+      "locales": {
+        "en": "en"
+      },
+      "switches": {
+        "ai_coplay": true,
+        "online_play": true
+      },
+      "fields": {
+        "title": {
+          "paragraphs": [
+            [
+              "product_name"
+            ]
+          ],
+          "limit": null
+        },
+        "short_description": {
+          "paragraphs": [
+            [
+              {
+                "field": "desktop_short_pitch",
+                "when": "ai_coplay"
+              },
+              {
+                "field": "short_pitch",
+                "unless": "ai_coplay"
+              }
+            ]
+          ],
+          "limit": null
+        },
+        "description": {
+          "paragraphs": [
+            [
+              "headline",
+              "fair_deal_line"
+            ],
+            [
+              "listing_intro"
+            ],
+            [
+              "control_heading",
+              "control_body"
+            ],
+            [
+              "economy_heading",
+              "economy_body"
+            ],
+            [
+              "map_heading",
+              "map_body"
+            ],
+            [
+              "defense_heading",
+              "defense_body"
+            ],
+            {
+              "lines": [
+                "features_heading"
+              ],
+              "bullets": [
+                "feature_maps",
+                "feature_opponents",
+                "feature_colonies",
+                "feature_tutorial",
+                "feature_editor",
+                "feature_replays",
+                "feature_offline",
+                "feature_scripting",
+                "feature_languages"
+              ]
+            },
+            [
+              "multiplayer_heading",
+              [
+                {
+                  "field": "multiplayer_online_body",
+                  "when": "online_play"
+                },
+                {
+                  "field": "multiplayer_crossplay",
+                  "when": "online_play"
+                },
+                "multiplayer_lan_body"
+              ]
+            ],
+            {
+              "when": "ai_coplay",
+              "lines": [
+                "ai_heading",
+                "ai_body",
+                "ai_guide"
+              ]
+            },
+            [
+              "open_source_heading",
+              "open_source_body"
+            ]
+          ],
+          "limit": null
+        }
+      },
+      "mapping_status": "prepared_only_no_store_account_yet",
+      "mapping_notes": "Prepared copy only; no listing exists. Only English is mapped until the store account and its locale list are verified. GOG text limits and policy are not confirmed."
     }
   },
   "upstream_locales": {

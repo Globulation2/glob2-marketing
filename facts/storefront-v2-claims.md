@@ -73,6 +73,7 @@ These conflict with, or put at risk, the user's 2026-11-24 decisions. Raise them
 | No in-app purchases | safe | safe | safe | safe | **safe with caveat** (R1, R2) | "No in-app purchases." It is a statement about the game. Do not write "nothing is sold", "no purchases anywhere" or "never" until the owner confirms R2 |
 | No lootboxes | safe | safe | safe | safe | safe | "No lootboxes." |
 | No in-game currency | safe with caveat (R4) | safe with caveat (R4) | safe with caveat (R4) | safe | **safe with caveat** (R1, R4) | "No in-game currency." True of every released client. Recheck before any build that enables Hive Mind |
+| No premium currency (wording recorded 2026-11-24 by the independent copy and policy review) | safe with caveat (R4) | safe with caveat (R4) | safe with caveat (R4) | safe | **safe with caveat** (R1, R4) | "No premium currency." The listing's `fair_deal_line` uses this in place of "No in-game currency", which a reader could take to deny the wheat, wood and stone gathered in play. It claims less than the row above (no currency bought with real money) and rests on the same evidence: no currency of any kind and no billing code in the client, and nothing in the game is bought. Same caveats and the same recheck before any build that enables Hive Mind credits |
 
 Wording caveats that apply everywhere:
 

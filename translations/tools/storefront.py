@@ -2,13 +2,22 @@
 """Validate canonical Markdown and export review-gated storefront payloads.
 
 No network, publishing, truncation, or application-language declarations.
+
+Composition (platforms.json): a destination field is a list of paragraphs joined
+by a blank line. A paragraph is a list of lines, or an object with "lines",
+"bullets" and an optional "when"/"unless" switch. A line or bullet is a field
+ID, a {"field": ID, "when"/"unless": switch} reference, or a list of those
+joined into one line. Switches are declared per platform; a reference whose
+switch is off is left out, and a destination field left empty is not exported.
 """
 import argparse
+from fnmatch import fnmatchcase
 import hashlib
 import json
 from pathlib import Path
 import re
 import sys
+import unicodedata
 from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,6 +55,129 @@ def source_hashes(fields):
     return {key: digest(value) for key, value in fields.items()}
 
 
+def ascii_digits(value):
+    """Map every Unicode decimal digit to ASCII so protected numbers survive local numerals."""
+    return ''.join(char if unicodedata.decimal(char, None) is None else str(unicodedata.decimal(char)) for char in value)
+
+
+def enabled(item, switches):
+    """True unless the item carries a when/unless switch that is off; undeclared switches are errors."""
+    if not isinstance(item, dict): return True
+    for key, wanted in (('when', True), ('unless', False)):
+        name = item.get(key)
+        if name is None: continue
+        if name not in switches: raise ValueError(f'undeclared switch {name!r}; declare it in the platform switches')
+        if bool(switches[name]) != wanted: return False
+    return True
+
+
+def join_inline(parts):
+    """Join sentences into one line: a space, except after CJK sentence punctuation."""
+    result = ''
+    for part in parts:
+        result += part if not result or result[-1] in '。！？' else ' ' + part
+    return result
+
+
+def resolve(fields, reference, switches):
+    """Text of one line or bullet reference; an empty string when switched off."""
+    if isinstance(reference, list):
+        return join_inline([text for text in (resolve(fields, item, switches) for item in reference) if text])
+    if isinstance(reference, dict):
+        if set(reference) - {'field', 'when', 'unless'} or 'field' not in reference:
+            raise ValueError(f'unsupported field reference {reference!r}')
+        if not enabled(reference, switches): return ''
+        reference = reference['field']
+    return fields[reference]
+
+
+def blocks(fields, spec, switches=None):
+    """Resolve a paragraph list into [{'lines': [...], 'bullets': [...]}], dropping switched-off or empty paragraphs."""
+    switches = switches or {}
+    result = []
+    for paragraph in spec:
+        lines, bullets = paragraph, []
+        if isinstance(paragraph, dict):
+            if set(paragraph) - {'lines', 'bullets', 'when', 'unless'}:
+                raise ValueError(f'unsupported paragraph keys {sorted(paragraph)}')
+            if not enabled(paragraph, switches): continue
+            lines, bullets = paragraph.get('lines', []), paragraph.get('bullets', [])
+        block = {'lines': [text for text in (resolve(fields, item, switches) for item in lines) if text],
+                 'bullets': [text for text in (resolve(fields, item, switches) for item in bullets) if text]}
+        if block['lines'] or block['bullets']: result.append(block)
+    return result
+
+
+def referenced(spec):
+    """Every catalog field ID a paragraph list can use, whatever its switches."""
+    found = set()
+    def walk(item):
+        if isinstance(item, str): found.add(item)
+        elif isinstance(item, list):
+            for child in item: walk(child)
+        elif isinstance(item, dict):
+            for key in ('field', 'lines', 'bullets'):
+                if key in item: walk(item[key])
+    walk(spec)
+    return found
+
+
+def config_fields(config):
+    """Catalog field IDs used by any destination, the AppStream fragments or image/video text."""
+    found = set()
+    for platform in config.get('platforms', {}).values():
+        for spec in platform['fields'].values(): found |= referenced(spec['paragraphs'])
+    appstream = config.get('appstream')
+    if appstream:
+        found |= {'product_name', appstream['summary_field'], appstream.get('comment_field', 'headline')}
+        found |= referenced(appstream['description_paragraphs']) | set(appstream.get('screenshot_captions', {}).values())
+    assets = config.get('asset_text')
+    if assets:
+        for role in assets.get('screenshot_roles', []):
+            found |= {assets[key].format(role=role) for key in ('overlay_fields', 'caption_fields') if key in assets}
+        found |= set(assets.get('trailer_lines', [])) | set(assets.get('trailer_desktop_only_lines', []))
+        if 'trailer_title' in assets: found.add(assets['trailer_title'])
+    return found
+
+
+def field_limit_errors(config, code, fields):
+    """Limits that hold for a field in every locale (image overlays, captions, trailer text)."""
+    errors = []
+    for rule in config.get('field_limits', []):
+        unit = rule.get('length_unit', 'character')
+        if unit not in ('byte', 'character'): raise ValueError(f'field_limits: unsupported length_unit {unit!r}')
+        for key, value in fields.items():
+            if not fnmatchcase(key, rule['fields']): continue
+            measured = len(value.encode('utf-8')) if unit == 'byte' else len(value)
+            if measured > rule['limit']:
+                errors.append(f'{code}/{key}: {measured} {"UTF-8 bytes" if unit == "byte" else "characters"} exceeds {rule["limit"]}; reviewed adaptation required')
+    return errors
+
+
+def validate_source(root=ROOT):
+    """English-only check: the source parses, every destination composes within its limit, and no field is orphaned.
+
+    Does not read locale catalogs, source hashes or reviews, so it can run while translations are stale.
+    """
+    source = read_fields(root / 'en.md')
+    config = json.loads((root / 'platforms.json').read_text())
+    errors = []
+    if source.get('product_name') != 'Globulation 2': errors.append('en/product_name: protected product name changed')
+    for key, value in source.items():
+        if '\x00' in value or re.search(r'<[^>]+>', value): errors.append(f'en/{key}: NUL or raw HTML is not canonical plain text')
+    errors.extend(field_limit_errors(config, 'en', source))
+    used = config_fields(config)
+    if used - source.keys(): errors.append(f'platforms.json references fields missing from en.md: {sorted(used - source.keys())}')
+    if source.keys() - used: errors.append(f'en.md fields no destination uses: {sorted(source.keys() - used)}')
+    if not used - source.keys():
+        for platform_id, platform in config['platforms'].items():
+            if 'en' not in platform['locales']: continue
+            _, failures = platform_payload(source, platform)
+            errors.extend(f'{platform_id}/en: {failure}' for failure in failures)
+        if 'appstream' in config: blocks(source, config['appstream']['description_paragraphs'], config['appstream'].get('switches', {}))
+    return errors, source
+
+
 def check_review(root, code, fields, hashes):
     path = root / 'reviews' / f'{code}.json'
     if not path.exists():
@@ -68,7 +200,10 @@ def check_review(root, code, fields, hashes):
 def validate(root=ROOT, require_review=False):
     errors = []
     source = read_fields(root / 'en.md')
+    config = json.loads((root / 'platforms.json').read_text())
     hashes = source_hashes(source)
+    missing = config_fields(config) - source.keys()
+    if missing: errors.append(f'platforms.json references fields missing from en.md: {sorted(missing)}')
     hash_path = root / 'source-hashes.json'
     if not hash_path.exists() or json.loads(hash_path.read_text()) != hashes:
         errors.append('source-hashes.json missing or stale; run hashes after reviewing English source')
@@ -86,16 +221,18 @@ def validate(root=ROOT, require_review=False):
                     errors.append(f'{code}/{key}: protected product name changed')
                 if re.search(r'<[^>]+>', value):
                     errors.append(f'{code}/{key}: raw HTML is not canonical plain text')
-            protected = {'screenshot_caption_battle': 'River', 'screenshot_caption_strategic': 'Four Squares', 'screenshot_caption_terrain': 'Lava Shield'}
-            for key, term in protected.items():
-                if key in fields and term in source.get(key, '') and term not in fields[key]:
-                    errors.append(f'{code}/{key}: protected map name {term} changed')
+            # Terms that stay as written wherever the English field has them: names, protocol and licence
+            # abbreviations, and verified counts and years (compared after mapping local numerals to ASCII).
+            for term in config.get('protected_terms', []):
+                for key, value in fields.items():
+                    if term in source.get(key, '') and term not in ascii_digits(value):
+                        errors.append(f'{code}/{key}: protected term {term} changed')
+            errors.extend(field_limit_errors(config, code, fields))
             if require_review and code != 'en':
                 errors.extend(check_review(root, code, fields, hashes))
         except (OSError, ValueError) as error:
             errors.append(str(error))
     if not errors:
-        config = json.loads((root / 'platforms.json').read_text())
         for platform_id, platform in config['platforms'].items():
             for code in platform['locales']:
                 _, failures = platform_payload(catalogs[code], platform)
@@ -103,16 +240,19 @@ def validate(root=ROOT, require_review=False):
     return errors, catalogs
 
 
-def compose(fields, spec):
-    """A paragraph is a list of field IDs, joined with newline; paragraphs use blank line."""
-    return '\n\n'.join('\n'.join(fields[key] for key in paragraph) for paragraph in spec)
+def compose(fields, spec, switches=None, bullet_prefix='• '):
+    """Plain text: lines and prefixed bullets joined with newline; paragraphs with a blank line."""
+    return '\n\n'.join('\n'.join(block['lines'] + [bullet_prefix + item for item in block['bullets']])
+                       for block in blocks(fields, spec, switches))
 
 
 def platform_payload(fields, platform):
     payload = {}
     errors = []
+    switches = platform.get('switches', {})
     for name, spec in platform['fields'].items():
-        value = compose(fields, spec['paragraphs'])
+        value = compose(fields, spec['paragraphs'], switches, platform.get('bullet_prefix', '• '))
+        if not value: continue  # Every reference is switched off for this platform.
         unit = spec.get('length_unit', 'character')
         if unit not in ('byte', 'character'):
             raise ValueError(f'{name}: unsupported length_unit {unit!r}')
@@ -154,31 +294,38 @@ def export(root, destination, require_review=True):
             for field in ('title', 'short_description', 'full_description'):
                 (folder / f'{field}.txt').write_text(payload[field] + '\n', encoding='utf-8')
     # AppStream elements are fragments to merge into maintained metadata, not a replacement component.
+    appstream = config['appstream']
     component = ET.Element('component')
     description = ET.SubElement(component, 'description')
     captions = ET.SubElement(component, 'screenshots')
+    def localized(parent, tag, code, text, **attributes):
+        item = ET.SubElement(parent, tag, attributes)
+        if code != 'en': item.set('{http://www.w3.org/XML/1998/namespace}lang', config['upstream_locales'][code])
+        item.text = text
+    # Paragraph by paragraph, English first: a heading and its body share one <p> per locale;
+    # a bullet list is one <ul> with an <li> per bullet per locale.
+    order = sorted(catalogs, key=lambda code: code != 'en')
+    composed = {code: blocks(catalogs[code], appstream['description_paragraphs'], appstream.get('switches', {})) for code in order}
+    for index in range(len(composed['en'])):
+        for code in order:
+            if composed[code][index]['lines']: localized(description, 'p', code, join_inline(composed[code][index]['lines']))
+        if composed['en'][index]['bullets']:
+            items = ET.SubElement(description, 'ul')
+            for code in order:
+                for bullet in composed[code][index]['bullets']: localized(items, 'li', code, bullet)
     for code, fields in catalogs.items():
-        lang = config['upstream_locales'][code]
-        for tag, key in [('name', 'product_name'), ('summary', 'appstream_summary')]:
-            item = ET.SubElement(component, tag)
-            if code != 'en': item.set('{http://www.w3.org/XML/1998/namespace}lang', lang)
-            item.text = fields[key]
-        for paragraph in config['description_paragraphs']:
-            item = ET.SubElement(description, 'p')
-            if code != 'en': item.set('{http://www.w3.org/XML/1998/namespace}lang', lang)
-            item.text = ' '.join(fields[key] for key in paragraph)
-        for role in ('colony', 'battle', 'strategic', 'terrain'):
-            # Merge captions into matching existing screenshot nodes; images are not changed.
-            item = ET.SubElement(captions, 'caption', {'source_role': role})
-            if code != 'en': item.set('{http://www.w3.org/XML/1998/namespace}lang', lang)
-            item.text = fields[f'screenshot_caption_{role}']
+        for tag, key in [('name', 'product_name'), ('summary', appstream['summary_field'])]:
+            localized(component, tag, code, fields[key])
+        for role, key in appstream.get('screenshot_captions', {}).items():
+            # Merge captions into the matching screenshot nodes by role; images are not changed.
+            localized(captions, 'caption', code, fields[key], source_role=role)
     ET.indent(component)
     (destination / 'appstream-fragment.xml').write_text(ET.tostring(component, encoding='unicode') + '\n')
     desktop = ['[Desktop Entry]']
     for code, fields in catalogs.items():
         suffix = '' if code == 'en' else f'[{config["upstream_locales"][code]}]'
         desktop.append(f'Name{suffix}={fields["product_name"]}')
-        desktop.append(f'Comment{suffix}={fields["headline"]}')
+        desktop.append(f'Comment{suffix}={fields[appstream.get("comment_field", "headline")]}')
     (destination / 'desktop-fragment.ini').write_text('\n'.join(desktop) + '\n')
     (destination / 'export-manifest.json').write_text(json.dumps({'upload_eligible': False, 'source_hashes': source_hashes(catalogs['en']), 'translation_hashes': {code: source_hashes(fields) for code, fields in catalogs.items()}, 'notes': ['All artifacts are merge/preparation inputs, not replacement manifests or upload permission. Verify current platform constraints and review state. AppStream captions carry source_role annotations to merge into approved existing screenshot nodes; do not upload fragment as a complete component.']}, indent=2) + '\n')
     (destination / 'unsupported.json').write_text(json.dumps(pending, indent=2) + '\n')
@@ -186,7 +333,7 @@ def export(root, destination, require_review=True):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['check', 'hashes', 'export', 'review-record'])
+    parser.add_argument('command', choices=['check', 'check-source', 'hashes', 'export', 'review-record'])
     parser.add_argument('--root', type=Path, default=ROOT)
     parser.add_argument('--out', type=Path)
     parser.add_argument('--require-review', action='store_true')
@@ -204,6 +351,10 @@ def main():
             record = {'status': 'reviewed', 'translator': args.translator, 'reviewer': args.reviewer, 'method': 'AI translation with independent AI linguistic review; not human/native-speaker validation', 'issues': [], 'source_hashes': source_hashes(read_fields(args.root / 'en.md')), 'translation_hashes': source_hashes(read_fields(args.root / f'{args.locale}.md'))}
             (args.root / 'reviews').mkdir(exist_ok=True)
             (args.root / 'reviews' / f'{args.locale}.json').write_text(json.dumps(record, indent=2) + '\n')
+        elif args.command == 'check-source':
+            errors, source = validate_source(args.root)
+            if errors: raise ValueError('\n'.join(errors))
+            print(f'English source: {len(source)} fields compose within every mapped destination limit (locale catalogs, hashes and reviews not checked)')
         elif args.command == 'check':
             errors, catalogs = validate(args.root, args.require_review)
             if errors: raise ValueError('\n'.join(errors))
