@@ -257,7 +257,11 @@ class Supervisor:
             win = int((st.get("status") or {}).get("win_chance"))
         except Exception:  # noqa: BLE001 - no reading, no decision
             return
-        if win > self.FF_WIN_CHANCE:
+        try:
+            tick = int(self.mcp("game_time", {"action": "status"}).get("tick", 0))
+        except Exception:  # noqa: BLE001
+            return
+        if win > self.FF_WIN_CHANCE or tick < 18000:   # never during the opening (~10 min of game time)
             self.low_since = None
             return
         self.low_since = self.low_since or time.time()

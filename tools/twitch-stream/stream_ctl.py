@@ -269,6 +269,8 @@ def narrate(cfg, a) -> str:
     return "said in game chat: " + text
 
 
+FF_MAX_WIN = 10                 # win chance at or below which a match counts as done
+FF_MIN_TICK = 18000             # ~10 minutes of normal-speed game time: never during the opening
 FAST_FORWARD_SPEED = 10         # the game's maximum speed: a lost game ends as fast as the machine runs it
 
 
@@ -280,6 +282,17 @@ def match_fast_forward(cfg, a) -> str:
     for k in ("MCP_PORT", "STATE_DIR"):
         if cfg.get(k):
             os.environ.setdefault(k, str(cfg[k]))
+    # Only a match that is really lost and past its opening (2026-11-24: the player fast-forwarded a game
+    # five minutes in at 12%; early win chances are shaky and colonies recover).
+    try:
+        st = json.loads(camera._rpc("game_world", {"detail": "brief", "include": ["status"]})["result"]["content"][0]["text"])
+        win = int((st.get("status") or {}).get("win_chance"))
+        tick = int(json.loads(camera._rpc("game_time", {"action": "status"})["result"]["content"][0]["text"]).get("tick", 0))
+    except Exception:  # noqa: BLE001 - can't check: don't fast-forward
+        raise CtlError("couldn't read the win chance; keep playing and try again later") from None
+    if win > FF_MAX_WIN or tick < FF_MIN_TICK:
+        raise CtlError(f"not yet: fast-forward needs a win chance of {FF_MAX_WIN}% or below after the opening "
+                       f"(tick {FF_MIN_TICK}+); now {win}% at tick {tick}. Keep playing and try something different.")
     token = camera.read_token()
     if not token:
         raise CtlError("no game control right now; take control first")
