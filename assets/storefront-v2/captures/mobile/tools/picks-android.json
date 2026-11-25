@@ -1,0 +1,114 @@
+{
+ "android-phone-emulator": [
+  {
+   "role": "hero",
+   "candidate": "hero-e1-1.png",
+   "description": "Colony core of the red colony: both swimming pools and both racetracks whole, with barracks, inns, hospitals and hundreds of globs"
+  },
+  {
+   "role": "battle",
+   "candidate": "battle2-e1-1.png",
+   "rows_in_frame": 1,
+   "description": "About thirty red warriors meet some twenty blue defenders on the blue colony's ground, two war flags in the fight"
+  },
+  {
+   "role": "fair_deal",
+   "candidate": "fair_deal-x1-3.png",
+   "description": "A different part of the colony: inns, hospitals and a Swarm busy with globs, no event rows"
+  },
+  {
+   "role": "build",
+   "candidate": "build-e1-1.png",
+   "description": "Build palette open over the live colony between the lake and a swimming pool"
+  },
+  {
+   "role": "economy",
+   "candidate": "economy1-e1-1.png",
+   "description": "Inn selected: Food 47/50 and its fruit stock, beside the algae lake, a wheat field and workers; a Swarm behind the priority dial"
+  },
+  {
+   "role": "territory",
+   "candidate": "territory9-g1-1.png",
+   "description": "Flags palette open at the front: a war flag just placed, a red line facing a blue line"
+  },
+  {
+   "role": "maps",
+   "candidate": "maps-m1-1.png",
+   "description": "A second map, FourSquares1: the red colony on its island beside the algae-covered sea, sand and violet forest"
+  }
+ ],
+ "android-tablet-7-emulator": [
+  {
+   "role": "hero",
+   "candidate": "hero-e1-1.png",
+   "description": "Colony core of the red colony: both swimming pools and both racetracks, barracks, school, inns, a Swarm and hundreds of globs"
+  },
+  {
+   "role": "battle",
+   "candidate": "battle1-g2-1.png",
+   "description": "About thirty blue defenders hold a line against some twenty red warriors beside the blue colony's buildings and a Swarm under construction; war flags"
+  },
+  {
+   "role": "fair_deal",
+   "candidate": "fair_deal-x1-3.png",
+   "description": "A different part of the colony: the lakeshore with globs swimming, wheat, inns, hospitals and a Swarm"
+  },
+  {
+   "role": "build",
+   "candidate": "build-e1-3.png",
+   "description": "Named build palette open over the live colony beside the lake and the pools, no event rows"
+  },
+  {
+   "role": "economy",
+   "candidate": "economy3-e1-1.png",
+   "description": "Inn selected: Food 49/50 with cherries, oranges and prunes in stock, beside a Swarm and workers"
+  },
+  {
+   "role": "territory",
+   "candidate": "territory9-g2-3.png",
+   "description": "Flags palette open at the front: a war flag just placed, red and blue lines fighting around it"
+  },
+  {
+   "role": "maps",
+   "candidate": "maps-m1-3.png",
+   "description": "A second map, FourSquares1: the red colony on its island, framed by violet forest, the sea in the corner"
+  }
+ ],
+ "android-tablet-10-emulator": [
+  {
+   "role": "hero",
+   "candidate": "hero-e1-3.png",
+   "description": "Colony core of the red colony: both swimming pools and both racetracks, barracks, school, inns, Swarms and hundreds of globs, no event rows"
+  },
+  {
+   "role": "battle",
+   "candidate": "battle2-h2-3.png",
+   "description": "About forty red warriors against some twenty-five blue defenders beside a burning blue building and the blue colony's Swarm; war flags in the fight"
+  },
+  {
+   "role": "fair_deal",
+   "candidate": "fair_deal-e1-2.png",
+   "description": "A different part of the colony: the lakeshore with globs swimming, wheat fields, inns and a Swarm"
+  },
+  {
+   "role": "build",
+   "candidate": "build-e1-2.png",
+   "description": "Named build palette open over the live colony between the lake and the pools, no event rows"
+  },
+  {
+   "role": "economy",
+   "candidate": "economy3-x1-2.png",
+   "description": "Inn selected: Food 50/50 with cherries, oranges and prunes in stock, beside a Swarm and workers"
+  },
+  {
+   "role": "territory",
+   "candidate": "territory9-g2-3.png",
+   "description": "Flags palette open at the front: a war flag just placed, red and blue warriors fighting around it"
+  },
+  {
+   "role": "maps",
+   "candidate": "maps-m2-1.png",
+   "description": "A second map, FourSquares1: the red colony on its island between the algae-covered sea, sand and violet forest"
+  }
+ ]
+}

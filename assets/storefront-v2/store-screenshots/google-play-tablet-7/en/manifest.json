@@ -1,9 +1,9 @@
 {
  "generated_by": "assets/storefront-v2/tools/screenshots.py",
  "tool": {
-  "screenshots.py": "1de8a95d3d747d45de9edbbf7354dc61054066e7396ac7211e6fe437ffce6d21",
+  "screenshots.py": "b165b86eeaab8a9b3bb4063d7bf0e961d7fbf4f49f3e96b20fbe058b98b79770",
   "caption.html": "277570196f62add3a704177b089b6126dc11b1765753195378d7a521be146a95",
-  "gallery.json": "7f4e60277667c5dbf38e55c20231a6bdfa9d61d2f0d5776e3117185f04f9da11",
+  "gallery.json": "66469b4cfadf946699a3f1bd75cdb1555e966c4df36319efa317ffd0bcfe4972",
   "fonts.json": "9344863fb6ad5a5d4d4c6cdd9cc7259e8f14a781800b34baddae162d7107b0c1",
   "pillow": "13.0.0",
   "playwright": "1.63.0",
@@ -17,7 +17,7 @@
  "partial": false,
  "gallery": {
   "file": "assets/storefront-v2/captures/mobile/selection.json",
-  "sha256": "047168ee4970cb66de00ca00f44e231b168d668850cd9fb35864e8737b093288"
+  "sha256": "046859432c560a4e4c7efce5e05e0493786025db7e5bd7a39bd3ac7c82ca48ac"
  },
  "catalog": {
   "file": "translations/en.md",
@@ -39,13 +39,19 @@
    "pixels": "1920x1200",
    "format": "png",
    "capture": {
-    "file": "assets/storefront-v2/captures/mobile/android-tablet-7/01-hero-1920x1200.png",
-    "sha256": "5c0366a2028357d08d0fcde34606d245e065a20f2ce98a9a875f3d2f645cf5e4",
+    "file": "assets/storefront-v2/captures/mobile/android-tablet-7-emulator/01-hero-1920x1200.png",
+    "sha256": "7305d6e04ec6f1dd462e120db45b316a4ab7876f0835499a709e7b19e2dc3764",
     "kind": "gameplay",
-    "trim": {},
+    "trim": {
+     "top": 40,
+     "bottom": 57
+    },
     "trim_mode": "flat-margins",
     "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
-    "trim_flat_share": {},
+    "trim_flat_share": {
+     "top": 0.9633,
+     "bottom": 0.979
+    },
     "placed": [
      67,
      192,
@@ -54,7 +60,7 @@
     ],
     "scaled": [
      1786,
-     1116
+     1026
     ],
     "scale": 0.930208,
     "corner_radius": 31,
@@ -96,8 +102,8 @@
     "own_size": 112,
     "field": "shot_overlay_hero"
    },
-   "sha256": "6bbb0ac757a4b68e225b74aff6bdd474aafbded27c5e4af395fabe994bea4575",
-   "bytes": 1952323
+   "sha256": "e23381b5fce076a2a0f29e4819b1ee6014354c5fa6a4ee22792c42bc5005c8f8",
+   "bytes": 3124330
   },
   {
    "file": "02-battle-1920x1200.png",
@@ -106,13 +112,19 @@
    "pixels": "1920x1200",
    "format": "png",
    "capture": {
-    "file": "assets/storefront-v2/captures/mobile/android-tablet-7/04-battle-1920x1200.png",
-    "sha256": "f1a7ffc3d1ccf06b7e24e11840c2839a26f96c84e6c543d268350df6c102011c",
+    "file": "assets/storefront-v2/captures/mobile/android-tablet-7-emulator/02-battle-1920x1200.png",
+    "sha256": "8b24364975f582ba822af3bca61c8540af42f827ec22dfa76c6424a3fe58eb59",
     "kind": "gameplay",
-    "trim": {},
+    "trim": {
+     "top": 40,
+     "bottom": 57
+    },
     "trim_mode": "flat-margins",
     "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
-    "trim_flat_share": {},
+    "trim_flat_share": {
+     "top": 0.9633,
+     "bottom": 0.979
+    },
     "placed": [
      67,
      192,
@@ -121,7 +133,7 @@
     ],
     "scaled": [
      1786,
-     1116
+     1026
     ],
     "scale": 0.930208,
     "corner_radius": 31,
@@ -163,8 +175,8 @@
     "own_size": 112,
     "field": "shot_overlay_battle"
    },
-   "sha256": "bf75a2a38d47d0c2e586306eb7268583297f537190167cf011c705f0d73bfcb9",
-   "bytes": 1198491
+   "sha256": "85d594eb16dae9eb0b20767fc6b2c74055a5e3fa5b3abedc030a16f2f4dbb44b",
+   "bytes": 2712647
   },
   {
    "file": "03-fair_deal-1920x1200.png",
@@ -173,13 +185,19 @@
    "pixels": "1920x1200",
    "format": "png",
    "capture": {
-    "file": "assets/storefront-v2/captures/mobile/android-tablet-7/03-fair_deal-1920x1200.png",
-    "sha256": "d1032da12804b7becc301258785a2fda4beb267e2cf416f74d8c32b07361ccf5",
+    "file": "assets/storefront-v2/captures/mobile/android-tablet-7-emulator/03-fair_deal-1920x1200.png",
+    "sha256": "15ed2528bc34a55bba33cf7bf8a7011f53083eabc62f706d81384eed2afdda66",
     "kind": "gameplay",
-    "trim": {},
+    "trim": {
+     "top": 40,
+     "bottom": 57
+    },
     "trim_mode": "flat-margins",
     "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
-    "trim_flat_share": {},
+    "trim_flat_share": {
+     "top": 0.9633,
+     "bottom": 0.979
+    },
     "placed": [
      67,
      192,
@@ -188,7 +206,7 @@
     ],
     "scaled": [
      1786,
-     1116
+     1026
     ],
     "scale": 0.930208,
     "corner_radius": 31,
@@ -230,8 +248,8 @@
     "own_size": 112,
     "field": "shot_overlay_fair_deal"
    },
-   "sha256": "dc209c12573fb213cabfe29dab27f4431f2078e06b17f86a147623fb6d1fd198",
-   "bytes": 1976270
+   "sha256": "4d390b809bfe12df355afd7041efce9b55618f5a5f778978a88d21869144ebd1",
+   "bytes": 2841835
   },
   {
    "file": "04-build-1920x1200.png",
@@ -240,13 +258,19 @@
    "pixels": "1920x1200",
    "format": "png",
    "capture": {
-    "file": "assets/storefront-v2/captures/mobile/android-tablet-7/02-build-1920x1200.png",
-    "sha256": "5309074c761e1985718b7303b10108215fe3c83d1f67ac922ae7ed7c247652db",
+    "file": "assets/storefront-v2/captures/mobile/android-tablet-7-emulator/04-build-1920x1200.png",
+    "sha256": "9cb82ba41d7c2773584e6112ecf0eb5dca2ff52f9dc10b98c774f1cfa17a3406",
     "kind": "gameplay",
-    "trim": {},
+    "trim": {
+     "top": 40,
+     "bottom": 57
+    },
     "trim_mode": "flat-margins",
     "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
-    "trim_flat_share": {},
+    "trim_flat_share": {
+     "top": 0.9633,
+     "bottom": 0.979
+    },
     "placed": [
      67,
      192,
@@ -255,7 +279,7 @@
     ],
     "scaled": [
      1786,
-     1116
+     1026
     ],
     "scale": 0.930208,
     "corner_radius": 31,
@@ -297,8 +321,8 @@
     "own_size": 112,
     "field": "shot_overlay_build"
    },
-   "sha256": "d3d5bcc3e0fb47ea3581faf644c5747110d22d4ec49926289c7209264e24538c",
-   "bytes": 1701001
+   "sha256": "5a8eb25284d42dcb840418e75fa2face42f30c1c8cd531456cd7bbf0f3513462",
+   "bytes": 2805535
   },
   {
    "file": "05-economy-1920x1200.png",
@@ -307,13 +331,19 @@
    "pixels": "1920x1200",
    "format": "png",
    "capture": {
-    "file": "assets/storefront-v2/captures/mobile/android-tablet-7/05-economy-1920x1200.png",
-    "sha256": "7b2a09c9fe296a2444c6a2da7cce862d4a05700b4b67114de3aeb4644b887627",
+    "file": "assets/storefront-v2/captures/mobile/android-tablet-7-emulator/05-economy-1920x1200.png",
+    "sha256": "e8b2acb0ee6401cdef5897d58dd3c64757618409648cd2a1c74bda6d48f618ff",
     "kind": "gameplay",
-    "trim": {},
+    "trim": {
+     "top": 40,
+     "bottom": 57
+    },
     "trim_mode": "flat-margins",
     "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
-    "trim_flat_share": {},
+    "trim_flat_share": {
+     "top": 0.9633,
+     "bottom": 0.979
+    },
     "placed": [
      67,
      192,
@@ -322,7 +352,7 @@
     ],
     "scaled": [
      1786,
-     1116
+     1026
     ],
     "scale": 0.930208,
     "corner_radius": 31,
@@ -364,8 +394,8 @@
     "own_size": 112,
     "field": "shot_overlay_economy"
    },
-   "sha256": "47780476fc8ef8deb8add943d4d438b902d3accefef48fe27897b05edeccd0c0",
-   "bytes": 1673525
+   "sha256": "3cdc2de04fb1822c3555f135fd1402f11caf4c58895fcdb96f41f6883d19f8c4",
+   "bytes": 2770409
   },
   {
    "file": "06-territory-1920x1200.png",
@@ -374,13 +404,19 @@
    "pixels": "1920x1200",
    "format": "png",
    "capture": {
-    "file": "assets/storefront-v2/captures/mobile/android-tablet-7/06-territory-1920x1200.png",
-    "sha256": "4a03b2619222c55a9aa1987a02823f17a17b7a3243104fe91b1046a8f6d1327b",
+    "file": "assets/storefront-v2/captures/mobile/android-tablet-7-emulator/06-territory-1920x1200.png",
+    "sha256": "506d0e122fc0d5082f06ccac59eee93eab69bc985635bd9d2d54b5481d7c8f9e",
     "kind": "gameplay",
-    "trim": {},
+    "trim": {
+     "top": 40,
+     "bottom": 57
+    },
     "trim_mode": "flat-margins",
     "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
-    "trim_flat_share": {},
+    "trim_flat_share": {
+     "top": 0.9633,
+     "bottom": 0.979
+    },
     "placed": [
      67,
      192,
@@ -389,7 +425,7 @@
     ],
     "scaled": [
      1786,
-     1116
+     1026
     ],
     "scale": 0.930208,
     "corner_radius": 31,
@@ -431,8 +467,8 @@
     "own_size": 112,
     "field": "shot_overlay_territory"
    },
-   "sha256": "70c02d4581ff9061f08febbc02c3b67ae4e1291d16dedc36b88fb74d4bbf4001",
-   "bytes": 1226647
+   "sha256": "736ef63d332e88c0a92e88b0f4d8d3b48d29b9eff66494145eb4d5b673decc22",
+   "bytes": 2613452
   },
   {
    "file": "07-maps-1920x1200.png",
@@ -441,13 +477,19 @@
    "pixels": "1920x1200",
    "format": "png",
    "capture": {
-    "file": "assets/storefront-v2/captures/mobile/android-tablet-7/07-maps-1920x1200.png",
-    "sha256": "5e11a6406a0adbef6c915ac35a8ac52a51937d0bfe1b6fbf6bfe295730d83e2c",
+    "file": "assets/storefront-v2/captures/mobile/android-tablet-7-emulator/07-maps-1920x1200.png",
+    "sha256": "97fbbf31e5693ffc3d2a6b6354ac225b4f458cfdf593a05d5167a1d15786fd63",
     "kind": "gameplay",
-    "trim": {},
+    "trim": {
+     "top": 40,
+     "bottom": 57
+    },
     "trim_mode": "flat-margins",
     "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
-    "trim_flat_share": {},
+    "trim_flat_share": {
+     "top": 0.9633,
+     "bottom": 0.979
+    },
     "placed": [
      67,
      192,
@@ -456,7 +498,7 @@
     ],
     "scaled": [
      1786,
-     1116
+     1026
     ],
     "scale": 0.930208,
     "corner_radius": 31,
@@ -498,8 +540,8 @@
     "own_size": 112,
     "field": "shot_overlay_maps"
    },
-   "sha256": "3bcacc4aa7da1ec8809220a6c04f60159657af524fa03bd137ee07f3a6bc7806",
-   "bytes": 1940445
+   "sha256": "7016e09e05eb6e3eadc8eba29374e886228d384efac3673f326a9d23aa91c746",
+   "bytes": 3166737
   }
  ]
 }

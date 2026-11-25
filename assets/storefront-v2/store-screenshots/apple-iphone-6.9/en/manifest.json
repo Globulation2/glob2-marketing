@@ -1,9 +1,9 @@
 {
  "generated_by": "assets/storefront-v2/tools/screenshots.py",
  "tool": {
-  "screenshots.py": "1de8a95d3d747d45de9edbbf7354dc61054066e7396ac7211e6fe437ffce6d21",
+  "screenshots.py": "b165b86eeaab8a9b3bb4063d7bf0e961d7fbf4f49f3e96b20fbe058b98b79770",
   "caption.html": "277570196f62add3a704177b089b6126dc11b1765753195378d7a521be146a95",
-  "gallery.json": "7f4e60277667c5dbf38e55c20231a6bdfa9d61d2f0d5776e3117185f04f9da11",
+  "gallery.json": "66469b4cfadf946699a3f1bd75cdb1555e966c4df36319efa317ffd0bcfe4972",
   "fonts.json": "9344863fb6ad5a5d4d4c6cdd9cc7259e8f14a781800b34baddae162d7107b0c1",
   "pillow": "13.0.0",
   "playwright": "1.63.0",
@@ -17,7 +17,7 @@
  "partial": false,
  "gallery": {
   "file": "assets/storefront-v2/captures/mobile/selection.json",
-  "sha256": "047168ee4970cb66de00ca00f44e231b168d668850cd9fb35864e8737b093288"
+  "sha256": "046859432c560a4e4c7efce5e05e0493786025db7e5bd7a39bd3ac7c82ca48ac"
  },
  "catalog": {
   "file": "translations/en.md",

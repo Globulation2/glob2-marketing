@@ -4,12 +4,12 @@
  "package_dir": "packages:steam",
  "generated_by": "assets/storefront-v2/store-packages/build.py",
  "inputs": {
-  "stores.json": "06e841f95bcec4c316ae143365214a681a75a8c0a49d6ca9884373124fa01510",
+  "stores.json": "c23b6d6b4c1be790ff462ebef065423e3d247da2ea1886765359ea9b3eaa0965",
   "review": {
    "file": "assets/storefront-v2/review/round-2-final.md",
    "sha256": "12bdda11795a52fcfc41a90e94851117b0a8564d7217b5f94ddc32ca5897e385"
   },
-  "platforms.json": "c78c414db1bb9d92c10f9a3b556dedf02d026f2bbd600e176defb0d624a2ba3c",
+  "platforms.json": "444308fd7a05f230fd0de0108bc8ce6a1f8b4920bc34abf2946603a423e8f2e5",
   "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
   "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)",
   "trailer_manifest": "a7f26a5a2a4f7e5c7cdf196749810a58ab4aaf29c423aaced31faa1e186ba488"

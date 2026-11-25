@@ -4,12 +4,12 @@
  "package_dir": "packages:apple",
  "generated_by": "assets/storefront-v2/store-packages/build.py",
  "inputs": {
-  "stores.json": "06e841f95bcec4c316ae143365214a681a75a8c0a49d6ca9884373124fa01510",
+  "stores.json": "c23b6d6b4c1be790ff462ebef065423e3d247da2ea1886765359ea9b3eaa0965",
   "review": {
    "file": "assets/storefront-v2/review/round-2-final.md",
    "sha256": "12bdda11795a52fcfc41a90e94851117b0a8564d7217b5f94ddc32ca5897e385"
   },
-  "platforms.json": "c78c414db1bb9d92c10f9a3b556dedf02d026f2bbd600e176defb0d624a2ba3c",
+  "platforms.json": "444308fd7a05f230fd0de0108bc8ce6a1f8b4920bc34abf2946603a423e8f2e5",
   "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
   "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)",
   "trailer_manifest": "a7f26a5a2a4f7e5c7cdf196749810a58ab4aaf29c423aaced31faa1e186ba488"
@@ -81,7 +81,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "1b71f89dacbc186f1b574fe90369a1908e7a2816346c13157bd69753324e8eb6",
+     "render_manifest_sha256": "afd541e3b0d3ad3b97a1265e3dfaa8f84b0e0717871004abd8f0423acfe1a420",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ar-SA/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ar/01-hero-1320x2868.png", "sha256": "fadd5bbe138b1ac4f217fcc591b8d2e15f8a88230bb2237f16ef4d51906bc7b0", "bytes": 4676602},
       {"upload_order": 2, "role": "battle", "file": "ar-SA/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ar/02-battle-1320x2868.png", "sha256": "eff5a07159dcf3c37a377e17ce6a9d50782c49d194989edd96c898c5415f2482", "bytes": 3731873},
@@ -93,7 +93,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "995cad44d23f90036769c3dcebd7d56508841893d288d9aa9b71aa616bbbcea7",
+     "render_manifest_sha256": "d6aca47cb5eee4970487e5b69ddae96d6bf5a39ba9cdc4e10b660e3f33b9a5e9",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ar-SA/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ar/01-hero-2064x2752.png", "sha256": "043a5f08f44ea3476441d2d6f2b59daf569f9527826cb0bb0ded801e885693de", "bytes": 7294042},
       {"upload_order": 2, "role": "battle", "file": "ar-SA/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ar/02-battle-2064x2752.png", "sha256": "451d5bc0c7ae014f0a087485e986b5229b2d3c510124298c27d0ebbe82a94708", "bytes": 5729344},
@@ -147,7 +147,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "9d4b2d43518487e8103d5cae74304b95f71cfd84ecc57ecf767811b6e78a0006",
+     "render_manifest_sha256": "c8ba2fa40347c207d08845065c44ed25c3eb60736acc55918354487938cd0395",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "pt-BR/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-BR/01-hero-1320x2868.png", "sha256": "1a59945cc9f02a72a2caad9fa9937136fd52c16c2c9960a98dd9c838ba230899", "bytes": 4658778},
       {"upload_order": 2, "role": "battle", "file": "pt-BR/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-BR/02-battle-1320x2868.png", "sha256": "28c16622e1011d712730322e29b3f375479f14225e3588c1c2c54e2142f7d74d", "bytes": 3720152},
@@ -159,7 +159,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "0213d35f28de9b353cfe2c5472400910a0bee0eea92a8cbb97fd32f06fc83686",
+     "render_manifest_sha256": "b4958beadc3434c7339cc8200c84fb1cbef873b274738dc15995980aead36baa",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "pt-BR/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-BR/01-hero-2064x2752.png", "sha256": "c03df156be1ec5c317ed91429a8a64f41d33367f82ff691c9cc840950ebbc214", "bytes": 7280080},
       {"upload_order": 2, "role": "battle", "file": "pt-BR/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-BR/02-battle-2064x2752.png", "sha256": "a75283809fcf91205d1980d77e298449f33bc9e61695df915dda553da6dc28fb", "bytes": 5716988},
@@ -213,7 +213,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "2a7f65178df547120757ce9fbcfd3e2907154335c5a4baa553de2e1091643e93",
+     "render_manifest_sha256": "3fc184cf97eeb1328df84237615f73ee29472c11168f4cd3496160e4545d14c2",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ca/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ca/01-hero-1320x2868.png", "sha256": "feef8848f3bebcf1019dc5c3cc05d6d64d1338bf84a20a31f79e73185c8362b3", "bytes": 4660094},
       {"upload_order": 2, "role": "battle", "file": "ca/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ca/02-battle-1320x2868.png", "sha256": "55308c46c13d22050bf367f886573f93495bc8ffc3b17ad7bb041058fc2deb19", "bytes": 3716562},
@@ -225,7 +225,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "a82186c8445bee22b0c3ae123ff92873e41b611cc599b7badcd63ce77190e92e",
+     "render_manifest_sha256": "0e4a3be3d5b557d099376d08953efacde6b257c893fc60fb06ed38c9dff810ee",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ca/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ca/01-hero-2064x2752.png", "sha256": "3af2ad87555457a1d53ce6504aa03978795d57217cfd59627eb9bf377a7952f4", "bytes": 7279349},
       {"upload_order": 2, "role": "battle", "file": "ca/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ca/02-battle-2064x2752.png", "sha256": "01c36123e4e2d8ad3466189e044249854da82d3ee04c2389e83ad94e5f23e6f3", "bytes": 5709168},
@@ -279,7 +279,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "8e57337c466becda1777b78a52790c93ecab31824b746fb982fa522b8339f99e",
+     "render_manifest_sha256": "9a6ea572beb521016fe088e6e12164f62c282727cd7035b24344c285db74cd88",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "cs/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/cs/01-hero-1320x2868.png", "sha256": "866988b6b97b1e5ca5fa511cbbeb22855bc41f90e61fc402a4c2a0987dc5572b", "bytes": 4640401},
       {"upload_order": 2, "role": "battle", "file": "cs/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/cs/02-battle-1320x2868.png", "sha256": "9d3264fe416cdc87a186bbe68a9559b0171b59830144cab936b493026853e354", "bytes": 3707064},
@@ -291,7 +291,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "b7712261b1e40c5b4289307f98826183f020e29df1e6022ff4120a5ed5599b9d",
+     "render_manifest_sha256": "b728d2a80267ccd2610ce6d08b3af130bfe77ec3cc82e516ab785d2edf70732a",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "cs/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/cs/01-hero-2064x2752.png", "sha256": "97d528e2480e0b4d6c674e9aa9b1d04b02755c9ede2c65f48c05dce5c1fe0487", "bytes": 7254659},
       {"upload_order": 2, "role": "battle", "file": "cs/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/cs/02-battle-2064x2752.png", "sha256": "89b1c341315532f552fb30f9f99a5f547fabbdedc3c6f4412ad81aab94f161a4", "bytes": 5714433},
@@ -345,7 +345,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "8ea836e136b52123d8bbc9cdf8e04cc6036d504bd5eb6d0264d0bd944b4cd7ff",
+     "render_manifest_sha256": "8507bb50cd761c78c896856a50ba3343543d92ddd75e4008145be2d189f6b05a",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "de-DE/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/de/01-hero-1320x2868.png", "sha256": "c7fc9b4bcbbeccffe3cbaaa7dada8db1b1da1c02d734d70e1f3e2611da8de749", "bytes": 4659215},
       {"upload_order": 2, "role": "battle", "file": "de-DE/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/de/02-battle-1320x2868.png", "sha256": "9d03384071de3eef681b67ef1f205c684bd6257193aef43ae298d5aa9b004b3d", "bytes": 3722080},
@@ -357,7 +357,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "b224d0e5ff774911422c970d4add8d8d26b54af49ccb4b17ab616abee86f6d8f",
+     "render_manifest_sha256": "796097fe7d8683233464a6aaf121743b026dee5f255fe72d6d5c2b3dad0c78ec",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "de-DE/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/de/01-hero-2064x2752.png", "sha256": "5bf3eda60af58567bc22514ff2603aa67bb155a20e4e07c89979c5d1814700bd", "bytes": 7279684},
       {"upload_order": 2, "role": "battle", "file": "de-DE/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/de/02-battle-2064x2752.png", "sha256": "3a262713ea4f48b64d14ef06ff91bd92fb76fb63f7c8f8fb2dc89b15c9a0da9d", "bytes": 5715725},
@@ -411,7 +411,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "6bedb0937193cacbefff6ae2941963aebe4264b355f6cc51723225b9edf1b5cf",
+     "render_manifest_sha256": "243bb7b044edfee3a741eebb99325a1ebf214f8792e73d31e3aaecf9e31cf633",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "da/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/da/01-hero-1320x2868.png", "sha256": "a8aef52f767b74f3aaaeac761f73f6f2fe230f8d50e646aba947acf6f2daa398", "bytes": 4656915},
       {"upload_order": 2, "role": "battle", "file": "da/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/da/02-battle-1320x2868.png", "sha256": "c034bc95eb76552e6e77662fb0723d93aede310ab2d374a8763fc1d7deb2217d", "bytes": 3708350},
@@ -423,7 +423,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "3c613e76568d65309058924ec18f8f7dc8a13d9954252dc18455919c6681c1b1",
+     "render_manifest_sha256": "befbbea585f0027a385a363fa31c081830a42d861fcc9af9527d72815248bfb8",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "da/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/da/01-hero-2064x2752.png", "sha256": "6c66bcbcc9d0ec14310f1e81f8fe14fc069371b8ffa7e73830ac13d16f0df770", "bytes": 7279395},
       {"upload_order": 2, "role": "battle", "file": "da/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/da/02-battle-2064x2752.png", "sha256": "361afd4c8d5a49ba195d7f1843a340466b87ff75cac3e2b09212251c0484908c", "bytes": 5715972},
@@ -477,7 +477,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "43894fde5127b7bd1a61a93474fc4a5221919a9a2a78ab84b425352adccbb5d1",
+     "render_manifest_sha256": "0ed9c73b97cf92dba60c6238569746b4caf8e451b4332102714556645ba0513d",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "en-US/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/en/01-hero-1320x2868.png", "sha256": "6d7bdf63cc12e925af9448d12a9bb9203d3a34411c2c6df8b4ff5a231f141c05", "bytes": 4666008},
       {"upload_order": 2, "role": "battle", "file": "en-US/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/en/02-battle-1320x2868.png", "sha256": "863e081b820502a754ac138408ee474a8768fbc231382a58e0c95a04a524dfea", "bytes": 3717500},
@@ -489,7 +489,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "ae31cc163b1ff69aeb672a155c9e1c0e3015657af14221d8b785a8d8a03cd8ce",
+     "render_manifest_sha256": "61ca2c78a2db9cb13d3ad38f2ffdfc2ee55b9c4d2ea62c1146d88f2968b7592a",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "en-US/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/en/01-hero-2064x2752.png", "sha256": "4530468eb0ec38e01424585102487c70fe9fde848dfb5e2a801542c08173673c", "bytes": 7284531},
       {"upload_order": 2, "role": "battle", "file": "en-US/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/en/02-battle-2064x2752.png", "sha256": "29a012d218af9f87b8795b55a71987c43d8ae4d4a6abb48b47345f3d2ab647bb", "bytes": 5710497},
@@ -543,7 +543,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "04d60cda3724bc088425edf4ba7591ea10f8547ce13af4bfd8d40d7c93aeab77",
+     "render_manifest_sha256": "d340279908275f6592a101bc3b3baec74b94bc65142a598301a968e69a53b4ab",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "es-ES/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/es/01-hero-1320x2868.png", "sha256": "f614fb3c03be81193661e21bfb8196a0861e899b25d66f822669464cab408021", "bytes": 4659989},
       {"upload_order": 2, "role": "battle", "file": "es-ES/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/es/02-battle-1320x2868.png", "sha256": "3876a67525d692c369a5d6a23470ac49d4f8edb29ac7326b82e8e69b2a1c3211", "bytes": 3720633},
@@ -555,7 +555,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "29e4dab159c6a2eb69e6f69f3185b37e58c2c62e48630d2a1ccd50106592d270",
+     "render_manifest_sha256": "d695e291df51d5e34faf9c0160d55f85c9a841d4a3e870e8410e8ae6365a3418",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "es-ES/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/es/01-hero-2064x2752.png", "sha256": "9342b9e97b6a519a51ad20ad0562e0f1814a64dfb27a1476baf666a0d24b9952", "bytes": 7279373},
       {"upload_order": 2, "role": "battle", "file": "es-ES/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/es/02-battle-2064x2752.png", "sha256": "239bfdda1f1d57087101a13448287b6af8ecec2cf9877e925eda25dafd19e92a", "bytes": 5732779},
@@ -609,7 +609,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "5f3ae99f43b10fb1923725df758904e9fdb7a4d85256e75da4907c3d583411a3",
+     "render_manifest_sha256": "497c87f1c1789848f37cc01eb6a6005d33ddd02e3978838405c6750c90e99015",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "fr-FR/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fr/01-hero-1320x2868.png", "sha256": "c325d4a1368f541a49d29714d970779809069f08feb6f403e35b9706f80d3a2a", "bytes": 4663184},
       {"upload_order": 2, "role": "battle", "file": "fr-FR/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fr/02-battle-1320x2868.png", "sha256": "b70bc639016568804188bd56af6f844222f104583ee618bd9768535a581df48c", "bytes": 3728371},
@@ -621,7 +621,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "ffa4db4060beb00cb8d4c6b7301cfb5a79accf04a8f90c1fb4a1565d39f14afb",
+     "render_manifest_sha256": "5c139f7886bbb7965b9612e15200d741a42b66ddea570127e47767b6ed0a377e",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "fr-FR/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/fr/01-hero-2064x2752.png", "sha256": "b6fc91604121d401fdef0c1a5c5ceff46ebed17500a04120521da4d6a5e2494f", "bytes": 7281043},
       {"upload_order": 2, "role": "battle", "file": "fr-FR/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/fr/02-battle-2064x2752.png", "sha256": "2969b508d3841122292f4e55a681c585d1a8cbc53026dd44b01ea7e43c0f40d3", "bytes": 5740396},
@@ -675,7 +675,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "2f7d537560e68772f6a79cf30008b4eb8417c9822e51fdaec328f4669fcda5e6",
+     "render_manifest_sha256": "dd24e586f7653ff6da4710932ffc597be2d5fc624e4864eb0d398c86fd78891b",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "el/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/el/01-hero-1320x2868.png", "sha256": "456de0e9f79365f6c27582c6be8216f9cdc0e053f3cb7a7bf18666fa98f92874", "bytes": 4663108},
       {"upload_order": 2, "role": "battle", "file": "el/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/el/02-battle-1320x2868.png", "sha256": "dfeb6ae57aa753b792e307e5d2df5c8afa0daed132611b58e00a5ae98cb8f5f6", "bytes": 3721747},
@@ -687,7 +687,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "5647670f5b8d3bfebf6827dacc66933dfae5575a8b331484ddd9d02462a8a7ed",
+     "render_manifest_sha256": "d9d56190665f52f06168e1e4dcbde788a40f09c959c0000e2a94b419838b3084",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "el/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/el/01-hero-2064x2752.png", "sha256": "0de1afd5cb4f0dce39bf66fc82e2f1e84ce6d8637eb7f7f695c2310e759cc98e", "bytes": 7284397},
       {"upload_order": 2, "role": "battle", "file": "el/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/el/02-battle-2064x2752.png", "sha256": "0dd5bd727dbe1770acbea86ae7da88fba59680c4da3bf0a7af24446b3f3d8cf5", "bytes": 5737514},
@@ -741,7 +741,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "2d5a77ce55d09d3e0e1168249009ae7f7e2cc36b55f85917365174e139e34c6b",
+     "render_manifest_sha256": "0707cfc151da36734af4e3e9714baba983daf681b2df47aee18589bb35ea3b60",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "hu/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hu/01-hero-1320x2868.png", "sha256": "ea98bb29262f3b96770d8dd8e0637f98065a3664601443bc980e8c91e69514ba", "bytes": 4669188},
       {"upload_order": 2, "role": "battle", "file": "hu/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hu/02-battle-1320x2868.png", "sha256": "39a6f7ee898d6a57cc6f46ee2d83cd5323101d1bad61a101ffd1f4fbf1226503", "bytes": 3719508},
@@ -753,7 +753,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "b960d812fe4df5a10f9906b65d94eb8be55bb02a7161ef08d549d8b12ea8a9f2",
+     "render_manifest_sha256": "7bed9ec9b7cfa3642323867b41cfa74b30bc9dcc8d3966ba802b143b0627103f",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "hu/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/hu/01-hero-2064x2752.png", "sha256": "da567f77ec8fef14ab8b1028c0fae1f1806c7f2f3ea2fdbff949cb59cc2af67a", "bytes": 7289506},
       {"upload_order": 2, "role": "battle", "file": "hu/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/hu/02-battle-2064x2752.png", "sha256": "d94ecdf3ad7d3c9088aa0cd93e0d2b4dd3aec59c5c0a91c3215790a7d8d79edd", "bytes": 5714481},
@@ -807,7 +807,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "943019cafede285644ed18cd3dd04ef7518e8418c77bf8589bc1e7aa4f313ba9",
+     "render_manifest_sha256": "73d567e6beb10a1dd84e21027931a6885961462c31d6e423a75cbbc97bf5f87b",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "it/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/it/01-hero-1320x2868.png", "sha256": "611297b091191988cc056fa13d2b4eae3b08f0deaa64e6066b02b5cd14274b76", "bytes": 4661755},
       {"upload_order": 2, "role": "battle", "file": "it/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/it/02-battle-1320x2868.png", "sha256": "f9d354e900927d36b822d57e6de2dbbd14eb831170d4f364d84dedce86bffa75", "bytes": 3722800},
@@ -819,7 +819,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "58127fef2ea9ebb6a3b12f2a919437a477155fccb0f9583182c724a446a0d02f",
+     "render_manifest_sha256": "78240b5ad368ce54f5a0b6a47323a3138557d281b24a277dec8a8c34d79556e0",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "it/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/it/01-hero-2064x2752.png", "sha256": "9266d4ebe66e0a41bc372b925304cdd54e8eea6365efead71c54d857b6590229", "bytes": 7280257},
       {"upload_order": 2, "role": "battle", "file": "it/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/it/02-battle-2064x2752.png", "sha256": "4b3ffde22ef182509ae8bffae715a36cec27d736f38dcc5750d940251aead2b1", "bytes": 5735737},
@@ -873,7 +873,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "f1062eb22ca847e0580d2893ff4139f118cc484b63fe93aa83852cc7565d05d8",
+     "render_manifest_sha256": "5afda7f30e81105366707ab441d805a9ab1c07ddb2c587dcc73cc29a7e8de74b",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "nl-NL/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nl/01-hero-1320x2868.png", "sha256": "1494e135a2e4133da8c041d63de302afdb2ad4b1a3fbba4579e17964034b829d", "bytes": 4662474},
       {"upload_order": 2, "role": "battle", "file": "nl-NL/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nl/02-battle-1320x2868.png", "sha256": "281908dc5ddea2cfc04e46641d10062f582e61c85dbe47bc727b8473eff0e082", "bytes": 3704789},
@@ -885,7 +885,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "82fa846bf7f2347c0f260e4d614079a44eee2fc52c3dd7c74ca4ad418ea262ac",
+     "render_manifest_sha256": "166957e1720e11e19d1dd126f3a919aed48873b423d570703a2143f791abf38f",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "nl-NL/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/nl/01-hero-2064x2752.png", "sha256": "9746371d01672164fe938fe3f75734390293afe97fe6493fa9e27422f3acc29c", "bytes": 7282352},
       {"upload_order": 2, "role": "battle", "file": "nl-NL/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/nl/02-battle-2064x2752.png", "sha256": "6b55fc688470d13a81eff3735963b167dab1b1ea677d6926f476d36862826080", "bytes": 5713206},
@@ -939,7 +939,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "e66ed2ca7c1dffc3122f8f31989e7e9b4c28649c054fe40c1878f4fc31d68579",
+     "render_manifest_sha256": "093571251fa21e58f8fb3865fa97b6efad8fabeac0256f790331c49ea4bdd8ec",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "pl/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pl/01-hero-1320x2868.png", "sha256": "70987737934e48e1af4c95ff872c9a1c422b6620c09b79c14202eac161f6efbc", "bytes": 4663216},
       {"upload_order": 2, "role": "battle", "file": "pl/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pl/02-battle-1320x2868.png", "sha256": "acc7b98e64e0d0ceaa16c306757417bacf6c11bccdb00e935db567fb827fd5b3", "bytes": 3705744},
@@ -951,7 +951,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "13320f78ad818e1e17f74a95959483e078217fc26e961c48dcbdb71b8eee2c9f",
+     "render_manifest_sha256": "ea158ce370d72290d81c9e3c64b703ddde7245e70bf0a0bb33356aa6544b191a",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "pl/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/pl/01-hero-2064x2752.png", "sha256": "0af988b4d3ad24e5c42d71882c6efedbcba7c9dfb245d4c45516b1f59ee0ce94", "bytes": 7282662},
       {"upload_order": 2, "role": "battle", "file": "pl/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/pl/02-battle-2064x2752.png", "sha256": "acedb0449f0e5529d6752401181efed3f6595ee852e122d00835d6add2a9300e", "bytes": 5715177},
@@ -1005,7 +1005,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "93dcf418ac124f1f157012d742c19d2855af32c9092885c8a41a83751f5aa4ac",
+     "render_manifest_sha256": "a5789d816748dabd9acd97061fba1b8953426ecdf727b853fb912bc6fb97434f",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "pt-PT/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-PT/01-hero-1320x2868.png", "sha256": "c6ee488f3ab2e61375a63a71fe12abe11188926f39d6bc23fc9958396de3d137", "bytes": 4642928},
       {"upload_order": 2, "role": "battle", "file": "pt-PT/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-PT/02-battle-1320x2868.png", "sha256": "b56e50691f614237dbddb58879396bcba085754e427d0f9ad053fbfd0a07e313", "bytes": 3704202},
@@ -1017,7 +1017,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "a446ec2c8aeb53ff6073766a4f824b905a1d0a98bb12faead72bcc8ccb9e7070",
+     "render_manifest_sha256": "989bbb4c587a5716a6c7c0feed0ba6d55fc769d33d6971450485a7aa86cf4a07",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "pt-PT/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-PT/01-hero-2064x2752.png", "sha256": "a68c84c9bdc966c53e46b2ceda36a4b2dbd32dc63d233254d87f93d9eeabdafc", "bytes": 7259146},
       {"upload_order": 2, "role": "battle", "file": "pt-PT/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-PT/02-battle-2064x2752.png", "sha256": "c007fd16d498800ca77f2871d284d5367709e6e0700fb796fa3577dbd0ea45e9", "bytes": 5713240},
@@ -1071,7 +1071,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "ac576dab47c2b1453d557755d7e1cb7ccfdb4cb8419f264e2f7e690ac8bfb370",
+     "render_manifest_sha256": "455fdc6d6943837fd2dfe32408d49bd2dbd240cd46b8ce94f816ae7873c4b493",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ro/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ro/01-hero-1320x2868.png", "sha256": "5553a1d5a17e6dd6ef9950eda58891b1b6637c6059054116464febed99267f53", "bytes": 4661821},
       {"upload_order": 2, "role": "battle", "file": "ro/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ro/02-battle-1320x2868.png", "sha256": "cfe4cdca507a9bf6f458b54ce0512e5fd61da516aae9a17ee81345952419fb0f", "bytes": 3722051},
@@ -1083,7 +1083,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "25acf74a458e6218d5ca2238d72b414dc0c7db4b6fcbfc8b1b1503c6e1de84b5",
+     "render_manifest_sha256": "6dc434b91ef56dd11122bbe7a2cf7f7a8b921bc1aef8947e24f19a873412628a",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ro/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ro/01-hero-2064x2752.png", "sha256": "9f1a7208dc41c94625069a1e26e007a542f7142c191116dde7ed1ef221fb8f6b", "bytes": 7277378},
       {"upload_order": 2, "role": "battle", "file": "ro/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ro/02-battle-2064x2752.png", "sha256": "b897b1d736ac1a47b020b1cc25999518fc2f5fb0bdf24af4104b4c3029120dbb", "bytes": 5734263},
@@ -1137,7 +1137,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "0d437c5c51e0b896576c1f1e294d1cda93f0bc47c95bad5b7e013c4816f0cae0",
+     "render_manifest_sha256": "68a5f79c5d556f92e78a1739e08b3b5df35a58f50cad97a195484186368d8f53",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ru/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ru/01-hero-1320x2868.png", "sha256": "f2b509456165d90bf3b85d9fc1d2d7f70d6ffd3a9c085fa3ace12afcfaa9a1fd", "bytes": 4638134},
       {"upload_order": 2, "role": "battle", "file": "ru/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ru/02-battle-1320x2868.png", "sha256": "79831f5a06043012020d39470cd52493ef1ea04f08cc2e875c900ad6843513f8", "bytes": 3724753},
@@ -1149,7 +1149,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "da16f4656460ed7f16aa5c2ed64d9e9656ad5c875d5e45fceb791b72ace128e1",
+     "render_manifest_sha256": "43c0a5833685bc3b2578eb5774a63e5ec0fc577979fd83e2aed889b5395b70ff",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ru/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ru/01-hero-2064x2752.png", "sha256": "5db12627c338d0da79be6b30cba6f6eb0fd02f0b883955b005e38e6810bb0256", "bytes": 7252055},
       {"upload_order": 2, "role": "battle", "file": "ru/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ru/02-battle-2064x2752.png", "sha256": "70d1d2b1676e13be98c910c3b8e59798704f53131b31f64b23df104e6f7f3f33", "bytes": 5735749},
@@ -1203,7 +1203,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "5f9a556dc2f7bf473b0512f50cae28654d07601aa7ee7bf9f75fb2ea0187b673",
+     "render_manifest_sha256": "cf14d056aaaf9344661617929fab0f140af3dd476fd75ed9da8148e52e867ce7",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "sk/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sk/01-hero-1320x2868.png", "sha256": "15eebe2c13760b7cd4d4acc037c85f1ffed488c72c6f0b35b68bd760cc8fbf11", "bytes": 4638919},
       {"upload_order": 2, "role": "battle", "file": "sk/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sk/02-battle-1320x2868.png", "sha256": "d6afbea55c47a93a0602b18c19731b869ecc759c036346e686910dc999b73cad", "bytes": 3709261},
@@ -1215,7 +1215,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "4c2440e21716116a18c8eec3b68247af55b40abea81a80945d7b8a26c107c0b0",
+     "render_manifest_sha256": "ad55ef91b2be042ba10e3188e81ada7d93b25f37117faaf521d3337066a313e6",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "sk/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/sk/01-hero-2064x2752.png", "sha256": "98dc6c35ce892d55cb186b8e6aac16b6557a1606d886b710b4010f95fffe2a68", "bytes": 7253473},
       {"upload_order": 2, "role": "battle", "file": "sk/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/sk/02-battle-2064x2752.png", "sha256": "9b6b3bcbc64fd1c3be36d7b7c33eb37f3968c2ba87beb7258fe4e8af47bb943e", "bytes": 5715120},
@@ -1269,7 +1269,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "bb816bc6eb86e4d2ff67b50b7c4d190b85a8106adf87ae057d9fb977200a200e",
+     "render_manifest_sha256": "9e4783dc9a59a0cf66b54aa895414200cf86ef2b4a41e5cb6c5594a056185ace",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "fi/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fi/01-hero-1320x2868.png", "sha256": "56475d257a91f6cbce141a1a7ed6a6f4b57525f70cb46f9ea58c804ca63482b3", "bytes": 4663751},
       {"upload_order": 2, "role": "battle", "file": "fi/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fi/02-battle-1320x2868.png", "sha256": "5f16e23d3df52643f5ffd0ce8b432dfa2d6fd493d0b953a81ec14928fb219b84", "bytes": 3706637},
@@ -1281,7 +1281,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "e80d73baece31ac6f458fa1038ac0db180ccba3d95f71d33d480a6eff7c1866a",
+     "render_manifest_sha256": "6ca6b36bfe42bbb72fbb43e72314e01025288bc62365b9dfc2a452cd35378bda",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "fi/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/fi/01-hero-2064x2752.png", "sha256": "a9efbdc32b46b65bc3eb05a05ec87d0beeabbe1d4a0005d21b8afa2202a306e0", "bytes": 7283889},
       {"upload_order": 2, "role": "battle", "file": "fi/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/fi/02-battle-2064x2752.png", "sha256": "1b766eebb6c1155262052ce4734ce7fe53afb2815dbe6ce2830f710b68075ddf", "bytes": 5713476},
@@ -1335,7 +1335,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "a6ea5b9165a187c890a24c883323c584ba051e22a4de7094713d2f065dee3dd9",
+     "render_manifest_sha256": "30d747a509b128177c4a173eeea8710ea031ef48b05f188cef0cfe0ba0ce2149",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "sv/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sv/01-hero-1320x2868.png", "sha256": "db816887998c9ee1540ddc801b7aa60286f8e4c64d0f489eab0f203eeedcb043", "bytes": 4663944},
       {"upload_order": 2, "role": "battle", "file": "sv/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sv/02-battle-1320x2868.png", "sha256": "cc8967ac1e8e7010acb78932acad3c612f35607539bf90a1c853be658effb652", "bytes": 3724515},
@@ -1347,7 +1347,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "353063b87394ca110ae865b84120b238bd7333de13afae90d075161f118e4716",
+     "render_manifest_sha256": "65a22b7ff7698c805dbff63ed695df16a595751f63ac87abd4358fd178ebb177",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "sv/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/sv/01-hero-2064x2752.png", "sha256": "b930a335dd7cdd4504de87ffcbe8f8dfec3eeb061ca4067bd3be4c99a402fa93", "bytes": 7284146},
       {"upload_order": 2, "role": "battle", "file": "sv/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/sv/02-battle-2064x2752.png", "sha256": "d9d05af733268b401138d24c4212a1103e23a4f4b50113524f353d026f59315d", "bytes": 5721097},
@@ -1401,7 +1401,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "19960cc8644e367f6ad1f98117d1e8840a74e310793dba09cc39ec311bea9fa4",
+     "render_manifest_sha256": "866b18745cbf461c3010d38be7e0401272582a17303b09af674c5ce98ee70772",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "tr/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/tr/01-hero-1320x2868.png", "sha256": "71494fee039935d7b7c966dedac8c2c703f2a2b755119f8ed9dac96e8014ca94", "bytes": 4665167},
       {"upload_order": 2, "role": "battle", "file": "tr/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/tr/02-battle-1320x2868.png", "sha256": "40717faab1cf711f64ce30ae9a33470b9acbd0c8e2d3d0cae7f42ea64de3bd48", "bytes": 3722031},
@@ -1413,7 +1413,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "3bef05973532bcdd3bc4af50e53e94451af9148f35d5b82643be2854c7fec3f3",
+     "render_manifest_sha256": "9727301c14ab4ad13555250bc752cbeee97fb0274b09df4fabab9b630f74f2eb",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "tr/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/tr/01-hero-2064x2752.png", "sha256": "34e9eed7e6f94109aef55fca505a7a1e084ca76656e8c61a8a76549dee43526f", "bytes": 7284091},
       {"upload_order": 2, "role": "battle", "file": "tr/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/tr/02-battle-2064x2752.png", "sha256": "bc118656da11ec421608861858866f26b72d4c0bd4f4ad8d29d3c5e72f28824f", "bytes": 5721527},
@@ -1467,7 +1467,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "73f872dd0aeaff6a6a4a78bfb0b027d9d77279f39705e807085c0b9f934539ae",
+     "render_manifest_sha256": "a3dc9be4792d755db2d864d241993d8c84f56fa9360d9bc1eaa6f7dabbe3e5fe",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "zh-Hant/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hant/01-hero-1320x2868.png", "sha256": "3a7c45841ed1e955b55508804e98e7fd42b2261de4ecf5bd3b58f3aee141a58d", "bytes": 4642791},
       {"upload_order": 2, "role": "battle", "file": "zh-Hant/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hant/02-battle-1320x2868.png", "sha256": "170986ee37fdefa749777eb8a3613d8fdebed98f267c35b146e77a4eeb905dea", "bytes": 3704598},
@@ -1479,7 +1479,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "fd1a5bbf0772fd43ce722e1191fa52128b8541937076a1290e96160f4f49f7ee",
+     "render_manifest_sha256": "355c43ee6dbba901f398fcca101a2e799279aa1042cf3a63084e3301512718b0",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "zh-Hant/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hant/01-hero-2064x2752.png", "sha256": "8e2e4f622294014e7c508f76bb2f5a5cc7fa37ab4e8963719278672bb0d454ac", "bytes": 7254081},
       {"upload_order": 2, "role": "battle", "file": "zh-Hant/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hant/02-battle-2064x2752.png", "sha256": "067d6671747b7a70092729a5c70605cacae2271efbd5b156509e0418bbe98aab", "bytes": 5713190},
@@ -1533,7 +1533,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "24138ff549c1f5b76abe37b12a22ea6e2776b5d9374151db6f99be16554b6c70",
+     "render_manifest_sha256": "ab81beeee562a9c092c509a660a258edb9baa2532a0a8c05f4b6470107e12b78",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "zh-Hans/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hans/01-hero-1320x2868.png", "sha256": "04c8d386601b4437ac53a34206a21b192bcbf98270a0b2d853674b3ffd3a531c", "bytes": 4642220},
       {"upload_order": 2, "role": "battle", "file": "zh-Hans/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hans/02-battle-1320x2868.png", "sha256": "38ba2b1a885f9fc9b1d4c74db4500a117f0e3310689f616063c6c5fb4a5752ec", "bytes": 3703061},
@@ -1545,7 +1545,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "7685704dfa89feb2ba91b6aefe7ff49621f3173865aa12eb8a728306f8583148",
+     "render_manifest_sha256": "ecf952f5907300227becc3d7ac17a9b2d5112e784e5203b6d05ed997504b9269",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "zh-Hans/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hans/01-hero-2064x2752.png", "sha256": "d2bbbed23539f95872163a9706484210cdf34561b883879ca4b1ee83997b78c9", "bytes": 7254215},
       {"upload_order": 2, "role": "battle", "file": "zh-Hans/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hans/02-battle-2064x2752.png", "sha256": "7f997471398a4f5434fa16cfac5feb4e54b5faa02fc699c5ae3061e5930565ad", "bytes": 5712317},
@@ -1599,7 +1599,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "ec3ce1a57a6220733cfb365642ca304f6ab418c1472bc29320ee2a6e9c8d3d47",
+     "render_manifest_sha256": "ab03a5f4933042d87a60effa0d992d8b057e4aa5cf7b0cc1ef1ab51ef361e760",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "uk/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/uk/01-hero-1320x2868.png", "sha256": "74c48895ec2c22f54c90dce1fd34fa36c614f0ee24704305aef78172b6d75929", "bytes": 4658140},
       {"upload_order": 2, "role": "battle", "file": "uk/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/uk/02-battle-1320x2868.png", "sha256": "7beff411f986e5e67694623f955efd6cd0503b21c66d8c1ff9495974aad3f48e", "bytes": 3716610},
@@ -1611,7 +1611,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "c1f28b51c78f80278f789ec131cb383e9a9cb0296c46402031e46dc7f8711f42",
+     "render_manifest_sha256": "41c1c9ca75de46fe49c2cb74a8ede50eb6ee35f75414cb7766a904b041e18a45",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "uk/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/uk/01-hero-2064x2752.png", "sha256": "064049dfe322654b1781b5c7a314f475057bfff83273fb53bb3bd3e269862b1b", "bytes": 7272896},
       {"upload_order": 2, "role": "battle", "file": "uk/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/uk/02-battle-2064x2752.png", "sha256": "8a5f6ca8bb55c8bd5c0f8c3b9cf6c7b874ce1e5d9d10a2425f5147c35e1b2934", "bytes": 5711550},
@@ -1665,7 +1665,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "985b6788d6604df55d3f9188e4cf8e5955645ea3e10a9c8e67a35d038ad122c7",
+     "render_manifest_sha256": "e1284a28488325209982a2dd09b25c61f37c406849c61d0f23ef4d5e3ad77248",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "id/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/id/01-hero-1320x2868.png", "sha256": "995c70fdec22e56c7bb439d017a7189c4d279b12b87779a83430fb4887b7bd98", "bytes": 4658716},
       {"upload_order": 2, "role": "battle", "file": "id/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/id/02-battle-1320x2868.png", "sha256": "26f42983a1b59b2a919a6ff01b0eaee8e45e1585fc67b80cfc20ddac1b81d01a", "bytes": 3721421},
@@ -1677,7 +1677,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "0f5145298713f4993b1457c8f27a45319061e7ce855d9432cfe71c272656f0de",
+     "render_manifest_sha256": "93afa968fe15a7c6b0d7366547d8f0330904eff618fce248ac52ac6161a1ed57",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "id/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/id/01-hero-2064x2752.png", "sha256": "129a72d025625c6ef489ef2cce01af1cbf52587080ee68ab86769b252a494091", "bytes": 7278840},
       {"upload_order": 2, "role": "battle", "file": "id/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/id/02-battle-2064x2752.png", "sha256": "ebcf0617d1c574a808024eacd330173a2d84a58d030f200fddb81141b840388b", "bytes": 5734172},
@@ -1731,7 +1731,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "5ceffc36588c758e38aff423d309ef8b71349d34c7cc43e88d07c2e474bd653f",
+     "render_manifest_sha256": "54978b5495f9da8afa2f04c82b71e4b6bb259395c2ec639b32fd35023dd8f4ba",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "vi/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/vi/01-hero-1320x2868.png", "sha256": "dd193c5644ae0237f7e3145e9ad6b24cc6d16b5c6d97ee9d14a456c6b35427d3", "bytes": 4663455},
       {"upload_order": 2, "role": "battle", "file": "vi/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/vi/02-battle-1320x2868.png", "sha256": "0c7718ee2822766add1f69db1960ac7ec91377fceb6478455b8580a0682912ab", "bytes": 3724386},
@@ -1743,7 +1743,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "047d6dfaecf69f9d59f669d2ecba729ca3515d785991b8ce96c31766333397c7",
+     "render_manifest_sha256": "be69833a5243ee481bf5ec7564f67b344993cbb3aa3e38efea339afba3c6e75c",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "vi/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/vi/01-hero-2064x2752.png", "sha256": "12dd97b6a9a81f187387d4dccbd11ba65485b33595f61402218b30f101932a7b", "bytes": 7283721},
       {"upload_order": 2, "role": "battle", "file": "vi/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/vi/02-battle-2064x2752.png", "sha256": "f5a2a08dd3b2f928f6cfc8e312f2cde1b83561fdec539d33d846dd549a6bbf77", "bytes": 5721181},
@@ -1797,7 +1797,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "ae73abf05949b35e432520b8db0577da041ff19827fb431c08d91aae0f2f6891",
+     "render_manifest_sha256": "7047e3aac06bf4a7192e1fcc6c750815baa82ed309943f3b9f626c320424f48a",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ja/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ja/01-hero-1320x2868.png", "sha256": "1fa30f8a62269a555cdfa23c0813232b13864fea574fb15714ebb8426ab82596", "bytes": 4667976},
       {"upload_order": 2, "role": "battle", "file": "ja/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ja/02-battle-1320x2868.png", "sha256": "ff419bb9ed24d8d589272a1bd54a3ff9ffd53f7febf4c3b3c45ea86dee51c310", "bytes": 3730495},
@@ -1809,7 +1809,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "9265e552e855b5a5377d94489f4ed7739acb3a26073d36590044efdc2290c4c5",
+     "render_manifest_sha256": "c602fd0d315ab7a8cfacc74ee681e534a1d7a59a28da40dff2d282acad376787",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ja/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ja/01-hero-2064x2752.png", "sha256": "0c97ddf2b5946b704738e1a09b38fbf09e713ecf02392a3ce9f23dd19967eb19", "bytes": 7286414},
       {"upload_order": 2, "role": "battle", "file": "ja/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ja/02-battle-2064x2752.png", "sha256": "efc78622474c8b546ddfac9e1ba4d9284396fe883c17e7ec88f04944bf959600", "bytes": 5729215},
@@ -1863,7 +1863,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "bc6cce49ac1bcda5d11ccd1299c02132e3f86cb3e0fa885edb7569d5dd8f4baf",
+     "render_manifest_sha256": "1869abd8650dd0f5c9847976ff7ca4c8a9a4b59680b8ef76678d2124f3c099e1",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ko/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ko/01-hero-1320x2868.png", "sha256": "d512169be1dff12c1aa6f6493764c93fbd87720f90dd196d0271728f398ba3c9", "bytes": 4653942},
       {"upload_order": 2, "role": "battle", "file": "ko/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ko/02-battle-1320x2868.png", "sha256": "052ed1594b0c6ab2a377e9357bc68a1495ff4e68ff4f2ba2282dad651fb187a6", "bytes": 3702773},
@@ -1875,7 +1875,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "eb94342fdcdc2c1b67337ff8bc1d0184e7d16885d434fc2deba27804f8e151da",
+     "render_manifest_sha256": "5f15e73ebf117be884bcd5e5f85eabc065143f0ec142f61e7c0695a1c68eae64",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ko/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ko/01-hero-2064x2752.png", "sha256": "cbc729f0bcf1a62303757f3e0157789eba20a79fcefaed768e3520b1eee4e979", "bytes": 7270976},
       {"upload_order": 2, "role": "battle", "file": "ko/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ko/02-battle-2064x2752.png", "sha256": "d60d1688aa8949d5ecafbcad1e690d1b9a0ce6ff3460e692e4a08e20e072c0f4", "bytes": 5710081},
@@ -1929,7 +1929,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "ab0cdf9db9d99213f0ed91d6b5a4f4b50d3423f71508dd13ff659fdbe65ce701",
+     "render_manifest_sha256": "417f4c3ab493bea96193f021e77d5b34ae7cd826ad84b21a2450075ea68dd7be",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "sl-SI/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sl/01-hero-1320x2868.png", "sha256": "8ee184cc5f5274a133b9d01f890574fc938499019a8fcd951cf12cec233fa065", "bytes": 4668889},
       {"upload_order": 2, "role": "battle", "file": "sl-SI/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sl/02-battle-1320x2868.png", "sha256": "22e14bc5042f4c199682b14c85ec46cd1c82c6745178959e11d51e5ab601defe", "bytes": 3723215},
@@ -1941,7 +1941,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "78666cdfcb3d56de4ee605a7280941fcd5009f40642f4e473cb3ad5466be4ebf",
+     "render_manifest_sha256": "709b059cf0d4748d06bb3acd3eea4c0ec7c56d6132a8e2b8f68615c064c444e1",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "sl-SI/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/sl/01-hero-2064x2752.png", "sha256": "30211e344d08b5d2d9a1c53579a402c9df2c3caee6a6b2a51f12d101049d575f", "bytes": 7286734},
       {"upload_order": 2, "role": "battle", "file": "sl-SI/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/sl/02-battle-2064x2752.png", "sha256": "46574b9aa6bf60579e7195a6e4aef4b5cd61a004271cc19a48b927647a7a9483", "bytes": 5717938},
@@ -1995,7 +1995,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "67f225f4537f62315327d2ae08f459f32dd944869f21e0fe863d1ddfb63928f4",
+     "render_manifest_sha256": "0408dba67f46b9c5aaadfc8adcc5bd53287d121421dfbddce6bfb49d9183fe06",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "hi/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hi/01-hero-1320x2868.png", "sha256": "8a3badcd6d682bf31f6b46736f5c07cffe05ec7dcb1dc8d1b2a9b6d29a1633d5", "bytes": 4657252},
       {"upload_order": 2, "role": "battle", "file": "hi/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hi/02-battle-1320x2868.png", "sha256": "6f61b27f33763e1b77845354e90b4f5008489020e44d51693eb0d43e7e0d83bb", "bytes": 3709502},
@@ -2007,7 +2007,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "643092aecad70a70de8515b732f6f367dda7bb79010e9479f3f27a8aa422691a",
+     "render_manifest_sha256": "102a004c14dfea754b87f9a3ad3a41396a7684167512bc540806f7ef22cdb810",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "hi/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/hi/01-hero-2064x2752.png", "sha256": "680870cd846619375474bad88b68811cc13235a9d367dfc96a26af543e7dd00d", "bytes": 7257968},
       {"upload_order": 2, "role": "battle", "file": "hi/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/hi/02-battle-2064x2752.png", "sha256": "54ed760c162ce7cf69a9574c16cc480cb080ecc554a66c3081fc41262ee427a3", "bytes": 5715915},
@@ -2061,7 +2061,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "5e470c43922070b949e223e1b0d55cf183f24dc80b6dc472f8112a73d458db59",
+     "render_manifest_sha256": "64a222dec820e5b6816ef2dd366f6fd63535c94f3725d4662cac36918299f46d",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ur-PK/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ur/01-hero-1320x2868.png", "sha256": "7027937bb62709b846c8cc90d8e5faca2f446836dd49455687116350a0c7ee27", "bytes": 4663090},
       {"upload_order": 2, "role": "battle", "file": "ur-PK/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ur/02-battle-1320x2868.png", "sha256": "a2e8b3204e702554f1a723cb9af4c64983299dcec09eebe33614436641177083", "bytes": 3719650},
@@ -2073,7 +2073,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "090f55f64d63a0c09b4ecdb9aaa4f6c895cd4230d64f0dacded40c852231236a",
+     "render_manifest_sha256": "7a3f65d0a6f5b1bec97a0a3e50a3752e649f54fd1aa9ff70830894b8b9b8a83a",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ur-PK/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ur/01-hero-2064x2752.png", "sha256": "cffbc7ba377db9ac02263484ab68e80bd64d82449b9d0496c8286bc9e073a981", "bytes": 7285145},
       {"upload_order": 2, "role": "battle", "file": "ur-PK/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ur/02-battle-2064x2752.png", "sha256": "9285a63608870b9f03b98a6df619197ecfc29f0bdc36690d526a2ac80bc08cce", "bytes": 5730746},
@@ -2127,7 +2127,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "2a72fd11b733334b02e70643c721bbf5b4b4980e9b082d395deeda110e2e7025",
+     "render_manifest_sha256": "daa1b559144370cef6274929e1b8c47ce2948d9690a3ce9f63adf5494da45fe1",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "bn-BD/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/bn/01-hero-1320x2868.png", "sha256": "185aec9a9ca8a7a1b6dcc7fe2f7163e616938be54b6a3a333cafccfe64aa6782", "bytes": 4674893},
       {"upload_order": 2, "role": "battle", "file": "bn-BD/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/bn/02-battle-1320x2868.png", "sha256": "7c5ad4bf6adc94fc06f0a723e82a6120df0bf27da9ec630de212191953ab6b45", "bytes": 3710816},
@@ -2139,7 +2139,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "d7707e9ee0d78fa58343a5662d6014c0cef07cf209da9a3106afe01ab98212f9",
+     "render_manifest_sha256": "954c39266ebfa2f51a234db28d16a768a931f47a88fa386baee77918d24b79d7",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "bn-BD/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/bn/01-hero-2064x2752.png", "sha256": "9aeea4c7744fb15221e485524111093704480e69700823ec18fb9fd74002e4c0", "bytes": 7289774},
       {"upload_order": 2, "role": "battle", "file": "bn-BD/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/bn/02-battle-2064x2752.png", "sha256": "455311c4369aeffa37a8281a308668ca91adb0086115ffbee1e318231d4ac769", "bytes": 5716624},
@@ -2193,7 +2193,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "e326d989dc9e16265ad5b27707ee871e6a1c60cb2ccfa2bb26a59db41bf24b60",
+     "render_manifest_sha256": "8b618ced65d1561f1bd4dad1000be9abcd2c022af3991121b67ac2fa823f373e",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "no/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nb/01-hero-1320x2868.png", "sha256": "61728ad23ffc95a0f1763321cc0819b6443d0a75e89123cba12f046f35586edf", "bytes": 4657943},
       {"upload_order": 2, "role": "battle", "file": "no/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nb/02-battle-1320x2868.png", "sha256": "15753c66c72167dd6557e56f75b4e0308fc3f6a63b8c39d8fb3882460f7546cf", "bytes": 3721417},
@@ -2205,7 +2205,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "c15dec20ef3ec0d7290445d4f44025dbe769d49c56857eb7e358675356720b43",
+     "render_manifest_sha256": "38244b40b3c1f1266fca6014ed67a634da6a5fc72e75139cb3a73a3cf3ee6034",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "no/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/nb/01-hero-2064x2752.png", "sha256": "39df75fb016dcb9c11f1f840b8ed1a6896f9c426194c769ba181613d3ab8838b", "bytes": 7280421},
       {"upload_order": 2, "role": "battle", "file": "no/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/nb/02-battle-2064x2752.png", "sha256": "6aef034ee073005b5c733904db2052b5fb15ef878c35d20a72a1ba33284e2c9a", "bytes": 5734430},
@@ -2259,7 +2259,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "6c298ad004b9d23cba6aa7e94b03e3f77aa6592b4b67cb8efd1038211336580a",
+     "render_manifest_sha256": "2ada5731de16528d1bb824bd7d8df9345356d5224eff66c157975cd18526dbc2",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ms/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ms/01-hero-1320x2868.png", "sha256": "19a6cc5cf732ca1caf1ead8f2a8972600ab663db8a7c072b0579e8f00ec5ce06", "bytes": 4662018},
       {"upload_order": 2, "role": "battle", "file": "ms/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ms/02-battle-1320x2868.png", "sha256": "5df7c1c10e5a118922e781335c58ba09c2aa1a760264f40b4c223d79f4bebfde", "bytes": 3726837},
@@ -2271,7 +2271,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "b81bbaa6ab6e2ce1d1d5224674635e1114ca43239402f400138e8aa3a182fa1a",
+     "render_manifest_sha256": "a29268a1e64f01001bb1d65d87b1415e00f196a2157a8d3ec0bbb33949fa87fb",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ms/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ms/01-hero-2064x2752.png", "sha256": "e29b7528e080a50dcb80653c1e5b5c7defa3521af2ae5b72a08bd6ac36f488aa", "bytes": 7279476},
       {"upload_order": 2, "role": "battle", "file": "ms/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ms/02-battle-2064x2752.png", "sha256": "1c1edc92e6d3cf5811cdb471aa71bfccb7fa6d98cca92ce289eb715db8799c81", "bytes": 5737626},
@@ -2325,7 +2325,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "201e4562e2f284dec25ffd6e5b727e3f48c66723074c7a8e6c3025a80e9c4798",
+     "render_manifest_sha256": "d17cfa0f10a17057d3d05e21af4a9c5c452ce53e320c81274c8c82dbfa3ba4e5",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "mr-IN/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/mr/01-hero-1320x2868.png", "sha256": "5ced1f86ba0cf66f354d1b3a0b7853e079eac1becbe25278f7e43efcee504172", "bytes": 4658548},
       {"upload_order": 2, "role": "battle", "file": "mr-IN/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/mr/02-battle-1320x2868.png", "sha256": "875802cf94db13f001672663629af33c3ab185a2d0f66b6819552df9251432d4", "bytes": 3703581},
@@ -2337,7 +2337,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "63081363bea4fe9f04c1c0897400a34f0a9c2c35ebf2b82ce60c8c01a81f94cc",
+     "render_manifest_sha256": "09ef71bfb06f6cd058df009f60dddbc6fcc9e25200b82ba1d4299b97bc2da1b1",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "mr-IN/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/mr/01-hero-2064x2752.png", "sha256": "c9bd311a108f62c5931232a5f8e0ef42678d10056bfcc3fe9d1c28f619348f9c", "bytes": 7277420},
       {"upload_order": 2, "role": "battle", "file": "mr-IN/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/mr/02-battle-2064x2752.png", "sha256": "c64c2f7795eb93b83cc2b79e496a3eb92b83f5c553f475676018ed9435eee572", "bytes": 5711670},
@@ -2391,7 +2391,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "63b0e6a082bb2a672be7669dd4e6dd8a0ddd81bcd0f713c2c8e2b2f4c21b9011",
+     "render_manifest_sha256": "81ae215df482a099548dabd4c573c70a7ec27ac6a053662da0bb5952f4a8fd20",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ta-IN/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ta/01-hero-1320x2868.png", "sha256": "74399e78d338741f69944361a9902d911890e93e3427de8aff36e9f2593395fc", "bytes": 4670205},
       {"upload_order": 2, "role": "battle", "file": "ta-IN/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ta/02-battle-1320x2868.png", "sha256": "2767f46dc15a350038cf7436edfc5b491ac4da3e49a012a4cd22720a75b503f6", "bytes": 3730589},
@@ -2403,7 +2403,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "1806f8800916c92a71b131872e69e623adc22489e7d5b3a655a8d9316de42f15",
+     "render_manifest_sha256": "09114114aca8d8528fa776768e76afc2edd046e9787b4837bd32d4f00625cd5e",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "ta-IN/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ta/01-hero-2064x2752.png", "sha256": "724bb8f0924abbada25972b2a23d25cd102b72e61c07d8493b7b182644b67ff2", "bytes": 7290498},
       {"upload_order": 2, "role": "battle", "file": "ta-IN/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ta/02-battle-2064x2752.png", "sha256": "63f2c8d784b1eb87e00e2a27b5434928f22c727014620207214bc31f7c01fd03", "bytes": 5744719},
@@ -2457,7 +2457,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "ac38b873aab11b9e55ef7a679ed6003518b6b20de644e9a33928bbf729932720",
+     "render_manifest_sha256": "e0cb6bd8f0efc8dc8465d4c6ed126632366c41238b8c5b94898e78da6d7e8f3a",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "te-IN/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/te/01-hero-1320x2868.png", "sha256": "29ef66d17d7f791256a8107660b309dab3f1de7e199b40f95ef795bbf40372b0", "bytes": 4679001},
       {"upload_order": 2, "role": "battle", "file": "te-IN/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/te/02-battle-1320x2868.png", "sha256": "3ee68176110f6d0bb6ea656013834cf9922b16f216966fe32ac2aeb1960588b5", "bytes": 3732737},
@@ -2469,7 +2469,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "d81e42f6196884ce275799e24bb5a239c3f5b667097ce49f49ecb94005232347",
+     "render_manifest_sha256": "83c6747ebd83b2276069c173cc3635dce3cfceab7601f80c0173a9be6896d3c6",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "te-IN/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/te/01-hero-2064x2752.png", "sha256": "41ad056833f740467e8d1831974f5dbc18b867c2ef606692e1ec5df205c1d4b9", "bytes": 7280560},
       {"upload_order": 2, "role": "battle", "file": "te-IN/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/te/02-battle-2064x2752.png", "sha256": "8b44f54fed8fab6640d2c89aaee9d7a46ec0f2bcb51eb8c98a44302e495ff157", "bytes": 5731721},
@@ -2523,7 +2523,7 @@
    "sets": {
     "iphone-6.9": {
      "render_set": "apple-iphone-6.9",
-     "render_manifest_sha256": "410705db82c826eef5a90dcf58bf62b3ef26cf07b2dcad8195e06de91b220ad5",
+     "render_manifest_sha256": "6d4c4d418116f764f15596f3feaf515aa3b7f2d911881992872c2bdbfc5a83ca",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "th/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/th/01-hero-1320x2868.png", "sha256": "ed7d2871ec5dfeb04918612787f2732411345d0e06030c792388a2dfa361dc34", "bytes": 4659420},
       {"upload_order": 2, "role": "battle", "file": "th/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/th/02-battle-1320x2868.png", "sha256": "c481fd67432289b2a6eed5cfc874027476fdc52fd03b56eb26c6d59819b003af", "bytes": 3713718},
@@ -2535,7 +2535,7 @@
     },
     "ipad-13": {
      "render_set": "apple-ipad-13",
-     "render_manifest_sha256": "c3b4d52ab3e90617d33eba4a0985efaf8b312f8a7e77cb1e77125367abf3d641",
+     "render_manifest_sha256": "0927778e05ef5317275fe675b029da070f61b77be8dfd4b4352a541dd4d257ec",
      "screenshots": [
       {"upload_order": 1, "role": "hero", "file": "th/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/th/01-hero-2064x2752.png", "sha256": "ce239023dc3a47bef32046d912f26c60b6a8f57bc2564cb8498943f22c19251c", "bytes": 7275770},
       {"upload_order": 2, "role": "battle", "file": "th/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/th/02-battle-2064x2752.png", "sha256": "ca62549cfa59d9867223e540585a0dc0fd332b8df714b1873c9d2dbbf03071b7", "bytes": 5716764},

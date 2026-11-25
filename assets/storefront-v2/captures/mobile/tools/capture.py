@@ -6,8 +6,9 @@
     uv run --with pillow --with numpy python capture.py DEVICE --menus
 
 DEVICE: iphone-6.9, ipad-13 (the iOS app in the Simulator, portrait), android-phone
-(portrait), android-tablet-7, android-tablet-10 (landscape); the Android classes are
-host renders, see ../README.md.
+(portrait), android-tablet-7, android-tablet-10 (landscape; host renders), and
+android-phone-emulator, android-tablet-7-emulator, android-tablet-10-emulator (the
+Android app in the emulator, see android_avds.py); see ../README.md.
 
 The match is loaded through the game's own Load game screen and runs at normal
 speed (1x) throughout; nothing is paused, stepped, composited or retouched. A frame
@@ -41,6 +42,16 @@ DEVICES = {
                          "model": "host render at 1920x1200 px, density 2.0 (960x600 dp)"},
     "android-tablet-10": {"kind": "host", "pixels": (2560, 1600), "points": 2, "orientation": "landscape",
                           "model": "host render at 2560x1600 px, density 2.0 (1280x800 dp)"},
+    # The Android app in the emulator (platforms/mobile/emulator.json image), see ../README.md.
+    "android-phone-emulator": {"kind": "android", "pixels": (1080, 1920), "points": 2.625, "orientation": "portrait",
+                               "serial": "emulator-5600", "layout": "android-phone-emulator", "tiles": "android-phone",
+                               "model": "Android emulator, AVD glob2-store-phone (pixel_2 profile), 1080x1920 px, 420 dpi"},
+    "android-tablet-7-emulator": {"kind": "android", "pixels": (1920, 1200), "points": 1.75, "orientation": "landscape",
+                                  "serial": "emulator-5602", "layout": "android-tablet-7-emulator", "tiles": "android-tablet-7",
+                                  "model": "Android emulator, AVD glob2-store-tablet7 (Nexus 7 2013 hardware profile at 280 dpi: an 8-inch-class 1200x1920 panel), 1200x1920 px, 280 dpi, landscape"},
+    "android-tablet-10-emulator": {"kind": "android", "pixels": (2560, 1600), "points": 2, "orientation": "landscape",
+                                   "serial": "emulator-5604", "layout": "android-tablet-10-emulator", "tiles": "android-tablet-10",
+                                   "model": "Android emulator, AVD glob2-store-tablet10 (Nexus 10 profile), 1600x2560 px, 320 dpi, landscape"},
 }
 
 # Screen geometry as fractions (x0, y0, x1, y1) of the frame, with at most two
@@ -59,6 +70,17 @@ LAYOUTS = {
     "android-tablet-10": {"free": (0.065, 0.05, 1.00, 1.00), "palette": (0.065, 0.40, 0.375, 0.78), "card": (0.83, 0.37, 1.0, 0.79),
                           "clear": (0.065, 0.05, 0.83, 1.0), "log": (0.36, 0.20, 0.71, 0.27)},
 }
+# The Android emulator classes: the app draws inside the system bars (status bar
+# at the top, gesture handle at the bottom), measured from emulator frames.
+LAYOUTS["android-phone-emulator"] = {"free": (0.00, 0.215, 1.00, 0.90), "palette": (0.00, 0.465, 0.35, 0.90),
+                                     "card": (0.22, 0.475, 1.0, 0.90), "clear": (0.0, 0.335, 1.0, 0.475),
+                                     "log": (0.0, 0.245, 1.0, 0.28)}
+LAYOUTS["android-tablet-10-emulator"] = {"free": (0.065, 0.085, 1.00, 0.958), "palette": (0.065, 0.403, 0.375, 0.755),
+                                         "card": (0.70, 0.44, 1.0, 0.77), "clear": (0.065, 0.085, 0.70, 0.958),
+                                         "log": (0.36, 0.225, 0.71, 0.285)}
+LAYOUTS["android-tablet-7-emulator"] = {"free": (0.074, 0.098, 1.00, 0.952), "palette": (0.074, 0.38, 0.42, 0.80),
+                                        "card": (0.66, 0.44, 1.0, 0.80), "clear": (0.074, 0.098, 0.66, 0.952),
+                                        "log": (0.35, 0.27, 0.73, 0.32)}
 # On-screen size of one map tile in points: (overview shots, close shots).
 TILE_POINTS = {"iphone-6.9": (21, 26), "android-phone": (21, 26), "android-tablet-7": (25, 30),
                "android-tablet-10": (28, 34), "ipad-13": (30, 36)}
@@ -99,7 +121,9 @@ parser.add_argument("--keep", action="store_true", help="leave the game running 
 args = parser.parse_args()
 
 device = DEVICES[args.device]
-layout = LAYOUTS[args.device]
+LAYOUT_CLASS = device.get("layout", args.device)
+TILE_CLASS = device.get("tiles", LAYOUT_CLASS)
+layout = LAYOUTS[LAYOUT_CLASS]
 if device["kind"] == "ios" and not os.environ.get("GLOB2_IOS_OWN_PORT"):
     # The simulator app shares the Mac's loopback; one fixed port unless the
     # caller runs the iPhone and iPad simulators at once (GLOB2_IOS_OWN_PORT=1
@@ -128,6 +152,15 @@ if device["kind"] == "ios":
     target.install()
     target.launch(saves=[g2.SAVES / f"{args.save}.game.gz"] if args.save else [])
     method = "simctl io screenshot of the iOS Simulator framebuffer"
+elif device["kind"] == "android":
+    target = g2.Android(os.environ.get("GLOB2_SERIAL", device["serial"]), orientation)
+    target.boot()
+    if os.environ.get("GLOB2_APK"):
+        target.install(os.environ["GLOB2_APK"])
+    target.launch(saves=[g2.SAVES / f"{args.save}.game.gz"] if args.save else [])
+    android_info = target.info()
+    print("android", android_info, flush=True)
+    method = "adb exec-out screencap -p (emulator display at native pixels)"
 else:
     profile = g2.SCRATCH / "profiles" / f"{args.device}-{g2.PORT}"
     subprocess.run(["rm", "-rf", str(profile)])
@@ -154,6 +187,14 @@ def grab(path):
                 return True
             time.sleep(0.3)
         return False
+    if device["kind"] == "android":
+        global captured_rows
+        captured_rows = target.shot(path, on_captured=event_rows)
+        with Image.open(path) as image:
+            if image.size != (width, height):
+                print(f"   screencap is {image.size}, expected {(width, height)}", flush=True)
+                return False
+        return True
     g2.host_shot(path)
     return True
 
@@ -179,7 +220,7 @@ def zone_outline_pixels(path, run, thick):
 
 def dim_fraction(path):
     """Share of the free map area drawn as fog-dimmed grass (dark and green)."""
-    free = LAYOUTS[args.device]["free"]
+    free = layout["free"]
     with Image.open(path) as image:
         w, h = image.size
         crop = image.convert("RGB").crop((int(free[0] * w), int(free[1] * h), int(free[2] * w), int(free[3] * h)))
@@ -192,6 +233,7 @@ def dim_fraction(path):
 # ------------------------------------------------------------------ helpers
 
 camera = {}
+captured_rows = None
 actions = set()
 map_w = map_h = 128
 overview_zoom = close_zoom = fight_zoom = 1.0
@@ -203,7 +245,7 @@ def calibrate():
     reply = g2.view(zoom=1.0)
     logical_width = max(reply["view"]["width"] * reply["tile_pixels"], 2 * reply["tile_screen"]["x"])
     units_per_point = logical_width / (width / device["points"])
-    overview, close = TILE_POINTS[args.device]
+    overview, close = TILE_POINTS[TILE_CLASS]
     overview_zoom = round(overview * units_per_point / 32, 3)
     close_zoom = round(close * units_per_point / 32, 3)
     fight_zoom = round(close * 1.25 * units_per_point / 32, 3)
@@ -350,14 +392,37 @@ def clean_frames(name, note, max_rows, count=None, gap=2.0, extra=None, check=No
         tries += 1
         if not grab(scratch):
             continue
-        if disarm:
-            disarm()
-        after = event_rows()
+        if device["kind"] == "android" and not disarm:
+            # Read the moment screencap had fixed the frame (see g2.Android.shot).
+            after = captured_rows
+        else:
+            if disarm:
+                disarm()
+            after = event_rows()
         squares = zone_outline_pixels(scratch, run, max(8, int(3.5 * device["points"])))
         dim = dim_fraction(scratch)
         if squares or len(after) > max_rows or dim > max_dim:
             why = "zone squares" if squares else "rows after" if len(after) > max_rows else "fog"
             rejected[why] = rejected.get(why, 0) + 1
+            if (why == "rows after" and device["kind"] == "android" and len(after) == max_rows + 1
+                    and len(rows) <= max_rows):
+                # One row arrived between the frame and the reading just after it:
+                # keep the frame aside, to count its rows by eye ("rows_in_frame").
+                held = sorted(out.glob(f"{name}{tag}-h*.png"))
+                path = out / f"{name}{tag}-h{len(held) + 1}.png"
+                scratch.replace(path)
+                meta = {"file": path.name, "shot": name, "note": note, "device_class": args.device,
+                        "orientation": orientation, "pixels": [width, height], "device": device["model"],
+                        "method": method, "save": args.save, "tick": status["tick"], "speed": status["speed"],
+                        "paused": status["paused"], "camera": camera, "event_rows": max(rows, after, key=len),
+                        "event_rows_before": rows, "event_rows_after": after, "rows_check": "count by eye",
+                        "first_stat": stat, "zone_outline_pixels": squares, "fog_dimmed_fraction": dim,
+                        "hd_artwork": g2.HD_ARTWORK, "actions": sorted(actions),
+                        "sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "android": android_info}
+                meta.update(extra or {})
+                path.with_suffix(".json").write_text(json.dumps(meta, indent=1) + "\n")
+                print(f"   held {path.name} tick {status['tick']} rows {len(rows)}->{len(after)} dim {dim}", flush=True)
+                continue
             if os.environ.get("GLOB2_CAPTURE_DEBUG"):
                 scratch.replace(out / f".reject-{name}{tag}.png")
             continue
@@ -374,6 +439,8 @@ def clean_frames(name, note, max_rows, count=None, gap=2.0, extra=None, check=No
             "hd_artwork": g2.HD_ARTWORK,
             "actions": sorted(actions), "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
         }
+        if device["kind"] == "android":
+            meta["android"] = android_info
         meta.update(extra or {})
         path.with_suffix(".json").write_text(json.dumps(meta, indent=1) + "\n")
         print(f"   {path.name} tick {status['tick']} rows {len(rows)} stat {stat} dim {dim}", flush=True)
@@ -482,7 +549,7 @@ def fit_core(buildings):
     y1 = max(ay + torus_delta(b["y"], ay, map_h) + b["height"] for b in core)
     free = layout["free"]
     screen_w, screen_h = width / device["points"], height / device["points"]
-    points = min(TILE_POINTS[args.device][0],
+    points = min(TILE_POINTS[TILE_CLASS][0],
                  screen_w * (free[2] - free[0]) / (x1 - x0 + 2.5),
                  screen_h * (free[3] - free[1]) / (y1 - y0 + 2.5))
     points = max(points, 16)

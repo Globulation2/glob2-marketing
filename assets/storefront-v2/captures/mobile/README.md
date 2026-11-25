@@ -10,9 +10,12 @@ Raw, uncaptioned screenshots of the touch interface at store pixel sizes, as inp
 | --- | --- | --- | --- |
 | [`iphone-6.9/`](iphone-6.9/) | 1320×2868 | portrait | The iOS app in the iOS Simulator (iPhone 17 Pro Max, iOS 26.5), `simctl io screenshot` |
 | [`ipad-13/`](ipad-13/) | 2064×2752 | portrait | The iOS app in the iOS Simulator (iPad Pro 13-inch M5, iOS 26.5), `simctl io screenshot` |
-| [`android-phone/`](android-phone/) | 1080×1920 | portrait | **Interim host render** at density 2.625 (420 dpi, 411×731 dp) |
-| [`android-tablet-7/`](android-tablet-7/) | 1920×1200 | landscape | **Interim host render** at density 2.0 (960×600 dp) |
-| [`android-tablet-10/`](android-tablet-10/) | 2560×1600 | landscape | **Interim host render** at density 2.0 (1280×800 dp) |
+| [`android-phone/`](android-phone/) | 1080×1920 | portrait | **Interim host render** at density 2.625 (420 dpi, 411×731 dp); no longer in `selection.json` since 2026-11-25 |
+| [`android-tablet-7/`](android-tablet-7/) | 1920×1200 | landscape | **Interim host render** at density 2.0 (960×600 dp); no longer in `selection.json` since 2026-11-25 |
+| [`android-tablet-10/`](android-tablet-10/) | 2560×1600 | landscape | **Interim host render** at density 2.0 (1280×800 dp); no longer in `selection.json` since 2026-11-25 |
+| [`android-phone-emulator/`](android-phone-emulator/) | 1080×1920 | portrait | The Android app in the Android emulator (Android 15), 420 dpi, `adb exec-out screencap -p`. See [Android emulator captures](#android-emulator-captures-2026-11-25) |
+| [`android-tablet-7-emulator/`](android-tablet-7-emulator/) | 1920×1200 | landscape | The Android app in the Android emulator (Android 15), 280 dpi, `adb exec-out screencap -p` |
+| [`android-tablet-10-emulator/`](android-tablet-10-emulator/) | 2560×1600 | landscape | The Android app in the Android emulator (Android 15), 320 dpi, `adb exec-out screencap -p` |
 | [`saves/`](saves/) | | | The saved games the frames were loaded from, with each match's lobby setup and telemetry |
 
 - **The galleries changed after the [round 2 final review](../../review/round-2-final.md) (2026-11-24).** `selection.json` now orders every class as `hero`, `battle`, `fair_deal`, `build`, `economy`, `territory`, `maps` (`asset_text.mobile_gallery_order` in `translations/platforms.json`), so a fight is in slot 2 (M2), and drops the `opponents` menu slide from every class (M1; "8 computer opponents" stays in the description text). The iPhone has no battle capture, so its `05-territory` frame, the best fight of any phone frame, is its `battle` slide and the iPhone has no territory slide: 6 slides on iPhone, 7 on every other class. The capture files keep their round 2 names (`NN-role-WxH.png`, numbered in the old slot order) and `manifest.json` still records the old slots and roles; `selection.json` is what the caption renderer reads. Running `tools/publish.py` again would renumber the files into the new order: `tools/picks.json` and `publish.py` already carry the new order and roles.
@@ -21,6 +24,84 @@ Raw, uncaptioned screenshots of the touch interface at store pixel sizes, as inp
 - Only the selected frames are in the repository. Alternates stay in the capture scratch directory.
 - Each directory has a `contact-sheet.jpg` for review (downscaled; not a store asset).
 - The PNGs carry an alpha channel that is fully opaque. Flatten to RGB when rendering store images, because App Store Connect rejects alpha.
+
+## Android emulator captures (2026-11-25)
+
+The three `*-emulator` classes are screenshots of the real Android app running in the Android emulator. They replace the interim host renders for Google Play, F-Droid and Amazon (review M8). **Since 2026-11-25 `selection.json` uses them:** the `android-phone`, `android-tablet-7` and `android-tablet-10` classes list the seven files of `android-phone-emulator/`, `android-tablet-7-emulator/` and `android-tablet-10-emulator/` in file order (`01-hero` … `07-maps`, roles as in the file names), named with their folder; `amazon-tablet` takes the 2560×1600 set (no doubled Wi-Fi glyph to worry about, and the trim removes the status bar anyway), F-Droid the phone set. The caption renderer trims the status bar and gesture band (phone 62/65 px, 1920×1200 40/57, 2560×1600 48/64; [tool README](../../tools/README.md#system-bar-trim-per-capture)). `tools/publish.py` writes the whole of `selection.json` from `tools/picks.json`, which still names the host renders for the Android classes: running it again would switch them back, so restore the three Android classes afterwards.
+
+### Build and devices
+
+- **App.** Globulation 2 0.11.8.1, `origin/master` commit `a9f878b9ff61`, built with `platforms/mobile/android.py build --arch arm64-v8a --release` and signed with `android.py sign` (local developer key). That is the Google Play configuration (arm64-v8a, online play included), not the Amazon `--amazon-apk` edition; the two differ only outside a match (the Amazon edition has no online hub). The only change to the game is [`tools/capture-build.patch`](tools/capture-build.patch), applied at configure time with `GLOB2_CAPTURE_MCP=1` exactly as for the iOS Simulator: it compiles the loopback automation listener into the mobile core and changes no rendering, HUD or simulation code. APK SHA-256 `56a37485fa5da9785218742fa228d6398e48737e9aa5cb8317690bc3ebe42637`.
+- **Emulator.** The game repository's pinned emulator 37.1.11 and system image `system-images;android-35;default;arm64-v8a` revision 2 (`platforms/mobile/emulator.json`; Android 15, API 35, build `AE3A.240806.019`, userdebug), run on an Apple-silicon Mac with host GPU rendering (`-gpu host`), each emulator registered with its own ADB server on port 15077. SDK packages installed for the build: `platforms;android-36`, `build-tools;35.0.0` and `platform-tools`, through `python3 tools/dev_environment.py sdkmanager`.
+- **AVDs** ([`tools/android_avds.py`](tools/android_avds.py)):
+
+| Class | AVD | Panel | Density | Screen in dp, as held |
+| --- | --- | --- | --- | --- |
+| `android-phone-emulator` | `glob2-store-phone` (`pixel_2` hardware profile) | 1080×1920 | 420 dpi (2.625) | 411×731 dp, portrait |
+| `android-tablet-7-emulator` | `glob2-store-tablet7` (`Nexus 7 2013` hardware profile, density set to 280 dpi) | 1200×1920 | 280 dpi (1.75) | 1097×686 dp, landscape |
+| `android-tablet-10-emulator` | `glob2-store-tablet10` (`Nexus 10` hardware profile) | 1600×2560 | 320 dpi (2.0) | 1280×800 dp, landscape |
+
+- **Why 280 dpi for the 1920×1200 class.** At the Nexus 7's own 320 dpi the landscape app area after the status bar and navigation handle is 960×544 dp. That is under the touch HUD's 600 dp tablet threshold (`tabletShortestSide`), so the game uses its phone-style landscape layout: a bottom bar and a side panel that stays open over the right third of the map. One test frame was taken that way and not kept. A 1920×1200 panel at 280 dpi is an 8-inch-class tablet (about 283 ppi) and gets the tablet rail, as the interim host render did. This is a real product behaviour on 7-inch xhdpi tablets held in landscape, and is reported to the game's owner rather than worked around.
+- **Landscape** is the tablet display held at 90 degrees (`user_rotation 1`, auto-rotate off), as a player turning the tablet would; the game follows the display orientation.
+- **System bars are in the frames.** The app draws edge to edge, and the game paints the status-bar and navigation-handle insets navy. The status bar uses Android's System UI demo mode (the Android counterpart of `simctl status_bar override`): 9:41, full Wi-Fi, full battery, no notification icons, mobile signal hidden. Navigation is the gesture handle, not the three-button bar. On the 1920×1200 class the demo status bar shows two Wi-Fi glyphs (an emulator demo-mode quirk that a second demo command did not clear); together they are about 50 px wide in the top-right corner. These navy bands (about 40–65 px at the top and bottom of every class) replace the flat navy strip of the host renders (review S2); the caption renderer trims them (since 2026-11-25).
+- **HD artwork forced on**, as in the other classes: the profile written into the app's internal storage sets `highResolutionArtworkChoice=on`, confirmed by reading the app's `preferences.txt` back from the device after a session.
+
+### Protocol differences from the host renders
+
+- The disposable profile (preferences and the one save) is written into the app's internal storage (`/data/data/org.globulation2.glob2/files/`, which is where the app's Load game dialog reads `games/`) with `adb root`, and the match is loaded through the game's own Load game screen. The listener's port is forwarded with `adb forward`.
+- Frames are `adb exec-out screencap -p` at native resolution, byte for byte. The event list is read again the moment screencap starts writing its PNG (the display is captured before the PNG is encoded, which takes 1–3 s on these panels), so the "after" reading belongs to the frame rather than to a later moment.
+- Everything else is the clean-state protocol above: zone erase before every frame and zero zone-outline pixels in the saved image, at most two event rows, a non-negative first stat, live play at 1x, the *Health and food bars* lens switched off, and *Continue playing* on the "You have won" dialog where it appeared. The per-file numbers and the emulator, Android version, density, build commit, save, tick, camera and player actions are in `manifest.json` (`"build": "android-emulator"`, `"emulator_capture": true`). The battle and territory frames are the best of four to seven runs per class at the same front as the host renders.
+
+### The galleries, against the host renders
+
+Fog is the share of the free map area drawn fog-dimmed; rows are the event rows in the frame.
+
+| Slot | Phone | 7-inch class (1920×1200) | 10-inch (2560×1600) | Compared with the host render |
+| --- | --- | --- | --- | --- |
+| 1 hero | Meets: both pools and racetracks whole, lower third filled; one green row; fog 5% | Meets: one red row; fog 5% | Meets: no rows; fog 4% | Same framing (`--hero-fit`); real device pixels and system bars |
+| 2 battle | Partly: about 30 red and 20 blue warriors face each other, two war flags, mostly lit centre; no enemy building in frame; one row; fog 31% | Meets the unit and building parts: about 30 blue and 20 red warriors in a line beside three blue buildings and a blue Swarm under construction, war flags; two rows; fog 30% | Meets the unit and building parts: about 40 red and 25 blue warriors beside a burning blue building and the blue Swarm, war flags; two rows; fog 39% | Better on both tablets: more units and less fog than the host frames (44% and 46%). The phone frame is about as busy as the host's (20% fog there, 31% here). Hit flashes are not distinguishable at this size; the star sprites are war flags |
+| 3 fair_deal | Meets: inns, hospitals and a Swarm, no rows, fog 4% | Meets: lakeshore with globs swimming, wheat, inns, a Swarm; one row | Meets: lake, wheat fields, inns, a Swarm, globs swimming; one row | As the host frames |
+| 4 build | Meets; unlabelled icons on the phone, as on every phone | Meets; named palette, no rows | Meets; named palette, one row | As the host frames |
+| 5 economy | Meets: Inn with Food 47/50 and its fruit lines beside the algae lake and a wheat field; the Swarm is mostly behind the priority dial | Meets: Food 49/50, cherries, oranges and prunes in stock, a Swarm; no rows | Meets: Food 50/50 with fruit in stock, a Swarm; no rows | As the host frames; the phone's Swarm is less visible than in the host frame |
+| 6 territory | Partly, as every class: palette open, flag just placed, a red line facing a blue line; no range circle; two rows; fog 29% | Partly: red and blue warriors fighting around the new flag; one row; fog 26% | Partly: as the 7-inch; two rows; fog 31% | Less fog on the 7-inch (35% on the host) and the 10-inch matches the host (31%); the phone has more fog than the host (17%) but shows both colours |
+| 7 maps | Meets: FourSquares1 island, algae sea, sand, violet forest; two red rows | Meets; the sea shows only in the top-left corner, violet forest frames the colony; two rows | Meets: algae sea in both top corners, sand, violet forest; two rows | As the host frames |
+
+**Selection** (applied 2026-11-25): for each `*-emulator` class, the seven files in file order, roles as in the file names (`hero`, `battle`, `fair_deal`, `build`, `economy`, `territory`, `maps`). Amazon (`amazon-tablet`) takes `android-tablet-10-emulator` (2560×1600); Google Play phone and F-Droid take `android-phone-emulator`.
+
+### Reproduce
+
+```sh
+# Game worktree at the release commit (never the shared checkout), with the capture patch
+git -C glob2 worktree add ../glob2-wt-android-capture -b android-store-capture origin/master
+cd glob2-wt-android-capture && git apply /path/to/captures/mobile/tools/capture-build.patch
+export PATH=<dir with python3 -> python3.13>:$PATH   # the asset encoder needs a Pillow wheel 3.15 lacks
+python3 tools/dev_environment.py sdkmanager -- "platforms;android-36" "build-tools;35.0.0" platform-tools
+python3 platforms/mobile/setup_ndk.py && python3 platforms/mobile/setup_tools.py --glslang
+python3 platforms/mobile/dependencies.py --arch arm64-v8a --release
+GLOB2_CAPTURE_MCP=1 python3 platforms/mobile/android.py build --arch arm64-v8a --release
+python3 platforms/mobile/android.py sign --arch arm64-v8a --release
+
+# AVDs, ADB server and emulators (serials emulator-5600, -5602, -5604)
+export GLOB2_WT=$PWD GLOB2_SCRATCH=/path/to/scratch GLOB2_ADB_PORT=15077
+T=/path/to/captures/mobile/tools
+python3 $T/android_avds.py create
+python3 $T/android_avds.py adb-server &
+python3 $T/android_avds.py run glob2-store-phone 5600 &   # likewise glob2-store-tablet7 5602, glob2-store-tablet10 5604
+adb -P 15077 -s emulator-5600 install -r build/android/device/arm64-v8a/24/client/release/android-project/app/build/outputs/apk/release/app-release-development.apk
+
+# Candidates (one MCP port per emulator), then the chosen files
+RUN="uv run --python 3.13 --with pillow --with numpy python $T/capture.py"
+GLOB2_MCP_PORT=47960 $RUN android-phone-emulator --save bigpond-n-t45017 --slots hero --hero-fit --rows 1
+GLOB2_MCP_PORT=47960 $RUN android-phone-emulator --save bigpond-n-t45017 --slots build,economy --rows 1
+GLOB2_MCP_PORT=47960 $RUN android-phone-emulator --save bigpond-n-t45017 --slots fair_deal --rows 1 --fair-at 49,17
+GLOB2_MCP_PORT=47960 $RUN android-phone-emulator --save bigpond-n-t27015 --slots battle --fight-at 39,60 --fight-rows 2
+GLOB2_MCP_PORT=47960 $RUN android-phone-emulator --save bigpond-n-t27015 --slots territory --territory-at 40,60 --territory-max-dim 0.6 --wait 300
+GLOB2_MCP_PORT=47960 $RUN android-phone-emulator --save foursquares-n-t33028 --slots maps --maps-at 7,118,19 --wait 1500
+# tablets: the same, with --fair-at 45,21 and maps --hero-fit --wait 1500; the 10-inch battle used --fight-zoom fight
+uv run --python 3.13 --with pillow python $T/publish_android.py   # reads tools/picks-android.json
+```
+
+`publish_android.py` copies the candidates named in [`tools/picks-android.json`](tools/picks-android.json) byte for byte, re-checks size, hash, HD artwork and the clean-state protocol, replaces only these classes' entries in `manifest.json` and writes their contact sheets; it does not touch `selection.json` or the other classes. Fight frames are slow to get: the event list carries three or more rows most of the time, and per run of `capture.py` the battle slot kept zero to three frames.
 
 ## The galleries
 
@@ -143,6 +224,8 @@ Things to know when making more:
 | [`tools/capture.py`](tools/capture.py) | Loads a save on one device class and captures clean-state candidates for each gallery slot, or the setup menus |
 | [`tools/picks.json`](tools/picks.json) | The chosen candidate for each class and slot, with its description |
 | [`tools/publish.py`](tools/publish.py) | Copies the candidates named in `tools/picks.json` byte for byte, checks pixel sizes, hashes, HD artwork and the clean-state protocol, and writes `manifest.json`, `selection.json` and the contact sheets |
-| [`tools/g2.py`](tools/g2.py), [`tools/mcp.py`](tools/mcp.py) | Targets (host render, iOS Simulator) and the MCP client |
+| [`tools/g2.py`](tools/g2.py), [`tools/mcp.py`](tools/mcp.py) | Targets (host render, iOS Simulator, Android emulator) and the MCP client |
 | [`tools/contact_sheet.py`](tools/contact_sheet.py) | Contact sheet for a directory |
 | [`tools/capture-build.patch`](tools/capture-build.patch) | The capture-only game patch described above |
+| [`tools/android_avds.py`](tools/android_avds.py) | Creates and runs the three store AVDs and their separate ADB server (Android emulator classes) |
+| [`tools/picks-android.json`](tools/picks-android.json), [`tools/publish_android.py`](tools/publish_android.py) | The chosen emulator candidates, and the publisher that adds only the `*-emulator` classes to `manifest.json` |

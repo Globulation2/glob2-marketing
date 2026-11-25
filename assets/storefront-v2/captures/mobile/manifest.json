@@ -6,7 +6,8 @@
   "commit": "5e96273ff62f59d31ccd343f4625169d06acb2f1",
   "worktree_changes": "tools/capture-build.patch (capture-only: lets the iOS Simulator build expose the loopback MCP automation listener; no rendering, HUD or simulation change)",
   "ios": "iOS Simulator release build (platforms/mobile/ios.py build --environment simulator --release), portable SDL renderer",
-  "host": "macOS desktop release build of the same commit (tools/dev_build.py release=1), SDL dummy video driver, game software renderer, --interface touch --ui-scale <density>"
+  "host": "macOS desktop release build of the same commit (tools/dev_build.py release=1), SDL dummy video driver, game software renderer, --interface touch --ui-scale <density>",
+  "android_emulator": "Android release APK 0.11.8.1 from origin/master commit a9f878b9ff61 (platforms/mobile/android.py build --arch arm64-v8a --release, then sign with the local developer key), plus tools/capture-build.patch (capture-only MCP listener; no rendering, HUD or simulation change), run in the pinned Android emulator (platforms/mobile/emulator.json: emulator 37.1.11, Android 15 API 35 arm64-v8a default image) with host GPU rendering (-gpu host)"
  },
  "hd_artwork": "HD artwork was active in every file. Files marked 'on (highResolutionArtworkChoice=on ...)' were captured with the setting forced on in the capture profile, so the session step-down that turns Auto HD artwork off after frame hitches or memory pressure could not apply. Files marked 'on (Auto ...)' are iOS Simulator frames from sessions whose simulator log was checked: the device profile resolved Auto to HD and no step-down event was logged.",
  "slot_order": [
@@ -38,21 +39,52 @@
     "Google Play phone",
     "Amazon Appstore phone",
     "F-Droid phoneScreenshots"
-   ]
+   ],
+   "selection": "Not in selection.json since 2026-11-25: replaced by android-phone-emulator."
   },
   "android-tablet-7": {
    "orientation": "landscape",
    "stores": [
     "Google Play 7-inch tablet",
     "Amazon Fire 7/8"
-   ]
+   ],
+   "selection": "Not in selection.json since 2026-11-25: replaced by android-tablet-7-emulator."
   },
   "android-tablet-10": {
    "orientation": "landscape",
    "stores": [
     "Google Play 10-inch tablet",
     "Amazon Fire 10/11"
-   ]
+   ],
+   "selection": "Not in selection.json since 2026-11-25: replaced by android-tablet-10-emulator."
+  },
+  "android-phone-emulator": {
+   "orientation": "portrait",
+   "replaces": "android-phone",
+   "stores": [
+    "Google Play phone",
+    "Amazon Appstore phone",
+    "F-Droid phoneScreenshots"
+   ],
+   "selection": "In selection.json since 2026-11-25 as the android-phone class (google-play-phone, fdroid-phone); the caption renderer trims the status bar (62 px) and gesture band (65 px)."
+  },
+  "android-tablet-7-emulator": {
+   "orientation": "landscape",
+   "replaces": "android-tablet-7",
+   "stores": [
+    "Google Play 7-inch tablet",
+    "Amazon Fire 7/8"
+   ],
+   "selection": "In selection.json since 2026-11-25 as the android-tablet-7 class (google-play-tablet-7); the caption renderer trims the status bar with its doubled Wi-Fi glyph (40 px) and gesture band (57 px)."
+  },
+  "android-tablet-10-emulator": {
+   "orientation": "landscape",
+   "replaces": "android-tablet-10",
+   "stores": [
+    "Google Play 10-inch tablet",
+    "Amazon Fire 10/11 (1920x1200 and 2560x1600 landscape accepted)"
+   ],
+   "selection": "In selection.json since 2026-11-25 as the android-tablet-10 class (google-play-tablet-10, amazon-tablet); the caption renderer trims the status bar (48 px) and gesture band (64 px)."
   }
  },
  "aliases": {
@@ -2012,6 +2044,1410 @@
    "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
    "sha256": "b231f44af5baf38346480b7e4a646bf3af53d6c38d9003ba42035972ca8b3550",
    "note": "Shot test not met: no gameplay frame with three enemy colours fighting could be captured (see README, Not met). This is the custom game setup's computer opponent picker listing the eight AI opponents; a menu screen, not gameplay."
+  },
+  {
+   "file": "android-phone-emulator/01-hero-1080x1920.png",
+   "device_class": "android-phone-emulator",
+   "slot": 1,
+   "role": "hero",
+   "orientation": "portrait",
+   "pixels": "1080x1920",
+   "description": "Colony core of the red colony: both swimming pools and both racetracks whole, with barracks, inns, hospitals and hundreds of globs",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-phone (pixel_2 profile), 1080x1920 px, 420 dpi",
+   "emulator": {
+    "avd": "glob2-store-phone",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1080x1920",
+    "density": "Physical density: 420",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "07b53817d6bd742c8f02b6fb7c21265cd7cf75fdc3edc4753cbd3cd8c40afdc5",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t45017.game.gz",
+   "tick": 46114,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     56,
+     34
+    ],
+    "zoom": 0.972,
+    "view_tiles": {
+     "height": 40,
+     "width": 26,
+     "x": 43,
+     "y": 14
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 1,
+   "event_rows": [
+    "The hospital is finished."
+   ],
+   "first_stat": "149/341",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.049,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "buildings_in_view": [
+    "swimmingpool",
+    "racetrack"
+   ]
+  },
+  {
+   "file": "android-phone-emulator/02-battle-1080x1920.png",
+   "device_class": "android-phone-emulator",
+   "slot": 2,
+   "role": "battle",
+   "orientation": "portrait",
+   "pixels": "1080x1920",
+   "description": "About thirty red warriors meet some twenty blue defenders on the blue colony's ground, two war flags in the fight",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-phone (pixel_2 profile), 1080x1920 px, 420 dpi",
+   "emulator": {
+    "avd": "glob2-store-phone",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1080x1920",
+    "density": "Physical density: 420",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "da3c7a5d2012bcf6ffce704b6294ab3574df4a772f602bc122bdffbfff7dbbb8",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t27015.game.gz",
+   "tick": 35360,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     39,
+     58
+    ],
+    "zoom": 1.975,
+    "view_tiles": {
+     "height": 20,
+     "width": 13,
+     "x": 33,
+     "y": 48
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 1,
+   "event_rows": [
+    "Your Warrior is under attack \u00d75",
+    "Your Warrior is under attack"
+   ],
+   "first_stat": "76/250",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.312,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "rival_units_in_view_by_team": {
+    "2": 6
+   },
+   "enemy_buildings_near": 0
+  },
+  {
+   "file": "android-phone-emulator/03-fair_deal-1080x1920.png",
+   "device_class": "android-phone-emulator",
+   "slot": 3,
+   "role": "fair_deal",
+   "orientation": "portrait",
+   "pixels": "1080x1920",
+   "description": "A different part of the colony: inns, hospitals and a Swarm busy with globs, no event rows",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-phone (pixel_2 profile), 1080x1920 px, 420 dpi",
+   "emulator": {
+    "avd": "glob2-store-phone",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1080x1920",
+    "density": "Physical density: 420",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "34f42d2b0d507f473db9a96b5981bf71786952d4790c379517b02bcca83a4e47",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t45017.game.gz",
+   "tick": 46424,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     49,
+     17
+    ],
+    "zoom": 1.276,
+    "view_tiles": {
+     "height": 31,
+     "width": 20,
+     "x": 39,
+     "y": 2
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 0,
+   "event_rows": [],
+   "first_stat": "137/341",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.043,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "buildings_in_view": [
+    "hospital",
+    "inn",
+    "swarm"
+   ]
+  },
+  {
+   "file": "android-phone-emulator/04-build-1080x1920.png",
+   "device_class": "android-phone-emulator",
+   "slot": 4,
+   "role": "build",
+   "orientation": "portrait",
+   "pixels": "1080x1920",
+   "description": "Build palette open over the live colony between the lake and a swimming pool",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-phone (pixel_2 profile), 1080x1920 px, 420 dpi",
+   "emulator": {
+    "avd": "glob2-store-phone",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1080x1920",
+    "density": "Physical density: 420",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "6810070d529fc3bc93369845260604325e7341192f2cd16da0d6d967c1ac94c4",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t45017.game.gz",
+   "tick": 46042,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     41,
+     38
+    ],
+    "zoom": 1.276,
+    "view_tiles": {
+     "height": 31,
+     "width": 20,
+     "x": 31,
+     "y": 23
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 1,
+   "event_rows": [
+    "Your Warrior is under attack \u00d72"
+   ],
+   "first_stat": "147/341",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.035,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "buildings_in_view": [
+    "barracks",
+    "hospital",
+    "inn",
+    "swimmingpool"
+   ]
+  },
+  {
+   "file": "android-phone-emulator/05-economy-1080x1920.png",
+   "device_class": "android-phone-emulator",
+   "slot": 5,
+   "role": "economy",
+   "orientation": "portrait",
+   "pixels": "1080x1920",
+   "description": "Inn selected: Food 47/50 and its fruit stock, beside the algae lake, a wheat field and workers; a Swarm behind the priority dial",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-phone (pixel_2 profile), 1080x1920 px, 420 dpi",
+   "emulator": {
+    "avd": "glob2-store-phone",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1080x1920",
+    "density": "Physical density: 420",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "d08eff81eaaceee4e1f95758566f56ffe3e09ab58b6e437ab7d590c899d5652f",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t45017.game.gz",
+   "tick": 47285,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     86,
+     47
+    ],
+    "zoom": 1.58,
+    "view_tiles": {
+     "height": 25,
+     "width": 16,
+     "x": 78,
+     "y": 35
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 0,
+   "event_rows": [],
+   "first_stat": "146/343",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.05,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "selected": {
+    "type": "inn",
+    "x": 80,
+    "y": 43,
+    "level": 3,
+    "stock": {
+     "cherries": "0/200",
+     "food": "48/50",
+     "oranges": "0/200",
+     "prunes": "7/200"
+    }
+   },
+   "also_in_view": [
+    "inn",
+    "wheat"
+   ]
+  },
+  {
+   "file": "android-phone-emulator/06-territory-1080x1920.png",
+   "device_class": "android-phone-emulator",
+   "slot": 6,
+   "role": "territory",
+   "orientation": "portrait",
+   "pixels": "1080x1920",
+   "description": "Flags palette open at the front: a war flag just placed, a red line facing a blue line",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-phone (pixel_2 profile), 1080x1920 px, 420 dpi",
+   "emulator": {
+    "avd": "glob2-store-phone",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1080x1920",
+    "density": "Physical density: 420",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "e2a5431f65c0a0e9be050caa3afa0757165be10903b1e3344a3980da4ab1dd7b",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t27015.game.gz",
+   "tick": 28390,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     40,
+     58
+    ],
+    "zoom": 1.975,
+    "view_tiles": {
+     "height": 20,
+     "width": 13,
+     "x": 34,
+     "y": 48
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 2,
+   "event_rows": [
+    "A unit from Cabino / 3 - Blue's team has joined your team \u00d72",
+    "Your Warrior is under attack \u00d715"
+   ],
+   "first_stat": "3/182",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.289,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "placed a war flag at 40,60 (12 warriors, range 5)",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "flag_placed_at": [
+    40,
+    60
+   ]
+  },
+  {
+   "file": "android-phone-emulator/07-maps-1080x1920.png",
+   "device_class": "android-phone-emulator",
+   "slot": 7,
+   "role": "maps",
+   "orientation": "portrait",
+   "pixels": "1080x1920",
+   "description": "A second map, FourSquares1: the red colony on its island beside the algae-covered sea, sand and violet forest",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-phone (pixel_2 profile), 1080x1920 px, 420 dpi",
+   "emulator": {
+    "avd": "glob2-store-phone",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1080x1920",
+    "density": "Physical density: 420",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "68ecb0e7db3c367006aa0c59baf4205d15bc4ca6b33a61474b6c75e02fd16465",
+   "map": "FourSquares1",
+   "colonies": "You + Nicowar AI (red) vs Nicowar AI, Cortex AI, Cabino AI",
+   "save": "saves/foursquares-n-t33028.game.gz",
+   "tick": 33694,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     7,
+     114
+    ],
+    "zoom": 1.155,
+    "view_tiles": {
+     "height": 34,
+     "width": 22,
+     "x": 124,
+     "y": 97
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 2,
+   "event_rows": [
+    "Your Explorer is under attack \u00d72",
+    "Your Warrior is under attack \u00d73"
+   ],
+   "first_stat": "2/152",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.035,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "buildings_in_view": [
+    "swimmingpool",
+    "racetrack"
+   ]
+  },
+  {
+   "file": "android-tablet-7-emulator/01-hero-1920x1200.png",
+   "device_class": "android-tablet-7-emulator",
+   "slot": 1,
+   "role": "hero",
+   "orientation": "landscape",
+   "pixels": "1920x1200",
+   "description": "Colony core of the red colony: both swimming pools and both racetracks, barracks, school, inns, a Swarm and hundreds of globs",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-tablet7 (Nexus 7 2013 hardware profile at 280 dpi: an 8-inch-class 1200x1920 panel), 1200x1920 px, 280 dpi, landscape",
+   "emulator": {
+    "avd": "glob2-store-tablet7",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1200x1920",
+    "density": "Physical density: 280",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "7305d6e04ec6f1dd462e120db45b316a4ab7876f0835499a709e7b19e2dc3764",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t45017.game.gz",
+   "tick": 46032,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     54,
+     40
+    ],
+    "zoom": 0.798,
+    "view_tiles": {
+     "height": 25,
+     "width": 43,
+     "x": 33,
+     "y": 28
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 1,
+   "event_rows": [
+    "Your Warrior is under attack \u00d72"
+   ],
+   "first_stat": "142/341",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.052,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "buildings_in_view": [
+    "swimmingpool",
+    "racetrack"
+   ]
+  },
+  {
+   "file": "android-tablet-7-emulator/02-battle-1920x1200.png",
+   "device_class": "android-tablet-7-emulator",
+   "slot": 2,
+   "role": "battle",
+   "orientation": "landscape",
+   "pixels": "1920x1200",
+   "description": "About thirty blue defenders hold a line against some twenty red warriors beside the blue colony's buildings and a Swarm under construction; war flags",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-tablet7 (Nexus 7 2013 hardware profile at 280 dpi: an 8-inch-class 1200x1920 panel), 1200x1920 px, 280 dpi, landscape",
+   "emulator": {
+    "avd": "glob2-store-tablet7",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1200x1920",
+    "density": "Physical density: 280",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "8b24364975f582ba822af3bca61c8540af42f827ec22dfa76c6424a3fe58eb59",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t27015.game.gz",
+   "tick": 29800,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     38,
+     59
+    ],
+    "zoom": 1.196,
+    "view_tiles": {
+     "height": 17,
+     "width": 29,
+     "x": 24,
+     "y": 51
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 2,
+   "event_rows": [
+    "A unit from Cabino / 3 - Blue's team has joined your team \u00d72",
+    "Your Warrior is under attack \u00d728"
+   ],
+   "first_stat": "19/208",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.303,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "rival_units_in_view_by_team": {
+    "2": 12
+   },
+   "enemy_buildings_near": 0
+  },
+  {
+   "file": "android-tablet-7-emulator/03-fair_deal-1920x1200.png",
+   "device_class": "android-tablet-7-emulator",
+   "slot": 3,
+   "role": "fair_deal",
+   "orientation": "landscape",
+   "pixels": "1920x1200",
+   "description": "A different part of the colony: the lakeshore with globs swimming, wheat, inns, hospitals and a Swarm",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-tablet7 (Nexus 7 2013 hardware profile at 280 dpi: an 8-inch-class 1200x1920 panel), 1200x1920 px, 280 dpi, landscape",
+   "emulator": {
+    "avd": "glob2-store-tablet7",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1200x1920",
+    "density": "Physical density: 280",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "15ed2528bc34a55bba33cf7bf8a7011f53083eabc62f706d81384eed2afdda66",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t45017.game.gz",
+   "tick": 46711,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     45,
+     21
+    ],
+    "zoom": 0.798,
+    "view_tiles": {
+     "height": 25,
+     "width": 43,
+     "x": 24,
+     "y": 9
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 1,
+   "event_rows": [
+    "A unit from Cabino / 3 - Blue's team has joined your team"
+   ],
+   "first_stat": "147/343",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.054,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "buildings_in_view": [
+    "barracks",
+    "hospital",
+    "inn",
+    "racetrack",
+    "swimmingpool"
+   ]
+  },
+  {
+   "file": "android-tablet-7-emulator/04-build-1920x1200.png",
+   "device_class": "android-tablet-7-emulator",
+   "slot": 4,
+   "role": "build",
+   "orientation": "landscape",
+   "pixels": "1920x1200",
+   "description": "Named build palette open over the live colony beside the lake and the pools, no event rows",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-tablet7 (Nexus 7 2013 hardware profile at 280 dpi: an 8-inch-class 1200x1920 panel), 1200x1920 px, 280 dpi, landscape",
+   "emulator": {
+    "avd": "glob2-store-tablet7",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1200x1920",
+    "density": "Physical density: 280",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "9cb82ba41d7c2773584e6112ecf0eb5dca2ff52f9dc10b98c774f1cfa17a3406",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t45017.game.gz",
+   "tick": 47171,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     52,
+     40
+    ],
+    "zoom": 0.798,
+    "view_tiles": {
+     "height": 25,
+     "width": 43,
+     "x": 31,
+     "y": 28
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 0,
+   "event_rows": [],
+   "first_stat": "151/343",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.058,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "buildings_in_view": [
+    "barracks",
+    "hospital",
+    "inn",
+    "racetrack",
+    "school",
+    "swarm",
+    "swimmingpool"
+   ]
+  },
+  {
+   "file": "android-tablet-7-emulator/05-economy-1920x1200.png",
+   "device_class": "android-tablet-7-emulator",
+   "slot": 5,
+   "role": "economy",
+   "orientation": "landscape",
+   "pixels": "1920x1200",
+   "description": "Inn selected: Food 49/50 with cherries, oranges and prunes in stock, beside a Swarm and workers",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-tablet7 (Nexus 7 2013 hardware profile at 280 dpi: an 8-inch-class 1200x1920 panel), 1200x1920 px, 280 dpi, landscape",
+   "emulator": {
+    "avd": "glob2-store-tablet7",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1200x1920",
+    "density": "Physical density: 280",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "e8b2acb0ee6401cdef5897d58dd3c64757618409648cd2a1c74bda6d48f618ff",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t45017.game.gz",
+   "tick": 50811,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     54,
+     23
+    ],
+    "zoom": 0.957,
+    "view_tiles": {
+     "height": 21,
+     "width": 36,
+     "x": 36,
+     "y": 13
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 0,
+   "event_rows": [],
+   "first_stat": "180/343",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.061,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "end-of-match dialog (You have won): Continue playing",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "selected": {
+    "type": "inn",
+    "x": 54,
+    "y": 22,
+    "level": 3,
+    "stock": {
+     "cherries": "10/200",
+     "food": "48/50",
+     "oranges": "6/200",
+     "prunes": "9/200"
+    }
+   },
+   "also_in_view": [
+    "hospital",
+    "inn",
+    "swarm",
+    "wheat"
+   ]
+  },
+  {
+   "file": "android-tablet-7-emulator/06-territory-1920x1200.png",
+   "device_class": "android-tablet-7-emulator",
+   "slot": 6,
+   "role": "territory",
+   "orientation": "landscape",
+   "pixels": "1920x1200",
+   "description": "Flags palette open at the front: a war flag just placed, red and blue lines fighting around it",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-tablet7 (Nexus 7 2013 hardware profile at 280 dpi: an 8-inch-class 1200x1920 panel), 1200x1920 px, 280 dpi, landscape",
+   "emulator": {
+    "avd": "glob2-store-tablet7",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1200x1920",
+    "density": "Physical density: 280",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "506d0e122fc0d5082f06ccac59eee93eab69bc985635bd9d2d54b5481d7c8f9e",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t27015.game.gz",
+   "tick": 29739,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     39,
+     59
+    ],
+    "zoom": 1.196,
+    "view_tiles": {
+     "height": 17,
+     "width": 29,
+     "x": 25,
+     "y": 51
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 1,
+   "event_rows": [
+    "Your Warrior is under attack \u00d737"
+   ],
+   "first_stat": "21/199",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.255,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "placed a war flag at 40,60 (12 warriors, range 5)",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "flag_placed_at": [
+    40,
+    60
+   ]
+  },
+  {
+   "file": "android-tablet-7-emulator/07-maps-1920x1200.png",
+   "device_class": "android-tablet-7-emulator",
+   "slot": 7,
+   "role": "maps",
+   "orientation": "landscape",
+   "pixels": "1920x1200",
+   "description": "A second map, FourSquares1: the red colony on its island, framed by violet forest, the sea in the corner",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-tablet7 (Nexus 7 2013 hardware profile at 280 dpi: an 8-inch-class 1200x1920 panel), 1200x1920 px, 280 dpi, landscape",
+   "emulator": {
+    "avd": "glob2-store-tablet7",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1200x1920",
+    "density": "Physical density: 280",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "97fbbf31e5693ffc3d2a6b6354ac225b4f458cfdf593a05d5167a1d15786fd63",
+   "map": "FourSquares1",
+   "colonies": "You + Nicowar AI (red) vs Nicowar AI, Cortex AI, Cabino AI",
+   "save": "saves/foursquares-n-t33028.game.gz",
+   "tick": 40967,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     127,
+     125
+    ],
+    "zoom": 0.798,
+    "view_tiles": {
+     "height": 25,
+     "width": 43,
+     "x": 106,
+     "y": 113
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 2,
+   "event_rows": [
+    "Your Warrior is under attack \u00d73",
+    "Your Explorer is under attack"
+   ],
+   "first_stat": "32/179",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.046,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "buildings_in_view": [
+    "swimmingpool",
+    "racetrack"
+   ]
+  },
+  {
+   "file": "android-tablet-10-emulator/01-hero-2560x1600.png",
+   "device_class": "android-tablet-10-emulator",
+   "slot": 1,
+   "role": "hero",
+   "orientation": "landscape",
+   "pixels": "2560x1600",
+   "description": "Colony core of the red colony: both swimming pools and both racetracks, barracks, school, inns, Swarms and hundreds of globs, no event rows",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-tablet10 (Nexus 10 profile), 1600x2560 px, 320 dpi, landscape",
+   "emulator": {
+    "avd": "glob2-store-tablet10",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1600x2560",
+    "density": "Physical density: 320",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "0c5aa356e1592f54170c8d14f733d21bb67af2cd7d283ff6c6cf670213b6289f",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t45017.game.gz",
+   "tick": 47570,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     55,
+     39
+    ],
+    "zoom": 0.875,
+    "view_tiles": {
+     "height": 27,
+     "width": 46,
+     "x": 32,
+     "y": 26
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 0,
+   "event_rows": [],
+   "first_stat": "134/344",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.044,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "buildings_in_view": [
+    "swimmingpool",
+    "racetrack"
+   ]
+  },
+  {
+   "file": "android-tablet-10-emulator/02-battle-2560x1600.png",
+   "device_class": "android-tablet-10-emulator",
+   "slot": 2,
+   "role": "battle",
+   "orientation": "landscape",
+   "pixels": "2560x1600",
+   "description": "About forty red warriors against some twenty-five blue defenders beside a burning blue building and the blue colony's Swarm; war flags in the fight",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-tablet10 (Nexus 10 profile), 1600x2560 px, 320 dpi, landscape",
+   "emulator": {
+    "avd": "glob2-store-tablet10",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1600x2560",
+    "density": "Physical density: 320",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "d3e4668e88546b9cfb2ca1e93829f0227d4229eab46b19b995a4ea9760cb5127",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t27015.game.gz",
+   "tick": 37094,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     38,
+     59
+    ],
+    "zoom": 1.328,
+    "view_tiles": {
+     "height": 18,
+     "width": 31,
+     "x": 23,
+     "y": 50
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 2,
+   "event_rows": [
+    "A unit from Cabino / 3 - Blue's team has joined your team \u00d73",
+    "Your Warrior is under attack \u00d713"
+   ],
+   "first_stat": "90/263",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.391,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "rival_units_in_view_by_team": {
+    "2": 7
+   },
+   "enemy_buildings_near": 1
+  },
+  {
+   "file": "android-tablet-10-emulator/03-fair_deal-2560x1600.png",
+   "device_class": "android-tablet-10-emulator",
+   "slot": 3,
+   "role": "fair_deal",
+   "orientation": "landscape",
+   "pixels": "2560x1600",
+   "description": "A different part of the colony: the lakeshore with globs swimming, wheat fields, inns and a Swarm",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-tablet10 (Nexus 10 profile), 1600x2560 px, 320 dpi, landscape",
+   "emulator": {
+    "avd": "glob2-store-tablet10",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1600x2560",
+    "density": "Physical density: 320",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "5b5243451618c94eb0248af5af42e1ec802f6ccdb280658ef239bd0cad78ea9a",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t45017.game.gz",
+   "tick": 46622,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     45,
+     21
+    ],
+    "zoom": 0.875,
+    "view_tiles": {
+     "height": 27,
+     "width": 46,
+     "x": 22,
+     "y": 8
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 1,
+   "event_rows": [
+    "A unit from Cabino / 3 - Blue's team has joined your team"
+   ],
+   "first_stat": "159/343",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.045,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "buildings_in_view": [
+    "barracks",
+    "hospital",
+    "inn",
+    "racetrack",
+    "swimmingpool"
+   ]
+  },
+  {
+   "file": "android-tablet-10-emulator/04-build-2560x1600.png",
+   "device_class": "android-tablet-10-emulator",
+   "slot": 4,
+   "role": "build",
+   "orientation": "landscape",
+   "pixels": "2560x1600",
+   "description": "Named build palette open over the live colony between the lake and the pools, no event rows",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-tablet10 (Nexus 10 profile), 1600x2560 px, 320 dpi, landscape",
+   "emulator": {
+    "avd": "glob2-store-tablet10",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1600x2560",
+    "density": "Physical density: 320",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "aafac33087bb167d8099a43507eaed58465b7bfae39fc8338b21207c0fefc3b8",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t45017.game.gz",
+   "tick": 46381,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     51,
+     40
+    ],
+    "zoom": 0.875,
+    "view_tiles": {
+     "height": 27,
+     "width": 46,
+     "x": 28,
+     "y": 27
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 1,
+   "event_rows": [
+    "A unit from Cabino / 3 - Blue's team has joined your team"
+   ],
+   "first_stat": "145/341",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.068,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "buildings_in_view": [
+    "barracks",
+    "hospital",
+    "inn",
+    "racetrack",
+    "school",
+    "swarm",
+    "swimmingpool"
+   ]
+  },
+  {
+   "file": "android-tablet-10-emulator/05-economy-2560x1600.png",
+   "device_class": "android-tablet-10-emulator",
+   "slot": 5,
+   "role": "economy",
+   "orientation": "landscape",
+   "pixels": "2560x1600",
+   "description": "Inn selected: Food 50/50 with cherries, oranges and prunes in stock, beside a Swarm and workers",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-tablet10 (Nexus 10 profile), 1600x2560 px, 320 dpi, landscape",
+   "emulator": {
+    "avd": "glob2-store-tablet10",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1600x2560",
+    "density": "Physical density: 320",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "7addc74843fce5c8328d509292c27519d68f19300fd2e11d11935bde6bb4d420",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t45017.game.gz",
+   "tick": 49951,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     56,
+     19
+    ],
+    "zoom": 1.062,
+    "view_tiles": {
+     "height": 22,
+     "width": 38,
+     "x": 37,
+     "y": 8
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 0,
+   "event_rows": [],
+   "first_stat": "166/343",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.057,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "end-of-match dialog (You have won): Continue playing",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "selected": {
+    "type": "inn",
+    "x": 54,
+    "y": 22,
+    "level": 3,
+    "stock": {
+     "cherries": "0/200",
+     "food": "47/50",
+     "oranges": "5/200",
+     "prunes": "15/200"
+    }
+   },
+   "also_in_view": [
+    "hospital",
+    "inn",
+    "swarm",
+    "wheat"
+   ]
+  },
+  {
+   "file": "android-tablet-10-emulator/06-territory-2560x1600.png",
+   "device_class": "android-tablet-10-emulator",
+   "slot": 6,
+   "role": "territory",
+   "orientation": "landscape",
+   "pixels": "2560x1600",
+   "description": "Flags palette open at the front: a war flag just placed, red and blue warriors fighting around it",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-tablet10 (Nexus 10 profile), 1600x2560 px, 320 dpi, landscape",
+   "emulator": {
+    "avd": "glob2-store-tablet10",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1600x2560",
+    "density": "Physical density: 320",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "92700cb59a2fdf4b177b2d9f3419b649d5df25b30685d0c18f1a84e389bf1678",
+   "map": "A big pond",
+   "colonies": "You + Nicowar AI (red) vs Cortex AI (green), Cabino AI (blue)",
+   "save": "saves/bigpond-n-t27015.game.gz",
+   "tick": 30084,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     39,
+     59
+    ],
+    "zoom": 1.328,
+    "view_tiles": {
+     "height": 18,
+     "width": 31,
+     "x": 24,
+     "y": 50
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 2,
+   "event_rows": [
+    "A unit from Cortex / 2 - Green's team has joined your team",
+    "Your Warrior is under attack \u00d737"
+   ],
+   "first_stat": "8/199",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.309,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "placed a war flag at 40,60 (12 warriors, range 5)",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "flag_placed_at": [
+    40,
+    60
+   ]
+  },
+  {
+   "file": "android-tablet-10-emulator/07-maps-2560x1600.png",
+   "device_class": "android-tablet-10-emulator",
+   "slot": 7,
+   "role": "maps",
+   "orientation": "landscape",
+   "pixels": "2560x1600",
+   "description": "A second map, FourSquares1: the red colony on its island between the algae-covered sea, sand and violet forest",
+   "kind": "gameplay",
+   "build": "android-emulator",
+   "build_version": "0.11.8.1",
+   "build_commit": "a9f878b9ff61986b2f5e268429ed9ea2b6d8386d",
+   "device": "Android emulator, AVD glob2-store-tablet10 (Nexus 10 profile), 1600x2560 px, 320 dpi, landscape",
+   "emulator": {
+    "avd": "glob2-store-tablet10",
+    "android_version": "15",
+    "api": "35",
+    "system_image": "Android/sdk_phone64_arm64/emu64a:15/AE3A.240806.019/12368160:userdebug/test-keys",
+    "display": "Physical size: 1600x2560",
+    "density": "Physical density: 320",
+    "gpu": "host (-gpu host, Apple GPU through the emulator's gfxstream)"
+   },
+   "capture_method": "adb exec-out screencap -p (emulator display at native pixels)",
+   "real_device_capture": false,
+   "emulator_capture": true,
+   "interim": null,
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "sha256": "1289e24c313c222fbca2ed6d1eee46c822a97d6ed93d2b4aaff2f23c3f929ef6",
+   "map": "FourSquares1",
+   "colonies": "You + Nicowar AI (red) vs Nicowar AI, Cortex AI, Cabino AI",
+   "save": "saves/foursquares-n-t33028.game.gz",
+   "tick": 33955,
+   "game_speed": "1x",
+   "paused": false,
+   "camera": {
+    "tile": [
+     127,
+     124
+    ],
+    "zoom": 0.875,
+    "view_tiles": {
+     "height": 27,
+     "width": 46,
+     "x": 104,
+     "y": 111
+    }
+   },
+   "view": "player view (local human player; colony co-controlled by the Nicowar AI through the lobby's You + AI option); not a spectator view",
+   "event_rows_in_frame": 2,
+   "event_rows": [
+    "Your Warrior is under attack \u00d74",
+    "Your Explorer is under attack"
+   ],
+   "first_stat": "16/155",
+   "zone_outline_pixels": 0,
+   "fog_dimmed_fraction": 0.065,
+   "player_actions_before_capture": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the forbidden, guard and clearing zones painted by the co-controlling AI"
+   ],
+   "buildings_in_view": [
+    "swimmingpool",
+    "racetrack"
+   ]
   }
  ],
  "saves": [

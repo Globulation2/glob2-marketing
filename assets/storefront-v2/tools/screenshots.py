@@ -180,13 +180,13 @@ def load_config():
             elif slot['role'] not in order: problems.append(f'{where}: role {slot["role"]!r} is not in asset_text.mobile_gallery_order in translations/platforms.json {order}, so it is not a mobile slide')
             if slot['role'] in seen: problems.append(f'{where}: role {slot["role"]!r} appears twice')
             seen.add(slot['role'])
+            path = capture_path(gallery, device_class, slot)
+            if not path.is_file(): problems.append(f'{where}: missing capture {path}')
+            elif not path.is_relative_to((HERE / gallery['captures_root']).resolve()): problems.append(f'{where}: {slot["capture"]} is outside the captures directory')
         # The store order is asset_text.mobile_gallery_order; a class may leave a role out (iPhone has no territory slide).
         roles = [slot['role'] for slot in slots]
         if roles != [role for role in order if role in roles]:
             problems.append(f'{gallery["gallery_source"]["file"]}: {device_class} slots are {roles}; they must follow asset_text.mobile_gallery_order {order}')
-            path = capture_path(gallery, device_class, slot)
-            if not path.is_file(): problems.append(f'{where}: missing capture {path}')
-            elif not path.is_relative_to((HERE / gallery['captures_root']).resolve()): problems.append(f'{where}: {slot["capture"]} is outside the captures directory')
     resolve_trim_modes(gallery, problems)
     for store in gallery['stores'].values():
         for rule in store['banned']:

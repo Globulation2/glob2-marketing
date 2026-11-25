@@ -80,7 +80,14 @@ def write_profile(profile: Path, saves=(), extra=None):
 # ---------------------------------------------------------------- MCP sugar
 
 def call(tool, **args):
-    data, images, err = mcp.call(tool, args, PORT, 60)
+    for attempt in range(4):
+        data, images, err = mcp.call(tool, args, PORT, 60)
+        # A busy emulator can miss the UI deadline; a call that never started is safe to repeat.
+        if (err and attempt < 3 and "deadline exceeded" in str(data) and isinstance(data, dict)
+                and data.get("input_started") is False):
+            time.sleep(2.0)
+            continue
+        break
     if err:
         raise RuntimeError(f"{tool} failed: {data}")
     return data
@@ -272,6 +279,126 @@ class IOS:
 
     def close(self):
         simctl("terminate", self.device, BUNDLE_ID, check=False)
+
+
+# ---------------------------------------------------------------- Android target
+
+def _android_sdk():
+    if os.environ.get("GLOB2_ANDROID_SDK"):
+        return Path(os.environ["GLOB2_ANDROID_SDK"])
+    try:  # the game repository's managed SDK (python3 tools/dev_environment.py paths)
+        return Path(subprocess.check_output([sys.executable, str(WT / "tools/dev_environment.py"), "paths", "--field",
+                                             "android_sdk"], text=True).strip())
+    except (OSError, subprocess.CalledProcessError):
+        return Path("android-sdk")
+
+
+ANDROID_SDK = _android_sdk()
+ANDROID_ADB_PORT = os.environ.get("GLOB2_ADB_PORT", "15077")
+ANDROID_APK = WT / "build/android/device/arm64-v8a/24/client/release/android-project/app/build/outputs/apk/release"
+ANDROID_ACTIVITY = BUNDLE_ID + "/org.globulation2.glob2.Glob2Activity"
+# SDL_GetPrefPath on Android is the app's internal files directory.
+ANDROID_PROFILE = f"/data/data/{BUNDLE_ID}/files"
+
+
+def adb(serial, *args, check=True, capture=True, binary=False):
+    command = [str(ANDROID_SDK / "platform-tools/adb"), "-P", ANDROID_ADB_PORT, "-s", serial, *args]
+    result = subprocess.run(command, check=check, capture_output=capture, text=not binary)
+    return result.stdout
+
+
+class Android:
+    """The real Android app in an isolated emulator (its own ADB server).
+
+    The emulator image is a userdebug build, so `adb root` can write the
+    disposable profile straight into the app's internal storage. The game's MCP
+    listener binds the device's loopback; `adb forward` maps the same port
+    number on the Mac so the listener's Host check holds."""
+
+    def __init__(self, serial, orientation="portrait"):
+        self.serial = serial
+        self.orientation = orientation
+
+    def boot(self):
+        adb(self.serial, "wait-for-device")
+        adb(self.serial, "root")
+        time.sleep(1.5)
+        adb(self.serial, "wait-for-device")
+        # The tablet panels are portrait-natural (1200x1920, 1600x2560); hold the
+        # display at 90 degrees for landscape, as a player turning the tablet would.
+        adb(self.serial, "shell", "settings", "put", "system", "accelerometer_rotation", "0")
+        adb(self.serial, "shell", "settings", "put", "system", "user_rotation",
+            "1" if self.orientation == "landscape" else "0")
+        # System UI demo mode: the Android counterpart of simctl status_bar
+        # override (fixed clock, full signal and battery, no notification icons).
+        # Gesture navigation (the Android 10+ default): a thin handle instead of
+        # the three-button bar. Switching it restarts the navigation bar, so it
+        # comes before demo mode.
+        overlays = adb(self.serial, "shell", "cmd", "overlay", "list")
+        if "[x] com.android.internal.systemui.navbar.gestural" not in overlays:
+            adb(self.serial, "shell", "cmd", "overlay", "enable-exclusive", "--category",
+                "com.android.internal.systemui.navbar.gestural")
+            time.sleep(4.0)
+        adb(self.serial, "shell", "settings", "put", "global", "sysui_demo_allowed", "1")
+        for extras in (["-e", "command", "enter"],
+                       ["-e", "command", "clock", "-e", "hhmm", "0941"],
+                       ["-e", "command", "battery", "-e", "level", "100", "-e", "plugged", "false"],
+                       ["-e", "command", "network", "-e", "wifi", "show", "-e", "level", "4", "-e", "fully", "true"],
+                       ["-e", "command", "network", "-e", "mobile", "hide"],
+                       ["-e", "command", "notifications", "-e", "visible", "false"]):
+            adb(self.serial, "shell", "am", "broadcast", "-a", "com.android.systemui.demo", *extras)
+        time.sleep(1.0)
+
+    def install(self, apk):
+        adb(self.serial, "install", "-r", str(apk))
+
+    def launch(self, saves=(), extra=None):
+        adb(self.serial, "shell", "am", "force-stop", BUNDLE_ID, check=False)
+        local = SCRATCH / "profiles" / f"android-{self.serial}"
+        if local.exists():
+            shutil.rmtree(local)
+        write_profile(local, saves, dict({"mcpEnabled": "1", "mcpPort": str(PORT)}, **(extra or {})))
+        uid = adb(self.serial, "shell", "stat", "-c", "%u", f"/data/data/{BUNDLE_ID}").strip()
+        adb(self.serial, "shell", "mkdir", "-p", ANDROID_PROFILE)
+        adb(self.serial, "shell", "rm", "-rf", f"{ANDROID_PROFILE}/games", f"{ANDROID_PROFILE}/preferences.txt")
+        adb(self.serial, "push", str(local / "preferences.txt"), f"{ANDROID_PROFILE}/preferences.txt")
+        adb(self.serial, "push", str(local / "games"), f"{ANDROID_PROFILE}/")
+        adb(self.serial, "shell", f"chown -R {uid}:{uid} {ANDROID_PROFILE} && restorecon -R {ANDROID_PROFILE}")
+        adb(self.serial, "forward", f"tcp:{PORT}", f"tcp:{PORT}")
+        token = Path(os.environ["GLOB2_MCP_TOKEN_FILE"])
+        if token.exists():
+            token.unlink()
+        adb(self.serial, "shell", "am", "start", "-W", "-n", ANDROID_ACTIVITY)
+        wait_mcp(240)
+
+    def shot(self, path, on_captured=None):
+        """`adb exec-out screencap -p`. screencap grabs the display before it
+        starts writing the PNG, so the first bytes on the pipe mean the frame
+        is fixed; `on_captured` runs then (to read the event list right after
+        the frame), not after the slower PNG encode and transfer."""
+        command = [str(ANDROID_SDK / "platform-tools/adb"), "-P", ANDROID_ADB_PORT, "-s", self.serial,
+                   "exec-out", "screencap", "-p"]
+        process = subprocess.Popen(command, stdout=subprocess.PIPE)
+        head = process.stdout.read(8)
+        result = on_captured() if on_captured else None
+        data = head + process.stdout.read()
+        if process.wait() != 0 or not data.startswith(b"\x89PNG"):
+            raise RuntimeError("screencap failed")
+        Path(path).write_bytes(data)
+        return result
+
+    def info(self):
+        def prop(name):
+            return adb(self.serial, "shell", "getprop", name).strip()
+        size = adb(self.serial, "shell", "wm", "size").strip()
+        density = adb(self.serial, "shell", "wm", "density").strip()
+        return {"android": prop("ro.build.version.release"), "api": prop("ro.build.version.sdk"),
+                "fingerprint": prop("ro.build.fingerprint"), "avd": adb(self.serial, "emu", "avd", "name").split()[0],
+                "wm_size": size, "wm_density": density}
+
+    def close(self):
+        adb(self.serial, "shell", "am", "force-stop", BUNDLE_ID, check=False)
+        adb(self.serial, "forward", "--remove", f"tcp:{PORT}", check=False)
 
 
 if __name__ == "__main__":

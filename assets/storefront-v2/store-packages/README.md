@@ -59,7 +59,9 @@ Every image entry records its upload order, role, file, pixels, format, mode, by
 | AppStream / Flathub | 7 screenshots `01 04 08b 02 06 05 03`, stable names (`hero-1920x1080.png` …), `screenshots.xml` ready for the game's metainfo with every caption language, plus a last, non-default video screenshot of the committed `../trailer/glob2-trailer-30s-1080p.webm` (VP9 in WebM), and the export's `appstream-fragment.xml` and `desktop-fragment.ini` | 1920×1080 PNG, no alpha; video 1920×1080 VP9 WebM |
 | Google Play | 44 Play locales × phone 7, 7-inch 7, 10-inch 7 = 924 linked screenshots; feature graphic; 512 px icon; listing text per locale; preview video: master 2160p linked for YouTube (**needs a hosted video URL**) | 1080×1920, 1920×1200, 2560×1600 PNG without alpha, ≤ 8 MB, 2–8 per phone set and 4–8 per tablet set; feature 1024×500 without alpha; icon 512×512 32-bit PNG ≤ 1,024 KB |
 | Apple App Store | 38 Apple locales × iPhone 6.9-inch and iPad 13-inch sets; listing text per locale | 1320×2868 and 2064×2752 PNG without alpha, 1–10 per set |
-| Amazon | text for its 11 languages, 1024×500 promotional image, icons 512 and 114; screenshots **blocked** (M8) | promo 1024×500 with the wordmark at least 50 px from every edge (read from the key-art manifest); icons 512×512 and 114×114 PNG |
+| Amazon | text for its 11 languages, 1024×500 promotional image, icons 512 and 114; 7 tablet screenshots per language from the 2560×1600 emulator captures (M8 cleared 2026-11-25) | screenshots 2560×1600 PNG without alpha, ≤ 8 MB, 3–10 per set; promo 1024×500 with the wordmark at least 50 px from every edge (read from the key-art manifest); icons 512×512 and 114×114 PNG |
+
+**2026-11-25:** the Google Play, Amazon and F-Droid screenshot sets are now rendered from the Android emulator captures (system bars trimmed; see the [captures README](../captures/mobile/README.md#android-emulator-captures-2026-11-25)). Amazon's `tablet` set is no longer blocked (M8 cleared): `amazon-tablet`, 2560×1600, 7 slides per language. The Google Play package's 924 links now point at the emulator renders; the phone, 7-inch and 10-inch images already on Play (2026-11-25, host renders) are the earlier set and need re-uploading to match.
 
 The exact counts, byte totals and open items of the latest run are printed at the end of every build and kept in `../storefront-v2-renders/store-packages/summary.json`.
 
@@ -75,7 +77,6 @@ The intended URLs are `https://raw.githubusercontent.com/Globulation2/glob2-mark
 
 - **Trailer URLs:** Snap, itch.io and Google Play take a YouTube (or Vimeo) URL, not a file. Their slots stay blocked ("needs a hosted video URL") until the file linked in the package is uploaded there and the URL recorded. Google Play also waits for the Play Console ads and in-app purchase declarations to be read (trailer review, store gates).
 - **Apple and Mac previews:** none of the trailer files can be used; they need captures of the iOS and Mac apps (trailer review). Not packaged.
-- **Amazon screenshots** (review M8): the 10-inch frames are host renders and Amazon wants the app on the right device type. Re-run after emulator or Fire-tablet captures are rendered; then take `blocked` off the `amazon` set in `stores.json`.
 
 ## Copyright line
 

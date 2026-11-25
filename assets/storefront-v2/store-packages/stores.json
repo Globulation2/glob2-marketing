@@ -353,7 +353,7 @@
       "text": {"platform": "amazon"},
       "sets": [
         {"slot": "tablet", "render_set": "amazon-tablet", "size": [2560, 1600], "count": [3, 10], "format": ["PNG", "JPEG"], "alpha": "forbid", "max_bytes": 8000000,
-         "blocked": "M8: Amazon asks for the app on the right device type; the android-tablet-10 frames are host renders. Screenshots wait for emulator or Fire-tablet captures and a re-render."}
+         "note": "M8 cleared 2026-11-25: amazon-tablet is rendered from the Android emulator captures in captures/mobile/android-tablet-10-emulator/ (the real Android app, Android 15, 2560x1600 at 320 dpi, system bars trimmed), not host renders. Not a Fire OS device or Fire OS image."}
       ],
       "assets": [
         {"slot": "promotional-image", "file": ["amazon-promo*-1024x500.*", "amazon-promotional*-1024x500.*", "amazon-*1024x500*", "google-play-feature-1024x500.jpg"], "size": [1024, 500], "format": ["JPEG", "PNG"], "alpha": "forbid", "wordmark_margin": 50},

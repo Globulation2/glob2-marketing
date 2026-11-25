@@ -4,6 +4,7 @@
     "The gallery itself comes from selection_file when that file exists (written by the capture engineer after the visual review); provisional_gallery below is used only until then. Either way a slot is one line: the capture file (in captures/<device_class>/) and the caption role (shot_overlay_<role> in translations/<locale>.md). Reorder lines to reorder a gallery; change a file name to swap an image.",
     "provisional_gallery was set by the compositor on 2026-11-24 from the first capture round, which the visual review has since mostly rejected: it is layout test material. Its slots are always rendered in the order of asset_text.mobile_gallery_order in translations/platforms.json (hero, battle, fair_deal, build, ...), whatever order the lines below are in; a role that list does not name is refused (screenshots.py checks every gallery, selection.json too, against that list). The fair-deal slide borrows the second-map capture, which another slot also uses, until it has a frame of its own.",
     "trim removes only the flat system-bar margins a capture carries (status bar, home-indicator band, landscape safe-area bands); the tool refuses a trim that would remove game pixels.",
+    "Android trims (2026-11-25) are for the Android emulator captures that selection.json names since that date (captures/mobile/android-*-emulator/): the status bar and the gesture-handle band, which the game paints navy #000020, measured row by row on all 21 files (identical within each class). Phone 1080x1920: rows 0-61 and the last 65 rows. 7-inch class 1920x1200: rows 0-39 (the minimap panel's drop shadow reaches into rows 35-39, navy within 2 levels) and the last 57 rows. 10-inch 2560x1600: rows 0-47 (rows 39-45 are the minimap panel's drop shadow; rows 46-47 are its top border, which the trim takes) and the last 64 rows. The interim host renders in captures/mobile/android-*/ have no system bars and would be refused by these trims.",
     "Per image size: card is the card's width as a share of the image width (the capture is scaled to it, never up, and runs off the bottom edge); band is the caption band's share of the image height (everything above the card; verify fails above caption_area_limit); caption_px is the caption's full type size. Every caption of one store set and locale is set at one size, the largest at which all of them fit.",
     "Orientations are fixed (coordinator, 2026-11-24): phones and iPad portrait, Android tablets landscape. A capture in any other pixel size is refused until its size is added to device_classes with a trim and band.",
     "fdroid-phone has no captures of its own: it is the android-phone gallery under another store's rules.",
@@ -23,13 +24,13 @@
       "2064x2752": {"trim": {"top": 64, "bottom": 40}, "card": 0.94, "band": 0.17, "caption_px": 172}
     },
     "android-phone": {
-      "1080x1920": {"card": 0.94, "band": 0.17, "caption_px": 118}
+      "1080x1920": {"trim": {"top": 62, "bottom": 65}, "card": 0.94, "band": 0.17, "caption_px": 118}
     },
     "android-tablet-7": {
-      "1920x1200": {"card": 0.93, "band": 0.16, "caption_px": 112}
+      "1920x1200": {"trim": {"top": 40, "bottom": 57}, "card": 0.93, "band": 0.16, "caption_px": 112}
     },
     "android-tablet-10": {
-      "2560x1600": {"card": 0.93, "band": 0.16, "caption_px": 150}
+      "2560x1600": {"trim": {"top": 48, "bottom": 64}, "card": 0.93, "band": 0.16, "caption_px": 150}
     }
   },
   "slot_trim": {},

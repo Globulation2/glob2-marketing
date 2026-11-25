@@ -173,7 +173,11 @@ def parse_review(path: Path, roles: list[str]) -> dict:
             continue
         body = re.sub(r"\([^)]*\)", "", cells[1].replace("**", ""))
         if "·" not in body:
-            mobile[m.group(1)] = {"roles": None, "raw": cells[1]}
+            # "Same seven as the 10-inch set, after ..." / "Same seven as Google Play phone": the slides of
+            # the row whose name contains that phrase, resolved below.
+            same = re.match(r"^Same \w+ as (?:the )?(.+?)(?: set)?(?:[,.;]|$)", body.strip())
+            mobile[m.group(1)] = {"roles": None, "raw": cells[1], "same_as": same.group(1).strip() if same else None,
+                                  "name": cells[0]}
             continue
         found = []
         for part in body.split("·"):
@@ -181,7 +185,12 @@ def parse_review(path: Path, roles: list[str]) -> dict:
             if word not in roles:
                 raise SystemExit(f"review: mobile row {m.group(1)!r} names unknown role {part.strip()!r}")
             found.append(word)
-        mobile[m.group(1)] = {"roles": found, "raw": cells[1]}
+        mobile[m.group(1)] = {"roles": found, "raw": cells[1], "name": cells[0]}
+    for key, row in mobile.items():
+        if row["roles"] is None and row.get("same_as"):
+            matches = [r for k, r in mobile.items() if k != key and r["roles"] and row["same_as"].lower() in r["name"].lower()]
+            if len(matches) == 1:
+                row["roles"] = list(matches[0]["roles"])
     return {"desktop": desktop, "mobile": mobile, "token_roles": token_roles, "sha256": sha256(path)}
 
 
