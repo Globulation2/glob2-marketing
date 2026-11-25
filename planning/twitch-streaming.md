@@ -93,6 +93,17 @@ The player used to hold its game-control token in context. In game 22 an aggress
 
 The user found the picture lifeless between camera cuts and saw globs walk off-screen. The chat agent now runs `chat/camera_drift.py`: between explicit moves it pans slowly toward fresh alerts, nearby enemy units or Claude's moving units, else circles the last target, using tiny middle-button drags (arrow keys scrolled ~38 tiles/s, far too fast). On a test game it steered the view toward a target within 0.6 tiles of its own tracking, followed moving worker groups without jitter after target smoothing, paused after explicit moves, and added ~60 ms median latency to other MCP calls. Smoothness on the 60 fps NVIDIA display is judged after deployment. `game_world` detail full reports per-unit tile positions (`colony.unit_list`, `others.unit_list`) and the current view rectangle, which the drift uses.
 
+### Token cost and pacing (2026-11-24/25)
+
+API-equivalent cost at Sonnet 5.5 rates ($2 / $10 per MTok, $0.10 cache reads, $4 one-hour cache writes), measured from the player transcripts with `cost_report.py` (kept locally in `~/glob2-stream/tools/`):
+
+| Setup | Player calls/min | Cost |
+| --- | --- | --- |
+| Before pacing (2.9 h) | ~14 | ~$6.40/h |
+| Paced, 10 calls/min cap (17 min) | ~5.7 | ~$3.00/h (about $71/day) |
+
+About 93% of cache writes are ordinary per-turn writes (~1K tokens per call) and only ~7% come from compaction, so compacting less often would raise cost (bigger re-reads per call); the aggressive setting stays. The user chose 10 calls a minute after 5 felt too slow; the stream stayed engaging on Twitch frames. Deferred options: a 20 s wait cap (waits were 53 of ~145 player tool calls) and a slimmer brief (player.md and the playbook overlap). The chat host costs pennies an hour at current traffic, at most ~$1-4.50/h at its rate limit.
+
 ## Gaps and next work
 
 - **24/7 operation.** The supervisor restarts failed streams, sessions and the chat host, and caps log growth. Still to verify before an unattended public run:
