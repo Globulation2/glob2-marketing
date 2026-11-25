@@ -1,0 +1,196 @@
+{
+ "iphone-6.9": [
+  {
+   "role": "hero",
+   "candidate": "hero-hdfit-2.png",
+   "description": "Colony core of the red colony: both swimming pools and both racetracks whole, with the barracks, school, inns and hundreds of globs at work around them"
+  },
+  {
+   "role": "battle",
+   "candidate": "territory9-hd27t-2.png",
+   "description": "The front at the blue colony with the Flags palette open: a blue line and a red line face each other across the centre, about 15 blue and 25 red warriors, two war flags and a lit wheat field",
+   "note": "Battle slide (role changed from territory on 2026-11-24, after the round 2 review, which found it the best fight of any phone frame; no iPhone battle capture passed the two-row limit). The war flag was placed by the player at the recorded tile just before the frame; fight ground is partly fog-dimmed."
+  },
+  {
+   "role": "fair_deal",
+   "candidate": "fair_deal-hdfit2-3.png",
+   "description": "A different part of the colony: inns and wheat fields on the lakeshore below violet forest, busy with globs"
+  },
+  {
+   "role": "build",
+   "candidate": "build-hd45e-3.png",
+   "description": "Build palette open over the live colony beside the lake, a pool and school at work in view"
+  },
+  {
+   "role": "economy",
+   "candidate": "economy1-hd45e-1.png",
+   "description": "Inn selected: food and fruit stock beside two Swarms, workers and a wheat field"
+  },
+  {
+   "role": "maps",
+   "candidate": "maps-fsat2-1.png",
+   "description": "A second map, FourSquares1: the red colony on its island beside the algae-covered sea, sand and violet forest",
+   "note": "Second map: FourSquares1, an island map, from a different match than the other slots."
+  }
+ ],
+ "ipad-13": [
+  {
+   "role": "hero",
+   "candidate": "hero-hd45-2.png",
+   "description": "Colony core of the red colony: both swimming pools and both racetracks, barracks, school, inns and hundreds of globs"
+  },
+  {
+   "role": "battle",
+   "candidate": "battle2-hd27g-1.png",
+   "description": "Red warriors clash with the blue colony's defenders among its buildings",
+   "note": "Shot test partly met: the fight is on the blue colony's ground, which the red colony sees only around its own units, so part of the map area is fog-dimmed (fog_dimmed_fraction). Camera pinned on the front line at tile 39,60 (--fight-at)."
+  },
+  {
+   "role": "fair_deal",
+   "candidate": "fair_deal-hd45f-1.png",
+   "description": "A different part of the colony: Swarms and wheat fields on the shore of an algae-covered lake"
+  },
+  {
+   "role": "build",
+   "candidate": "build-hd45-3.png",
+   "description": "Named build palette open over the live colony between the lake and the pools"
+  },
+  {
+   "role": "economy",
+   "candidate": "economy3-hd45-1.png",
+   "description": "Inn selected: food and fruit stock beside three Swarms, workers and the lakeshore wheat"
+  },
+  {
+   "role": "territory",
+   "candidate": "territory9-hd27t-3.png",
+   "description": "Flags palette open at the front: a war flag just placed, red warriors fighting the blue defenders around it",
+   "note": "Shot test partly met: the game draws a flag's range circle only while the flag is selected or being placed, and both replace the Flags palette, so no circle shows. The war flag was placed by the player at the recorded tile just before the frame; fight ground is partly fog-dimmed."
+  },
+  {
+   "role": "maps",
+   "candidate": "maps-fsfit-1.png",
+   "description": "A second map, FourSquares1: the red colony on its island ringed by sea, sand and violet forest",
+   "note": "Second map: FourSquares1, an island map, from a different match than the other slots."
+  }
+ ],
+ "android-phone": [
+  {
+   "role": "hero",
+   "candidate": "hero-hdfit2-2.png",
+   "description": "Colony core of the red colony: both swimming pools and both racetracks whole, with barracks, inns and hundreds of globs"
+  },
+  {
+   "role": "battle",
+   "candidate": "battle2-hd27g-2.png",
+   "description": "About thirty red warriors meet the blue colony's defenders on lit ground, two hits flaring",
+   "note": "Shot test partly met: at least 12 warriors a side, two hit effects, mostly lit ground (20% fog-dimmed); no whole enemy building is in frame (the blue colony's buildings are just off the left edge). Camera pinned on the front line at tile 39,60 (--fight-at)."
+  },
+  {
+   "role": "fair_deal",
+   "candidate": "fair_deal-hd45f-1.png",
+   "description": "A different part of the colony: inns, hospitals and a Swarm busy with globs"
+  },
+  {
+   "role": "build",
+   "candidate": "build-hd45h-2.png",
+   "description": "Build palette open over the live colony between the lake and a pool"
+  },
+  {
+   "role": "economy",
+   "candidate": "economy1-hd45f-2.png",
+   "description": "Inn selected: food and fruit stock beside three Swarms, its workers and a wheat field"
+  },
+  {
+   "role": "territory",
+   "candidate": "territory9-hd27t-3.png",
+   "description": "Flags palette open at the front: a war flag just placed, red warriors streaming to it",
+   "note": "Shot test partly met: the game draws a flag's range circle only while the flag is selected or being placed, and both replace the Flags palette, so no circle shows. The war flag was placed by the player at the recorded tile just before the frame; fight ground is partly fog-dimmed."
+  },
+  {
+   "role": "maps",
+   "candidate": "maps-fsat2-2.png",
+   "description": "A second map, FourSquares1: the red colony on its island beside the algae-covered sea, sand and violet forest",
+   "note": "Second map: FourSquares1, an island map, from a different match than the other slots."
+  }
+ ],
+ "android-tablet-7": [
+  {
+   "role": "hero",
+   "candidate": "hero-hd45-3.png",
+   "description": "Colony core of the red colony: both swimming pools and both racetracks, barracks, school, inns and hundreds of globs"
+  },
+  {
+   "role": "battle",
+   "candidate": "battle1-hd27h-2.png",
+   "description": "Red warriors attack the blue colony: a blue building burns while its defenders meet the red line",
+   "note": "Shot test partly met: the fight is on the blue colony's ground, which the red colony sees only around its own units, so part of the map area is fog-dimmed (fog_dimmed_fraction). Camera pinned on the front line at tile 39,60 (--fight-at)."
+  },
+  {
+   "role": "fair_deal",
+   "candidate": "fair_deal-hd45-2.png",
+   "description": "A different part of the colony: inns, hospitals and a Swarm along the lakeshore"
+  },
+  {
+   "role": "build",
+   "candidate": "build-hd45-3.png",
+   "description": "Named build palette open over the live colony beside the lake"
+  },
+  {
+   "role": "economy",
+   "candidate": "economy1-hd45-1.png",
+   "description": "Inn selected: food and fruit stock beside a Swarm, workers and a wheat field"
+  },
+  {
+   "role": "territory",
+   "candidate": "territory9-hd27t-4.png",
+   "description": "Flags palette open at the front: a war flag just placed, red and blue warriors fighting around it",
+   "note": "Shot test partly met: the game draws a flag's range circle only while the flag is selected or being placed, and both replace the Flags palette, so no circle shows. The war flag was placed by the player at the recorded tile just before the frame; fight ground is partly fog-dimmed."
+  },
+  {
+   "role": "maps",
+   "candidate": "maps-fsfit-2.png",
+   "description": "A second map, FourSquares1: the red colony on its island among violet forest",
+   "note": "Second map: FourSquares1, an island map, from a different match than the other slots."
+  }
+ ],
+ "android-tablet-10": [
+  {
+   "role": "hero",
+   "candidate": "hero-hd45-3.png",
+   "description": "Colony core of the red colony: both swimming pools and both racetracks, barracks, school, inns, Swarms and hundreds of globs"
+  },
+  {
+   "role": "battle",
+   "candidate": "battle1-hd27g-3.png",
+   "description": "Red warriors clash with the blue colony's defenders beside its buildings and Swarm",
+   "note": "Shot test partly met: the fight is on the blue colony's ground, which the red colony sees only around its own units, so part of the map area is fog-dimmed (fog_dimmed_fraction). Camera pinned on the front line at tile 39,60 (--fight-at)."
+  },
+  {
+   "role": "fair_deal",
+   "candidate": "fair_deal-hd45b-2.png",
+   "description": "A different part of the colony: lakeshore wheat fields, inns and a Swarm, globs swimming in the lake"
+  },
+  {
+   "role": "build",
+   "candidate": "build-hd45-1.png",
+   "description": "Named build palette open over the live colony between the lake and the pools"
+  },
+  {
+   "role": "economy",
+   "candidate": "economy3-hd45-1.png",
+   "description": "Inn selected: food and fruit stock beside Swarms, workers and a wheat field"
+  },
+  {
+   "role": "territory",
+   "candidate": "territory9-hd27t-2.png",
+   "description": "Flags palette open at the front: a war flag just placed, dozens of red warriors streaming to it against the blue defenders",
+   "note": "Shot test partly met: the game draws a flag's range circle only while the flag is selected or being placed, and both replace the Flags palette, so no circle shows. The war flag was placed by the player at the recorded tile just before the frame; fight ground is partly fog-dimmed."
+  },
+  {
+   "role": "maps",
+   "candidate": "maps-fsfit2-1.png",
+   "description": "A second map, FourSquares1: the red colony on its island between the sea and violet forest",
+   "note": "Second map: FourSquares1, an island map, from a different match than the other slots."
+  }
+ ]
+}

@@ -1,0 +1,148 @@
+{
+ "iphone-6.9": [
+  {
+   "capture": "01-hero-1320x2868.png",
+   "role": "hero"
+  },
+  {
+   "capture": "05-territory-1320x2868.png",
+   "role": "battle"
+  },
+  {
+   "capture": "03-fair_deal-1320x2868.png",
+   "role": "fair_deal"
+  },
+  {
+   "capture": "02-build-1320x2868.png",
+   "role": "build"
+  },
+  {
+   "capture": "04-economy-1320x2868.png",
+   "role": "economy"
+  },
+  {
+   "capture": "06-maps-1320x2868.png",
+   "role": "maps"
+  }
+ ],
+ "ipad-13": [
+  {
+   "capture": "01-hero-2064x2752.png",
+   "role": "hero"
+  },
+  {
+   "capture": "04-battle-2064x2752.png",
+   "role": "battle"
+  },
+  {
+   "capture": "03-fair_deal-2064x2752.png",
+   "role": "fair_deal"
+  },
+  {
+   "capture": "02-build-2064x2752.png",
+   "role": "build"
+  },
+  {
+   "capture": "05-economy-2064x2752.png",
+   "role": "economy"
+  },
+  {
+   "capture": "06-territory-2064x2752.png",
+   "role": "territory"
+  },
+  {
+   "capture": "07-maps-2064x2752.png",
+   "role": "maps"
+  }
+ ],
+ "android-phone": [
+  {
+   "capture": "01-hero-1080x1920.png",
+   "role": "hero"
+  },
+  {
+   "capture": "04-battle-1080x1920.png",
+   "role": "battle"
+  },
+  {
+   "capture": "03-fair_deal-1080x1920.png",
+   "role": "fair_deal"
+  },
+  {
+   "capture": "02-build-1080x1920.png",
+   "role": "build"
+  },
+  {
+   "capture": "05-economy-1080x1920.png",
+   "role": "economy"
+  },
+  {
+   "capture": "06-territory-1080x1920.png",
+   "role": "territory"
+  },
+  {
+   "capture": "07-maps-1080x1920.png",
+   "role": "maps"
+  }
+ ],
+ "android-tablet-7": [
+  {
+   "capture": "01-hero-1920x1200.png",
+   "role": "hero"
+  },
+  {
+   "capture": "04-battle-1920x1200.png",
+   "role": "battle"
+  },
+  {
+   "capture": "03-fair_deal-1920x1200.png",
+   "role": "fair_deal"
+  },
+  {
+   "capture": "02-build-1920x1200.png",
+   "role": "build"
+  },
+  {
+   "capture": "05-economy-1920x1200.png",
+   "role": "economy"
+  },
+  {
+   "capture": "06-territory-1920x1200.png",
+   "role": "territory"
+  },
+  {
+   "capture": "07-maps-1920x1200.png",
+   "role": "maps"
+  }
+ ],
+ "android-tablet-10": [
+  {
+   "capture": "01-hero-2560x1600.png",
+   "role": "hero"
+  },
+  {
+   "capture": "04-battle-2560x1600.png",
+   "role": "battle"
+  },
+  {
+   "capture": "03-fair_deal-2560x1600.png",
+   "role": "fair_deal"
+  },
+  {
+   "capture": "02-build-2560x1600.png",
+   "role": "build"
+  },
+  {
+   "capture": "05-economy-2560x1600.png",
+   "role": "economy"
+  },
+  {
+   "capture": "06-territory-2560x1600.png",
+   "role": "territory"
+  },
+  {
+   "capture": "07-maps-2560x1600.png",
+   "role": "maps"
+  }
+ ]
+}

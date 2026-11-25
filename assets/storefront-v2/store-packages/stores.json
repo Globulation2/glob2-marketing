@@ -1,0 +1,307 @@
+{
+  "notes": [
+    "Configuration for build.py. Paths are relative to the repository root unless they start with /.",
+    "Gallery order is not set here. Desktop stores take their image order from the 'Desktop' table of the review file (the backticked frame numbers in the Images column, up to the first ';'), mobile stores take their slide order from the 'Mobile' table, keyed by the backticked store-set id. Frame numbers are resolved to files through captures/desktop/selection.json (and the captures folder for the side-by-side alternative); mobile roles are resolved to rendered files through each render manifest.",
+    "review_row names the row of the review table a store follows (matched on the text before any parenthesis in the first column). A row reading 'As <other store>' copies that store's list.",
+    "Rules: every limit below comes from analysis/mobile-store-comparables.md (observed 2026-11-24) or the storefront-v1 packaging records, unless the 'unverified' list of the store says otherwise. build.py fails on any breach.",
+    "switch: the platforms.json platform whose ai_coplay switch must be on for an ai_coplay image to be packaged; a review row that puts co-play on a store whose switch is off is an error."
+  ],
+  "output_root": "../storefront-v2-renders/store-packages",
+  "renders_root": "../storefront-v2-renders/screenshots",
+  "review": "assets/storefront-v2/review/round-2-final.md",
+  "platforms": "translations/platforms.json",
+  "translations": "translations",
+  "export_command": ["python3", "translations/tools/storefront.py", "export", "--require-review"],
+  "desktop": {
+    "captures": "assets/storefront-v2/captures/desktop",
+    "selection": "assets/storefront-v2/captures/desktop/selection.json",
+    "manifest": "assets/storefront-v2/captures/desktop/manifest.json",
+    "web_1920": "assets/storefront-v2/captures/desktop/web-1920",
+    "alternatives": {"08b": {"role": "ai_coplay", "variant": "side-by-side"}},
+    "aspects": {"16:9": [3840, 2160], "16:10": [2880, 1800]}
+  },
+  "mobile_tools": {
+    "dir": "assets/storefront-v2/tools",
+    "files": ["screenshots.py", "caption.html", "gallery.json", "fonts.json"],
+    "selection": "assets/storefront-v2/captures/mobile/selection.json"
+  },
+  "key_art": {
+    "dir": "assets/storefront-v2/key-art/derivatives",
+    "manifest": "assets/storefront-v2/key-art/manifest.json"
+  },
+  "icon": {
+    "dir": "assets/storefront-v2/icon",
+    "svg": "assets/storefront-v2/icon/glob2-icon.svg",
+    "master": "assets/storefront-v2/icon/glob-1024.png"
+  },
+  "appstream": {
+    "repo_dir": "assets/storefront-v2/store-packages/appstream",
+    "url_base": "https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/"
+  },
+  "jpeg": {"quality": [92, 90, 88, 86, 84], "subsampling": 0},
+  "stores": {
+    "microsoft": {
+      "title": "Microsoft Store",
+      "kind": "desktop",
+      "review_row": "Microsoft Store",
+      "switch": "microsoft",
+      "text": {"platform": "microsoft", "layout": "per-locale"},
+      "screenshots": {
+        "aspect": "16:9",
+        "size": [3840, 2160],
+        "source": "capture",
+        "format": "PNG",
+        "max_bytes": 50000000,
+        "count": [1, 10],
+        "captions": "microsoft"
+      },
+      "assets": [
+        {"slot": "poster", "file": "microsoft-poster-1440x2160.png", "size": [1440, 2160], "format": "PNG", "alpha": "forbid"},
+        {"slot": "box-art", "file": "microsoft-box-art-2160x2160.png", "size": [2160, 2160], "format": "PNG", "alpha": "forbid"},
+        {"slot": "box-art-alt", "file": "microsoft-box-art-1080x1080.png", "size": [1080, 1080], "format": "PNG", "alpha": "forbid", "optional_slot": "alternative size; upload one box art"},
+        {"slot": "super-hero", "file": "microsoft-super-hero-3840x2160.png", "size": [3840, 2160], "format": "PNG", "alpha": "forbid", "text": false},
+        {"slot": "super-hero-alt", "file": "microsoft-super-hero-1920x1080.png", "size": [1920, 1080], "format": "PNG", "alpha": "forbid", "text": false, "optional_slot": "alternative size; upload one super hero"}
+      ],
+      "blocked": [
+        {"slot": "trailer", "why": "Trailer (V2-08) not finished; Microsoft needs a 1920x1080 MP4/MOV, a 1920x1080 PNG thumbnail and a title per trailer."}
+      ],
+      "not_packaged": [
+        "1:1 app tile icon 300x300: optional; the Store uses the package's own tile logo when it is not set (v1 kept the existing tile). The new icon ships in the package with the next build (game PR 1915)."
+      ],
+      "unverified": [
+        "Whether Partner Center still accepts a 3840x2160 PNG for every screenshot slot of an existing listing: the 2026-08-24 page says 4K is supported and 50 MB is the limit; v1 uploaded 2560x1440."
+      ]
+    },
+    "epic": {
+      "title": "Epic Games Store",
+      "kind": "desktop",
+      "review_row": "Epic",
+      "switch": "epic",
+      "text": {"platform": "epic", "layout": "per-locale"},
+      "screenshots": {
+        "aspect": "16:9",
+        "size": [1920, 1080],
+        "source": "web-1920",
+        "format": "JPEG",
+        "max_bytes": 4000000,
+        "count": [1, 30]
+      },
+      "lead_blocked": [
+        {"slot": "carousel-01-trailer", "why": "Epic's carousel starts with the trailer (review table); the trailer (V2-08) is not finished. Video: 1920x1080 MP4, 300 MB max, 30 or 60 fps, non-black cover frame."}
+      ],
+      "assets": [
+        {"slot": "offer-landscape", "file": "epic-offer-landscape-2560x1440.jpg", "size": [2560, 1440], "format": ["JPEG", "PNG"], "alpha": "forbid"},
+        {"slot": "offer-portrait", "file": "epic-offer-portrait-1200x1600.jpg", "size": [1200, 1600], "format": ["JPEG", "PNG"], "alpha": "forbid"},
+        {"slot": "product-logo", "file": "epic-product-logo-960x540.png", "size": [960, 540], "format": "PNG", "alpha": "require", "max_bytes": 1000000},
+        {"slot": "social-preview", "file": "epic-social-preview-1200x1200.jpg", "size": [1200, 1200], "format": "JPEG", "max_bytes": 4000000}
+      ],
+      "unverified": [
+        "Epic's About-section images (at least 700 px wide, 4 MB) are not packaged: the About text has no image placement decided."
+      ]
+    },
+    "snap": {
+      "title": "Snap Store",
+      "kind": "desktop",
+      "review_row": "Snap",
+      "switch": "snap",
+      "text": {"platform": "snap", "layout": "per-locale"},
+      "screenshots": {
+        "aspect": "16:9",
+        "size": [1920, 1080],
+        "source": "web-1920",
+        "format": "JPEG",
+        "max_bytes": 2000000,
+        "target_bytes": 1950000,
+        "count": [1, 5],
+        "min_side": 480,
+        "max_size": [3840, 2160],
+        "aspect_range": [0.5, 2.0]
+      },
+      "assets": [
+        {"slot": "banner", "file": "snap-banner-1440x480.jpg", "size": [1440, 480], "format": ["JPEG", "PNG"], "max_bytes": 2000000},
+        {"slot": "icon", "render_icon": {"size": 256, "fraction": 1.0, "background": null, "method": "master-resize"}, "size": [256, 256], "format": "PNG", "alpha": "require"}
+      ],
+      "unverified": [
+        "Snap icon limits are not recorded in this project (v1 kept the existing icon). The packaged 256x256 transparent PNG is the same image the game repository generates for the snap (content/data/icons/glob2-icon-256x256.png, from the same master).",
+        "Snap's guidance asks cross-platform games for Linux workstation captures; these frames were captured on macOS from the same release build.",
+        "Snap screenshot limits (2,000,000 bytes, 480x480 to 3840x2160, aspect 1:2 to 2:1) come from the v1 record (validator source read 2026-10-30), not re-checked for v2 (review M5)."
+      ]
+    },
+    "itch": {
+      "title": "itch.io",
+      "kind": "desktop",
+      "review_row": "itch.io",
+      "switch": "itch",
+      "text": {"platform": "itch", "layout": "per-locale"},
+      "screenshots": {
+        "aspect": "16:9",
+        "size": [1920, 1080],
+        "source": "web-1920",
+        "format": "JPEG",
+        "max_bytes": 4000000,
+        "count": [1, 20]
+      },
+      "assets": [
+        {"slot": "cover", "file": "itch-cover-630x500.jpg", "size": [630, 500], "format": ["JPEG", "PNG"]}
+      ],
+      "unverified": [
+        "itch.io publishes no screenshot pixel or file-size limit that this project has recorded; the 4 MB cap here is this tool's own (review M5 asks to check before upload). Cover 630x500 is itch's recommended size."
+      ]
+    },
+    "mac": {
+      "title": "Mac App Store",
+      "kind": "desktop",
+      "review_row": "Mac App Store",
+      "switch": "mac",
+      "text": {"platform": "mac", "layout": "per-locale"},
+      "screenshots": {
+        "aspect": "16:10",
+        "size": [2880, 1800],
+        "source": "capture",
+        "format": "PNG",
+        "alpha": "forbid",
+        "count": [1, 10]
+      },
+      "assets": [],
+      "not_packaged": [
+        "App icon: comes from the build's asset catalog, not uploaded with the listing.",
+        "App previews (Mac 1920x1080, 15-30 s): wait for the trailer's 30-second cut."
+      ],
+      "unverified": [
+        "Apple's per-file byte limit for screenshots is not recorded in this project; the PNGs are 5-8 MB.",
+        "The same Mac screenshot set serves every Mac locale (no captions inside the images), so it is packaged once."
+      ]
+    },
+    "steam": {
+      "title": "Steam (prepared only)",
+      "kind": "desktop",
+      "review_row": "Steam",
+      "switch": "steam",
+      "text": {"platform": "steam", "layout": "per-locale"},
+      "screenshots": {
+        "aspect": "16:9",
+        "size": [1920, 1080],
+        "source": "web-1920",
+        "format": "JPEG",
+        "count": [5, 50]
+      },
+      "assets": [
+        {"slot": "header-capsule", "file": "steam-header-920x430.jpg", "size": [920, 430], "format": ["JPEG", "PNG"]},
+        {"slot": "small-capsule", "file": "steam-small-capsule-462x174.jpg", "size": [462, 174], "format": ["JPEG", "PNG"]},
+        {"slot": "main-capsule", "file": "steam-main-capsule-1232x706.jpg", "size": [1232, 706], "format": ["JPEG", "PNG"]},
+        {"slot": "vertical-capsule", "file": "steam-vertical-capsule-748x896.jpg", "size": [748, 896], "format": ["JPEG", "PNG"]},
+        {"slot": "library-capsule", "file": "steam-library-capsule-600x900.jpg", "size": [600, 900], "format": ["JPEG", "PNG"]},
+        {"slot": "library-hero", "file": "steam-library-hero-3840x1240.jpg", "size": [3840, 1240], "format": ["JPEG", "PNG"], "text": false},
+        {"slot": "library-logo", "file": "steam-logo-1280.png", "format": "PNG", "alpha": "require", "review_width": 1280, "review_fix": "S6 (resize steam-logo-1280.png to 1280 px wide)"}
+      ],
+      "unverified": [
+        "Library capsule 600x900, library hero 3840x1240 and library logo sizes are Steam's library-asset sizes as the key-art agent built them; the comparables record lists only header, small, main, vertical capsules and the page background.",
+        "No Steam app exists yet: nothing here has been checked against a real Steamworks upload form."
+      ]
+    },
+    "gog": {
+      "title": "GOG (prepared only)",
+      "kind": "desktop",
+      "review_row": "GOG",
+      "switch": "gog",
+      "text": {"platform": "gog", "layout": "per-locale"},
+      "screenshots": {
+        "aspect": "16:9",
+        "size": [1920, 1080],
+        "source": "web-1920",
+        "format": "JPEG",
+        "count": [1, 50]
+      },
+      "assets": [
+        {"slot": "main-banner", "file": "gog-main-banner-1600x740.jpg", "size": [1600, 740], "format": ["JPEG", "PNG"]},
+        {"slot": "logo", "file": "gog-logo-1600x740.png", "size": [1600, 740], "format": "PNG", "alpha": "require"},
+        {"slot": "box", "file": "gog-box-342x482.jpg", "size": [342, 482], "format": ["JPEG", "PNG"]},
+        {"slot": "galaxy-background", "file": "gog-background-2560x670.jpg", "size": [2560, 670], "format": ["JPEG", "PNG"], "text": false},
+        {"slot": "product-background", "file": "gog-background-2560x655.jpg", "size": [2560, 655], "format": ["JPEG", "PNG"], "text": false}
+      ],
+      "unverified": [
+        "GOG screenshot size and format rules are not confirmed in this project; 1920x1080 JPEG is used as for Steam. Board sizes follow the GOG template archive inspected for v1 (2026-10-31); portal acceptance is unverified (no portal access)."
+      ]
+    },
+    "appstream": {
+      "title": "AppStream / Flathub (game repository metainfo)",
+      "kind": "desktop",
+      "review_row": "AppStream / Flathub source",
+      "switch": null,
+      "appstream_switch": true,
+      "text": {"platform": null, "files": ["appstream-fragment.xml", "desktop-fragment.ini"]},
+      "screenshots": {
+        "aspect": "16:9",
+        "size": [1920, 1080],
+        "source": "resize",
+        "format": "PNG",
+        "alpha": "forbid",
+        "count": [1, 20],
+        "captions": "appstream",
+        "stable_names": true
+      },
+      "assets": [],
+      "unverified": [
+        "Flathub's current screenshot guidance (size, count, caption length) was not re-read for v2; 1920x1080 PNG follows the brief. The image URLs only resolve after the Git steward commits the PNGs at the listed repository paths (run build.py --stage-appstream to copy them there) and pushes to main."
+      ]
+    },
+    "google-play": {
+      "title": "Google Play",
+      "kind": "mobile",
+      "platform": "google-play",
+      "text": {"platform": "google-play"},
+      "sets": [
+        {"slot": "phone", "render_set": "google-play-phone", "size": [1080, 1920], "count": [2, 8], "max_bytes": 8000000, "format": ["PNG", "JPEG"], "alpha": "forbid", "min_side": 320, "max_side": 3840},
+        {"slot": "tablet-7", "render_set": "google-play-tablet-7", "size": [1920, 1200], "count": [4, 8], "max_bytes": 8000000, "format": ["PNG", "JPEG"], "alpha": "forbid", "min_side": 1080, "max_side": 7680},
+        {"slot": "tablet-10", "render_set": "google-play-tablet-10", "size": [2560, 1600], "count": [4, 8], "max_bytes": 8000000, "format": ["PNG", "JPEG"], "alpha": "forbid", "min_side": 1080, "max_side": 7680}
+      ],
+      "assets": [
+        {"slot": "feature-graphic", "file": "google-play-feature-1024x500.jpg", "size": [1024, 500], "format": ["JPEG", "PNG"], "alpha": "forbid", "max_bytes": 15000000, "review_wordmark_margin": {"right": 80, "top": 60}, "review_fix": "M6 (move the wordmark at least 80 px from the right and 60 px from the top)"},
+        {"slot": "icon", "icon_file": "icon-512.png", "size": [512, 512], "format": "PNG", "mode": "RGBA", "max_bytes": 1024000}
+      ],
+      "blocked": [
+        {"slot": "preview-video", "why": "Trailer (V2-08) not finished; Play takes one YouTube URL."}
+      ],
+      "unverified": [
+        "Play's per-screenshot byte limit is not in the comparables record; 8 MB is the renderer's ceiling (verified by screenshots.py verify).",
+        "M9: which build Play users will install when these go live (closed test last recorded at 0.11.2.0; the frames show 0.11.8.0's touch interface)."
+      ]
+    },
+    "apple": {
+      "title": "Apple App Store (iPhone and iPad)",
+      "kind": "mobile",
+      "platform": "ios",
+      "text": {"platform": "ios"},
+      "sets": [
+        {"slot": "iphone-6.9", "render_set": "apple-iphone-6.9", "size": [1320, 2868], "count": [1, 10], "format": ["PNG", "JPEG"], "alpha": "forbid", "max_bytes": 8000000},
+        {"slot": "ipad-13", "render_set": "apple-ipad-13", "size": [2064, 2752], "count": [1, 10], "format": ["PNG", "JPEG"], "alpha": "forbid", "max_bytes": 8000000}
+      ],
+      "assets": [],
+      "not_packaged": [
+        "App icon: the 1024x1024 icon comes from the build's asset catalog (icon/icon-1024.png is that file).",
+        "App previews: wait for the trailer's 15-30 second cut captured on each device family."
+      ],
+      "unverified": [
+        "Apple's per-file byte limit for screenshots is not recorded in this project; 8 MB is the renderer's ceiling."
+      ]
+    },
+    "amazon": {
+      "title": "Amazon Appstore",
+      "kind": "mobile",
+      "platform": "amazon",
+      "text": {"platform": "amazon"},
+      "sets": [
+        {"slot": "tablet", "render_set": "amazon-tablet", "size": [2560, 1600], "count": [3, 10], "format": ["PNG", "JPEG"], "alpha": "forbid", "max_bytes": 8000000,
+         "blocked": "M8: Amazon asks for the app on the right device type; the android-tablet-10 frames are host renders. Screenshots wait for emulator or Fire-tablet captures and a re-render."}
+      ],
+      "assets": [
+        {"slot": "promotional-image", "file": ["amazon-promo*-1024x500.*", "amazon-promotional*-1024x500.*", "amazon-*1024x500*", "google-play-feature-1024x500.jpg"], "size": [1024, 500], "format": ["JPEG", "PNG"], "alpha": "forbid", "wordmark_margin": 50},
+        {"slot": "icon-large", "icon_file": "icon-512.png", "size": [512, 512], "format": "PNG"},
+        {"slot": "icon-small", "render_icon": {"size": 114, "fraction": 0.82, "background": "#2B1C42", "method": "vector"}, "size": [114, 114], "format": "PNG"}
+      ],
+      "unverified": [
+        "Amazon's icon guidance says not to simply scale one size from the other: the 114 px icon is rendered from the vector master at that size (glob at 82% on the Android purple #2B1C42, as the 512 px icon), not reduced from the 512 px file."
+      ]
+    }
+  }
+}

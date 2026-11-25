@@ -1,0 +1,8 @@
+# Everything in this folder is reproducible with ../tools/screenshots.py.
+# Commit only the README, the English manifests and the English contact sheets;
+# the PNGs and every other locale are rendered on demand (see ../tools/README.md).
+*.png
+contact-sheet-*.jpg
+!contact-sheet-en.jpg
+/*/*/
+!/*/en/

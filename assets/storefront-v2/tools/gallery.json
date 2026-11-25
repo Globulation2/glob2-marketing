@@ -2,11 +2,12 @@
   "notes": [
     "Maps each device class to its ordered gallery slots, and each store set to a store and a device class.",
     "The gallery itself comes from selection_file when that file exists (written by the capture engineer after the visual review); provisional_gallery below is used only until then. Either way a slot is one line: the capture file (in captures/<device_class>/) and the caption role (shot_overlay_<role> in translations/<locale>.md). Reorder lines to reorder a gallery; change a file name to swap an image.",
-    "provisional_gallery was set by the compositor on 2026-11-24 from the first capture round, which the visual review has since mostly rejected: it is layout test material. Its slots are always rendered in the order of asset_text.mobile_gallery_order in translations/platforms.json (hero, build, fair_deal, ...), whatever order the lines below are in; a role that list does not name goes last. The fair-deal slide borrows the second-map capture, which another slot also uses, until it has a frame of its own.",
+    "provisional_gallery was set by the compositor on 2026-11-24 from the first capture round, which the visual review has since mostly rejected: it is layout test material. Its slots are always rendered in the order of asset_text.mobile_gallery_order in translations/platforms.json (hero, battle, fair_deal, build, ...), whatever order the lines below are in; a role that list does not name is refused (screenshots.py checks every gallery, selection.json too, against that list). The fair-deal slide borrows the second-map capture, which another slot also uses, until it has a frame of its own.",
     "trim removes only the flat system-bar margins a capture carries (status bar, home-indicator band, landscape safe-area bands); the tool refuses a trim that would remove game pixels.",
     "Per image size: card is the card's width as a share of the image width (the capture is scaled to it, never up, and runs off the bottom edge); band is the caption band's share of the image height (everything above the card; verify fails above caption_area_limit); caption_px is the caption's full type size. Every caption of one store set and locale is set at one size, the largest at which all of them fit.",
     "Orientations are fixed (coordinator, 2026-11-24): phones and iPad portrait, Android tablets landscape. A capture in any other pixel size is refused until its size is added to device_classes with a trim and band.",
-    "fdroid-phone has no captures of its own: it is the android-phone gallery under another store's rules."
+    "fdroid-phone has no captures of its own: it is the android-phone gallery under another store's rules.",
+    "slot_trim decides, per capture, how its system-bar strips are handled. Every capture not listed uses 'flat-margins': the size's trim is applied only where each strip is a flat margin, and render refuses otherwise. 'status-bar' is for captures that run background art under the iOS status bar (menu screens): it trims exactly the size's top trim (no more than the status-bar safe area) without asking it to be flat, and trims nothing else, so the bottom simply runs off the image edge like every other slide. Each entry gives the reason and pins the capture's sha256, so a re-captured file is refused until it is looked at again. Each rendered image's manifest records its trim mode, the pixels trimmed, how flat each strip was and this reason. `check-config` lists the decision for every slot. slot_trim is empty since 2026-11-24: the only two status-bar entries were the opponent picker menus, which the round 2 review dropped from every mobile set (M1)."
   ],
   "captures_root": "../captures/mobile",
   "selection_file": "../captures/mobile/selection.json",
@@ -31,6 +32,7 @@
       "2560x1600": {"card": 0.93, "band": 0.16, "caption_px": 150}
     }
   },
+  "slot_trim": {},
   "stores": {
     "apple": {"max_bytes": 8000000, "banned": ["universal", "english_claims", "english_price", "mobile", "other_platforms"]},
     "google-play": {"max_bytes": 8000000, "banned": ["universal", "english_claims", "english_price", "mobile", "google_play_english"]},
@@ -62,8 +64,7 @@
       {"capture": "03-battle-warriors-clash-1320x2868.png", "role": "battle"},
       {"capture": "02-economy-swarm-inspector-1320x2868.png", "role": "economy"},
       {"capture": "05-war-flag-front-1320x2868.png", "role": "territory"},
-      {"capture": "07-map-peek-1320x2868.png", "role": "maps"},
-      {"capture": "06-island-raid-1320x2868.png", "role": "opponents"}
+      {"capture": "07-map-peek-1320x2868.png", "role": "maps"}
     ],
     "ipad-13": [
       {"capture": "01-hero-colony-2064x2752.png", "role": "hero"},
@@ -81,8 +82,7 @@
       {"capture": "03-battle-warriors-clash-1080x1920.png", "role": "battle"},
       {"capture": "02-economy-swarm-inspector-1080x1920.png", "role": "economy"},
       {"capture": "05-war-flag-front-1080x1920.png", "role": "territory"},
-      {"capture": "06-island-colony-1080x1920.png", "role": "maps"},
-      {"capture": "07-map-peek-1080x1920.png", "role": "opponents"}
+      {"capture": "06-island-colony-1080x1920.png", "role": "maps"}
     ],
     "android-tablet-7": [
       {"capture": "01-hero-colony-1920x1200.png", "role": "hero"},

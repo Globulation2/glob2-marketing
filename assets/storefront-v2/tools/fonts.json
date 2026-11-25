@@ -39,7 +39,29 @@
     "japanese": {"stack": ["Noto Sans JP"], "weight": 850, "size": 0.9, "line_height": 1.24, "word_break": "auto-phrase"},
     "korean": {"stack": ["Noto Sans KR"], "weight": 850, "size": 0.92, "line_height": 1.24, "word_break": "keep-all"}
   },
-  "default_profile": "latin-greek-cyrillic",
+  "short_words": {
+  "notes": [
+   "Line-break rule for two-line captions (round 2 review M3, 2026-11-24): a break never leaves a short word at the end of the first line. A short word has at most max_letters letters (Unicode letters; marks and digits do not count) or is in the locale's words list, and does not end in punctuation. It is kept with the word after it, and a short last word with the word before it. If no break fits that way, the rule is relaxed one letter at a time, then dropped (manifest caption.fit 'relaxed', then 'loose'); see tools/README.md.",
+   "Overrides by locale: Japanese, Chinese and Thai have no word spaces and keep their own rules; Korean attaches its particles to the word, so a short Korean word is a whole phrase; Hindi, Marathi, Bengali, Tamil, Telugu, Persian and Urdu are left without the rule, because their short words are mostly postpositions and case markers that belong at the end of a line with the noun before them (Hindi \"कॉलोनी को\", Persian \"کلونی را\"), and their scripts write few vowel letters, so content words count as short (checked on the 2026-11-24 render, where the rule moved those breaks the wrong way; the round 2 review found their breaks acceptable); Vietnamese writes every syllable as a word, so letter counts say nothing there and a list of its conjunctions and prepositions is used instead."
+  ],
+  "max_letters": 4,
+  "locales": {
+   "ja": {"max_letters": 0},
+   "zh-Hans": {"max_letters": 0},
+   "zh-Hant": {"max_letters": 0},
+   "th": {"max_letters": 0},
+   "ko": {"max_letters": 0},
+   "hi": {"max_letters": 0},
+   "mr": {"max_letters": 0},
+   "bn": {"max_letters": 0},
+   "ta": {"max_letters": 0},
+   "te": {"max_letters": 0},
+   "fa": {"max_letters": 0},
+   "ur": {"max_letters": 0},
+   "vi": {"max_letters": 0, "words": ["và", "hay", "hoặc", "của", "cho", "với", "để", "các", "những", "một", "mà", "là", "ở", "tại", "từ", "trong", "theo", "khi", "nếu", "thì"]}
+  }
+ },
+ "default_profile": "latin-greek-cyrillic",
   "locale_profiles": {
     "ar": "arabic", "fa": "arabic", "ur": "urdu",
     "hi": "devanagari", "mr": "devanagari", "bn": "bengali", "ta": "tamil", "te": "telugu", "th": "thai",

@@ -147,7 +147,11 @@ def read_gallery(gallery, platforms):
             elif isinstance(item, list) and len(item) >= 2 and all(isinstance(value, str) for value in item[:2]):
                 capture, role = item[:2]
             if not capture or not role: problems.append(f'{path.name}: {name} slot {index} needs a capture file name and a caption role, got {item!r}')
-            else: slots.append({'capture': capture, 'role': role})
+            else:
+                slots.append({'capture': capture, 'role': role})
+                # Optional per-slot trim mode (see resolve_trim_modes), with its reason.
+                if isinstance(item, dict) and 'trim' in item:
+                    slots[-1]['selection_trim'] = {'trim': item['trim'], 'why': item.get('trim_why')}
         result[name] = slots
     if problems:
         raise Problem('\n'.join(problems) + '\nexpected: {"<device class>": [{"capture": "<file in captures/mobile/<device class>/>", "role": "<hero|build|...>"}, ...]}')
@@ -166,17 +170,24 @@ def load_config():
         if store_set['device_class'] not in gallery['device_classes']: problems.append(f'{name}: unknown device class {store_set["device_class"]!r}')
     if problems: raise Problem('\n'.join(problems))
     gallery['slots'], gallery['gallery_source'] = read_gallery(gallery, platforms)
+    order = assets.get('mobile_gallery_order', [])
     for device_class, slots in gallery['slots'].items():
         seen = set()
         for index, slot in enumerate(slots, 1):
             where = f'{gallery["gallery_source"]["file"]}: {device_class} slot {index}'
             if slot['role'] not in assets['screenshot_roles']: problems.append(f'{where}: unknown role {slot["role"]!r}; roles are {assets["screenshot_roles"]}')
-            if slot['role'] in assets.get('desktop_only_roles', []): problems.append(f'{where}: role {slot["role"]!r} is desktop-only and these are mobile store sets')
+            elif slot['role'] in assets.get('desktop_only_roles', []): problems.append(f'{where}: role {slot["role"]!r} is desktop-only and these are mobile store sets')
+            elif slot['role'] not in order: problems.append(f'{where}: role {slot["role"]!r} is not in asset_text.mobile_gallery_order in translations/platforms.json {order}, so it is not a mobile slide')
             if slot['role'] in seen: problems.append(f'{where}: role {slot["role"]!r} appears twice')
             seen.add(slot['role'])
+        # The store order is asset_text.mobile_gallery_order; a class may leave a role out (iPhone has no territory slide).
+        roles = [slot['role'] for slot in slots]
+        if roles != [role for role in order if role in roles]:
+            problems.append(f'{gallery["gallery_source"]["file"]}: {device_class} slots are {roles}; they must follow asset_text.mobile_gallery_order {order}')
             path = capture_path(gallery, device_class, slot)
             if not path.is_file(): problems.append(f'{where}: missing capture {path}')
             elif not path.is_relative_to((HERE / gallery['captures_root']).resolve()): problems.append(f'{where}: {slot["capture"]} is outside the captures directory')
+    resolve_trim_modes(gallery, problems)
     for store in gallery['stores'].values():
         for rule in store['banned']:
             if rule not in gallery['banned']: problems.append(f'gallery.json: store refers to unknown banned list {rule!r}')
@@ -193,6 +204,110 @@ def capture_path(gallery, device_class, slot):
     root = HERE / gallery['captures_root']
     # A bare file name lives in its device class's folder; a path is taken from the captures root.
     return (root / slot['capture'] if '/' in slot['capture'] else root / device_class / slot['capture']).resolve()
+
+
+# How the system-bar strips of a capture are handled. Every slot uses 'flat-margins' unless gallery.json's
+# slot_trim (or a "trim" key on the slot in selection.json) names another mode for that capture, with a reason.
+TRIM_MODES = {
+    'flat-margins': 'trims the size\'s configured system-bar strips only where each strip is a flat margin; refuses otherwise',
+    'status-bar': 'trims exactly the size\'s configured top strip (the iOS status bar) although it is not flat, because the capture '
+                  'runs background art under the clock and battery; trims nothing else, so the bottom runs off the image edge untrimmed',
+}
+FLAT_SHARE = 0.9  # 'flat-margins': at least this share of a trimmed strip must be one colour
+
+
+def resolve_trim_modes(gallery, problems):
+    """Give every slot its trim mode: 'flat-margins' (the strict default), or the mode gallery.json's slot_trim
+    or the slot in selection.json names for that capture. A non-default mode needs a reason; an entry may pin
+    the capture's sha256 so that a re-captured file falls back to being decided again."""
+    overrides = gallery.get('slot_trim', {})
+    for device_class, entries in overrides.items():
+        if device_class not in gallery['device_classes']: problems.append(f'gallery.json slot_trim: unknown device class {device_class!r}')
+        named = {slot['capture'] for slot in gallery['slots'].get(device_class, [])}
+        for capture in entries:
+            if capture not in named: problems.append(f'gallery.json slot_trim: {device_class}/{capture} is not in the gallery; remove the stale entry')
+    for device_class, slots in gallery['slots'].items():
+        for index, slot in enumerate(slots, 1):
+            where = f'{device_class} slot {index} ({slot["capture"]})'
+            chosen = overrides.get(device_class, {}).get(slot['capture'])
+            from_selection = slot.pop('selection_trim', None)
+            if chosen and from_selection and from_selection['trim'] != chosen.get('trim'):
+                problems.append(f'{where}: selection.json asks for trim {from_selection["trim"]!r} but gallery.json slot_trim says {chosen.get("trim")!r}')
+            entry = chosen or from_selection or {'trim': 'flat-margins'}
+            mode = entry.get('trim')
+            slot['trim_mode'] = mode
+            slot['trim_why'] = entry.get('why')
+            slot['trim_source'] = 'gallery.json slot_trim' if chosen else gallery['gallery_source']['file'] if from_selection else 'default'
+            if mode not in TRIM_MODES:
+                problems.append(f'{where}: unknown trim mode {mode!r}; modes are {sorted(TRIM_MODES)}')
+                continue
+            if mode == 'flat-margins': continue
+            if not slot['trim_why']: problems.append(f'{where}: trim {mode!r} needs a reason ("why") saying what the strip holds')
+            sizes = gallery['device_classes'][device_class]
+            if not all(spec.get('trim', {}).get('top') for spec in sizes.values()):
+                problems.append(f'{where}: trim {mode!r} needs a configured top (status-bar) trim for {device_class} in device_classes')
+            pinned = (chosen or {}).get('sha256')
+            path = capture_path(gallery, device_class, slot)
+            if pinned and path.is_file() and sha256_file(path) != pinned:
+                problems.append(f'{where}: the capture changed since its trim {mode!r} was decided (sha256 pinned in gallery.json slot_trim); '
+                                'look at its top strip again and update or remove the entry')
+
+
+def slot_trim(spec, slot):
+    """The pixels to trim from each edge of this slot's capture, as {edge: px}."""
+    if slot.get('trim_mode', 'flat-margins') == 'status-bar':
+        return {'top': spec['trim']['top']}
+    return dict(spec.get('trim', {}))
+
+
+def strip_shares(image, trim):
+    """{edge: share of the strip taken by its most common colour} for each trimmed edge."""
+    width, height = image.size
+    boxes = {'left': (0, 0, trim.get('left', 0), height), 'top': (0, 0, width, trim.get('top', 0)),
+             'right': (width - trim.get('right', 0), 0, width, height), 'bottom': (0, height - trim.get('bottom', 0), width, height)}
+    shares = {}
+    for edge, box in boxes.items():
+        if not trim.get(edge): continue
+        strip = image.crop(box)
+        colours = strip.getcolors(maxcolors=strip.width * strip.height)
+        shares[edge] = round(max(count for count, _ in colours) / (strip.width * strip.height), 4)
+    return shares
+
+
+def check_trims(gallery, names):
+    """Before anything is rendered: every slot of every device class used by these store sets, with its trim
+    mode, the pixels it trims and how flat each strip is. Returns (rows, problems)."""
+    from PIL import Image
+    rows, problems, seen = [], [], set()
+    for name in names:
+        device_class = gallery['store_sets'][name]['device_class']
+        if device_class in seen: continue
+        seen.add(device_class)
+        for index, slot, path, canvas, spec in slot_plan(gallery, name):
+            with Image.open(path) as image: shares = strip_shares(image.convert('RGB'), slot_trim(spec, slot))
+            trim = slot_trim(spec, slot)
+            strict = [edge for edge in trim if slot['trim_mode'] == 'flat-margins']
+            bad = [edge for edge in strict if shares[edge] < FLAT_SHARE]
+            for edge in bad:
+                problems.append(f'{device_class} slot {index} ({slot["capture"]}): trimming {trim[edge]}px from the {edge} would remove game pixels '
+                                f'(only {shares[edge]:.0%} of that strip is flat margin). If the capture runs background art under the iOS status bar '
+                                f'(a menu screen) and its top strip holds only the clock, signal and battery over that art, set "trim": "status-bar" '
+                                f'for it in gallery.json slot_trim with the reason; otherwise fix the capture or the size\'s trim')
+            rows.append((device_class, index, slot, trim, shares, bad))
+    return rows, problems
+
+
+def capture_descriptions(gallery):
+    """{repo path of a capture: its 'kind' ('gameplay', 'menu screen', ...)} from the captures' own manifest.json,
+    for files whose bytes still match that manifest; empty when there is none."""
+    root = (HERE / gallery['captures_root']).resolve()
+    try: files = json.loads((root / 'manifest.json').read_text(encoding='utf-8')).get('files', [])
+    except (OSError, ValueError): return {}
+    kinds = {}
+    for entry in files:
+        path = (root / entry.get('file', '')).resolve()
+        if entry.get('kind') and path.is_file() and entry.get('sha256') == sha256_file(path): kinds[repo_path(path)] = entry['kind']
+    return kinds
 
 
 def select(args, gallery, platforms):
@@ -287,8 +402,10 @@ def geometry(canvas, trimmed, spec, layout):
     }
 
 
-def prepare_capture(path, trim, geo):
-    """The capture, trimmed, scaled and cut to its slot, plus the rounded-corner mask it is pasted through."""
+def prepare_capture(path, trim, geo, mode='flat-margins'):
+    """The capture, trimmed, scaled and cut to its slot, plus the rounded-corner mask it is pasted through.
+    In 'flat-margins' mode every trimmed strip must be a flat margin; 'status-bar' trims only the top strip
+    and does not ask it to be flat (see TRIM_MODES)."""
     from PIL import Image, ImageDraw
     image = Image.open(path)
     image.load()
@@ -299,14 +416,13 @@ def prepare_capture(path, trim, geo):
         raise Problem(f'{path.name}: unexpected image mode {image.mode}')
     width, height = image.size
     left, top, right, bottom = (trim.get(key, 0) for key in ('left', 'top', 'right', 'bottom'))
-    strips = {'left': (0, 0, left, height), 'top': (0, 0, width, top), 'right': (width - right, 0, width, height), 'bottom': (0, height - bottom, width, height)}
-    for edge, box in strips.items():
-        if not trim.get(edge): continue
-        strip = image.crop(box)
-        colours = strip.getcolors(maxcolors=strip.width * strip.height)
-        share = max(count for count, _ in colours) / (strip.width * strip.height)
-        if share < 0.9:
-            raise Problem(f'{path.name}: trimming {trim[edge]}px from the {edge} would remove game pixels (only {share:.0%} of that strip is flat margin)')
+    if mode == 'status-bar' and (left or right or bottom): raise Problem(f'{path.name}: trim mode status-bar trims only the top, got {trim}')
+    if mode == 'flat-margins':
+        for edge, share in strip_shares(image, trim).items():
+            if share < FLAT_SHARE:
+                raise Problem(f'{path.name}: trimming {trim[edge]}px from the {edge} would remove game pixels (only {share:.0%} of that strip is flat margin)')
+    elif mode not in TRIM_MODES:
+        raise Problem(f'{path.name}: unknown trim mode {mode!r}')
     image = image.crop((left, top, width - right, height - bottom))
     x, y, w, h = geo['capture']
     sw, sh = geo['scaled']
@@ -365,6 +481,13 @@ class Fonts:
         if missing:
             raise Problem('no bundled font has ' + ', '.join(f'U+{code:04X} {chr(code)!r}' for code in missing) + f' (stack: {stack})')
         return profile, stack
+
+    def short_rule(self, locale):
+        """The short-word line-break rule for this locale: a two-line caption never ends its first line with a
+        word of max_letters letters or fewer, or with a word from the locale's list (fonts.json short_words)."""
+        rule = self.config.get('short_words', {})
+        own = rule.get('locales', {}).get(locale, {})
+        return {'maxLetters': own.get('max_letters', rule.get('max_letters', 0)), 'words': own.get('words', [])}
 
     def face_css(self):
         rules = []
@@ -476,8 +599,9 @@ class CaptionLayer:
         return round(geo['full'] * profile.get('size', 1.0))
 
     @staticmethod
-    def fit_request(geo, profile, stack, locale, text):
-        """What caption.html's measureCaption and setCaption need to lay one caption out."""
+    def fit_request(geo, profile, stack, locale, text, short=None):
+        """What caption.html's measureCaption and setCaption need to lay one caption out. `short` is the
+        locale's short-word line-break rule ({'maxLetters', 'words'}; see short_rule)."""
         full = CaptionLayer.full_size(geo, profile)
         one_floor = round(geo['one_floor'] / geo['full'] * full)
         if 'one_line_floor' in profile: one_floor = min(one_floor, round(full * profile['one_line_floor']))
@@ -487,6 +611,7 @@ class CaptionLayer:
             'letterSpacing': profile.get('letter_spacing', '0'), 'lineHeight': profile.get('line_height', 1.16),
             'wordBreak': profile.get('word_break', 'normal'), 'lineBreak': profile.get('line_break', 'auto'),
             'shift': profile.get('shift', 0), 'wrap': profile.get('wrap', 'free'),
+            'short': short or {'maxLetters': 0, 'words': []},
             'maxWidth': geo['max_width'], 'maxHeight': geo['max_height'],
             'one': {'max': full, 'floor': one_floor},
             'two': {'max': round(geo['two'][0] / geo['full'] * full), 'min': round(geo['two'][1] / geo['full'] * full)},
@@ -507,7 +632,7 @@ class CaptionLayer:
         profile, stack = self.fonts.plan(locale, text)
         self.base(geo, variant)
         self.load_fonts(stack, profile.get('weight', 400))
-        fit = self.page.evaluate('request => measureCaption(request)', self.fit_request(geo, profile, stack, locale, text))
+        fit = self.page.evaluate('request => measureCaption(request)', self.fit_request(geo, profile, stack, locale, text, self.fonts.short_rule(locale)))
         if not fit['ok']: raise Problem(fit['reason'])
         return fit['size'], self.full_size(geo, profile), fit['one'], fit['clause']
 
@@ -522,7 +647,7 @@ class CaptionLayer:
         clip = {'x': band[0], 'y': band[1], 'width': band[2], 'height': band[3]}
         blank = base.crop((band[0], band[1], band[0] + band[2], band[1] + band[3]))
         margin_x, margin_y = round(INK_MARGIN_X * geo['canvas'][0]), round(INK_MARGIN_Y * band[3])
-        fit = self.page.evaluate('args => setCaption(args[0], args[1])', [self.fit_request(geo, profile, stack, locale, text), size])
+        fit = self.page.evaluate('args => setCaption(args[0], args[1])', [self.fit_request(geo, profile, stack, locale, text, self.fonts.short_rule(locale)), size])
         if not fit['ok']: raise Problem(fit['reason'])
         rendered = self.rendered_fonts()
         for font in rendered:
@@ -545,6 +670,7 @@ class CaptionLayer:
         patch, corner = layer.crop(box), (band[0] + box[0], band[1] + box[1])
         details = {
             'text': text, 'lines': fit['lines'], 'fit': fit['wrap'], 'font_size': fit['size'],
+            **({'short_word_letters': fit['level']} if fit['wrap'] in ('safe', 'relaxed', 'loose') else {}),
             'full_size': self.full_size(geo, profile), 'direction': profile.get('dir', 'ltr'), 'font_weight': profile.get('weight', 400),
             'fonts': [{'family': font['family'], 'glyphs': font['glyphCount']} for font in rendered],
             'font_stack': stack, 'variant': variant, 'rect': band, 'ink': [ink[0] + band[0], ink[1] + band[1], ink[2] + band[0], ink[3] + band[1]],
@@ -597,6 +723,11 @@ def render(args):
     layout = args.layout or gallery['layout']
     out_root = Path(args.out).resolve() if args.out else (HERE / gallery['output_root']).resolve()
     catalogs = Catalogs(args.translations or TRANSLATIONS, platforms)
+    # Every slot's system-bar trim is checked before any caption is set, so a refused strip stops the run
+    # at once instead of after hours of other locales.
+    _, trim_problems = check_trims(gallery, names)
+    if trim_problems: raise Problem('\n'.join(trim_problems))
+    described = capture_descriptions(gallery)
     fonts = Fonts(fonts_config)
     layer = CaptionLayer(fonts)
     fingerprint = tool_fingerprint(layer)
@@ -614,7 +745,7 @@ def render(args):
             # Every slot of the set: its layout and, when writing, the capture composited onto the background.
             slots = []
             for index, slot, path, canvas, spec in slot_plan(gallery, name):
-                trim = spec.get('trim', {})
+                trim = slot_trim(spec, slot)
                 trimmed = (canvas[0] - trim.get('left', 0) - trim.get('right', 0), canvas[1] - trim.get('top', 0) - trim.get('bottom', 0))
                 geo = geometry(canvas, trimmed, spec, layout)
                 if geo['area'] > gallery['caption_area_limit']:
@@ -680,7 +811,12 @@ def render(args):
                     patch, corner, caption = captions[role]
                     caption['own_size'] = own[role]
                     fitted.append((name, locale, item['index'], role, caption, None, own[role]))
-                    if caption['fit'] not in ('none', 'hint', 'clause', 'safe'):
+                    if caption['fit'] in ('relaxed', 'loose'):
+                        notes.append(f'{name} / {locale} / {role}: {" | ".join(caption["lines"])}  ({caption["font_size"]}px, the short-word rule was '
+                                     + (f'relaxed to words of {caption["short_word_letters"]} letters or fewer' if caption['fit'] == 'relaxed' else 'dropped')
+                                     + ': no break that keeps every short word off the end of the first line fits; check the break, '
+                                     'and put a U+200B where it should go or reword if it reads badly)')
+                    elif caption['fit'] not in ('none', 'hint', 'clause', 'safe'):
                         notes.append(f'{name} / {locale} / {role}: {" | ".join(caption["lines"])}  ({caption["font_size"]}px, line break by the {caption["fit"]!r} rule)')
                     elif caption['fit'] == 'safe' and CLAUSE_END.search(caption['text']):
                         notes.append(f'{name} / {locale} / {role}: {" | ".join(caption["lines"])}  ({caption["font_size"]}px, broken inside a clause: '
@@ -689,8 +825,10 @@ def render(args):
                         written += 1
                         continue
                     if 'composed' not in item:
-                        capture, mask = prepare_capture(item['path'], item['trim'], item['geo'])
+                        capture, mask = prepare_capture(item['path'], item['trim'], item['geo'], item['slot']['trim_mode'])
                         item['capture_hash'] = sha256_file(item['path'])
+                        from PIL import Image
+                        with Image.open(item['path']) as source: item['trim_shares'] = strip_shares(source.convert('RGB'), item['trim'])
                         item['composed'] = layer.base(item['geo'], item['variant']).copy()
                         item['composed'].paste(capture, tuple(item['geo']['capture'][:2]), mask)
                     image = item['composed'].copy()
@@ -702,8 +840,13 @@ def render(args):
                     geo = item['geo']
                     manifests[locale].append({
                         'file': target.name, 'slot': item['index'], 'role': role, 'pixels': f'{item["canvas"][0]}x{item["canvas"][1]}', 'format': image_format,
-                        'capture': {'file': repo_path(item['path']), 'sha256': item['capture_hash'], 'trim': item['trim'], 'placed': geo['capture'],
-                                    'scaled': geo['scaled'], 'scale': geo['scale'], 'corner_radius': geo['radius'], 'gameplay_share': geo['gameplay']},
+                        'capture': {'file': repo_path(item['path']), 'sha256': item['capture_hash'],
+                                    **({'kind': described[repo_path(item['path'])]} if repo_path(item['path']) in described else {}),
+                                    'trim': item['trim'], 'trim_mode': item['slot']['trim_mode'], 'trim_rule': TRIM_MODES[item['slot']['trim_mode']],
+                                    'trim_flat_share': item['trim_shares'],
+                                    **({'trim_why': item['slot']['trim_why'], 'trim_decided_in': item['slot']['trim_source']} if item['slot']['trim_why'] else {}),
+                                    'placed': geo['capture'], 'scaled': geo['scaled'], 'scale': geo['scale'], 'corner_radius': geo['radius'],
+                                    'gameplay_share': geo['gameplay']},
                         'caption': caption,
                     })
                     if len(pending) >= args.jobs * 3:
@@ -746,7 +889,7 @@ def render(args):
     small = fit_report(fitted, names, locales, gallery, platforms, args.min_scale) if dry else []
     if layer.unstable_frames: print(f'note: Chromium returned {layer.unstable_frames} unsettled frame(s); each was captured again until two captures agreed')
     if notes:
-        print(f'\n{len(notes)} caption(s) worth a look (a fallback line break, or a break inside a clause):')
+        print(f'\n{len(notes)} caption(s) worth a look (a fallback line break, a short word left at a line end, or a break inside a clause):')
         for note in notes: print('  ' + note)
     print(f'{written} captions fit' if dry else f'{written} images in {out_root}')
     if failures:
@@ -873,15 +1016,19 @@ def verify(args):
                 capture = entry['capture']
                 if entry['role'] != slot['role'] or capture['file'] != repo_path(path): errors.append(f'{here}: the gallery now maps this slot to {slot["capture"]} / {slot["role"]}; render again')
                 elif sha256_file(path) != capture['sha256']: errors.append(f'{here}: the capture file changed since it was rendered')
+                elif capture.get('trim_mode', 'flat-margins') != slot['trim_mode'] or capture.get('trim') != slot_trim(spec, slot):
+                    errors.append(f'{here}: rendered with trim {capture.get("trim_mode", "flat-margins")} {capture.get("trim")}, '
+                                  f'the gallery now asks for {slot["trim_mode"]} {slot_trim(spec, slot)}; render again')
                 elif image.size == canvas and image.mode == 'RGB':
-                    trim = spec.get('trim', {})
+                    trim = slot_trim(spec, slot)
                     trimmed = (canvas[0] - trim.get('left', 0) - trim.get('right', 0), canvas[1] - trim.get('top', 0) - trim.get('bottom', 0))
                     geo = geometry(canvas, trimmed, spec, layout)
                     if geo['capture'] != capture['placed'] or geo['band'] != band: errors.append(f'{here}: layout differs from the manifest')
                     else:
                         x, y, w, h = geo['capture']
                         if y < band[1] + band[3]: errors.append(f'{here}: capture overlaps the caption band')
-                        source, mask = prepare_capture(path, trim, geo)
+                        try: source, mask = prepare_capture(path, trim, geo, slot['trim_mode'])
+                        except Problem as problem: errors.append(f'{here}: {problem}'); continue
                         inset = geo['radius']  # compare inside the rounded corners
                         box = (inset, inset, w - inset, h - inset)
                         difference = ImageChops.difference(source.crop(box), image.crop((x + inset, y + inset, x + w - inset, y + h - inset)))
@@ -951,6 +1098,17 @@ def main():
         print(f'gallery from {gallery["gallery_source"]["file"]}; {len(platforms["locales"])} locales')
         for name, store_set in gallery['store_sets'].items():
             print(f'  {name}: ' + ', '.join(f'{index:02d} {slot["role"]} <- {slot["capture"]} ({canvas[0]}x{canvas[1]})' for index, slot, _, canvas, _ in slot_plan(gallery, name)))
+        # Dry run of the system-bar trim for every slot of every device class, as render will do it.
+        rows, problems = check_trims(gallery, list(gallery['store_sets']))
+        print('\nsystem-bar trim per slot (share of each trimmed strip that is one flat colour):')
+        for device_class, index, slot, trim, shares, bad in rows:
+            strips = ', '.join(f'{edge} {trim[edge]}px {shares[edge]:.0%} flat' for edge in trim) or 'nothing to trim'
+            print(f'  {device_class} {index:02d} {slot["role"]:<10} {slot["trim_mode"]:<12} {strips}' + ('  REFUSED' if bad else '')
+                  + (f'\n      why ({slot["trim_source"]}): {slot["trim_why"]}' if slot['trim_why'] else ''))
+        if problems:
+            print(f'\n{len(problems)} slot(s) would stop render:', file=sys.stderr)
+            for problem in problems: print('  ' + problem, file=sys.stderr)
+            return 1
         return 0
     except Problem as problem:
         print(f'error: {problem}', file=sys.stderr)

@@ -1,0 +1,2597 @@
+{
+ "store": "apple",
+ "title": "Apple App Store (iPhone and iPad)",
+ "package_dir": "packages:apple",
+ "generated_by": "assets/storefront-v2/store-packages/build.py",
+ "inputs": {
+  "stores.json": "7ce9f0e1b154519593073a6ebce119f834986a23b233f847a6d26bd8ed757332",
+  "review": {
+   "file": "assets/storefront-v2/review/round-2-final.md",
+   "sha256": "12bdda11795a52fcfc41a90e94851117b0a8564d7217b5f94ddc32ca5897e385"
+  },
+  "platforms.json": "c78c414db1bb9d92c10f9a3b556dedf02d026f2bbd600e176defb0d624a2ba3c",
+  "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
+  "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)"
+ },
+ "sets": {
+  "iphone-6.9": {
+   "render_set": "apple-iphone-6.9",
+   "order": [
+    "hero",
+    "battle",
+    "fair_deal",
+    "build",
+    "economy",
+    "maps"
+   ],
+   "blocked": null,
+   "rules": {
+    "size": [
+     1320,
+     2868
+    ],
+    "format": [
+     "PNG",
+     "JPEG"
+    ],
+    "alpha": "forbid",
+    "max_bytes": 8000000,
+    "count": [
+     1,
+     10
+    ]
+   }
+  },
+  "ipad-13": {
+   "render_set": "apple-ipad-13",
+   "order": [
+    "hero",
+    "battle",
+    "fair_deal",
+    "build",
+    "economy",
+    "territory",
+    "maps"
+   ],
+   "blocked": null,
+   "rules": {
+    "size": [
+     2064,
+     2752
+    ],
+    "format": [
+     "PNG",
+     "JPEG"
+    ],
+    "alpha": "forbid",
+    "max_bytes": 8000000,
+    "count": [
+     1,
+     10
+    ]
+   }
+  }
+ },
+ "locales": [
+  {
+   "locale": "ar",
+   "store_locale": "ar-SA",
+   "folder": "ar-SA",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "1b71f89dacbc186f1b574fe90369a1908e7a2816346c13157bd69753324e8eb6",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ar-SA/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ar/01-hero-1320x2868.png", "sha256": "fadd5bbe138b1ac4f217fcc591b8d2e15f8a88230bb2237f16ef4d51906bc7b0", "bytes": 4676602},
+      {"upload_order": 2, "role": "battle", "file": "ar-SA/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ar/02-battle-1320x2868.png", "sha256": "eff5a07159dcf3c37a377e17ce6a9d50782c49d194989edd96c898c5415f2482", "bytes": 3731873},
+      {"upload_order": 3, "role": "fair_deal", "file": "ar-SA/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ar/03-fair_deal-1320x2868.png", "sha256": "fb76ee4aaaba7c220c7e61096b5003f5a3d7fd08c26dacd78a23c17a01ec6d38", "bytes": 4023242},
+      {"upload_order": 4, "role": "build", "file": "ar-SA/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ar/04-build-1320x2868.png", "sha256": "dbeaa735dc78874270b4aefa578d463fa8c5f7ac63e5066c27305d4b92f8564c", "bytes": 4019499},
+      {"upload_order": 5, "role": "economy", "file": "ar-SA/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ar/05-economy-1320x2868.png", "sha256": "2cf45d1f01b81b7a41806b3499a790f3ee9a1dc813ceb828a17243e5b6929cf7", "bytes": 4044434},
+      {"upload_order": 6, "role": "maps", "file": "ar-SA/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ar/06-maps-1320x2868.png", "sha256": "5d2a81cc869870e3401f6247048f6bc7500a0711ecb93be08adbf4bf3a69481d", "bytes": 4077267}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "995cad44d23f90036769c3dcebd7d56508841893d288d9aa9b71aa616bbbcea7",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ar-SA/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ar/01-hero-2064x2752.png", "sha256": "043a5f08f44ea3476441d2d6f2b59daf569f9527826cb0bb0ded801e885693de", "bytes": 7294042},
+      {"upload_order": 2, "role": "battle", "file": "ar-SA/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ar/02-battle-2064x2752.png", "sha256": "451d5bc0c7ae014f0a087485e986b5229b2d3c510124298c27d0ebbe82a94708", "bytes": 5729344},
+      {"upload_order": 3, "role": "fair_deal", "file": "ar-SA/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/ar/03-fair_deal-2064x2752.png", "sha256": "7e85adfa254ead2c56a53c58ea146bfb11d781bd73a67bd885f30fe9050d48f3", "bytes": 6749127},
+      {"upload_order": 4, "role": "build", "file": "ar-SA/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/ar/04-build-2064x2752.png", "sha256": "ffc10299b21a18e12ac6c213172802fbfe76deb45a2137f04346fb353ece565f", "bytes": 6608585},
+      {"upload_order": 5, "role": "economy", "file": "ar-SA/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/ar/05-economy-2064x2752.png", "sha256": "6287a18046f3a35520199e6d85d157e86452e8cfb61a1b90ffe0c4e8cb71c0bb", "bytes": 6560162},
+      {"upload_order": 6, "role": "territory", "file": "ar-SA/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/ar/06-territory-2064x2752.png", "sha256": "4b0374caf7d7b59dfbde42db174cef4bd654750a5050fdb765d036bb799901c5", "bytes": 5968788},
+      {"upload_order": 7, "role": "maps", "file": "ar-SA/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/ar/07-maps-2064x2752.png", "sha256": "3041f0af5af989606d29c034ec8eb4318c1ada66cfa566ad2a6842501a562436", "bytes": 6408356}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "استراتيجية آنية للمستعمرات"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "قاتل من أجل الأرض"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "لا إعلانات. لا شراء داخل اللعبة"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "أنت تقرّر. وعمالك يبنون"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "أطعم مستعمرتك"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 خريطة، أو خرائط عشوائية"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "اختر أين تتوسع"
+    }
+   },
+   "listing": {
+    "file": "ar-SA/listing.json",
+    "sha256": "a914b4e08044cef540c9787dc87f5a056d97eeab0604b079cb69a21303fea0a6"
+   }
+  },
+  {
+   "locale": "pt-BR",
+   "store_locale": "pt-BR",
+   "folder": "pt-BR",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "9d4b2d43518487e8103d5cae74304b95f71cfd84ecc57ecf767811b6e78a0006",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "pt-BR/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-BR/01-hero-1320x2868.png", "sha256": "1a59945cc9f02a72a2caad9fa9937136fd52c16c2c9960a98dd9c838ba230899", "bytes": 4658778},
+      {"upload_order": 2, "role": "battle", "file": "pt-BR/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-BR/02-battle-1320x2868.png", "sha256": "28c16622e1011d712730322e29b3f375479f14225e3588c1c2c54e2142f7d74d", "bytes": 3720152},
+      {"upload_order": 3, "role": "fair_deal", "file": "pt-BR/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-BR/03-fair_deal-1320x2868.png", "sha256": "7fc62ad667e61e4191207a527e9e3fd49714454015695f93e300b9fdd6f2931a", "bytes": 4015564},
+      {"upload_order": 4, "role": "build", "file": "pt-BR/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-BR/04-build-1320x2868.png", "sha256": "1d39793c0e790cc37e2927377eb5a48898326f1188715d95c1524eb527478d60", "bytes": 4013237},
+      {"upload_order": 5, "role": "economy", "file": "pt-BR/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-BR/05-economy-1320x2868.png", "sha256": "de0cbaeacca068144b4b9747ec7d90c81479588d2b9da30eab1395336ac51ce8", "bytes": 4048786},
+      {"upload_order": 6, "role": "maps", "file": "pt-BR/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-BR/06-maps-1320x2868.png", "sha256": "f96fcbb698abaa0207eb9f6c8fcd2722d787b287a5427dd9cec9917b24e322a1", "bytes": 4064414}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "0213d35f28de9b353cfe2c5472400910a0bee0eea92a8cbb97fd32f06fc83686",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "pt-BR/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-BR/01-hero-2064x2752.png", "sha256": "c03df156be1ec5c317ed91429a8a64f41d33367f82ff691c9cc840950ebbc214", "bytes": 7280080},
+      {"upload_order": 2, "role": "battle", "file": "pt-BR/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-BR/02-battle-2064x2752.png", "sha256": "a75283809fcf91205d1980d77e298449f33bc9e61695df915dda553da6dc28fb", "bytes": 5716988},
+      {"upload_order": 3, "role": "fair_deal", "file": "pt-BR/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-BR/03-fair_deal-2064x2752.png", "sha256": "538f98383c4dad8d7d3178d28b0466a48c93f3094f978d15104bc0e573d1cd40", "bytes": 6744402},
+      {"upload_order": 4, "role": "build", "file": "pt-BR/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-BR/04-build-2064x2752.png", "sha256": "d466b0a2270c79e154126f43716e5430e558ba51e873cff41394b010f4d2edb0", "bytes": 6622328},
+      {"upload_order": 5, "role": "economy", "file": "pt-BR/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-BR/05-economy-2064x2752.png", "sha256": "f854ca34e4a0f20be0ce150f561b8bd9ae4bfb1cb659d3f4353e2477b88d5c1f", "bytes": 6553273},
+      {"upload_order": 6, "role": "territory", "file": "pt-BR/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-BR/06-territory-2064x2752.png", "sha256": "d3fdfa5f57672ed262510e569007dc0aac5df447d32b636466ea1b520b51fa4d", "bytes": 5985525},
+      {"upload_order": 7, "role": "maps", "file": "pt-BR/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-BR/07-maps-2064x2752.png", "sha256": "ab8439ff3d1669e1ee854ef1341c2cd872d1f241f4ce18b666f86e60ef686723", "bytes": 6398199}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Estratégia em tempo real"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Dispute o território"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Sem anúncios e compras in-app"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Você decide. Eles constroem."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Alimente a colônia"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 mapas, ou aleatórios"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Escolha onde expandir"
+    }
+   },
+   "listing": {
+    "file": "pt-BR/listing.json",
+    "sha256": "b0c2efbe43737ba908c9354b11352679c4a7fc351c135fdde8f9700fbd54c606"
+   }
+  },
+  {
+   "locale": "ca",
+   "store_locale": "ca",
+   "folder": "ca",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "2a7f65178df547120757ce9fbcfd3e2907154335c5a4baa553de2e1091643e93",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ca/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ca/01-hero-1320x2868.png", "sha256": "feef8848f3bebcf1019dc5c3cc05d6d64d1338bf84a20a31f79e73185c8362b3", "bytes": 4660094},
+      {"upload_order": 2, "role": "battle", "file": "ca/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ca/02-battle-1320x2868.png", "sha256": "55308c46c13d22050bf367f886573f93495bc8ffc3b17ad7bb041058fc2deb19", "bytes": 3716562},
+      {"upload_order": 3, "role": "fair_deal", "file": "ca/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ca/03-fair_deal-1320x2868.png", "sha256": "be2e71eacbbba9e737719ee0a13eeaa68e6c35fe030b5356d5470f9f500692c5", "bytes": 4012644},
+      {"upload_order": 4, "role": "build", "file": "ca/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ca/04-build-1320x2868.png", "sha256": "f400ad86cec36c6bd909ee1f065f39454c71806a7aca190da33edbb9c9eb7f17", "bytes": 4012923},
+      {"upload_order": 5, "role": "economy", "file": "ca/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ca/05-economy-1320x2868.png", "sha256": "425da964e99f2d1cd9c127618528061112d1b79a54473742ab4230ab00112214", "bytes": 4061168},
+      {"upload_order": 6, "role": "maps", "file": "ca/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ca/06-maps-1320x2868.png", "sha256": "4c659846c5b7ea785b98c7e53286d45f29b2b2da865000c7d743e639c729e71f", "bytes": 4065992}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "a82186c8445bee22b0c3ae123ff92873e41b611cc599b7badcd63ce77190e92e",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ca/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ca/01-hero-2064x2752.png", "sha256": "3af2ad87555457a1d53ce6504aa03978795d57217cfd59627eb9bf377a7952f4", "bytes": 7279349},
+      {"upload_order": 2, "role": "battle", "file": "ca/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ca/02-battle-2064x2752.png", "sha256": "01c36123e4e2d8ad3466189e044249854da82d3ee04c2389e83ad94e5f23e6f3", "bytes": 5709168},
+      {"upload_order": 3, "role": "fair_deal", "file": "ca/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/ca/03-fair_deal-2064x2752.png", "sha256": "54b3f3c115a25047e37506eca7d87fd098879f8b5485cd3e8a03622c8e4cabb3", "bytes": 6739739},
+      {"upload_order": 4, "role": "build", "file": "ca/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/ca/04-build-2064x2752.png", "sha256": "db7df7ad0986f7ab406224a65497d84159cd272280e586da873985636b130c2a", "bytes": 6620306},
+      {"upload_order": 5, "role": "economy", "file": "ca/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/ca/05-economy-2064x2752.png", "sha256": "d546a2b97c2b4572a6f7e7039f9092baccb92eaa2f30a9c9f4a483d8b100b130", "bytes": 6583066},
+      {"upload_order": 6, "role": "territory", "file": "ca/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/ca/06-territory-2064x2752.png", "sha256": "a6edb328635435c51741513bebc6d6afe46671ac0cf0556138ed701dabb2648b", "bytes": 5959727},
+      {"upload_order": 7, "role": "maps", "file": "ca/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/ca/07-maps-2064x2752.png", "sha256": "3f1c4546144d4947018c1e52ccdefbf8a57bb20070db35a4f4c0b9dd66c5eb2f", "bytes": 6398449}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Estratègia en temps real"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Lluita pel territori"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Ni anuncis ni compres al joc"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Tu decideixes. Ells construeixen"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Que la colònia no passi gana"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 mapes, o bé aleatoris"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Tria on expandir-te"
+    }
+   },
+   "listing": {
+    "file": "ca/listing.json",
+    "sha256": "bef9f919d0ae2e3deb2da5784a64adf60d28512a1a9654cb4c40bc43e94b285f"
+   }
+  },
+  {
+   "locale": "cs",
+   "store_locale": "cs",
+   "folder": "cs",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "8e57337c466becda1777b78a52790c93ecab31824b746fb982fa522b8339f99e",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "cs/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/cs/01-hero-1320x2868.png", "sha256": "866988b6b97b1e5ca5fa511cbbeb22855bc41f90e61fc402a4c2a0987dc5572b", "bytes": 4640401},
+      {"upload_order": 2, "role": "battle", "file": "cs/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/cs/02-battle-1320x2868.png", "sha256": "9d3264fe416cdc87a186bbe68a9559b0171b59830144cab936b493026853e354", "bytes": 3707064},
+      {"upload_order": 3, "role": "fair_deal", "file": "cs/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/cs/03-fair_deal-1320x2868.png", "sha256": "189db3c4c8d039de2633b9f72f9bba17612353307b8bb044f7fa73c6051fb2bc", "bytes": 4013425},
+      {"upload_order": 4, "role": "build", "file": "cs/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/cs/04-build-1320x2868.png", "sha256": "840b9708d9f4cf12a6f039b9a3e22655789b521793387c65a50b5a4822097e67", "bytes": 4015843},
+      {"upload_order": 5, "role": "economy", "file": "cs/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/cs/05-economy-1320x2868.png", "sha256": "adabe4a89305f09a50aa7e41d67dce87cc7426db9fec7c87c930027c9e718c57", "bytes": 4050723},
+      {"upload_order": 6, "role": "maps", "file": "cs/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/cs/06-maps-1320x2868.png", "sha256": "53ce7a173c17853a251a44086275154238a4310ce564278f9939b5ba8a58c488", "bytes": 4063309}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "b7712261b1e40c5b4289307f98826183f020e29df1e6022ff4120a5ed5599b9d",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "cs/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/cs/01-hero-2064x2752.png", "sha256": "97d528e2480e0b4d6c674e9aa9b1d04b02755c9ede2c65f48c05dce5c1fe0487", "bytes": 7254659},
+      {"upload_order": 2, "role": "battle", "file": "cs/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/cs/02-battle-2064x2752.png", "sha256": "89b1c341315532f552fb30f9f99a5f547fabbdedc3c6f4412ad81aab94f161a4", "bytes": 5714433},
+      {"upload_order": 3, "role": "fair_deal", "file": "cs/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/cs/03-fair_deal-2064x2752.png", "sha256": "ea18ef13baf47aebe04903aec02eee7440b0ccdbd564a98c1484c118833bb149", "bytes": 6743187},
+      {"upload_order": 4, "role": "build", "file": "cs/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/cs/04-build-2064x2752.png", "sha256": "ba01774b14a49dab2e0cb3bdeb77a3e2e514946e3b03249a8d588d709e0d54b4", "bytes": 6623374},
+      {"upload_order": 5, "role": "economy", "file": "cs/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/cs/05-economy-2064x2752.png", "sha256": "38fc950ce3f8bd97df0f017b8f7ce4389f20cdd9aa809b1630afc7cd8f7c78a2", "bytes": 6555520},
+      {"upload_order": 6, "role": "territory", "file": "cs/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/cs/06-territory-2064x2752.png", "sha256": "bf78defbde1a7fc1f93fa216de52c4c25e61a7b9ae101634394082bf7458afb5", "bytes": 5985364},
+      {"upload_order": 7, "role": "maps", "file": "cs/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/cs/07-maps-2064x2752.png", "sha256": "938133ae8bbce3ddb7fb0532e95b154cf50d2ca8c41b806f2f8b85ae8811bec4", "bytes": 6394671}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Koloniální RTS"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Bojujte o území"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Bez reklam a nákupů ve hře"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Vy rozhodujete. Kolonie staví."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Uživte svou kolonii"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 map, nebo náhodné"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Zvolte, kam se rozšíříte"
+    }
+   },
+   "listing": {
+    "file": "cs/listing.json",
+    "sha256": "a803fb21d0e60f8c1eaf0892bd7a56b4e2ed7276656917f205a048990ec0e99b"
+   }
+  },
+  {
+   "locale": "de",
+   "store_locale": "de-DE",
+   "folder": "de-DE",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "8ea836e136b52123d8bbc9cdf8e04cc6036d504bd5eb6d0264d0bd944b4cd7ff",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "de-DE/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/de/01-hero-1320x2868.png", "sha256": "c7fc9b4bcbbeccffe3cbaaa7dada8db1b1da1c02d734d70e1f3e2611da8de749", "bytes": 4659215},
+      {"upload_order": 2, "role": "battle", "file": "de-DE/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/de/02-battle-1320x2868.png", "sha256": "9d03384071de3eef681b67ef1f205c684bd6257193aef43ae298d5aa9b004b3d", "bytes": 3722080},
+      {"upload_order": 3, "role": "fair_deal", "file": "de-DE/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/de/03-fair_deal-1320x2868.png", "sha256": "831ad84233fc669db8cd56741dfef1086c248edf25cfcdf334da2e900620546d", "bytes": 4015211},
+      {"upload_order": 4, "role": "build", "file": "de-DE/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/de/04-build-1320x2868.png", "sha256": "b1cbc776b35dba09e0bf21621c09100fc14b8999e57171cc1dfedeaa2e7b87b1", "bytes": 4010572},
+      {"upload_order": 5, "role": "economy", "file": "de-DE/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/de/05-economy-1320x2868.png", "sha256": "4e34f4dd75578e09c72d852bc08772457f4efd30a85ec75d87c4a9d03e807b2a", "bytes": 4050563},
+      {"upload_order": 6, "role": "maps", "file": "de-DE/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/de/06-maps-1320x2868.png", "sha256": "43720efc3f13ae1f124f49136a7175b99de742780721e76e635fb1ca46d791e9", "bytes": 4062422}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "b224d0e5ff774911422c970d4add8d8d26b54af49ccb4b17ab616abee86f6d8f",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "de-DE/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/de/01-hero-2064x2752.png", "sha256": "5bf3eda60af58567bc22514ff2603aa67bb155a20e4e07c89979c5d1814700bd", "bytes": 7279684},
+      {"upload_order": 2, "role": "battle", "file": "de-DE/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/de/02-battle-2064x2752.png", "sha256": "3a262713ea4f48b64d14ef06ff91bd92fb76fb63f7c8f8fb2dc89b15c9a0da9d", "bytes": 5715725},
+      {"upload_order": 3, "role": "fair_deal", "file": "de-DE/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/de/03-fair_deal-2064x2752.png", "sha256": "6de98385efa6c4b9e17d9880294a0a0ac69b54da15faaaf16f881dbd0f92e04e", "bytes": 6747744},
+      {"upload_order": 4, "role": "build", "file": "de-DE/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/de/04-build-2064x2752.png", "sha256": "c2d30b54ee92e0038e992f0ab5b0c12fd7dfb744bb3edadae151868466d2cca6", "bytes": 6616948},
+      {"upload_order": 5, "role": "economy", "file": "de-DE/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/de/05-economy-2064x2752.png", "sha256": "60e604a0bb5467d982a831303e6c1e9f1ae77e58f059e0f7aec73d70dcd223db", "bytes": 6572531},
+      {"upload_order": 6, "role": "territory", "file": "de-DE/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/de/06-territory-2064x2752.png", "sha256": "a18780d7ccf82893e851ce901c67ebd3eb7619fee85d8f5e635e217c8b40e8f0", "bytes": 5986591},
+      {"upload_order": 7, "role": "maps", "file": "de-DE/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/de/07-maps-2064x2752.png", "sha256": "99a00e575fa33acaff1627700947c835ddc71a01fbbf0136a3e0edf7c3d3374e", "bytes": 6392946}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Koloniestrategie in Echtzeit"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Kämpfe ums Land"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Keine Werbung. Kein In-App-Kauf"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Du entscheidest, sie bauen"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Ernähre deine Kolonie"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 Karten oder zufällige"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Wähle, wohin du wächst"
+    }
+   },
+   "listing": {
+    "file": "de-DE/listing.json",
+    "sha256": "419651324c862c852639527708d3d1e11e5c1c94d3f58aa2b121c76c0b6beeb3"
+   }
+  },
+  {
+   "locale": "da",
+   "store_locale": "da",
+   "folder": "da",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "6bedb0937193cacbefff6ae2941963aebe4264b355f6cc51723225b9edf1b5cf",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "da/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/da/01-hero-1320x2868.png", "sha256": "a8aef52f767b74f3aaaeac761f73f6f2fe230f8d50e646aba947acf6f2daa398", "bytes": 4656915},
+      {"upload_order": 2, "role": "battle", "file": "da/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/da/02-battle-1320x2868.png", "sha256": "c034bc95eb76552e6e77662fb0723d93aede310ab2d374a8763fc1d7deb2217d", "bytes": 3708350},
+      {"upload_order": 3, "role": "fair_deal", "file": "da/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/da/03-fair_deal-1320x2868.png", "sha256": "32cdd05f4272d9f9a7f095d1fa6e85d38ab48cbccba7446a0c051c5c0751e194", "bytes": 4016351},
+      {"upload_order": 4, "role": "build", "file": "da/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/da/04-build-1320x2868.png", "sha256": "3003abc9841f72e5c76ef29c43642635cb0bac16b1f5ded8abc6a978ce8b6693", "bytes": 4013975},
+      {"upload_order": 5, "role": "economy", "file": "da/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/da/05-economy-1320x2868.png", "sha256": "bc3ee3b039d682268121529df9e325266a7ed23376116a6e0423328cee7e8fd8", "bytes": 4045856},
+      {"upload_order": 6, "role": "maps", "file": "da/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/da/06-maps-1320x2868.png", "sha256": "be00a1ea6b9ddf74b75ccdef2e034707169a923b163ad7cd2e0fad63c24caffc", "bytes": 4058989}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "3c613e76568d65309058924ec18f8f7dc8a13d9954252dc18455919c6681c1b1",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "da/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/da/01-hero-2064x2752.png", "sha256": "6c66bcbcc9d0ec14310f1e81f8fe14fc069371b8ffa7e73830ac13d16f0df770", "bytes": 7279395},
+      {"upload_order": 2, "role": "battle", "file": "da/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/da/02-battle-2064x2752.png", "sha256": "361afd4c8d5a49ba195d7f1843a340466b87ff75cac3e2b09212251c0484908c", "bytes": 5715972},
+      {"upload_order": 3, "role": "fair_deal", "file": "da/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/da/03-fair_deal-2064x2752.png", "sha256": "b499c246e53a6c8b0d39b9ddc25a72d6884c1db71e1b8f9fa7d00e55ab0dd295", "bytes": 6744640},
+      {"upload_order": 4, "role": "build", "file": "da/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/da/04-build-2064x2752.png", "sha256": "db8b613886c9a0bfa377f8f7e7455cb5e989c116e4a50d9135fb1466c946944c", "bytes": 6619027},
+      {"upload_order": 5, "role": "economy", "file": "da/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/da/05-economy-2064x2752.png", "sha256": "cec1f61d9a9c2f0eacbf6579fd23d3cf0988a98af0ad06f439f63b137991b3b2", "bytes": 6551169},
+      {"upload_order": 6, "role": "territory", "file": "da/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/da/06-territory-2064x2752.png", "sha256": "d0eb7c34e301dac92b8a1c20ff49e3acb4767cdb3aae68109b53c04ff582a30e", "bytes": 5982371},
+      {"upload_order": 7, "role": "maps", "file": "da/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/da/07-maps-2064x2752.png", "sha256": "23d3aed9d1daa1e6bc25aac819e9882dedc09f0aa67cb7e842c24c3d07182095", "bytes": 6390004}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Kolonistrategi i realtid"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Kæmp om landet"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Uden reklamer. Uden køb i appen"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Du bestemmer. De bygger."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Hold kolonien mæt"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 kort, eller et tilfældigt"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Vælg, hvor du udvider"
+    }
+   },
+   "listing": {
+    "file": "da/listing.json",
+    "sha256": "e3039e0bb620c8935eb471360eb05a726887d51c914a798a458220654f8faee5"
+   }
+  },
+  {
+   "locale": "en",
+   "store_locale": "en-US",
+   "folder": "en-US",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "43894fde5127b7bd1a61a93474fc4a5221919a9a2a78ab84b425352adccbb5d1",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "en-US/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/en/01-hero-1320x2868.png", "sha256": "6d7bdf63cc12e925af9448d12a9bb9203d3a34411c2c6df8b4ff5a231f141c05", "bytes": 4666008},
+      {"upload_order": 2, "role": "battle", "file": "en-US/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/en/02-battle-1320x2868.png", "sha256": "863e081b820502a754ac138408ee474a8768fbc231382a58e0c95a04a524dfea", "bytes": 3717500},
+      {"upload_order": 3, "role": "fair_deal", "file": "en-US/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/en/03-fair_deal-1320x2868.png", "sha256": "92411e2553d8b33641d08126a1b8b2c89365f16cba1ea42e955d288d77c276f6", "bytes": 4013044},
+      {"upload_order": 4, "role": "build", "file": "en-US/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/en/04-build-1320x2868.png", "sha256": "767f327eaf9105a79a9f86d99851e800a2d76eb8efb3f78c0384d349915b86b3", "bytes": 4008105},
+      {"upload_order": 5, "role": "economy", "file": "en-US/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/en/05-economy-1320x2868.png", "sha256": "0a1667f34045aa4fb20add48575d6248ac4659526e225f8563a36b2e8ba7cbe3", "bytes": 4055189},
+      {"upload_order": 6, "role": "maps", "file": "en-US/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/en/06-maps-1320x2868.png", "sha256": "bcf8756b6442ba8b155f2d5be9c17227973771cbdf3875ff50af0c7d42c07a17", "bytes": 4064973}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "ae31cc163b1ff69aeb672a155c9e1c0e3015657af14221d8b785a8d8a03cd8ce",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "en-US/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/en/01-hero-2064x2752.png", "sha256": "4530468eb0ec38e01424585102487c70fe9fde848dfb5e2a801542c08173673c", "bytes": 7284531},
+      {"upload_order": 2, "role": "battle", "file": "en-US/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/en/02-battle-2064x2752.png", "sha256": "29a012d218af9f87b8795b55a71987c43d8ae4d4a6abb48b47345f3d2ab647bb", "bytes": 5710497},
+      {"upload_order": 3, "role": "fair_deal", "file": "en-US/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/en/03-fair_deal-2064x2752.png", "sha256": "73cfde6cb379635f03450381458b993a3bdc9d85220df990d639d4bd1db06547", "bytes": 6744083},
+      {"upload_order": 4, "role": "build", "file": "en-US/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/en/04-build-2064x2752.png", "sha256": "046d955eaa2ab2a5840f9f5700b4f19caa778a08ff9984258fc40a4c7803e85f", "bytes": 6614278},
+      {"upload_order": 5, "role": "economy", "file": "en-US/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/en/05-economy-2064x2752.png", "sha256": "7d5993f80ad1f5b002e2d432026069f520b235b3ec88a732e85c17ed499961ca", "bytes": 6560015},
+      {"upload_order": 6, "role": "territory", "file": "en-US/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/en/06-territory-2064x2752.png", "sha256": "48e4cf913a8f2cc98b512eb0a305619fb352e55e122393ffb23da418c656279e", "bytes": 5990495},
+      {"upload_order": 7, "role": "maps", "file": "en-US/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/en/07-maps-2064x2752.png", "sha256": "2850f84df3678745295ea2ff593d1d5906ce5061ef7a77d5f4a155700289cd0b", "bytes": 6392278}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Real-time colony strategy"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Fight for the land"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "No ads. No in-app buys"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "You decide. They build."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Keep the colony fed"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 maps, or random ones"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Choose where to expand"
+    }
+   },
+   "listing": {
+    "file": "en-US/listing.json",
+    "sha256": "cba38a2ad529fead0a5619e46f9062a3e292f32b6e0b70c54897c79f9bfce0b3"
+   }
+  },
+  {
+   "locale": "es",
+   "store_locale": "es-ES",
+   "folder": "es-ES",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "04d60cda3724bc088425edf4ba7591ea10f8547ce13af4bfd8d40d7c93aeab77",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "es-ES/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/es/01-hero-1320x2868.png", "sha256": "f614fb3c03be81193661e21bfb8196a0861e899b25d66f822669464cab408021", "bytes": 4659989},
+      {"upload_order": 2, "role": "battle", "file": "es-ES/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/es/02-battle-1320x2868.png", "sha256": "3876a67525d692c369a5d6a23470ac49d4f8edb29ac7326b82e8e69b2a1c3211", "bytes": 3720633},
+      {"upload_order": 3, "role": "fair_deal", "file": "es-ES/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/es/03-fair_deal-1320x2868.png", "sha256": "c108e78e406a1401c19a4ccc2cbd31b9872238f6c3a8a1c1ce5cb42dd072079f", "bytes": 4016154},
+      {"upload_order": 4, "role": "build", "file": "es-ES/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/es/04-build-1320x2868.png", "sha256": "23c8c88d69f95a9d8f4dc7dd4e1cb26a680e0602b6231e8783e3233953858915", "bytes": 4012114},
+      {"upload_order": 5, "role": "economy", "file": "es-ES/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/es/05-economy-1320x2868.png", "sha256": "b550f5d3a57cbc64dfe99668146c593ab606110780c465a6af07910cc2a15c01", "bytes": 4049710},
+      {"upload_order": 6, "role": "maps", "file": "es-ES/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/es/06-maps-1320x2868.png", "sha256": "d3d5a826e4a8020ff121e3cad0daabcbd4ce879b6ac34c1fa70f5020693db9aa", "bytes": 4065060}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "29e4dab159c6a2eb69e6f69f3185b37e58c2c62e48630d2a1ccd50106592d270",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "es-ES/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/es/01-hero-2064x2752.png", "sha256": "9342b9e97b6a519a51ad20ad0562e0f1814a64dfb27a1476baf666a0d24b9952", "bytes": 7279373},
+      {"upload_order": 2, "role": "battle", "file": "es-ES/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/es/02-battle-2064x2752.png", "sha256": "239bfdda1f1d57087101a13448287b6af8ecec2cf9877e925eda25dafd19e92a", "bytes": 5732779},
+      {"upload_order": 3, "role": "fair_deal", "file": "es-ES/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/es/03-fair_deal-2064x2752.png", "sha256": "20ef782952db4f898e20b21ae5593e179cdc0e3255024e93d02a52a2c9c09eaa", "bytes": 6739863},
+      {"upload_order": 4, "role": "build", "file": "es-ES/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/es/04-build-2064x2752.png", "sha256": "1b8ee7a0ffe341fdb3a6fc37e22a26dcfafd6dc21244b4477c1ed907841200a5", "bytes": 6618544},
+      {"upload_order": 5, "role": "economy", "file": "es-ES/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/es/05-economy-2064x2752.png", "sha256": "ee7071e37b5b1e28091d2634dce2cb134db0e5bb9056ccfc313ac33c2d34d209", "bytes": 6570415},
+      {"upload_order": 6, "role": "territory", "file": "es-ES/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/es/06-territory-2064x2752.png", "sha256": "97de82022bd10c5096ebc23b77a1747ea35c21dbfb21c14b178f0a01fc7819d9", "bytes": 5984997},
+      {"upload_order": 7, "role": "maps", "file": "es-ES/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/es/07-maps-2064x2752.png", "sha256": "c0b67dd21d1deeb9921ca691ac3818feb8e98957f4fb49afef838a9c3346eec7", "bytes": 6397209}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Estrategia ​en tiempo real"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Lucha ​por el territorio"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Sin anuncios ni micropagos"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Tú decides. Ellos construyen"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Alimenta ​a tu colonia"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 mapas, o uno aleatorio"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Elige dónde expandirte"
+    }
+   },
+   "listing": {
+    "file": "es-ES/listing.json",
+    "sha256": "770078a40143a1756ac84d5cba88df248f2fbb9bd5be9fde5a5678490c2ae8c0"
+   }
+  },
+  {
+   "locale": "fr",
+   "store_locale": "fr-FR",
+   "folder": "fr-FR",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "5f3ae99f43b10fb1923725df758904e9fdb7a4d85256e75da4907c3d583411a3",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "fr-FR/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fr/01-hero-1320x2868.png", "sha256": "c325d4a1368f541a49d29714d970779809069f08feb6f403e35b9706f80d3a2a", "bytes": 4663184},
+      {"upload_order": 2, "role": "battle", "file": "fr-FR/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fr/02-battle-1320x2868.png", "sha256": "b70bc639016568804188bd56af6f844222f104583ee618bd9768535a581df48c", "bytes": 3728371},
+      {"upload_order": 3, "role": "fair_deal", "file": "fr-FR/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fr/03-fair_deal-1320x2868.png", "sha256": "81dcc97b80289f7a5c36cf31e564e253eb40efef50d3e2f95f557b0b74acf7a6", "bytes": 4009253},
+      {"upload_order": 4, "role": "build", "file": "fr-FR/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fr/04-build-1320x2868.png", "sha256": "1ffe1ffd3796b1e1a3c65a4c4ecb0eec84ab1c922981594cf76c8e94d0adde93", "bytes": 4013795},
+      {"upload_order": 5, "role": "economy", "file": "fr-FR/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fr/05-economy-1320x2868.png", "sha256": "8baa6ffff2cf5fedbc4848cbfe46dc45dfeb2d0655a4513c0335e7ccfba8d483", "bytes": 4052976},
+      {"upload_order": 6, "role": "maps", "file": "fr-FR/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fr/06-maps-1320x2868.png", "sha256": "c2c562efeade390c50c7207cea500c6b0653815f0249317593d39c3dbfdb8e32", "bytes": 4064168}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "ffa4db4060beb00cb8d4c6b7301cfb5a79accf04a8f90c1fb4a1565d39f14afb",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "fr-FR/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/fr/01-hero-2064x2752.png", "sha256": "b6fc91604121d401fdef0c1a5c5ceff46ebed17500a04120521da4d6a5e2494f", "bytes": 7281043},
+      {"upload_order": 2, "role": "battle", "file": "fr-FR/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/fr/02-battle-2064x2752.png", "sha256": "2969b508d3841122292f4e55a681c585d1a8cbc53026dd44b01ea7e43c0f40d3", "bytes": 5740396},
+      {"upload_order": 3, "role": "fair_deal", "file": "fr-FR/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/fr/03-fair_deal-2064x2752.png", "sha256": "3933cce2dfb4be177f743694ae16d9e14be4a40e3c9fc1aa2eca077793e800ba", "bytes": 6735054},
+      {"upload_order": 4, "role": "build", "file": "fr-FR/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/fr/04-build-2064x2752.png", "sha256": "0d88f81fecb72c0219102a44b4692a529ab14575bef2f1d65dbdde49f276bced", "bytes": 6622531},
+      {"upload_order": 5, "role": "economy", "file": "fr-FR/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/fr/05-economy-2064x2752.png", "sha256": "e717e3fdc1f5c059b794b7f2de530dc822009f6617fbde0afdb9d28a1adff884", "bytes": 6575427},
+      {"upload_order": 6, "role": "territory", "file": "fr-FR/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/fr/06-territory-2064x2752.png", "sha256": "d4a9b50124181d22d95db737d93671cab5f6d9ee01da8bfc93c4cb819b6e2ce2", "bytes": 5989243},
+      {"upload_order": 7, "role": "maps", "file": "fr-FR/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/fr/07-maps-2064x2752.png", "sha256": "31142d4eb85f865ac3fb6d8eabe9e5208bd38b9b0366ecb44a41b928a52281b9", "bytes": 6397649}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Stratégie en temps réel"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Combattez pour le territoire"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Ni pub, ni achats in-app"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Vous décidez. La colonie bâtit"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Nourrissez la colonie"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 cartes, ou aléatoires"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Choisissez où vous étendre"
+    }
+   },
+   "listing": {
+    "file": "fr-FR/listing.json",
+    "sha256": "57b4854f8dd166ff0844a1f545f97182db82adf50cd6b95410b2b00bb9da7547"
+   }
+  },
+  {
+   "locale": "el",
+   "store_locale": "el",
+   "folder": "el",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "2f7d537560e68772f6a79cf30008b4eb8417c9822e51fdaec328f4669fcda5e6",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "el/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/el/01-hero-1320x2868.png", "sha256": "456de0e9f79365f6c27582c6be8216f9cdc0e053f3cb7a7bf18666fa98f92874", "bytes": 4663108},
+      {"upload_order": 2, "role": "battle", "file": "el/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/el/02-battle-1320x2868.png", "sha256": "dfeb6ae57aa753b792e307e5d2df5c8afa0daed132611b58e00a5ae98cb8f5f6", "bytes": 3721747},
+      {"upload_order": 3, "role": "fair_deal", "file": "el/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/el/03-fair_deal-1320x2868.png", "sha256": "cb5a6beb1d548e3c1f5003e96f6f4e7af97f211622191e103b960acd55553d6d", "bytes": 4019288},
+      {"upload_order": 4, "role": "build", "file": "el/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/el/04-build-1320x2868.png", "sha256": "5fae3f67e843ecfaba987194538f8541fcc536435e686b35254bc2f3367bd716", "bytes": 4019033},
+      {"upload_order": 5, "role": "economy", "file": "el/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/el/05-economy-1320x2868.png", "sha256": "cc48f62b08fbc888e0c5c9367e59e5b31a25f340f15dfdc30f22950726a1d2a0", "bytes": 4047035},
+      {"upload_order": 6, "role": "maps", "file": "el/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/el/06-maps-1320x2868.png", "sha256": "ea997bc1213db112d53246942310d4af266587df1a7af0ec91a99744a48a6e33", "bytes": 4063727}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "5647670f5b8d3bfebf6827dacc66933dfae5575a8b331484ddd9d02462a8a7ed",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "el/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/el/01-hero-2064x2752.png", "sha256": "0de1afd5cb4f0dce39bf66fc82e2f1e84ce6d8637eb7f7f695c2310e759cc98e", "bytes": 7284397},
+      {"upload_order": 2, "role": "battle", "file": "el/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/el/02-battle-2064x2752.png", "sha256": "0dd5bd727dbe1770acbea86ae7da88fba59680c4da3bf0a7af24446b3f3d8cf5", "bytes": 5737514},
+      {"upload_order": 3, "role": "fair_deal", "file": "el/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/el/03-fair_deal-2064x2752.png", "sha256": "ffc91cd5fd56c95518757d5b5bc9a9fda28aa922f0b6bc8b6ecea29d5c6547ab", "bytes": 6750274},
+      {"upload_order": 4, "role": "build", "file": "el/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/el/04-build-2064x2752.png", "sha256": "73e04658311fb518eb03390a3bab47b2ae15a4c16f9a5ac8c2139a70f278aed6", "bytes": 6624013},
+      {"upload_order": 5, "role": "economy", "file": "el/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/el/05-economy-2064x2752.png", "sha256": "1f79de353103609314403411e28b9ec6cb090f67a31624c345ee1b7565c8622f", "bytes": 6552772},
+      {"upload_order": 6, "role": "territory", "file": "el/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/el/06-territory-2064x2752.png", "sha256": "7474d4ce4248e10947e0f343e1045d75047c40e34700763cde274592a1bfc0ff", "bytes": 5983634},
+      {"upload_order": 7, "role": "maps", "file": "el/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/el/07-maps-2064x2752.png", "sha256": "60ab7f629b19976431937a142d26baca994ec04189979339524f8af5b487842d", "bytes": 6380662}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Στρατηγική RTS με αποικίες"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Πολεμήστε για τη γη"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Καμία διαφήμιση ή in-app αγορά"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Εσείς ορίζετε. Αυτοί χτίζουν"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Ταΐστε την αποικία"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 χάρτες ή τυχαίοι"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Επεκταθείτε όπου θέλετε"
+    }
+   },
+   "listing": {
+    "file": "el/listing.json",
+    "sha256": "6288d29be15eae71a0bc15681b603551316dc774ab8a5202cd3b0fc0132fb0bf"
+   }
+  },
+  {
+   "locale": "hu",
+   "store_locale": "hu",
+   "folder": "hu",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "2d5a77ce55d09d3e0e1168249009ae7f7e2cc36b55f85917365174e139e34c6b",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "hu/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hu/01-hero-1320x2868.png", "sha256": "ea98bb29262f3b96770d8dd8e0637f98065a3664601443bc980e8c91e69514ba", "bytes": 4669188},
+      {"upload_order": 2, "role": "battle", "file": "hu/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hu/02-battle-1320x2868.png", "sha256": "39a6f7ee898d6a57cc6f46ee2d83cd5323101d1bad61a101ffd1f4fbf1226503", "bytes": 3719508},
+      {"upload_order": 3, "role": "fair_deal", "file": "hu/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hu/03-fair_deal-1320x2868.png", "sha256": "d6d6dbb1652e58903a2b9c7498c9c8eea50bfb4c73b5bdfb945942f18001f242", "bytes": 4019498},
+      {"upload_order": 4, "role": "build", "file": "hu/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hu/04-build-1320x2868.png", "sha256": "0ffb3deded5c35a8c87cbd7548ad7f23ec3c4602681bb1681be14ca6e8d0159f", "bytes": 4012063},
+      {"upload_order": 5, "role": "economy", "file": "hu/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hu/05-economy-1320x2868.png", "sha256": "99bc9c689efc807496602a4cfb5aabdd72918fc14b3882c3e9c981f2edc0c418", "bytes": 4037253},
+      {"upload_order": 6, "role": "maps", "file": "hu/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hu/06-maps-1320x2868.png", "sha256": "f6179f29df8c393acc642da73a4a7a64d0a1b7f90f6d035a86958de5a8274e6d", "bytes": 4072056}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "b960d812fe4df5a10f9906b65d94eb8be55bb02a7161ef08d549d8b12ea8a9f2",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "hu/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/hu/01-hero-2064x2752.png", "sha256": "da567f77ec8fef14ab8b1028c0fae1f1806c7f2f3ea2fdbff949cb59cc2af67a", "bytes": 7289506},
+      {"upload_order": 2, "role": "battle", "file": "hu/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/hu/02-battle-2064x2752.png", "sha256": "d94ecdf3ad7d3c9088aa0cd93e0d2b4dd3aec59c5c0a91c3215790a7d8d79edd", "bytes": 5714481},
+      {"upload_order": 3, "role": "fair_deal", "file": "hu/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/hu/03-fair_deal-2064x2752.png", "sha256": "ba8c80efb4c14cb277903a0622cc6befb630bb368fff32be043fc323d244518b", "bytes": 6747194},
+      {"upload_order": 4, "role": "build", "file": "hu/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/hu/04-build-2064x2752.png", "sha256": "950c4023dd55862532dfdc4d873a8c4176419442f01574671efddb45e89b6962", "bytes": 6618840},
+      {"upload_order": 5, "role": "economy", "file": "hu/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/hu/05-economy-2064x2752.png", "sha256": "70b1dfce9951932a36e57d5171cf61af7b684bc81a2e008fc9a35edc6ca76ef0", "bytes": 6552299},
+      {"upload_order": 6, "role": "territory", "file": "hu/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/hu/06-territory-2064x2752.png", "sha256": "6cc3bde07705080d89b42e2ec6d6d4aa268723c8e9d3d593779ccf1c9ca5ab01", "bytes": 5990479},
+      {"upload_order": 7, "role": "maps", "file": "hu/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/hu/07-maps-2064x2752.png", "sha256": "839b71f5e76ed6c49e1eb8855fd540cee964e322c6592ef8d8b4951ffc8e85c7", "bytes": 6404770}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Valós idejű kolóniastratégia"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Harcolj a területért"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "In-app vásárlás és reklám nélkül"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Te döntesz. Ők építenek."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Etesd a kolóniát"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 kész térkép, vagy véletlen"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Válaszd ki, hol terjeszkedsz"
+    }
+   },
+   "listing": {
+    "file": "hu/listing.json",
+    "sha256": "d43c4f190be6551603e29a197955ce50eb98fba594bcdb880371c075a0bd072d"
+   }
+  },
+  {
+   "locale": "it",
+   "store_locale": "it",
+   "folder": "it",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "943019cafede285644ed18cd3dd04ef7518e8418c77bf8589bc1e7aa4f313ba9",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "it/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/it/01-hero-1320x2868.png", "sha256": "611297b091191988cc056fa13d2b4eae3b08f0deaa64e6066b02b5cd14274b76", "bytes": 4661755},
+      {"upload_order": 2, "role": "battle", "file": "it/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/it/02-battle-1320x2868.png", "sha256": "f9d354e900927d36b822d57e6de2dbbd14eb831170d4f364d84dedce86bffa75", "bytes": 3722800},
+      {"upload_order": 3, "role": "fair_deal", "file": "it/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/it/03-fair_deal-1320x2868.png", "sha256": "e55c238e8ec5a5dae8d1b03282768ef658e16704db35cefee1315e1b8762fb86", "bytes": 4016417},
+      {"upload_order": 4, "role": "build", "file": "it/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/it/04-build-1320x2868.png", "sha256": "e77fa015b8972683c028df92542ef32e919b92c7d0dba4d70ad36fde274ac61f", "bytes": 4009470},
+      {"upload_order": 5, "role": "economy", "file": "it/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/it/05-economy-1320x2868.png", "sha256": "53863791c54c405a17eda1221e26f14daaea6d5d3dc27a6c0ef0e5776bdf92c6", "bytes": 4037021},
+      {"upload_order": 6, "role": "maps", "file": "it/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/it/06-maps-1320x2868.png", "sha256": "7ff9fe973657af72b44046497d8debf4f5c60036e442c98ed7b7f3b441e8b780", "bytes": 4067222}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "58127fef2ea9ebb6a3b12f2a919437a477155fccb0f9583182c724a446a0d02f",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "it/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/it/01-hero-2064x2752.png", "sha256": "9266d4ebe66e0a41bc372b925304cdd54e8eea6365efead71c54d857b6590229", "bytes": 7280257},
+      {"upload_order": 2, "role": "battle", "file": "it/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/it/02-battle-2064x2752.png", "sha256": "4b3ffde22ef182509ae8bffae715a36cec27d736f38dcc5750d940251aead2b1", "bytes": 5735737},
+      {"upload_order": 3, "role": "fair_deal", "file": "it/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/it/03-fair_deal-2064x2752.png", "sha256": "c0202c9233fc3cb8f17d53a2878c7af6c3c8bb863539e4675b3ce4436933ef27", "bytes": 6748558},
+      {"upload_order": 4, "role": "build", "file": "it/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/it/04-build-2064x2752.png", "sha256": "86778afe81705fafe03672d4dec8f6ce86573e6f453d7a3e3077eb1f7e36ab73", "bytes": 6618050},
+      {"upload_order": 5, "role": "economy", "file": "it/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/it/05-economy-2064x2752.png", "sha256": "8371228ffe551a08948ac660bd92d16d7e52af3af302d8f337cfb4da777398cc", "bytes": 6552948},
+      {"upload_order": 6, "role": "territory", "file": "it/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/it/06-territory-2064x2752.png", "sha256": "1d9533358ccb309848c95420abfbe0ba3ee47ae9545bbe3b08a58ebb4e4996b5", "bytes": 5987230},
+      {"upload_order": 7, "role": "maps", "file": "it/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/it/07-maps-2064x2752.png", "sha256": "d498e4795c946b289aa50cd5439ead4cf44ebd8404bee273954ef030bd6859d9", "bytes": 6402415}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Strategia ​in tempo reale"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Combatti per la terra"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Senza pubblicità ​o acquisti in-app"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Tu decidi, loro costruiscono"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Sfama la colonia"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 mappe, o mappe casuali"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Scegli dove espanderti"
+    }
+   },
+   "listing": {
+    "file": "it/listing.json",
+    "sha256": "d640908788c31d49fb72e544970ddf44423fc9387a03b50f0cf8355ec911432e"
+   }
+  },
+  {
+   "locale": "nl",
+   "store_locale": "nl-NL",
+   "folder": "nl-NL",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "f1062eb22ca847e0580d2893ff4139f118cc484b63fe93aa83852cc7565d05d8",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "nl-NL/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nl/01-hero-1320x2868.png", "sha256": "1494e135a2e4133da8c041d63de302afdb2ad4b1a3fbba4579e17964034b829d", "bytes": 4662474},
+      {"upload_order": 2, "role": "battle", "file": "nl-NL/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nl/02-battle-1320x2868.png", "sha256": "281908dc5ddea2cfc04e46641d10062f582e61c85dbe47bc727b8473eff0e082", "bytes": 3704789},
+      {"upload_order": 3, "role": "fair_deal", "file": "nl-NL/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nl/03-fair_deal-1320x2868.png", "sha256": "301582e940d03ee37f48f6c428e565b80b0c320b15a531f735a9d30bbbddbe78", "bytes": 4016898},
+      {"upload_order": 4, "role": "build", "file": "nl-NL/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nl/04-build-1320x2868.png", "sha256": "789c42cf7fc349be8e02ee7954d01f7d07ff295d9f8bb4f9a553ab92ce05e968", "bytes": 4007935},
+      {"upload_order": 5, "role": "economy", "file": "nl-NL/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nl/05-economy-1320x2868.png", "sha256": "5eaa9bc833b87a58816940defb8e739c538ff4b699246abf7bfc49d76895d7bf", "bytes": 4038020},
+      {"upload_order": 6, "role": "maps", "file": "nl-NL/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nl/06-maps-1320x2868.png", "sha256": "9c95f34a49ab1134562f8e758829552b58f0c6f4434b4bcfad510766b3dac027", "bytes": 4062389}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "82fa846bf7f2347c0f260e4d614079a44eee2fc52c3dd7c74ca4ad418ea262ac",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "nl-NL/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/nl/01-hero-2064x2752.png", "sha256": "9746371d01672164fe938fe3f75734390293afe97fe6493fa9e27422f3acc29c", "bytes": 7282352},
+      {"upload_order": 2, "role": "battle", "file": "nl-NL/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/nl/02-battle-2064x2752.png", "sha256": "6b55fc688470d13a81eff3735963b167dab1b1ea677d6926f476d36862826080", "bytes": 5713206},
+      {"upload_order": 3, "role": "fair_deal", "file": "nl-NL/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/nl/03-fair_deal-2064x2752.png", "sha256": "cf899d254d6bfe78ce6c49a656ede04d1911d44b544bcc6c68f34960aa4cd298", "bytes": 6743469},
+      {"upload_order": 4, "role": "build", "file": "nl-NL/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/nl/04-build-2064x2752.png", "sha256": "7c6273369128bf59b80070d67786d9106b454593a48597d590f5c4a75538823d", "bytes": 6611888},
+      {"upload_order": 5, "role": "economy", "file": "nl-NL/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/nl/05-economy-2064x2752.png", "sha256": "7c16a633b3948ba4cbb34154058ff6100f859037f5f68cc044f2866df63ca29a", "bytes": 6555005},
+      {"upload_order": 6, "role": "territory", "file": "nl-NL/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/nl/06-territory-2064x2752.png", "sha256": "43c3a9e13d38a32471094c5d9b2c92278f3bb8b283b4f2d7f656b92804aa8ece", "bytes": 5977596},
+      {"upload_order": 7, "role": "maps", "file": "nl-NL/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/nl/07-maps-2064x2752.png", "sha256": "fbbc0c42b045a2f083a45d15dd76f21ae12089e30929e05c3238e3d1cc827925", "bytes": 6397419}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Realtime koloniestrategie"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Vecht om land"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Geen reclame. Geen in-app-koop"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Jij beslist. Zij bouwen."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Voed je kolonie"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 kaarten, of willekeurige"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Breid uit ​waar je wilt"
+    }
+   },
+   "listing": {
+    "file": "nl-NL/listing.json",
+    "sha256": "40e2d35f2f5d54d3575effdc7959b39223d638b73c4aa4264200e6cda0d41f64"
+   }
+  },
+  {
+   "locale": "pl",
+   "store_locale": "pl",
+   "folder": "pl",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "e66ed2ca7c1dffc3122f8f31989e7e9b4c28649c054fe40c1878f4fc31d68579",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "pl/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pl/01-hero-1320x2868.png", "sha256": "70987737934e48e1af4c95ff872c9a1c422b6620c09b79c14202eac161f6efbc", "bytes": 4663216},
+      {"upload_order": 2, "role": "battle", "file": "pl/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pl/02-battle-1320x2868.png", "sha256": "acc7b98e64e0d0ceaa16c306757417bacf6c11bccdb00e935db567fb827fd5b3", "bytes": 3705744},
+      {"upload_order": 3, "role": "fair_deal", "file": "pl/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pl/03-fair_deal-1320x2868.png", "sha256": "4e8732e6bb3d081ec77b50c875f4e34da3fffda6baac53b0ff2e6805252392e0", "bytes": 4014239},
+      {"upload_order": 4, "role": "build", "file": "pl/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pl/04-build-1320x2868.png", "sha256": "8c5bb2f4381f578ad48ef9cebd314f3acc6355748137d2fefb616eadadbae2ba", "bytes": 4014491},
+      {"upload_order": 5, "role": "economy", "file": "pl/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pl/05-economy-1320x2868.png", "sha256": "73a20ad33b7a201fa1d8b228fb139ebbd41b9b22d4f13946f0945db049bc26af", "bytes": 4039335},
+      {"upload_order": 6, "role": "maps", "file": "pl/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pl/06-maps-1320x2868.png", "sha256": "39703565389866167453b166f821b4034b9f7e92659736629d89c1098bbc9072", "bytes": 4061141}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "13320f78ad818e1e17f74a95959483e078217fc26e961c48dcbdb71b8eee2c9f",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "pl/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/pl/01-hero-2064x2752.png", "sha256": "0af988b4d3ad24e5c42d71882c6efedbcba7c9dfb245d4c45516b1f59ee0ce94", "bytes": 7282662},
+      {"upload_order": 2, "role": "battle", "file": "pl/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/pl/02-battle-2064x2752.png", "sha256": "acedb0449f0e5529d6752401181efed3f6595ee852e122d00835d6add2a9300e", "bytes": 5715177},
+      {"upload_order": 3, "role": "fair_deal", "file": "pl/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/pl/03-fair_deal-2064x2752.png", "sha256": "94732c30f180b20d9e8e076d10904f32ff793d81c36eaecf71304fe161c4f469", "bytes": 6742733},
+      {"upload_order": 4, "role": "build", "file": "pl/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/pl/04-build-2064x2752.png", "sha256": "4f999c12e9d138c9d3f303517c4a64346b16431414e996c067c6213f5cc07d61", "bytes": 6622227},
+      {"upload_order": 5, "role": "economy", "file": "pl/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/pl/05-economy-2064x2752.png", "sha256": "832cc6d6d61f3d299c653200d2275c4434efe03a35db2e512b59956f5885cda5", "bytes": 6555820},
+      {"upload_order": 6, "role": "territory", "file": "pl/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/pl/06-territory-2064x2752.png", "sha256": "6ace432f09d48b17b52ff643a4f7a6cf2fd63aa9d3843da264e46aef607baf3f", "bytes": 5992485},
+      {"upload_order": 7, "role": "maps", "file": "pl/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/pl/07-maps-2064x2752.png", "sha256": "ea886eadeb0103af9b0fde642572e46c2a525794c51e539245a7df41fb5f78bb", "bytes": 6382110}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Strategia RTS: buduj kolonię"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Walcz o ziemię"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Bez reklam i zakupów w grze"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Ty decydujesz. Oni budują."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Wykarm kolonię"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 mapy lub losowe"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Wybierz kierunek ekspansji"
+    }
+   },
+   "listing": {
+    "file": "pl/listing.json",
+    "sha256": "374fc6b0a04ab5e60dc356c05b932c50764662d33d734de8f22f067c0d4e975c"
+   }
+  },
+  {
+   "locale": "pt-PT",
+   "store_locale": "pt-PT",
+   "folder": "pt-PT",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "93dcf418ac124f1f157012d742c19d2855af32c9092885c8a41a83751f5aa4ac",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "pt-PT/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-PT/01-hero-1320x2868.png", "sha256": "c6ee488f3ab2e61375a63a71fe12abe11188926f39d6bc23fc9958396de3d137", "bytes": 4642928},
+      {"upload_order": 2, "role": "battle", "file": "pt-PT/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-PT/02-battle-1320x2868.png", "sha256": "b56e50691f614237dbddb58879396bcba085754e427d0f9ad053fbfd0a07e313", "bytes": 3704202},
+      {"upload_order": 3, "role": "fair_deal", "file": "pt-PT/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-PT/03-fair_deal-1320x2868.png", "sha256": "17fdd7de8132b5b8d6054600f29dd22ffcd7b0ad403f4a68d70bafc26ad7fdbc", "bytes": 4015270},
+      {"upload_order": 4, "role": "build", "file": "pt-PT/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-PT/04-build-1320x2868.png", "sha256": "d69995f7b7b888bf360a0e0fb6d3dbaac9fce6a5eb26062260c42e2fee84a268", "bytes": 4008408},
+      {"upload_order": 5, "role": "economy", "file": "pt-PT/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-PT/05-economy-1320x2868.png", "sha256": "559005149c1464c5c0502c075e5896277ec5a12c47179b98320333888c854e36", "bytes": 4035425},
+      {"upload_order": 6, "role": "maps", "file": "pt-PT/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/pt-PT/06-maps-1320x2868.png", "sha256": "fc6412c56b2da8d7b0d34a188fcecce166595ea03ee1b9785d7fc80d7fdeeee1", "bytes": 4062824}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "a446ec2c8aeb53ff6073766a4f824b905a1d0a98bb12faead72bcc8ccb9e7070",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "pt-PT/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-PT/01-hero-2064x2752.png", "sha256": "a68c84c9bdc966c53e46b2ceda36a4b2dbd32dc63d233254d87f93d9eeabdafc", "bytes": 7259146},
+      {"upload_order": 2, "role": "battle", "file": "pt-PT/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-PT/02-battle-2064x2752.png", "sha256": "c007fd16d498800ca77f2871d284d5367709e6e0700fb796fa3577dbd0ea45e9", "bytes": 5713240},
+      {"upload_order": 3, "role": "fair_deal", "file": "pt-PT/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-PT/03-fair_deal-2064x2752.png", "sha256": "2c5184adf2b69f5f4b57afcdfc196d29b90f07f7b1ae749446c5f41e79d50eb7", "bytes": 6745241},
+      {"upload_order": 4, "role": "build", "file": "pt-PT/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-PT/04-build-2064x2752.png", "sha256": "5a4944606d24d3f097c38f4026c1927b8ba731640d7725fa326d2988a7deac09", "bytes": 6616327},
+      {"upload_order": 5, "role": "economy", "file": "pt-PT/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-PT/05-economy-2064x2752.png", "sha256": "b752585e89ba5a4485d0963a669ffad9834ea6292152aaa45b5c737b744c5033", "bytes": 6552969},
+      {"upload_order": 6, "role": "territory", "file": "pt-PT/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-PT/06-territory-2064x2752.png", "sha256": "92a13539ed4a8bc8b3c32344a9fd94965b5d5f8294afa803316e6656883e42d2", "bytes": 5985359},
+      {"upload_order": 7, "role": "maps", "file": "pt-PT/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/pt-PT/07-maps-2064x2752.png", "sha256": "ab8439ff3d1669e1ee854ef1341c2cd872d1f241f4ce18b666f86e60ef686723", "bytes": 6398199}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "RTS de colónias"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Luta por território"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Sem anúncios ou compras in-app"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Tu decides. Eles constroem."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Alimenta a colónia"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 mapas, ou aleatórios"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Escolhe onde expandir"
+    }
+   },
+   "listing": {
+    "file": "pt-PT/listing.json",
+    "sha256": "910de8dbd0c51dc21fede190b9b3824ca02712241239b3dd4cc8d9c7b1eff5b7"
+   }
+  },
+  {
+   "locale": "ro",
+   "store_locale": "ro",
+   "folder": "ro",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "ac576dab47c2b1453d557755d7e1cb7ccfdb4cb8419f264e2f7e690ac8bfb370",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ro/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ro/01-hero-1320x2868.png", "sha256": "5553a1d5a17e6dd6ef9950eda58891b1b6637c6059054116464febed99267f53", "bytes": 4661821},
+      {"upload_order": 2, "role": "battle", "file": "ro/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ro/02-battle-1320x2868.png", "sha256": "cfe4cdca507a9bf6f458b54ce0512e5fd61da516aae9a17ee81345952419fb0f", "bytes": 3722051},
+      {"upload_order": 3, "role": "fair_deal", "file": "ro/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ro/03-fair_deal-1320x2868.png", "sha256": "7be34bafd58f4430f8adf5381613c1618c5ac1965a95a6859d938a2a9efc8246", "bytes": 4019687},
+      {"upload_order": 4, "role": "build", "file": "ro/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ro/04-build-1320x2868.png", "sha256": "fe65b912db5470e67c4986670ec172e97d307ef5abdb93d6044f5dcef7ae759c", "bytes": 4006966},
+      {"upload_order": 5, "role": "economy", "file": "ro/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ro/05-economy-1320x2868.png", "sha256": "a70d70b5c3e30691780e5afe97eefbf9094014062908afab4ddd398b0d13c60d", "bytes": 4052163},
+      {"upload_order": 6, "role": "maps", "file": "ro/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ro/06-maps-1320x2868.png", "sha256": "e80501d6ec5df56d84053fd39fe6b22ea9fc87f14031c6a726812d1be9dbf221", "bytes": 4063373}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "25acf74a458e6218d5ca2238d72b414dc0c7db4b6fcbfc8b1b1503c6e1de84b5",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ro/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ro/01-hero-2064x2752.png", "sha256": "9f1a7208dc41c94625069a1e26e007a542f7142c191116dde7ed1ef221fb8f6b", "bytes": 7277378},
+      {"upload_order": 2, "role": "battle", "file": "ro/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ro/02-battle-2064x2752.png", "sha256": "b897b1d736ac1a47b020b1cc25999518fc2f5fb0bdf24af4104b4c3029120dbb", "bytes": 5734263},
+      {"upload_order": 3, "role": "fair_deal", "file": "ro/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/ro/03-fair_deal-2064x2752.png", "sha256": "6b573fb9c2ef2bc436dcbcb0d5ffab4ed38018e5d7be352302c360f46e741cd6", "bytes": 6746063},
+      {"upload_order": 4, "role": "build", "file": "ro/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/ro/04-build-2064x2752.png", "sha256": "321b0ed18b195e29649148520f7446a0634b53514b0c26a3c7125c3d076eb5ed", "bytes": 6610292},
+      {"upload_order": 5, "role": "economy", "file": "ro/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/ro/05-economy-2064x2752.png", "sha256": "6aa39233a5f38dbf2a9f35068266cc7420ce52b7a945b857dd61c72254f8731c", "bytes": 6553601},
+      {"upload_order": 6, "role": "territory", "file": "ro/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/ro/06-territory-2064x2752.png", "sha256": "a433d6497cfe5ba7d7b65cf023e6a01b4a01478e06db88c3e89bdd9d3ffee21d", "bytes": 5978848},
+      {"upload_order": 7, "role": "maps", "file": "ro/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/ro/07-maps-2064x2752.png", "sha256": "ba9f575848222eacf9e5a19bd07c2c6b58d8d2d85cce86051c32bede7b9df70f", "bytes": 6395183}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Strategie RTS cu colonii"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Luptă pentru teritoriu"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Fără reclame, fără plăți în joc"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Tu decizi. Ei construiesc."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Hrănește-ți colonia"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 de hărți sau aleatorii"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Alege unde te extinzi"
+    }
+   },
+   "listing": {
+    "file": "ro/listing.json",
+    "sha256": "dbe1eb1c2f1b1f9327d7b0c07eb8a1ed806f1a646c9db1d240aa68162822766d"
+   }
+  },
+  {
+   "locale": "ru",
+   "store_locale": "ru",
+   "folder": "ru",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "0d437c5c51e0b896576c1f1e294d1cda93f0bc47c95bad5b7e013c4816f0cae0",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ru/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ru/01-hero-1320x2868.png", "sha256": "f2b509456165d90bf3b85d9fc1d2d7f70d6ffd3a9c085fa3ace12afcfaa9a1fd", "bytes": 4638134},
+      {"upload_order": 2, "role": "battle", "file": "ru/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ru/02-battle-1320x2868.png", "sha256": "79831f5a06043012020d39470cd52493ef1ea04f08cc2e875c900ad6843513f8", "bytes": 3724753},
+      {"upload_order": 3, "role": "fair_deal", "file": "ru/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ru/03-fair_deal-1320x2868.png", "sha256": "558e08435cd23f3a340e2560de340ca05ab2da7b20dbc1120d66c56bce3b9f43", "bytes": 4008808},
+      {"upload_order": 4, "role": "build", "file": "ru/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ru/04-build-1320x2868.png", "sha256": "3ba9fb2433729c1f0b053c3483e844bd3b432891dcfcfb84c9c880b1f74cf1b3", "bytes": 4003524},
+      {"upload_order": 5, "role": "economy", "file": "ru/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ru/05-economy-1320x2868.png", "sha256": "b757f26baf7c434c706b81d2225ffe050e5b77dd266d74b0a00159fabc7cdb68", "bytes": 4044971},
+      {"upload_order": 6, "role": "maps", "file": "ru/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ru/06-maps-1320x2868.png", "sha256": "7a6b6ee76443399ddfb754a48d932a5b5d6f3c47b8e49291b10eebb039065b95", "bytes": 4058156}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "da16f4656460ed7f16aa5c2ed64d9e9656ad5c875d5e45fceb791b72ace128e1",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ru/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ru/01-hero-2064x2752.png", "sha256": "5db12627c338d0da79be6b30cba6f6eb0fd02f0b883955b005e38e6810bb0256", "bytes": 7252055},
+      {"upload_order": 2, "role": "battle", "file": "ru/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ru/02-battle-2064x2752.png", "sha256": "70d1d2b1676e13be98c910c3b8e59798704f53131b31f64b23df104e6f7f3f33", "bytes": 5735749},
+      {"upload_order": 3, "role": "fair_deal", "file": "ru/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/ru/03-fair_deal-2064x2752.png", "sha256": "dca090f7643d693dde59cc8d1de0fbc0a5434ad639fd0b1af3f7ba0fec1aee56", "bytes": 6733454},
+      {"upload_order": 4, "role": "build", "file": "ru/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/ru/04-build-2064x2752.png", "sha256": "7d562ab7b78beec4daa02357aa0b1e606d936a27e93886d7eea7fbd5e263b6e2", "bytes": 6603649},
+      {"upload_order": 5, "role": "economy", "file": "ru/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/ru/05-economy-2064x2752.png", "sha256": "e3b4e1140d8b3832d880ae212dade04fd859ddee005d37900ef1ef7ed0f6c96f", "bytes": 6547455},
+      {"upload_order": 6, "role": "territory", "file": "ru/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/ru/06-territory-2064x2752.png", "sha256": "766deb9fd5cad4f362ca6f7ccadffa1d14c465a99b6f12b76cf2538901fb799e", "bytes": 5980110},
+      {"upload_order": 7, "role": "maps", "file": "ru/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/ru/07-maps-2064x2752.png", "sha256": "dd26846357ed02c46f64ca204d4e901736141a01f509429708080ddf3a1d6738", "bytes": 6384792}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "RTS о колонии"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Сражайтесь за землю"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Без рекламы и покупок в игре"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Вы решаете. Они строят."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Кормите колонию"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 карты или случайные"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Выбирайте, куда расти"
+    }
+   },
+   "listing": {
+    "file": "ru/listing.json",
+    "sha256": "b656b000110a4b1c0e8982f2b54f40fbe83b3fc5f8a13b0c5f29c692a276e0e1"
+   }
+  },
+  {
+   "locale": "sk",
+   "store_locale": "sk",
+   "folder": "sk",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "5f9a556dc2f7bf473b0512f50cae28654d07601aa7ee7bf9f75fb2ea0187b673",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "sk/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sk/01-hero-1320x2868.png", "sha256": "15eebe2c13760b7cd4d4acc037c85f1ffed488c72c6f0b35b68bd760cc8fbf11", "bytes": 4638919},
+      {"upload_order": 2, "role": "battle", "file": "sk/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sk/02-battle-1320x2868.png", "sha256": "d6afbea55c47a93a0602b18c19731b869ecc759c036346e686910dc999b73cad", "bytes": 3709261},
+      {"upload_order": 3, "role": "fair_deal", "file": "sk/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sk/03-fair_deal-1320x2868.png", "sha256": "0cc25b93d04dc5a10542ec130a2b342fa7f63902858a6cc8d7e31bd75116b124", "bytes": 4012625},
+      {"upload_order": 4, "role": "build", "file": "sk/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sk/04-build-1320x2868.png", "sha256": "442df32eb7084129288d7ba4b398f4da1a6433a0c18a67bb90c409da3cc8e475", "bytes": 4016146},
+      {"upload_order": 5, "role": "economy", "file": "sk/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sk/05-economy-1320x2868.png", "sha256": "3ffe53dc69918f78004bd806e4b2d9e82c18a9d4718ba7ad3dd7fc180d92ec6b", "bytes": 4057307},
+      {"upload_order": 6, "role": "maps", "file": "sk/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sk/06-maps-1320x2868.png", "sha256": "49c711b203a17e87c5a3f019ef386e038c0ff4d790435dfa7e219c375aa5cfe1", "bytes": 4068701}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "4c2440e21716116a18c8eec3b68247af55b40abea81a80945d7b8a26c107c0b0",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "sk/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/sk/01-hero-2064x2752.png", "sha256": "98dc6c35ce892d55cb186b8e6aac16b6557a1606d886b710b4010f95fffe2a68", "bytes": 7253473},
+      {"upload_order": 2, "role": "battle", "file": "sk/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/sk/02-battle-2064x2752.png", "sha256": "9b6b3bcbc64fd1c3be36d7b7c33eb37f3968c2ba87beb7258fe4e8af47bb943e", "bytes": 5715120},
+      {"upload_order": 3, "role": "fair_deal", "file": "sk/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/sk/03-fair_deal-2064x2752.png", "sha256": "f3a1270e38051ecc9b8344bc0b5c041d5e04674a96ef9ae0600efb44678147f5", "bytes": 6742709},
+      {"upload_order": 4, "role": "build", "file": "sk/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/sk/04-build-2064x2752.png", "sha256": "fa27ddc97870a96bb6a35f93117b8981679b8f0bdfb282c880f68472a196c744", "bytes": 6624937},
+      {"upload_order": 5, "role": "economy", "file": "sk/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/sk/05-economy-2064x2752.png", "sha256": "0ab08bc02983c173d9983a0e3d5e506929dd38751c13e21c4e50c5771f083bd8", "bytes": 6581006},
+      {"upload_order": 6, "role": "territory", "file": "sk/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/sk/06-territory-2064x2752.png", "sha256": "fcda9ae9c8a6f40d8c7b0dc07ece58480012ae037278632515f9840679223225", "bytes": 5985272},
+      {"upload_order": 7, "role": "maps", "file": "sk/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/sk/07-maps-2064x2752.png", "sha256": "9bd12288adabeab39d152b38d5ce01d519bd77c24dc251a33d9fb4fb79d43c4b", "bytes": 6405748}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "RTS o kolónii"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Bojujte o územie"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Bez reklám a nákupov v hre"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Vy rozhodujete, kolónia stavia."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Nenechajte kolóniu hladovať"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 máp alebo náhodné mapy"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Zvoľte, kam sa rozšírite"
+    }
+   },
+   "listing": {
+    "file": "sk/listing.json",
+    "sha256": "07b5b77a605f805142fc1675a566919ecf8bae6ef8fd1eecefcd88afffc66e8b"
+   }
+  },
+  {
+   "locale": "fi",
+   "store_locale": "fi",
+   "folder": "fi",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "bb816bc6eb86e4d2ff67b50b7c4d190b85a8106adf87ae057d9fb977200a200e",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "fi/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fi/01-hero-1320x2868.png", "sha256": "56475d257a91f6cbce141a1a7ed6a6f4b57525f70cb46f9ea58c804ca63482b3", "bytes": 4663751},
+      {"upload_order": 2, "role": "battle", "file": "fi/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fi/02-battle-1320x2868.png", "sha256": "5f16e23d3df52643f5ffd0ce8b432dfa2d6fd493d0b953a81ec14928fb219b84", "bytes": 3706637},
+      {"upload_order": 3, "role": "fair_deal", "file": "fi/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fi/03-fair_deal-1320x2868.png", "sha256": "20ea44d4b74471ecbbc20d3ab2ee11871d86680ca422b335a7ab2d526d1b0d3b", "bytes": 4015363},
+      {"upload_order": 4, "role": "build", "file": "fi/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fi/04-build-1320x2868.png", "sha256": "05b4ba65932848dfb28976d3fe175d6e5ec45679eeab084dd900fc4d96ba04ce", "bytes": 4010234},
+      {"upload_order": 5, "role": "economy", "file": "fi/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fi/05-economy-1320x2868.png", "sha256": "9a17f58e5533e6786667c386c3dfb3b3ce4fe1afd6cebe5232932c6a33374dd4", "bytes": 4051322},
+      {"upload_order": 6, "role": "maps", "file": "fi/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/fi/06-maps-1320x2868.png", "sha256": "0dcf4768b26e34f52e82defbc887c309e8d59b85ea8824ed1eedbd45722f7466", "bytes": 4060442}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "e80d73baece31ac6f458fa1038ac0db180ccba3d95f71d33d480a6eff7c1866a",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "fi/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/fi/01-hero-2064x2752.png", "sha256": "a9efbdc32b46b65bc3eb05a05ec87d0beeabbe1d4a0005d21b8afa2202a306e0", "bytes": 7283889},
+      {"upload_order": 2, "role": "battle", "file": "fi/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/fi/02-battle-2064x2752.png", "sha256": "1b766eebb6c1155262052ce4734ce7fe53afb2815dbe6ce2830f710b68075ddf", "bytes": 5713476},
+      {"upload_order": 3, "role": "fair_deal", "file": "fi/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/fi/03-fair_deal-2064x2752.png", "sha256": "1057c84bcf4e0d2d39a0e1d4ff62603213b85cd5e6124ee161acee9a6216073e", "bytes": 6741883},
+      {"upload_order": 4, "role": "build", "file": "fi/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/fi/04-build-2064x2752.png", "sha256": "9ec308ebb4fe14af2072c063a148f8580c4b469a93c58733b35654fe81a1e500", "bytes": 6616539},
+      {"upload_order": 5, "role": "economy", "file": "fi/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/fi/05-economy-2064x2752.png", "sha256": "3bc61ca7d9ea991f0993c1129f842fff6347b83208d1669cd6679ee12c811643", "bytes": 6575241},
+      {"upload_order": 6, "role": "territory", "file": "fi/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/fi/06-territory-2064x2752.png", "sha256": "6d7bc948f6610f03d7ee3e77b288ae41d1f1af911abc4a7edc52cb1825164734", "bytes": 5980460},
+      {"upload_order": 7, "role": "maps", "file": "fi/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/fi/07-maps-2064x2752.png", "sha256": "a1d36902f24c3fe58449facdd3a51027f6d2246fd49877f312b9c64660a415f3", "bytes": 6393803}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Reaaliaikainen strategiapeli"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Taistele maasta"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Ei mainoksia. Ei ostoja pelissä"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Sinä päätät. Ne rakentavat."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Pidä siirtokunta ruokittuna"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 karttaa tai satunnaisia"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Valitse, minne laajennat"
+    }
+   },
+   "listing": {
+    "file": "fi/listing.json",
+    "sha256": "ee27352f0c56569967289f4df3c851c05211a7f8bb4cb1d92db8b0aa24977b69"
+   }
+  },
+  {
+   "locale": "sv",
+   "store_locale": "sv",
+   "folder": "sv",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "a6ea5b9165a187c890a24c883323c584ba051e22a4de7094713d2f065dee3dd9",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "sv/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sv/01-hero-1320x2868.png", "sha256": "db816887998c9ee1540ddc801b7aa60286f8e4c64d0f489eab0f203eeedcb043", "bytes": 4663944},
+      {"upload_order": 2, "role": "battle", "file": "sv/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sv/02-battle-1320x2868.png", "sha256": "cc8967ac1e8e7010acb78932acad3c612f35607539bf90a1c853be658effb652", "bytes": 3724515},
+      {"upload_order": 3, "role": "fair_deal", "file": "sv/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sv/03-fair_deal-1320x2868.png", "sha256": "c7fa109e1aa47a5d9ad2ceba1539b8de81e6166b22dc61c87414ba41ba847296", "bytes": 4015629},
+      {"upload_order": 4, "role": "build", "file": "sv/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sv/04-build-1320x2868.png", "sha256": "c8bd80183bac194c7f11741b36c77b18318f821d38202208fee3922cab6b80ff", "bytes": 4014514},
+      {"upload_order": 5, "role": "economy", "file": "sv/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sv/05-economy-1320x2868.png", "sha256": "7cbf80dbb01e2810fdf5a27ff728d1a5b4bc2d70c05c1ccb3d2d4cb67bdefcdf", "bytes": 4042376},
+      {"upload_order": 6, "role": "maps", "file": "sv/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sv/06-maps-1320x2868.png", "sha256": "1bcab6c953ad2d5142cf68df0e820bdb4a44e4e602d5348ee32183083591d5bc", "bytes": 4061975}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "353063b87394ca110ae865b84120b238bd7333de13afae90d075161f118e4716",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "sv/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/sv/01-hero-2064x2752.png", "sha256": "b930a335dd7cdd4504de87ffcbe8f8dfec3eeb061ca4067bd3be4c99a402fa93", "bytes": 7284146},
+      {"upload_order": 2, "role": "battle", "file": "sv/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/sv/02-battle-2064x2752.png", "sha256": "d9d05af733268b401138d24c4212a1103e23a4f4b50113524f353d026f59315d", "bytes": 5721097},
+      {"upload_order": 3, "role": "fair_deal", "file": "sv/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/sv/03-fair_deal-2064x2752.png", "sha256": "ab362043c396fe4fab5e99f2819a0935b2a2a30e144c70acd1783e4e0c5b3490", "bytes": 6745872},
+      {"upload_order": 4, "role": "build", "file": "sv/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/sv/04-build-2064x2752.png", "sha256": "4beecea32f7b9d59bfde7df0bad829cc5da3aeb0b895eefbfabc6086a1175121", "bytes": 6620011},
+      {"upload_order": 5, "role": "economy", "file": "sv/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/sv/05-economy-2064x2752.png", "sha256": "cb3baaa753de9a8025bf81b0bd9a919c1b49cdae8d34d3f58974d2e8203631d3", "bytes": 6548768},
+      {"upload_order": 6, "role": "territory", "file": "sv/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/sv/06-territory-2064x2752.png", "sha256": "820fdf4f7fc2759dcded1f003504593bef4e3c8b72ef8868a66712e20a5b1abc", "bytes": 5987147},
+      {"upload_order": 7, "role": "maps", "file": "sv/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/sv/07-maps-2064x2752.png", "sha256": "88902e1cf24bf1b9e6857a619c3d9c31d29c4cd02fbcdeb9e32cea899edfa2de", "bytes": 6395641}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Realtidsstrategi om kolonier"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Slåss om marken"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Ingen reklam. Inga köp i appen"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Du bestämmer. De bygger."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Håll kolonin mätt"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 kartor, eller slumpade"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Välj var kolonin ska växa"
+    }
+   },
+   "listing": {
+    "file": "sv/listing.json",
+    "sha256": "c0e018ddf07ab076160bbd8ff807747cf07bd76961e2f0d6941eaaa77f606f0f"
+   }
+  },
+  {
+   "locale": "tr",
+   "store_locale": "tr",
+   "folder": "tr",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "19960cc8644e367f6ad1f98117d1e8840a74e310793dba09cc39ec311bea9fa4",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "tr/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/tr/01-hero-1320x2868.png", "sha256": "71494fee039935d7b7c966dedac8c2c703f2a2b755119f8ed9dac96e8014ca94", "bytes": 4665167},
+      {"upload_order": 2, "role": "battle", "file": "tr/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/tr/02-battle-1320x2868.png", "sha256": "40717faab1cf711f64ce30ae9a33470b9acbd0c8e2d3d0cae7f42ea64de3bd48", "bytes": 3722031},
+      {"upload_order": 3, "role": "fair_deal", "file": "tr/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/tr/03-fair_deal-1320x2868.png", "sha256": "471f34858d6bf757ff9089d83378d2f35c10c9f2aa4df2f6d88ada5b4f0d0f30", "bytes": 4009751},
+      {"upload_order": 4, "role": "build", "file": "tr/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/tr/04-build-1320x2868.png", "sha256": "2ef4efd76647dba9f6c8cb71769155e4305a9f4808c301ed76b0450c98a0eb4a", "bytes": 4009211},
+      {"upload_order": 5, "role": "economy", "file": "tr/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/tr/05-economy-1320x2868.png", "sha256": "cfcb5b39473a3202126b78064a4f0aba61871f42cf255b7a2461b4e85b4febb0", "bytes": 4049947},
+      {"upload_order": 6, "role": "maps", "file": "tr/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/tr/06-maps-1320x2868.png", "sha256": "16847141af5017958a85cbb8b5b5ccf9de48d8a19c820ef8dbb8f5d9ca89097a", "bytes": 4065512}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "3bef05973532bcdd3bc4af50e53e94451af9148f35d5b82643be2854c7fec3f3",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "tr/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/tr/01-hero-2064x2752.png", "sha256": "34e9eed7e6f94109aef55fca505a7a1e084ca76656e8c61a8a76549dee43526f", "bytes": 7284091},
+      {"upload_order": 2, "role": "battle", "file": "tr/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/tr/02-battle-2064x2752.png", "sha256": "bc118656da11ec421608861858866f26b72d4c0bd4f4ad8d29d3c5e72f28824f", "bytes": 5721527},
+      {"upload_order": 3, "role": "fair_deal", "file": "tr/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/tr/03-fair_deal-2064x2752.png", "sha256": "aafee6441a956f714afe28ce7beac8e3ac45ff30e38fba9bcb5c1ffee1a5e291", "bytes": 6736608},
+      {"upload_order": 4, "role": "build", "file": "tr/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/tr/04-build-2064x2752.png", "sha256": "bd232da582989e77b26193456964777ba51bcce6a3d221cdb1a36f49ef12367d", "bytes": 6614679},
+      {"upload_order": 5, "role": "economy", "file": "tr/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/tr/05-economy-2064x2752.png", "sha256": "75d9b2d202ce3908576fed3cc68dfaa7dbb6e0a8fb0c33e15fe07f1f4a717cbb", "bytes": 6573037},
+      {"upload_order": 6, "role": "territory", "file": "tr/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/tr/06-territory-2064x2752.png", "sha256": "787fcc435bef1fe46a8f7d77a98bd7f7c7df523c701151647ea1de8a34917800", "bytes": 5983449},
+      {"upload_order": 7, "role": "maps", "file": "tr/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/tr/07-maps-2064x2752.png", "sha256": "7fd158d4d7e1e50bec66df59336092e295b0667cec73bf565aa54241fa59c2d6", "bytes": 6397945}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Gerçek zamanlı koloni stratejisi"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Toprak için ​savaşın"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Ne reklam ne oyun içi alım"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Karar sizin, inşaat onlardan"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Koloniniz aç kalmasın"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 harita veya rastgele biri"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Yayılacağınız yeri seçin"
+    }
+   },
+   "listing": {
+    "file": "tr/listing.json",
+    "sha256": "e64796f06c394b39265c2d494012ec42dfcd142b638f97ef1f25dfc0a93e4c1b"
+   }
+  },
+  {
+   "locale": "zh-Hant",
+   "store_locale": "zh-Hant",
+   "folder": "zh-Hant",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "73f872dd0aeaff6a6a4a78bfb0b027d9d77279f39705e807085c0b9f934539ae",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "zh-Hant/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hant/01-hero-1320x2868.png", "sha256": "3a7c45841ed1e955b55508804e98e7fd42b2261de4ecf5bd3b58f3aee141a58d", "bytes": 4642791},
+      {"upload_order": 2, "role": "battle", "file": "zh-Hant/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hant/02-battle-1320x2868.png", "sha256": "170986ee37fdefa749777eb8a3613d8fdebed98f267c35b146e77a4eeb905dea", "bytes": 3704598},
+      {"upload_order": 3, "role": "fair_deal", "file": "zh-Hant/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hant/03-fair_deal-1320x2868.png", "sha256": "dd1da5557ed3973e43721060c25077dfcf1902673d8e5124748a3734d079a5d3", "bytes": 3999923},
+      {"upload_order": 4, "role": "build", "file": "zh-Hant/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hant/04-build-1320x2868.png", "sha256": "b36a0918c7a5ad16228e2a3899968dcf837e3e2e86f0374601f68e1de7466aee", "bytes": 3999663},
+      {"upload_order": 5, "role": "economy", "file": "zh-Hant/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hant/05-economy-1320x2868.png", "sha256": "83609a6f28396d0fba6cdef678660a46c782590e45a0044a1cb8064d07e88f7f", "bytes": 4043166},
+      {"upload_order": 6, "role": "maps", "file": "zh-Hant/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hant/06-maps-1320x2868.png", "sha256": "e75f90b6a2bd0c39b06bad87267fec6aa51cd44b95f7d7a67389b670d36de01a", "bytes": 4072533}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "fd1a5bbf0772fd43ce722e1191fa52128b8541937076a1290e96160f4f49f7ee",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "zh-Hant/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hant/01-hero-2064x2752.png", "sha256": "8e2e4f622294014e7c508f76bb2f5a5cc7fa37ab4e8963719278672bb0d454ac", "bytes": 7254081},
+      {"upload_order": 2, "role": "battle", "file": "zh-Hant/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hant/02-battle-2064x2752.png", "sha256": "067d6671747b7a70092729a5c70605cacae2271efbd5b156509e0418bbe98aab", "bytes": 5713190},
+      {"upload_order": 3, "role": "fair_deal", "file": "zh-Hant/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hant/03-fair_deal-2064x2752.png", "sha256": "f143b98c76a40ced69eda6154fe6cede4a090113660ed87ac2cd2443e35bec4a", "bytes": 6722085},
+      {"upload_order": 4, "role": "build", "file": "zh-Hant/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hant/04-build-2064x2752.png", "sha256": "d95cbb70b1d55493390dee252ed7d70553f220f5fc7f7bba284c15b7957f43ee", "bytes": 6597918},
+      {"upload_order": 5, "role": "economy", "file": "zh-Hant/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hant/05-economy-2064x2752.png", "sha256": "629bbaa88eec0157d497c1ae11ed5768296767a974e6db46ce11fa9435d0e6fe", "bytes": 6559394},
+      {"upload_order": 6, "role": "territory", "file": "zh-Hant/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hant/06-territory-2064x2752.png", "sha256": "dbb97136b77766be060117ad9d5f80dd5e7d8f1a735c72f9c314f7f8c2d8315c", "bytes": 5963361},
+      {"upload_order": 7, "role": "maps", "file": "zh-Hant/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hant/07-maps-2064x2752.png", "sha256": "735b4880d107b36075012253270f252ac6a614cfa094aaea14d6f527078dc11a", "bytes": 6404128}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "殖民地即時戰略"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "為土地而戰"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "沒有廣告，沒有內購"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "你做決定，工人來蓋"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "餵飽你的殖民地"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 張地圖，或隨機產生新地圖"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "決定往哪裡擴張"
+    }
+   },
+   "listing": {
+    "file": "zh-Hant/listing.json",
+    "sha256": "db1b3fd6e81f330861aeac462c721c5c1edea770fc36a9bf12c63235bcf9c2ba"
+   }
+  },
+  {
+   "locale": "zh-Hans",
+   "store_locale": "zh-Hans",
+   "folder": "zh-Hans",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "24138ff549c1f5b76abe37b12a22ea6e2776b5d9374151db6f99be16554b6c70",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "zh-Hans/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hans/01-hero-1320x2868.png", "sha256": "04c8d386601b4437ac53a34206a21b192bcbf98270a0b2d853674b3ffd3a531c", "bytes": 4642220},
+      {"upload_order": 2, "role": "battle", "file": "zh-Hans/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hans/02-battle-1320x2868.png", "sha256": "38ba2b1a885f9fc9b1d4c74db4500a117f0e3310689f616063c6c5fb4a5752ec", "bytes": 3703061},
+      {"upload_order": 3, "role": "fair_deal", "file": "zh-Hans/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hans/03-fair_deal-1320x2868.png", "sha256": "50f44376dec307d5c96cb8298096451ab659169462fb7edb35fcfc82340c845e", "bytes": 4010813},
+      {"upload_order": 4, "role": "build", "file": "zh-Hans/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hans/04-build-1320x2868.png", "sha256": "45d40f663082aa940f99c8705fbdd8689a70010caf648d7fe2bb9cd1c394b4bd", "bytes": 3999287},
+      {"upload_order": 5, "role": "economy", "file": "zh-Hans/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hans/05-economy-1320x2868.png", "sha256": "f0bf9afe2e1ab196a579b8e5fb0d58f4d0ad1e10e06ccad613b6a797f80fd2fe", "bytes": 4037189},
+      {"upload_order": 6, "role": "maps", "file": "zh-Hans/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/zh-Hans/06-maps-1320x2868.png", "sha256": "a0f534a60328ae8c9bc65b5c7a3833a5f6acc53cfe2f2dc06d8117712a1f38e3", "bytes": 4068311}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "7685704dfa89feb2ba91b6aefe7ff49621f3173865aa12eb8a728306f8583148",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "zh-Hans/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hans/01-hero-2064x2752.png", "sha256": "d2bbbed23539f95872163a9706484210cdf34561b883879ca4b1ee83997b78c9", "bytes": 7254215},
+      {"upload_order": 2, "role": "battle", "file": "zh-Hans/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hans/02-battle-2064x2752.png", "sha256": "7f997471398a4f5434fa16cfac5feb4e54b5faa02fc699c5ae3061e5930565ad", "bytes": 5712317},
+      {"upload_order": 3, "role": "fair_deal", "file": "zh-Hans/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hans/03-fair_deal-2064x2752.png", "sha256": "895b9e9b024d553c4e1822677c5dd5d99ff9143ec317c5cbf412363acef270ee", "bytes": 6721659},
+      {"upload_order": 4, "role": "build", "file": "zh-Hans/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hans/04-build-2064x2752.png", "sha256": "55e38745663ff1bd65ebb2d331c863a3b7b0ec74813a618250f65aaafdd84ee1", "bytes": 6598153},
+      {"upload_order": 5, "role": "economy", "file": "zh-Hans/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hans/05-economy-2064x2752.png", "sha256": "1995320bc7d16c91d7c7e3040d4bc0d846478d86c6556655009f0605309bb580", "bytes": 6551577},
+      {"upload_order": 6, "role": "territory", "file": "zh-Hans/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hans/06-territory-2064x2752.png", "sha256": "d16933b9d7899a5c8f919a399eb57c97f0122803fabc19958fd578f650c35da8", "bytes": 5963887},
+      {"upload_order": 7, "role": "maps", "file": "zh-Hans/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/zh-Hans/07-maps-2064x2752.png", "sha256": "92941bc1cbbb355eb5cf08708e63c5b3212fead1c9024984dbb44945431d11e2", "bytes": 6381709}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "殖民地即时战略"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "为土地而战"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "无广告，无应用内购买"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "你做决定，工人来建"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "让殖民地吃饱"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 张地图，也可随机生成"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "选择扩张的方向"
+    }
+   },
+   "listing": {
+    "file": "zh-Hans/listing.json",
+    "sha256": "121f8b1fb4be56ecb060ac506f9109337c324c60dde929653d319a587c0a8616"
+   }
+  },
+  {
+   "locale": "uk",
+   "store_locale": "uk",
+   "folder": "uk",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "ec3ce1a57a6220733cfb365642ca304f6ab418c1472bc29320ee2a6e9c8d3d47",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "uk/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/uk/01-hero-1320x2868.png", "sha256": "74c48895ec2c22f54c90dce1fd34fa36c614f0ee24704305aef78172b6d75929", "bytes": 4658140},
+      {"upload_order": 2, "role": "battle", "file": "uk/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/uk/02-battle-1320x2868.png", "sha256": "7beff411f986e5e67694623f955efd6cd0503b21c66d8c1ff9495974aad3f48e", "bytes": 3716610},
+      {"upload_order": 3, "role": "fair_deal", "file": "uk/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/uk/03-fair_deal-1320x2868.png", "sha256": "4f2016a3ca7a5b9500091dc584d8d4e2be035ab316613804058a26ab3035d05c", "bytes": 4008692},
+      {"upload_order": 4, "role": "build", "file": "uk/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/uk/04-build-1320x2868.png", "sha256": "d22788ac177be4e95205947f5a2d530a9abd458273758d54c62eb7c44770ca6b", "bytes": 4009119},
+      {"upload_order": 5, "role": "economy", "file": "uk/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/uk/05-economy-1320x2868.png", "sha256": "00117ff05e9e5d6e9fff295a1b908d00faab204d42971b445da9a1ff38007e96", "bytes": 4035915},
+      {"upload_order": 6, "role": "maps", "file": "uk/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/uk/06-maps-1320x2868.png", "sha256": "b3f9cd771ba19e5693b27e6db221a981d917ee3262a49c9de02ed98ab67fe951", "bytes": 4060386}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "c1f28b51c78f80278f789ec131cb383e9a9cb0296c46402031e46dc7f8711f42",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "uk/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/uk/01-hero-2064x2752.png", "sha256": "064049dfe322654b1781b5c7a314f475057bfff83273fb53bb3bd3e269862b1b", "bytes": 7272896},
+      {"upload_order": 2, "role": "battle", "file": "uk/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/uk/02-battle-2064x2752.png", "sha256": "8a5f6ca8bb55c8bd5c0f8c3b9cf6c7b874ce1e5d9d10a2425f5147c35e1b2934", "bytes": 5711550},
+      {"upload_order": 3, "role": "fair_deal", "file": "uk/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/uk/03-fair_deal-2064x2752.png", "sha256": "4667346343eff3234258577f93f7b150ed249ba2f1af020d1cf94fa9e5f948b6", "bytes": 6732857},
+      {"upload_order": 4, "role": "build", "file": "uk/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/uk/04-build-2064x2752.png", "sha256": "6fdae6919ce9a526b5e52a057d9e437efc11a56c9e979e4d9e198910e14e4573", "bytes": 6611652},
+      {"upload_order": 5, "role": "economy", "file": "uk/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/uk/05-economy-2064x2752.png", "sha256": "4c9ba577de29eaa2917791608f99c8c3b31aecf390b9faa6938082f524cafac0", "bytes": 6551457},
+      {"upload_order": 6, "role": "territory", "file": "uk/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/uk/06-territory-2064x2752.png", "sha256": "de90db1d1d25e3521341ffdc49a239f64b92d0ab6b4c0d1bf4c67e99f55176f6", "bytes": 5979558},
+      {"upload_order": 7, "role": "maps", "file": "uk/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/uk/07-maps-2064x2752.png", "sha256": "9f92d34767b9d4945c1f1ff6f3d9439590a50afc3eda37489001930b43b7691e", "bytes": 6389564}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Стратегія в реальному часі"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Бийтеся за землю"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Ні реклами, ні покупок у грі"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Ви вирішуєте. Вони будують"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Годуйте колонію"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 карти або випадкові"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Обирайте, куди рости"
+    }
+   },
+   "listing": {
+    "file": "uk/listing.json",
+    "sha256": "26d16a0b7dfb79246aaa25f8d897c2237a8cdcb28fe94eeec4ab599993afd0b0"
+   }
+  },
+  {
+   "locale": "id",
+   "store_locale": "id",
+   "folder": "id",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "985b6788d6604df55d3f9188e4cf8e5955645ea3e10a9c8e67a35d038ad122c7",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "id/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/id/01-hero-1320x2868.png", "sha256": "995c70fdec22e56c7bb439d017a7189c4d279b12b87779a83430fb4887b7bd98", "bytes": 4658716},
+      {"upload_order": 2, "role": "battle", "file": "id/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/id/02-battle-1320x2868.png", "sha256": "26f42983a1b59b2a919a6ff01b0eaee8e45e1585fc67b80cfc20ddac1b81d01a", "bytes": 3721421},
+      {"upload_order": 3, "role": "fair_deal", "file": "id/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/id/03-fair_deal-1320x2868.png", "sha256": "d2a12aa9bc469c139369247a41021d9b3bc82f9f2a6e5cac8b85ebf4cb0c540a", "bytes": 4012355},
+      {"upload_order": 4, "role": "build", "file": "id/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/id/04-build-1320x2868.png", "sha256": "81d3146ad521c8de25f3b94c2e5b6434134e806efd4a080e46a81768eaa3754a", "bytes": 4012325},
+      {"upload_order": 5, "role": "economy", "file": "id/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/id/05-economy-1320x2868.png", "sha256": "a2e76f6b4463276dcbca915814c0d1414ea1da08c1e84c0925871d615672f179", "bytes": 4060056},
+      {"upload_order": 6, "role": "maps", "file": "id/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/id/06-maps-1320x2868.png", "sha256": "baa0eb1fdf88c244c0260b3d883f65aac1e0faba1495a9294101faabba13e58f", "bytes": 4063641}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "0f5145298713f4993b1457c8f27a45319061e7ce855d9432cfe71c272656f0de",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "id/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/id/01-hero-2064x2752.png", "sha256": "129a72d025625c6ef489ef2cce01af1cbf52587080ee68ab86769b252a494091", "bytes": 7278840},
+      {"upload_order": 2, "role": "battle", "file": "id/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/id/02-battle-2064x2752.png", "sha256": "ebcf0617d1c574a808024eacd330173a2d84a58d030f200fddb81141b840388b", "bytes": 5734172},
+      {"upload_order": 3, "role": "fair_deal", "file": "id/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/id/03-fair_deal-2064x2752.png", "sha256": "355f5c139822eaff958aebd7583572e6c015ee89cb155545d8cb8b038d3dfbe8", "bytes": 6741813},
+      {"upload_order": 4, "role": "build", "file": "id/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/id/04-build-2064x2752.png", "sha256": "8e4a523135195c9897e71e150c1b71f58966a668bf7a90a648a1ec47b6f3aba4", "bytes": 6618973},
+      {"upload_order": 5, "role": "economy", "file": "id/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/id/05-economy-2064x2752.png", "sha256": "f3708ea415d77f5e048d8f457cdedb7d588645a1737017251bae3ac6627b36d0", "bytes": 6582899},
+      {"upload_order": 6, "role": "territory", "file": "id/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/id/06-territory-2064x2752.png", "sha256": "66be890db6746921382bc8b47b297fa06cf2e38d46f2db8470528ad381a50b94", "bytes": 5980305},
+      {"upload_order": 7, "role": "maps", "file": "id/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/id/07-maps-2064x2752.png", "sha256": "da72d71e70a103b2943e39fe50df22329e555d4fdd79846fed277d7a2b622a51", "bytes": 6395319}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Strategi koloni real-time"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Bertempur demi lahan"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Tanpa iklan, tanpa beli in-app"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Kamu putuskan, mereka dirikan"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Jaga koloni tetap kenyang"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 peta, atau peta acak"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Tentukan arah perluasan"
+    }
+   },
+   "listing": {
+    "file": "id/listing.json",
+    "sha256": "877ad6e790d7c83c474232c280b7e6b0489998b054f3c0194b655d45fde3e806"
+   }
+  },
+  {
+   "locale": "vi",
+   "store_locale": "vi",
+   "folder": "vi",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "5ceffc36588c758e38aff423d309ef8b71349d34c7cc43e88d07c2e474bd653f",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "vi/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/vi/01-hero-1320x2868.png", "sha256": "dd193c5644ae0237f7e3145e9ad6b24cc6d16b5c6d97ee9d14a456c6b35427d3", "bytes": 4663455},
+      {"upload_order": 2, "role": "battle", "file": "vi/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/vi/02-battle-1320x2868.png", "sha256": "0c7718ee2822766add1f69db1960ac7ec91377fceb6478455b8580a0682912ab", "bytes": 3724386},
+      {"upload_order": 3, "role": "fair_deal", "file": "vi/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/vi/03-fair_deal-1320x2868.png", "sha256": "011706c75e9b2ed626ccef0f11d7f4478663246fbc60f7f51639767a26785000", "bytes": 4020992},
+      {"upload_order": 4, "role": "build", "file": "vi/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/vi/04-build-1320x2868.png", "sha256": "f68437b025c4a8681a6d2f0457ab2fd86d26c2bd6788fcf752409d0a36118871", "bytes": 4015503},
+      {"upload_order": 5, "role": "economy", "file": "vi/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/vi/05-economy-1320x2868.png", "sha256": "e3ab81e3e942ff4c63017801dd843abf6e3f83be54c53df72ee8f019a4f4f03b", "bytes": 4054776},
+      {"upload_order": 6, "role": "maps", "file": "vi/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/vi/06-maps-1320x2868.png", "sha256": "b4e1ca293d4ec6e0b093a827903267a9bafab31d6435875eeb610a5915c3d893", "bytes": 4075207}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "047d6dfaecf69f9d59f669d2ecba729ca3515d785991b8ce96c31766333397c7",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "vi/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/vi/01-hero-2064x2752.png", "sha256": "12dd97b6a9a81f187387d4dccbd11ba65485b33595f61402218b30f101932a7b", "bytes": 7283721},
+      {"upload_order": 2, "role": "battle", "file": "vi/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/vi/02-battle-2064x2752.png", "sha256": "f5a2a08dd3b2f928f6cfc8e312f2cde1b83561fdec539d33d846dd549a6bbf77", "bytes": 5721181},
+      {"upload_order": 3, "role": "fair_deal", "file": "vi/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/vi/03-fair_deal-2064x2752.png", "sha256": "414a82fac45ff8450baf87ff5796d27f59b68a325e61d6fc57a437b09a25b40a", "bytes": 6751425},
+      {"upload_order": 4, "role": "build", "file": "vi/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/vi/04-build-2064x2752.png", "sha256": "e8c6f7fa834e70d9db8d49b363886b93f192e22e517f8cd724e818338b59bb8b", "bytes": 6625849},
+      {"upload_order": 5, "role": "economy", "file": "vi/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/vi/05-economy-2064x2752.png", "sha256": "a04021947cac90bbc22a4d8dcf5d8b649eab07f01c9705f60005038217bfa7c7", "bytes": 6562304},
+      {"upload_order": 6, "role": "territory", "file": "vi/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/vi/06-territory-2064x2752.png", "sha256": "0f4e1142d2f7b30c9968a8f1e5a9f04fe4c6596e312e66670f575cfd0c460fb9", "bytes": 5984299},
+      {"upload_order": 7, "role": "maps", "file": "vi/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/vi/07-maps-2064x2752.png", "sha256": "978755fd349376dec774eb2272cfe384962d91be78216c7595ebcd53ee28f88f", "bytes": 6411118}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Chiến lược thời gian thực"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Chiến đấu giành đất"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Không quảng cáo hay mua in-app"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Bạn quyết định. Thuộc địa xây."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Nuôi sống thuộc địa"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 bản đồ có sẵn, hoặc ngẫu nhiên"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Chọn hướng mở rộng"
+    }
+   },
+   "listing": {
+    "file": "vi/listing.json",
+    "sha256": "d580e4e37408324b3a84d04d6cc7a1296962993ac96a9e3746696964857e4f86"
+   }
+  },
+  {
+   "locale": "ja",
+   "store_locale": "ja",
+   "folder": "ja",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "ae73abf05949b35e432520b8db0577da041ff19827fb431c08d91aae0f2f6891",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ja/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ja/01-hero-1320x2868.png", "sha256": "1fa30f8a62269a555cdfa23c0813232b13864fea574fb15714ebb8426ab82596", "bytes": 4667976},
+      {"upload_order": 2, "role": "battle", "file": "ja/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ja/02-battle-1320x2868.png", "sha256": "ff419bb9ed24d8d589272a1bd54a3ff9ffd53f7febf4c3b3c45ea86dee51c310", "bytes": 3730495},
+      {"upload_order": 3, "role": "fair_deal", "file": "ja/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ja/03-fair_deal-1320x2868.png", "sha256": "b6e121b391b7a37a65bfb78f1726efe982e67cfa4aae2c2d1a410f85fcb67c00", "bytes": 4018831},
+      {"upload_order": 4, "role": "build", "file": "ja/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ja/04-build-1320x2868.png", "sha256": "8b5a27fd22d01231ff06168346b5c6a415c59dd0de583d5a04218917235c77e3", "bytes": 4027089},
+      {"upload_order": 5, "role": "economy", "file": "ja/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ja/05-economy-1320x2868.png", "sha256": "caa91a341911934cfffe146e654517662cfedf1f8f8630482200a0ae6de4e8df", "bytes": 4057927},
+      {"upload_order": 6, "role": "maps", "file": "ja/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ja/06-maps-1320x2868.png", "sha256": "1520661addc3dcc338b9c9d0a0a627b18fd1fea35e6fd0da888abaabba401b37", "bytes": 4072124}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "9265e552e855b5a5377d94489f4ed7739acb3a26073d36590044efdc2290c4c5",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ja/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ja/01-hero-2064x2752.png", "sha256": "0c97ddf2b5946b704738e1a09b38fbf09e713ecf02392a3ce9f23dd19967eb19", "bytes": 7286414},
+      {"upload_order": 2, "role": "battle", "file": "ja/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ja/02-battle-2064x2752.png", "sha256": "efc78622474c8b546ddfac9e1ba4d9284396fe883c17e7ec88f04944bf959600", "bytes": 5729215},
+      {"upload_order": 3, "role": "fair_deal", "file": "ja/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/ja/03-fair_deal-2064x2752.png", "sha256": "03f95c7b1d5f40bf4a835d34923e97ac6eaec93eaddda0f60ac57208507a4ace", "bytes": 6747234},
+      {"upload_order": 4, "role": "build", "file": "ja/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/ja/04-build-2064x2752.png", "sha256": "ce6447a35fca4e7bd87d52497c7e987f04b3a4cbd7248181a2355cd07f8894e2", "bytes": 6632047},
+      {"upload_order": 5, "role": "economy", "file": "ja/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/ja/05-economy-2064x2752.png", "sha256": "86bd5907063dd5c14c0025ad83e8450b0f2e3b6bb37a1b75b0c3b55e54beba98", "bytes": 6579798},
+      {"upload_order": 6, "role": "territory", "file": "ja/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/ja/06-territory-2064x2752.png", "sha256": "4e7b229076395d0101b24506975da3c7fccbc5f41a6a6dbcbad9fdf2dc8c49ab", "bytes": 5992671},
+      {"upload_order": 7, "role": "maps", "file": "ja/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/ja/07-maps-2064x2752.png", "sha256": "c7a8bb663d4b1c4653952da65d7dae92adbf190667824b4a5a1f3331fca95021", "bytes": 6404220}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "コロニーを指揮する​リアルタイム戦略"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "土地をめぐって戦おう"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "広告なし。アプリ内課金なし"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "決めるのはあなた。建てるのはコロニー"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "コロニーの食料を​確保しよう"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23のマップか、ランダムマップ"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "コロニーを​どこへ広げるか選ぼう"
+    }
+   },
+   "listing": {
+    "file": "ja/listing.json",
+    "sha256": "ef9519fd8a667d16988ddfd451b9cd6222eebd8331ffd7e19b84262511e75dc8"
+   }
+  },
+  {
+   "locale": "ko",
+   "store_locale": "ko",
+   "folder": "ko",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "bc6cce49ac1bcda5d11ccd1299c02132e3f86cb3e0fa885edb7569d5dd8f4baf",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ko/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ko/01-hero-1320x2868.png", "sha256": "d512169be1dff12c1aa6f6493764c93fbd87720f90dd196d0271728f398ba3c9", "bytes": 4653942},
+      {"upload_order": 2, "role": "battle", "file": "ko/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ko/02-battle-1320x2868.png", "sha256": "052ed1594b0c6ab2a377e9357bc68a1495ff4e68ff4f2ba2282dad651fb187a6", "bytes": 3702773},
+      {"upload_order": 3, "role": "fair_deal", "file": "ko/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ko/03-fair_deal-1320x2868.png", "sha256": "1911a0c9ec15a2a59bd55dc17af7136246ca2d22c3ae3b641b9e306b1803e7a6", "bytes": 4005709},
+      {"upload_order": 4, "role": "build", "file": "ko/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ko/04-build-1320x2868.png", "sha256": "9bab68cc988d4ba2db396ebf6137107840bff074c68aa6fd42983cd3595e76a1", "bytes": 4006299},
+      {"upload_order": 5, "role": "economy", "file": "ko/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ko/05-economy-1320x2868.png", "sha256": "467ade48013fd64e414221e1fff0706f1e6ee5c9c2c692274b413c84d679865c", "bytes": 4044330},
+      {"upload_order": 6, "role": "maps", "file": "ko/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ko/06-maps-1320x2868.png", "sha256": "d2f1a469b32a4e27b4d153a9cb0d90ee9da7c2b116243f24280a94e3d295db55", "bytes": 4059041}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "eb94342fdcdc2c1b67337ff8bc1d0184e7d16885d434fc2deba27804f8e151da",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ko/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ko/01-hero-2064x2752.png", "sha256": "cbc729f0bcf1a62303757f3e0157789eba20a79fcefaed768e3520b1eee4e979", "bytes": 7270976},
+      {"upload_order": 2, "role": "battle", "file": "ko/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ko/02-battle-2064x2752.png", "sha256": "d60d1688aa8949d5ecafbcad1e690d1b9a0ce6ff3460e692e4a08e20e072c0f4", "bytes": 5710081},
+      {"upload_order": 3, "role": "fair_deal", "file": "ko/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/ko/03-fair_deal-2064x2752.png", "sha256": "82dfe66c5aeed918ddb16125ab03c8f6e8e86fdc1d172547529beab587eea72b", "bytes": 6712567},
+      {"upload_order": 4, "role": "build", "file": "ko/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/ko/04-build-2064x2752.png", "sha256": "e9d04cf5e405290a79b128e080c72b1002b3262e6ee41a00fc1ae94201d50798", "bytes": 6589740},
+      {"upload_order": 5, "role": "economy", "file": "ko/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/ko/05-economy-2064x2752.png", "sha256": "221d43d132aca4f0673bc19e88c9b9914b6bf1af705ad8cdaa3d749c1306387e", "bytes": 6544252},
+      {"upload_order": 6, "role": "territory", "file": "ko/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/ko/06-territory-2064x2752.png", "sha256": "51d0f38bd14c0d647c038c44b0e70d78436717e2f4346ab339aa1e44a7c96ee1", "bytes": 5959437},
+      {"upload_order": 7, "role": "maps", "file": "ko/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/ko/07-maps-2064x2752.png", "sha256": "aa7aca27dee5cbf9aa96f54d52ad4f13144ffd393aad5e79436f5da3d42457a3", "bytes": 6390825}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "식민지를 지휘하는 실시간 전략 게임"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "땅을 두고 싸우세요"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "광고 없음. 인앱 구매 없음"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "결정은 내가, 건설은 일꾼이"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "식민지를 ​먹여 살리세요"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "지도 23개 또는 무작위 생성 지도"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "어디로 확장할지 정하세요"
+    }
+   },
+   "listing": {
+    "file": "ko/listing.json",
+    "sha256": "f55a588e43c3c5c65512e374c90a64a3b602889c84194a6ccf70a83000b18e5c"
+   }
+  },
+  {
+   "locale": "sl",
+   "store_locale": "sl-SI",
+   "folder": "sl-SI",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "ab0cdf9db9d99213f0ed91d6b5a4f4b50d3423f71508dd13ff659fdbe65ce701",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "sl-SI/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sl/01-hero-1320x2868.png", "sha256": "8ee184cc5f5274a133b9d01f890574fc938499019a8fcd951cf12cec233fa065", "bytes": 4668889},
+      {"upload_order": 2, "role": "battle", "file": "sl-SI/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sl/02-battle-1320x2868.png", "sha256": "22e14bc5042f4c199682b14c85ec46cd1c82c6745178959e11d51e5ab601defe", "bytes": 3723215},
+      {"upload_order": 3, "role": "fair_deal", "file": "sl-SI/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sl/03-fair_deal-1320x2868.png", "sha256": "e570d49380e67e33c5622f020356a7ae4448319faa8e3d38a25c0aadea1f6301", "bytes": 4016582},
+      {"upload_order": 4, "role": "build", "file": "sl-SI/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sl/04-build-1320x2868.png", "sha256": "cd5cb85003567a7381b10bdb106eee52bf3bbfbbd0345bd76912a6e86d54e9ed", "bytes": 4014462},
+      {"upload_order": 5, "role": "economy", "file": "sl-SI/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sl/05-economy-1320x2868.png", "sha256": "02da800a11627bbabf0c17546643bdcfe74588a1c3a2167d31cad3107e26cad0", "bytes": 4047685},
+      {"upload_order": 6, "role": "maps", "file": "sl-SI/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/sl/06-maps-1320x2868.png", "sha256": "db77acd9951851826d06faa38048e34aaecf2b788b6ca229b4c9a0f23be56d58", "bytes": 4062528}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "78666cdfcb3d56de4ee605a7280941fcd5009f40642f4e473cb3ad5466be4ebf",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "sl-SI/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/sl/01-hero-2064x2752.png", "sha256": "30211e344d08b5d2d9a1c53579a402c9df2c3caee6a6b2a51f12d101049d575f", "bytes": 7286734},
+      {"upload_order": 2, "role": "battle", "file": "sl-SI/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/sl/02-battle-2064x2752.png", "sha256": "46574b9aa6bf60579e7195a6e4aef4b5cd61a004271cc19a48b927647a7a9483", "bytes": 5717938},
+      {"upload_order": 3, "role": "fair_deal", "file": "sl-SI/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/sl/03-fair_deal-2064x2752.png", "sha256": "fd6ba81be4e6ee695878b1b1bf7a60f36fd041d7588b18e47a12d1f00ca10963", "bytes": 6743525},
+      {"upload_order": 4, "role": "build", "file": "sl-SI/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/sl/04-build-2064x2752.png", "sha256": "741c97e92cf2c97bf0e1cdd626d49b895adfde7ce1a7b1d3e1d87b6b5842ad01", "bytes": 6621516},
+      {"upload_order": 5, "role": "economy", "file": "sl-SI/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/sl/05-economy-2064x2752.png", "sha256": "64ca3f68d4f4617af74321c539c8c999b43787e7d25aaea8c0a4d3ec3b2069f0", "bytes": 6555357},
+      {"upload_order": 6, "role": "territory", "file": "sl-SI/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/sl/06-territory-2064x2752.png", "sha256": "fc0b20e01c9f1ea6e839a70ceb3d3641e1969be408c0dcdcad5ecf64610cff88", "bytes": 5980588},
+      {"upload_order": 7, "role": "maps", "file": "sl-SI/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/sl/07-maps-2064x2752.png", "sha256": "b3fb04477869687e22f80d02e1486801f49854f1bf093e472ab25d8d89f41f20", "bytes": 6397724}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Strategija kolonij v realnem času"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Borite se ​za ozemlje"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Brez oglasov in nakupov v igri"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Vi odločate. Kolonija gradi"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Naj bo kolonija ​sita"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 zemljevidov ali naključni"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Izberite, kam se širiti"
+    }
+   },
+   "listing": {
+    "file": "sl-SI/listing.json",
+    "sha256": "e77109a1f192a15fd55bee56ed0a4e8109b962ee18e2fc47325143cf8c087d88"
+   }
+  },
+  {
+   "locale": "hi",
+   "store_locale": "hi",
+   "folder": "hi",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "67f225f4537f62315327d2ae08f459f32dd944869f21e0fe863d1ddfb63928f4",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "hi/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hi/01-hero-1320x2868.png", "sha256": "8a3badcd6d682bf31f6b46736f5c07cffe05ec7dcb1dc8d1b2a9b6d29a1633d5", "bytes": 4657252},
+      {"upload_order": 2, "role": "battle", "file": "hi/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hi/02-battle-1320x2868.png", "sha256": "6f61b27f33763e1b77845354e90b4f5008489020e44d51693eb0d43e7e0d83bb", "bytes": 3709502},
+      {"upload_order": 3, "role": "fair_deal", "file": "hi/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hi/03-fair_deal-1320x2868.png", "sha256": "8c83ad0a83f7753e2d8a79b380e7b3adf63b4391ab45a97027753aa4f1c2ecf5", "bytes": 4007483},
+      {"upload_order": 4, "role": "build", "file": "hi/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hi/04-build-1320x2868.png", "sha256": "df40b8401df4c3a60972e24488005a5c8fcfeca1925e8665d153bcea7b350c91", "bytes": 4007483},
+      {"upload_order": 5, "role": "economy", "file": "hi/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hi/05-economy-1320x2868.png", "sha256": "8d4a960bd2cc693a3091609458465a524cb1e87fe260832f7268731cc0555255", "bytes": 4056942},
+      {"upload_order": 6, "role": "maps", "file": "hi/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/hi/06-maps-1320x2868.png", "sha256": "09a729c40da7f1cddaceceece589745a87168c8f7d9ce00e5d6dab37f02fd539", "bytes": 4059988}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "643092aecad70a70de8515b732f6f367dda7bb79010e9479f3f27a8aa422691a",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "hi/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/hi/01-hero-2064x2752.png", "sha256": "680870cd846619375474bad88b68811cc13235a9d367dfc96a26af543e7dd00d", "bytes": 7257968},
+      {"upload_order": 2, "role": "battle", "file": "hi/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/hi/02-battle-2064x2752.png", "sha256": "54ed760c162ce7cf69a9574c16cc480cb080ecc554a66c3081fc41262ee427a3", "bytes": 5715915},
+      {"upload_order": 3, "role": "fair_deal", "file": "hi/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/hi/03-fair_deal-2064x2752.png", "sha256": "f76810a1b3ae607b019f6af7ba929c81e5a012204c99e43f64e832c8148da9f2", "bytes": 6732115},
+      {"upload_order": 4, "role": "build", "file": "hi/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/hi/04-build-2064x2752.png", "sha256": "83b8bde45d5b5cd784be1703a6a5fd36a7408332c610ab57598912dda002c14b", "bytes": 6591987},
+      {"upload_order": 5, "role": "economy", "file": "hi/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/hi/05-economy-2064x2752.png", "sha256": "979cb0599e9e050af989789643a8cbd0ae12c47d4ccf424838e357834343d9e1", "bytes": 6558072},
+      {"upload_order": 6, "role": "territory", "file": "hi/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/hi/06-territory-2064x2752.png", "sha256": "0e848c9de2cd444db9d9a7b6fcdc1565dbf30d600a5433b98b233098f8a38262", "bytes": 5962464},
+      {"upload_order": 7, "role": "maps", "file": "hi/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/hi/07-maps-2064x2752.png", "sha256": "9fa70bdb94db77b34af3824aa4d7c6479b117d43b4b68762207aa1735ac541a9", "bytes": 6373946}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "रियल-टाइम कॉलोनी रणनीति"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "ज़मीन के लिए लड़ें"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "न विज्ञापन, न इन-ऐप ख़रीदारी"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "आप तय करें। श्रमिक बनाएँगे"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "कॉलोनी को भूखा न रहने दें"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 नक्शे, या रैंडम नक्शे"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "चुनें, कहाँ फैलना है"
+    }
+   },
+   "listing": {
+    "file": "hi/listing.json",
+    "sha256": "67411f9385de6179c4be99b0063a47975736c197079ae9ed87914cf1b58c4c35"
+   }
+  },
+  {
+   "locale": "ur",
+   "store_locale": "ur-PK",
+   "folder": "ur-PK",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "5e470c43922070b949e223e1b0d55cf183f24dc80b6dc472f8112a73d458db59",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ur-PK/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ur/01-hero-1320x2868.png", "sha256": "7027937bb62709b846c8cc90d8e5faca2f446836dd49455687116350a0c7ee27", "bytes": 4663090},
+      {"upload_order": 2, "role": "battle", "file": "ur-PK/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ur/02-battle-1320x2868.png", "sha256": "a2e8b3204e702554f1a723cb9af4c64983299dcec09eebe33614436641177083", "bytes": 3719650},
+      {"upload_order": 3, "role": "fair_deal", "file": "ur-PK/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ur/03-fair_deal-1320x2868.png", "sha256": "c6b2a0bb14ad6bd84dfe1fe4280f300622cfb833b5732309e44942ef82e060f5", "bytes": 4012104},
+      {"upload_order": 4, "role": "build", "file": "ur-PK/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ur/04-build-1320x2868.png", "sha256": "1c942118d4b516c491670b25e5d1b111315d6846ca0dfc8e739bee9e493d65bc", "bytes": 4014265},
+      {"upload_order": 5, "role": "economy", "file": "ur-PK/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ur/05-economy-1320x2868.png", "sha256": "f291548c529f1b250fa1e20465cbad72e6cb87938189bdab49a687a6b9fbb75d", "bytes": 4053068},
+      {"upload_order": 6, "role": "maps", "file": "ur-PK/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ur/06-maps-1320x2868.png", "sha256": "f52fb0aebb1b612cedafe56157a7b78c7371acf49d27ba1a04e13c0e6193ede7", "bytes": 4063788}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "090f55f64d63a0c09b4ecdb9aaa4f6c895cd4230d64f0dacded40c852231236a",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ur-PK/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ur/01-hero-2064x2752.png", "sha256": "cffbc7ba377db9ac02263484ab68e80bd64d82449b9d0496c8286bc9e073a981", "bytes": 7285145},
+      {"upload_order": 2, "role": "battle", "file": "ur-PK/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ur/02-battle-2064x2752.png", "sha256": "9285a63608870b9f03b98a6df619197ecfc29f0bdc36690d526a2ac80bc08cce", "bytes": 5730746},
+      {"upload_order": 3, "role": "fair_deal", "file": "ur-PK/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/ur/03-fair_deal-2064x2752.png", "sha256": "256516623e46c08d2476fb3659f2d49c5b6e815f5811947e5f29d88a25d7237e", "bytes": 6739516},
+      {"upload_order": 4, "role": "build", "file": "ur-PK/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/ur/04-build-2064x2752.png", "sha256": "ef28637e0eef531a14e6907f9f2c54664d59493d6c0fcf4c55b24a57698ede2f", "bytes": 6622030},
+      {"upload_order": 5, "role": "economy", "file": "ur-PK/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/ur/05-economy-2064x2752.png", "sha256": "53684e30299425fdf043b0ea5804ddb5301837cb81a772c070261fb4aa5331a6", "bytes": 6575427},
+      {"upload_order": 6, "role": "territory", "file": "ur-PK/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/ur/06-territory-2064x2752.png", "sha256": "fe4e7f8e2a0c2edb77f592acf9b95fad5a4c6a489fccfb20133f281e015d04c5", "bytes": 5989033},
+      {"upload_order": 7, "role": "maps", "file": "ur-PK/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/ur/07-maps-2064x2752.png", "sha256": "d47940a634e67ef744a5f2a6ceceee7b5b7e92ba313961bc0d53000bfed2fe0a", "bytes": 6400320}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "بستی بسانے کا RTS کھیل"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "زمین کے لیے لڑیں"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "نہ اشتہار، نہ ایپ میں خرید"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "فیصلہ آپ کا، تعمیر ان کی"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "بستی کو کھلاتے رہیں"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 نقشے، یا اتفاقی نقشے"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "چنیں کہ کہاں پھیلنا ہے"
+    }
+   },
+   "listing": {
+    "file": "ur-PK/listing.json",
+    "sha256": "3313f5f7c7205e0ffaf7176b9abe835fe8148112ede998dc2ce93d305b3e6045"
+   }
+  },
+  {
+   "locale": "bn",
+   "store_locale": "bn-BD",
+   "folder": "bn-BD",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "2a72fd11b733334b02e70643c721bbf5b4b4980e9b082d395deeda110e2e7025",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "bn-BD/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/bn/01-hero-1320x2868.png", "sha256": "185aec9a9ca8a7a1b6dcc7fe2f7163e616938be54b6a3a333cafccfe64aa6782", "bytes": 4674893},
+      {"upload_order": 2, "role": "battle", "file": "bn-BD/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/bn/02-battle-1320x2868.png", "sha256": "7c5ad4bf6adc94fc06f0a723e82a6120df0bf27da9ec630de212191953ab6b45", "bytes": 3710816},
+      {"upload_order": 3, "role": "fair_deal", "file": "bn-BD/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/bn/03-fair_deal-1320x2868.png", "sha256": "fdb1dd8a467ea363429a0d9966f1d2ecc469dd401e0ea8720b7ff9cebffb1f7e", "bytes": 4020841},
+      {"upload_order": 4, "role": "build", "file": "bn-BD/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/bn/04-build-1320x2868.png", "sha256": "48d5c95778fac2c278f05e2b52b62f583259fde9a80ad5393d4363d5a63f839c", "bytes": 4014068},
+      {"upload_order": 5, "role": "economy", "file": "bn-BD/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/bn/05-economy-1320x2868.png", "sha256": "9795e3764fb0b097eb8b86e9cd48b43bf69cb4261cf9a46f4c2448a4f3c74809", "bytes": 4064870},
+      {"upload_order": 6, "role": "maps", "file": "bn-BD/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/bn/06-maps-1320x2868.png", "sha256": "0d380b09646fc7ae7e19b7d150992184f6520f1cf05854e22185c2ac7e691639", "bytes": 4065722}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "d7707e9ee0d78fa58343a5662d6014c0cef07cf209da9a3106afe01ab98212f9",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "bn-BD/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/bn/01-hero-2064x2752.png", "sha256": "9aeea4c7744fb15221e485524111093704480e69700823ec18fb9fd74002e4c0", "bytes": 7289774},
+      {"upload_order": 2, "role": "battle", "file": "bn-BD/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/bn/02-battle-2064x2752.png", "sha256": "455311c4369aeffa37a8281a308668ca91adb0086115ffbee1e318231d4ac769", "bytes": 5716624},
+      {"upload_order": 3, "role": "fair_deal", "file": "bn-BD/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/bn/03-fair_deal-2064x2752.png", "sha256": "45b509b7772ed249e8c3582650339d8bb36b46df7119aaa93838828778455d36", "bytes": 6746730},
+      {"upload_order": 4, "role": "build", "file": "bn-BD/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/bn/04-build-2064x2752.png", "sha256": "7c0bb893c9ce20c862bfc6039077b545f2cbe465cbb6e09bfb58371323ffebbd", "bytes": 6619388},
+      {"upload_order": 5, "role": "economy", "file": "bn-BD/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/bn/05-economy-2064x2752.png", "sha256": "89329c459e0464589a0eead20b8b6b5a1541b52e4eff5479cf57ed5105584eba", "bytes": 6583609},
+      {"upload_order": 6, "role": "territory", "file": "bn-BD/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/bn/06-territory-2064x2752.png", "sha256": "9357328584b5e53bbabf8f25a8a0d23979696d5de0c852b7239d89d8babc99d6", "bytes": 5969557},
+      {"upload_order": 7, "role": "maps", "file": "bn-BD/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/bn/07-maps-2064x2752.png", "sha256": "4aef026591d3dd348f5f50c59dcbcdb951d1a8a9f7f99e407f742e5c685074f6", "bytes": 6397982}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "রিয়েল-টাইম উপনিবেশ স্ট্র্যাটেজি"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "জমির জন্য লড়ুন"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "বিজ্ঞাপন নেই। ইন-অ্যাপ কেনা নেই"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "সিদ্ধান্ত আপনার। গড়বে ওরা।"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "উপনিবেশের খাবার জুগিয়ে যান"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "২৩টি মানচিত্র, বা র‍্যান্ডম মানচিত্র"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "বিস্তারের জায়গা বেছে নিন"
+    }
+   },
+   "listing": {
+    "file": "bn-BD/listing.json",
+    "sha256": "c2a187ea9815e6b8a7e40e6655860211381659d57820823ec774700f7c34492b"
+   }
+  },
+  {
+   "locale": "nb",
+   "store_locale": "no",
+   "folder": "no",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "e326d989dc9e16265ad5b27707ee871e6a1c60cb2ccfa2bb26a59db41bf24b60",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "no/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nb/01-hero-1320x2868.png", "sha256": "61728ad23ffc95a0f1763321cc0819b6443d0a75e89123cba12f046f35586edf", "bytes": 4657943},
+      {"upload_order": 2, "role": "battle", "file": "no/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nb/02-battle-1320x2868.png", "sha256": "15753c66c72167dd6557e56f75b4e0308fc3f6a63b8c39d8fb3882460f7546cf", "bytes": 3721417},
+      {"upload_order": 3, "role": "fair_deal", "file": "no/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nb/03-fair_deal-1320x2868.png", "sha256": "a428deaffe2a74c53805dbdebe621ba069836745282dd28a391e3a001f71447d", "bytes": 4014379},
+      {"upload_order": 4, "role": "build", "file": "no/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nb/04-build-1320x2868.png", "sha256": "6f554944c7cc7711775a9c197caf57c2273a24b8a036204a84ac89c2976338c5", "bytes": 4012935},
+      {"upload_order": 5, "role": "economy", "file": "no/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nb/05-economy-1320x2868.png", "sha256": "2f5984c89800410b83850f513d59fab6fd7b8d1714b8047556a508a664f06195", "bytes": 4043060},
+      {"upload_order": 6, "role": "maps", "file": "no/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/nb/06-maps-1320x2868.png", "sha256": "bd64bef24af6ac3b5abad1766a1ff7b95cae57333b0eec631c591d1853ed53d9", "bytes": 4057805}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "c15dec20ef3ec0d7290445d4f44025dbe769d49c56857eb7e358675356720b43",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "no/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/nb/01-hero-2064x2752.png", "sha256": "39df75fb016dcb9c11f1f840b8ed1a6896f9c426194c769ba181613d3ab8838b", "bytes": 7280421},
+      {"upload_order": 2, "role": "battle", "file": "no/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/nb/02-battle-2064x2752.png", "sha256": "6aef034ee073005b5c733904db2052b5fb15ef878c35d20a72a1ba33284e2c9a", "bytes": 5734430},
+      {"upload_order": 3, "role": "fair_deal", "file": "no/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/nb/03-fair_deal-2064x2752.png", "sha256": "9ff645a3b9f32e3b867b7527b4a73b06ebbafbb4a2be0208b63b310e75e44e5a", "bytes": 6746228},
+      {"upload_order": 4, "role": "build", "file": "no/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/nb/04-build-2064x2752.png", "sha256": "db8b613886c9a0bfa377f8f7e7455cb5e989c116e4a50d9135fb1466c946944c", "bytes": 6619027},
+      {"upload_order": 5, "role": "economy", "file": "no/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/nb/05-economy-2064x2752.png", "sha256": "681cae5ebc49d67ea38c8ae7697cd04fd362cc6184b46f802413f71285e085c9", "bytes": 6549691},
+      {"upload_order": 6, "role": "territory", "file": "no/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/nb/06-territory-2064x2752.png", "sha256": "c71a88ed958ea00da3bd14067836a6f0c4f208b3c5c9e05dd4797d8a240c9326", "bytes": 5982219},
+      {"upload_order": 7, "role": "maps", "file": "no/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/nb/07-maps-2064x2752.png", "sha256": "d21753e2e87af4ba5aa84668b645f0301018b35c208c230aad732bcff4c43609", "bytes": 6388996}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Kolonistrategi i sanntid"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Kjemp om territoriet"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Uten reklame. Uten kjøp i appen"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Du bestemmer. De bygger."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Hold kolonien mett"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 kart, eller tilfeldige"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Velg hvor du vil utvide"
+    }
+   },
+   "listing": {
+    "file": "no/listing.json",
+    "sha256": "5f38616b1057d6789ea01ddd620ea4a08e7403ace560b34d8e16b033ed432744"
+   }
+  },
+  {
+   "locale": "ms",
+   "store_locale": "ms",
+   "folder": "ms",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "6c298ad004b9d23cba6aa7e94b03e3f77aa6592b4b67cb8efd1038211336580a",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ms/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ms/01-hero-1320x2868.png", "sha256": "19a6cc5cf732ca1caf1ead8f2a8972600ab663db8a7c072b0579e8f00ec5ce06", "bytes": 4662018},
+      {"upload_order": 2, "role": "battle", "file": "ms/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ms/02-battle-1320x2868.png", "sha256": "5df7c1c10e5a118922e781335c58ba09c2aa1a760264f40b4c223d79f4bebfde", "bytes": 3726837},
+      {"upload_order": 3, "role": "fair_deal", "file": "ms/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ms/03-fair_deal-1320x2868.png", "sha256": "94ab5a583bbccbde08faea7e9bc1cb93805806b287e937f8354bb69760788257", "bytes": 4009272},
+      {"upload_order": 4, "role": "build", "file": "ms/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ms/04-build-1320x2868.png", "sha256": "ed45635df5f339366155eb088afc70308008efdb358e94d054fa8d41f50eff71", "bytes": 4008126},
+      {"upload_order": 5, "role": "economy", "file": "ms/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ms/05-economy-1320x2868.png", "sha256": "36391600f279256234fd47ae616c882784ae420174c60a5ada8a7cccfbb4c3ca", "bytes": 4053668},
+      {"upload_order": 6, "role": "maps", "file": "ms/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ms/06-maps-1320x2868.png", "sha256": "7a8c84c12e6547dd876cf73423ba5847e95360c989e9792ded2a10d245f25701", "bytes": 4063080}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "b81bbaa6ab6e2ce1d1d5224674635e1114ca43239402f400138e8aa3a182fa1a",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ms/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ms/01-hero-2064x2752.png", "sha256": "e29b7528e080a50dcb80653c1e5b5c7defa3521af2ae5b72a08bd6ac36f488aa", "bytes": 7279476},
+      {"upload_order": 2, "role": "battle", "file": "ms/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ms/02-battle-2064x2752.png", "sha256": "1c1edc92e6d3cf5811cdb471aa71bfccb7fa6d98cca92ce289eb715db8799c81", "bytes": 5737626},
+      {"upload_order": 3, "role": "fair_deal", "file": "ms/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/ms/03-fair_deal-2064x2752.png", "sha256": "1cf5b7b4bb9f09ae0c98be363cd61490f83fe79fdd288da1af8e14927e6a2bbe", "bytes": 6740155},
+      {"upload_order": 4, "role": "build", "file": "ms/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/ms/04-build-2064x2752.png", "sha256": "07f4d704dd5c85ceaf7d9f173ed13ba57663de20822fc60c034c10cd77918bd7", "bytes": 6614515},
+      {"upload_order": 5, "role": "economy", "file": "ms/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/ms/05-economy-2064x2752.png", "sha256": "6251277395e562d40aa29b3dbd527d7a0c1f874bfb6b9e46f1a20b2484354b85", "bytes": 6575788},
+      {"upload_order": 6, "role": "territory", "file": "ms/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/ms/06-territory-2064x2752.png", "sha256": "e04fa48a28999363cfa6c405df03c434d1e53ca205492eaafd8a9f1a84d09213", "bytes": 5956644},
+      {"upload_order": 7, "role": "maps", "file": "ms/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/ms/07-maps-2064x2752.png", "sha256": "7ee1b9f15a6b66a7ff1c15e8c58d6c51e00448328794d551993af5028418d7d6", "bytes": 6394936}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Strategi koloni masa nyata"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Bertempur merebut wilayah"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Tiada iklan, tiada belian dalam apl"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Anda tentukan. Mereka bina."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Pastikan koloni cukup makan"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 peta, atau peta rawak"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Pilih arah perluasan"
+    }
+   },
+   "listing": {
+    "file": "ms/listing.json",
+    "sha256": "105cbe000731df337a890dde47b8a1cc4e5d9deb6e32ce7c95939b02113411e8"
+   }
+  },
+  {
+   "locale": "mr",
+   "store_locale": "mr-IN",
+   "folder": "mr-IN",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "201e4562e2f284dec25ffd6e5b727e3f48c66723074c7a8e6c3025a80e9c4798",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "mr-IN/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/mr/01-hero-1320x2868.png", "sha256": "5ced1f86ba0cf66f354d1b3a0b7853e079eac1becbe25278f7e43efcee504172", "bytes": 4658548},
+      {"upload_order": 2, "role": "battle", "file": "mr-IN/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/mr/02-battle-1320x2868.png", "sha256": "875802cf94db13f001672663629af33c3ab185a2d0f66b6819552df9251432d4", "bytes": 3703581},
+      {"upload_order": 3, "role": "fair_deal", "file": "mr-IN/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/mr/03-fair_deal-1320x2868.png", "sha256": "a49ab053015dc697abff19a68920bc0de907ec61397adaeb456c574bb7cb3e8f", "bytes": 4011513},
+      {"upload_order": 4, "role": "build", "file": "mr-IN/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/mr/04-build-1320x2868.png", "sha256": "c83057f1bd46544459175e50b0a59c58de53c21fd41e69cda879a89a5ee757ab", "bytes": 4007666},
+      {"upload_order": 5, "role": "economy", "file": "mr-IN/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/mr/05-economy-1320x2868.png", "sha256": "d3dd09b3b4df1e77929aee9b775f2485bba603ade2186ac001190120ced65563", "bytes": 4048942},
+      {"upload_order": 6, "role": "maps", "file": "mr-IN/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/mr/06-maps-1320x2868.png", "sha256": "87f1b05494f90073b42a60c1b625f9f98d0fb51aad86a36b9626d9fc50e38316", "bytes": 4061928}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "63081363bea4fe9f04c1c0897400a34f0a9c2c35ebf2b82ce60c8c01a81f94cc",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "mr-IN/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/mr/01-hero-2064x2752.png", "sha256": "c9bd311a108f62c5931232a5f8e0ef42678d10056bfcc3fe9d1c28f619348f9c", "bytes": 7277420},
+      {"upload_order": 2, "role": "battle", "file": "mr-IN/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/mr/02-battle-2064x2752.png", "sha256": "c64c2f7795eb93b83cc2b79e496a3eb92b83f5c553f475676018ed9435eee572", "bytes": 5711670},
+      {"upload_order": 3, "role": "fair_deal", "file": "mr-IN/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/mr/03-fair_deal-2064x2752.png", "sha256": "eed4400bf8e6ed0a508619d12ecb579c8e0e82817db1ab6a01c53e1f495443fd", "bytes": 6739413},
+      {"upload_order": 4, "role": "build", "file": "mr-IN/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/mr/04-build-2064x2752.png", "sha256": "2ae9207e885c159bfd502be45ea742c59c97e73e42b2848cdd4847bdf0150bd2", "bytes": 6594820},
+      {"upload_order": 5, "role": "economy", "file": "mr-IN/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/mr/05-economy-2064x2752.png", "sha256": "988c74c404a825949d42200f0394c91a3cef49146d18ddcbeb87f3560114f699", "bytes": 6551385},
+      {"upload_order": 6, "role": "territory", "file": "mr-IN/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/mr/06-territory-2064x2752.png", "sha256": "c9ea78485941a677d2b8a0340d27606fbadee0939d0b72acbf711791e71ebb40", "bytes": 5961530},
+      {"upload_order": 7, "role": "maps", "file": "mr-IN/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/mr/07-maps-2064x2752.png", "sha256": "2144585e2613d5b1c22e6288593ac1356dc160a424980b8fd6dbf0036f610071", "bytes": 6391312}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "वसाहतीची रिअल-टाइम रणनीती"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "जमिनीसाठी लढा"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "ना जाहिराती, ना ॲपमधील खरेदी"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "तुम्ही ठरवा. कामगार बांधतील"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "वसाहतीला अन्न पुरवत राहा"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 नकाशे, किंवा यादृच्छिक नकाशे"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "विस्तार कुठे करायचा ते ठरवा"
+    }
+   },
+   "listing": {
+    "file": "mr-IN/listing.json",
+    "sha256": "fc87baa40591ddf2312d1ece461512a8a504dcd1a405670835738e6f7b925ba9"
+   }
+  },
+  {
+   "locale": "ta",
+   "store_locale": "ta-IN",
+   "folder": "ta-IN",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "63b0e6a082bb2a672be7669dd4e6dd8a0ddd81bcd0f713c2c8e2b2f4c21b9011",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ta-IN/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ta/01-hero-1320x2868.png", "sha256": "74399e78d338741f69944361a9902d911890e93e3427de8aff36e9f2593395fc", "bytes": 4670205},
+      {"upload_order": 2, "role": "battle", "file": "ta-IN/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ta/02-battle-1320x2868.png", "sha256": "2767f46dc15a350038cf7436edfc5b491ac4da3e49a012a4cd22720a75b503f6", "bytes": 3730589},
+      {"upload_order": 3, "role": "fair_deal", "file": "ta-IN/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ta/03-fair_deal-1320x2868.png", "sha256": "a590e6af7eaf8efb06137ddc0eba27cd02d58aa90e06aa590251575a908c475e", "bytes": 4026470},
+      {"upload_order": 4, "role": "build", "file": "ta-IN/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ta/04-build-1320x2868.png", "sha256": "4bd12dc80cff5778c06d1712a7df3902ff7c31cdd9fdb8c591ab6115b18ef125", "bytes": 4015276},
+      {"upload_order": 5, "role": "economy", "file": "ta-IN/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ta/05-economy-1320x2868.png", "sha256": "7f6936846b200551c876624c8f5ef1ea578e5af13a3991c85a559ce7919976ac", "bytes": 4064141},
+      {"upload_order": 6, "role": "maps", "file": "ta-IN/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/ta/06-maps-1320x2868.png", "sha256": "3312eb44b6a4b815cd930471cc840f449f25e8d02bde79c4e215b7bd15daafa0", "bytes": 4069587}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "1806f8800916c92a71b131872e69e623adc22489e7d5b3a655a8d9316de42f15",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "ta-IN/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/ta/01-hero-2064x2752.png", "sha256": "724bb8f0924abbada25972b2a23d25cd102b72e61c07d8493b7b182644b67ff2", "bytes": 7290498},
+      {"upload_order": 2, "role": "battle", "file": "ta-IN/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/ta/02-battle-2064x2752.png", "sha256": "63f2c8d784b1eb87e00e2a27b5434928f22c727014620207214bc31f7c01fd03", "bytes": 5744719},
+      {"upload_order": 3, "role": "fair_deal", "file": "ta-IN/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/ta/03-fair_deal-2064x2752.png", "sha256": "9d703b53365a03c2f866c4c90b024788bea05cd96b89480aa24b5b15feef3b0b", "bytes": 6757651},
+      {"upload_order": 4, "role": "build", "file": "ta-IN/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/ta/04-build-2064x2752.png", "sha256": "fc9ef05c9abde983d76ccfc7e99423ce87487797c92c3003d59fa608c5918384", "bytes": 6621661},
+      {"upload_order": 5, "role": "economy", "file": "ta-IN/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/ta/05-economy-2064x2752.png", "sha256": "fb7a2a758d2b26dfbacea5e02437a556a35819d855fe6013074fbbc6a0e3c2e9", "bytes": 6585124},
+      {"upload_order": 6, "role": "territory", "file": "ta-IN/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/ta/06-territory-2064x2752.png", "sha256": "45915275a260b193339baf1925e4d201ba5c680754e9de8b8af786229a6fc52a", "bytes": 5992089},
+      {"upload_order": 7, "role": "maps", "file": "ta-IN/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/ta/07-maps-2064x2752.png", "sha256": "19f9a03c8ea616ae98034b17329a2f16eedb9102886e1840bf93c381d12736f7", "bytes": 6403965}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "நிகழ்நேரக் குடியிருப்பு உத்தி"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "நிலத்துக்காகப் போரிடுங்கள்"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "ஆப்பில் வாங்கல், விளம்பரம் இல்லை"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "முடிவு உங்களது. கட்டுவது அவை"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "குடியிருப்புக்கு உணவிடுங்கள்"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 வரைபடங்கள், அல்லது சீரற்றது"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "எங்கு விரிவது? உங்கள் தேர்வு"
+    }
+   },
+   "listing": {
+    "file": "ta-IN/listing.json",
+    "sha256": "343f034eeaa0abaa9a7a6453aa266729539f674908e3a80695acf14c34b169db"
+   }
+  },
+  {
+   "locale": "te",
+   "store_locale": "te-IN",
+   "folder": "te-IN",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "ac38b873aab11b9e55ef7a679ed6003518b6b20de644e9a33928bbf729932720",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "te-IN/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/te/01-hero-1320x2868.png", "sha256": "29ef66d17d7f791256a8107660b309dab3f1de7e199b40f95ef795bbf40372b0", "bytes": 4679001},
+      {"upload_order": 2, "role": "battle", "file": "te-IN/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/te/02-battle-1320x2868.png", "sha256": "3ee68176110f6d0bb6ea656013834cf9922b16f216966fe32ac2aeb1960588b5", "bytes": 3732737},
+      {"upload_order": 3, "role": "fair_deal", "file": "te-IN/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/te/03-fair_deal-1320x2868.png", "sha256": "4f64ba65dbfbb18a9bae9294ad4c29d05be8174bf4b9042f6ac884b3bccfa5cb", "bytes": 4038629},
+      {"upload_order": 4, "role": "build", "file": "te-IN/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/te/04-build-1320x2868.png", "sha256": "1c410ac0c0f7a0cd4a0deb881bad4b424612702d6b69a6d7cfa67007f4f09c7d", "bytes": 4028850},
+      {"upload_order": 5, "role": "economy", "file": "te-IN/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/te/05-economy-1320x2868.png", "sha256": "4128663d0aaa67623f533b8f7fb783c27fdafb0e48f98efc53bea9bcb8fecc91", "bytes": 4062045},
+      {"upload_order": 6, "role": "maps", "file": "te-IN/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/te/06-maps-1320x2868.png", "sha256": "f799fe9c130c8940bd1393417cb6cd6b285d13e5805c6bd29149985c04532f80", "bytes": 4084116}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "d81e42f6196884ce275799e24bb5a239c3f5b667097ce49f49ecb94005232347",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "te-IN/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/te/01-hero-2064x2752.png", "sha256": "41ad056833f740467e8d1831974f5dbc18b867c2ef606692e1ec5df205c1d4b9", "bytes": 7280560},
+      {"upload_order": 2, "role": "battle", "file": "te-IN/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/te/02-battle-2064x2752.png", "sha256": "8b44f54fed8fab6640d2c89aaee9d7a46ec0f2bcb51eb8c98a44302e495ff157", "bytes": 5731721},
+      {"upload_order": 3, "role": "fair_deal", "file": "te-IN/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/te/03-fair_deal-2064x2752.png", "sha256": "d1994f4f34b0b34b6ba2a713fc2ded61923595bdd71e356fba66a724e9aa1de6", "bytes": 6762961},
+      {"upload_order": 4, "role": "build", "file": "te-IN/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/te/04-build-2064x2752.png", "sha256": "30f555e038c34f2084b958d9f13b70e989fc6dd368402b54c6b1b783dce6ddea", "bytes": 6618217},
+      {"upload_order": 5, "role": "economy", "file": "te-IN/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/te/05-economy-2064x2752.png", "sha256": "fff267a7c114c4476019540167d932a60528864467b20ce0d3c6183f5004c428", "bytes": 6567137},
+      {"upload_order": 6, "role": "territory", "file": "te-IN/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/te/06-territory-2064x2752.png", "sha256": "0e6646e144969c418df95f220bea4446d9a0fc49eca74c993cbf5d6bca5f37b3", "bytes": 5992206},
+      {"upload_order": 7, "role": "maps", "file": "te-IN/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/te/07-maps-2064x2752.png", "sha256": "d364f4b8ba048269b55bf1eeb1f90f9ae03a4e6b9ebc3dbd03f73969842def06", "bytes": 6413676}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "రియల్-టైమ్ కాలనీ స్ట్రాటజీ"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "భూమి కోసం పోరాడండి"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "యాడ్స్ లేవు. గేమ్లో కొనుగోళ్లు లేవు"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "నిర్ణయం మీది. కట్టేది కాలనీ"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "కాలనీ ఆకలి తీర్చండి"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 మ్యాప్‌లు, రాండమ్ మ్యాప్‌లూ"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "ఎటు విస్తరించాలో ఎంచుకోండి"
+    }
+   },
+   "listing": {
+    "file": "te-IN/listing.json",
+    "sha256": "9b926b2aafe9029012066da04142781dcde50c2f23cad2659403c0c879c1b575"
+   }
+  },
+  {
+   "locale": "th",
+   "store_locale": "th",
+   "folder": "th",
+   "sets": {
+    "iphone-6.9": {
+     "render_set": "apple-iphone-6.9",
+     "render_manifest_sha256": "410705db82c826eef5a90dcf58bf62b3ef26cf07b2dcad8195e06de91b220ad5",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "th/iphone-6.9/01-hero-1320x2868.png", "link_to": "renders:apple-iphone-6.9/th/01-hero-1320x2868.png", "sha256": "ed7d2871ec5dfeb04918612787f2732411345d0e06030c792388a2dfa361dc34", "bytes": 4659420},
+      {"upload_order": 2, "role": "battle", "file": "th/iphone-6.9/02-battle-1320x2868.png", "link_to": "renders:apple-iphone-6.9/th/02-battle-1320x2868.png", "sha256": "c481fd67432289b2a6eed5cfc874027476fdc52fd03b56eb26c6d59819b003af", "bytes": 3713718},
+      {"upload_order": 3, "role": "fair_deal", "file": "th/iphone-6.9/03-fair_deal-1320x2868.png", "link_to": "renders:apple-iphone-6.9/th/03-fair_deal-1320x2868.png", "sha256": "d9fdf1a61c6b4ea9f868cc9020252f6fdc719e368ebb923960c50c8798ea8cdc", "bytes": 4012981},
+      {"upload_order": 4, "role": "build", "file": "th/iphone-6.9/04-build-1320x2868.png", "link_to": "renders:apple-iphone-6.9/th/04-build-1320x2868.png", "sha256": "4773adad1c9113034d92533e64b41b5def718c97c39cb0236d04b4c4bfe8064a", "bytes": 4015411},
+      {"upload_order": 5, "role": "economy", "file": "th/iphone-6.9/05-economy-1320x2868.png", "link_to": "renders:apple-iphone-6.9/th/05-economy-1320x2868.png", "sha256": "cc696fece0b7bf0bad2a2e55e847148064c368cc05fd9e334eba33b0bbcbdb69", "bytes": 4056722},
+      {"upload_order": 6, "role": "maps", "file": "th/iphone-6.9/06-maps-1320x2868.png", "link_to": "renders:apple-iphone-6.9/th/06-maps-1320x2868.png", "sha256": "b7cf5ee4294016ef269e925b19af19f432213450127c779fb8e2a7f9ef593b02", "bytes": 4066421}
+     ]
+    },
+    "ipad-13": {
+     "render_set": "apple-ipad-13",
+     "render_manifest_sha256": "c3b4d52ab3e90617d33eba4a0985efaf8b312f8a7e77cb1e77125367abf3d641",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "th/ipad-13/01-hero-2064x2752.png", "link_to": "renders:apple-ipad-13/th/01-hero-2064x2752.png", "sha256": "ce239023dc3a47bef32046d912f26c60b6a8f57bc2564cb8498943f22c19251c", "bytes": 7275770},
+      {"upload_order": 2, "role": "battle", "file": "th/ipad-13/02-battle-2064x2752.png", "link_to": "renders:apple-ipad-13/th/02-battle-2064x2752.png", "sha256": "ca62549cfa59d9867223e540585a0dc0fd332b8df714b1873c9d2dbbf03071b7", "bytes": 5716764},
+      {"upload_order": 3, "role": "fair_deal", "file": "th/ipad-13/03-fair_deal-2064x2752.png", "link_to": "renders:apple-ipad-13/th/03-fair_deal-2064x2752.png", "sha256": "ecba31f015fd1597d95adefa71c52b7308756104a6bb5724c61a96aa3780a587", "bytes": 6740801},
+      {"upload_order": 4, "role": "build", "file": "th/ipad-13/04-build-2064x2752.png", "link_to": "renders:apple-ipad-13/th/04-build-2064x2752.png", "sha256": "378d368ce054342884c1013ec6d61d116e428aed3960a365fef269cd994a216e", "bytes": 6616830},
+      {"upload_order": 5, "role": "economy", "file": "th/ipad-13/05-economy-2064x2752.png", "link_to": "renders:apple-ipad-13/th/05-economy-2064x2752.png", "sha256": "8cb478d8c310a3ec4d5f91fab50597c29650de0d0d22374135fa4746bd2566dd", "bytes": 6561383},
+      {"upload_order": 6, "role": "territory", "file": "th/ipad-13/06-territory-2064x2752.png", "link_to": "renders:apple-ipad-13/th/06-territory-2064x2752.png", "sha256": "ab8023884afb0cd5c369b52a56e6f1118474d079316cdec90e84ee91f8160921", "bytes": 5963604},
+      {"upload_order": 7, "role": "maps", "file": "th/ipad-13/07-maps-2064x2752.png", "link_to": "renders:apple-ipad-13/th/07-maps-2064x2752.png", "sha256": "2259b5374888ebd2e9f83e14c0183552c638e3290b898453db897e768ad72cca", "bytes": 6387417}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "เกมวางแผน​อาณานิคมเรียลไทม์"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "สู้เพื่อชิงดินแดน"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "ไม่มีโฆษณา ไม่มีการซื้อในแอป"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "คุณตัดสินใจ คนงานลงมือสร้าง"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "เลี้ยงอาณานิคม​ให้อิ่มท้อง"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "แผนที่ 23 แบบ​หรือแผนที่สุ่ม"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "เลือกว่า​จะขยายไปทางไหน"
+    }
+   },
+   "listing": {
+    "file": "th/listing.json",
+    "sha256": "b8c1dbec3ffe3b84c9d2aff1fe2c5cee50dc7b03ba689721672e1cbeb2636ed3"
+   }
+  }
+ ],
+ "assets": [],
+ "blocked": [],
+ "pending": [],
+ "errors": [],
+ "not_packaged": [
+  "App icon: the 1024x1024 icon comes from the build's asset catalog (icon/icon-1024.png is that file).",
+  "App previews: wait for the trailer's 15-30 second cut captured on each device family."
+ ],
+ "unverified": [
+  "Apple's per-file byte limit for screenshots is not recorded in this project; 8 MB is the renderer's ceiling."
+ ],
+ "notes": []
+}

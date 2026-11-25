@@ -1,0 +1,516 @@
+{
+ "generated_by": "assets/storefront-v2/tools/screenshots.py",
+ "tool": {
+  "screenshots.py": "1de8a95d3d747d45de9edbbf7354dc61054066e7396ac7211e6fe437ffce6d21",
+  "caption.html": "277570196f62add3a704177b089b6126dc11b1765753195378d7a521be146a95",
+  "gallery.json": "7f4e60277667c5dbf38e55c20231a6bdfa9d61d2f0d5776e3117185f04f9da11",
+  "fonts.json": "9344863fb6ad5a5d4d4c6cdd9cc7259e8f14a781800b34baddae162d7107b0c1",
+  "pillow": "13.0.0",
+  "playwright": "1.63.0",
+  "chromium": "153.0.8010.12"
+ },
+ "store_set": "google-play-phone",
+ "store": "google-play",
+ "device_class": "android-phone",
+ "locale": "en",
+ "layout": "framed",
+ "partial": false,
+ "gallery": {
+  "file": "assets/storefront-v2/captures/mobile/selection.json",
+  "sha256": "047168ee4970cb66de00ca00f44e231b168d668850cd9fb35864e8737b093288"
+ },
+ "catalog": {
+  "file": "translations/en.md",
+  "sha256": "5740c1e7113f849a3a45fa226af7857b03879a9d2963df2849089e9dcaf2fb9a",
+  "in_repository": true
+ },
+ "fonts": {
+  "DejaVu Sans Bold": {
+   "file": "DejaVuSans-Bold.ttf",
+   "sha256": "e6476c1b80502924294eed40894c5b18e06c181444ca953e5334262df9c27724",
+   "licence": "Bitstream Vera / DejaVu (permissive)"
+  }
+ },
+ "images": [
+  {
+   "file": "01-hero-1080x1920.png",
+   "slot": 1,
+   "role": "hero",
+   "pixels": "1080x1920",
+   "format": "png",
+   "capture": {
+    "file": "assets/storefront-v2/captures/mobile/android-phone/01-hero-1080x1920.png",
+    "sha256": "753e30700d8f7072ead1b30d9aa20b1f95eb91b53bdb89568db5ae9714b284f0",
+    "kind": "gameplay",
+    "trim": {},
+    "trim_mode": "flat-margins",
+    "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
+    "trim_flat_share": {},
+    "placed": [
+     32,
+     326,
+     1016,
+     1594
+    ],
+    "scaled": [
+     1016,
+     1806
+    ],
+    "scale": 0.940741,
+    "corner_radius": 30,
+    "gameplay_share": 0.781011
+   },
+   "caption": {
+    "text": "Real-time colony strategy",
+    "lines": [
+     "Real-time",
+     "colony strategy"
+    ],
+    "fit": "safe",
+    "font_size": 115,
+    "short_word_letters": 4,
+    "full_size": 118,
+    "direction": "ltr",
+    "font_weight": 700,
+    "fonts": [
+     {
+      "family": "DejaVu Sans Bold",
+      "glyphs": 24
+     }
+    ],
+    "font_stack": [
+     "DejaVu Sans Bold"
+    ],
+    "variant": "night",
+    "rect": [
+     0,
+     0,
+     1080,
+     326
+    ],
+    "ink": [
+     57,
+     48,
+     1028,
+     294
+    ],
+    "area": 0.169792,
+    "own_size": 117,
+    "field": "shot_overlay_hero"
+   },
+   "sha256": "26b40cc502928b9b773be04b157cee6a6138fdab6b58bfdd8c8b8079366cd83c",
+   "bytes": 1893921
+  },
+  {
+   "file": "02-battle-1080x1920.png",
+   "slot": 2,
+   "role": "battle",
+   "pixels": "1080x1920",
+   "format": "png",
+   "capture": {
+    "file": "assets/storefront-v2/captures/mobile/android-phone/04-battle-1080x1920.png",
+    "sha256": "363dc603871b32abcfd03a497a758ae9304df0f98f53bf36912ae88fe3995d8f",
+    "kind": "gameplay",
+    "trim": {},
+    "trim_mode": "flat-margins",
+    "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
+    "trim_flat_share": {},
+    "placed": [
+     32,
+     326,
+     1016,
+     1594
+    ],
+    "scaled": [
+     1016,
+     1806
+    ],
+    "scale": 0.940741,
+    "corner_radius": 30,
+    "gameplay_share": 0.781011
+   },
+   "caption": {
+    "text": "Fight for the land",
+    "lines": [
+     "Fight",
+     "for the land"
+    ],
+    "fit": "safe",
+    "font_size": 115,
+    "short_word_letters": 4,
+    "full_size": 118,
+    "direction": "ltr",
+    "font_weight": 700,
+    "fonts": [
+     {
+      "family": "DejaVu Sans Bold",
+      "glyphs": 17
+     }
+    ],
+    "font_stack": [
+     "DejaVu Sans Bold"
+    ],
+    "variant": "night",
+    "rect": [
+     0,
+     0,
+     1080,
+     326
+    ],
+    "ink": [
+     175,
+     48,
+     900,
+     271
+    ],
+    "area": 0.169792,
+    "own_size": 118,
+    "field": "shot_overlay_battle"
+   },
+   "sha256": "f1b51461f786d40d9ce883b6ce248b70549448b4851f55bcef030ab031d52e3f",
+   "bytes": 1158546
+  },
+  {
+   "file": "03-fair_deal-1080x1920.png",
+   "slot": 3,
+   "role": "fair_deal",
+   "pixels": "1080x1920",
+   "format": "png",
+   "capture": {
+    "file": "assets/storefront-v2/captures/mobile/android-phone/03-fair_deal-1080x1920.png",
+    "sha256": "69c7e3642fb8af0c88675639002c8c2329cca541612ed572ba2b2601ae46591f",
+    "kind": "gameplay",
+    "trim": {},
+    "trim_mode": "flat-margins",
+    "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
+    "trim_flat_share": {},
+    "placed": [
+     32,
+     326,
+     1016,
+     1594
+    ],
+    "scaled": [
+     1016,
+     1806
+    ],
+    "scale": 0.940741,
+    "corner_radius": 30,
+    "gameplay_share": 0.781011
+   },
+   "caption": {
+    "text": "No ads. No in-app buys",
+    "lines": [
+     "No ads.",
+     "No in-app buys"
+    ],
+    "fit": "clause",
+    "font_size": 115,
+    "full_size": 118,
+    "direction": "ltr",
+    "font_weight": 700,
+    "fonts": [
+     {
+      "family": "DejaVu Sans Bold",
+      "glyphs": 21
+     }
+    ],
+    "font_stack": [
+     "DejaVu Sans Bold"
+    ],
+    "variant": "gold",
+    "rect": [
+     0,
+     0,
+     1080,
+     326
+    ],
+    "ink": [
+     79,
+     48,
+     1008,
+     294
+    ],
+    "area": 0.169792,
+    "own_size": 118,
+    "field": "shot_overlay_fair_deal"
+   },
+   "sha256": "759cf699e6dfb0fe8d93b7aa9b2feb8ce6e82efa1c6ee7d62fe9e6735ff436af",
+   "bytes": 1724066
+  },
+  {
+   "file": "04-build-1080x1920.png",
+   "slot": 4,
+   "role": "build",
+   "pixels": "1080x1920",
+   "format": "png",
+   "capture": {
+    "file": "assets/storefront-v2/captures/mobile/android-phone/02-build-1080x1920.png",
+    "sha256": "8ec39c152f9bb7a74f1c012b2f1f6e93febd3bbd6bf4c3370a09d6bb03a53b9e",
+    "kind": "gameplay",
+    "trim": {},
+    "trim_mode": "flat-margins",
+    "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
+    "trim_flat_share": {},
+    "placed": [
+     32,
+     326,
+     1016,
+     1594
+    ],
+    "scaled": [
+     1016,
+     1806
+    ],
+    "scale": 0.940741,
+    "corner_radius": 30,
+    "gameplay_share": 0.781011
+   },
+   "caption": {
+    "text": "You decide. They build.",
+    "lines": [
+     "You decide.",
+     "They build."
+    ],
+    "fit": "clause",
+    "font_size": 115,
+    "full_size": 118,
+    "direction": "ltr",
+    "font_weight": 700,
+    "fonts": [
+     {
+      "family": "DejaVu Sans Bold",
+      "glyphs": 22
+     }
+    ],
+    "font_stack": [
+     "DejaVu Sans Bold"
+    ],
+    "variant": "night",
+    "rect": [
+     0,
+     0,
+     1080,
+     326
+    ],
+    "ink": [
+     179,
+     48,
+     891,
+     294
+    ],
+    "area": 0.169792,
+    "own_size": 118,
+    "field": "shot_overlay_build"
+   },
+   "sha256": "08222223491f40b9f5340c24ea2f79f584250f4bed9aa2831e2924caa9086c45",
+   "bytes": 1602737
+  },
+  {
+   "file": "05-economy-1080x1920.png",
+   "slot": 5,
+   "role": "economy",
+   "pixels": "1080x1920",
+   "format": "png",
+   "capture": {
+    "file": "assets/storefront-v2/captures/mobile/android-phone/05-economy-1080x1920.png",
+    "sha256": "4c20312560f8054800a05786b29a103c48142d485b5ab57307cc4a9b1cbb0b04",
+    "kind": "gameplay",
+    "trim": {},
+    "trim_mode": "flat-margins",
+    "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
+    "trim_flat_share": {},
+    "placed": [
+     32,
+     326,
+     1016,
+     1594
+    ],
+    "scaled": [
+     1016,
+     1806
+    ],
+    "scale": 0.940741,
+    "corner_radius": 30,
+    "gameplay_share": 0.781011
+   },
+   "caption": {
+    "text": "Keep the colony fed",
+    "lines": [
+     "Keep",
+     "the colony fed"
+    ],
+    "fit": "relaxed",
+    "font_size": 115,
+    "short_word_letters": 3,
+    "full_size": 118,
+    "direction": "ltr",
+    "font_weight": 700,
+    "fonts": [
+     {
+      "family": "DejaVu Sans Bold",
+      "glyphs": 18
+     }
+    ],
+    "font_stack": [
+     "DejaVu Sans Bold"
+    ],
+    "variant": "night",
+    "rect": [
+     0,
+     0,
+     1080,
+     326
+    ],
+    "ink": [
+     93,
+     52,
+     981,
+     294
+    ],
+    "area": 0.169792,
+    "own_size": 118,
+    "field": "shot_overlay_economy"
+   },
+   "sha256": "1d07d144388af2206186e71f359ea7d6c70deb498cdd4c787da158a5d0f728fe",
+   "bytes": 1336576
+  },
+  {
+   "file": "06-territory-1080x1920.png",
+   "slot": 6,
+   "role": "territory",
+   "pixels": "1080x1920",
+   "format": "png",
+   "capture": {
+    "file": "assets/storefront-v2/captures/mobile/android-phone/06-territory-1080x1920.png",
+    "sha256": "4dbfbef328a3e8b901706cc84c324580b152ac6099c723b4397ded019555f80e",
+    "kind": "gameplay",
+    "trim": {},
+    "trim_mode": "flat-margins",
+    "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
+    "trim_flat_share": {},
+    "placed": [
+     32,
+     326,
+     1016,
+     1594
+    ],
+    "scaled": [
+     1016,
+     1806
+    ],
+    "scale": 0.940741,
+    "corner_radius": 30,
+    "gameplay_share": 0.781011
+   },
+   "caption": {
+    "text": "Choose where to expand",
+    "lines": [
+     "Choose where",
+     "to expand"
+    ],
+    "fit": "safe",
+    "font_size": 115,
+    "short_word_letters": 4,
+    "full_size": 118,
+    "direction": "ltr",
+    "font_weight": 700,
+    "fonts": [
+     {
+      "family": "DejaVu Sans Bold",
+      "glyphs": 21
+     }
+    ],
+    "font_stack": [
+     "DejaVu Sans Bold"
+    ],
+    "variant": "night",
+    "rect": [
+     0,
+     0,
+     1080,
+     326
+    ],
+    "ink": [
+     103,
+     48,
+     979,
+     293
+    ],
+    "area": 0.169792,
+    "own_size": 118,
+    "field": "shot_overlay_territory"
+   },
+   "sha256": "d4b11bdc2d03937caaa602bffa04b0f72b6b9d991903d14b357cbcbaadfa6281",
+   "bytes": 1167209
+  },
+  {
+   "file": "07-maps-1080x1920.png",
+   "slot": 7,
+   "role": "maps",
+   "pixels": "1080x1920",
+   "format": "png",
+   "capture": {
+    "file": "assets/storefront-v2/captures/mobile/android-phone/07-maps-1080x1920.png",
+    "sha256": "3816c9eba1bdb3ffd1ba0681617c30cf60b78bb6a78244faa32cca308a1e4014",
+    "kind": "gameplay",
+    "trim": {},
+    "trim_mode": "flat-margins",
+    "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
+    "trim_flat_share": {},
+    "placed": [
+     32,
+     326,
+     1016,
+     1594
+    ],
+    "scaled": [
+     1016,
+     1806
+    ],
+    "scale": 0.940741,
+    "corner_radius": 30,
+    "gameplay_share": 0.781011
+   },
+   "caption": {
+    "text": "23 maps, or random ones",
+    "lines": [
+     "23 maps,",
+     "or random ones"
+    ],
+    "fit": "clause",
+    "font_size": 115,
+    "full_size": 118,
+    "direction": "ltr",
+    "font_weight": 700,
+    "fonts": [
+     {
+      "family": "DejaVu Sans Bold",
+      "glyphs": 22
+     }
+    ],
+    "font_stack": [
+     "DejaVu Sans Bold"
+    ],
+    "variant": "night",
+    "rect": [
+     0,
+     0,
+     1080,
+     326
+    ],
+    "ink": [
+     50,
+     50,
+     1031,
+     271
+    ],
+    "area": 0.169792,
+    "own_size": 115,
+    "field": "shot_overlay_maps"
+   },
+   "sha256": "0f67c8443209086da4bf3fa512294c35bb523b9327b928657e74b909a026084e",
+   "bytes": 1741238
+  }
+ ]
+}

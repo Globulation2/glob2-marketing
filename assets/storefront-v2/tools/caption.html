@@ -85,9 +85,12 @@ function laidOutLines(el) {
 //   'hint'  : only at a zero-width space (U+200B) the caption's editor put in.
 //   'clause': only after punctuation that ends a clause (comma, full stop and their kin in any script).
 //   'safe'  : only at a space or U+200B, or after CJK punctuation. Hyphenated compounds stay whole,
-//             and a number stays with the word after it.
+//             and a number stays with the word after it. When `isShort` is given, a short word
+//             (see shortWordTest) also stays with the word after it, so it never ends the first
+//             line, and a short last word stays with the word before it, so it is never alone on
+//             the second line.
 //   'words' : only between dictionary words (ICU segmentation), for Chinese.
-function setText(el, text, mode, lang) {
+function setText(el, text, mode, lang, isShort) {
   el.textContent = '';
   if (mode === 'free') { el.textContent = text; return; }
   const keep = piece => {
@@ -111,11 +114,16 @@ function setText(el, text, mode, lang) {
     return;
   }
   const pieces = text.split(/( +|\u200b)/).filter(Boolean);
+  // A short last word stays with the word before it ("colony fed" never leaves "fed" alone). A last
+  // piece already joined by no-break spaces ("tempo\u00a0real") is not a lone word.
+  const last = pieces.length - 1;
+  if (isShort && last >= 2 && pieces[last - 1] === ' ' && !pieces[last].includes('\u00a0') && isShort(pieces[last])) pieces.splice(last - 2, 3, pieces[last - 2] + ' ' + pieces[last]);
   for (let i = 0; i < pieces.length; i += 1) {
     let piece = pieces[i];
     if (/^( +|\u200b)$/.test(piece)) { el.appendChild(document.createTextNode(piece)); continue; }
-    // A number stays with the word it counts ("67 map", never "67" at a line end).
-    while (/\p{Nd}$/u.test(piece) && pieces[i + 1] === ' ' && pieces[i + 2]) { piece += ' ' + pieces[i + 2]; i += 2; }
+    // A number stays with the word it counts ("67 map", never "67" at a line end), and a short
+    // word with the word after it ("se | in-app", never "se" at a line end).
+    while ((/\p{Nd}$/u.test(piece) || (isShort && isShort(piece))) && pieces[i + 1] === ' ' && pieces[i + 2]) { piece += ' ' + pieces[i + 2]; i += 2; }
     let parts = piece.split(/(?<=[\u3001\u3002\uff0c\uff01\uff1f\uff1b\uff1a])/);
     if (mode === 'words') {
       parts = [];
@@ -127,6 +135,37 @@ function setText(el, text, mode, lang) {
     }
     parts.filter(Boolean).forEach(keep);
   }
+}
+
+// Is the last word of `piece` a short word, which must not end the first line of a caption? A short
+// word has at most `level` letters (marks and digits do not count), or is one of o.short.words (any
+// level but null). A word that ends in punctuation ("reklám,") is never short: a break after it is
+// a break between clauses. level null means no rule (a plain safe break).
+function shortWordTest(o, level) {
+  if (level === null) return null;
+  const words = new Set(((o.short && o.short.words) || []).map(word => word.toLocaleLowerCase(o.lang)));
+  return piece => {
+    const word = piece.trim().split(/[ \u00a0]/).pop();
+    if (!word || /[\p{P}\p{S}]$/u.test(word)) return false;
+    if (words.has(word.toLocaleLowerCase(o.lang))) return true;
+    const letters = (word.match(/\p{L}/gu) || []).length;
+    return letters > 0 && letters <= level;
+  };
+}
+
+// The safe breaks to try, strictest first: {wrap, level}. With a short-word rule for the locale
+// (o.short.maxLetters, o.short.words), first 'safe' (no word of maxLetters letters or fewer ends the
+// first line), then 'relaxed' at one letter less each time, down to the word list alone, then 'loose'
+// (any space). A less strict break is used only when no stricter break fits at all. Without a
+// rule (scripts without word spaces, and Korean), a plain 'safe' break.
+function safeModes(o) {
+  const max = (o.short && o.short.maxLetters) || 0, words = (o.short && o.short.words) || [];
+  if (!max && !words.length) return [{ wrap: 'safe', level: null }];
+  const modes = [{ wrap: 'safe', level: max }];
+  for (let level = max - 1; level >= 1; level -= 1) modes.push({ wrap: 'relaxed', level });
+  if (max && words.length) modes.push({ wrap: 'relaxed', level: 0 });
+  modes.push({ wrap: 'loose', level: null });
+  return modes;
 }
 
 function setCanvas(vars) {
@@ -145,6 +184,9 @@ function setCanvas(vars) {
 //     when it sets the caption clearly larger (a safe break by more than 15% over a clause break, a
 //     rule break by more than 10% over a safe one), and a rule break that leaves a number at the end
 //     of the first line only when nothing else fits.
+//   - A safe break never leaves a short word at the end of the first line (safeModes): the strictest
+//     rule that fits at any size is the one used, even if a looser one would set the caption larger.
+//     A rule break that ends the first line with a short word does not compete with a safe break.
 // One line may go down to one.floor, two lines down to two.min; two lines never above two.max.
 function captionTools(o) {
   const el = document.getElementById('text');
@@ -160,11 +202,11 @@ function captionTools(o) {
   s.setProperty('--shift', '0px');
   const box = () => el.getBoundingClientRect();
   const t = {};
-  t.done = (wrap, size) => {
+  t.done = (wrap, size, level) => {
     s.setProperty('--shift', (o.shift * size).toFixed(2) + 'px');
     const b = box();
     const lines = laidOutLines(el).map(l => l.text);
-    return { ok: true, mode: lines.length > 1 ? 'two' : 'one', wrap, size, lines, width: b.width, height: b.height };
+    return { ok: true, mode: lines.length > 1 ? 'two' : 'one', wrap, size, lines, width: b.width, height: b.height, level: level === undefined ? null : level };
   };
   t.setOne = (size) => {
     setText(el, o.text, 'free', o.lang);
@@ -183,26 +225,28 @@ function captionTools(o) {
     }
     return size >= smallest ? size : 0;
   };
-  t.setTwo = (mode, size) => {
-    setText(el, o.text, mode, o.lang);
+  t.setTwo = (mode, size, level = null) => {
+    setText(el, o.text, mode, o.lang, mode === 'safe' ? shortWordTest(o, level) : null);
     s.whiteSpace = 'normal'; s.maxWidth = o.maxWidth + 'px'; s.textWrap = 'balance';
     if (size) s.fontSize = size + 'px';
   };
-  t.twoFits = (mode, size) => {
-    t.setTwo(mode, size);
+  t.twoFits = (mode, size, level = null) => {
+    t.setTwo(mode, size, level);
     if (box().height > o.maxHeight || el.scrollWidth > Math.ceil(o.maxWidth)) return false;
     const lines = laidOutLines(el);
     return lines.length === 2 && lines.every(l => l.width <= o.maxWidth + 0.5);
   };
   // Largest two-line size for a break mode, from `largest` down to `smallest`, or 0. Two lines can
   // be at most twice as long as the band is wide, so sizes above that bound are not tried.
-  t.twoMax = (mode, largest, smallest) => {
+  t.twoMax = (mode, largest, smallest, level = null) => {
     t.setOne(largest);
     const bound = Math.floor(largest * 2 * o.maxWidth / Math.max(1, box().width)) + 2;
-    for (let size = Math.min(largest, bound); size >= smallest; size -= 1) if (t.twoFits(mode, size)) return size;
+    for (let size = Math.min(largest, bound); size >= smallest; size -= 1) if (t.twoFits(mode, size, level)) return size;
     return 0;
   };
   t.stranded = () => /\p{Nd}$/u.test(laidOutLines(el)[0].text);
+  // The laid-out first line ends with a short word by the locale's strictest rule.
+  t.endsShort = () => { const test = shortWordTest(o, safeModes(o)[0].level); return Boolean(test && test(laidOutLines(el)[0].text)); };
   return t;
 }
 
@@ -219,11 +263,18 @@ function measureCaption(o) {
   }
   if (!two) {
     clause = t.twoMax('clause', o.two.max, o.two.min);
-    const safe = clause >= o.two.max ? 0 : t.twoMax('safe', o.two.max, o.two.min);
+    let safe = 0, safeWrap = null;
+    if (clause < o.two.max) {
+      for (const mode of safeModes(o)) {
+        safe = t.twoMax('safe', o.two.max, o.two.min, mode.level);
+        if (safe) { safeWrap = mode.wrap; break; }
+      }
+    }
     let rule = (o.wrap !== 'none' && Math.max(clause, safe) < o.two.max) ? t.twoMax(o.wrap, o.two.max, o.two.min) : 0;
     if (rule && t.stranded()) { stranded = rule; rule = 0; }
+    else if (rule && safe && t.endsShort()) rule = 0;
     if (clause && clause >= 0.85 * Math.max(safe, rule)) { two = clause; wrap = 'clause'; }
-    else if (safe && safe >= 0.9 * rule) { two = safe; wrap = 'safe'; }
+    else if (safe && safe >= 0.9 * rule) { two = safe; wrap = safeWrap; }
     else if (rule) { two = rule; wrap = o.wrap; }
   }
   if (one && one >= two) return { ok: true, size: one, wrap: 'none', one, clause };
@@ -234,13 +285,15 @@ function measureCaption(o) {
 }
 
 // Lay the caption out at exactly `size` px: one line if it fits, otherwise two lines broken at the
-// most preferred place that fits at this size: zero-width space, clause, safe place, the script's rule.
-// Returns {ok, mode, wrap, size, lines, width, height} or {ok: false, reason}.
+// most preferred place that fits at this size: zero-width space, clause, safe place (the strictest
+// short-word rule that fits, see safeModes), the script's rule.
+// Returns {ok, mode, wrap, size, lines, width, height, level} or {ok: false, reason}.
 function setCaption(o, size) {
   const t = captionTools(o);
   if (t.oneFits(size)) return t.done('none', size);
   if (o.text.includes('\u200b') && t.twoFits('hint', size)) return t.done('hint', size);
-  for (const mode of ['clause', 'safe']) if (t.twoFits(mode, size)) return t.done(mode, size);
+  if (t.twoFits('clause', size)) return t.done('clause', size);
+  for (const mode of safeModes(o)) if (t.twoFits('safe', size, mode.level)) return t.done(mode.wrap, size, mode.level);
   if (o.wrap !== 'none' && t.twoFits(o.wrap, size)) return t.done(o.wrap, size);
   return { ok: false, reason: `does not fit at ${size}px in ${o.maxWidth}x${o.maxHeight}px` };
 }

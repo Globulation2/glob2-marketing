@@ -1,0 +1,295 @@
+{
+ "store": "amazon",
+ "title": "Amazon Appstore",
+ "package_dir": "packages:amazon",
+ "generated_by": "assets/storefront-v2/store-packages/build.py",
+ "inputs": {
+  "stores.json": "7ce9f0e1b154519593073a6ebce119f834986a23b233f847a6d26bd8ed757332",
+  "review": {
+   "file": "assets/storefront-v2/review/round-2-final.md",
+   "sha256": "12bdda11795a52fcfc41a90e94851117b0a8564d7217b5f94ddc32ca5897e385"
+  },
+  "platforms.json": "c78c414db1bb9d92c10f9a3b556dedf02d026f2bbd600e176defb0d624a2ba3c",
+  "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
+  "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)"
+ },
+ "sets": {
+  "tablet": {
+   "render_set": "amazon-tablet",
+   "order": null,
+   "blocked": "M8: Amazon asks for the app on the right device type; the android-tablet-10 frames are host renders. Screenshots wait for emulator or Fire-tablet captures and a re-render.",
+   "rules": {
+    "size": [
+     2560,
+     1600
+    ],
+    "format": [
+     "PNG",
+     "JPEG"
+    ],
+    "alpha": "forbid",
+    "max_bytes": 8000000,
+    "count": [
+     3,
+     10
+    ]
+   }
+  }
+ },
+ "locales": [
+  {
+   "locale": "en",
+   "store_locale": "English (United States)",
+   "folder": "English-United-States",
+   "sets": {
+    "tablet": {
+     "blocked": true
+    }
+   },
+   "captions": {},
+   "listing": {
+    "file": "English-United-States/listing.json",
+    "sha256": "9dc898a37111ab9bb9837313317e65215a48f7dd669005bc51fd4eb2146d0b72"
+   }
+  },
+  {
+   "locale": "nl",
+   "store_locale": "Dutch",
+   "folder": "Dutch",
+   "sets": {
+    "tablet": {
+     "blocked": true
+    }
+   },
+   "captions": {},
+   "listing": {
+    "file": "Dutch/listing.json",
+    "sha256": "cb0f23d0851e12850e5341d0d8cd3ab4510a5756d9cf9b9206e427ea08cb83dc"
+   }
+  },
+  {
+   "locale": "fr",
+   "store_locale": "French",
+   "folder": "French",
+   "sets": {
+    "tablet": {
+     "blocked": true
+    }
+   },
+   "captions": {},
+   "listing": {
+    "file": "French/listing.json",
+    "sha256": "212e6d1b46b6eb61356547b9a21b58bdcb3b25dc12f28ca7af65cb6c950b2607"
+   }
+  },
+  {
+   "locale": "de",
+   "store_locale": "German",
+   "folder": "German",
+   "sets": {
+    "tablet": {
+     "blocked": true
+    }
+   },
+   "captions": {},
+   "listing": {
+    "file": "German/listing.json",
+    "sha256": "20fbc17b9c76e64b4158df2c9381f8daff503f05c44c00a6281503a03274ba70"
+   }
+  },
+  {
+   "locale": "it",
+   "store_locale": "Italian",
+   "folder": "Italian",
+   "sets": {
+    "tablet": {
+     "blocked": true
+    }
+   },
+   "captions": {},
+   "listing": {
+    "file": "Italian/listing.json",
+    "sha256": "2b0e9894b119b6e1dc324b2a5bcedd5bc3d66749e206a190c3c4d4534b557d3e"
+   }
+  },
+  {
+   "locale": "ja",
+   "store_locale": "Japanese",
+   "folder": "Japanese",
+   "sets": {
+    "tablet": {
+     "blocked": true
+    }
+   },
+   "captions": {},
+   "listing": {
+    "file": "Japanese/listing.json",
+    "sha256": "5eda97e59e079e8db13585e4fca286d65a991f5a9f3fab13c151692e5f270820"
+   }
+  },
+  {
+   "locale": "pl",
+   "store_locale": "Polish",
+   "folder": "Polish",
+   "sets": {
+    "tablet": {
+     "blocked": true
+    }
+   },
+   "captions": {},
+   "listing": {
+    "file": "Polish/listing.json",
+    "sha256": "89528b1e6b228ad26e95c2088bab6012d6f44f457f8cb3bc1653c2dad19ba9fb"
+   }
+  },
+  {
+   "locale": "pt-BR",
+   "store_locale": "Portuguese (Brazil)",
+   "folder": "Portuguese-Brazil",
+   "sets": {
+    "tablet": {
+     "blocked": true
+    }
+   },
+   "captions": {},
+   "listing": {
+    "file": "Portuguese-Brazil/listing.json",
+    "sha256": "d3deda051a9cc52deaeacaa30599361056f52963f3e553b9b6b4e41e11cb9a8e"
+   }
+  },
+  {
+   "locale": "pt-PT",
+   "store_locale": "Portuguese (Portugal)",
+   "folder": "Portuguese-Portugal",
+   "sets": {
+    "tablet": {
+     "blocked": true
+    }
+   },
+   "captions": {},
+   "listing": {
+    "file": "Portuguese-Portugal/listing.json",
+    "sha256": "c10fe9b47282ee48b6062fca1ac8417c1a0a79bea1c52fc525950281aaa4b768"
+   }
+  },
+  {
+   "locale": "es",
+   "store_locale": "Spanish",
+   "folder": "Spanish",
+   "sets": {
+    "tablet": {
+     "blocked": true
+    }
+   },
+   "captions": {},
+   "listing": {
+    "file": "Spanish/listing.json",
+    "sha256": "f8177d0e4e88847622bef8f74387ea5542ae7b28613807dd540775a5d17ae0b6"
+   }
+  },
+  {
+   "locale": "sv",
+   "store_locale": "Swedish",
+   "folder": "Swedish",
+   "sets": {
+    "tablet": {
+     "blocked": true
+    }
+   },
+   "captions": {},
+   "listing": {
+    "file": "Swedish/listing.json",
+    "sha256": "177696086ee10880fd64b29e46d693891d5ce0c3a77d6144e883bc67a8d72b0f"
+   }
+  }
+ ],
+ "assets": [
+  {
+   "file": "_store-wide/promotional-image-1024x500.png",
+   "slot": "promotional-image",
+   "source": {
+    "file": "assets/storefront-v2/key-art/derivatives/amazon-promo-1024x500.png",
+    "sha256": "3129d24a947847b82c0173543bcf9da6a71f5561fb7aa2835c1c7551e3730b7b",
+    "treatment": "copied unchanged",
+    "wordmark_margins": {
+     "left": 349,
+     "top": 73,
+     "right": 102,
+     "bottom": 348
+    }
+   },
+   "pixels": "1024x500",
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 798482,
+   "sha256": "3129d24a947847b82c0173543bcf9da6a71f5561fb7aa2835c1c7551e3730b7b",
+   "rules": {
+    "size": [
+     1024,
+     500
+    ],
+    "format": [
+     "JPEG",
+     "PNG"
+    ],
+    "alpha": "forbid"
+   }
+  },
+  {
+   "file": "_store-wide/icon-large-512x512.png",
+   "slot": "icon-large",
+   "source": {
+    "file": "assets/storefront-v2/icon/icon-512.png",
+    "sha256": "76c980dc43ca180bf6b9f0b3292fcb5026930c2d9df56627e737f579e5d191da",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "512x512",
+   "format": "PNG",
+   "mode": "RGBA",
+   "bytes": 69145,
+   "sha256": "76c980dc43ca180bf6b9f0b3292fcb5026930c2d9df56627e737f579e5d191da",
+   "rules": {
+    "size": [
+     512,
+     512
+    ],
+    "format": [
+     "PNG"
+    ]
+   }
+  },
+  {
+   "file": "_store-wide/icon-small-114x114.png",
+   "slot": "icon-small",
+   "source": {
+    "file": "assets/storefront-v2/icon/glob2-icon.svg",
+    "sha256": "0b281abeaa827c71fd94033acaaf1278a31a19a3f07a2b3288a2d1b1b9e24978",
+    "treatment": "vector rendered at 93 px with resvg-py and centred on #2B1C42"
+   },
+   "pixels": "114x114",
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 6400,
+   "sha256": "b68e913558a35004e9a017917322d8b29852a4de148348b8d199afa8ea896e80",
+   "rules": {
+    "size": [
+     114,
+     114
+    ],
+    "format": [
+     "PNG"
+    ]
+   }
+  }
+ ],
+ "blocked": [
+  "tablet screenshots: M8: Amazon asks for the app on the right device type; the android-tablet-10 frames are host renders. Screenshots wait for emulator or Fire-tablet captures and a re-render."
+ ],
+ "pending": [],
+ "errors": [],
+ "not_packaged": [],
+ "unverified": [
+  "Amazon's icon guidance says not to simply scale one size from the other: the 114 px icon is rendered from the vector master at that size (glob at 82% on the Android purple #2B1C42, as the 512 px icon), not reduced from the 512 px file."
+ ],
+ "notes": []
+}

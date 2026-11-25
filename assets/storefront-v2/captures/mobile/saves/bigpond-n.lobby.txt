@@ -1,0 +1,40 @@
+play --interface desktop --ui-scale 1 --window-size 1600x1000 --no-fullscreen --mute --renderer software --mcp-port 47812
+
+screen: custom_game
+surface 2
+  button key='tab/0' label='Map' actions=['activate']
+  paragraph label='A big pond'
+  button key='tab/1' label='Players & Teams' selected=True actions=['activate']
+  paragraph label='3 colonies / FFA'
+  button key='tab/2' label='Game Rules' actions=['activate']
+  paragraph label='Standard'
+  scroll key='lobby/players' actions=['scroll']
+    label label='Teams'
+    choice key='teams' label='FFA' value=0 actions=['activate', 'select']
+    paragraph label='4 / 16 controllers'
+    paragraph label='AI for all computer colonies'
+    choice key='players/ai' label='Mixed' value=-1 actions=['activate', 'select']
+    label label='1  Red'
+    choice key='colony/0/controller' label='You + AI' value=2 actions=['activate', 'select']
+    choice key='colony/0/ai' label='Nicowar - Medium (1653)' value=5 actions=['activate', 'select']
+    button key='colony/0/info' label='AI strategy' actions=['activate']
+    choice key='colony/0/team' label='Team 1' value=0 actions=['activate', 'select']
+    paragraph label='An early rush supported by farming, upgrades, defense and explorer attacks.'
+    paragraph label='You and the AI both issue orders. Uses two controller slots.'
+    label label='2  Green'
+    choice key='colony/1/controller' label='AI' value=1 actions=['activate', 'select']
+    choice key='colony/1/ai' label='Cortex - Medium (1601)' value=4 actions=['activate', 'select']
+    button key='colony/1/info' label='AI strategy' actions=['activate']
+    choice key='colony/1/team' label='Team 2' value=1 actions=['activate', 'select']
+    paragraph label='Supports committed military pushes with forward food and healing.'
+    label label='3  Blue'
+    choice key='colony/2/controller' label='AI' value=1 actions=['activate', 'select']
+    choice key='colony/2/ai' label='Cabino - Medium (1680)' value=6 actions=['activate', 'select']
+    button key='colony/2/info' label='AI strategy' actions=['activate']
+    choice key='colony/2/team' label='Team 3' value=2 actions=['activate', 'select']
+    paragraph label='Coordinates colony growth and trained attacks, targeting healing and food first.'
+    paragraph label='Add JavaScript AIs in Settings → Custom AIs. They appear in each colony’s AI selector.'
+  paragraph label='Game speed 1x'
+  paragraph label='Colony 4-4: Extra colony assignments are retained for larger maps.'
+  button key='back' label='Back' actions=['activate']
+  button key='start' label='Start game' actions=['activate']
