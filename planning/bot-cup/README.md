@@ -9,14 +9,16 @@ A free JavaScript workshop for teens who have used conditionals and functions. P
 
 ## Outreach week, November 24–27, 2026
 
-| Day | Planned work |
-|---|---|
-| Tuesday | Prepare the materials and research 12 organizations: seven academies or camp operators, four school leads, and one nonprofit program lead. |
-| Wednesday | Invite the six strongest fits to a 15-minute walkthrough. |
-| Thursday | Hold available walkthroughs and send a second wave to the remaining qualified leads. |
-| Friday | Follow up with warm leads, record dates or device rehearsals, and summarize responses and objections. |
+Three independent reviewers checked the 12 messages for tone, accuracy, and relevance. No reviewer flagged offensive language. The final messages each ask one question about program fit and offer a walkthrough if the recipient is interested. The review also corrected a school contact route and moved the nonprofit inquiry to its general program channel.
 
-Ask educators about a comparable activity they have run, the cohort and schedule they would use, student devices and permissions, and the person who needs to sign off. End with an ask for a specific cohort and tentative date. Store contact details, outreach and replies in the private campaign tracker.
+| Date | Status |
+|---|---|
+| Tuesday, Nov 24 | Materials published and 12 personalized messages scheduled in Gmail for seven academy or camp leads, four school leads, and one nonprofit lead. |
+| Wednesday, Nov 25 | First wave of six scheduled for 8 a.m. Eastern. |
+| Thursday, Nov 26 | Second wave of six scheduled for 8 a.m. Eastern. |
+| Friday, Nov 27 | Review observed replies, objections, and commitments. Record dates and device rehearsals if hosts offer them. |
+
+As of November 24, Gmail showed 12 scheduled messages, with zero sent, zero replies, and zero host commitments. Respond only to interested leads. Ask about a comparable activity, the cohort and schedule they would use, student devices and permissions, and who needs to sign off. Ask interested hosts for a specific cohort and tentative date. Store contact details and replies in the private tracker.
 
 ## How to judge the response
 
