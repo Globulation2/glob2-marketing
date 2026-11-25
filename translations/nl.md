@@ -236,7 +236,7 @@ Vecht om land
 
 ## shot_overlay_territory
 
-Breid uit waar je wilt
+Breid uit ​waar je wilt
 
 ## shot_overlay_maps
 
@@ -248,7 +248,7 @@ Breid uit waar je wilt
 
 ## shot_overlay_fair_deal
 
-Geen reclame of in-app aankopen
+Geen reclame. Geen in-app-koop
 
 ## shot_overlay_ai_coplay
 

@@ -232,11 +232,11 @@ Globulation 2 е безплатен софтуер с отворен код. И�
 
 ## shot_overlay_battle
 
-Борете се за земята
+Борете се ​за земята
 
 ## shot_overlay_territory
 
-Решете къде да се разширите
+Решете къде ​да се разширите
 
 ## shot_overlay_maps
 
@@ -248,7 +248,7 @@ Globulation 2 е безплатен софтуер с отворен код. И�
 
 ## shot_overlay_fair_deal
 
-Без реклами и игрови покупки
+Без реклами и покупки в игри
 
 ## shot_overlay_ai_coplay
 

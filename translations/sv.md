@@ -236,7 +236,7 @@ Slåss om marken
 
 ## shot_overlay_territory
 
-Välj var du ska expandera
+Välj var kolonin ska växa
 
 ## shot_overlay_maps
 

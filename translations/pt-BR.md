@@ -232,7 +232,7 @@ Alimente a colônia
 
 ## shot_overlay_battle
 
-Lute pelo território
+Dispute o território
 
 ## shot_overlay_territory
 
@@ -248,7 +248,7 @@ Escolha onde expandir
 
 ## shot_overlay_fair_deal
 
-Sem anúncios ou compras no app
+Sem anúncios e compras in-app
 
 ## shot_overlay_ai_coplay
 

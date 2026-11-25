@@ -248,7 +248,7 @@ Válaszd ki, hol terjeszkedsz
 
 ## shot_overlay_fair_deal
 
-Se reklám, se in-app vásárlás
+In-app vásárlás és reklám nélkül
 
 ## shot_overlay_ai_coplay
 

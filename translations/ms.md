@@ -248,7 +248,7 @@ Pilih arah perluasan
 
 ## shot_overlay_fair_deal
 
-Tiada iklan atau belian dalam apl
+Tiada iklan, tiada belian dalam apl
 
 ## shot_overlay_ai_coplay
 

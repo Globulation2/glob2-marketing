@@ -240,7 +240,7 @@ Alege unde te extinzi
 
 ## shot_overlay_maps
 
-23 de hărți sau hărți aleatorii
+23 de hărți sau aleatorii
 
 ## shot_overlay_opponents
 

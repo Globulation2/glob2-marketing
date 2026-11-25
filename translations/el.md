@@ -236,7 +236,7 @@ offline στρατηγική
 
 ## shot_overlay_territory
 
-Επιλέξτε πού θα επεκταθείτε
+Επεκταθείτε όπου θέλετε
 
 ## shot_overlay_maps
 

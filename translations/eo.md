@@ -248,7 +248,7 @@ Elektu, kien vastiĝi
 
 ## shot_overlay_fair_deal
 
-Sen reklamoj kaj enludaj aĉetoj
+Sen reklamoj aŭ enludaj aĉetoj
 
 ## shot_overlay_ai_coplay
 

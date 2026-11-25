@@ -232,7 +232,7 @@ RTS стратегија о колонији
 
 ## shot_overlay_battle
 
-Борите се за територију
+Борите се ​за територију
 
 ## shot_overlay_territory
 
@@ -248,7 +248,7 @@ RTS стратегија о колонији
 
 ## shot_overlay_fair_deal
 
-Без реклама и куповина у игри
+Без реклама и уплата у игри
 
 ## shot_overlay_ai_coplay
 

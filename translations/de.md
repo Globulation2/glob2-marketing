@@ -240,7 +240,7 @@ Wähle, wohin du wächst
 
 ## shot_overlay_maps
 
-23 Karten oder Zufallskarten
+23 Karten oder zufällige
 
 ## shot_overlay_opponents
 

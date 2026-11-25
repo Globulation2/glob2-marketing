@@ -327,9 +327,10 @@ class EnglishSourceTests(unittest.TestCase):
         assets = self.config['asset_text']
         mobile, desktop = assets['mobile_gallery_order'], assets['desktop_gallery_order']
         # App Store search results show the first three portrait screenshots, so the fair deal is third.
-        self.assertEqual(['hero', 'build', 'fair_deal', 'battle', 'economy', 'territory', 'maps', 'opponents'], mobile)
-        self.assertEqual(['hero', 'build', 'economy', 'battle', 'territory', 'maps', 'opponents', 'ai_coplay'], desktop)
-        self.assertEqual(set(assets['screenshot_roles']), set(mobile) | set(desktop))
+        self.assertEqual(['hero', 'battle', 'fair_deal', 'build', 'economy', 'territory', 'maps'], mobile)
+        self.assertEqual(['hero', 'battle', 'build', 'ai_coplay', 'maps', 'territory', 'economy'], desktop)
+        # 'opponents' keeps its translated caption fields but is no longer shown in any gallery (round-2 review, 2026-11-24).
+        self.assertEqual(set(assets['screenshot_roles']) - {'opponents'}, set(mobile) | set(desktop))
         self.assertFalse(set(mobile) & set(assets['desktop_only_roles']))
         self.assertNotIn('fair_deal', desktop)
         # Microsoft's DesktopScreenshotCaptionN rows and the AppStream caption list are numbered in the desktop order.

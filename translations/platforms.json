@@ -241,23 +241,21 @@
     ],
     "mobile_gallery_order": [
       "hero",
-      "build",
-      "fair_deal",
       "battle",
+      "fair_deal",
+      "build",
       "economy",
       "territory",
-      "maps",
-      "opponents"
+      "maps"
     ],
     "desktop_gallery_order": [
       "hero",
-      "build",
-      "economy",
       "battle",
-      "territory",
+      "build",
+      "ai_coplay",
       "maps",
-      "opponents",
-      "ai_coplay"
+      "territory",
+      "economy"
     ],
     "overlay_fields": "shot_overlay_{role}",
     "caption_fields": "shot_caption_{role}",
@@ -347,13 +345,12 @@
     ],
     "screenshot_captions": {
       "hero": "shot_caption_hero",
-      "build": "shot_caption_build",
-      "economy": "shot_caption_economy",
       "battle": "shot_caption_battle",
-      "territory": "shot_caption_territory",
+      "build": "shot_caption_build",
+      "ai_coplay": "shot_caption_ai_coplay",
       "maps": "shot_caption_maps",
-      "opponents": "shot_caption_opponents",
-      "ai_coplay": "shot_caption_ai_coplay"
+      "territory": "shot_caption_territory",
+      "economy": "shot_caption_economy"
     }
   },
   "platforms": {
@@ -1078,7 +1075,7 @@
         "desktop_screenshot_caption_2": {
           "paragraphs": [
             [
-              "shot_caption_build"
+              "shot_caption_battle"
             ]
           ],
           "limit": 200
@@ -1086,7 +1083,7 @@
         "desktop_screenshot_caption_3": {
           "paragraphs": [
             [
-              "shot_caption_economy"
+              "shot_caption_build"
             ]
           ],
           "limit": 200
@@ -1094,7 +1091,10 @@
         "desktop_screenshot_caption_4": {
           "paragraphs": [
             [
-              "shot_caption_battle"
+              {
+                "field": "shot_caption_ai_coplay",
+                "when": "ai_coplay"
+              }
             ]
           ],
           "limit": 200
@@ -1102,7 +1102,7 @@
         "desktop_screenshot_caption_5": {
           "paragraphs": [
             [
-              "shot_caption_territory"
+              "shot_caption_maps"
             ]
           ],
           "limit": 200
@@ -1110,7 +1110,7 @@
         "desktop_screenshot_caption_6": {
           "paragraphs": [
             [
-              "shot_caption_maps"
+              "shot_caption_territory"
             ]
           ],
           "limit": 200
@@ -1118,18 +1118,7 @@
         "desktop_screenshot_caption_7": {
           "paragraphs": [
             [
-              "shot_caption_opponents"
-            ]
-          ],
-          "limit": 200
-        },
-        "desktop_screenshot_caption_8": {
-          "paragraphs": [
-            [
-              {
-                "field": "shot_caption_ai_coplay",
-                "when": "ai_coplay"
-              }
+              "shot_caption_economy"
             ]
           ],
           "limit": 200

@@ -232,7 +232,7 @@ Koloniniz aç kalmasın
 
 ## shot_overlay_battle
 
-Toprak için savaşın
+Toprak için ​savaşın
 
 ## shot_overlay_territory
 
@@ -240,7 +240,7 @@ Yayılacağınız yeri seçin
 
 ## shot_overlay_maps
 
-23 harita ya da rastgele harita
+23 harita veya rastgele biri
 
 ## shot_overlay_opponents
 

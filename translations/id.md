@@ -248,7 +248,7 @@ Hadapi 8 ​lawan komputer
 
 ## shot_overlay_fair_deal
 
-Tanpa iklan dan pembelian in-app
+Tanpa iklan, tanpa beli in-app
 
 ## shot_overlay_ai_coplay
 

@@ -248,7 +248,7 @@ Globulation 2 இலவசமான, திறந்த மூல மென்�
 
 ## shot_overlay_fair_deal
 
-இன்-ஆப் வாங்கல், விளம்பரம் இல்லை
+ஆப்பில் வாங்கல், விளம்பரம் இல்லை
 
 ## shot_overlay_ai_coplay
 

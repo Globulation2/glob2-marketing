@@ -228,11 +228,11 @@ Vi odločate. Kolonija gradi
 
 ## shot_overlay_economy
 
-Naj bo kolonija sita
+Naj bo kolonija ​sita
 
 ## shot_overlay_battle
 
-Borite se za ozemlje
+Borite se ​za ozemlje
 
 ## shot_overlay_territory
 

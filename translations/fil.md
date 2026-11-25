@@ -236,7 +236,7 @@ Ipaglaban ang lupa
 
 ## shot_overlay_territory
 
-Piliin kung saan lalawak
+Piliin kung saan​ lalawak
 
 ## shot_overlay_maps
 
@@ -248,7 +248,7 @@ Piliin kung saan lalawak
 
 ## shot_overlay_fair_deal
 
-Walang ads o in-app purchase
+Walang ads​ o pagbili sa app
 
 ## shot_overlay_ai_coplay
 

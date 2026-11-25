@@ -248,7 +248,7 @@ Wapinzani 8 ​wa kompyuta
 
 ## shot_overlay_fair_deal
 
-Bila matangazo wala ununuzi mchezoni
+Bila matangazo, bila ununuzi mchezoni
 
 ## shot_overlay_ai_coplay
 
