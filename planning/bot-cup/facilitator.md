@@ -6,7 +6,7 @@
 - Rehearse on a managed device with the same student permissions as the group. An approved desktop build can import the standalone [starter bot](starter.js). Try the browser only after confirming that the exact deployment can import, edit, playtest, and export on the host's devices. The browser AI Studio is opt-in. Record the build or deployment tested, device class, and any sign-in or permission barrier.
 - In desktop Glob 2, open **Settings → Custom AIs**, import the starter and choose it for a computer-controlled seat in a local game. Arrange an AI-only spectator game if the available build supports it. Confirm that the instructor can import a second file or update the first bot, run another game, and hand off a source file. The starter file is also the known-good reset. Give pairs a separate copy to edit.
 - Set one display name per pair and use filenames such as `team-maple.js`. The instructor handles submissions. Collect source and team aliases for scoring. Keep feedback, standings, and any match file private to the host.
-- Rehearse the demo and reserve the same starting configuration for both runs. Use **Small For Two**, starter in the first seat, Numbi in the second, and game seed 19 for the reference test. If the host interface cannot set a seed, the facilitator should use the organizer's paired runs for scoring the experiment and students can still use local play for iteration. Prepare a separate, suitable two-team map for the second exercise.
+- Rehearse the demo and reserve the same starting configuration for both runs. Use **Small For Two**, starter in the first seat, Numbi in the second, and game seed 19 for the reference test. If the host interface cannot set a seed, the facilitator should use the organizer's paired runs for scoring the experiment and students can still use local play for iteration. Use **balanced for 2** for the second exercise and for tied placings.
 - Confirm the intended time per match and the second map with a dry run before the event. Arrange submissions by minute 25 of Session 2. For bigger classes, run several matches in parallel where available and show a small playoff or selected replay at the end; send complete standings through the instructor when ready.
 
 ## Session 1 — Compare a baseline and an edit
@@ -40,6 +40,8 @@ Both bots passed startup validation and played to the tick cap without being dis
 | 45–60 | Show the result, discuss a close match or an instructive trade-off, and recognize the best explanation as well as the winner. |
 
 Award one point for a win and half a point for a draw across paired games, with starting seats swapped. Use a second-map paired rematch for tied placings, and share a placing if it remains tied. Use the same pinned engine, maps, seeds, and tick cap for all teams. Set a learning expectation that a stalled or drawn match is still useful evidence. The organizer validates and executes submitted code in isolation using the [headless tools](https://github.com/Globulation2/glob2/blob/master/docs/tools/tournaments.md).
+
+A dry run on macOS Glob2 0.11.7.0 used the two inn-target versions on both maps with starting seats swapped. All four matches reached the cap of 8,192 ticks without controller errors or a declared winner. These matches took about 40–45 seconds apiece in a four-job headless batch on the test machine. Rehearse the cap with the host before scheduling the cup, and expect ties if playing two closely related bots. The teaching example uses the fixed tick to compare strategies.
 
 ## Evidence and debrief
 
