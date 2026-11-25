@@ -85,6 +85,10 @@ At the user's request the rig now starts at boot without a login: a systemd user
 
 The user asked that the chat host be able to move the camera, zooming out and showing what viewers ask about, while the player keeps playing. Decision: the player still runs the show camera and narrates, and the chat host can additionally show viewer requests. Both move it only through one code gate (`tools/twitch-stream/chat/camera.py`): zoom 100% or wider, rate limited, cleaned labels, and a viewer-request hold of about 40 s during which the player's camera moves are refused. The player's policy denies `game_view`, so it can't bypass the gate; the chat host's only state change is the camera. Tested on a separate test game: moves, zoom refusals, frame widening, hold, label expiry, token never in any output, and a simulated "show me Claude's base" request answered with a labelled camera move.
 
+### Game control owned by the rig (2026-11-24)
+
+The player used to hold its game-control token in context. In game 22 an aggressive compaction dropped it, the lease stayed held, and the colony ran on autopilot while the player told viewers it couldn't control anything. The user called it a harness flaw. The player's game connection is now `game_proxy.py`, which takes, renews and releases control itself and injects the token, so the model never sees one; tested on a separate game (lost lease re-acquired, leftover lease adopted, release on exit or SIGTERM, no token in output) and with a Claude session calling a control tool without a token. Upstream suggestion for the game's MCP server: tie control to the MCP session or connection instead of a token argument, so no agent harness has to carry one.
+
 ## Gaps and next work
 
 - **24/7 operation.** The supervisor restarts failed streams, sessions and the chat host, and caps log growth. Still to verify before an unattended public run:

@@ -92,7 +92,7 @@ home_mode="$(stat -c %a "$HOME")"
 claude_src="${CLAUDE_BIN:-$(readlink -f "$(command -v claude)")}"
 [[ -x "$claude_src" ]] || { echo "no claude binary found (set CLAUDE_BIN)" >&2; exit 1; }
 S install -d -o root -g root -m 755 "$AGENT_INSTALL_DIR" "$AGENT_INSTALL_DIR/bin" "$AGENT_INSTALL_DIR/chat" "$AGENT_INSTALL_DIR/prompts" "$AGENT_INSTALL_DIR/policy"
-manifest=(stream_ctl.py rigstate.py rigconfig.py lib.sh caption.sh chat/readonly_mcp.py chat/camera.py chat/reply_schema.json prompts/chat.md)
+manifest=(stream_ctl.py game_proxy.py rigstate.py rigconfig.py lib.sh caption.sh chat/readonly_mcp.py chat/camera.py chat/reply_schema.json prompts/chat.md)
 for f in "${manifest[@]}"; do
   mode=644; [[ "$f" == *.sh || "$f" == stream_ctl.py ]] && mode=755
   S install -o root -g root -m "$mode" "$RIG_DIR/$f" "$AGENT_INSTALL_DIR/$f"
@@ -145,8 +145,8 @@ done
 # Notes: sticky bit, so the agent can't delete or replace operator-owned files there, and the
 # session brief (the player's rules, written 0644 by the supervisor) stays read-only to it.
 S chmod 3770 "$NOTES_DIR"
-# The player's control token (published by the supervisor) stays 0640: the agent group reads it, nobody else.
-[[ -f "$STATE_DIR/control-token" ]] && S chmod 640 "$STATE_DIR/control-token"
+# The player's control token (published by game_proxy.py): readable by the operator and the agent group via the 2770 state dir.
+[[ -f "$STATE_DIR/control-token" ]] && S chmod 644 "$STATE_DIR/control-token"   # in the 2770 state dir: operator and agent group only
 [[ -f "$NOTES_DIR/session-brief.md" ]] && S chown "$operator" "$NOTES_DIR/session-brief.md" && S chmod 644 "$NOTES_DIR/session-brief.md"
 for v in STATE_DIR NOTES_DIR OVERLAY_FILE; do
   case "${!v}" in "$AGENT_SHARED_DIR"/*) ;; *) echo "warning: $v=${!v} is outside $AGENT_SHARED_DIR (check stream.env)" >&2 ;; esac

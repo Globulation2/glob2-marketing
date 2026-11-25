@@ -133,7 +133,10 @@ def main():
 
     if role == "player":
         servers = {
-            "glob2-stream": {"type": "http", "url": game_url},
+            # The game, through game_proxy.py: it owns the control lease, so the model never handles a
+            # token (a compaction once lost it and locked the player out).
+            "glob2-stream": {"command": py[0], "args": py[1:] + [str(INSTALL / "game_proxy.py")],
+                             "env": {"MCP_PORT": conf["MCP_PORT"], "STATE_DIR": conf["STATE_DIR"]}},
             "stream-ctl": {"command": py[0], "args": py[1:] + [str(INSTALL / "stream_ctl.py"), "mcp"], "env": shared_env},
         }
         cwd = conf["NOTES_DIR"]
