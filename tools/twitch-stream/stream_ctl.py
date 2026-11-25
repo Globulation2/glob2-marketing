@@ -19,6 +19,7 @@ import subprocess
 import sys
 import time
 
+import pacing
 import rigconfig
 import rigstate
 
@@ -163,12 +164,6 @@ def match_wait(cfg, a) -> str:
     except (TypeError, ValueError):
         raise CtlError("ticks must be a whole number")
     ticks = max(30, min(ticks, WAIT_MAX_TICKS))
-    now = time.time()
-    waited = sum(max(0.0, min(e, now) - max(s, now - WAIT_WINDOW)) for s, e in _waits)
-    if waited > WAIT_BUDGET * WAIT_WINDOW:
-        raise CtlError(f"you've spent {waited:.0f} of the last {WAIT_WINDOW:.0f} s waiting: play instead. Check food, "
-                       "workers, construction and military and make one concrete change (a building, workers, production, a flag or zone). "
-                       "Don't fill the gap with chat")
     extra = [e for e in (a.get("also_until") or []) if e in WAIT_EXTRA]
     args = {"ticks": ticks, "timeout_ms": WAIT_TIMEOUT_MS, "until": WAIT_ALWAYS + extra}
     if a.get("include"):
@@ -269,6 +264,8 @@ def narrate(cfg, a) -> str:
     return "said in game chat: " + text
 
 
+FF_MAX_WIN = 10                 # win chance at or below which a match counts as done
+FF_MIN_TICK = 18000             # ~10 minutes of normal-speed game time: never during the opening
 FAST_FORWARD_SPEED = 10         # the game's maximum speed: a lost game ends as fast as the machine runs it
 
 
@@ -280,6 +277,17 @@ def match_fast_forward(cfg, a) -> str:
     for k in ("MCP_PORT", "STATE_DIR"):
         if cfg.get(k):
             os.environ.setdefault(k, str(cfg[k]))
+    # Only a match that is really lost and past its opening (2026-11-24: the player fast-forwarded a game
+    # five minutes in at 12%; early win chances are shaky and colonies recover).
+    try:
+        st = json.loads(camera._rpc("game_world", {"detail": "brief", "include": ["status"]})["result"]["content"][0]["text"])
+        win = int((st.get("status") or {}).get("win_chance"))
+        tick = int(json.loads(camera._rpc("game_time", {"action": "status"})["result"]["content"][0]["text"]).get("tick", 0))
+    except Exception:  # noqa: BLE001 - can't check: don't fast-forward
+        raise CtlError("couldn't read the win chance; keep playing and try again later") from None
+    if win > FF_MAX_WIN or tick < FF_MIN_TICK:
+        raise CtlError(f"not yet: fast-forward needs a win chance of {FF_MAX_WIN}% or below after the opening "
+                       f"(tick {FF_MIN_TICK}+); now {win}% at tick {tick}. Keep playing and try something different.")
     token = camera.read_token()
     if not token:
         raise CtlError("no game control right now; take control first")
@@ -295,6 +303,8 @@ def match_fast_forward(cfg, a) -> str:
     return ("fast-forward on for the rest of this match: maximum speed (game_time speed 10). The automatic slow-down is off. Keep the camera on the action, narrate your "
             "colony's last stand with good humour, and call match_result when the game ends.")
 
+
+UNPACED = {"match_info", "match_setup_done", "match_result", "match_caption"}   # bookkeeping
 
 TOOLS = {
     "narrate": ("Say something to viewers in the in-game chat (your narration). At most one message every 30 s; "
@@ -373,6 +383,8 @@ def serve_mcp(cfg) -> None:
             if name not in TOOLS:
                 reply(msg_id, error={"code": -32602, "message": f"unknown tool {name}"})
                 continue
+            if name not in UNPACED:
+                pacing.wait_turn()
             try:
                 text, is_error = TOOLS[name][2](cfg, args), False
             except (CtlError, subprocess.CalledProcessError) as exc:
