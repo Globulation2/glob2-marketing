@@ -2,6 +2,7 @@
 
 A free JavaScript workshop for teens who have used conditionals and functions. Pairs edit one rule in a bot that runs a Globulation 2 colony, test its effect, and enter a private tournament. Lead with Ontario teen coding academies and camp operators. Invite a smaller group of high-school CS teachers to test classroom fit.
 
+- [90-second gameplay demo](../../assets/bot-cup/README.md) shows the JavaScript edit and the result of a controlled replay.
 - [Instructor brief](instructor-brief.md) gives the offer, prerequisites and two-session outline.
 - [Facilitator checklist](facilitator.md) covers device rehearsal, instruction, scoring, the example result and debrief.
 - [Starter JavaScript bot](starter.js) is the ready-to-import and reset file.

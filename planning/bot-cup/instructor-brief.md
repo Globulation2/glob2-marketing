@@ -20,4 +20,4 @@ A host can teach the workshop with manual edits. If the host allows a coding ass
 
 To try the pilot, tell us which group you have in mind and give us two possible dates for a 15-minute walkthrough or device rehearsal.
 
-[Facilitator checklist](facilitator.md) · [Starter bot](starter.js) · [Globulation 2](https://glob2.online/)
+[90-second gameplay demo](../../assets/bot-cup/README.md) · [Facilitator checklist](facilitator.md) · [Starter bot](starter.js) · [Globulation 2](https://glob2.online/)
