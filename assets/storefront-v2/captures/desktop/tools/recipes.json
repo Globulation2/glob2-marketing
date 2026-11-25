@@ -1,0 +1,334 @@
+[
+ {
+  "id": "01-hero-thriving-colony-candidateA",
+  "shot": 1,
+  "match": "fsq-mix",
+  "tick": 60000,
+  "team": 0,
+  "at": 60500,
+  "view": {
+   "x": 0,
+   "y": 0,
+   "zoom": 0.875
+  },
+  "erase_zones": true
+ },
+ {
+  "id": "01-hero-thriving-colony-candidateB",
+  "shot": 1,
+  "match": "fsq-mmmm",
+  "tick": 42000,
+  "team": 2,
+  "at": 42500,
+  "view": {
+   "x": 62,
+   "y": 0,
+   "zoom": 0.875
+  },
+  "erase_zones": true
+ },
+ {
+  "id": "02-economy-at-work-candidateA",
+  "shot": 2,
+  "match": "fsq-mix",
+  "tick": 48000,
+  "team": 0,
+  "at": 48450,
+  "view": {
+   "x": 0,
+   "y": 0,
+   "zoom": 1.25
+  },
+  "erase_zones": true,
+  "steps": [
+   {
+    "click_building": {
+     "type": "inn",
+     "near": [
+      0,
+      0
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "02-economy-at-work-candidateB",
+  "shot": 2,
+  "match": "fsq-mix",
+  "tick": 60000,
+  "team": 1,
+  "at": 60450,
+  "view": {
+   "x": 0,
+   "y": 62,
+   "zoom": 1.25
+  },
+  "erase_zones": true,
+  "steps": [
+   {
+    "click_building": {
+     "type": "swarm",
+     "near": [
+      0,
+      62
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "03-battle-candidateA",
+  "shot": 3,
+  "match": "honeycomb",
+  "tick": 66000,
+  "team": 0,
+  "at": 67790,
+  "view": {
+   "x": 67,
+   "y": 62,
+   "zoom": 1.375
+  },
+  "erase_zones": true
+ },
+ {
+  "id": "03-battle-candidateB",
+  "shot": 3,
+  "match": "city-states",
+  "tick": 36000,
+  "team": 2,
+  "at": 40060,
+  "view": {
+   "x": 38,
+   "y": 46,
+   "zoom": 1.0
+  },
+  "erase_zones": true
+ },
+ {
+  "id": "04-contested-territory-candidateA",
+  "shot": 4,
+  "match": "fsq-mix",
+  "tick": 60000,
+  "team": 0,
+  "at": 60500,
+  "view": {
+   "x": 30,
+   "y": 0,
+   "zoom": 0.625
+  },
+  "erase_zones": true
+ },
+ {
+  "id": "04-contested-territory-candidateB",
+  "shot": 4,
+  "match": "honeycomb",
+  "tick": 60000,
+  "team": 0,
+  "at": 64520,
+  "view": {
+   "x": 60,
+   "y": 52,
+   "zoom": 0.75
+  },
+  "erase_zones": true
+ },
+ {
+  "id": "05-map-variety-candidateA",
+  "shot": 5,
+  "match": "lava-2t-cn",
+  "tick": 48000,
+  "team": 0,
+  "at": 48500,
+  "view": {
+   "x": 74,
+   "y": 46,
+   "zoom": 0.75
+  },
+  "erase_zones": true
+ },
+ {
+  "id": "05-map-variety-candidateB",
+  "shot": 5,
+  "match": "city-states",
+  "tick": 42000,
+  "team": 2,
+  "at": 42500,
+  "view": {
+   "x": 92,
+   "y": 54,
+   "zoom": 1.0
+  },
+  "erase_zones": true
+ },
+ {
+  "id": "06-multiplayer-chaos-candidateA",
+  "shot": 6,
+  "match": "city-states",
+  "tick": 36000,
+  "team": 2,
+  "at": 40100,
+  "view": {
+   "x": 50,
+   "y": 52,
+   "zoom": 0.75
+  },
+  "erase_zones": true
+ },
+ {
+  "id": "06-multiplayer-chaos-candidateB",
+  "shot": 6,
+  "match": "crater-lakes",
+  "tick": 54000,
+  "team": 0,
+  "at": 57450,
+  "view": {
+   "x": 30,
+   "y": 100,
+   "zoom": 0.75
+  },
+  "erase_zones": true
+ },
+ {
+  "id": "07-build-menu-candidateA",
+  "shot": 7,
+  "match": "fsq-mix",
+  "tick": 48000,
+  "team": 0,
+  "at": 48450,
+  "view": {
+   "x": 0,
+   "y": 0,
+   "zoom": 1.0
+  },
+  "erase_zones": true,
+  "steps": [
+   {
+    "arm": "game/buildings/inn.0.site"
+   },
+   {
+    "hover_tile": [
+     5.5,
+     0.5
+    ]
+   }
+  ]
+ },
+ {
+  "id": "07-build-menu-candidateB",
+  "shot": 7,
+  "match": "fsq-mix",
+  "tick": 60000,
+  "team": 1,
+  "at": 60450,
+  "view": {
+   "x": 0,
+   "y": 62,
+   "zoom": 1.0
+  },
+  "erase_zones": true,
+  "steps": [
+   {
+    "panel": 1
+   },
+   {
+    "arm": "game/flags/warflag.0.finished"
+   },
+   {
+    "hover_tile": [
+     6,
+     56
+    ]
+   }
+  ]
+ },
+ {
+  "id": "08-siege-on-a-hive-candidateA",
+  "shot": 8,
+  "match": "oasis-2t",
+  "tick": 54000,
+  "team": 0,
+  "at": 55600,
+  "view": {
+   "x": 70,
+   "y": 13,
+   "zoom": 1.0
+  },
+  "erase_zones": true
+ },
+ {
+  "id": "90-keyart-foursquares-colony-zoom100",
+  "shot": "keyart",
+  "match": "fsq-mix",
+  "tick": 48000,
+  "team": 0,
+  "at": 48500,
+  "view": {
+   "x": 0,
+   "y": 125,
+   "zoom": 1.0
+  },
+  "erase_zones": true,
+  "description": "HUD-free plate, 100% zoom (64 px a tile): the red FourSquares colony, most of the island, with workers and warriors among the buildings."
+ },
+ {
+  "id": "90-keyart-foursquares-colony-zoom200",
+  "shot": "keyart",
+  "match": "fsq-mix",
+  "tick": 48000,
+  "team": 0,
+  "at": 48500,
+  "view": {
+   "x": 2,
+   "y": 0,
+   "zoom": 2.0
+  },
+  "erase_zones": true,
+  "description": "HUD-free plate, 200% zoom (128 px a tile, full HD frames): the middle of the red FourSquares colony; buildings and globs read as characters."
+ },
+ {
+  "id": "90-keyart-foursquares-cabino-zoom150",
+  "shot": "keyart",
+  "match": "fsq-mix",
+  "tick": 60000,
+  "team": 1,
+  "at": 60500,
+  "view": {
+   "x": 0,
+   "y": 64,
+   "zoom": 1.5
+  },
+  "erase_zones": true,
+  "description": "HUD-free plate, 150% zoom (96 px a tile): the lime FourSquares colony (Cabino AI) around its swimming pool and swarms."
+ },
+ {
+  "id": "90-keyart-isles-colony-zoom150",
+  "shot": "keyart",
+  "match": "isles-mix",
+  "tick": 60000,
+  "team": 1,
+  "at": 60500,
+  "view": {
+   "x": 60,
+   "y": 120,
+   "zoom": 1.5
+  },
+  "erase_zones": true,
+  "description": "HUD-free plate, 150% zoom (96 px a tile): a lime colony (Maxima AI) on the Isles map."
+ },
+ {
+  "id": "90-keyart-honeycomb-battle-zoom200",
+  "shot": "keyart",
+  "match": "honeycomb",
+  "tick": 66000,
+  "team": 0,
+  "at": 67760,
+  "view": {
+   "x": 68,
+   "y": 63,
+   "zoom": 2.0
+  },
+  "erase_zones": true,
+  "description": "HUD-free plate, 200% zoom (128 px a tile): red and lime warriors fighting at the Honeycomb isle oasis, with war flags and a guard area."
+ }
+]

@@ -1,0 +1,129 @@
+[
+ {
+  "role": "hero",
+  "name": "01-hero-marchland-colony-under-raid",
+  "match": "marchland",
+  "map": "marchland (generator, seed 2102, 128x128, 4 colonies)",
+  "seat": "player seat on colony 0, a local human player record added to the save, sharing the colony with its AI (Maxima)",
+  "files": {
+   "3840x2160": "$SCRATCH/desktop-r2/cand/heroM-33161.png",
+   "2880x1800": "$SCRATCH/desktop-r2/b1610h2/hero-31754.png"
+  },
+  "description": "100% zoom. A large red colony (two swarms, about twenty inns and hospitals, a school site, wheat fields, hundreds of workers) with a purple rival's raid of roughly twenty warriors meeting a similar number of red warriors at the colony's right edge, by a red war flag; the purple colony's swarm and inn at the lower right.",
+  "caption_check": "Command a whole colony: workers, buildings and warriors in the middle of a match - true: buildings, workers and warriors of one colony, mid-match (game minute 18), with a fight at its edge.",
+  "notes": "16:9: two event rows, top stat 100/293, zones clean; dimmed fog on the right quarter (rival land). 16:10 twin: same recipe, a different run; the raid is there but the event list shows four rows (no 2-row moment occurred during the raid in two runs)."
+ },
+ {
+  "role": "build",
+  "name": "02-build-coral-school-site",
+  "match": "coral",
+  "map": "coral (generator, seed 2102, 128x128, 4 colonies)",
+  "seat": "player seat on colony 0, a local human player record added to the save, sharing the colony with its AI (Maxima)",
+  "files": {
+   "3840x2160": "$SCRATCH/desktop-r2/cand/build-coral-41233.png",
+   "2880x1800": "$SCRATCH/desktop-r2/b1610/build-coral-40980.png"
+  },
+  "description": "150% zoom on the red colony's island. A School construction site the seat placed seconds earlier is selected: the panel reads 'School (Maxima), Level 1 (construction site)', its Working slider (4/8 in 16:9, 7/8 in 16:10) and the materials delivered so far (Wood 3/7, Algae 1/2; Wood 2/7, Algae 0/2). The workers assigned to it are ringed by the game; a second site (the AI's) lies just below; inns, hospitals and the swarm around.",
+  "caption_check": "Choose a building and how many workers it gets; they gather the materials and build it - true: a chosen building, its worker count on the slider, materials arriving.",
+  "notes": "No placement preview in this frame: in the desktop interface selecting a site replaces the build palette in the side panel, so a selected site and an armed palette item cannot be on screen together. The seat placed the site with game_place (the click the palette makes) and set its workers to 8. Disclosure for the 16:9 frame: earlier in the same session the seat had placed three test sites to learn the timing (a school at 66,21 and an inn at 68,21, both finished by the colony and visible just left of the selected site, and a school at 60,30); the 16:10 frame comes from a clean session with only the one site."
+ },
+ {
+  "role": "economy",
+  "name": "03-economy-coral-inn-and-wheat",
+  "match": "coral",
+  "map": "coral (generator, seed 2102, 128x128, 4 colonies)",
+  "seat": "player seat on colony 0, a local human player record added to the save, sharing the colony with its AI (Maxima)",
+  "files": {
+   "3840x2160": "$SCRATCH/desktop-r2/cand/econ-coral-40121.png",
+   "2880x1800": "$SCRATCH/desktop-r2/b1610/economy-coral-40402.png"
+  },
+  "description": "150% zoom. An Inn is selected: 'Inn (Maxima)', Working 1/1, Food 9/10 (16:10: 6/10), no warning line. The red Swarm stands above it, four more inns and three hospitals around, and wheat fields (the red, orange, yellow and green grain clusters) on both sides with workers among them.",
+  "caption_check": "Workers carry wheat to the inns and swarms that feed and grow the colony - true of the scene: wheat fields with workers, inns, a swarm, the Inn's food stock above half. Individual carried grains are a few pixels; the claim rests on the panel and the fields.",
+  "notes": "Wheat sprite confirmed from the release's resource registry (see README)."
+ },
+ {
+  "role": "battle",
+  "name": "04-battle-honeycomb-oasis",
+  "match": "honeycomb",
+  "map": "honeycomb-isle (generator, seed 2102, 128x128, 4 colonies)",
+  "seat": "player seat on colony 0, a local human player record added to the save, sharing the colony with its AI (Maxima)",
+  "files": {
+   "3840x2160": "$SCRATCH/desktop-r2/cand/battle-hc-68033.png",
+   "2880x1800": "$SCRATCH/desktop-r2/b1610/battle-honeycomb-68813.png"
+  },
+  "description": "The round-1 03-battle-candidateA scene at 150%: red warriors and the lime rival's (Cortex AI) warriors clash on the sand ring of the oasis at the centre of Honeycomb isle, with hit flashes; the lime swarm on the dark hex to the right, a red inn at the top left. No guard grid, no flag circles, no unit bars.",
+  "caption_check": "Warriors from rival colonies fight for the same land - true.",
+  "notes": "Exception to the clean-state protocol: the first top-bar stat is red and negative (-9/175 in 16:9). The red colony (Maxima) has more jobs than idle workers throughout this fight (sampled -7 to -67 over ticks 66,000-70,000), and the lime seat sees the oasis under fog. The alternative clash with a positive stat (lava-2t-cn, cyan seat, 137.5%) is kept as a candidate in the scratchpad; it is a smaller skirmish beside a black crater mouth."
+ },
+ {
+  "role": "territory",
+  "name": "05-territory-crater-lakes",
+  "match": "crater-lakes",
+  "map": "crater-lakes (generator, seed 2102, 128x128, 4 colonies)",
+  "seat": "player seat on colony 0, a local human player record added to the save, sharing the colony with its AI (Maxima)",
+  "files": {
+   "3840x2160": "$SCRATCH/desktop-r2/cand/terr-crater-57621.png",
+   "2880x1800": "$SCRATCH/desktop-r2/b1610/territory-crater-lakes-57834.png"
+  },
+  "description": "75% zoom between three crater lakes: the red colony's forward swarm in a clearing at the centre, the purple rival's (Cortex AI) swarms, inns and hospitals in the forest on the left, and red warriors pressing into the purple side across the strip of wheat and grass between them.",
+  "caption_check": "A wider view of the map shows where rival colonies meet - true: two colonies and the ground between them in one frame.",
+  "notes": "Both colonies' buildings are drawn lit where red units see them; parts of the forest and lakes are dimmed fog (the seat's colony does not see them at that moment)."
+ },
+ {
+  "role": "maps",
+  "name": "06-maps-city-states",
+  "match": "city-states",
+  "map": "city-states (generator, seed 2102, 128x128, 4 colonies)",
+  "seat": "player seat on colony 2, a local human player record added to the save, sharing the colony with its AI (Maxima)",
+  "files": {
+   "3840x2160": "$SCRATCH/desktop-r2/b169/maps-city-states-47013.png",
+   "2880x1800": "$SCRATCH/desktop-r2/b1610/maps-city-states-47494.png"
+  },
+  "description": "87.5% zoom inside the City-states ring city: a cyan colony on sand with hex-paved roads, wheat fields, inns, schools, barracks, defence towers and a swarm, a stone wall and moat on the right, lava ground at the lower left.",
+  "caption_check": "One of the game's maps, each with its own terrain, resources and routes - true: a visibly different map (paved roads, walls, moat, lava) with an active colony.",
+  "notes": ""
+ },
+ {
+  "role": "opponents",
+  "name": "07-opponents-marchland-spectator",
+  "kind": "spectator view: AI-versus-AI match, fog of war off (label as spectator view)",
+  "match": "marchland",
+  "map": "marchland (generator, seed 2102, 128x128, 4 colonies)",
+  "seat": "spectator view (no player seat): every colony is played by an AI; the HUD shows colony 0's statistics; fog of war off",
+  "files": {
+   "3840x2160": "$SCRATCH/desktop-r2/cand/opp-spec36-1795558953.png",
+   "2880x1800": "$SCRATCH/desktop-r2/b1610/opponents-marchland-spectator-1795562279.png"
+  },
+  "description": "100%, spectator view of a four-colony AI match at the centre of Marchland: a purple colony's swarm and inns (left), a lime colony's two swarms and inns (right), a cyan colony's inns, construction sites and units (centre), and a few red units, all on the same field; the spectator panel lists the four AIs.",
+  "caption_check": "Several colonies share one map and compete for the same land - true: three colony colours (four counting red units) building and moving on one field, fully lit.",
+  "notes": "From a player seat the three colonies sit under fog; spectator view is the honest way to show them lit. The panel shows the headless runner's lower-case AI names. No fighting at that moment."
+ },
+ {
+  "role": "ai_coplay",
+  "name": "08-ai-coplay-in-game-coral",
+  "match": "coral",
+  "map": "coral (generator, seed 2102, 128x128, 4 colonies)",
+  "seat": "player seat on colony 0, a local human player record added to the save, sharing the colony with its AI (Maxima)",
+  "files": {
+   "3840x2160": "$SCRATCH/desktop-r2/coplay/coplay-a-coral-37142.png",
+   "2880x1800": "$SCRATCH/desktop-r2/b1610/ai-coplay-coral-36565.png"
+  },
+  "description": "100%. A pure in-game frame after an MCP agent session installed the standing order 'frontline-flag' through hive_program: the game's own Hive card is on screen at the lower left (name, Active, its latest real output, Pause and Cancel, Reports / details, Stop commander), and the war flag the order placed (pink star) stands among red warriors south of the inns, with cyan and lime rival units nearby.",
+  "caption_check": "A local game shared with the player's own AI agent, connected through the built-in MCP server - true: the game's interface shows the agent's standing order running in this colony.",
+  "notes": "Agent calls in this session: hive_status, game_world, hive_program install, hive_program inspect, game_view (transcript in the scratchpad). The standing order's war flag is a player order the game executed; nothing else was placed."
+ },
+ {
+  "role": "ai_coplay",
+  "name": "08b-ai-coplay-side-by-side-coral",
+  "kind": "game frame plus transcript of the same session, arranged side by side",
+  "match": "coral",
+  "map": "coral (generator, seed 2102, 128x128, 4 colonies)",
+  "seat": "player seat on colony 0, a local human player record added to the save, sharing the colony with its AI (Maxima)",
+  "files": {
+   "3840x2160": "$SCRATCH/desktop-r2/bcoplay/sbs.png"
+  },
+  "description": "Left two-thirds: a native 2560x2160 frame of a game window from the session (Hive card for 'frontline-flag', holding the war flag at tile 59,59 among red warriors). Right third: a plain monospace panel listing that same session's six MCP calls and summaries of the game's real responses: hive_status, game_world, hive_status, hive_program install frontline-flag, hive_program inspect, game_view.",
+  "caption_check": "True: the game and a separate agent session connected to it, with the agent's standing order visible in the game.",
+  "notes": "Not a screenshot of a terminal: the panel is rendered by tools/coplay-side-by-side.py from the recorded transcript. No product name, logo, path, user or token. 16:9 only."
+ }
+]

@@ -1,0 +1,54 @@
+{
+  "asset_set": "storefront-v2/icon",
+  "created": "2026-11-24",
+  "game_repository": "https://github.com/Globulation2/glob2",
+  "game_pull_request": "https://github.com/Globulation2/glob2/pull/1915",
+  "game_commit": "204eb97461d0b4e400dee4bcd796f2c374a5fc05",
+  "art_source": "Vector redraw of the existing 128x128 application icon; real game art, no AI-generated or stock imagery",
+  "renderer": "resvg-py 0.5.0, Pillow 11.3.0",
+  "files": [
+    {
+      "file": "glob2-icon.svg",
+      "sha256": "0b281abeaa827c71fd94033acaaf1278a31a19a3f07a2b3288a2d1b1b9e24978",
+      "bytes": 17801,
+      "description": "Vector master, viewBox 0 0 128 128, transparent background",
+      "game_repo_source": "content-src/icons/app/glob2-icon.svg"
+    },
+    {
+      "file": "glob-1024.png",
+      "sha256": "2d9c72f3df8f1a54f8da4b7e3acbcb5b754333a640b5bdd006141aea3f99b501",
+      "bytes": 191260,
+      "description": "Transparent 1024x1024 render of the vector master",
+      "game_repo_source": "content-src/icons/app/glob2-icon-1024.png",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "icon-1024.png",
+      "sha256": "debb71f73dd7c97d3a951614f7ea90a9526eae3691e05ceba6809bad67c64f4b",
+      "bytes": 201318,
+      "description": "Apple App Store icon: 1024x1024, opaque RGB, full-bleed purple #4C3676, glob at 82%, square corners",
+      "game_repo_source": "platforms/mobile/ios/Assets.xcassets/AppIcon.appiconset/icon-1024.png",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "icon-512.png",
+      "sha256": "76c980dc43ca180bf6b9f0b3292fcb5026930c2d9df56627e737f579e5d191da",
+      "bytes": 69145,
+      "description": "Google Play store icon: 512x512, 32-bit RGBA with opaque alpha, full-bleed purple #2B1C42 (the Android launcher background), glob at 82%, square corners",
+      "game_repo_source": "composed from glob2-icon-1024.png with the same resize as platforms/mobile/icons.py",
+      "pixels": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    }
+  ]
+}

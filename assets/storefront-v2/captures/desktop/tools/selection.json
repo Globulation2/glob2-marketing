@@ -1,0 +1,62 @@
+[
+ {
+  "candidate": "01-hero-thriving-colony-candidateA",
+  "description": "A red colony fills its whole home island on FourSquares: swarms, inns, hospitals, schools, defence towers, barracks, a racetrack and a swimming pool between fruit-tree fields, with about 160 workers and 120 warriors on the move; the water at the corners is dimmed by fog of war."
+ },
+ {
+  "candidate": "01-hero-thriving-colony-candidateB",
+  "description": "A cyan colony fills its home island on FourSquares in a four-Maxima match: three swarms, two swimming pools, inns, hospitals, towers and training buildings, with about 170 workers and 100 warriors; fruit-tree fields left and right, fogged water at the corners."
+ },
+ {
+  "candidate": "02-economy-at-work-candidateA",
+  "description": "The red FourSquares colony at 125% with an Inn selected: the side panel shows its Working slider (workers assigned), Low/Mid/High priority and food stock, while workers carry food and resources between the buildings."
+ },
+ {
+  "candidate": "02-economy-at-work-candidateB",
+  "description": "A lime colony (Cabino AI) on FourSquares at 125% with a Swarm selected: the side panel shows the worker slider, priority and the Worker/Explorer/Warrior production ratios; globs work between inns, towers, a swimming pool and tree fields."
+ },
+ {
+  "candidate": "03-battle-candidateA",
+  "description": "Red warriors and a rival's lime warriors (Cortex AI) fight around the oasis at the centre of Honeycomb isle at 137.5% zoom: hit flashes, war flags with their range circles and a blue guard area; a lime swarm stands on the dark hex to the right and red inns at the top left."
+ },
+ {
+  "candidate": "03-battle-candidateB",
+  "description": "Cyan warriors storm a red rival outpost inside the ring city of City-states: a large red building collapses in smoke beside red inns and a defence tower, with war-flag circles and a guard area over the paved road."
+ },
+ {
+  "candidate": "04-contested-territory-candidateA",
+  "description": "Pulled back to 62.5% on FourSquares: the red home island in full view on the left, the channel and its crossing in the middle, and the rival cyan colony (Nicowar AI) on the next island, dimmed by fog of war except where red units can see."
+ },
+ {
+  "candidate": "04-contested-territory-candidateB",
+  "description": "Honeycomb isle at 75%: the red colony building on the upper-left hex, its warriors holding the central oasis under a guard area and war flags, and the rival lime swarm on the hex to the right; two small unexplored (black) patches at the right edge."
+ },
+ {
+  "candidate": "05-map-variety-candidateA",
+  "description": "Lava shield at 75%: a red colony (Cabino AI) spread around a sand ring beside dark lava flows and the volcano's crater, with a rival's cyan units crossing the lava at the left."
+ },
+ {
+  "candidate": "05-map-variety-candidateB",
+  "description": "City-states: a cyan colony on sand inside the stone ring city, with hex-paved roads, a guard area full of warriors, inns, towers and training buildings, and the moat and outer wall on the right."
+ },
+ {
+  "candidate": "06-multiplayer-chaos-candidateA",
+  "description": "City-states at 75% in a four-colony match: cyan warriors overrun a red outpost at the upper left while the cyan colony builds along the ring road and guards hold the central plaza; more red buildings stand beyond the wall at the lower left."
+ },
+ {
+  "candidate": "06-multiplayer-chaos-candidateB",
+  "description": "Crater lakes at 75% in a four-colony match: red warriors besiege a purple rival colony's swarms and smaller buildings in the forest between three crater lakes, next to a red forward swarm."
+ },
+ {
+  "candidate": "07-build-menu-candidateA",
+  "description": "Construction tab with the Inn armed in the red FourSquares colony: the placement preview sits on free ground with a valid (white) outline, every building shows its footprint, and the panel names the Inn and its cost."
+ },
+ {
+  "candidate": "07-build-menu-candidateB",
+  "description": "Flags and areas tab with the War Flag armed in the lime FourSquares colony (Cabino AI): the panel shows the exploration, war and clearing flags, the forbidden, guard and clearing area tools and the brush shapes."
+ },
+ {
+  "candidate": "08-siege-on-a-hive-candidateA",
+  "description": "Hidden oasis: red warriors besiege a rival's cyan swarms (Cortex AI) between two lakes, under a blue guard-area grid and war-flag circles; one building is smoking."
+ }
+]

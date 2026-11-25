@@ -1,0 +1,58 @@
+[
+ {
+  "capture": "01-hero-marchland-colony-under-raid-3840x2160.png",
+  "role": "hero",
+  "position": 1,
+  "caption_field": "shot_caption_hero",
+  "capture_16_10": "01-hero-marchland-colony-under-raid-2880x1800.png",
+  "web_1920": "web-1920/01-hero-marchland-colony-under-raid-1920x1080.jpg"
+ },
+ {
+  "capture": "04-battle-honeycomb-oasis-3840x2160.png",
+  "role": "battle",
+  "position": 2,
+  "caption_field": "shot_caption_battle",
+  "capture_16_10": "04-battle-honeycomb-oasis-2880x1800.png",
+  "web_1920": "web-1920/04-battle-honeycomb-oasis-1920x1080.jpg"
+ },
+ {
+  "capture": "02-build-coral-school-site-3840x2160.png",
+  "role": "build",
+  "position": 3,
+  "caption_field": "shot_caption_build",
+  "capture_16_10": "02-build-coral-school-site-2880x1800.png",
+  "web_1920": "web-1920/02-build-coral-school-site-1920x1080.jpg"
+ },
+ {
+  "capture": "08-ai-coplay-in-game-coral-3840x2160.png",
+  "role": "ai_coplay",
+  "position": 4,
+  "caption_field": "shot_caption_ai_coplay",
+  "capture_16_10": "08-ai-coplay-in-game-coral-2880x1800.png",
+  "web_1920": "web-1920/08-ai-coplay-in-game-coral-1920x1080.jpg"
+ },
+ {
+  "capture": "06-maps-city-states-3840x2160.png",
+  "role": "maps",
+  "position": 5,
+  "caption_field": "shot_caption_maps",
+  "capture_16_10": "06-maps-city-states-2880x1800.png",
+  "web_1920": "web-1920/06-maps-city-states-1920x1080.jpg"
+ },
+ {
+  "capture": "05-territory-crater-lakes-3840x2160.png",
+  "role": "territory",
+  "position": 6,
+  "caption_field": "shot_caption_territory",
+  "capture_16_10": "05-territory-crater-lakes-2880x1800.png",
+  "web_1920": "web-1920/05-territory-crater-lakes-1920x1080.jpg"
+ },
+ {
+  "capture": "03-economy-coral-inn-and-wheat-3840x2160.png",
+  "role": "economy",
+  "position": 7,
+  "caption_field": "shot_caption_economy",
+  "capture_16_10": "03-economy-coral-inn-and-wheat-2880x1800.png",
+  "web_1920": "web-1920/03-economy-coral-inn-and-wheat-1920x1080.jpg"
+ }
+]

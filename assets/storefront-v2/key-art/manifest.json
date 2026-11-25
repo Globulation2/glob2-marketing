@@ -1,0 +1,915 @@
+{
+ "generated_by": "build-assets.py (uv run --with pillow python build-assets.py)",
+ "recommended_concept": "a-shoreline",
+ "plate_capture_build": {
+  "description": "Globulation 2 0.11.7.0 + 15 commits (revision 5bf966285aa8), the installed build at /Applications/Glob2.app; maps, AI roster and simulation identical to the v0.11.7.0 tag. Not the public 0.11.7.0 release binary.",
+  "version": "0.11.7.0",
+  "revision": "5bf966285aa8",
+  "executable_sha256": "252fd7d7ff8383c2f72760eccb418b4792bfdfe9f820cd8925b8d8cb69cb7c7f",
+  "source": "glob2 info version on the installed build; facts/storefront-v2-claims.md R13"
+ },
+ "inputs": [
+  {
+   "role": "plate",
+   "name": "shoreline",
+   "file": "assets/storefront-v2/key-art/plates/plate-shoreline-foursquares-red-z150-t88344.png",
+   "size": [
+    4396,
+    2600
+   ],
+   "sha256": "0cdbdf21ff7d669fcad739e6923c3d0430f79b79fdf66df1293d95001603a27a"
+  },
+  {
+   "role": "plate",
+   "name": "oasis",
+   "file": "assets/storefront-v2/key-art/plates/plate-oasis-clash-honeycomb-z150-t70320.png",
+   "size": [
+    4396,
+    2600
+   ],
+   "sha256": "34b7557587fceb0a689d1515be40a038166a19f9868bdd5f9cb9957c8f3a8bdb"
+  },
+  {
+   "role": "plate",
+   "name": "cabino",
+   "file": "assets/storefront-v2/captures/desktop/keyart-foursquares-cabino-zoom150-3840x2160.png",
+   "size": [
+    3840,
+    2160
+   ],
+   "sha256": "e72bcf462686f2967cc3a5df6fc37f724a777569afa5329505cca16c27c6cc07"
+  },
+  {
+   "role": "wordmark",
+   "file": "glob2/content/data/gfx/menu-wordmark.png",
+   "size": [
+    2103,
+    748
+   ],
+   "sha256": "020f34e218f137b34f9af53c85532662a9efebcf7b4b8f955b761b07528cd32d"
+  }
+ ],
+ "outputs": [
+  {
+   "file": "concepts/concept-a-shoreline-3840x2160.jpg",
+   "size": [
+    3840,
+    2160
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 2927757,
+   "sha256": "57029a33d73ab530a1a1e01f7b7c1f639c826ad7dc57e7bbf91dfabf96aa3129",
+   "kind": "concept",
+   "concept": "a-shoreline",
+   "plate": "shoreline",
+   "crop_box": [
+    0,
+    100,
+    3989,
+    2244
+   ],
+   "scale": 0.9626,
+   "wordmark_box": [
+    1479,
+    208,
+    3629,
+    504
+   ]
+  },
+  {
+   "file": "concepts/concept-b-pool-and-swarm-3840x2160.jpg",
+   "size": [
+    3840,
+    2160
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 2911178,
+   "sha256": "113a869ed7be574f3a908df855ae1c71a4cd530f2cc3c51ca333634b7137e77f",
+   "kind": "concept",
+   "concept": "b-pool-and-swarm",
+   "plate": "cabino",
+   "crop_box": [
+    0,
+    0,
+    3840,
+    2160
+   ],
+   "scale": 1.0,
+   "wordmark_box": [
+    807,
+    171,
+    3034,
+    477
+   ]
+  },
+  {
+   "file": "concepts/concept-c-oasis-clash-3840x2160.jpg",
+   "size": [
+    3840,
+    2160
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 2689531,
+   "sha256": "8b6bbd62d2f2020af5affa02d348d6642583ba4975490c9268cf1c4b00cbde33",
+   "kind": "concept",
+   "concept": "c-oasis-clash",
+   "plate": "oasis",
+   "crop_box": [
+    0,
+    127,
+    4396,
+    2473
+   ],
+   "scale": 0.8735,
+   "wordmark_box": [
+    807,
+    1683,
+    3034,
+    1989
+   ]
+  },
+  {
+   "file": "concepts/contact-sheet-full.jpg",
+   "size": [
+    1328,
+    2358
+   ],
+   "kind": "review-sheet",
+   "bytes": 1562731,
+   "sha256": "f47818a340a08e84c61800bac9329061251a3dbdc08b936b3a0a8faa10719097"
+  },
+  {
+   "file": "concepts/contact-sheet-thumbnails.jpg",
+   "size": [
+    971,
+    843
+   ],
+   "kind": "review-sheet",
+   "bytes": 375324,
+   "sha256": "b651fbe9a178a3c4d471c64bb71af0c4a2d5509c1ca0c16c8fbf46be3d29d613"
+  },
+  {
+   "file": "derivatives/master-3840x2160.png",
+   "size": [
+    3840,
+    2160
+   ],
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 9512875,
+   "sha256": "aeb73262c7d7d212cdff8b7b2d3a33a446daec0bb39d0cb7662c2abd9c7f34e1",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    0,
+    100,
+    3989,
+    2244
+   ],
+   "scale": 0.9626,
+   "wordmark_box": [
+    1479,
+    208,
+    3629,
+    504
+   ]
+  },
+  {
+   "file": "derivatives/master-no-text-3840x2160.png",
+   "size": [
+    3840,
+    2160
+   ],
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 10205207,
+   "sha256": "f4be3574ac5ca7b7498f10e2f3c0a110bf65bcd5a09729fe8aa64bf2a607888c",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": false,
+   "plate": "shoreline",
+   "crop_box": [
+    0,
+    100,
+    3989,
+    2244
+   ],
+   "scale": 0.9626,
+   "wordmark_box": null
+  },
+  {
+   "file": "derivatives/google-play-feature-1024x500.jpg",
+   "size": [
+    1024,
+    500
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 302833,
+   "sha256": "b7e4e7ab84c85f6949fa5d3fcc85e782c8e1f416fb1fb7b7ccbc50bb449709aa",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    732,
+    120,
+    3195,
+    1560
+   ],
+   "scale": 0.3205,
+   "wordmark_box": [
+    349,
+    73,
+    922,
+    152
+   ],
+   "wordmark_margins_px": {
+    "left": 349,
+    "top": 73,
+    "right": 102,
+    "bottom": 348
+   }
+  },
+  {
+   "file": "derivatives/amazon-promo-1024x500.png",
+   "size": [
+    1024,
+    500
+   ],
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 798482,
+   "sha256": "3129d24a947847b82c0173543bcf9da6a71f5561fb7aa2835c1c7551e3730b7b",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    732,
+    120,
+    3195,
+    1560
+   ],
+   "scale": 0.3205,
+   "wordmark_box": [
+    349,
+    73,
+    922,
+    152
+   ],
+   "wordmark_margins_px": {
+    "left": 349,
+    "top": 73,
+    "right": 102,
+    "bottom": 348
+   }
+  },
+  {
+   "file": "derivatives/epic-offer-landscape-2560x1440.jpg",
+   "size": [
+    2560,
+    1440
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1596975,
+   "sha256": "7e3508a22df83904f35f7b7d2c6c9f9e1cf6bd3c954a56a0fd5a54fcaefd57b5",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    0,
+    100,
+    3989,
+    2244
+   ],
+   "scale": 0.6418,
+   "wordmark_box": [
+    985,
+    139,
+    2419,
+    336
+   ]
+  },
+  {
+   "file": "derivatives/epic-offer-portrait-1200x1600.jpg",
+   "size": [
+    1200,
+    1600
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 982083,
+   "sha256": "28f5fd43a195ff0860691d5845bc27923cc933b680ae27bb7a4670092e14c42e",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    745,
+    0,
+    1950,
+    2600
+   ],
+   "scale": 0.6154,
+   "wordmark_box": [
+    108,
+    116,
+    1092,
+    251
+   ]
+  },
+  {
+   "file": "derivatives/epic-social-preview-1200x1200.jpg",
+   "size": [
+    1200,
+    1200
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 875302,
+   "sha256": "25c3cbf1d0b7662e2e366d653e5a6b24fc2713cb1e29d3fa66ab77be9981644f",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    700,
+    0,
+    2600,
+    2600
+   ],
+   "scale": 0.4615,
+   "wordmark_box": [
+    144,
+    87,
+    1056,
+    213
+   ]
+  },
+  {
+   "file": "derivatives/microsoft-poster-1440x2160.png",
+   "size": [
+    1440,
+    2160
+   ],
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 4268709,
+   "sha256": "7cd1fe17e379f15fee6da7617279b1b614bd8ffcb4dacdfab7bb8187dd86bab6",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    814,
+    0,
+    1733,
+    2600
+   ],
+   "scale": 0.8309,
+   "wordmark_box": [
+    115,
+    154,
+    1325,
+    321
+   ]
+  },
+  {
+   "file": "derivatives/microsoft-box-art-2160x2160.png",
+   "size": [
+    2160,
+    2160
+   ],
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 6320587,
+   "sha256": "2732f090ce51b165b7d7b462f853b7382c6d83c1d6a51b01db4bd0fb99243b14",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    700,
+    0,
+    2600,
+    2600
+   ],
+   "scale": 0.8308,
+   "wordmark_box": [
+    259,
+    157,
+    1901,
+    383
+   ]
+  },
+  {
+   "file": "derivatives/microsoft-box-art-1080x1080.png",
+   "size": [
+    1080,
+    1080
+   ],
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 1953391,
+   "sha256": "b30a5094b2a5e98f916fb9010f5a031249441a2dc3cbb09951b6f1a549e19e2e",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    700,
+    0,
+    2600,
+    2600
+   ],
+   "scale": 0.4154,
+   "wordmark_box": [
+    130,
+    78,
+    951,
+    191
+   ]
+  },
+  {
+   "file": "derivatives/microsoft-super-hero-3840x2160.png",
+   "size": [
+    3840,
+    2160
+   ],
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 10205207,
+   "sha256": "f4be3574ac5ca7b7498f10e2f3c0a110bf65bcd5a09729fe8aa64bf2a607888c",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": false,
+   "plate": "shoreline",
+   "crop_box": [
+    0,
+    100,
+    3989,
+    2244
+   ],
+   "scale": 0.9626,
+   "wordmark_box": null
+  },
+  {
+   "file": "derivatives/microsoft-super-hero-1920x1080.png",
+   "size": [
+    1920,
+    1080
+   ],
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 3183637,
+   "sha256": "f6bb36e71c57af7e01fdc174308f661f151b743224a39bf452faa5fad8f934e4",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": false,
+   "plate": "shoreline",
+   "crop_box": [
+    0,
+    100,
+    3989,
+    2244
+   ],
+   "scale": 0.4813,
+   "wordmark_box": null
+  },
+  {
+   "file": "derivatives/snap-banner-1440x480.jpg",
+   "size": [
+    1440,
+    480
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 331343,
+   "sha256": "abb9507fd0c76168da9700b28170cd3cb7928cf86a57f300401287ecb712b1a5",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    600,
+    100,
+    3300,
+    1100
+   ],
+   "scale": 0.4364,
+   "wordmark_box": [
+    555,
+    74,
+    1361,
+    185
+   ]
+  },
+  {
+   "file": "derivatives/itch-cover-630x500.jpg",
+   "size": [
+    630,
+    500
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 253407,
+   "sha256": "b9f5689c8eb824d8672aee468ad9ca5083af67b89b343910ce785d285595a4c9",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    300,
+    0,
+    3276,
+    2600
+   ],
+   "scale": 0.1923,
+   "wordmark_box": [
+    177,
+    42,
+    580,
+    97
+   ]
+  },
+  {
+   "file": "derivatives/gog-main-banner-1600x740.jpg",
+   "size": [
+    1600,
+    740
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 593493,
+   "sha256": "d1268c4cd883ad6844f769cec3f159b1a12c21e26b0b7527589fa786454b1249",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    564,
+    100,
+    3373,
+    1560
+   ],
+   "scale": 0.4744,
+   "wordmark_box": [
+    592,
+    77,
+    1520,
+    205
+   ]
+  },
+  {
+   "file": "derivatives/gog-box-342x482.jpg",
+   "size": [
+    342,
+    482
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 132679,
+   "sha256": "f6c2148b293e7b32889a5a596a264827c06a0667dcf98fa130de74500b42553b",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    778,
+    0,
+    1845,
+    2600
+   ],
+   "scale": 0.1854,
+   "wordmark_box": [
+    24,
+    33,
+    318,
+    73
+   ]
+  },
+  {
+   "file": "derivatives/gog-background-2560x670.jpg",
+   "size": [
+    2560,
+    670
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 797391,
+   "sha256": "44f94639e5b8812e9a2b1f5506611a1689bac691fcf0486b02cfbb3d4361936a",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": false,
+   "plate": "shoreline",
+   "crop_box": [
+    0,
+    300,
+    3989,
+    1044
+   ],
+   "scale": 0.6418,
+   "wordmark_box": null
+  },
+  {
+   "file": "derivatives/gog-background-2560x655.jpg",
+   "size": [
+    2560,
+    655
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 777703,
+   "sha256": "791ee7d0c1d2ce0af7004c91927779895ad375e01bb38ec4e9e093baeafa8b67",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": false,
+   "plate": "shoreline",
+   "crop_box": [
+    2,
+    312,
+    3987,
+    1020
+   ],
+   "scale": 0.6421,
+   "wordmark_box": null
+  },
+  {
+   "file": "derivatives/steam-header-920x430.jpg",
+   "size": [
+    920,
+    430
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 249528,
+   "sha256": "78b3856f82ac314c52889604f648db4776e54d76e9815345af8c40edf713ce91",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    581,
+    100,
+    3338,
+    1560
+   ],
+   "scale": 0.2756,
+   "wordmark_box": [
+    340,
+    45,
+    874,
+    118
+   ]
+  },
+  {
+   "file": "derivatives/steam-small-capsule-462x174.jpg",
+   "size": [
+    462,
+    174
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 50287,
+   "sha256": "ba857a9aaa9e6cd095b24a24d491ad225bc4315c596b67f946927b98bd30c1bd",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    899,
+    100,
+    2602,
+    980
+   ],
+   "scale": 0.1776,
+   "wordmark_box": [
+    69,
+    30,
+    439,
+    81
+   ]
+  },
+  {
+   "file": "derivatives/steam-main-capsule-1232x706.jpg",
+   "size": [
+    1232,
+    706
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 517779,
+   "sha256": "bdcafc18e1fc9c84ae2c1722a3cb11f4eec2472ae173f7662d590141da118851",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    37,
+    100,
+    3916,
+    2244
+   ],
+   "scale": 0.3146,
+   "wordmark_box": [
+    474,
+    69,
+    1164,
+    164
+   ]
+  },
+  {
+   "file": "derivatives/steam-vertical-capsule-748x896.jpg",
+   "size": [
+    748,
+    896
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 448014,
+   "sha256": "ae2f3188d9893702ba0182dc2f175192643e5e2253c8625cdff2997f5b984227",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    714,
+    0,
+    2171,
+    2600
+   ],
+   "scale": 0.3445,
+   "wordmark_box": [
+    75,
+    62,
+    673,
+    144
+   ]
+  },
+  {
+   "file": "derivatives/steam-library-capsule-600x900.jpg",
+   "size": [
+    600,
+    900
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 357101,
+   "sha256": "6e3dfcc0fadb42baca57932b1326c237e5c62b53b6f3869b901d2dd25b47aa47",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    814,
+    0,
+    1733,
+    2600
+   ],
+   "scale": 0.3462,
+   "wordmark_box": [
+    48,
+    64,
+    552,
+    133
+   ]
+  },
+  {
+   "file": "derivatives/steam-library-hero-3840x1240.jpg",
+   "size": [
+    3840,
+    1240
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1833856,
+   "sha256": "8b317a5e91786ec24c6d101f3471a2bfa9cf8e7b8a3924089a9c5a6e5fc76ddf",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": false,
+   "plate": "shoreline",
+   "crop_box": [
+    0,
+    250,
+    3989,
+    1288
+   ],
+   "scale": 0.9626,
+   "wordmark_box": null
+  },
+  {
+   "file": "derivatives/open-graph-1200x630.jpg",
+   "size": [
+    1200,
+    630
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 424800,
+   "sha256": "a83d9b63222192c5dda3b8333dbbccc90f794fe5f4b333ab2f8cc5485e04667b",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    764,
+    100,
+    2971,
+    1560
+   ],
+   "scale": 0.4039,
+   "wordmark_box": [
+    462,
+    74,
+    1134,
+    166
+   ]
+  },
+  {
+   "file": "derivatives/promo-tile-1024x1024.jpg",
+   "size": [
+    1024,
+    1024
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 681970,
+   "sha256": "4fa779d2b35ef26a44f29ac3d9aa28761606ee2880293d7cad77af2944a07bd0",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    700,
+    0,
+    2600,
+    2600
+   ],
+   "scale": 0.3938,
+   "wordmark_box": [
+    123,
+    74,
+    901,
+    181
+   ]
+  },
+  {
+   "file": "derivatives/epic-product-logo-960x540.png",
+   "size": [
+    960,
+    540
+   ],
+   "format": "PNG",
+   "mode": "RGBA",
+   "bytes": 68586,
+   "sha256": "dc718edb7b247627fa40ca315f35902cb5542aef5c5d63ef24233fc669200ccb",
+   "kind": "logo",
+   "transparent": true
+  },
+  {
+   "file": "derivatives/gog-logo-1600x740.png",
+   "size": [
+    1600,
+    740
+   ],
+   "format": "PNG",
+   "mode": "RGBA",
+   "bytes": 130608,
+   "sha256": "93eda09f66f28eb7a857b5c6b5b772e92364b74cc94bee6dfdeef19edc027e28",
+   "kind": "logo",
+   "transparent": true
+  },
+  {
+   "file": "derivatives/steam-logo-1280.png",
+   "size": [
+    1280,
+    217
+   ],
+   "format": "PNG",
+   "mode": "RGBA",
+   "bytes": 100036,
+   "sha256": "a5703c28cc0bfe0cea822419fdfe7b0fe1220279f5465656873d8cb844ac541e",
+   "kind": "logo",
+   "transparent": true
+  },
+  {
+   "file": "contact-sheet-derivatives.jpg",
+   "size": [
+    1966,
+    2800
+   ],
+   "kind": "review-sheet",
+   "note": "every derivative at its store display width; logos on dark and light",
+   "bytes": 2696862,
+   "sha256": "ded60f27cafb8b112bb88cd501d2d9ebc3fe3080a6590b9b97ea32cbf0037b13"
+  }
+ ]
+}

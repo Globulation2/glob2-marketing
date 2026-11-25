@@ -1,0 +1,370 @@
+[
+ {
+  "file": "keyart-foursquares-cabino-zoom150-3840x2160.png",
+  "shot": "keyart",
+  "description": "HUD-free plate, 150% zoom (96 px a tile): the lime FourSquares colony (Cabino AI) around its swimming pool and swarms.",
+  "window_pixels": [
+   3840,
+   2160
+  ],
+  "aspect": "16:9",
+  "kind": "HUD-free plate: one rectangle cropped from a single native frame; not scaled or retouched",
+  "cropped_from": {
+   "frame_pixels": [
+    4256,
+    2600
+   ],
+   "box": [
+    0,
+    440,
+    3840,
+    2600
+   ],
+   "frame_sha256": "238241e639121c4e42cba57656d6b976b9e21ac99c485d4aeb3f4e6dabf00b00"
+  },
+  "tile_pixels": 96.0,
+  "match": "fsq-mix",
+  "map": {
+   "source": "bundled with the release: Glob2.app/Contents/Resources/maps/FourSquares1.map.gz",
+   "name": "FourSquares1"
+  },
+  "game_seed": 2202,
+  "players": [
+   {
+    "team": 0,
+    "controller": "AI maxima"
+   },
+   {
+    "team": 1,
+    "controller": "AI cabino"
+   },
+   {
+    "team": 2,
+    "controller": "AI nicowar"
+   },
+   {
+    "team": 3,
+    "controller": "AI cortex"
+   }
+  ],
+  "seat": "player seat on colony 1, shared with its AI (cabino)",
+  "source_save": "matches/fsq-mix/checkpoint-60000.game.gz",
+  "source_save_sha256": "b63b5b9c5ac161c7ba1defa89b161f417a6c320dafdd6559a63235e0138f50cf",
+  "source_save_tick": 60000,
+  "tick_at_capture": 60590,
+  "camera": {
+   "centre_tile": [
+    0,
+    64
+   ],
+   "zoom": 1.5,
+   "view_tiles": {
+    "height": 28,
+    "width": 41,
+    "x": 108,
+    "y": 50
+   }
+  },
+  "player_actions_before_capture": [
+   "erased the colony's forbidden and clearing area markings in view"
+  ],
+  "recipe_id": "90-keyart-foursquares-cabino-zoom150",
+  "sha256": "e72bcf462686f2967cc3a5df6fc37f724a777569afa5329505cca16c27c6cc07"
+ },
+ {
+  "file": "keyart-foursquares-colony-zoom100-3840x2160.png",
+  "shot": "keyart",
+  "description": "HUD-free plate, 100% zoom (64 px a tile): the red FourSquares colony, most of the island, with workers and warriors among the buildings. A few red clearing-area squares remain at the island edges.",
+  "window_pixels": [
+   3840,
+   2160
+  ],
+  "aspect": "16:9",
+  "kind": "HUD-free plate: one rectangle cropped from a single native frame; not scaled or retouched",
+  "cropped_from": {
+   "frame_pixels": [
+    4256,
+    2600
+   ],
+   "box": [
+    0,
+    440,
+    3840,
+    2600
+   ],
+   "frame_sha256": "8cf0e5d1d018efacd200b6864ba14164946aac2f90ff766e7cfc237871c14bb5"
+  },
+  "tile_pixels": 64.0,
+  "match": "fsq-mix",
+  "map": {
+   "source": "bundled with the release: Glob2.app/Contents/Resources/maps/FourSquares1.map.gz",
+   "name": "FourSquares1"
+  },
+  "game_seed": 2202,
+  "players": [
+   {
+    "team": 0,
+    "controller": "AI maxima"
+   },
+   {
+    "team": 1,
+    "controller": "AI cabino"
+   },
+   {
+    "team": 2,
+    "controller": "AI nicowar"
+   },
+   {
+    "team": 3,
+    "controller": "AI cortex"
+   }
+  ],
+  "seat": "player seat on colony 0, shared with its AI (maxima)",
+  "source_save": "matches/fsq-mix/checkpoint-48000.game.gz",
+  "source_save_sha256": "3c380be1b622e759317428ab15a41c4cfd3459dab292f62ba5d0cb15fca975d7",
+  "source_save_tick": 48000,
+  "tick_at_capture": 48776,
+  "camera": {
+   "centre_tile": [
+    0,
+    125
+   ],
+   "zoom": 1.0,
+   "view_tiles": {
+    "height": 41,
+    "width": 61,
+    "x": 98,
+    "y": 105
+   }
+  },
+  "player_actions_before_capture": [
+   "erased the colony's forbidden and clearing area markings in view"
+  ],
+  "recipe_id": "90-keyart-foursquares-colony-zoom100",
+  "sha256": "14f7c6ca6eca7b35c9c77f1ccb3877ca54f5bddb767092f96f4bf1a42f59a6eb"
+ },
+ {
+  "file": "keyart-foursquares-colony-zoom200-3840x2160.png",
+  "shot": "keyart",
+  "description": "HUD-free plate, 200% zoom (128 px a tile, full HD frames): the middle of the red FourSquares colony; buildings and globs read as characters.",
+  "window_pixels": [
+   3840,
+   2160
+  ],
+  "aspect": "16:9",
+  "kind": "HUD-free plate: one rectangle cropped from a single native frame; not scaled or retouched",
+  "cropped_from": {
+   "frame_pixels": [
+    4256,
+    2600
+   ],
+   "box": [
+    0,
+    440,
+    3840,
+    2600
+   ],
+   "frame_sha256": "efd56d5d66384b6d3659ef0ba8b5b32afb782e63062a066a86e7662e767c0033"
+  },
+  "tile_pixels": 128.0,
+  "match": "fsq-mix",
+  "map": {
+   "source": "bundled with the release: Glob2.app/Contents/Resources/maps/FourSquares1.map.gz",
+   "name": "FourSquares1"
+  },
+  "game_seed": 2202,
+  "players": [
+   {
+    "team": 0,
+    "controller": "AI maxima"
+   },
+   {
+    "team": 1,
+    "controller": "AI cabino"
+   },
+   {
+    "team": 2,
+    "controller": "AI nicowar"
+   },
+   {
+    "team": 3,
+    "controller": "AI cortex"
+   }
+  ],
+  "seat": "player seat on colony 0, shared with its AI (maxima)",
+  "source_save": "matches/fsq-mix/checkpoint-48000.game.gz",
+  "source_save_sha256": "3c380be1b622e759317428ab15a41c4cfd3459dab292f62ba5d0cb15fca975d7",
+  "source_save_tick": 48000,
+  "tick_at_capture": 48596,
+  "camera": {
+   "centre_tile": [
+    2,
+    0
+   ],
+   "zoom": 2.0,
+   "view_tiles": {
+    "height": 21,
+    "width": 31,
+    "x": 115,
+    "y": 118
+   }
+  },
+  "player_actions_before_capture": [
+   "erased the colony's forbidden and clearing area markings in view"
+  ],
+  "recipe_id": "90-keyart-foursquares-colony-zoom200",
+  "sha256": "ba2680f9d6d25c86a661c9969d7dc973431b9484cf13b48509f41b8abc34deda"
+ },
+ {
+  "file": "keyart-honeycomb-battle-zoom200-3840x2160.png",
+  "shot": "keyart",
+  "description": "HUD-free plate, 200% zoom (128 px a tile): red and lime warriors fighting at the Honeycomb isle oasis, with war flags and a guard area.",
+  "window_pixels": [
+   3840,
+   2160
+  ],
+  "aspect": "16:9",
+  "kind": "HUD-free plate: one rectangle cropped from a single native frame; not scaled or retouched",
+  "cropped_from": {
+   "frame_pixels": [
+    4256,
+    2600
+   ],
+   "box": [
+    0,
+    440,
+    3840,
+    2600
+   ],
+   "frame_sha256": "35a031798dc8e749f0ff053cd6c46b69098a18cf8bc9764f4139d1a07b564024"
+  },
+  "tile_pixels": 128.0,
+  "match": "honeycomb",
+  "map": {
+   "generator": "honeycomb-isle",
+   "seed": 2102,
+   "width": 128,
+   "height": 128,
+   "colonies": 4,
+   "command": "glob2 map generate honeycomb-isle --seed 2102 --width 128 --height 128 --teams 4 --output honeycomb-isle-2102.map"
+  },
+  "game_seed": 2102,
+  "players": [
+   {
+    "team": 0,
+    "controller": "AI maxima"
+   },
+   {
+    "team": 1,
+    "controller": "AI cortex"
+   },
+   {
+    "team": 2,
+    "controller": "AI maxima"
+   },
+   {
+    "team": 3,
+    "controller": "AI cortex"
+   }
+  ],
+  "seat": "player seat on colony 0, shared with its AI (maxima)",
+  "source_save": "matches/honeycomb/checkpoint-66000.game.gz",
+  "source_save_sha256": "8887eb1106bb176658cd66b57c82ec9793330a756b65f8d8cc868b14f5b902b3",
+  "source_save_tick": 66000,
+  "tick_at_capture": 67851,
+  "camera": {
+   "centre_tile": [
+    68,
+    63
+   ],
+   "zoom": 2.0,
+   "view_tiles": {
+    "height": 21,
+    "width": 31,
+    "x": 53,
+    "y": 53
+   }
+  },
+  "player_actions_before_capture": [
+   "erased the colony's forbidden and clearing area markings in view"
+  ],
+  "recipe_id": "90-keyart-honeycomb-battle-zoom200",
+  "sha256": "54e8b25ef35e3ec7bcc5f19bb3e0a2dacbd60e120360dca34d97ce8cc1c41abf"
+ },
+ {
+  "file": "keyart-isles-colony-zoom150-3840x2160.png",
+  "shot": "keyart",
+  "description": "HUD-free plate, 150% zoom (96 px a tile): a lime colony (Maxima AI) on the Isles map.",
+  "window_pixels": [
+   3840,
+   2160
+  ],
+  "aspect": "16:9",
+  "kind": "HUD-free plate: one rectangle cropped from a single native frame; not scaled or retouched",
+  "cropped_from": {
+   "frame_pixels": [
+    4256,
+    2600
+   ],
+   "box": [
+    0,
+    440,
+    3840,
+    2600
+   ],
+   "frame_sha256": "8bbefcb2e98d11e0e1cd735791bb33b5e82491821c2989bd4e9c569b1680d0bc"
+  },
+  "tile_pixels": 96.0,
+  "match": "isles-mix",
+  "map": {
+   "generator": "isles",
+   "seed": 2102,
+   "width": 128,
+   "height": 128,
+   "colonies": 4,
+   "command": "glob2 map generate isles --seed 2102 --width 128 --height 128 --teams 4 --output isles-2102.map"
+  },
+  "game_seed": 2203,
+  "players": [
+   {
+    "team": 0,
+    "controller": "AI cabino"
+   },
+   {
+    "team": 1,
+    "controller": "AI maxima"
+   },
+   {
+    "team": 2,
+    "controller": "AI nicowar"
+   },
+   {
+    "team": 3,
+    "controller": "AI cortex"
+   }
+  ],
+  "seat": "player seat on colony 1, shared with its AI (maxima)",
+  "source_save": "matches/isles-mix/checkpoint-60000.game.gz",
+  "source_save_sha256": "6b2fc19c648a27706012bcca82e0f2ae5c36ff4051b8120a76a81da0f5657a8b",
+  "source_save_tick": 60000,
+  "tick_at_capture": 60617,
+  "camera": {
+   "centre_tile": [
+    60,
+    120
+   ],
+   "zoom": 1.5,
+   "view_tiles": {
+    "height": 28,
+    "width": 41,
+    "x": 40,
+    "y": 106
+   }
+  },
+  "player_actions_before_capture": [
+   "erased the colony's forbidden and clearing area markings in view"
+  ],
+  "recipe_id": "90-keyart-isles-colony-zoom150",
+  "sha256": "3c9ea7b3cc0a04e7971a55f00d109eb079b0fcd6f21f39548f4c6f56050bb695"
+ }
+]
