@@ -23,6 +23,7 @@
 - [Player handbook refresh inventory](handbook-refresh-inventory.md): complete team/MCP capture and reciprocal review record, original 237-asset baseline, actual public release receipts and explicit retirement reasons. All 29 current consumer sets are verified against PR #67; 437 registry records preserve provenance, with 150 current assets and 17 explicitly older, collapsed Introduction objects. Native/browser and unobserved-outcome qualifications remain explicit.
 - [Android closed-test recruitment](android-closed-test-recruitment.md): Android interest signup form, manual tester admission, recruitment records, private roster rules and the recorded 12-testers/14-days production gate.
 - [iOS App Review response](apple-app-review-response.md): sent two-clip/six-answer response with verified Notes and signing/coverage evidence; same existing build resubmitted and Waiting for Review confirmed.
+- [Glob 2 Bot Cup](bot-cup/README.md) covers free teen coding pilots, educator outreach and the criteria for running another round.
 - [MCP outreach research](mcp-outreach/README.md) covers AI and game publications, creators, competing precedents, and the evidence needed for a multiplayer pitch.
 - [Mobile press outreach drafts](mobile-press-outreach.md) provides outlet-specific messages and the review checks for platform and regional release details.
 - [Launch positioning v1](../analysis/positioning-v1.md): agreed headline, pitch and message emphasis; selected through discussion. Superseded by [positioning v2](../analysis/positioning-v2.md) on 2026-11-24.
