@@ -1217,7 +1217,58 @@
               "amazon_tail"
             ]
           ],
-          "limit": 4000
+          "limit": 4000,
+          "locale_overrides": {
+            "ja": {
+              "paragraphs": [
+                [
+                  "headline",
+                  "fair_deal_line"
+                ],
+                [
+                  "listing_intro"
+                ],
+                [
+                  "control_heading",
+                  "control_body"
+                ],
+                [
+                  "economy_heading",
+                  "economy_body"
+                ],
+                [
+                  "defense_heading",
+                  "defense_body"
+                ],
+                {
+                  "lines": [
+                    "features_heading"
+                  ],
+                  "bullets": [
+                    "feature_maps",
+                    "feature_opponents",
+                    "feature_colonies",
+                    "feature_tutorial",
+                    "feature_editor",
+                    "feature_replays",
+                    "feature_offline"
+                  ]
+                },
+                [
+                  "multiplayer_heading",
+                  "multiplayer_lan_body"
+                ],
+                [
+                  "open_source_heading",
+                  "open_source_body"
+                ],
+                [
+                  "amazon_tail"
+                ]
+              ],
+              "limit": 1200
+            }
+          }
         },
         "feature_1": {
           "paragraphs": [

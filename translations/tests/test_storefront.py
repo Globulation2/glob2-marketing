@@ -209,6 +209,44 @@ class StorefrontTests(unittest.TestCase):
         rule['script_groups']['kana'] = {'limit': 18, 'locales': ['ja']}
         self.assertRaisesRegex(ValueError, 'more than one script group', S.field_limit, rule, 'ja')
 
+    def test_locale_override_replaces_paragraphs_and_limit_for_that_locale_only(self):
+        fields = dict(self.fields, extra='Extra paragraph')
+        platform = {'locales': {'en': 'en-US', 'ja': 'Japanese'}, 'fields': {'description': {
+            'paragraphs': [['headline'], ['extra']], 'limit': 100,
+            'locale_overrides': {'ja': {'paragraphs': [['headline']], 'limit': 12}}}}}
+        self.assertEqual('Build & grow\n\nExtra paragraph', S.platform_payload(fields, platform, 'en')[0]['description'])
+        self.assertEqual('Build & grow\n\nExtra paragraph', S.platform_payload(fields, platform)[0]['description'])
+        self.assertEqual(({'description': 'Build & grow'}, []), S.platform_payload(fields, platform, 'ja'))
+        platform['fields']['description']['locale_overrides']['ja']['limit'] = 11
+        self.assertEqual(['description: 12 characters exceeds 11; reviewed adaptation required'], S.platform_payload(fields, platform, 'ja')[1])
+        self.assertEqual([], S.platform_payload(fields, platform, 'en')[1])  # The override's limit does not bind other locales.
+        platform['fields']['description']['locale_overrides'] = {'ja': {'limit': 5}}  # A limit alone keeps the paragraphs.
+        self.assertEqual(['description: 29 characters exceeds 5; reviewed adaptation required'], S.platform_payload(fields, platform, 'ja')[1])
+        platform['fields']['description']['locale_overrides'] = {'ja': {'lines': [['headline']]}}
+        self.assertRaisesRegex(ValueError, 'may set only', S.platform_payload, fields, platform, 'en')
+        platform['fields']['description']['locale_overrides'] = {'ko': {'limit': 5}}
+        self.assertRaisesRegex(ValueError, "'ko', which the platform does not map", S.platform_payload, fields, platform, 'en')
+
+    def test_check_and_export_apply_locale_overrides(self):
+        spec = self.config['platforms']['example']['fields']['summary']
+        spec['locale_overrides'] = {'zh-Hant': {'limit': 5}}
+        self.save_config()
+        errors = S.validate(self.root, True)[0]
+        self.assertEqual(['example/zh-Hant: summary: 12 characters exceeds 5; reviewed adaptation required'], errors)
+        self.assertRaisesRegex(ValueError, 'exceeds 5', S.export, self.root, self.root / 'blocked')
+        spec['locale_overrides'] = {'zh-Hant': {'paragraphs': [['product_name']]}}
+        self.save_config()
+        out = self.root / 'out'
+        S.export(self.root, out)
+        self.assertEqual('Globulation 2', json.loads((out / 'example' / 'zh-TW' / 'listing.json').read_text())['fields']['summary'])
+        self.assertEqual('Build & grow', json.loads((out / 'example' / 'en-US' / 'listing.json').read_text())['fields']['summary'])
+
+    def test_override_fields_count_as_used_and_must_exist(self):
+        self.config['platforms']['example']['fields']['summary']['locale_overrides'] = {'zh-Hant': {'paragraphs': [['not_in_catalog']]}}
+        self.save_config()
+        self.assertIn('not_in_catalog', S.config_fields(self.config))
+        self.assertTrue(any('missing from en.md' in e and 'not_in_catalog' in e for e in S.validate_source(self.root)[0]))
+
     def test_missing_destination_field_is_reported_not_raised(self):
         self.config['platforms']['example']['fields']['summary']['paragraphs'] = [['headline', 'not_in_catalog']]
         self.save_config()
@@ -387,6 +425,48 @@ class EnglishSourceTests(unittest.TestCase):
             self.assertLessEqual(len(numbers), most, family)
         terms = [keys[key] for key in keys if key.startswith('search_term_')]
         self.assertLessEqual(len({word.lower() for term in terms for word in term.split()}), 21)
+
+
+class AmazonJapaneseTests(unittest.TestCase):
+    """The Amazon console caps the Japanese long description at 1,200 characters; Amazon-ja drops a body paragraph to fit."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.config = json.loads((S.ROOT / 'platforms.json').read_text())
+        cls.amazon = cls.config['platforms']['amazon']
+        cls.spec = cls.amazon['fields']['description']
+
+    def test_only_japanese_is_overridden_and_only_on_amazon(self):
+        self.assertEqual({'ja'}, set(self.spec['locale_overrides']))
+        self.assertEqual(4000, self.spec['limit'])
+        self.assertEqual(1200, self.spec['locale_overrides']['ja']['limit'])
+        for name, platform in self.config['platforms'].items():
+            for field, spec in platform['fields'].items():
+                if (name, field) != ('amazon', 'description'): self.assertNotIn('locale_overrides', spec, f'{name}/{field}')
+
+    def test_japanese_keeps_the_essential_paragraphs_in_order(self):
+        base, ja = self.spec['paragraphs'], self.spec['locale_overrides']['ja']['paragraphs']
+        self.assertEqual([paragraph for paragraph in base if paragraph in ja], ja, 'a subset of the reviewed paragraphs, in the same order')
+        for kept in (['headline', 'fair_deal_line'], ['control_heading', 'control_body'], ['open_source_heading', 'open_source_body'], ['amazon_tail']):
+            self.assertIn(kept, ja)
+        self.assertEqual([paragraph for paragraph in base if isinstance(paragraph, dict)], [paragraph for paragraph in ja if isinstance(paragraph, dict)])
+        self.assertEqual([['map_heading', 'map_body']], [paragraph for paragraph in base if paragraph not in ja])
+
+    def test_japanese_composes_within_1200_and_other_locales_are_unchanged(self):
+        ja = S.read_fields(S.ROOT / 'ja.md')
+        payload, errors = S.platform_payload(ja, self.amazon, 'ja')
+        self.assertEqual([], errors)
+        self.assertLessEqual(len(payload['description']), 1200)
+        self.assertEqual([ja['headline'], ja['fair_deal_line']], payload['description'].split('\n')[:2])
+        self.assertNotIn(ja['map_body'], payload['description'])
+        full = S.compose(ja, self.spec['paragraphs'])
+        self.assertGreater(len(full), 1200, 'the full composition is what the console rejects')
+        self.assertEqual(['description: %d characters exceeds 1200; reviewed adaptation required' % len(full)],
+                         S.platform_payload(ja, dict(self.amazon, fields={'description': dict(self.spec, locale_overrides={'ja': {'limit': 1200}})}), 'ja')[1])
+        for code in self.amazon['locales']:
+            if code == 'ja': continue
+            fields = S.read_fields(S.ROOT / f'{code}.md')
+            self.assertEqual(S.compose(fields, self.spec['paragraphs']), S.platform_payload(fields, self.amazon, code)[0]['description'], code)
 
 
 if __name__ == '__main__': unittest.main()

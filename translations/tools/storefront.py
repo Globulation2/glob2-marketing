@@ -9,6 +9,8 @@ by a blank line. A paragraph is a list of lines, or an object with "lines",
 ID, a {"field": ID, "when"/"unless": switch} reference, or a list of those
 joined into one line. Switches are declared per platform; a reference whose
 switch is off is left out, and a destination field left empty is not exported.
+A destination field may set "locale_overrides": {locale: {"paragraphs", "limit",
+"length_unit"}}; those keys replace the field's own for that locale only.
 """
 import argparse
 from fnmatch import fnmatchcase
@@ -126,7 +128,9 @@ def config_fields(config):
     """Catalog field IDs used by any destination, the AppStream fragments or image/video text."""
     found = set()
     for platform in config.get('platforms', {}).values():
-        for spec in platform['fields'].values(): found |= referenced(spec['paragraphs'])
+        for spec in platform['fields'].values():
+            found |= referenced(spec['paragraphs'])
+            for override in spec.get('locale_overrides', {}).values(): found |= referenced(override.get('paragraphs', []))
     appstream = config.get('appstream')
     if appstream:
         found |= {'product_name', appstream['summary_field'], appstream.get('comment_field', 'headline')}
@@ -183,7 +187,7 @@ def validate_source(root=ROOT):
     if not used - source.keys():
         for platform_id, platform in config['platforms'].items():
             if 'en' not in platform['locales']: continue
-            _, failures = platform_payload(source, platform)
+            _, failures = platform_payload(source, platform, 'en')
             errors.extend(f'{platform_id}/en: {failure}' for failure in failures)
         if 'appstream' in config: blocks(source, config['appstream']['description_paragraphs'], config['appstream'].get('switches', {}))
     return errors, source
@@ -246,7 +250,7 @@ def validate(root=ROOT, require_review=False):
     if not errors:
         for platform_id, platform in config['platforms'].items():
             for code in platform['locales']:
-                _, failures = platform_payload(catalogs[code], platform)
+                _, failures = platform_payload(catalogs[code], platform, code)
                 errors.extend(f'{platform_id}/{code}: {failure}' for failure in failures)
     return errors, catalogs
 
@@ -257,11 +261,27 @@ def compose(fields, spec, switches=None, bullet_prefix='• '):
                        for block in blocks(fields, spec, switches))
 
 
-def platform_payload(fields, platform):
+OVERRIDE_KEYS = {'paragraphs', 'limit', 'length_unit'}
+
+
+def locale_spec(name, spec, code, locales=None):
+    """A destination field's spec for one locale: a locale_overrides entry replaces paragraphs, limit or length_unit."""
+    overrides = spec.get('locale_overrides', {})
+    for locale, override in overrides.items():
+        if not isinstance(override, dict) or not override or set(override) - OVERRIDE_KEYS:
+            raise ValueError(f'{name}: locale_overrides[{locale!r}] may set only {sorted(OVERRIDE_KEYS)}')
+        if locales is not None and locale not in locales:
+            raise ValueError(f'{name}: locale_overrides names {locale!r}, which the platform does not map')
+    return {**spec, **overrides[code]} if code in overrides else spec
+
+
+def platform_payload(fields, platform, code=None):
+    """Compose every destination field for one locale; code selects any locale_overrides (None: none apply)."""
     payload = {}
     errors = []
     switches = platform.get('switches', {})
     for name, spec in platform['fields'].items():
+        spec = locale_spec(name, spec, code, platform.get('locales'))
         value = compose(fields, spec['paragraphs'], switches, platform.get('bullet_prefix', '• '))
         if not value: continue  # Every reference is switched off for this platform.
         unit = spec.get('length_unit', 'character')
@@ -290,7 +310,7 @@ def export(root, destination, require_review=True):
             if mapping is None:
                 pending.append({'platform': platform_id, 'locale': code, 'status': 'unsupported_or_unverified', 'action': 'retain existing English fallback'})
                 continue
-            payload, failures = platform_payload(fields, platform)
+            payload, failures = platform_payload(fields, platform, code)
             if failures:
                 errors.extend(f'{platform_id}/{code}: {failure}' for failure in failures)
             prepared.append((platform_id, mapping, code, payload, platform.get('mapping_status', 'requires_console_verification')))

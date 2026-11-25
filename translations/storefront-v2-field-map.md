@@ -79,7 +79,7 @@ Units are characters unless marked bytes. "Bytes" means UTF-8 bytes: a Latin let
 
 ### Description blocks
 
-Every description starts with `headline` on line one and `fair_deal_line` on line two. The composed description limits are 4,000 characters on Google Play, F-Droid, the App Store, the Mac App Store and Amazon, 4,096 on Snap and 10,000 on Microsoft and Epic. English uses about 2,400 to 2,800 on the mobile stores and 2,500 to 3,500 on desktop, so a translation may run about 44% longer than English on Google Play, the tightest mobile store, before it hits a limit. Snap is the tightest desktop store (about 24% headroom) and is mapped for English only.
+Every description starts with `headline` on line one and `fair_deal_line` on line two. The composed description limits are 4,000 characters on Google Play, F-Droid, the App Store, the Mac App Store and Amazon, 4,096 on Snap and 10,000 on Microsoft and Epic. The exception is Amazon Japanese: the console caps it at 1,200 characters, so `locale_overrides` in the platform matrix composes it without `map_heading`/`map_body` (1,158 characters with the reviewed text; the 23 maps and 67 terrain types remain in the first feature bullet). English uses about 2,400 to 2,800 on the mobile stores and 2,500 to 3,500 on desktop, so a translation may run about 44% longer than English on Google Play, the tightest mobile store, before it hits a limit. Snap is the tightest desktop store (about 24% headroom) and is mapped for English only.
 
 | Fields | Appears on | Notes |
 | --- | --- | --- |
