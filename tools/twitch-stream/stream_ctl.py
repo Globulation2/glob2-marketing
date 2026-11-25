@@ -19,6 +19,7 @@ import subprocess
 import sys
 import time
 
+import pacing
 import rigconfig
 import rigstate
 
@@ -163,12 +164,6 @@ def match_wait(cfg, a) -> str:
     except (TypeError, ValueError):
         raise CtlError("ticks must be a whole number")
     ticks = max(30, min(ticks, WAIT_MAX_TICKS))
-    now = time.time()
-    waited = sum(max(0.0, min(e, now) - max(s, now - WAIT_WINDOW)) for s, e in _waits)
-    if waited > WAIT_BUDGET * WAIT_WINDOW:
-        raise CtlError(f"you've spent {waited:.0f} of the last {WAIT_WINDOW:.0f} s waiting: play instead. Check food, "
-                       "workers, construction and military and make one concrete change (a building, workers, production, a flag or zone). "
-                       "Don't fill the gap with chat")
     extra = [e for e in (a.get("also_until") or []) if e in WAIT_EXTRA]
     args = {"ticks": ticks, "timeout_ms": WAIT_TIMEOUT_MS, "until": WAIT_ALWAYS + extra}
     if a.get("include"):
@@ -309,6 +304,8 @@ def match_fast_forward(cfg, a) -> str:
             "colony's last stand with good humour, and call match_result when the game ends.")
 
 
+UNPACED = {"match_info", "match_setup_done", "match_result", "match_caption"}   # bookkeeping
+
 TOOLS = {
     "narrate": ("Say something to viewers in the in-game chat (your narration). At most one message every 30 s; "
                 "extra messages are not sent. Up to 254 bytes; tile coordinates are removed, so describe places "
@@ -386,6 +383,8 @@ def serve_mcp(cfg) -> None:
             if name not in TOOLS:
                 reply(msg_id, error={"code": -32602, "message": f"unknown tool {name}"})
                 continue
+            if name not in UNPACED:
+                pacing.wait_turn()
             try:
                 text, is_error = TOOLS[name][2](cfg, args), False
             except (CtlError, subprocess.CalledProcessError) as exc:

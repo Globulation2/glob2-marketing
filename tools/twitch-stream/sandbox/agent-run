@@ -122,8 +122,11 @@ def main():
     proxy_env = check_egress(conf)
 
     py = ["/usr/bin/python3", "-E", "-s"]           # our MCP servers: no env-driven imports, no user site
+    pace = conf.get("PLAYER_CALLS_PER_MIN", "5")
+    pace = pace if pace.replace(".", "", 1).isdigit() and 0 < float(pace) <= 60 else "5"
     shared_env = {k: conf[k] for k in ("AGENT_SHARED_DIR", "STATE_DIR", "NOTES_DIR", "OVERLAY_FILE", "MCP_PORT")}
     shared_env.update(AGENT_USER=conf["AGENT_USER"], GLOB2_STREAM_HOME=conf["AGENT_SHARED_DIR"])
+    shared_env["PLAYER_CALLS_PER_MIN"] = pace
     game_url = f"http://127.0.0.1:{int(conf['MCP_PORT'])}/mcp"
     claude = str(INSTALL / "bin" / "claude")
     # Flags shared by both roles: no slash commands or skills, nobody to answer a permission
@@ -136,7 +139,7 @@ def main():
             # The game, through game_proxy.py: it owns the control lease, so the model never handles a
             # token (a compaction once lost it and locked the player out).
             "glob2-stream": {"command": py[0], "args": py[1:] + [str(INSTALL / "game_proxy.py")],
-                             "env": {"MCP_PORT": conf["MCP_PORT"], "STATE_DIR": conf["STATE_DIR"]}},
+                             "env": {"MCP_PORT": conf["MCP_PORT"], "STATE_DIR": conf["STATE_DIR"], "PLAYER_CALLS_PER_MIN": pace}},
             "stream-ctl": {"command": py[0], "args": py[1:] + [str(INSTALL / "stream_ctl.py"), "mcp"], "env": shared_env},
         }
         cwd = conf["NOTES_DIR"]

@@ -23,6 +23,8 @@ ran on autopilot while the player told viewers it was locked out (2026-11-24). N
   - never writes the token to stdout, logs or error text (it is replaced with "<token>").
 """
 import json
+
+import pacing  # noqa: E402  shared call pacing (same directory)
 import os
 import pathlib
 import signal
@@ -204,6 +206,8 @@ class Proxy:
         if not self.takes_token:
             self.tools()                 # learn which tools take a token
         args = {k: v for k, v in (args if isinstance(args, dict) else {}).items() if k != "token"}
+        if not name.startswith("ui_"):   # menus and setup stay quick; game calls are paced
+            pacing.wait_turn()
         for attempt in (1, 2):
             if name in self.takes_token:
                 if not self.lease.token and not self.lease.ensure():

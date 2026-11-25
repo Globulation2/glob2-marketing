@@ -92,7 +92,7 @@ home_mode="$(stat -c %a "$HOME")"
 claude_src="${CLAUDE_BIN:-$(readlink -f "$(command -v claude)")}"
 [[ -x "$claude_src" ]] || { echo "no claude binary found (set CLAUDE_BIN)" >&2; exit 1; }
 S install -d -o root -g root -m 755 "$AGENT_INSTALL_DIR" "$AGENT_INSTALL_DIR/bin" "$AGENT_INSTALL_DIR/chat" "$AGENT_INSTALL_DIR/prompts" "$AGENT_INSTALL_DIR/policy"
-manifest=(stream_ctl.py game_proxy.py rigstate.py rigconfig.py lib.sh caption.sh chat/readonly_mcp.py chat/camera.py chat/reply_schema.json prompts/chat.md)
+manifest=(pacing.py stream_ctl.py game_proxy.py rigstate.py rigconfig.py lib.sh caption.sh chat/readonly_mcp.py chat/camera.py chat/reply_schema.json prompts/chat.md)
 for f in "${manifest[@]}"; do
   mode=644; [[ "$f" == *.sh || "$f" == stream_ctl.py ]] && mode=755
   S install -o root -g root -m "$mode" "$RIG_DIR/$f" "$AGENT_INSTALL_DIR/$f"
@@ -166,6 +166,7 @@ AGENT_EGRESS=$AGENT_EGRESS
 EGRESS_PROXY_PORT=$EGRESS_PROXY_PORT
 AGENT_COMPACT_WINDOW=$AGENT_COMPACT_WINDOW
 AGENT_COMPACT_PCT=$AGENT_COMPACT_PCT
+PLAYER_CALLS_PER_MIN=$PLAYER_CALLS_PER_MIN
 EOF
 S install -o root -g "$AGENT_USER" -m 640 "$tmp" "$AGENT_ETC_DIR/agent.env"
 token="$AGENT_ETC_DIR/claude-oauth-token"
