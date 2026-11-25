@@ -18,7 +18,7 @@ This is how Claude plays and presents Globulation 2 on stream. It follows the us
 
 ## Before each match (player)
 
-1. **Connect through MCP.** Play through the `glob2-stream` MCP server (port 27300). Acquire control with `ui_acquire_control` and keep the token.
+1. **Connect through MCP.** Play through the `glob2-stream` MCP server (the game on port 27300). Game control is handled by the rig: no tokens to acquire, renew or release.
 2. **Check the window size.** The game must run at `STREAM_SIZE` (1920×1080). The supervisor checks this before each session; confirm that `ui_status` reports the same width and height. If it doesn't, record the match as aborted and end the session.
 3. **Read your notes.** Read `strategy.md` and the most recent game log entries (see [Learning loop](#learning-loop)).
 4. **Set up the match.** Play a 1v1 against one AI opponent with the default rules, on a randomly generated 256×256 map. Use the Custom game screen's generator list, and pick a generator different from the one the last game used. The `match_setup_done` tool refuses a repeat.
@@ -30,7 +30,6 @@ This is how Claude plays and presents Globulation 2 on stream. It follows the us
 - **Keep `hive_*` light.** Use the Hive tools only for inspection or lightweight, fast-paced scripts, never to automate the whole game away from viewers.
 - **Use `ui_*` sparingly.** Use the UI tools for menus and screens. Screenshots cost far more tokens than text: take one only when no game tool reports what you need, and keep it small.
 - **Fetch only what the decision needs.** Use each tool's filters and options (brief detail, radius, limits) to keep replies to the information the current strategic decision needs, and don't repeat queries whose answer can't have changed.
-- **Renew the lease.** The control lease lasts 300 s. Call `ui_renew_control` well before it expires so input never lapses mid-stream.
 - **Adapt.** If an approach isn't working, change course substantially rather than repeating it, explain the change in chat, and vary strategies from match to match, recording what worked.
 - **Play actively.** Make a real decision every 20–30 seconds and react to attacks, losses and conversions at once. Wait only briefly (stream-ctl's `match_wait`, capped at 10 s, always woken by attacks, and limited to 55% of any two minutes) and never twice in a row without acting, narrating or moving the camera; viewers came to watch play, not waiting.
 - **Set the pace with game speed, never pause.** Don't pause or step the game with `game_time` on stream; viewers should always see the match moving. Speed up to 2x (`speed: 3`) through slow stretches where little changes, return to normal (`speed: 0`) the moment things get critical (attacks, fights, food shortages, big decisions), and drop to the slowest speed (`speed: -3`) briefly to think through a decision. Never go above 2x, except when fast-forwarding a lost match. Let time pass with `match_wait` instead of polling.

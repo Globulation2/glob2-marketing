@@ -43,12 +43,14 @@ This directory holds code only. The stream key, game profile, logs and settings 
                      ├─ stream.sh file|live   (restarted if it dies; live needs --i-mean-it)
                      ├─ per match: claude -p  PLAYER (PLAYER_MODEL, Sonnet 5.5)
                      │     prompt = prompts/player.md + stream-playbook.md + this match's assignment
-                     │     tools: glob2-stream MCP (the game), stream-ctl MCP (match_info, match_setup_done,
-                     │            match_caption, match_result), Read/Edit/Write inside NOTES_DIR only
+                     │     tools: glob2-stream MCP (the game via game_proxy.py, which owns the control lease),
+                     │            stream-ctl MCP (match bookkeeping, narrate, match_wait, camera_show, fast-forward),
+                     │            Read/Edit/Write inside NOTES_DIR only
                      ├─ --chat: chat/chat_agent.py  CHAT HOST (CHAT_MODEL, Sonnet 5.5), no game tools
                      └─ every 10 s: $STATE_DIR/status.json (read by the chat host and status.py)
 ```
 
+- **Game control is never the model's job.** The player's `glob2-stream` server is `game_proxy.py`, which takes control of the game itself and keeps it: the model calls tools without a token and never sees one. Before 2026-11-24 the player carried the token in its context; an aggressive compaction lost it, the lease stayed held, and the colony ran on autopilot while the player told viewers it was locked out. The proxy adopts a still-valid published token, re-acquires once on a lost lease, and releases control when the session ends (the supervisor releases a lease a killed proxy left behind).
 - **One session per match.** The supervisor assigns the opponent, rotating through Cortex, Nicowar, Cabino and Maxima with the least recently played first, and starts a fresh player session. The session sets up a 1v1 on a random 256×256 map with a new generator, plays it, records the result and ends. If the model ends its turn mid-match, the supervisor resumes the same session (`claude -p --resume`) with a nudge to keep playing. A session that crashes or reaches `--game-timeout` without a result is retried as a recovery session, which first checks whether the match can continue. After three tries, the match is recorded as aborted.
 - **Sandbox.** Both agents run as a separate unprivileged user with a restricted tool set. See [Security and sandboxing](#security-and-sandboxing).
 - **Score.** `$STATE_DIR/games.jsonl` is the official record. `match_result` appends to it, and the captions and record come from it. Aborted matches are logged but never counted.
@@ -96,7 +98,7 @@ Don't run a hand-started `supervisor.py` while the service is active: stop the s
 
 ## Camera
 
-One gate, `chat/camera.py`, moves the stream camera for everyone. It calls the game's `game_view` with the player's control token, which the supervisor publishes to `$STATE_DIR/control-token` (mode 0640, agent group) and deletes when the session ends; no model ever sees the token, and tool replies never contain it.
+One gate, `chat/camera.py`, moves the stream camera for everyone. It calls the game's `game_view` with the player's control token, which the player's game proxy (`game_proxy.py`) publishes to `$STATE_DIR/control-token` (0644 inside the 2770 operator:agent state dir) and deletes when it releases control; no model ever sees the token, and tool replies never contain it.
 
 - **Player:** `camera_show` on its stream-ctl MCP server. Its policy denies `game_view`, so it can't bypass the gate.
 - **Chat host:** `camera_show` in its read-only proxy, one move per reply, with `asked_by`. A chat move sets a hold (`$STATE_DIR/camera-hold.json`, `CAMERA_HOLD_SECONDS`, default 40 s) during which the player's moves are refused with "keep playing and narrate instead"; the chat host can still move it.
@@ -213,7 +215,7 @@ Every layer below is independent: a mistake or bypass in one still leaves the ot
 | 6 | **Policy file** (`--settings`) | `sandbox/policy/player.json`, installed root-owned in `AGENT_INSTALL_DIR/policy`: deny rules for every other built-in tool (Bash, web, subagents, skills, tasks, cron, artifacts, workflows and more) and for `mcp__claude_ai_*`; deny rules for writing `CLAUDE.md`, `AGENTS.md`, `CLAUDE.local.md`, `.claude/`, `.mcp.json` and `session-brief.md` in the notes directory; `blockReadsOutsideWorkingDirectories` and `blockWritesOutsideWorkingDirectories`; bypass and auto modes disabled; `allowedMcpServers` exactly `glob2-stream` and `stream-ctl`; claude.ai connectors, hooks, bundled skills, skill shell execution, auto memory, artifacts and workflows off; built-in plugins other than the privacy plugin disabled. Deny rules win over any allow. | `chat.json`: the same, with Read, Edit and Write denied too and `allowedMcpServers` exactly `glob2-readonly`. `chat-nogame.json` allows no MCP servers at all. |
 | 7 | **Environment** | `agent-run` clears the environment, then sets only HOME, PATH, umask 002, the token and documented switches: `ENABLE_CLAUDEAI_MCP_SERVERS=false`, `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` (also stops claude.ai skill and plugin sync), no updates, telemetry, error reports, feedback or feature flags, `CLAUDE_CODE_DISABLE_CLAUDE_MDS`, no auto memory, bundled skills, built-in subagents, web fetch, artifacts, workflows, cron or background tasks, and `CLAUDE_CODE_RESTRICTED=1`. | Same, plus `CLAUDE_CODE_SKIP_PROMPT_HISTORY`. |
 | 8 | **Extension points** | The agent's `~/.claude` is `root:glob2agent` 1770; `plugins/`, `skills/`, `agents/`, `commands/`, `CLAUDE.md` and `settings.json` in it are root-owned and empty, so nothing can be installed or loaded from there. Session files (`projects/`, used by `--resume`) stay writable. | Same. |
-| 9 | **MCP tools** | Only the game (HTTP to 127.0.0.1) and `stream-ctl` (match bookkeeping and `camera_show`, no shell). `game_view` is denied, so every camera move passes the camera gate. | Only `glob2-readonly`: an allowlist of eight read tools plus `camera_show`, tokens stripped, a few calls and one camera move per reply. |
+| 9 | **MCP tools** | Only the game, through `game_proxy.py` (a stdio proxy to 127.0.0.1 that owns the control lease: it takes and renews control, adds the token to calls, strips any token the model passes, hides the acquire/renew/release tools and every `token` parameter, takes control again if the lease is lost, and releases it on exit), and `stream-ctl` (match bookkeeping, narration, waits and `camera_show`, no shell). `game_view`, `game_wait` and `game_chat` are denied and hidden, so camera moves, waits and narration pass their gates. | Only `glob2-readonly`: an allowlist of eight read tools plus `camera_show`, tokens stripped, a few calls and one camera move per reply. |
 | 10 | **Network** | An nftables table (`glob2-agent-egress.service`) lets `glob2agent`'s packets reach only 127.0.0.1 on the game's MCP port and the egress proxy port; everything else, DNS included, is rejected. The proxy (`glob2-agent-proxy.service`, `sandbox/egress_proxy.py`, running as you) tunnels only to `EGRESS_ALLOW` (`api.anthropic.com`) on port 443 and logs every decision to the journal. `agent-run` refuses to start Claude if a direct connection to the internet succeeds or the proxy is down. | Same. |
 | 11 | **Output filters** | Game actions, captions and the result in `games.jsonl`. | One JSON reply. Code filters it before Twitch sees it: no links except glob2.online and the channel, no internals, one line, rate-limited. |
 
@@ -299,7 +301,7 @@ Only approved imagery or direct derivatives may be used ([assets README](assets/
 - **Branding covers the HUD or looks wrong.** Check `BRAND_MARGIN_RIGHT` (at least about 210 at 1080p) and that `BRAND_LOGO` exists; the warning `brand logo ... not found` means text only. `BRAND=0` isolates overlay problems.
 - **Watching the hidden display.** `ffplay -f x11grab -video_size 1920x1080 -i :99` (with the xorg backend, set `XAUTHORITY` to `STREAM_XAUTHORITY` first), or `stream.sh file` and play the result.
 - **The player isn't moving.** Run `status.py`, then check `logs/supervisor.log` and the newest `logs/player/match-*.jsonl.gz` (`zcat … | tail`). The supervisor ends a session after `--game-timeout` minutes and retries the match.
-- **Stale MCP token.** `mcp/activate.py --acquire` takes control again and saves a fresh token.
+- **Stale MCP token (operator tools).** `mcp/activate.py --acquire` takes control again and saves a fresh token. The player never handles tokens; if it reports it can't control the game, check `$STATE_DIR/control-token` and the game's `ui_status`: another client holding control blocks the proxy until that lease lapses.
 
 ## Safety
 

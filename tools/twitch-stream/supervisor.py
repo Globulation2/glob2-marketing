@@ -24,11 +24,8 @@ import subprocess
 import sys
 import threading
 import time
-import re
 import urllib.request
 
-# A control token in the player transcript (JSON, possibly escaped inside a tool result).
-TOKEN_RE = re.compile(rb'\\?"token\\?":\s*\\?"([A-Za-z0-9+/]{20,}={0,2})')
 
 import rigconfig
 import rigstate
@@ -80,7 +77,6 @@ class Supervisor:
         self.started = rigstate.now()
         self.mode = args.stream.split(":", 1)[0]
         self.low_disk = False
-        self.player_token = None
         self.player_last_code = None
         self.low_since = None
 
@@ -330,7 +326,9 @@ class Supervisor:
     def mcp_config(self) -> pathlib.Path:
         c = self.cfg
         servers = {
-            "glob2-stream": {"type": "http", "url": f"http://127.0.0.1:{c['MCP_PORT']}/mcp"},  # the running game
+            # the running game, through the proxy that owns the control lease
+            "glob2-stream": {"command": sys.executable, "args": [str(self.rig / "game_proxy.py")],
+                             "env": {"MCP_PORT": str(c["MCP_PORT"]), "STATE_DIR": str(self.state)}},
             "stream-ctl": {"command": sys.executable, "args": [str(self.rig / "stream_ctl.py"), "mcp"],
                            "env": {k: v for k, v in self.cfg.items()}},
         }
@@ -390,14 +388,6 @@ class Supervisor:
                 last_flush = time.time()
                 for line in proc.stdout:
                     dst.write(line)
-                    # Remember the player's control token, only from a successful ui_acquire_control reply
-                    # (it carries lease_seconds). Tokens the player sends can be stale or invented after a
-                    # compaction; taking those once overwrote the good token and locked the player out.
-                    if b"token" in line and b"lease_seconds" in line:
-                        m = TOKEN_RE.search(line)
-                        if m and m.group(1).decode() != self.player_token:
-                            self.player_token = m.group(1).decode()
-                            self.share_token(self.player_token)
                     if b'"session_id"' in line or b'"total_cost_usd"' in line:
                         try:
                             msg = json.loads(line)
@@ -462,47 +452,26 @@ class Supervisor:
         return finished()
 
     def release_stale_control(self):
-        """At startup, free a lease left by a player session of an earlier supervisor run (one that
-        was killed or stopped before it could release), using the token in the newest transcript."""
-        token = None
-        try:
-            newest = max(self.player_logs.glob("*.jsonl.gz"), key=lambda f: f.stat().st_mtime, default=None)
-            if newest is None:
-                return
-            with gzip.open(newest, "rb") as fh:
-                for line in fh:
-                    m = TOKEN_RE.search(line) if b"token" in line else None
-                    if m:
-                        token = m.group(1).decode()
-        except (OSError, EOFError) as e:  # a truncated transcript still yields what was read
-            log.debug("stale control scan: %s", e)
-        if token:
-            self.player_token = token
-            self.release_control()
-
-    def share_token(self, token):
-        """Publish the player's control token for the stream camera (chat/camera.py). Group-readable
-        by the agent user only (the state dir is setgid to its group); never shown to a model."""
-        try:
-            if token:
-                rigstate.write_text(self.state / "control-token", token + "\n", mode=0o640)
-            else:
-                (self.state / "control-token").unlink(missing_ok=True)
-        except OSError as e:
-            log.warning("camera token: %s", e)
+        """At startup, free a lease a player's game proxy left behind (it was killed before it could
+        release), using the token it published."""
+        self.release_control()
 
     def release_control(self):
-        """Free the game's control lease the last player session held, so the next session (a
-        recovery, or the next match) doesn't wait up to five minutes for it to expire."""
-        token, self.player_token = self.player_token, None
-        self.share_token(None)
-        if not token:
-            return
+        """Fallback after a player session: game_proxy.py releases control and removes
+        STATE_DIR/control-token when it exits; if a killed proxy left them, release and remove here so
+        the next session doesn't wait out the lease."""
+        path = self.state / "control-token"
         try:
-            self.mcp("ui_release_control", {"token": token})
-            log.info("released the previous player session's game control")
-        except Exception as e:  # already released or expired: nothing to do
-            log.debug("release control: %s", e)
+            token = path.read_text().strip()
+        except OSError:
+            return
+        if token:
+            try:
+                self.mcp("ui_release_control", {"token": token})
+                log.info("released a game-control lease left by an earlier player session")
+            except Exception as e:  # already released or expired: nothing to do
+                log.debug("release control: %s", e)
+        path.unlink(missing_ok=True)
 
     def assign(self):
         cur = rigstate.current(self.cfg)

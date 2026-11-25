@@ -165,9 +165,34 @@ for l in sys.stdin:
   [[ "$hold_out" == *"showing a viewer request"* ]] && ok "a viewer-request hold blocks the player's camera moves" ||
     bad "hold didn't block the player: ${hold_out:0:200}"
   [[ "$hold_out" == *"zoom above 1"* ]] && ok "player camera_show refuses zoom above 100%" || bad "player zoom refusal missing"
+  # The player's game proxy publishes the token 0644 inside the 2770 operator:agent state dir, so only
+  # the operator and the agent group can reach it.
   if [[ -f "$STATE_DIR/control-token" ]]; then
-    [[ "$(stat -c '%a %G' "$STATE_DIR/control-token")" == "640 $AGENT_USER" ]] && ok "control token file 640, group $AGENT_USER" ||
-      bad "control token file is $(stat -c '%a %G' "$STATE_DIR/control-token")"
+    [[ "$(stat -c '%a %G' "$STATE_DIR/control-token")" =~ ^(640|644)\ $AGENT_USER$ && "$(stat -c %a "$STATE_DIR")" == 2770 ]] &&
+      ok "control token file $(stat -c %a "$STATE_DIR/control-token") in the 2770 state dir, group $AGENT_USER" ||
+      bad "control token file is $(stat -c '%a %G' "$STATE_DIR/control-token") (state dir $(stat -c %a "$STATE_DIR"))"
+  fi
+  # The player's game proxy hides control and token handling from the model. List-only mode, so the
+  # live player's lease is never touched.
+  gp="$AGENT_INSTALL_DIR/game_proxy.py"
+  if [[ -f "$gp" ]] && curl -s -o /dev/null --max-time 2 "http://127.0.0.1:$MCP_PORT/mcp"; then
+    gp_out="$(printf '%s\n' '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}' \
+      '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"ui_acquire_control","arguments":{}}}' |
+      env -i PATH=/usr/bin:/bin MCP_PORT="$MCP_PORT" STATE_DIR="$(mktemp -d)" GAME_PROXY_NO_CONTROL=1 \
+        /usr/bin/python3 -E -s "$gp" 2>&1)"
+    verdict="$(printf '%s\n' "$gp_out" | python3 -c 'import json,sys
+names=set(); tok=False; refused=False
+for l in sys.stdin:
+    d=json.loads(l)
+    if d.get("id")==1:
+        for t in d["result"]["tools"]:
+            names.add(t["name"]); tok |= "token" in (t.get("inputSchema") or {}).get("properties", {})
+    if d.get("id")==2: refused=bool(d["result"].get("isError"))
+hidden={"ui_acquire_control","ui_renew_control","ui_release_control","game_view","game_wait","game_chat"}
+print("ok" if names and not tok and not names & hidden and refused else f"bad tok={tok} hidden={sorted(names & hidden)} refused={refused} n={len(names)}")' 2>&1)"
+    [[ "$verdict" == ok ]] && ok "player game proxy hides control tools and every token parameter" || bad "player game proxy: $verdict"
+  else
+    echo "  note  player game proxy check skipped (not installed, or the game isn't answering on $MCP_PORT)"
   fi
   if [[ "$(declare -F as_agent)" ]]; then
     grep -q '"mcp__glob2-stream__game_view"' "$AGENT_INSTALL_DIR/policy/player.json" && ok "player policy denies game_view" || bad "player policy lacks the game_view deny"
