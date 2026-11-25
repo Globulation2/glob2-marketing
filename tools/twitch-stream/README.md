@@ -108,6 +108,23 @@ One gate, `chat/camera.py`, moves the stream camera for everyone. It calls the g
 - **Drift:** between explicit moves, `chat/camera_drift.py` (in the chat agent, no model calls) pans the view slowly toward the action so the picture is never still and globs don't walk off-screen. Every 3 s it reads `game_world` (read-only, fog of war respected) and targets, in order: fresh alerts, visible enemy units near the view, Claude's units on the move (the biggest moving group), else a slow circle around the last explicit target. It glides by holding the middle mouse button and moving the pointer a few pixels about 30 times a second (`CAMERA_DRIFT_PX_PER_S`, default 60 px/s, about 2.7 tiles/s at 70% zoom; `CAMERA_DRIFT_STEP` 0.033 s), re-anchoring at the screen centre every 3.5 s because button holds expire after 5 s. Short drags every 0.2 s looked stop-start; the continuous glide looked much smoother on stream (2026-11-24). Arrow keys were too fast to drift with (~38 tiles/s held). It never zooms, pauses 2 s after any explicit move, only circles a viewer request's target during its hold, and ignores action farther than `CAMERA_DRIFT_RANGE` tiles (that's for explicit cuts). Each drag holds the game's MCP queue for 120 ms, so other calls wait a little (median ~60 ms measured).
 - The sandboxed agents use the default hold, interval and label times; the operator-side settings in `stream.env` only affect the chat host's unsandboxed mode and the director.
 
+## Clips and highlights
+
+Viewers mostly find the channel through clips and past broadcasts, and Twitch deletes past broadcasts after a few days. So every match is labelled and clipped on Twitch automatically by `highlights.py`, which runs as its own user service, `glob2-stream-highlights`. It's separate from the supervisor so it can be updated and restarted without ending the broadcast:
+
+- **Match starts:** the stream title becomes "Claude Plays Glob · Claude vs Cortex · Game 83 on Canals · overall 26W–56L–0D", and a stream marker "Game 83 start: …" is added. Twitch's highlight editor (Creator Dashboard → Content → Video Producer → the past broadcast) lists the markers, so one game becomes a permanent Highlight in a couple of clicks.
+- **Momentum swing:** when the win chance moves `HIGHLIGHT_SWING` points (default 25) within three minutes, it clips the last 60 s ("Claude vs Cortex · Game 83: the tide turns for Claude (30% to 62%)"). At most one swing clip every `HIGHLIGHT_COOLDOWN` seconds (600). There are none while fast-forwarding.
+- **Match ends:** a marker "Game 83 end: Cortex beats Claude" and a clip of the finish. Aborted matches get neither.
+- **What it reads:** the shared match state and `game_world`'s win chance, with no control lease. The broadcaster's token stays operator-side. Clip edit links are logged to `logs/highlights.jsonl`, never to the shared state dir.
+- **Scopes:** titles and markers need `channel:manage:broadcast`; clips need `clips:edit`. Without a scope it logs once and skips that part. To add scopes, log in again as the broadcaster and reinstall the token:
+  ```sh
+  twitch token -u -s 'chat:read chat:edit channel:manage:broadcast clips:edit'
+  chat/token_refresh.py refresh
+  highlights.py status          # shows which parts are enabled
+  ```
+- **Fewer, longer broadcasts:** every supervisor or stream restart ends the broadcast and starts a new past-broadcast video, which splits viewer counts. Prefer `touch $STATE_DIR/restart-game` and changes to the highlights service, which leave the broadcast running.
+- **Manual tests:** `highlights.py marker TEXT` and `highlights.py clip TITLE`. `HIGHLIGHTS=0` turns it off; `autostart/install-autostart.sh` installs the service only for `AUTOSTART_STREAM=live`.
+
 ## File layout
 
 | Path | Contents |
@@ -144,6 +161,7 @@ Local state never lives here: `$GLOB2_STREAM_HOME` (default `~/glob2-stream`) ho
 | `supervisor.py run [--stream none\|file:PATH\|live] [--i-mean-it] [--chat] [--max-games N] [--game-timeout MIN] [--down]` | Run matches continuously. Defaults: no capture, no chat, unlimited matches, 120-minute sessions. `--down` stops everything on exit. |
 | `status.py [--json]` | Display, game, supervisor, stream, current match, player, chat host, record by opponent, recent results and free disk. |
 | `stream_ctl.py info\|setup-done\|caption\|result` | The player's match tools from a shell, for operators and tests. `stream_ctl.py mcp` serves them to the player. |
+| `highlights.py run\|status\|marker TEXT\|clip TITLE` | Per-game Twitch titles, markers and clips (the `glob2-stream-highlights` service runs `run`). |
 | `down.sh` | Stop the supervisor, stream, game, Xvfb and sink. |
 | `mcp/activate.py [--acquire] KEY` | Activate a game control by key over MCP (for example `menu/1`, then `tutorial/lesson/0`). |
 | `mcp/mcp_call.py TOOL [JSON]` | Call any game MCP tool over HTTP, for scripting without an agent. |

@@ -17,12 +17,13 @@ here="$(dirname "$(readlink -f "$0")")"
 # shellcheck source=../lib.sh
 source "$here/../lib.sh"
 unit=glob2-stream.service
+hl_unit=glob2-stream-highlights.service   # per-game titles, markers and clips (highlights.py)
 unit_dir="$HOME/.config/systemd/user"
 
 if [[ "${1:-}" == --uninstall ]]; then
-  systemctl --user disable --now "$unit" 2>/dev/null || true
-  rm -f "$unit_dir/$unit"; systemctl --user daemon-reload
-  echo "removed $unit (lingering left as it was)"; exit 0
+  systemctl --user disable --now "$unit" "$hl_unit" 2>/dev/null || true
+  rm -f "$unit_dir/$unit" "$unit_dir/$hl_unit"; systemctl --user daemon-reload
+  echo "removed $unit and $hl_unit (lingering left as it was)"; exit 0
 fi
 [[ -z "${1:-}" ]] || { sed -n 2,5p "$0"; exit 2; }
 
@@ -58,7 +59,32 @@ StandardError=append:$LOG_DIR/supervisor-console.log
 [Install]
 WantedBy=default.target
 UNIT
+if [[ "$AUTOSTART_STREAM" == live && "$HIGHLIGHTS" == 1 ]]; then
+  # Separate from the supervisor so it can be updated without ending the broadcast.
+  cat > "$unit_dir/$hl_unit" <<UNIT
+# Written by autostart/install-autostart.sh.
+[Unit]
+Description=Claude Plays Glob: per-game Twitch titles, markers and clips
+After=$unit
+
+[Service]
+Type=simple
+WorkingDirectory=$RIG_DIR
+ExecStart=/usr/bin/python3 $RIG_DIR/highlights.py run
+Restart=always
+RestartSec=30
+StandardOutput=append:$LOG_DIR/highlights-console.log
+StandardError=append:$LOG_DIR/highlights-console.log
+
+[Install]
+WantedBy=default.target
+UNIT
+else
+  systemctl --user disable --now "$hl_unit" 2>/dev/null || true
+  rm -f "$unit_dir/$hl_unit"
+fi
 systemctl --user daemon-reload
 systemctl --user enable "$unit" >/dev/null 2>&1
+[[ -f "$unit_dir/$hl_unit" ]] && systemctl --user enable --now "$hl_unit" >/dev/null 2>&1 && echo "installed $hl_unit (running)"
 echo "installed $unit: supervisor.py ${args[*]}"
 echo "start now with: systemctl --user restart $unit  (stop any hand-started supervisor first)"

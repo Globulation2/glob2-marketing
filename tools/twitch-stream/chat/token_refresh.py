@@ -6,7 +6,7 @@
     token_refresh.py refresh    refresh now
 
 The Twitch CLI (`twitch`, configured with `twitch configure` and logged in with
-`twitch token -u -s 'chat:read chat:edit'`) keeps CLIENTID, CLIENTSECRET,
+`twitch token -u -s 'chat:read chat:edit channel:manage:broadcast clips:edit'`) keeps CLIENTID, CLIENTSECRET,
 ACCESSTOKEN, REFRESHTOKEN and TOKENEXPIRATION in TWITCH_CLI_ENV. Refreshing posts
 those credentials to Twitch's token endpoint over HTTPS (the same request
 `twitch token -R` makes), so no secret ever appears in a process's arguments. It then
@@ -44,7 +44,7 @@ def read_env(path: str) -> dict:
         lines = pathlib.Path(path).read_text().splitlines()
     except OSError as e:
         raise RefreshError(f"cannot read the Twitch CLI settings at {path} ({e.strerror}); "
-                           "run `twitch configure` and `twitch token -u -s 'chat:read chat:edit'`") from None
+                           "run `twitch configure` and `twitch token -u -s 'chat:read chat:edit channel:manage:broadcast clips:edit'`") from None
     return dict(line.split("=", 1) for line in lines if "=" in line)
 
 
@@ -120,7 +120,7 @@ class TokenRefresher:
         need = [k for k in ("CLIENTID", "CLIENTSECRET", "REFRESHTOKEN") if not env.get(k)]
         if need:
             raise RefreshError(f"{self.cli_env} lacks {', '.join(need)}; run `twitch configure` and "
-                               "`twitch token -u -s 'chat:read chat:edit'`")
+                               "`twitch token -u -s 'chat:read chat:edit channel:manage:broadcast clips:edit'`")
         body = urllib.parse.urlencode({"client_id": env["CLIENTID"], "client_secret": env["CLIENTSECRET"],
                                        "grant_type": "refresh_token", "refresh_token": env["REFRESHTOKEN"]}).encode()
         try:
@@ -128,7 +128,7 @@ class TokenRefresher:
                 got = json.load(resp)
         except urllib.error.HTTPError as e:
             raise RefreshError(f"Twitch refused the refresh (HTTP {e.code}); log in again with "
-                               "`twitch token -u -s 'chat:read chat:edit'`") from None
+                               "`twitch token -u -s 'chat:read chat:edit channel:manage:broadcast clips:edit'`") from None
         new = got.get("access_token", "")
         info = validate(new) if new else None
         if info is None:
