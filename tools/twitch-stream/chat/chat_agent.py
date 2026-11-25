@@ -159,7 +159,7 @@ class ChatAgent:
         self.last_call = {}
         # Camera: camera.py reads its settings from the environment (as the sandboxed proxy does).
         for k in ("STATE_DIR", "MCP_PORT", "OVERLAY_FILE", "CAMERA_OVERLAY_FILE", "CAMERA_MIN_INTERVAL",
-                  "CAMERA_LABEL_SECONDS", "CAMERA_HOLD_SECONDS", "CAMERA_DRIFT_PX_PER_S", "CAMERA_DRIFT_MAX_PX_PER_S", "CAMERA_DRIFT_STEP",
+                  "CAMERA_LABEL_SECONDS", "CAMERA_HOLD_SECONDS", "CAMERA_DRIFT_PX_PER_S", "CAMERA_DRIFT_MAX_PX_PER_S", "CAMERA_DRIFT_DEADZONE", "CAMERA_DRIFT_STEP",
                   "CAMERA_DRIFT_POLL", "CAMERA_DRIFT_PAUSE", "CAMERA_DRIFT_RANGE"):
             if cfg.get(k):
                 os.environ[k] = str(cfg[k])

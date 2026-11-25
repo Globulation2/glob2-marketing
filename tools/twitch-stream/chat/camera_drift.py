@@ -20,6 +20,7 @@ player's control token (published by game_proxy to STATE_DIR/control-token) and 
 """
 import json
 import math
+import os
 import threading
 import time
 
@@ -30,7 +31,7 @@ MOVE_MIN = 2                 # tiles a unit must move between polls to count as 
 CELL = 12                    # grouping cell for moving units, in tiles
 ORBIT_RADIUS = 4             # tiles around the last explicit target
 ORBIT_PERIOD = 40.0          # seconds per circle
-DEADZONE = 2.0               # tiles: close enough
+DEADZONE = float(os.environ.get("CAMERA_DRIFT_DEADZONE") or 4.0)   # tiles: close enough (user: 4, 2026-11-25)
 TARGET_BLEND = 0.35          # how far a new target of the same kind moves the old one per poll
 CENTRE = (960, 520)          # screen point drags are made around (logical pixels, over the map)
 
@@ -202,9 +203,9 @@ class Drift:
             return
         # Speed grows with distance (user: allow it to go faster when needed): gentle within ~6 tiles,
         # ramping up to max_px_per_s for action ~25+ tiles away, easing down as it arrives.
-        speed = self.px_per_s * min(1.0, 0.35 + dist / 6.0)
-        if dist > 6:
-            speed = min(self.max_px_per_s, self.px_per_s + (self.max_px_per_s - self.px_per_s) * (dist - 6) / 19.0)
+        speed = self.px_per_s * min(1.0, 0.35 + (dist - DEADZONE) / 6.0)   # ease over the last 6 tiles before resting
+        if dist > DEADZONE + 6:
+            speed = min(self.max_px_per_s, self.px_per_s + (self.max_px_per_s - self.px_per_s) * (dist - DEADZONE - 6) / 19.0)
         px = speed * self.step_s
         ux, uy = dx / dist, dy / dist
         # holds expire after 5 s, and the pointer must stay over the map: re-anchor at the centre
