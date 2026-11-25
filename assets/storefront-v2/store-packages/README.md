@@ -77,6 +77,24 @@ The intended URLs are `https://raw.githubusercontent.com/Globulation2/glob2-mark
 - **Apple and Mac previews:** none of the trailer files can be used; they need captures of the iOS and Mac apps (trailer review). Not packaged.
 - **Amazon screenshots** (review M8): the 10-inch frames are host renders and Amazon wants the app on the right device type. Re-run after emulator or Fire-tablet captures are rendered; then take `blocked` off the `amazon` set in `stores.json`.
 
+## Copyright line
+
+The owner decided the product copyright statement on 2026-11-25 ([decision 11](../../../planning/storefront-v2-rollout.md#decisions)). Enter these strings exactly; `stores.json` holds them in its top-level `copyright` block and, per store, in `copyright` (`value`, `field`, `when`). `build.py` does not package them.
+
+- **Line:** `© 2006–2026 Bradley Arsenault. © 2001–2008 Stephane Magnenat. © the Globulation 2 contributors.`
+- **Plain** (where © is unavailable or the platform adds it): `2006–2026 Bradley Arsenault. 2001–2008 Stephane Magnenat. The Globulation 2 contributors.`
+- **Apple** (App Store Connect prints its own leading ©): `2006–2026 Bradley Arsenault. © 2001–2008 Stephane Magnenat. © the Globulation 2 contributors.`
+
+| Store | Field | Value | When |
+| --- | --- | --- | --- |
+| Apple App Store (iPhone and iPad) | Version copyright | Apple | The next editable iOS version; never a version in review |
+| Mac App Store | Version copyright | Apple | The next editable macOS version; the Mac bundle's `NSHumanReadableCopyright` carries the line (game PR 1922) |
+| Microsoft Store | Copyright and trademark info, in all 44 listing languages | Line | The follow-up submission after the current certification clears |
+| Epic Games Store | Legal text | Line | Before the product goes Live |
+| Google Play, Amazon, Snap, itch.io | None | — | — |
+| Steam, GOG (prepared only) | None recorded; no store form has been seen | Line, if a form asks | When the store opens |
+| AppStream / Flathub | None (metainfo has no copyright element) | — | — |
+
 ## Not packaged, and why
 
 - Microsoft 1:1 app tile icon (300×300): optional; the Store uses the package's own tile logo, which the next build carries.

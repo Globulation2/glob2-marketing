@@ -5,7 +5,8 @@
     "review_row names the row of the review table a store follows (matched on the text before any parenthesis in the first column). A row reading 'As <other store>' copies that store's list.",
     "Rules: every limit below comes from analysis/mobile-store-comparables.md (observed 2026-11-24) or the storefront-v1 packaging records, unless the 'unverified' list of the store says otherwise. build.py fails on any breach.",
     "switch: the platforms.json platform whose ai_coplay switch must be on for an ai_coplay image to be packaged; a review row that puts co-play on a store whose switch is off is an error.",
-    "trailer: per store, the trailer slots, following the 'Which file goes to which store' table of trailer.review. Each file is looked up in trailer.dir (committed: WebM, posters) or trailer.outside_dir (the MP4s, not committed), checked against its bytes, SHA-256 and ffprobe facts in trailer.manifest, and linked (symbolic link) into the package's trailer/ folder. coplay: true means the cut shows AI co-play, so the store's ai_coplay switch must be on. hosted: the store takes a video URL (YouTube, Vimeo) rather than a file, so the slot is reported as blocked, 'needs a hosted video URL', with the file to upload there linked. repo_url: the slot uses the file's raw.githubusercontent.com URL."
+    "trailer: per store, the trailer slots, following the 'Which file goes to which store' table of trailer.review. Each file is looked up in trailer.dir (committed: WebM, posters) or trailer.outside_dir (the MP4s, not committed), checked against its bytes, SHA-256 and ffprobe facts in trailer.manifest, and linked (symbolic link) into the package's trailer/ folder. coplay: true means the cut shows AI co-play, so the store's ai_coplay switch must be on. hosted: the store takes a video URL (YouTube, Vimeo) rather than a file, so the slot is reported as blocked, 'needs a hosted video URL', with the file to upload there linked. repo_url: the slot uses the file's raw.githubusercontent.com URL.",
+    "copyright: the product copyright line the owner decided on 2026-11-25 (planning/storefront-v2-rollout.md, decision 11). The top-level block holds the line and its variants: line (with ©), plain (where © is unavailable or the platform adds it) and apple (Apple prints its own leading ©). Each store's copyright entry gives the exact value to enter, the field and when; value null means the store has no copyright field to fill. build.py does not read these entries."
   ],
   "output_root": "../storefront-v2-renders/store-packages",
   "renders_root": "../storefront-v2-renders/screenshots",
@@ -46,9 +47,16 @@
     "review": "assets/storefront-v2/review/trailer-review.md"
   },
   "jpeg": {"quality": [92, 90, 88, 86, 84], "subsampling": 0},
+  "copyright": {
+    "decided": "2026-11-25",
+    "line": "© 2006–2026 Bradley Arsenault. © 2001–2008 Stephane Magnenat. © the Globulation 2 contributors.",
+    "plain": "2006–2026 Bradley Arsenault. 2001–2008 Stephane Magnenat. The Globulation 2 contributors.",
+    "apple": "2006–2026 Bradley Arsenault. © 2001–2008 Stephane Magnenat. © the Globulation 2 contributors."
+  },
   "stores": {
     "microsoft": {
       "title": "Microsoft Store",
+      "copyright": {"value": "© 2006–2026 Bradley Arsenault. © 2001–2008 Stephane Magnenat. © the Globulation 2 contributors.", "field": "Copyright and trademark info (every one of the 44 listing languages)", "when": "The follow-up submission after the current certification clears; do not edit the submission in certification."},
       "kind": "desktop",
       "review_row": "Microsoft Store",
       "switch": "microsoft",
@@ -86,6 +94,7 @@
     },
     "epic": {
       "title": "Epic Games Store",
+      "copyright": {"value": "© 2006–2026 Bradley Arsenault. © 2001–2008 Stephane Magnenat. © the Globulation 2 contributors.", "field": "Legal text (product legal notice)", "when": "Before the product goes Live."},
       "kind": "desktop",
       "review_row": "Epic",
       "switch": "epic",
@@ -115,6 +124,7 @@
     },
     "snap": {
       "title": "Snap Store",
+      "copyright": {"value": null, "field": null, "when": "None: decision 11 sets no copyright entry for this store."},
       "kind": "desktop",
       "review_row": "Snap",
       "switch": "snap",
@@ -148,6 +158,7 @@
     },
     "itch": {
       "title": "itch.io",
+      "copyright": {"value": null, "field": null, "when": "None: decision 11 sets no copyright entry for this store."},
       "kind": "desktop",
       "review_row": "itch.io",
       "switch": "itch",
@@ -173,6 +184,7 @@
     },
     "mac": {
       "title": "Mac App Store",
+      "copyright": {"value": "2006–2026 Bradley Arsenault. © 2001–2008 Stephane Magnenat. © the Globulation 2 contributors.", "field": "App Store Connect version copyright (Apple adds the leading ©)", "when": "The next editable macOS version; do not edit a version in review. The game sets the same line, with ©, as NSHumanReadableCopyright in the Mac App Store bundle (Globulation2/glob2 PR 1922)."},
       "kind": "desktop",
       "review_row": "Mac App Store",
       "switch": "mac",
@@ -197,6 +209,7 @@
     },
     "steam": {
       "title": "Steam (prepared only)",
+      "copyright": {"value": null, "field": null, "when": "Prepared only (decision 5) and no Steamworks form has been seen; if the store form asks for a copyright or legal line when Steam opens, use the top-level line."},
       "kind": "desktop",
       "review_row": "Steam",
       "switch": "steam",
@@ -230,6 +243,7 @@
     },
     "gog": {
       "title": "GOG (prepared only)",
+      "copyright": {"value": null, "field": null, "when": "Prepared only (decision 5) and no GOG form has been seen; if the store form asks for a copyright or legal line when GOG opens, use the top-level line."},
       "kind": "desktop",
       "review_row": "GOG",
       "switch": "gog",
@@ -261,6 +275,7 @@
     },
     "appstream": {
       "title": "AppStream / Flathub (game repository metainfo)",
+      "copyright": {"value": null, "field": null, "when": "None: AppStream metainfo has no copyright element (the licence is project_license; developer name unchanged)."},
       "kind": "desktop",
       "review_row": "AppStream / Flathub source",
       "switch": null,
@@ -289,6 +304,7 @@
     },
     "google-play": {
       "title": "Google Play",
+      "copyright": {"value": null, "field": null, "when": "None: decision 11 sets no copyright entry for this store."},
       "kind": "mobile",
       "platform": "google-play",
       "text": {"platform": "google-play"},
@@ -312,6 +328,7 @@
     },
     "apple": {
       "title": "Apple App Store (iPhone and iPad)",
+      "copyright": {"value": "2006–2026 Bradley Arsenault. © 2001–2008 Stephane Magnenat. © the Globulation 2 contributors.", "field": "App Store Connect version copyright (Apple adds the leading ©)", "when": "The next editable iOS version; do not edit a version in review."},
       "kind": "mobile",
       "platform": "ios",
       "text": {"platform": "ios"},
@@ -330,6 +347,7 @@
     },
     "amazon": {
       "title": "Amazon Appstore",
+      "copyright": {"value": null, "field": null, "when": "None: decision 11 sets no copyright entry for this store."},
       "kind": "mobile",
       "platform": "amazon",
       "text": {"platform": "amazon"},
