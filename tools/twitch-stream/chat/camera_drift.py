@@ -53,7 +53,6 @@ class Drift:
         self.poll_s = _f("CAMERA_DRIFT_POLL", 3.0)
         self.pause_s = _f("CAMERA_DRIFT_PAUSE", 2.0)
         self.range = _f("CAMERA_DRIFT_RANGE", 40)
-        self.px_per_step = _f("CAMERA_DRIFT_SPEED", 12)    # pixels per step (~60 px/s at 0.2 s steps)
         self.view = None          # {"x","y","width","height"} in tiles, top-left based
         self.map = (256, 256)
         self.tile_px = 22.4
