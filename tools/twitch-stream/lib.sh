@@ -12,7 +12,8 @@ RIG_SETTINGS=(GLOB2_SRC GLOB2_BIN GAME_RENDERER GAME_USERNAME STREAM_DISPLAY STR
   TWITCH_CHANNEL TWITCH_BOT_USER TWITCH_CHAT_TOKEN_FILE TWITCH_CLI_ENV
   AGENT_USER AGENT_SHARED_DIR AGENT_INSTALL_DIR AGENT_ETC_DIR AGENT_SUDOERS AGENT_EGRESS EGRESS_PROXY_PORT EGRESS_ALLOW
   AUTOSTART_STREAM AUTOSTART_CHAT CAMERA_OVERLAY_FILE CAMERA_DIRECTOR CAMERA_IDLE_SECONDS CAMERA_LABEL_SECONDS
-  CAMERA_MIN_INTERVAL CAMERA_HOLD_SECONDS)
+  CAMERA_MIN_INTERVAL CAMERA_HOLD_SECONDS STREAM_GAME_PREFS AGENT_COMPACT_WINDOW AGENT_COMPACT_PCT
+  CAMERA_DRIFT CAMERA_DRIFT_SPEED CAMERA_DRIFT_RANGE)
 if [[ -f "$GLOB2_STREAM_HOME/stream.env" ]]; then
   declare -A rig_env=()
   for v in "${RIG_SETTINGS[@]}"; do [[ -n "${!v+x}" ]] && rig_env[$v]="${!v}"; done
@@ -55,6 +56,9 @@ if [[ -n "$AGENT_USER" ]]; then : "${AGENT_SHARED_DIR:=/var/lib/glob2-stream}"; 
 : "${CAMERA_OVERLAY_FILE:=${OVERLAY_FILE%/*}/camera.txt}"   # "Showing: ..." label, empty when none
 : "${CAMERA_DIRECTOR:=1}"            # fallback: an automatic director shows the action when the camera has been idle
 : "${CAMERA_IDLE_SECONDS:=90}"
+: "${CAMERA_DRIFT:=1}"               # pan slowly toward the action between explicit camera moves
+: "${CAMERA_DRIFT_SPEED:=12}"        # pixels per 0.2 s step (~60 px/s, ~2.7 tiles/s at zoom 0.7)
+: "${CAMERA_DRIFT_RANGE:=40}"        # only chase action within this many tiles of the view centre
 : "${CAMERA_LABEL_SECONDS:=12}"       # how long a player's camera label stays up
 : "${CAMERA_HOLD_SECONDS:=40}"        # a viewer request holds the camera this long (sandboxed agents use the default)
 : "${CAMERA_MIN_INTERVAL:=8}"        # seconds between camera moves, from any source

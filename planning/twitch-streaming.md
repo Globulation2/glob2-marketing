@@ -89,6 +89,10 @@ The user asked that the chat host be able to move the camera, zooming out and sh
 
 The player used to hold its game-control token in context. In game 22 an aggressive compaction dropped it, the lease stayed held, and the colony ran on autopilot while the player told viewers it couldn't control anything. The user called it a harness flaw. The player's game connection is now `game_proxy.py`, which takes, renews and releases control itself and injects the token, so the model never sees one; tested on a separate game (lost lease re-acquired, leftover lease adopted, release on exit or SIGTERM, no token in output) and with a Claude session calling a control tool without a token. Upstream suggestion for the game's MCP server: tie control to the MCP session or connection instead of a token argument, so no agent harness has to carry one.
 
+### Smooth camera drift (2026-11-24)
+
+The user found the picture lifeless between camera cuts and saw globs walk off-screen. The chat agent now runs `chat/camera_drift.py`: between explicit moves it pans slowly toward fresh alerts, nearby enemy units or Claude's moving units, else circles the last target, using tiny middle-button drags (arrow keys scrolled ~38 tiles/s, far too fast). On a test game it steered the view toward a target within 0.6 tiles of its own tracking, followed moving worker groups without jitter after target smoothing, paused after explicit moves, and added ~60 ms median latency to other MCP calls. Smoothness on the 60 fps NVIDIA display is judged after deployment. `game_world` detail full reports per-unit tile positions (`colony.unit_list`, `others.unit_list`) and the current view rectangle, which the drift uses.
+
 ## Gaps and next work
 
 - **24/7 operation.** The supervisor restarts failed streams, sessions and the chat host, and caps log growth. Still to verify before an unattended public run:
