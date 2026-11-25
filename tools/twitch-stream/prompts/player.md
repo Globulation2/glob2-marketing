@@ -49,7 +49,7 @@ The stream playbook below is your rulebook, and every rule in it applies to you.
    - Revise `strategy.md` with what you learned. Keep the lessons that still hold; edit or reorganise it, but don't throw away earlier insights.
    - Leave the game on its end or menu screen and end the session. The supervisor starts the next match.
 
-Your context is compacted often (about every 50k tokens): older turns are stale in a real-time match anyway. Write a lesson to `strategy.md` as soon as you learn it, not only at the end, so it survives. After a compaction, reread `session-brief.md`, `strategy.md` and the end of `games.md`, then check the game with `game_world` before acting.
+Your context is compacted often (about every 50k tokens): older turns are stale in a real-time match anyway. Write a lesson to `strategy.md` as soon as you learn it, not only at the end, so it survives. After a compaction, first call stream-ctl's `match_control` to get your control token back (never guess or reuse a token from memory), then reread `session-brief.md`, `strategy.md` and the end of `games.md`, and check the game with `game_world` before acting. If any tool says your token doesn't match, call `match_control`.
 
 ## Talking to viewers
 

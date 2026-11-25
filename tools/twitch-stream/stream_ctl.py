@@ -296,7 +296,35 @@ def match_fast_forward(cfg, a) -> str:
             "colony's last stand with good humour, and call match_result when the game ends.")
 
 
+def match_control(cfg, a) -> str:
+    """Give the player back its game-control token (e.g. after a context compaction lost it): the
+    token the supervisor saw granted, checked live with ui_renew_control."""
+    for k in ("MCP_PORT", "STATE_DIR"):
+        if cfg.get(k):
+            os.environ.setdefault(k, str(cfg[k]))
+    token = camera.read_token()
+    if token:
+        try:
+            out = camera._rpc("ui_renew_control", {"token": token})
+            text = (out.get("result", {}).get("content") or [{}])[0].get("text", "")
+            if "error" not in json.loads(text or "{}"):
+                return f"your control token (lease renewed): {token}"
+        except Exception:  # noqa: BLE001
+            pass
+    try:
+        st = json.loads(camera._rpc("ui_status", {})["result"]["content"][0]["text"])
+    except Exception:  # noqa: BLE001
+        st = {}
+    if not st.get("controlled"):
+        return "nobody holds control: call ui_acquire_control now and keep the token it returns"
+    raise CtlError("control is held under a token that can't be recovered; wait up to five minutes for the "
+                   "lease to lapse, retrying ui_acquire_control every 30 s, and keep narrating meanwhile")
+
+
 TOOLS = {
+    "match_control": ("Get your game-control token back (for example after your context was compacted and you "
+                      "lost it). Returns the current token, renewed, or tells you to call ui_acquire_control.",
+                      _schema({}, []), match_control),
     "narrate": ("Say something to viewers in the in-game chat (your narration). At most one message every 30 s; "
                 "extra messages are not sent. Up to 254 bytes; tile coordinates are removed, so describe places "
                 "the way viewers see them.",

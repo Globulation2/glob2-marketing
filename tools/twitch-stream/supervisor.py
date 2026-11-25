@@ -390,7 +390,10 @@ class Supervisor:
                 last_flush = time.time()
                 for line in proc.stdout:
                     dst.write(line)
-                    if b"token" in line:  # remember the player's control token, to release it later
+                    # Remember the player's control token, only from a successful ui_acquire_control reply
+                    # (it carries lease_seconds). Tokens the player sends can be stale or invented after a
+                    # compaction; taking those once overwrote the good token and locked the player out.
+                    if b"token" in line and b"lease_seconds" in line:
                         m = TOKEN_RE.search(line)
                         if m and m.group(1).decode() != self.player_token:
                             self.player_token = m.group(1).decode()
