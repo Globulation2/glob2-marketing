@@ -122,8 +122,8 @@ def main():
     proxy_env = check_egress(conf)
 
     py = ["/usr/bin/python3", "-E", "-s"]           # our MCP servers: no env-driven imports, no user site
-    pace = conf.get("PLAYER_CALLS_PER_MIN", "5")
-    pace = pace if pace.replace(".", "", 1).isdigit() and 0 < float(pace) <= 60 else "5"
+    pace = conf.get("PLAYER_CALLS_PER_MIN", "8")
+    pace = pace if pace.replace(".", "", 1).isdigit() and 0 < float(pace) <= 60 else "8"
     shared_env = {k: conf[k] for k in ("AGENT_SHARED_DIR", "STATE_DIR", "NOTES_DIR", "OVERLAY_FILE", "MCP_PORT")}
     shared_env.update(AGENT_USER=conf["AGENT_USER"], GLOB2_STREAM_HOME=conf["AGENT_SHARED_DIR"])
     shared_env["PLAYER_CALLS_PER_MIN"] = pace

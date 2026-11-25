@@ -13,9 +13,9 @@ import time
 
 def interval() -> float:
     try:
-        per_min = float(os.environ.get("PLAYER_CALLS_PER_MIN") or 5)
+        per_min = float(os.environ.get("PLAYER_CALLS_PER_MIN") or 8)
     except ValueError:
-        per_min = 5.0
+        per_min = 8.0
     return 60.0 / per_min if per_min > 0 else 0.0
 
 
