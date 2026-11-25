@@ -1,28 +1,27 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""Cut, caption, score and encode the App Store app previews from the raw simulator takes.
+"""Cut, caption, score and encode the App Store app previews from the frame-stepped takes.
 
     uv run --with pillow --with numpy python build_previews.py --raw RAW --cards CARDS --out OUT \
         [--device iphone-6.9,ipad-13] [--locale en] [--textless] [--poster]
 
-RAW holds <device>/<take>.mov from record.py; CARDS holds the text cards from the
-trailer's render_cards.py run with --data previews.json at each preview size
-(CARDS/<locale>/<WxH>/<field>.png and CARDS/wordmark-<WxH>.png). Everything the
-edit does is data in previews.json: per device, the timeline (take, in point,
-length), the text cues (catalog field, start, end), the wordmark start and the
-music plan. A localized preview is the same command with another --locale once its
-cards are rendered.
+RAW holds <device>/<take>/f00000.png ... from capture_frames.py: one simulator
+screenshot per game tick, so 30 frames are one second of the match at its normal
+speed. CARDS holds the text cards from the trailer's render_cards.py run with
+--data previews.json at each preview size (CARDS/<locale>/<WxH>/<field>.png and
+CARDS/wordmark-<WxH>.png). Everything the edit does is data in previews.json: per
+device, the timeline (take, first frame, number of frames), the text cues (catalog
+field, start, end), the wordmark start and the music plan. A localized preview is
+the same command with another --locale once its cards are rendered.
 
-Picture path per segment: the take's own frames from `in` for `seconds`, put on a
-constant 30 fps grid (each output frame shows the take's frame on screen at that
-moment, so the game plays at its real speed), then one Lanczos downscale from the
-simulator's native pixels to Apple's preview size (iPhone 1320x2868 -> 886x1925,
-then the 5 bottom rows of the empty home-indicator band are cropped to 886x1920;
-iPad 2064x2752 -> 1200x1600 exactly). On iPhone, `simctl io recordVideo` draws the
-simulator's Dynamic Island cut-out into the status bar, which no device screen
-recording or `simctl io screenshot` contains: that pill is filled with the flat
-status-bar colour around it (`island` in previews.json; check_previews.py verifies
-the fill matches the bar). Nothing else in the picture is touched.
+Picture path per segment: the take's frames from `in_frame` for `frames`, one
+output frame per take frame (no frame is dropped, repeated, blended or
+interpolated), then one Lanczos downscale from the simulator's native pixels to
+Apple's preview size (iPhone 1320x2868 -> 886x1925, then the 5 bottom rows of the
+empty home-indicator band are cropped to 886x1920; iPad 2064x2752 -> 1200x1600
+exactly). The screenshots are sRGB, like the store screenshots; no pixel of the
+picture is edited (simctl screenshots do not contain the simulator's Dynamic Island,
+and capture_frames.py retakes the rare frame that does).
 
 Encode: H.264 High profile, level 4.0, yuv420p, BT.709, progressive, constant
 30 fps, about 11 Mbps (Apple: target 10-12 Mbps, up to High 4.0), AAC-LC 256 kbps
@@ -83,22 +82,13 @@ def music_filter(cut, first_input):
     return inputs, ";".join(parts)
 
 
-def picture_chain(dev, seg_label, out_label, start, seconds):
-    """Trim one take onto the 30 fps grid, fill the simulator's island, scale to the preview size."""
+def picture_chain(dev, seg_label, out_label, frames):
+    """One take frame per output frame; scale to the preview size."""
     w, h = dev["size"]
     nw, nh = dev["native"]
-    chain = [f"trim=start={start}:duration={seconds + 0.2}", "setpts=PTS-STARTPTS", f"fps={FPS}:round=near",
-             f"trim=end_frame={round(seconds * FPS)}", "setpts=N/(FR*TB)"]
-    if dev.get("island"):
-        i = dev["island"]
-        chain.append(f"drawbox=x={i['x']}:y={i['y']}:w={i['w']}:h={i['h']}:color={i['color']}:t=fill")
-    # The simulator recording is Display P3 (smpte432 primaries, sRGB curve; the status bar's
-    # sRGB 0,0,32 arrives as 0,0,30). Convert the primaries to BT.709, keeping the sRGB curve,
-    # so the pixels match the simulator's own screenshots and the store screenshots.
-    chain += ["colorspace=iall=bt709:iprimaries=smpte432:itrc=srgb:irange=tv:"
-              "space=bt709:primaries=bt709:trc=srgb:range=tv:format=yuv420p"]
+    chain = [f"trim=end_frame={frames}", "setpts=N/(FR*TB)", "format=gbrp"]
     sh = round(nh * w / nw)
-    chain += ["format=gbrp", f"scale={w}:{sh}:flags=lanczos+accurate_rnd+full_chroma_int"]
+    chain += [f"scale={w}:{sh}:flags=lanczos+accurate_rnd+full_chroma_int"]
     if sh != h:
         chain.append(f"crop={w}:{h}:0:0")  # the empty home-indicator band at the bottom
     return f"[{seg_label}]" + ",".join(chain) + f"[{out_label}]"
@@ -112,22 +102,19 @@ def build(device, cfg, args, locale, textless):
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
     name = cut["file"] + ("-textless" if textless else ("" if locale == "en" else f"-{locale}")) + ".mp4"
-    total = sum(s["seconds"] for s in cut["timeline"])
-    assert abs(total - cut["duration"]) < 1e-6, (total, cut["duration"])
+    total = sum(s["frames"] for s in cut["timeline"])
+    assert total == round(cut["duration"] * FPS), (total, cut["duration"])
     inputs, graph = [], []
-    takes = []
-    for s in cut["timeline"]:
-        if s["take"] not in takes:
-            takes.append(s["take"])
-            inputs += ["-i", raw / f"{s['take']}.mov"]
     for k, s in enumerate(cut["timeline"]):
-        ti = takes.index(s["take"])
-        graph.append(f"[{ti}:v]null[src{k}]")
-        graph.append(picture_chain(dev, f"src{k}", f"v{k}", s["in"], s["seconds"]))
+        take = raw / s["take"]
+        last = s["in_frame"] + s["frames"] - 1
+        assert (take / f"f{last:05d}.png").exists(), (take, last)
+        inputs += ["-framerate", FPS, "-start_number", s["in_frame"], "-i", take / "f%05d.png"]
+        graph.append(picture_chain(dev, f"{k}:v", f"v{k}", s["frames"]))
     graph.append("".join(f"[v{k}]" for k in range(len(cut["timeline"]))) +
                  f"concat=n={len(cut['timeline'])}:v=1:a=0,format=gbrp[base]")
     last = "base"
-    n_in = len(takes)
+    n_in = len(cut["timeline"])
     fade = cfg["text"]["fade"]
     overlays = []
     if not textless:

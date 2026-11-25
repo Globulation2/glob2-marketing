@@ -8,16 +8,18 @@
 For each file: ffprobe facts (container, codec, profile, level, size, pixel format,
 scan, frame rate, frame count, duration, bit rates, audio codec, channels, sample rate),
 every frame's timestamp (constant 30 fps, no gaps or repeats of timestamps), EBU R128
-loudness and true peak, and, for iPhone, that the filled Dynamic Island area matches
-the status bar beside it in every sampled frame. Each check is pass or fail against
+loudness and true peak, and, for iPhone, that the status bar between the clock and
+the status icons is plain status-bar colour (no Dynamic Island pill from the simulator)
+in every sampled frame. Each check is pass or fail against
 the values Apple publishes (App Store Connect Help, "App preview specifications",
 read 2026-11-25): accepted resolution for the device class, 15-30 s, at most 30 fps,
 H.264 up to High profile level 4.0, progressive, .mp4/.mov/.m4v, at most 500 MB,
 stereo AAC 256 kbps at 44.1 or 48 kHz; video bit rate target 10-12 Mbps.
 
 With --sheets it writes, per file, one frame per second at full size
-(contact-<name>-full.jpg) and at phone-thumbnail size (contact-<name>-thumb.jpg,
-240 px wide: about the width a preview plays at in App Store search results).
+(contact-<name>-full.jpg), at phone-thumbnail size (contact-<name>-thumb.jpg,
+240 px wide: about the width a preview plays at in App Store search results), and
+four frames per second at 160 px (contact-<name>-4fps.jpg, one row per 5 s).
 """
 import argparse
 import json
@@ -29,7 +31,7 @@ SPEC = {
     "iphone-6.9": {"sizes": [[886, 1920], [1920, 886]]},
     "ipad-13": {"sizes": [[1200, 1600], [1600, 1200]]},
 }
-ISLAND = {"x": 314, "y": 24, "w": 260, "h": 82}  # the filled box in 886x1920 output pixels (466,36,390,122 native)
+ISLAND = {"x": 314, "y": 24, "w": 260, "h": 82}  # where the simulator would draw the island, in 886x1920 output pixels
 
 
 def probe(path):
@@ -85,7 +87,15 @@ def sheets(path, out_dir, duration):
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(path), "-vf",
                     f"{sel},scale=240:-1:flags=area,tile={min(n, 13)}x{-(-n // 13)}:padding=6:color=0x222222",
                     "-fps_mode", "vfr", "-frames:v", "1", "-q:v", "3", str(thumb)], check=True)
-    return [full.name, thumb.name]
+    # Four frames a second (frames 0, 7/8, 15, 22/23 of each second), one row of 20 per 5 s,
+    # 160 px wide: every quarter second of the preview at a glance.
+    quarter = out_dir / f"contact-{name}-4fps.jpg"
+    nq = int(round(duration * 4))
+    selq = "select='" + "+".join(f"eq(n\\,{int(round(k * 7.5))})" for k in range(nq)) + "'"
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(path), "-vf",
+                    f"{selq},scale=160:-1:flags=area,tile=20x{-(-nq // 20)}:padding=4:color=0x222222",
+                    "-fps_mode", "vfr", "-frames:v", "1", "-q:v", "3", str(quarter)], check=True)
+    return [full.name, thumb.name, quarter.name]
 
 
 def check(path, device, sheet_dir):
@@ -127,8 +137,8 @@ def check(path, device, sheet_dir):
         "audio_track_enabled": bool(a) and a[0].get("disposition", {}).get("default") == 1,
     }
     if device == "iphone-6.9":
-        facts["island_fill"] = island_check(path, dur)
-        checks["island_fill_matches_bar"] = facts["island_fill"]["pass"]
+        facts["status_bar_island_check"] = island_check(path, dur)
+        checks["no_island_in_status_bar"] = facts["status_bar_island_check"]["pass"]
     if sheet_dir:
         facts["sheets"] = sheets(path, Path(sheet_dir), dur)
     facts["checks"] = checks

@@ -1,5 +1,5 @@
 {
- "note": "App Store app previews: edit data for build_previews.py; text style for ../../trailer/tools/render_cards.py --data previews.json",
+ "note": "App Store app previews: edit data for build_previews.py (timelines in frames of the frame-stepped takes, 30 frames = 1 s of game time); text style for ../../trailer/tools/render_cards.py --data previews.json",
  "text": {
   "fields": [
    "trailer_line_1",
@@ -61,14 +61,7 @@
    "size": [
     886,
     1920
-   ],
-   "island": {
-    "x": 466,
-    "y": 36,
-    "w": 390,
-    "h": 122,
-    "color": "0x00001E"
-   }
+   ]
   },
   "ipad-13": {
    "native": [
@@ -88,45 +81,45 @@
    "timeline": [
     {
      "take": "fight-a-r1",
-     "in": 0.6,
-     "seconds": 3.0,
+     "in_frame": 110,
+     "frames": 90,
      "shot": "fight",
      "note": "opens inside the fight: red army against blue defenders at the front"
     },
     {
-     "take": "build-r3",
-     "in": 1.3,
-     "seconds": 6.6,
+     "take": "build-r2",
+     "in_frame": 39,
+     "frames": 198,
      "shot": "build",
      "note": "Build palette opens, the Inn is armed, the map is tapped, Ok; the site appears and workers head for it"
     },
     {
-     "take": "build-r3",
-     "in": 29.4,
-     "seconds": 2.6,
+     "take": "build-r2",
+     "in_frame": 318,
+     "frames": 78,
      "shot": "build-complete",
-     "note": "same take, 21.5 s later: workers finish the Inn (\"The Inn is finished.\")"
+     "note": "same take after a declared cut of 168 ticks (5.6 s): workers bring the last wood and the Inn is finished"
     },
     {
-     "take": "fed-r3",
-     "in": 1.0,
-     "seconds": 3.2,
+     "take": "fed-r1",
+     "in_frame": 54,
+     "frames": 96,
      "shot": "fed",
      "note": "wheat fields above the lake shore, inns below, workers carrying"
     },
     {
      "take": "fight-b-r1",
-     "in": 6.0,
-     "seconds": 4.0,
+     "in_frame": 100,
+     "frames": 120,
      "shot": "fight-wide",
-     "note": "the front, wider: the red and blue lines clash"
+     "note": "the front from a second load of the save: the red and blue lines clash"
     },
     {
-     "take": "hero-r3",
-     "in": 2.0,
-     "seconds": 5.6,
+     "take": "hero-r1",
+     "in_frame": 30,
+     "frames": 168,
      "shot": "colony",
-     "note": "the colony core: pools, racetrack, barracks, inns and hundreds of globs"
+     "note": "the colony core: pools, racetracks, barracks, inns and hundreds of globs"
     }
    ],
    "text": [
@@ -201,43 +194,43 @@
    "timeline": [
     {
      "take": "fight-a-r2",
-     "in": 6.0,
-     "seconds": 3.0,
+     "in_frame": 110,
+     "frames": 90,
      "shot": "fight",
      "note": "opens inside the fight: red army against blue defenders at the front"
     },
     {
-     "take": "build-r11-a1",
-     "in": 1.2,
-     "seconds": 4.2,
+     "take": "build-r3",
+     "in_frame": 39,
+     "frames": 198,
      "shot": "build",
-     "note": "Build palette opens (named on tablets), the Inn is armed, the map is tapped and the ghost shows"
+     "note": "Build palette opens (named on tablets), the Inn is armed, the map is tapped, Ok; the site appears and workers head for it"
     },
     {
-     "take": "build-r11-a1",
-     "in": 7.8,
-     "seconds": 4.4,
-     "shot": "build-site",
-     "note": "same take, 2.4 s later (cut past the app's 2 s hitch while it confirms): Ok has placed the Inn site, the palette closes, workers head for the scaffold"
+     "take": "build-r3",
+     "in_frame": 440,
+     "frames": 78,
+     "shot": "build-complete",
+     "note": "same take after a declared cut: workers bring the last wood and the Inn is finished"
     },
     {
-     "take": "fed-r4",
-     "in": 2.0,
-     "seconds": 3.4,
+     "take": "fed-r2",
+     "in_frame": 50,
+     "frames": 96,
      "shot": "fed",
      "note": "wheat fields above the lake shore, inns below, workers carrying"
     },
     {
      "take": "fight-b-r2",
-     "in": 9.0,
-     "seconds": 4.4,
-     "shot": "fight-2",
+     "in_frame": 0,
+     "frames": 120,
+     "shot": "fight-wide",
      "note": "the front from a second load of the save: the red and blue lines clash"
     },
     {
-     "take": "hero-r1",
-     "in": 5.0,
-     "seconds": 5.6,
+     "take": "hero-r2",
+     "in_frame": 30,
+     "frames": 168,
      "shot": "colony",
      "note": "the colony core: pools, racetracks, barracks, inns and hundreds of globs"
     }
@@ -245,17 +238,17 @@
    "text": [
     {
      "field": "trailer_line_1",
-     "start": 7.5,
-     "end": 11.4
+     "start": 7.9,
+     "end": 12.0
     },
     {
      "field": "trailer_line_2",
-     "start": 11.9,
-     "end": 14.7
+     "start": 12.5,
+     "end": 15.3
     },
     {
      "field": "trailer_line_3",
-     "start": 15.3,
+     "start": 15.7,
      "end": 19.2
     },
     {
@@ -282,11 +275,11 @@
      {
       "mood": "a2",
       "from": 3.0,
-      "to": 15.0
+      "to": 15.4
      },
      {
       "mood": "a3",
-      "from": 15.0,
+      "from": 15.4,
       "to": 19.4
      },
      {

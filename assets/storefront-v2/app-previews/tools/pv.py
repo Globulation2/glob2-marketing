@@ -8,7 +8,10 @@ simulator set of the capture worktree. Each device class gets its own MCP port s
 the iPhone and iPad simulators never share one.
 
 Environment: GLOB2_WT (game worktree, default ~/glob2/glob2-wt-mobile-capture),
-GLOB2_SCRATCH (saves/, sim.env, raw recordings).
+GLOB2_SCRATCH (saves/, sim.env, raw frames). GLOB2_SIM_KEY names another entry of
+sim.env (for example IPAD_B, a second simulator of the same model) and
+GLOB2_MCP_PORT_OVERRIDE another port, so two takes of one device class can be
+filmed at once.
 """
 import os
 import sys
@@ -26,7 +29,11 @@ DEVICES = {
 
 
 def setup(device):
-    d = DEVICES[device]
+    d = dict(DEVICES[device])
+    if os.environ.get("GLOB2_SIM_KEY"):
+        d["sim"] = os.environ["GLOB2_SIM_KEY"]
+    if os.environ.get("GLOB2_MCP_PORT_OVERRIDE"):
+        d["port"] = int(os.environ["GLOB2_MCP_PORT_OVERRIDE"])
     os.environ["GLOB2_MCP_PORT"] = str(d["port"])
     os.environ.setdefault("GLOB2_SCRATCH", str(Path(os.environ.get("TMPDIR", "/tmp")) / "glob2-app-previews"))
     os.environ["GLOB2_MCP_TOKEN_FILE"] = str(Path(os.environ["GLOB2_SCRATCH"]) / f"mcp-token-{d['port']}")

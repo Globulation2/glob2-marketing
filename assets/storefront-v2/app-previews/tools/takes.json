@@ -1,5 +1,5 @@
 {
- "note": "Takes recorded by record.py. camera is the centre tile, per device class; tile_points is the on-screen size of one map tile in points (game_view zoom is derived per device). Actions run at t seconds after the recording started.",
+ "note": "Takes filmed frame by frame by capture_frames.py: one game tick per frame (30 frames = 1 s of game time at normal speed). camera is the centre tile per device class; tile_points is the on-screen size of one map tile in points. Actions run before the frame they name is stepped and filmed; a skip lets ticks pass unfilmed (a declared cut inside the take).",
  "takes": {
   "fight-a": {
    "save": "bigpond-n-t27015",
@@ -18,10 +18,10 @@
     "iphone-6.9": 30,
     "ipad-13": 52
    },
-   "seconds": 16,
-   "erase_every": 1.5,
-   "note": "The red army attacking the blue colony at the front, first seconds after loading",
-   "sample_every": 1.0
+   "lead_ticks": 150,
+   "frames": 270,
+   "erase_every_frames": 90,
+   "note": "The red army attacking the blue colony at the front, from the first seconds after loading"
   },
   "fight-b": {
    "save": "bigpond-n-t27015",
@@ -40,134 +40,165 @@
     "iphone-6.9": 24,
     "ipad-13": 44
    },
-   "seconds": 16,
-   "erase_every": 1.5,
-   "note": "The same front, wider",
-   "sample_every": 1.0
+   "lead_ticks": 150,
+   "run_seconds": 4,
+   "frames": 300,
+   "erase_every_frames": 90,
+   "note": "The same front, wider, from a second load of the save"
   },
   "build": {
    "save": "bigpond-n-t45017",
    "after_victory": true,
    "camera": {
     "iphone-6.9": [
-     42,
-     28
+     44,
+     32
     ],
     "ipad-13": [
-     45,
-     30
+     44,
+     32
     ]
    },
    "tile_points": {
     "iphone-6.9": 30,
     "ipad-13": 40
    },
-   "seconds": 50,
-   "erase_every": 1.5,
+   "lead_ticks": 150,
+   "frames": 510,
+   "erase_every_frames": 45,
    "actions": [
     {
-     "t": 1.5,
+     "frame": 45,
      "do": "act",
      "key": "touch/navigation/buildings",
      "note": "Build: opened the build palette"
     },
     {
-     "t": 3.0,
+     "frame": 90,
      "do": "act",
      "key": "touch/palette/inn.0.site",
      "note": "build palette: armed the Inn"
     },
     {
-     "t": 4.6,
+     "frame": 138,
      "do": "tap_tile",
      "tile": "site",
      "note": "tapped the map to put the Inn site"
     },
     {
-     "t": 6.2,
+     "frame": 186,
      "do": "act",
      "key": "touch/placement/confirm",
      "note": "Ok: confirmed the construction"
     },
     {
-     "t": 7.4,
+     "frame": 222,
      "do": "close",
      "note": "closed the build palette"
     },
     {
-     "t": 9.5,
-     "do": "close",
-     "note": "closed the build palette (tablets keep the building armed after Ok)"
+     "frame": 240,
+     "do": "check_site",
+     "note": "checked that the Inn site stands on the tapped tile (game_world)"
+    },
+    {
+     "frame": 270,
+     "do": "skip",
+     "until_inn": 1,
+     "note": "declared cut: ticks run unfilmed until the Inn site lacks at most one unit of material"
+    },
+    {
+     "frame": 271,
+     "do": "roll",
+     "keep": 150,
+     "after": 120,
+     "note": "filmed on until the Inn was finished, keeping the newest 150 frames"
     }
    ],
-   "note": "The player places an Inn in the colony; workers come to build it",
-   "probe_site": {
-    "building": "inn",
-    "near": {
-     "iphone-6.9": [
-      43,
-      31
-     ],
-     "ipad-13": [
-      43,
-      31
-     ]
-    },
-    "radius": 8,
-    "size": 3,
-    "device": {
-     "ipad-13": {
-      "fixed": [
-       43,
-       31
-      ]
-     }
-    }
-   },
-   "sample_every": 1.0,
    "actions_ipad-13": [
     {
-     "t": 1.5,
+     "frame": 45,
      "do": "act",
      "key": "touch/navigation/buildings",
      "note": "Build: opened the build palette"
     },
     {
-     "t": 3.0,
+     "frame": 90,
      "do": "act",
      "key": "touch/palette/inn.0.site",
      "note": "build palette: armed the Inn"
     },
     {
-     "t": 4.5,
+     "frame": 135,
      "do": "tap_tile",
      "tile": "site",
      "note": "tapped the map to put the Inn site"
     },
     {
-     "t": 5.8,
+     "frame": 174,
      "do": "act",
      "key": "touch/placement/confirm",
      "note": "Ok: confirmed the construction"
     },
     {
-     "t": 8.0,
-     "do": "close",
-     "note": "closed the build palette"
-    },
-    {
-     "t": 9.0,
+     "frame": 225,
      "do": "close",
      "note": "closed the build palette (tablets keep the building armed after Ok)"
+    },
+    {
+     "frame": 240,
+     "do": "check_site",
+     "note": "checked that the Inn site stands on the tapped tile (game_world)"
+    },
+    {
+     "frame": 270,
+     "do": "skip",
+     "until_inn": 1,
+     "note": "declared cut: ticks run unfilmed until the Inn site lacks at most one unit of material"
+    },
+    {
+     "frame": 271,
+     "do": "roll",
+     "keep": 150,
+     "after": 120,
+     "note": "filmed on until the Inn was finished, keeping the newest 150 frames"
     }
    ],
-   "attempts": 3,
-   "overrides": {
-    "ipad-13": {
-     "erase_every": 1.5,
-     "sample_every": 2.0
-    }
-   }
+   "note": "The player places an Inn in the colony by touch; workers build it. The camera centres one tile right of and below the site's corner tile.",
+   "site_candidates": [
+    [
+     43,
+     31
+    ],
+    [
+     44,
+     34
+    ],
+    [
+     40,
+     33
+    ],
+    [
+     46,
+     28
+    ],
+    [
+     39,
+     29
+    ],
+    [
+     47,
+     33
+    ],
+    [
+     42,
+     27
+    ]
+   ],
+   "camera_offset": [
+    1,
+    1
+   ]
   },
   "fed": {
    "save": "bigpond-n-t45017",
@@ -186,32 +217,10 @@
     "iphone-6.9": 26,
     "ipad-13": 34
    },
-   "seconds": 14,
-   "erase_every": 1.5,
-   "note": "Inns and wheat fields, workers harvesting and carrying",
-   "sample_every": 1.0
-  },
-  "economy": {
-   "save": "bigpond-n-t45017",
-   "after_victory": true,
-   "camera": {
-    "iphone-6.9": [
-     76,
-     39
-    ],
-    "ipad-13": [
-     70,
-     31
-    ]
-   },
-   "tile_points": {
-    "iphone-6.9": 26,
-    "ipad-13": 34
-   },
-   "seconds": 14,
-   "erase_every": 1.5,
-   "note": "Inns, Swarms and a wheat field in the colony centre",
-   "sample_every": 1.0
+   "lead_ticks": 150,
+   "frames": 150,
+   "erase_every_frames": 45,
+   "note": "Inns and wheat fields, workers harvesting and carrying"
   },
   "hero": {
    "save": "bigpond-n-t45017",
@@ -230,10 +239,10 @@
     "iphone-6.9": 20,
     "ipad-13": 28
    },
-   "seconds": 14,
-   "erase_every": 1.5,
-   "note": "The colony core: both swimming pools and racetracks, barracks, school, inns and hundreds of globs",
-   "sample_every": 1.0
+   "lead_ticks": 150,
+   "frames": 210,
+   "erase_every_frames": 45,
+   "note": "The colony core: both swimming pools and racetracks, barracks, school, inns and hundreds of globs"
   }
  }
 }
