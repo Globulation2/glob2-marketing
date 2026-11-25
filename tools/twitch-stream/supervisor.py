@@ -247,7 +247,7 @@ class Supervisor:
     # User decision (2026-11-24): a match at 10% win chance or below is effectively done. If it stays
     # there for FF_AFTER seconds, speed it to its natural end (fast-forward) even if the player hasn't.
     FF_WIN_CHANCE = 10
-    FF_AFTER = 600
+    FF_AFTER = 60     # user: once the win chance is bad, just move to the end (a minute rules out a blip)
 
     def check_fast_forward(self):
         cur = rigstate.current(self.cfg)
@@ -266,7 +266,7 @@ class Supervisor:
         if time.time() - self.low_since < self.FF_AFTER:
             return
         out = self.run_script("stream_ctl.py", "fast-forward", "--reason",
-                              f"supervisor: win chance {win}% or lower for {self.FF_AFTER // 60} minutes")
+                              f"supervisor: win chance {win}% or lower for {self.FF_AFTER} s")
         log.info("fast-forward: %s", (out.stdout + out.stderr).strip()[-200:])
         self.low_since = None
 
