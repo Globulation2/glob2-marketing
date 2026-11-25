@@ -56,7 +56,7 @@ The prompt adds behavioural rules on top: disclose being an AI chat bot, never i
 3. **Configure the CLI and log in** as the chat account. Both commands open prompts or a browser; the CLI stores the client ID and secret, access and refresh tokens and expiry in `~/.config/twitch-cli/.twitch-cli.env` (mode 600):
    ```sh
    twitch configure
-   twitch token -u -s 'chat:read chat:edit'
+   twitch token -u -s 'chat:read chat:edit channel:manage:broadcast clips:edit'
    ```
 4. **Install the chat token.** `chat/token_refresh.py refresh` refreshes it and writes `~/.config/glob2-stream/twitch-chat.token` (mode 600). `chat/token_refresh.py status` shows the login, scopes and minutes left.
 5. **Set `TWITCH_BOT_USER`** to the account's login name in `$GLOB2_STREAM_HOME/stream.env`. `TWITCH_CHANNEL` defaults to `globulation2`. Without a bot user and token, everything still runs read-only, and replies are printed instead of sent.
