@@ -44,7 +44,12 @@ def _f(name, default):
 
 class Drift:
     def __init__(self):
-        self.step_s = _f("CAMERA_DRIFT_STEP", 0.2)
+        # Continuous glide: hold the middle button and move the pointer a little ~30 times a second
+        # (2026-11-24: 120 ms drags every 0.2 s read as stop-start). Speed is in pixels per second.
+        self.step_s = _f("CAMERA_DRIFT_STEP", 0.033)
+        self.px_per_s = _f("CAMERA_DRIFT_PX_PER_S", 60)
+        self.ptr = None           # pointer position while the middle button is held
+        self.held_at = 0.0
         self.poll_s = _f("CAMERA_DRIFT_POLL", 3.0)
         self.pause_s = _f("CAMERA_DRIFT_PAUSE", 2.0)
         self.range = _f("CAMERA_DRIFT_RANGE", 40)
@@ -157,6 +162,31 @@ class Drift:
         return (sum(p[0] for p in pts) / len(pts), sum(p[1] for p in pts) / len(pts))
 
     # -- motion ----------------------------------------------------------------
+    def _press(self, token) -> bool:
+        """(Re)start a hold at the screen centre: button up, pointer to centre, middle button down."""
+        if self.ptr is not None:
+            camera._rpc("ui_mouse_button", {"token": token, "action": "up", "button": "middle", "space": "logical",
+                                            "x": round(self.ptr[0]), "y": round(self.ptr[1])})
+        camera._rpc("ui_move", {"token": token, "space": "logical", "x": CENTRE[0], "y": CENTRE[1]})
+        out = camera._rpc("ui_mouse_button", {"token": token, "action": "down", "button": "middle", "space": "logical",
+                                             "x": CENTRE[0], "y": CENTRE[1]})
+        if (out.get("result") or {}).get("isError"):
+            self.ptr = None
+            return False
+        self.ptr = [float(CENTRE[0]), float(CENTRE[1])]
+        self.held_at = time.time()
+        return True
+
+    def _lift(self, token=None) -> None:
+        token = token or camera.read_token()
+        if self.ptr is not None and token:
+            try:
+                camera._rpc("ui_mouse_button", {"token": token, "action": "up", "button": "middle", "space": "logical",
+                                                "x": round(self.ptr[0]), "y": round(self.ptr[1])})
+            except Exception:  # noqa: BLE001
+                pass
+        self.ptr = None
+
     def step(self) -> None:
         if not self.view or not self.target:
             return
@@ -168,23 +198,28 @@ class Drift:
         dy = self._wrap(self.target[1] - cy, self.map[1])
         dist = math.hypot(dx, dy)
         if dist < DEADZONE:
+            self._lift(token)       # arrived: let go, the picture rests until the next target
             return
         # ease: full speed far away, slower within 6 tiles
-        px = self.px_per_step * min(1.0, 0.35 + dist / 6.0)
+        px = self.px_per_s * self.step_s * min(1.0, 0.35 + dist / 6.0)
         ux, uy = dx / dist, dy / dist
-        mx, my = ux * px, uy * px
-        # a middle-button drag moves the view with the mouse: drag in the direction to travel
-        x0, y0 = CENTRE[0] - mx / 2, CENTRE[1] - my / 2
-        x1, y1 = CENTRE[0] + mx / 2, CENTRE[1] + my / 2
-        out = camera._rpc("ui_drag", {"token": token, "button": "middle", "duration_ms": 120, "space": "logical",
-                                     "points": [{"x": round(x0, 1), "y": round(y0, 1)}, {"x": round(x1, 1), "y": round(y1, 1)}]})
+        # holds expire after 5 s, and the pointer must stay over the map: re-anchor at the centre
+        if (self.ptr is None or time.time() - self.held_at > 3.5
+                or abs(self.ptr[0] - CENTRE[0]) > 200 or abs(self.ptr[1] - CENTRE[1]) > 150):
+            if not self._press(token):
+                return
+        # a middle-button drag moves the view with the mouse: move the pointer the way to travel
+        self.ptr = [self.ptr[0] + ux * px, self.ptr[1] + uy * px]
+        out = camera._rpc("ui_move", {"token": token, "space": "logical",
+                                     "x": round(self.ptr[0], 1), "y": round(self.ptr[1], 1)})
         if (out.get("result") or {}).get("isError"):
+            self.ptr = None
             return
-        # track the view locally between polls
         moved = px / self.tile_px
         self.view = dict(self.view, x=self.view["x"] + ux * moved, y=self.view["y"] + uy * moved)
 
     def release(self) -> None:
+        self._lift()
         token = camera.read_token()
         if token:
             try:
