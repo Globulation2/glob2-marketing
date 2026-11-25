@@ -4,7 +4,8 @@
     "Gallery order is not set here. Desktop stores take their image order from the 'Desktop' table of the review file (the backticked frame numbers in the Images column, up to the first ';'), mobile stores take their slide order from the 'Mobile' table, keyed by the backticked store-set id. Frame numbers are resolved to files through captures/desktop/selection.json (and the captures folder for the side-by-side alternative); mobile roles are resolved to rendered files through each render manifest.",
     "review_row names the row of the review table a store follows (matched on the text before any parenthesis in the first column). A row reading 'As <other store>' copies that store's list.",
     "Rules: every limit below comes from analysis/mobile-store-comparables.md (observed 2026-11-24) or the storefront-v1 packaging records, unless the 'unverified' list of the store says otherwise. build.py fails on any breach.",
-    "switch: the platforms.json platform whose ai_coplay switch must be on for an ai_coplay image to be packaged; a review row that puts co-play on a store whose switch is off is an error."
+    "switch: the platforms.json platform whose ai_coplay switch must be on for an ai_coplay image to be packaged; a review row that puts co-play on a store whose switch is off is an error.",
+    "trailer: per store, the trailer slots, following the 'Which file goes to which store' table of trailer.review. Each file is looked up in trailer.dir (committed: WebM, posters) or trailer.outside_dir (the MP4s, not committed), checked against its bytes, SHA-256 and ffprobe facts in trailer.manifest, and linked (symbolic link) into the package's trailer/ folder. coplay: true means the cut shows AI co-play, so the store's ai_coplay switch must be on. hosted: the store takes a video URL (YouTube, Vimeo) rather than a file, so the slot is reported as blocked, 'needs a hosted video URL', with the file to upload there linked. repo_url: the slot uses the file's raw.githubusercontent.com URL."
   ],
   "output_root": "../storefront-v2-renders/store-packages",
   "renders_root": "../storefront-v2-renders/screenshots",
@@ -38,6 +39,12 @@
     "repo_dir": "assets/storefront-v2/store-packages/appstream",
     "url_base": "https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/"
   },
+  "trailer": {
+    "dir": "assets/storefront-v2/trailer",
+    "outside_dir": "../storefront-v2-renders/trailer",
+    "manifest": "assets/storefront-v2/trailer/manifest.json",
+    "review": "assets/storefront-v2/review/trailer-review.md"
+  },
   "jpeg": {"quality": [92, 90, 88, 86, 84], "subsampling": 0},
   "stores": {
     "microsoft": {
@@ -62,8 +69,13 @@
         {"slot": "super-hero", "file": "microsoft-super-hero-3840x2160.png", "size": [3840, 2160], "format": "PNG", "alpha": "forbid", "text": false},
         {"slot": "super-hero-alt", "file": "microsoft-super-hero-1920x1080.png", "size": [1920, 1080], "format": "PNG", "alpha": "forbid", "text": false, "optional_slot": "alternative size; upload one super hero"}
       ],
-      "blocked": [
-        {"slot": "trailer", "why": "Trailer (V2-08) not finished; Microsoft needs a 1920x1080 MP4/MOV, a 1920x1080 PNG thumbnail and a title per trailer."}
+      "trailer": [
+        {"slot": "trailer", "file": "glob2-trailer-desktop-34s-1080p.mp4", "coplay": true,
+         "rules": {"size": [1920, 1080], "container": ["mp4", "mov"], "max_bytes": 2000000000},
+         "thumbnail": {"file": "poster-1920x1080.png", "size": [1920, 1080], "format": "PNG", "alpha": "forbid"},
+         "title_field": "trailer_title",
+         "with_asset": "super-hero",
+         "note": "Trailer review table: the desktop cut, since the Microsoft listing carries AI co-play. Upload the text-free super hero (super-hero slot) as well, or the trailer does not show at the top of the listing. Title: the export's trailer_title field per locale."}
       ],
       "not_packaged": [
         "1:1 app tile icon 300x300: optional; the Store uses the package's own tile logo when it is not set (v1 kept the existing tile). The new icon ships in the package with the next build (game PR 1915)."
@@ -86,8 +98,10 @@
         "max_bytes": 4000000,
         "count": [1, 30]
       },
-      "lead_blocked": [
-        {"slot": "carousel-01-trailer", "why": "Epic's carousel starts with the trailer (review table); the trailer (V2-08) is not finished. Video: 1920x1080 MP4, 300 MB max, 30 or 60 fps, non-black cover frame."}
+      "trailer": [
+        {"slot": "carousel-01-trailer", "lead": true, "file": "glob2-trailer-30s-textless-1080p.mp4", "coplay": false,
+         "rules": {"size": [1920, 1080], "container": ["mp4"], "max_bytes": 300000000, "fps": [30, 60]},
+         "note": "Trailer review table: the text-free master (no co-play: the Epic ai_coplay switch is off) as the first carousel item. Epic video rule: 1920x1080 MP4, 300 MB max, 30 or 60 fps, non-black cover frame (frame 0 is gameplay)."}
       ],
       "assets": [
         {"slot": "offer-landscape", "file": "epic-offer-landscape-2560x1440.jpg", "size": [2560, 1440], "format": ["JPEG", "PNG"], "alpha": "forbid"},
@@ -121,7 +135,12 @@
         {"slot": "banner", "file": "snap-banner-1440x480.jpg", "size": [1440, 480], "format": ["JPEG", "PNG"], "max_bytes": 2000000},
         {"slot": "icon", "render_icon": {"size": 256, "fraction": 1.0, "background": null, "method": "master-resize"}, "size": [256, 256], "format": "PNG", "alpha": "require"}
       ],
+      "trailer": [
+        {"slot": "video-url", "file": "glob2-trailer-desktop-34s-1080p.mp4", "coplay": true, "hosted": "YouTube or Vimeo URL",
+         "note": "Trailer review table: the desktop cut, as a YouTube URL; the Snap listing takes a video URL only (YouTube, Vimeo or asciinema), not a file."}
+      ],
       "unverified": [
+        "Snap's video field (YouTube, Vimeo or asciinema URL) was not re-checked for v2 (trailer review, store table).",
         "Snap icon limits are not recorded in this project (v1 kept the existing icon). The packaged 256x256 transparent PNG is the same image the game repository generates for the snap (content/data/icons/glob2-icon-256x256.png, from the same master).",
         "Snap's guidance asks cross-platform games for Linux workstation captures; these frames were captured on macOS from the same release build.",
         "Snap screenshot limits (2,000,000 bytes, 480x480 to 3840x2160, aspect 1:2 to 2:1) come from the v1 record (validator source read 2026-10-30), not re-checked for v2 (review M5)."
@@ -144,6 +163,10 @@
       "assets": [
         {"slot": "cover", "file": "itch-cover-630x500.jpg", "size": [630, 500], "format": ["JPEG", "PNG"]}
       ],
+      "trailer": [
+        {"slot": "video-url", "file": "glob2-trailer-30s-1080p.mp4", "coplay": false, "hosted": "YouTube or Vimeo URL",
+         "note": "Trailer review table: the master only, as a YouTube embed; the page also offers browser play, which has no MCP, so no co-play cut."}
+      ],
       "unverified": [
         "itch.io publishes no screenshot pixel or file-size limit that this project has recorded; the 4 MB cap here is this tool's own (review M5 asks to check before upload). Cover 630x500 is itch's recommended size."
       ]
@@ -165,7 +188,7 @@
       "assets": [],
       "not_packaged": [
         "App icon: comes from the build's asset catalog, not uploaded with the listing.",
-        "App previews (Mac 1920x1080, 15-30 s): wait for the trailer's 30-second cut."
+        "App previews: none of the trailer files (trailer review, store table). Mac previews must be captures of the Mac app; this footage is an off-screen desktop build with the HUD cropped. Capture from the sandboxed store build."
       ],
       "unverified": [
         "Apple's per-file byte limit for screenshots is not recorded in this project; the PNGs are 5-8 MB.",
@@ -194,9 +217,15 @@
         {"slot": "library-hero", "file": "steam-library-hero-3840x1240.jpg", "size": [3840, 1240], "format": ["JPEG", "PNG"], "text": false},
         {"slot": "library-logo", "file": "steam-logo-1280.png", "format": "PNG", "alpha": "require", "review_width": 1280, "review_fix": "S6 (resize steam-logo-1280.png to 1280 px wide)"}
       ],
+      "trailer": [
+        {"slot": "trailer-1", "file": "glob2-trailer-desktop-34s-1080p.mp4", "coplay": true, "rules": {"size": [1920, 1080], "container": ["mp4"]},
+         "note": "Trailer review table: the desktop cut first; it leads with gameplay, as Steam asks."},
+        {"slot": "trailer-2", "file": "glob2-trailer-30s-1080p.mp4", "coplay": false, "rules": {"size": [1920, 1080], "container": ["mp4"]},
+         "note": "Trailer review table: the master as the second trailer."}
+      ],
       "unverified": [
         "Library capsule 600x900, library hero 3840x1240 and library logo sizes are Steam's library-asset sizes as the key-art agent built them; the comparables record lists only header, small, main, vertical capsules and the page background.",
-        "No Steam app exists yet: nothing here has been checked against a real Steamworks upload form."
+        "No Steam app exists yet: nothing here has been checked against a real Steamworks upload form, including the trailer upload rules."
       ]
     },
     "gog": {
@@ -219,7 +248,14 @@
         {"slot": "galaxy-background", "file": "gog-background-2560x670.jpg", "size": [2560, 670], "format": ["JPEG", "PNG"], "text": false},
         {"slot": "product-background", "file": "gog-background-2560x655.jpg", "size": [2560, 655], "format": ["JPEG", "PNG"], "text": false}
       ],
+      "trailer": [
+        {"slot": "trailer-1", "file": "glob2-trailer-desktop-34s-1080p.mp4", "coplay": true, "rules": {"size": [1920, 1080], "container": ["mp4"]},
+         "note": "Prepared as Steam: the desktop cut first (the GOG ai_coplay switch is on). The trailer review's GOG row named the master only."},
+        {"slot": "trailer-2", "file": "glob2-trailer-30s-1080p.mp4", "coplay": false, "rules": {"size": [1920, 1080], "container": ["mp4"]},
+         "note": "Trailer review table: the master."}
+      ],
       "unverified": [
+        "GOG trailer policy is not confirmed (trailer review, store table).",
         "GOG screenshot size and format rules are not confirmed in this project; 1920x1080 JPEG is used as for Steam. Board sizes follow the GOG template archive inspected for v1 (2026-10-31); portal acceptance is unverified (no portal access)."
       ]
     },
@@ -241,7 +277,13 @@
         "stable_names": true
       },
       "assets": [],
+      "trailer": [
+        {"slot": "video", "file": "glob2-trailer-30s-1080p.webm", "coplay": false, "repo_url": true,
+         "rules": {"size": [1920, 1080], "container": ["webm"], "codec": ["vp9"]},
+         "note": "The master as VP9 in WebM, the form the AppStream spec asks for (VP9 or AV1 in WebM or Matroska). Committed in the repository so its URL is stable; screenshots.xml gets it as a last, non-default screenshot (the spec forbids a video as the default screenshot)."}
+      ],
       "unverified": [
+        "Whether Flathub or a given software centre plays the AppStream video is not verified (trailer review, store table).",
         "Flathub's current screenshot guidance (size, count, caption length) was not re-read for v2; 1920x1080 PNG follows the brief. The image URLs only resolve after the Git steward commits the PNGs at the listed repository paths (run build.py --stage-appstream to copy them there) and pushes to main."
       ]
     },
@@ -259,8 +301,9 @@
         {"slot": "feature-graphic", "file": "google-play-feature-1024x500.jpg", "size": [1024, 500], "format": ["JPEG", "PNG"], "alpha": "forbid", "max_bytes": 15000000, "review_wordmark_margin": {"right": 80, "top": 60}, "review_fix": "M6 (move the wordmark at least 80 px from the right and 60 px from the top)"},
         {"slot": "icon", "icon_file": "icon-512.png", "size": [512, 512], "format": "PNG", "mode": "RGBA", "max_bytes": 1024000}
       ],
-      "blocked": [
-        {"slot": "preview-video", "why": "Trailer (V2-08) not finished; Play takes one YouTube URL."}
+      "trailer": [
+        {"slot": "preview-video", "file": "glob2-trailer-30s-2160p.mp4", "coplay": false, "hosted": "YouTube URL",
+         "note": "Trailer review table: the master (no co-play: no MCP on Android), uploaded to YouTube (unlisted or public, embeddable, monetisation off); Play takes one YouTube URL per listing. The Japanese and Arabic listings can take their own URLs of glob2-trailer-30s-ja-1080p.mp4 and -ar-1080p.mp4. Gate before the URL goes on the listing: read the Play Console ads and in-app purchase declarations (trailer review, store gates)."}
       ],
       "unverified": [
         "Play's per-screenshot byte limit is not in the comparables record; 8 MB is the renderer's ceiling (verified by screenshots.py verify).",

@@ -1,0 +1,199 @@
+[
+ {
+  "id": "f-battle-honey",
+  "match": "honeycomb",
+  "checkpoint": 66000,
+  "team": 0,
+  "start_tick": 67450,
+  "frames": 180,
+  "view": {
+   "x": 72,
+   "y": 63,
+   "zoom": 2.0
+  },
+  "erase_zones": true
+ },
+ {
+  "id": "f-place",
+  "match": "fsq-mix",
+  "checkpoint": 60000,
+  "team": 0,
+  "start_tick": 60300,
+  "frames": 290,
+  "view": {
+   "x": 0,
+   "y": 124,
+   "zoom": 1.5
+  },
+  "erase_zones": true,
+  "actions": [
+   {
+    "frame": 10,
+    "act": "game/buildings/inn.0.site"
+   },
+   {
+    "frame": 11,
+    "move_tile": [
+     124.5,
+     122.5
+    ],
+    "over": 30,
+    "from_dx": 700,
+    "from_dy": -500
+   },
+   {
+    "frame": 48,
+    "click_tile": [
+     124.5,
+     122.5
+    ]
+   },
+   {
+    "frame": 58,
+    "click_tile": [
+     124.5,
+     122.5
+    ],
+    "button": "right"
+   },
+   {
+    "frame": 110,
+    "skip_ticks": 740
+   }
+  ]
+ },
+ {
+  "id": "f-fed",
+  "match": "fsq-mix",
+  "checkpoint": 60000,
+  "team": 0,
+  "start_tick": 60500,
+  "frames": 150,
+  "view": {
+   "x": 124,
+   "y": 112,
+   "zoom": 1.5
+  },
+  "erase_zones": true,
+  "pan": {
+   "dx": 1.5,
+   "dy": 0
+  }
+ },
+ {
+  "id": "f-cabino",
+  "match": "fsq-mix",
+  "checkpoint": 60000,
+  "team": 1,
+  "start_tick": 60300,
+  "frames": 120,
+  "view": {
+   "x": 125,
+   "y": 64,
+   "zoom": 1.5
+  },
+  "erase_zones": true
+ },
+ {
+  "id": "f-battle3",
+  "match": "honeycomb",
+  "checkpoint": 66000,
+  "team": 0,
+  "start_tick": 67780,
+  "frames": 120,
+  "view": {
+   "x": 64,
+   "y": 59,
+   "zoom": 1.25
+  },
+  "erase_zones": true
+ },
+ {
+  "id": "f-hero",
+  "match": "fsq-mix",
+  "checkpoint": 60000,
+  "team": 0,
+  "start_tick": 60620,
+  "frames": 150,
+  "view": {
+   "x": 0,
+   "y": 0,
+   "zoom": 1.0
+  },
+  "erase_zones": true,
+  "pan": {
+   "dx": 1.5,
+   "dy": 0
+  }
+ },
+ {
+  "id": "f-econ",
+  "match": "fsq-mix",
+  "checkpoint": 48000,
+  "team": 0,
+  "start_tick": 48400,
+  "frames": 150,
+  "view": {
+   "x": 0,
+   "y": 0,
+   "zoom": 1.25
+  },
+  "erase_zones": true,
+  "pan": {
+   "dx": -1.5,
+   "dy": 0
+  }
+ },
+ {
+  "id": "f-coplay2",
+  "match": "fsq-mix",
+  "checkpoint": 60000,
+  "team": 0,
+  "start_tick": 60460,
+  "frames": 150,
+  "view": {
+   "x": 8,
+   "y": 119,
+   "zoom": 1.5
+  },
+  "erase_zones": true,
+  "erase_every": 15,
+  "actions": [
+   {
+    "frame": 10,
+    "hive_install": {
+     "name": "inn-plan",
+     "description": "Lay four Inn sites on free grass near (8,118), one per run",
+     "source": "coplay_order.js",
+     "interval": 25,
+     "plan": [
+      {
+       "type": "inn",
+       "x": 8,
+       "y": 118
+      },
+      {
+       "type": "inn",
+       "x": 8,
+       "y": 118
+      },
+      {
+       "type": "inn",
+       "x": 8,
+       "y": 118
+      },
+      {
+       "type": "inn",
+       "x": 8,
+       "y": 118
+      }
+     ]
+    }
+   },
+   {
+    "frame": 140,
+    "hive_list": true
+   }
+  ]
+ }
+]

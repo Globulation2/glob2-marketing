@@ -17,7 +17,7 @@ Large files go to output_root (outside the repository). The repository gets one
 manifest per store in manifests/. Exit status: 0 clean, 1 errors (a store rule
 is broken or a file does not match its manifest), 2 pending items only (inputs
 the review asked to change have not changed yet; pass --allow-pending to accept).
-Blocked slots (trailer, Amazon screenshots) are reported but never fail.
+Blocked slots (trailer URLs that need a hosted video, Amazon screenshots) are reported but never fail.
 """
 from __future__ import annotations
 
@@ -65,6 +65,7 @@ def rel(p: Path) -> str:
 
 
 ROOTS: dict[str, Path] = {}
+CFG: dict = {}
 MS_MISMATCH: list[str] = []
 
 
@@ -210,6 +211,7 @@ class Inputs:
         self.renders = rp(cfg["renders_root"])
         self.export = out / "_export"
         self.report = report
+        self.trailer_entries: list[dict] = []
 
     def run_export(self):
         if self.export.exists():
@@ -433,6 +435,146 @@ def package_assets(inp: Inputs, store: dict, pkg: Path, sr: StoreReport, subdir:
     return out
 
 
+# ---------------------------------------------------------------- trailer
+
+def trailer_records(cfg: dict) -> dict:
+    m = json.loads(rp(cfg["trailer"]["manifest"]).read_text(encoding="utf-8"))
+    return {e["file"]: e for e in m["deliverables"]}
+
+
+def trailer_source(cfg: dict, name: str) -> Path | None:
+    for d in (cfg["trailer"]["dir"], cfg["trailer"]["outside_dir"]):
+        p = rp(d) / name
+        if p.exists():
+            return p
+    return None
+
+
+def check_video(path: Path, rec: dict | None, rules: dict, expect_sha: str | None = None,
+                expect_bytes: int | None = None) -> list[str]:
+    """Bytes and SHA-256 against the trailer manifest (or the package manifest), and the store's rules
+    against the trailer manifest's ffprobe facts."""
+    if not path.exists():
+        return [f"{path.name}: missing" + (" (dangling link)" if path.is_symlink() else "")]
+    if rec is None:
+        return [f"{path.name}: not in the trailer manifest"]
+    probs = []
+    n = path.stat().st_size
+    if n != (expect_bytes if expect_bytes is not None else rec["bytes"]):
+        probs.append(f"{path.name}: {n} bytes, manifest says {expect_bytes or rec['bytes']}")
+    if sha256(path) != (expect_sha or rec["sha256"]):
+        probs.append(f"{path.name}: sha256 differs from the manifest")
+    v = rec.get("video", {})
+    if "size" in rules and [v.get("width"), v.get("height")] != list(rules["size"]):
+        probs.append(f"{path.name}: {v.get('width')}x{v.get('height')}, needs {rules['size'][0]}x{rules['size'][1]}")
+    if "container" in rules and path.suffix.lower().lstrip(".") not in rules["container"]:
+        probs.append(f"{path.name}: container {path.suffix}, needs {'/'.join(rules['container'])}")
+    if "codec" in rules and v.get("codec") not in rules["codec"]:
+        probs.append(f"{path.name}: codec {v.get('codec')}, needs {'/'.join(rules['codec'])}")
+    if "max_bytes" in rules and n > rules["max_bytes"]:
+        probs.append(f"{path.name}: {n:,} bytes, over the {rules['max_bytes']:,}-byte limit")
+    if "fps" in rules:
+        fr = v.get("avg_frame_rate", "0/1").split("/")
+        fps = float(fr[0]) / float(fr[1] or 1)
+        if round(fps, 3) not in [float(x) for x in rules["fps"]]:
+            probs.append(f"{path.name}: {fps:g} fps, needs {' or '.join(str(x) for x in rules['fps'])}")
+    return probs
+
+
+def link_into(pkg: Path, sub: str, src: Path) -> Path:
+    dst = pkg / sub / src.name
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    if dst.is_symlink() or dst.exists():
+        dst.unlink()
+    os.symlink(src, dst)
+    return dst
+
+
+def package_trailer(inp: Inputs, key: str, store: dict, pkg: Path, sr: StoreReport) -> list[dict]:
+    slots = store.get("trailer", [])
+    if not slots:
+        return []
+    recs = trailer_records(inp.cfg)
+    out = []
+    for spec in slots:
+        rules = spec.get("rules", {})
+        if spec.get("coplay"):
+            plat = store.get("switch") if store["kind"] == "desktop" else store.get("platform")
+            on = inp.switch(plat, "ai_coplay") if plat is not None else inp.switch(None, "ai_coplay")
+            if not on:
+                sr.error(f"trailer {spec['slot']}: {spec['file']} shows AI co-play, but the ai_coplay switch is off "
+                         f"for this store in platforms.json")
+                continue
+        src = trailer_source(inp.cfg, spec["file"])
+        if src is None:
+            sr.error(f"trailer {spec['slot']}: {spec['file']} is in neither {inp.cfg['trailer']['dir']} nor "
+                     f"{inp.cfg['trailer']['outside_dir']}")
+            continue
+        rec = recs.get(spec["file"])
+        for p in check_video(src, rec, rules):
+            sr.error(f"trailer {spec['slot']}: {p}")
+        dst = link_into(pkg, "trailer", src)
+        e = {"slot": spec["slot"], "file": dst.relative_to(pkg).as_posix(), "link_to": rel(src),
+             "in_repository": src.is_relative_to(rp(inp.cfg["trailer"]["dir"])),
+             "bytes": rec["bytes"] if rec else None, "sha256": rec["sha256"] if rec else None,
+             "duration_s": rec.get("duration_s") if rec else None,
+             "pixels": f"{rec['video']['width']}x{rec['video']['height']}" if rec and rec.get("video") else None,
+             "codec": rec.get("video", {}).get("codec") if rec else None,
+             "shows_ai_coplay": bool(spec.get("coplay")), "rules": rules,
+             "source": {"manifest": inp.cfg["trailer"]["manifest"], "review": inp.cfg["trailer"]["review"]}}
+        if spec.get("lead"):
+            e["carousel_position"] = 1
+        if spec.get("repo_url"):
+            path = f"{inp.cfg['trailer']['dir']}/{spec['file']}"
+            if not e["in_repository"]:
+                sr.error(f"trailer {spec['slot']}: {spec['file']} needs a repository URL but is outside the repository")
+            e["repo_path"] = path
+            e["intended_url"] = inp.cfg["appstream"]["url_base"] + path
+        if spec.get("hosted"):
+            e["needs_hosted_url"] = spec["hosted"]
+            sr.block(f"trailer {spec['slot']}: needs a hosted video URL ({spec['hosted']}); upload {spec['file']} "
+                     f"(linked at {e['file']}) there and enter the URL")
+        if "thumbnail" in spec:
+            th = spec["thumbnail"]
+            tsrc = trailer_source(inp.cfg, th["file"])
+            if tsrc is None:
+                sr.error(f"trailer {spec['slot']}: thumbnail {th['file']} missing")
+            else:
+                trules = rules_for(th)
+                tdst = link_into(pkg, "trailer", tsrc)
+                trec = recs.get(th["file"])
+                for p in check_file(tdst, trules, trec["sha256"] if trec else None, trec["bytes"] if trec else None):
+                    sr.error(f"trailer {spec['slot']} thumbnail: {p}")
+                e["thumbnail"] = entry_for(pkg, tdst, trules, link_to=rel(tsrc))
+        if "title_field" in spec:
+            e["title_field"] = spec["title_field"]
+            plat = store.get("text", {}).get("platform")
+            titles = {}
+            root = inp.export / plat if plat else None
+            if root and root.exists():
+                for loc in sorted(p.name for p in root.iterdir()):
+                    lf = root / loc / "listing.json"
+                    if not lf.exists():
+                        continue
+                    fields = json.loads(lf.read_text(encoding="utf-8"))["fields"]
+                    hit = next((v for k, v in sorted(fields.items()) if k == spec["title_field"] or
+                                re.fullmatch(re.escape(spec["title_field"]) + r"_\d+", k)), None)
+                    if hit is None:
+                        sr.error(f"{loc}: export has no {spec['title_field']} for the trailer title")
+                    else:
+                        titles[loc] = hit
+            e["title"] = {"field": spec["title_field"], "by_locale": titles}
+        if "with_asset" in spec:
+            names = [a["slot"] for a in store.get("assets", [])]
+            if spec["with_asset"] not in names:
+                sr.error(f"trailer {spec['slot']}: companion asset slot {spec['with_asset']} is not packaged")
+            e["with_asset"] = spec["with_asset"]
+        if spec.get("note"):
+            e["note"] = spec["note"]
+        out.append(e)
+    return out
+
+
 # ---------------------------------------------------------------- desktop stores
 
 def ms_captions(inp: Inputs, role: str, slot: int, sr: StoreReport) -> dict:
@@ -549,7 +691,7 @@ def build_desktop(inp: Inputs, key: str, store: dict, pkg: Path, sr: StoreReport
             sr.error(p)
         shots.append(e)
     if as_caps is not None:
-        write_appstream_xml(pkg, shots, as_caps)
+        write_appstream_xml(pkg, shots, as_caps, inp.trailer_entries)
     if MS_MISMATCH:
         sr.pend("asset_text.desktop_gallery_order in translations/platforms.json is not the reviewed gallery order, so the "
                 "numbered desktop_screenshot_caption_N fields (and a microsoft_import.py workbook) do not line up with the "
@@ -564,7 +706,7 @@ def build_desktop(inp: Inputs, key: str, store: dict, pkg: Path, sr: StoreReport
     return {"review_row": store["review_row"], "review_frames": tokens, "screenshots": shots}
 
 
-def write_appstream_xml(pkg: Path, shots: list[dict], caps: dict) -> None:
+def write_appstream_xml(pkg: Path, shots: list[dict], caps: dict, videos: list[dict] | None = None) -> None:
     lines = ["<screenshots>"]
     for i, e in enumerate(shots):
         w, h = e["pixels"].split("x")
@@ -573,6 +715,15 @@ def write_appstream_xml(pkg: Path, shots: list[dict], caps: dict) -> None:
         for lang, text in sorted(caps.get(e["role"], {}).items(), key=lambda kv: kv[0] != ""):  # untranslated first
             attr = f' xml:lang="{lang}"' if lang else ""
             lines.append(f"    <caption{attr}>{text}</caption>")
+        lines.append("  </screenshot>")
+    for v in videos or []:  # a video is never the default screenshot (AppStream spec)
+        if not v.get("intended_url"):
+            continue
+        w, h = v["pixels"].split("x")
+        container = {"webm": "webm", "mkv": "matroska"}[Path(v["file"]).suffix.lstrip(".").lower()]
+        lines.append("  <screenshot>")
+        lines.append(f'    <video container="{container}" codec="{v["codec"]}" width="{w}" height="{h}">'
+                     f'{escape(v["intended_url"])}</video>')
         lines.append("  </screenshot>")
     lines.append("</screenshots>")
     (pkg / "screenshots.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -709,9 +860,11 @@ def build_store(inp: Inputs, key: str, store: dict, report: Report) -> dict:
                       "platforms.json": sha256(rp(inp.cfg["platforms"])),
                       "desktop_selection": sha256(inp.selection_path),
                       "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)"}}
+    man["inputs"]["trailer_manifest"] = sha256(rp(inp.cfg["trailer"]["manifest"]))
     if store["kind"] == "desktop":
         for b in store.get("lead_blocked", []):
             sr.block(f"{b['slot']}: {b['why']}")
+        inp.trailer_entries = package_trailer(inp, key, store, pkg, sr)
         body = build_desktop(inp, key, store, pkg, sr)
         man.update(body)
         if store.get("lead_blocked"):
@@ -730,6 +883,13 @@ def build_store(inp: Inputs, key: str, store: dict, report: Report) -> dict:
             sr.block(f"{b['slot']}: {b['why']}")
     else:
         man.update(build_mobile(inp, key, store, pkg, sr))
+        inp.trailer_entries = package_trailer(inp, key, store, pkg, sr)
+    if inp.trailer_entries:
+        man["trailer"] = inp.trailer_entries
+        lead = [e["slot"] for e in inp.trailer_entries if e.get("carousel_position") == 1]
+        if lead:
+            man["carousel_lead"] = lead
+    inp.trailer_entries = []
     man["blocked"] = sr.blocked
     man["pending"] = sr.pending
     man["errors"] = sr.errors
@@ -794,6 +954,22 @@ def verify(out: Path, keys: list[str], report: Report, carry: bool = False) -> d
                 lo, hi = man["sets"][slot]["rules"]["count"]
                 if not lo <= len(s["screenshots"]) <= hi:
                     sr.error(f"{loc['locale']}/{slot}: {len(s['screenshots'])} screenshots, store takes {lo}-{hi}")
+        recs = trailer_records(CFG)
+        for e in man.get("trailer", []):
+            path = pkg / e["file"]
+            listed.add(path)
+            for p in check_video(path, recs.get(Path(e["file"]).name), e["rules"], e["sha256"], e["bytes"]):
+                sr.error(p)
+            n_files += 1
+            linked += e["bytes"] or 0
+            th = e.get("thumbnail")
+            if th:
+                tp = pkg / th["file"]
+                listed.add(tp)
+                for p in check_file(tp, th["rules"], th["sha256"], th["bytes"]):
+                    sr.error(p)
+                n_files += 1
+                linked += th["bytes"]
         images = {p for p in pkg.rglob("*") if p.suffix.lower() in (".png", ".jpg", ".jpeg") and "text" not in p.parts}
         for p in sorted(images - listed):
             sr.error(f"unlisted image in package: {p.relative_to(pkg)}")
@@ -822,8 +998,9 @@ def main() -> int:
     ap.add_argument("--allow-pending", action="store_true", help="exit 0 when only pending items remain")
     a = ap.parse_args()
     cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
+    CFG.update(cfg)
     out = Path(a.out).resolve() if a.out else rp(cfg["output_root"])
-    ROOTS.update({"renders": rp(cfg["renders_root"]), "packages": out})
+    ROOTS.update({"renders": rp(cfg["renders_root"]), "packages": out, "trailer": rp(cfg["trailer"]["outside_dir"])})
     try:
         out.relative_to(REPO)
         raise SystemExit("output_root must be outside the repository")

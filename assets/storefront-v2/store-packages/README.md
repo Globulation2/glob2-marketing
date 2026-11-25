@@ -14,7 +14,7 @@ From the repository root:
 uv run assets/storefront-v2/store-packages/build.py
 ```
 
-That runs a fresh `translations/tools/storefront.py export --require-review`, rebuilds every package from scratch (a store's folder is deleted first, so dropped slides disappear), writes `manifests/<store>.json` here and `package.json` in each package, then verifies everything. Re-run it after any change to the review table, `captures/desktop/selection.json`, the mobile renders, the key art, the icon or the catalogs. It takes under a minute (27 seconds on 2026-11-24), most of it hashing the mobile renders.
+That runs a fresh `translations/tools/storefront.py export --require-review`, rebuilds every package from scratch (a store's folder is deleted first, so dropped slides disappear), writes `manifests/<store>.json` here and `package.json` in each package, then verifies everything. Re-run it after any change to the review table, `captures/desktop/selection.json`, the mobile renders, the key art, the icon, the trailer or the catalogs. It takes under a minute (27 seconds on 2026-11-24), most of it hashing the mobile renders.
 
 | Command | Does |
 | --- | --- |
@@ -31,7 +31,8 @@ Exit status: **0** clean; **1** errors (a store rule broken, a file not matching
 - Packages: `../storefront-v2-renders/store-packages/<store>/` relative to the repository root (`/Users/bradley/glob2/storefront-v2-renders/store-packages/` on the machine that built them), outside the repository. Each holds `package.json` (same bytes as `manifests/<store>.json`) and the files to upload.
 - Desktop stores: real files (`screenshots/NN-<role>-<WxH>.<ext>`, key art as `<slot>-<WxH>.<ext>`, listing text under `text/`).
 - Mobile stores: one folder per store locale, `<locale>/<device>/NN-<role>-<WxH>.png`, each a **symbolic link** to the captioned render in `../storefront-v2-renders/screenshots/`, so the 4 GB of renders are not copied; store-wide images (feature graphic, icons) in `_store-wide/`; the locale's listing text as `<locale>/listing.json`.
-- In the manifests, `packages:` and `renders:` prefixes stand for those two outside folders; other paths are relative to the repository root.
+- Trailer: each package that takes a trailer has a `trailer/` folder of **symbolic links** to the trailer files, wherever they live: the MP4s in `../storefront-v2-renders/trailer/` (not committed), the AppStream WebM and the posters in [`../trailer/`](../trailer/README.md#where-the-files-live).
+- In the manifests, `packages:`, `renders:` and `trailer:` prefixes stand for those three outside folders; other paths are relative to the repository root.
 
 Every image entry records its upload order, role, file, pixels, format, mode, bytes, SHA-256, its source file with that file's SHA-256, the treatment (copied unchanged, or a Lanczos reduction with the JPEG quality) and the rules it was checked against. Desktop entries with captions carry the caption field and text: per locale for Microsoft, the English text and language count for AppStream.
 
@@ -41,21 +42,22 @@ Every image entry records its upload order, role, file, pixels, format, mode, by
 - **Mobile order:** the "Mobile" table, keyed by the backticked store-set id. Slides are taken by role from each render manifest, so the order follows the review whatever the render file numbers are; slides the review dropped are left out and reported.
 - **Switches:** an AI co-play frame on a store whose `ai_coplay` switch is off in `translations/platforms.json` is an error (Epic and the Mac App Store are off today).
 - **Rules and slots:** [`stores.json`](stores.json), with the source of each limit and an `unverified` list per store.
+- **Trailer:** the `trailer` list of each store in `stores.json`, which follows the "Which file goes to which store" table of the [trailer review](../review/trailer-review.md#which-file-goes-to-which-store). Each file is checked against its bytes, SHA-256 and ffprobe facts in the [trailer manifest](../trailer/manifest.json) and against the store's video rules (pixels, container, codec, byte limit, frame rate). A cut that shows AI co-play on a store whose `ai_coplay` switch is off is an error. Stores that take a video URL rather than a file (Snap, itch.io, Google Play) get the file to upload to YouTube or Vimeo linked, and the slot is reported as blocked: "needs a hosted video URL".
 - **1920×1080 JPEGs:** an export in `captures/desktop/web-1920/` whose name starts with the frame number is used unchanged when it fits the store's size, format and byte limit; otherwise the script reduces the native 3840×2160 capture itself (Lanczos, exactly one half, JPEG quality 92 with 4:4:4 chroma, stepping down to 84 only if a store's limit requires).
 
-## Per store (build of 2026-11-24, 19:15)
+## Per store (build of 2026-11-24, 19:15; trailer added in the rebuild of 2026-11-24, about 21:10)
 
 | Store | Upload contents | Sizes and limits checked |
 | --- | --- | --- |
-| Microsoft Store | 7 screenshots `01 04 02 08 06 05 03` (hero, battle, build, AI co-play, maps, territory, economy), native PNG, with the caption for every one of 44 locales; poster, box art (2160² and 1080²), super hero (3840×2160 and 1920×1080); listing text for 44 locales | 3840×2160 PNG ≤ 50 MB (6.9–11.3 MB); captions ≤ 200 characters; poster 1440×2160, box 2160²/1080², hero 3840×2160/1920×1080, all PNG without alpha |
-| Epic | trailer slot first (**blocked**), then 6 screenshots `01 04 02 06 05 03` (no co-play: switch off); offer landscape, offer portrait, product logo, social preview; text for 31 locales | 1920×1080 JPEG ≤ 4 MB (0.7–1.1 MB); 2560×1440 and 1200×1600 JPEG; logo 960×540 transparent PNG ≤ 1 MB; 1200×1200 JPEG ≤ 4 MB |
-| Snap | 5 screenshots `01 04 08b 02 06` (side-by-side co-play third); banner; 256 px icon; English text | JPEG ≤ 2,000,000 bytes, 480–3840×2160, aspect 1:2–2:1; banner 1440×480; icon transparent PNG |
-| itch.io | 7 screenshots `01 04 08b 02 06 05 03`; cover; English text | 1920×1080 JPEG; cover 630×500 |
+| Microsoft Store | 7 screenshots `01 04 02 08 06 05 03` (hero, battle, build, AI co-play, maps, territory, economy), native PNG, with the caption for every one of 44 locales; poster, box art (2160² and 1080²), super hero (3840×2160 and 1920×1080); trailer `glob2-trailer-desktop-34s-1080p.mp4` (desktop cut, co-play on) with thumbnail `poster-1920x1080.png` and the `trailer_title` per locale; listing text for 44 locales | 3840×2160 PNG ≤ 50 MB (6.9–11.3 MB); captions ≤ 200 characters; poster 1440×2160, box 2160²/1080², hero 3840×2160/1920×1080, all PNG without alpha; trailer 1920×1080 MP4 ≤ 2 GB, thumbnail 1920×1080 PNG without alpha |
+| Epic | trailer `glob2-trailer-30s-textless-1080p.mp4` first (text-free master, no co-play), then 6 screenshots `01 04 02 06 05 03` (no co-play: switch off); offer landscape, offer portrait, product logo, social preview; text for 31 locales | trailer 1920×1080 MP4 ≤ 300 MB at 30 or 60 fps; 1920×1080 JPEG ≤ 4 MB (0.7–1.1 MB); 2560×1440 and 1200×1600 JPEG; logo 960×540 transparent PNG ≤ 1 MB; 1200×1200 JPEG ≤ 4 MB |
+| Snap | 5 screenshots `01 04 08b 02 06` (side-by-side co-play third); banner; 256 px icon; English text; trailer: desktop cut linked for a YouTube or Vimeo URL (**needs a hosted video URL**) | JPEG ≤ 2,000,000 bytes, 480–3840×2160, aspect 1:2–2:1; banner 1440×480; icon transparent PNG |
+| itch.io | 7 screenshots `01 04 08b 02 06 05 03`; cover; English text; trailer: master linked for a YouTube embed (**needs a hosted video URL**; master only, as the page also offers browser play) | 1920×1080 JPEG; cover 630×500 |
 | Mac App Store | 6 screenshots `01 04 02 06 05 03` at 16:10 (no co-play: switch off); text for 38 locales | 2880×1800 PNG, no alpha |
-| Steam (prepared only) | 7 screenshots `01 04 02 08 06 05 03`; header, small, main, vertical and library capsules, library hero, library logo; English text | 1920×1080 JPEG, at least 5; capsule sizes as listed in `stores.json`; logo transparent PNG 1280 px wide |
-| GOG (prepared only) | 7 screenshots as Steam; main banner, logo, box, two backgrounds; English text | 1920×1080 JPEG; boards at the GOG template sizes |
-| AppStream / Flathub | 7 screenshots `01 04 08b 02 06 05 03`, stable names (`hero-1920x1080.png` …), `screenshots.xml` ready for the game's metainfo with every caption language, plus the export's `appstream-fragment.xml` and `desktop-fragment.ini` | 1920×1080 PNG, no alpha |
-| Google Play | 44 Play locales × phone 7, 7-inch 7, 10-inch 7 = 924 linked screenshots; feature graphic; 512 px icon; listing text per locale; preview video **blocked** | 1080×1920, 1920×1200, 2560×1600 PNG without alpha, ≤ 8 MB, 2–8 per phone set and 4–8 per tablet set; feature 1024×500 without alpha; icon 512×512 32-bit PNG ≤ 1,024 KB |
+| Steam (prepared only) | 7 screenshots `01 04 02 08 06 05 03`; header, small, main, vertical and library capsules, library hero, library logo; trailers: desktop cut first, master second; English text | 1920×1080 JPEG, at least 5; capsule sizes as listed in `stores.json`; logo transparent PNG 1280 px wide |
+| GOG (prepared only) | 7 screenshots as Steam; main banner, logo, box, two backgrounds; trailers as Steam (the trailer review's GOG row named the master only); English text | 1920×1080 JPEG; boards at the GOG template sizes |
+| AppStream / Flathub | 7 screenshots `01 04 08b 02 06 05 03`, stable names (`hero-1920x1080.png` …), `screenshots.xml` ready for the game's metainfo with every caption language, plus a last, non-default video screenshot of the committed `../trailer/glob2-trailer-30s-1080p.webm` (VP9 in WebM), and the export's `appstream-fragment.xml` and `desktop-fragment.ini` | 1920×1080 PNG, no alpha; video 1920×1080 VP9 WebM |
+| Google Play | 44 Play locales × phone 7, 7-inch 7, 10-inch 7 = 924 linked screenshots; feature graphic; 512 px icon; listing text per locale; preview video: master 2160p linked for YouTube (**needs a hosted video URL**) | 1080×1920, 1920×1200, 2560×1600 PNG without alpha, ≤ 8 MB, 2–8 per phone set and 4–8 per tablet set; feature 1024×500 without alpha; icon 512×512 32-bit PNG ≤ 1,024 KB |
 | Apple App Store | 38 Apple locales × iPhone 6.9-inch and iPad 13-inch sets; listing text per locale | 1320×2868 and 2064×2752 PNG without alpha, 1–10 per set |
 | Amazon | text for its 11 languages, 1024×500 promotional image, icons 512 and 114; screenshots **blocked** (M8) | promo 1024×500 with the wordmark at least 50 px from every edge (read from the key-art manifest); icons 512×512 and 114×114 PNG |
 
@@ -63,7 +65,7 @@ The exact counts, byte totals and open items of the latest run are printed at th
 
 ### AppStream URLs
 
-The intended URLs are `https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront-v2/store-packages/appstream/<name>.png` (listed per image in [`manifests/appstream.json`](manifests/appstream.json) and in `screenshots.xml`). They resolve only after the Git steward runs `build.py --stage-appstream`, commits those seven PNGs (about 20 MB) and pushes to `main`. The names are by role, so they stay the same when the order changes; the game's current metainfo pins a commit hash rather than `main`, and the game-repository steward should decide which form to use.
+The intended URLs are `https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront-v2/store-packages/appstream/<name>.png` (listed per image in [`manifests/appstream.json`](manifests/appstream.json) and in `screenshots.xml`). They resolve only after the Git steward runs `build.py --stage-appstream`, commits those seven PNGs (about 20 MB) and pushes to `main`. The names are by role, so they stay the same when the order changes; the game's current metainfo pins a commit hash rather than `main`, and the game-repository steward should decide which form to use. The trailer's video URL in `screenshots.xml` follows the same form: `https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront-v2/trailer/glob2-trailer-30s-1080p.webm`. The AppStream spec forbids a video as the default screenshot, so it comes last.
 
 ### Microsoft captions and the import workbook
 
@@ -71,7 +73,8 @@ The intended URLs are `https://raw.githubusercontent.com/Globulation2/glob2-mark
 
 ## Blocked, by design
 
-- **Trailer** (V2-08, not finished): Microsoft trailer slot, Epic's first carousel slot, Google Play's preview video, Apple and Mac previews.
+- **Trailer URLs:** Snap, itch.io and Google Play take a YouTube (or Vimeo) URL, not a file. Their slots stay blocked ("needs a hosted video URL") until the file linked in the package is uploaded there and the URL recorded. Google Play also waits for the Play Console ads and in-app purchase declarations to be read (trailer review, store gates).
+- **Apple and Mac previews:** none of the trailer files can be used; they need captures of the iOS and Mac apps (trailer review). Not packaged.
 - **Amazon screenshots** (review M8): the 10-inch frames are host renders and Amazon wants the app on the right device type. Re-run after emulator or Fire-tablet captures are rendered; then take `blocked` off the `amazon` set in `stores.json`.
 
 ## Not packaged, and why

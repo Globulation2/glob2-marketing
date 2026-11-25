@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Trailer text card</title>
+<!-- Rendered by render_cards.py in headless Chromium onto a transparent page, so HarfBuzz
+     shapes the text and ICU orders it (Arabic, Urdu, Indic scripts, CJK line breaking).
+     One card is one full-frame transparent PNG: scrim + text line + gold rule, or the wordmark. -->
+<style id="faces"></style>
+<style>
+  html, body { margin: 0; padding: 0; overflow: hidden; background: transparent; }
+  body {
+    position: relative; width: var(--w); height: var(--h);
+    font-synthesis: none; -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision;
+  }
+  /* Soft dark scrim: the design system's night colour, fading out upwards. */
+  #scrim {
+    position: absolute; left: 0; width: var(--w); bottom: 0; height: var(--scrim-h);
+    background: linear-gradient(to bottom,
+      rgba(27, 18, 41, 0) 0%, rgba(27, 18, 41, 0.40) 38%, rgba(27, 18, 41, 0.62) 72%, rgba(27, 18, 41, 0.66) 100%);
+  }
+  /* Top placement (a card that must leave the bottom of the picture clear): the scrim
+     hangs from the top edge and fades out downwards. */
+  body.top #scrim {
+    bottom: auto; top: 0;
+    background: linear-gradient(to top,
+      rgba(27, 18, 41, 0) 0%, rgba(27, 18, 41, 0.40) 38%, rgba(27, 18, 41, 0.62) 72%, rgba(27, 18, 41, 0.66) 100%);
+  }
+  #block {
+    position: absolute; left: 0; width: var(--w); top: var(--centre-y);
+    transform: translateY(-50%);
+    display: flex; flex-direction: column; align-items: center;
+  }
+  #text {
+    display: block; max-width: var(--max-w);
+    color: var(--ink); text-align: center; text-wrap: balance;
+    font-kerning: normal; font-feature-settings: "kern", "liga"; hyphens: manual; overflow-wrap: normal;
+    text-shadow: 0 0.035em 0.07em rgba(18, 11, 28, 0.9), 0 0 0.45em rgba(18, 11, 28, 0.55);
+  }
+  #rule {
+    width: var(--rule-w); height: var(--rule-h); margin-top: var(--rule-gap);
+    border-radius: var(--rule-h); background: var(--accent);
+    box-shadow: 0 0.2em 0.8em rgba(18, 11, 28, 0.6);
+  }
+  /* Wordmark card: full-frame dim, the wordmark as two masks coloured cream and gold. */
+  body.wordmark #scrim {
+    top: 0; height: var(--h);
+    background: radial-gradient(ellipse 75% 70% at 50% 50%,
+      rgba(27, 18, 41, 0.80) 0%, rgba(27, 18, 41, 0.66) 55%, rgba(27, 18, 41, 0.50) 100%);
+  }
+  body.wordmark #block { display: none; }
+  #mark {
+    display: none; position: absolute; left: 50%; top: 50%;
+    width: var(--mark-w); height: var(--mark-h); transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0.012em 0.03em rgba(18, 11, 28, 0.85)) drop-shadow(0 0 0.08em rgba(18, 11, 28, 0.5));
+    font-size: var(--mark-w);
+  }
+  body.wordmark #mark { display: block; }
+  #mark div { position: absolute; inset: 0; -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
+              -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+  #letters { background: var(--ink); }
+  #two { background: var(--accent); }
+</style>
+</head>
+<body>
+<div id="scrim"></div>
+<div id="block"><div id="text"></div><div id="rule"></div></div>
+<div id="mark"><div id="letters"></div><div id="two"></div></div>
+<script>
+'use strict';
+function lineCount(el) {
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  const tops = new Set();
+  for (const r of range.getClientRects()) if (r.width > 0) tops.add(Math.round(r.top / 4));
+  // Rects of one line can differ slightly in top; cluster by the line height instead.
+  const lh = parseFloat(getComputedStyle(el).lineHeight);
+  return Math.max(1, Math.round(el.getBoundingClientRect().height / lh));
+}
+// The text as it wraps: one string per rendered line (characters grouped by line box).
+function renderedLines(el) {
+  const lines = [];
+  let lastTop = null;
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  const range = document.createRange();
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+    for (let i = 0; i < n.length; i++) {
+      range.setStart(n, i); range.setEnd(n, i + 1);
+      const r = [...range.getClientRects()].find(r => r.width > 0);
+      if (!r) { if (lines.length) lines[lines.length - 1] += n.data[i]; continue; }
+      const top = Math.round(r.top + r.height / 2);
+      if (lastTop === null || Math.abs(top - lastTop) > r.height / 2) { lines.push(''); lastTop = top; }
+      lines[lines.length - 1] += n.data[i];
+    }
+  }
+  return lines.map(l => l.trim()).filter(l => l);
+}
+// Two sentences ("No ads. No in-app purchases.", "広告なし。アプリ内課金なし。"): the
+// index where the second starts, so a two-line card breaks between them, never inside one.
+// Thai writes no full stop: a space separates its phrases.
+const SENTENCE_END = /[.!?。！？।۔؟]\s*/gu;
+function sentenceBreak(text, lang) {
+  const re = lang === 'th' ? /\s+/gu : SENTENCE_END;
+  const m = [...text.matchAll(re)].filter(m => m.index + m[0].length < text.length);
+  return m.length === 1 ? m[0].index + m[0].length : -1;
+}
+function fillText(t, text, breakAt) {
+  t.textContent = '';
+  // Never break inside a hyphenated word ("in-app"): each space-separated word that
+  // contains a hyphen is kept whole; line breaks fall only between words.
+  const words = (el, str) => str.split(/( +)/).forEach(part => {
+    if (part.includes('-')) { const s = document.createElement('span'); s.style.whiteSpace = 'nowrap'; s.textContent = part; el.appendChild(s); }
+    else el.appendChild(document.createTextNode(part));
+  });
+  if (breakAt < 0) { words(t, text); return; }
+  // Forced sentence break: each sentence is one unbreakable line.
+  [text.slice(0, breakAt).trimEnd(), text.slice(breakAt)].forEach((part, i) => {
+    if (i) t.appendChild(document.createElement('br'));
+    const s = document.createElement('span'); s.style.whiteSpace = 'nowrap'; s.textContent = part; t.appendChild(s);
+  });
+}
+// Set a text card. Returns the fit: font size used, scale, lines, ink width, line texts.
+async function setCard(o) {
+  const b = document.body, s = b.style, t = document.getElementById('text');
+  b.className = o.top ? 'top' : '';
+  s.setProperty('--w', o.w + 'px'); s.setProperty('--h', o.h + 'px');
+  s.setProperty('--ink', o.ink); s.setProperty('--accent', o.accent);
+  s.setProperty('--scrim-h', o.scrimH + 'px'); s.setProperty('--centre-y', o.centreY + 'px');
+  s.setProperty('--max-w', o.maxW + 'px');
+  t.lang = o.lang; t.dir = o.dir;
+  fillText(t, o.text, -1);
+  t.style.fontFamily = o.stack.map(f => `'${f}'`).join(', ');
+  t.style.fontWeight = o.weight;
+  t.style.fontVariationSettings = o.variation || 'normal';
+  t.style.lineHeight = o.lineHeight;
+  t.style.letterSpacing = o.letterSpacing || 'normal';
+  t.style.wordBreak = o.wordBreak || 'normal';
+  await document.fonts.load(`${o.weight} ${o.size}px '${o.stack[0]}'`, o.text);
+  await document.fonts.ready;
+  let best = null;
+  // One line from full size down to oneLineFloor; else, for two sentences, one sentence
+  // per line down to twoLineFloor; else two balanced lines down to twoLineFloor.
+  const brk = sentenceBreak(o.text, o.lang);
+  const passes = [[1, o.oneLineFloor, -1]];
+  if (brk >= 0) passes.push([2, o.twoLineFloor, brk]);
+  passes.push([2, o.twoLineFloor, -1]);
+  for (const [maxLines, floor, breakAt] of passes) {
+    if (maxLines === 2) fillText(t, o.text, breakAt);
+    for (let k = 1.0; k >= floor - 1e-6; k -= 0.02) {
+      const px = Math.round(o.size * k);
+      t.style.fontSize = px + 'px';
+      t.style.whiteSpace = maxLines === 1 ? 'nowrap' : 'normal';
+      // One line is measured without the max-width cap (a capped box would report the
+      // cap, not the overflowing text); two lines keep the cap and must not overflow it.
+      t.style.maxWidth = maxLines === 1 ? 'none' : o.maxW + 'px';
+      const r = t.getBoundingClientRect();
+      const inkW = Math.max(r.width, t.scrollWidth);
+      const lines = maxLines === 1 ? 1 : lineCount(t);
+      if (inkW <= o.maxW + 0.5 && lines <= maxLines) { best = { px, scale: k, lines, width: inkW, height: r.height, sentence_break: breakAt >= 0 }; break; }
+    }
+    if (best) break;
+  }
+  if (!best) return { failed: true };
+  best.line_texts = renderedLines(t);
+  s.setProperty('--rule-w', Math.round(best.px * o.ruleW) + 'px');
+  s.setProperty('--rule-h', Math.max(2, Math.round(best.px * o.ruleH)) + 'px');
+  s.setProperty('--rule-gap', Math.round(best.px * o.ruleGap) + 'px');
+  const fonts = [];
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  return best;
+}
+function setWordmark(o) {
+  const b = document.body, s = b.style;
+  b.className = 'wordmark';
+  s.setProperty('--w', o.w + 'px'); s.setProperty('--h', o.h + 'px');
+  s.setProperty('--ink', o.ink); s.setProperty('--accent', o.accent);
+  s.setProperty('--mark-w', o.markW + 'px'); s.setProperty('--mark-h', o.markH + 'px');
+  for (const [id, url] of [['letters', o.letters], ['two', o.two]]) {
+    const el = document.getElementById(id);
+    el.style.webkitMaskImage = `url(${url})`; el.style.maskImage = `url(${url})`;
+  }
+  return new Promise(r => { const im = new Image(); im.onload = () => requestAnimationFrame(() => requestAnimationFrame(r)); im.src = o.letters; });
+}
+</script>
+</body>
+</html>

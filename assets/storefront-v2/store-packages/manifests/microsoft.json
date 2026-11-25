@@ -4,14 +4,15 @@
  "package_dir": "packages:microsoft",
  "generated_by": "assets/storefront-v2/store-packages/build.py",
  "inputs": {
-  "stores.json": "7ce9f0e1b154519593073a6ebce119f834986a23b233f847a6d26bd8ed757332",
+  "stores.json": "06e841f95bcec4c316ae143365214a681a75a8c0a49d6ca9884373124fa01510",
   "review": {
    "file": "assets/storefront-v2/review/round-2-final.md",
    "sha256": "12bdda11795a52fcfc41a90e94851117b0a8564d7217b5f94ddc32ca5897e385"
   },
   "platforms.json": "c78c414db1bb9d92c10f9a3b556dedf02d026f2bbd600e176defb0d624a2ba3c",
   "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
-  "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)"
+  "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)",
+  "trailer_manifest": "a7f26a5a2a4f7e5c7cdf196749810a58ab4aaf29c423aaced31faa1e186ba488"
  },
  "review_row": "Microsoft Store",
  "review_frames": [
@@ -739,9 +740,107 @@
    "zh-tw"
   ]
  },
- "blocked": [
-  "trailer: Trailer (V2-08) not finished; Microsoft needs a 1920x1080 MP4/MOV, a 1920x1080 PNG thumbnail and a title per trailer."
+ "trailer": [
+  {
+   "slot": "trailer",
+   "file": "trailer/glob2-trailer-desktop-34s-1080p.mp4",
+   "link_to": "trailer:glob2-trailer-desktop-34s-1080p.mp4",
+   "in_repository": false,
+   "bytes": 61490258,
+   "sha256": "bfa0db9b58de51b885f9729eb9431d4f516f562d1873a0b1a0fe5112d7ebe769",
+   "duration_s": 34.5,
+   "pixels": "1920x1080",
+   "codec": "h264",
+   "shows_ai_coplay": true,
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "container": [
+     "mp4",
+     "mov"
+    ],
+    "max_bytes": 2000000000
+   },
+   "source": {
+    "manifest": "assets/storefront-v2/trailer/manifest.json",
+    "review": "assets/storefront-v2/review/trailer-review.md"
+   },
+   "thumbnail": {
+    "file": "trailer/poster-1920x1080.png",
+    "link_to": "assets/storefront-v2/trailer/poster-1920x1080.png",
+    "pixels": "1920x1080",
+    "format": "PNG",
+    "mode": "RGB",
+    "bytes": 3513454,
+    "sha256": "bc17457f1320acf4b640eb7bd29168a8e176d37f6b2ddd7b4001269d5bc1fca9",
+    "rules": {
+     "size": [
+      1920,
+      1080
+     ],
+     "format": [
+      "PNG"
+     ],
+     "alpha": "forbid"
+    }
+   },
+   "title_field": "trailer_title",
+   "title": {
+    "field": "trailer_title",
+    "by_locale": {
+     "ar": "عرض تشويقي لأسلوب اللعب في Globulation 2",
+     "bg": "Globulation 2: геймплей трейлър",
+     "bn": "Globulation 2: গেমপ্লে ট্রেলার",
+     "ca": "Globulation 2: tràiler de jugabilitat",
+     "cs": "Globulation 2: trailer se záběry ze hry",
+     "da": "Globulation 2: gameplay-trailer",
+     "de": "Globulation 2: Gameplay-Trailer",
+     "el": "Globulation 2: τρέιλερ gameplay",
+     "en-us": "Globulation 2: gameplay trailer",
+     "es": "Globulation 2: tráiler de jugabilidad",
+     "eu": "Globulation 2: gameplay trailerra",
+     "fa": "تریلر گیم‌پلی Globulation 2",
+     "fi": "Globulation 2: pelikuvatraileri",
+     "fil": "Globulation 2: gameplay trailer",
+     "fr": "Globulation 2 : bande-annonce de gameplay",
+     "hi": "Globulation 2: गेमप्ले ट्रेलर",
+     "hu": "Globulation 2: játékmenet-előzetes",
+     "id": "Globulation 2: trailer gameplay",
+     "it": "Globulation 2: trailer di gameplay",
+     "ja": "Globulation 2：ゲームプレイトレーラー",
+     "ko": "Globulation 2: 게임플레이 트레일러",
+     "mr": "Globulation 2: गेमप्ले ट्रेलर",
+     "ms": "Globulation 2: treler permainan",
+     "nb": "Globulation 2: gameplay-trailer",
+     "nl": "Globulation 2: gameplaytrailer",
+     "pl": "Globulation 2: zwiastun rozgrywki",
+     "pt-br": "Globulation 2: trailer de gameplay",
+     "pt-pt": "Globulation 2: trailer de jogabilidade",
+     "ro": "Globulation 2: trailer de gameplay",
+     "ru": "Globulation 2: геймплейный трейлер",
+     "sk": "Globulation 2: trailer so zábermi z hry",
+     "sl": "Globulation 2: napovednik igranja",
+     "sr-cyrl": "Globulation 2: гејмплеј трејлер",
+     "sv": "Globulation 2: gameplaytrailer",
+     "sw": "Globulation 2: trela ya uchezaji",
+     "ta": "Globulation 2: கேம்ப்ளே டிரெய்லர்",
+     "te": "Globulation 2: గేమ్‌ప్లే ట్రైలర్",
+     "th": "Globulation 2: เทรลเลอร์เกมเพลย์",
+     "tr": "Globulation 2: oynanış fragmanı",
+     "uk": "Globulation 2: геймплейний трейлер",
+     "ur": "Globulation 2: گیم پلے ٹریلر",
+     "vi": "Globulation 2: trailer giới thiệu lối chơi",
+     "zh-cn": "Globulation 2：玩法预告片",
+     "zh-tw": "Globulation 2：實機遊玩預告片"
+    }
+   },
+   "with_asset": "super-hero",
+   "note": "Trailer review table: the desktop cut, since the Microsoft listing carries AI co-play. Upload the text-free super hero (super-hero slot) as well, or the trailer does not show at the top of the listing. Title: the export's trailer_title field per locale."
+  }
  ],
+ "blocked": [],
  "pending": [],
  "errors": [],
  "not_packaged": [

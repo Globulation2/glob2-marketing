@@ -1,0 +1,628 @@
+{
+ "fps": 30,
+ "frame": {
+  "native": [
+   4256,
+   2800
+  ],
+  "size": [
+   3840,
+   2160
+  ],
+  "crop": [
+   3840,
+   2160,
+   0,
+   200
+  ],
+  "note": "Each captured frame is the game's full 4256x2800 window; the cut keeps the HUD-free map rectangle 3840x2160 at (0,200): left of the 416-px sidebar, below the top bar and event list, above the 'Paused' label of tick stepping. A segment may give its own 16:9 'crop' rectangle (native pixels of the 4256x2800 frame); with 'upscale': true it may be smaller than the 3840x2160 canvas (a punch-in), and each output size is scaled straight from that rectangle (the 1080p files never pass through an upscaled 2160p picture)."
+ },
+ "text": {
+  "fields": [
+   "trailer_line_1",
+   "trailer_line_2",
+   "trailer_line_3",
+   "trailer_line_4",
+   "trailer_line_ai_coplay"
+  ],
+  "ink": "#f9e8bb",
+  "accent": "#e3c077",
+  "latin_stack": [
+   "Nunito",
+   "Noto Sans"
+  ],
+  "latin_size": {
+   "Nunito": 1.0,
+   "Noto Sans": 0.94
+  },
+  "weights": {
+   "default": 800,
+   "Nunito": 900,
+   "Noto Nastaliq Urdu": 700
+  },
+  "rule": {
+   "width": 1.5,
+   "height": 0.075,
+   "gap": 0.26
+  },
+  "landscape": {
+   "size": 0.082,
+   "centre_y": 0.8,
+   "scrim_height": 0.46,
+   "max_width": 0.84,
+   "one_line_floor": 0.8,
+   "two_line_floor": 0.62,
+   "wordmark_width": 0.56
+  },
+  "portrait": {
+   "size": 0.092,
+   "centre_y": 0.6,
+   "scrim_height": 0.62,
+   "max_width": 0.88,
+   "one_line_floor": 0.9,
+   "two_line_floor": 0.6,
+   "wordmark_width": 0.84
+  },
+  "fade": 0.25,
+  "top_fields": [
+   "trailer_line_ai_coplay"
+  ],
+  "landscape_top": {
+   "centre_y": 0.15,
+   "scrim_height": 0.4
+  }
+ },
+ "cuts": {
+  "master": {
+   "file": "glob2-trailer-30s",
+   "duration": 30.0,
+   "timeline": [
+    {
+     "shot": "f-battle-honey",
+     "in": 0,
+     "frames": 75,
+     "crop": [
+      2560,
+      1440,
+      770,
+      630
+     ],
+     "upscale": true,
+     "note": "1.5x punch-in on the clash (2560x1440 window of the map rectangle centred near 4K (2050,1150)); 2160p is a 1.5x upscale, 1080p a downscale"
+    },
+    {
+     "shot": "f-place",
+     "in": 0,
+     "frames": 34,
+     "crop": [
+      2848,
+      1602,
+      1408,
+      40
+     ],
+     "upscale": true,
+     "note": "build mode with the real build palette in frame: the right-hand sidebar shows the Inn armed from frame 10; window x 1408-4256 below the top bar (y 40), above the 'Paused' label"
+    },
+    {
+     "shot": "f-place",
+     "in": 34,
+     "frames": 65,
+     "crop": [
+      1920,
+      1080,
+      680,
+      846
+     ],
+     "upscale": true,
+     "note": "cut-in inside the take (continuous ticks): 2x on the Inn ghost landing, the click at frame 48 and the scaffold; 1080p is native pixels, 2160p a 2x upscale"
+    },
+    {
+     "shot": "f-place",
+     "in": 125,
+     "frames": 81,
+     "crop": [
+      1920,
+      1080,
+      680,
+      846
+     ],
+     "upscale": true,
+     "note": "same 2x window after the declared 740-tick cut: the Inn completes at frame 146"
+    },
+    {
+     "shot": "f-fed",
+     "in": 20,
+     "frames": 105
+    },
+    {
+     "shot": "f-cabino",
+     "in": 0,
+     "frames": 90
+    },
+    {
+     "shot": "f-battle-honey",
+     "in": 75,
+     "frames": 105
+    },
+    {
+     "shot": "f-battle3",
+     "in": 0,
+     "frames": 90
+    },
+    {
+     "shot": "f-hero",
+     "in": 0,
+     "frames": 135
+    },
+    {
+     "shot": "f-econ",
+     "in": 0,
+     "frames": 120
+    }
+   ],
+   "text": [
+    {
+     "field": "trailer_line_1",
+     "start": 3.8,
+     "end": 6.9
+    },
+    {
+     "field": "trailer_line_2",
+     "start": 8.9,
+     "end": 11.7
+    },
+    {
+     "field": "trailer_line_3",
+     "start": 15.4,
+     "end": 18.3
+    },
+    {
+     "field": "trailer_line_4",
+     "start": 22.0,
+     "end": 25.0
+    }
+   ],
+   "wordmark": {
+    "start": 27.0,
+    "fade": 0.5
+   },
+   "music": {
+    "set": "original",
+    "offset": 0,
+    "crossfade": 0.8,
+    "tail_fade": 2.5,
+    "gain_db": 0,
+    "segments": [
+     {
+      "mood": "a3",
+      "from": 0,
+      "to": 2.5
+     },
+     {
+      "mood": "a2",
+      "from": 2.5,
+      "to": 15.0
+     },
+     {
+      "mood": "a3",
+      "from": 15.0,
+      "to": 21.5
+     },
+     {
+      "mood": "a2",
+      "from": 21.5,
+      "to": 30.0
+     }
+    ],
+    "mood_gain_db": {
+     "a3": 4.0
+    },
+    "limiter": {
+     "limit": 0.79,
+     "attack_ms": 2,
+     "release_ms": 60
+    }
+   },
+   "extra_outputs": [
+    {
+     "file": "glob2-trailer-30s-1080p.webm",
+     "size": [
+      1920,
+      1080
+     ],
+     "codec": "vp9",
+     "note": "AppStream (VP9/Opus in WebM)"
+    },
+    {
+     "file": "glob2-trailer-30s-preview-720p.mp4",
+     "size": [
+      1280,
+      720
+     ],
+     "codec": "h264-preview",
+     "note": "review preview, under 30 MB"
+    }
+   ]
+  },
+  "desktop": {
+   "file": "glob2-trailer-desktop-34s",
+   "duration": 34.5,
+   "textless": false,
+   "timeline": [
+    {
+     "shot": "f-battle-honey",
+     "in": 0,
+     "frames": 75,
+     "crop": [
+      2560,
+      1440,
+      770,
+      630
+     ],
+     "upscale": true,
+     "note": "1.5x punch-in on the clash (2560x1440 window of the map rectangle centred near 4K (2050,1150)); 2160p is a 1.5x upscale, 1080p a downscale"
+    },
+    {
+     "shot": "f-place",
+     "in": 0,
+     "frames": 34,
+     "crop": [
+      2848,
+      1602,
+      1408,
+      40
+     ],
+     "upscale": true,
+     "note": "build mode with the real build palette in frame: the right-hand sidebar shows the Inn armed from frame 10; window x 1408-4256 below the top bar (y 40), above the 'Paused' label"
+    },
+    {
+     "shot": "f-place",
+     "in": 34,
+     "frames": 65,
+     "crop": [
+      1920,
+      1080,
+      680,
+      846
+     ],
+     "upscale": true,
+     "note": "cut-in inside the take (continuous ticks): 2x on the Inn ghost landing, the click at frame 48 and the scaffold; 1080p is native pixels, 2160p a 2x upscale"
+    },
+    {
+     "shot": "f-place",
+     "in": 125,
+     "frames": 81,
+     "crop": [
+      1920,
+      1080,
+      680,
+      846
+     ],
+     "upscale": true,
+     "note": "same 2x window after the declared 740-tick cut: the Inn completes at frame 146"
+    },
+    {
+     "shot": "f-fed",
+     "in": 20,
+     "frames": 105
+    },
+    {
+     "shot": "f-cabino",
+     "in": 0,
+     "frames": 90
+    },
+    {
+     "shot": "f-battle-honey",
+     "in": 75,
+     "frames": 105
+    },
+    {
+     "shot": "f-battle3",
+     "in": 0,
+     "frames": 90
+    },
+    {
+     "shot": "f-hero",
+     "in": 0,
+     "frames": 135
+    },
+    {
+     "shot": "f-coplay2",
+     "in": 15,
+     "frames": 135,
+     "crop": [
+      2144,
+      1206,
+      901,
+      627
+     ],
+     "upscale": true,
+     "inset": {
+      "region_x": [
+       32,
+       632
+      ],
+      "bottom": 2704,
+      "top_probe_x": 610,
+      "card_rgb": [
+       43,
+       29,
+       65
+      ],
+      "tolerance": [
+       6,
+       5,
+       6
+      ],
+      "scale_at_3840": 2.0,
+      "margin": [
+       0.025,
+       0.035
+      ],
+      "shadow": 0.6
+     },
+     "note": "1.8x on the four Inn sites around tile (8,118) (window 901-3045 x 627-1833, clear of the Hive card, event list and 'Paused' label); the game's own Hive card from the same frame is inset bottom left, cropped to the card itself (its top edge found per frame, so the 'Stop commander' and 'Reports' buttons above it stay out), 2x at 2160p, native pixels at 1080p"
+    },
+    {
+     "shot": "f-econ",
+     "in": 0,
+     "frames": 120
+    }
+   ],
+   "text": [
+    {
+     "field": "trailer_line_1",
+     "start": 3.8,
+     "end": 6.9
+    },
+    {
+     "field": "trailer_line_2",
+     "start": 8.9,
+     "end": 11.7
+    },
+    {
+     "field": "trailer_line_3",
+     "start": 15.4,
+     "end": 18.3
+    },
+    {
+     "field": "trailer_line_4",
+     "start": 22.0,
+     "end": 25.0
+    },
+    {
+     "field": "trailer_line_ai_coplay",
+     "start": 26.4,
+     "end": 30.2
+    }
+   ],
+   "wordmark": {
+    "start": 31.5,
+    "fade": 0.5
+   },
+   "music": {
+    "set": "original",
+    "offset": 0,
+    "crossfade": 0.8,
+    "tail_fade": 2.5,
+    "gain_db": 0,
+    "segments": [
+     {
+      "mood": "a3",
+      "from": 0,
+      "to": 2.5
+     },
+     {
+      "mood": "a2",
+      "from": 2.5,
+      "to": 15.0
+     },
+     {
+      "mood": "a3",
+      "from": 15.0,
+      "to": 21.5
+     },
+     {
+      "mood": "a2",
+      "from": 21.5,
+      "to": 34.5
+     }
+    ],
+    "mood_gain_db": {
+     "a3": 4.0
+    },
+    "limiter": {
+     "limit": 0.79,
+     "attack_ms": 2,
+     "release_ms": 60
+    }
+   }
+  },
+  "cut15": {
+   "file": "glob2-trailer-15s",
+   "duration": 15.0,
+   "textless": false,
+   "timeline": [
+    {
+     "shot": "f-battle-honey",
+     "in": 0,
+     "frames": 45,
+     "crop": [
+      2560,
+      1440,
+      770,
+      630
+     ],
+     "upscale": true,
+     "note": "1.5x punch-in on the clash (2560x1440 window of the map rectangle centred near 4K (2050,1150)); 2160p is a 1.5x upscale, 1080p a downscale"
+    },
+    {
+     "shot": "f-place",
+     "in": 8,
+     "frames": 26,
+     "crop": [
+      2848,
+      1602,
+      1408,
+      40
+     ],
+     "upscale": true,
+     "note": "build palette, Inn armed at frame 10"
+    },
+    {
+     "shot": "f-place",
+     "in": 34,
+     "frames": 34,
+     "crop": [
+      1920,
+      1080,
+      680,
+      846
+     ],
+     "upscale": true,
+     "note": "2x cut-in: the click at frame 48"
+    },
+    {
+     "shot": "f-place",
+     "in": 128,
+     "frames": 39,
+     "crop": [
+      1920,
+      1080,
+      680,
+      846
+     ],
+     "upscale": true,
+     "note": "the Inn completes at frame 146"
+    },
+    {
+     "shot": "f-fed",
+     "in": 20,
+     "frames": 30
+    },
+    {
+     "shot": "f-battle-honey",
+     "in": 84,
+     "frames": 96
+    },
+    {
+     "shot": "f-hero",
+     "in": 0,
+     "frames": 99
+    },
+    {
+     "shot": "f-econ",
+     "in": 0,
+     "frames": 81
+    }
+   ],
+   "text": [
+    {
+     "field": "trailer_line_1",
+     "start": 1.8,
+     "end": 4.8
+    },
+    {
+     "field": "trailer_line_3",
+     "start": 6.0,
+     "end": 8.8
+    },
+    {
+     "field": "trailer_line_4",
+     "start": 9.4,
+     "end": 12.2
+    }
+   ],
+   "wordmark": {
+    "start": 12.5,
+    "fade": 0.5
+   },
+   "music": {
+    "set": "original",
+    "offset": 0,
+    "crossfade": 0.8,
+    "tail_fade": 2.0,
+    "gain_db": 0,
+    "segments": [
+     {
+      "mood": "a3",
+      "from": 0,
+      "to": 1.5
+     },
+     {
+      "mood": "a2",
+      "from": 1.5,
+      "to": 5.8
+     },
+     {
+      "mood": "a3",
+      "from": 5.8,
+      "to": 9.0
+     },
+     {
+      "mood": "a2",
+      "from": 9.0,
+      "to": 15.0
+     }
+    ],
+    "mood_gain_db": {
+     "a3": 4.0
+    },
+    "limiter": {
+     "limit": 0.79,
+     "attack_ms": 2,
+     "release_ms": 60
+    }
+   }
+  },
+  "vertical": {
+   "file": "glob2-trailer-30s-vertical",
+   "size": [
+    1080,
+    1920
+   ],
+   "timeline_from": "master",
+   "reframe": {
+    "width": 1215,
+    "x": [
+     1490,
+     1100,
+     1100,
+     980,
+     1350,
+     560,
+     1490,
+     [
+      1960,
+      240,
+      1080
+     ],
+     1312,
+     1312
+    ],
+    "note": "one entry per master segment: a crop x for a 1215x2160 window of the map rectangle, or [x, y, width] for a smaller 9:16 window (still downscaled or 1:1, never upscaled). Shot 5 sits on the lime colony's west building cluster; shot 7 is a native 1080x1920 window centred on the clash, 240 px below the top of the map rectangle."
+   }
+  }
+ },
+ "poster": {
+  "shot": "f-battle-honey",
+  "frame": 30,
+  "crop": [
+   2560,
+   1440,
+   770,
+   630
+  ],
+  "files": {
+   "poster-3840x2160.png": [
+    3840,
+    2160
+   ],
+   "poster-1920x1080.png": [
+    1920,
+    1080
+   ]
+  },
+  "note": "frame 30 of the opening shot (master 1.0 s) at the opening's 1.5x punch-in: red and lime warriors locked together in the centre"
+ }
+}

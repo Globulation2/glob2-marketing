@@ -65,17 +65,17 @@ Timecodes are in the delivered files. "4K" means the native 3840×2160 map recta
 
 ## Which file goes to which store
 
-These choices apply once the must-fixes are done. Where a fix is pending, the fallback is named.
+These choices apply once the must-fixes are done. Where a fix is pending, the fallback is named. Note added 2026-11-24 after the fix round: the desktop cut is now `glob2-trailer-desktop-34s-*` (34.5 s), and the MP4s are kept outside the repository ([trailer README](../trailer/README.md#where-the-files-live)); the store packages take their trailer files from this table ([stores.json](../store-packages/stores.json), `trailer`).
 
 | Store | Timing (rollout rule) | File | Notes |
 | --- | --- | --- | --- |
 | Google Play | now | `glob2-trailer-30s-2160p.mp4` uploaded to YouTube (unlisted or public, embeddable, monetisation off) | 30.0 s fits the autoplay window. The Japanese and Arabic listings can take their own YouTube URLs of the `ja` and `ar` cuts. No desktop variant (no MCP on Android). Gate: the Play Console declarations above. |
-| Microsoft Store | now | `glob2-trailer-desktop-33s-1080p.mp4` **after M7**; until then `glob2-trailer-30s-1080p.mp4` | Thumbnail: `poster-1920x1080.png` (replace per S5). Title: `trailer_title`. Upload the text-free super hero `key-art/derivatives/microsoft-super-hero-1920x1080.png` or `-3840x2160.png`, or the trailer will not show at the top. No age-rating card is present. MCP is "safe with caveat" on the 0.11.6.5 package (claims §2). |
+| Microsoft Store | now | `glob2-trailer-desktop-33s-1080p.mp4` **after M7** (the fix round renamed it `glob2-trailer-desktop-34s-1080p.mp4`, 34.5 s); until then `glob2-trailer-30s-1080p.mp4` | Thumbnail: `poster-1920x1080.png` (replace per S5). Title: `trailer_title`. Upload the text-free super hero `key-art/derivatives/microsoft-super-hero-1920x1080.png` or `-3840x2160.png`, or the trailer will not show at the top. No age-rating card is present. MCP is "safe with caveat" on the 0.11.6.5 package (claims §2). |
 | Snap Store | now | desktop variant after M7, else the master, as a YouTube URL | The listing's video field (YouTube, Vimeo or asciinema) was not re-checked today. |
 | itch.io | now | `glob2-trailer-30s-1080p.mp4` (YouTube embed) | Master only: the page also offers browser play, which has no MCP. |
 | F-Droid / AppStream (Flathub) | now (metadata) | Master only for F-Droid (Android) | The AppStream spec asks for VP9 or AV1 video in WebM or Matroska, so these H.264 MP4s would need a transcode. Flathub display of video is unverified. This was not re-read today. Optional. |
 | Epic | when its review clears | `glob2-trailer-30s-textless-1080p.mp4` (minimal text across 31 locales) or `glob2-trailer-30s-1080p.mp4`, as carousel slot 1 | No desktop variant until R8 clears. Frame 0 is not black. 30 fps, 57 MB. |
-| Steam | prepare only | `glob2-trailer-desktop-33s-1080p.mp4` after M7 as the first trailer, plus the master as a second | Leads with gameplay, as Steam asks. M2's palette shot answers "visible HUD is encouraged". |
+| Steam | prepare only | `glob2-trailer-desktop-33s-1080p.mp4` after M7 (renamed `glob2-trailer-desktop-34s-1080p.mp4` in the fix round) as the first trailer, plus the master as a second | Leads with gameplay, as Steam asks. M2's palette shot answers "visible HUD is encouraged". |
 | GOG | prepare only | `glob2-trailer-30s-1080p.mp4` | GOG policy not confirmed. |
 | Amazon Appstore | when its review clears | `glob2-trailer-30s-1080p.mp4` (optional, 16:9) | The fair-deal line is true for the Fire edition. Amazon's device rule for videos was not checked. |
 | Apple App Store (iPhone, iPad) | when review clears | **none of these files** | Previews must be screen captures of the iOS app at 886×1920 or 1920×886 (iPhone) and 1200×1600 or 1600×1200 (iPad). Capture them from the iOS build. |

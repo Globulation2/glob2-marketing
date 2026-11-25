@@ -4,14 +4,15 @@
  "package_dir": "packages:snap",
  "generated_by": "assets/storefront-v2/store-packages/build.py",
  "inputs": {
-  "stores.json": "7ce9f0e1b154519593073a6ebce119f834986a23b233f847a6d26bd8ed757332",
+  "stores.json": "06e841f95bcec4c316ae143365214a681a75a8c0a49d6ca9884373124fa01510",
   "review": {
    "file": "assets/storefront-v2/review/round-2-final.md",
    "sha256": "12bdda11795a52fcfc41a90e94851117b0a8564d7217b5f94ddc32ca5897e385"
   },
   "platforms.json": "c78c414db1bb9d92c10f9a3b556dedf02d026f2bbd600e176defb0d624a2ba3c",
   "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
-  "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)"
+  "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)",
+  "trailer_manifest": "a7f26a5a2a4f7e5c7cdf196749810a58ab4aaf29c423aaced31faa1e186ba488"
  },
  "review_row": "Snap",
  "review_frames": [
@@ -266,11 +267,35 @@
    "en"
   ]
  },
- "blocked": [],
+ "trailer": [
+  {
+   "slot": "video-url",
+   "file": "trailer/glob2-trailer-desktop-34s-1080p.mp4",
+   "link_to": "trailer:glob2-trailer-desktop-34s-1080p.mp4",
+   "in_repository": false,
+   "bytes": 61490258,
+   "sha256": "bfa0db9b58de51b885f9729eb9431d4f516f562d1873a0b1a0fe5112d7ebe769",
+   "duration_s": 34.5,
+   "pixels": "1920x1080",
+   "codec": "h264",
+   "shows_ai_coplay": true,
+   "rules": {},
+   "source": {
+    "manifest": "assets/storefront-v2/trailer/manifest.json",
+    "review": "assets/storefront-v2/review/trailer-review.md"
+   },
+   "needs_hosted_url": "YouTube or Vimeo URL",
+   "note": "Trailer review table: the desktop cut, as a YouTube URL; the Snap listing takes a video URL only (YouTube, Vimeo or asciinema), not a file."
+  }
+ ],
+ "blocked": [
+  "trailer video-url: needs a hosted video URL (YouTube or Vimeo URL); upload glob2-trailer-desktop-34s-1080p.mp4 (linked at trailer/glob2-trailer-desktop-34s-1080p.mp4) there and enter the URL"
+ ],
  "pending": [],
  "errors": [],
  "not_packaged": [],
  "unverified": [
+  "Snap's video field (YouTube, Vimeo or asciinema URL) was not re-checked for v2 (trailer review, store table).",
   "Snap icon limits are not recorded in this project (v1 kept the existing icon). The packaged 256x256 transparent PNG is the same image the game repository generates for the snap (content/data/icons/glob2-icon-256x256.png, from the same master).",
   "Snap's guidance asks cross-platform games for Linux workstation captures; these frames were captured on macOS from the same release build.",
   "Snap screenshot limits (2,000,000 bytes, 480x480 to 3840x2160, aspect 1:2 to 2:1) come from the v1 record (validator source read 2026-10-30), not re-checked for v2 (review M5)."

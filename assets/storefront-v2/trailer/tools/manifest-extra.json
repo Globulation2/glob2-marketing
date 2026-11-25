@@ -1,0 +1,51 @@
+{
+ "title": "Globulation 2 storefront-v2 gameplay trailer",
+ "made": "2026-11-24 (fix round after the independent review the same day)",
+ "build": {
+  "version": "0.11.7.0 + 15 commits",
+  "revision": "5bf966285aa8",
+  "label": "0.11.7.0 + 15 commits, revision 5bf966285aa8; not the public release binary; maps, AI roster and simulation identical to the tag",
+  "executable": "/Applications/Glob2.app/Contents/MacOS/glob2",
+  "executable_sha256": "252fd7d7ff8383c2f72760eccb418b4792bfdfe9f820cd8925b8d8cb69cb7c7f",
+  "public_release": false,
+  "note": "The installed build is 15 commits after the v0.11.7.0 tag. It has MCP tools the release lacks (for example game_time, which stepped every frame of the capture); the maps, AI roster and simulation are identical to the tag. Source of the correction: storefront-v2 trailer review M1 and facts/storefront-v2-claims.md R13."
+ },
+ "platform": "macOS 26.6 on Apple silicon",
+ "capture_conditions": {
+  "window": "4256x2800 off-screen (SDL dummy video driver), --ui-scale 2, --interface desktop",
+  "renderer": "portable-sdl (one of the release's own backends)",
+  "artwork": "high-resolution artwork forced on (highResolutionArtworkChoice=on)",
+  "graphics": "clouds and cloud shadows off; everything else default",
+  "health_food_bars": "off: the in-game 'draw information' toggle (key I) pressed once after each load",
+  "zones": "the seat erased the colony's forbidden, clearing and guard areas in and around the view during the lead-in and while filming (Flags and areas tool, an ordinary player action); the AI repaints them",
+  "frame_capture": "the match is held between ticks and stepped one simulation tick per frame (game_time step ticks=1); each frame is the game's own framebuffer saved at native pixels by the embedded MCP UI server (ui_screenshot)",
+  "speed": "one frame per tick, played at 30 frames a second = the game's normal speed of 30 ticks a second; nothing retimed, interpolated, blended or sped up",
+  "crop": "the edit keeps the 3840x2160 map rectangle at (0,200) of each 4256x2800 frame: the HUD (top bar, event list, sidebar, the 'Paused' label of tick stepping) is outside it. Exceptions, per segment in edit.cuts: the opening fight is a 2560x1440 punch-in (1.5x); the placement beat first shows a 2848x1602 window that includes the real right-hand build palette with the Inn armed, then cuts in to a 1920x1080 window (2x) inside the same take; the desktop co-play beat is a 2144x1206 window (1.8x) with the game's own Hive card from the same frame inset bottom left. Each output size is scaled straight from the native crop (Lanczos): the 1080p files are downscales or native pixels, the 2160p files upscale the punch-ins; the vertical crops 1215x2160 (one shot 1080x1920) and downscales to 1080x1920",
+  "mcp_server": "enabled in every shot (--mcp-port 47814); only the f-coplay2 shot uses it for colony orders (Hive standing order)"
+ },
+ "footage_label": "AI versus AI matches (spectator-equivalent). Every colony on screen is played by the game's own AIs from a headless all-AI match. Each shot is filmed from a local player seat that shares one colony with its AI (join-seat.py), so the camera, fog of war and interface are a real player's. The seat's only inputs are listed per shot under seat_inputs: the zone erase, and in the placement shot one Inn placed through the build palette; in the desktop co-play shot one Hive standing order installed over MCP by the editing agent. Not human-versus-human footage.",
+ "matches": "headless matches and checkpoints under the desktop capture work directory; see ../captures/desktop/tools/matches.json for maps, seeds and AIs",
+ "music": {
+  "track": "Globulation 2 original soundtrack (content/data/zik/original: a2.opus building mood, a3.opus combat mood)",
+  "composer": "Jacques-Paul Grivaz",
+  "licence": "GPL-3.0-or-later (content/data/zik and docs/assets/source-attribution.md in the game repository; in-game credits content/data/authors.txt)",
+  "use": "the two moods share one timeline; the edit crossfades between them at the same playback position, as the game's SoundMixer does, and fades the tail. The combat mood (a3) is lifted 4 dB against the building mood so the fights do not read as a lull; a limiter at 4x oversampling keeps every file's true peak at or below -1 dBTP (measured per file under deliverables[].audio_loudness)"
+ },
+ "text": {
+  "source": "translations/<locale>.md fields trailer_line_1..4 and trailer_line_ai_coplay (desktop only)",
+  "renderer": "headless Chromium (HarfBuzz shaping, ICU bidi) via render_cards.py; no ffmpeg drawtext",
+  "colours": {
+   "ink": "#f9e8bb",
+   "accent": "#e3c077"
+  },
+  "wordmark": "glob2/content/data/gfx/menu-wordmark.png keyed into two masks, coloured cream and gold",
+  "placement": "bottom of the frame over a scrim (landscape centre 80 % of the height, portrait 60 %); trailer_line_ai_coplay at the top of the frame (15 %) so the Hive card inset stays clear"
+ },
+ "storage": {
+  "policy": "Decided 2026-11-24 by the coordinating agent: the repository keeps this manifest, README.md, tools/, the posters, the contact sheets and the AppStream WebM (glob2-trailer-30s-1080p.webm, about 30 MB, committed because AppStream metadata needs a stable URL for it). The MP4 cuts (13 files, about 0.9 GB) are not committed; .gitignore in this folder ignores *.mp4.",
+  "mp4_location": "../storefront-v2-renders/trailer/ relative to the repository root (/Users/bradley/glob2/storefront-v2-renders/trailer/ on the machine that made them), beside the captioned screenshot renders",
+  "reproducible": "Every MP4 is reproducible from the raw frames with tools/ (README.md, Reproduce). The bytes and SHA-256 under deliverables identify the exact files; they were re-checked against the moved files on 2026-11-24 and all matched.",
+  "webm_url": "https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront-v2/trailer/glob2-trailer-30s-1080p.webm (pin a commit hash in place of main for AppStream metainfo)",
+  "store_packages": "assets/storefront-v2/store-packages/build.py links the per-store trailer files from both places (stores.json, trailer)"
+ }
+}
