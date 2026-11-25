@@ -209,7 +209,9 @@ class Supervisor:
                 return
             log.warning("chat agent exited with %s", proc.returncode)
             failures = failures + 1 if time.time() - began < 120 else 1
-            if self.chat_fatal(began):
+            if proc.returncode in (-15, -9, 143, 137):
+                failures = 1                 # stopped by a signal (an operator restart): back in 15 s
+            elif self.chat_fatal(began):
                 failures = max(failures, 6)  # bad token or similar: retry in minutes, not seconds
             self.sleep(min(15 * 2 ** (failures - 1), 600))
 
