@@ -47,7 +47,8 @@ class Drift:
         # Continuous glide: hold the middle button and move the pointer a little ~30 times a second
         # (2026-11-24: 120 ms drags every 0.2 s read as stop-start). Speed is in pixels per second.
         self.step_s = _f("CAMERA_DRIFT_STEP", 0.033)
-        self.px_per_s = _f("CAMERA_DRIFT_PX_PER_S", 60)
+        self.px_per_s = _f("CAMERA_DRIFT_PX_PER_S", 60)          # gentle speed near the target
+        self.max_px_per_s = _f("CAMERA_DRIFT_MAX_PX_PER_S", 240) # catching up with distant action
         self.ptr = None           # pointer position while the middle button is held
         self.held_at = 0.0
         self.poll_s = _f("CAMERA_DRIFT_POLL", 3.0)
@@ -199,12 +200,16 @@ class Drift:
         if dist < DEADZONE:
             self._lift(token)       # arrived: let go, the picture rests until the next target
             return
-        # ease: full speed far away, slower within 6 tiles
-        px = self.px_per_s * self.step_s * min(1.0, 0.35 + dist / 6.0)
+        # Speed grows with distance (user: allow it to go faster when needed): gentle within ~6 tiles,
+        # ramping up to max_px_per_s for action ~25+ tiles away, easing down as it arrives.
+        speed = self.px_per_s * min(1.0, 0.35 + dist / 6.0)
+        if dist > 6:
+            speed = min(self.max_px_per_s, self.px_per_s + (self.max_px_per_s - self.px_per_s) * (dist - 6) / 19.0)
+        px = speed * self.step_s
         ux, uy = dx / dist, dy / dist
         # holds expire after 5 s, and the pointer must stay over the map: re-anchor at the centre
         if (self.ptr is None or time.time() - self.held_at > 3.5
-                or abs(self.ptr[0] - CENTRE[0]) > 200 or abs(self.ptr[1] - CENTRE[1]) > 150):
+                or abs(self.ptr[0] - CENTRE[0]) > 600 or abs(self.ptr[1] - CENTRE[1]) > 340):
             if not self._press(token):
                 return
         # a middle-button drag moves the view with the mouse: move the pointer the way to travel
