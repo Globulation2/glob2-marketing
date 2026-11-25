@@ -1,0 +1,4 @@
+# The app-preview MP4s live outside the repository in ../storefront-v2-renders/app-previews/
+# relative to the repository root; see README.md "Where the files live".
+*.mp4
+*.mov

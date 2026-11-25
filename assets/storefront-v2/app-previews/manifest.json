@@ -1,0 +1,2939 @@
+{
+ "generated_by": "tools/make_manifest.py",
+ "made": "2026-11-25",
+ "what": "App Store app previews (iPhone 6.9-inch and iPad 13-inch, portrait), recorded from the iOS app in the iOS Simulator during live play at normal speed",
+ "footage_label": "Player view of a shared colony (You + Nicowar AI) against AI colonies; the colony was grown by the co-controlling AI, the scripted touch inputs listed per take are the player's. Not human-versus-human play.",
+ "build": {
+  "version": "0.11.8.0",
+  "commit": "5e96273ff62f59d31ccd343f4625169d06acb2f1",
+  "public_release": false,
+  "note": "origin/master release commit 5e96273ff62f plus the capture-only patch (../captures/mobile/tools/capture-build.patch) that compiles the loopback MCP automation listener into the simulator build so scripts can tap the real touch controls; it changes no rendering, HUD or simulation code and never ships",
+  "app_executable_sha256": "fbc62a0e2b319e1a68e07987f482dc657eb5ca055a933afc7a090e46243681cc",
+  "renderer": "portable SDL renderer (the SDL GPU/Metal renderer devices use is not available in the Simulator)",
+  "hd_artwork": "forced on (highResolutionArtworkChoice=on in the capture profile)"
+ },
+ "apple_spec": {
+  "source": "https://developer.apple.com/help/app-store-connect/reference/app-preview-specifications and https://developer.apple.com/app-store/app-previews/ (read 2026-11-25)",
+  "iphone_6.9": "886x1920 portrait (or 1920x886)",
+  "ipad_13": "1200x1600 portrait (or 1600x1200)",
+  "length": "15-30 s",
+  "frame_rate": "at most 30 fps",
+  "max_size": "500 MB",
+  "video": "H.264 up to High profile level 4.0, progressive, .mov/.m4v/.mp4, target 10-12 Mbps",
+  "audio": "stereo AAC 256 kbps, 44.1 or 48 kHz, all tracks enabled"
+ },
+ "storage": "The MP4s are not committed (see .gitignore); they live in ../storefront-v2-renders/app-previews/ relative to the repository root. Their bytes and SHA-256 here identify the exact files.",
+ "deliverables": [
+  {
+   "device": "iphone-6.9",
+   "file": "glob2-app-preview-iphone-6.9-886x1920.mp4",
+   "location": "../storefront-v2-renders/app-previews/glob2-app-preview-iphone-6.9-886x1920.mp4",
+   "bytes": 34850850,
+   "sha256": "4d53b27c735d95f61a8f66b7f8dd411bec6c57f405847cdd58675cd408d8bdeb",
+   "duration_s": 25.0,
+   "timeline": [
+    {
+     "take": "fight-a-r1",
+     "in": 0.6,
+     "seconds": 3.0,
+     "shot": "fight",
+     "note": "opens inside the fight: red army against blue defenders at the front",
+     "start": 0.0,
+     "end": 3.0
+    },
+    {
+     "take": "build-r3",
+     "in": 1.3,
+     "seconds": 6.6,
+     "shot": "build",
+     "note": "Build palette opens, the Inn is armed, the map is tapped, Ok; the site appears and workers head for it",
+     "start": 3.0,
+     "end": 9.6
+    },
+    {
+     "take": "build-r3",
+     "in": 29.4,
+     "seconds": 2.6,
+     "shot": "build-complete",
+     "note": "same take, 21.5 s later: workers finish the Inn (\"The Inn is finished.\")",
+     "start": 9.6,
+     "end": 12.2
+    },
+    {
+     "take": "fed-r3",
+     "in": 1.0,
+     "seconds": 3.2,
+     "shot": "fed",
+     "note": "wheat fields above the lake shore, inns below, workers carrying",
+     "start": 12.2,
+     "end": 15.4
+    },
+    {
+     "take": "fight-b-r1",
+     "in": 6.0,
+     "seconds": 4.0,
+     "shot": "fight-wide",
+     "note": "the front, wider: the red and blue lines clash",
+     "start": 15.4,
+     "end": 19.4
+    },
+    {
+     "take": "hero-r3",
+     "in": 2.0,
+     "seconds": 5.6,
+     "shot": "colony",
+     "note": "the colony core: pools, racetrack, barracks, inns and hundreds of globs",
+     "start": 19.4,
+     "end": 25.0
+    }
+   ],
+   "text": [
+    {
+     "field": "trailer_line_1",
+     "start": 7.9,
+     "end": 12.0
+    },
+    {
+     "field": "trailer_line_2",
+     "start": 12.5,
+     "end": 15.3
+    },
+    {
+     "field": "trailer_line_3",
+     "start": 15.7,
+     "end": 19.2
+    },
+    {
+     "field": "trailer_line_4",
+     "start": 19.8,
+     "end": 22.6
+    }
+   ],
+   "wordmark": {
+    "start": 22.8
+   },
+   "music_plan": {
+    "set": "original",
+    "offset": 0,
+    "crossfade": 0.8,
+    "tail_fade": 2.0,
+    "gain_db": 0,
+    "segments": [
+     {
+      "mood": "a3",
+      "from": 0,
+      "to": 3.0
+     },
+     {
+      "mood": "a2",
+      "from": 3.0,
+      "to": 15.4
+     },
+     {
+      "mood": "a3",
+      "from": 15.4,
+      "to": 19.4
+     },
+     {
+      "mood": "a2",
+      "from": 19.4,
+      "to": 25.0
+     }
+    ],
+    "mood_gain_db": {
+     "a3": 4.0
+    },
+    "limiter": {
+     "limit": 0.79,
+     "attack_ms": 2,
+     "release_ms": 60
+    }
+   },
+   "poster": {
+    "time": 16.5,
+    "file": "poster-iphone-6.9-886x1920.png",
+    "sha256": "2cf05ebd661d72cfe247de391e48a100f6f3e3bf7075420d52f048dee4b085ce"
+   },
+   "spec_check": {
+    "file": "glob2-app-preview-iphone-6.9-886x1920.mp4",
+    "bytes": 34850850,
+    "container": "mov,mp4,m4a,3gp,3g2,mj2",
+    "duration_s": 25.0,
+    "video": {
+     "codec_name": "h264",
+     "profile": "High",
+     "level": 40,
+     "width": 886,
+     "height": 1920,
+     "pix_fmt": "yuv420p",
+     "field_order": "progressive",
+     "r_frame_rate": "30/1",
+     "avg_frame_rate": "30/1",
+     "nb_frames": "750",
+     "bit_rate": "10887109",
+     "color_primaries": "bt709",
+     "color_transfer": "bt709",
+     "color_space": "bt709"
+    },
+    "audio": [
+     {
+      "codec_name": "aac",
+      "profile": "LC",
+      "channels": 2,
+      "channel_layout": "stereo",
+      "sample_rate": "48000",
+      "bit_rate": "256226",
+      "disposition": {
+       "default": 1,
+       "dub": 0,
+       "original": 0,
+       "comment": 0,
+       "lyrics": 0,
+       "karaoke": 0,
+       "forced": 0,
+       "hearing_impaired": 0,
+       "visual_impaired": 0,
+       "clean_effects": 0,
+       "attached_pic": 0,
+       "timed_thumbnails": 0,
+       "non_diegetic": 0,
+       "captions": 0,
+       "descriptions": 0,
+       "metadata": 0,
+       "dependent": 0,
+       "still_image": 0,
+       "multilayer": 0
+      }
+     }
+    ],
+    "frames": 750,
+    "frame_step_ms": [
+     33.333,
+     33.334
+    ],
+    "integrated_lufs": -14.2,
+    "true_peak_dbtp": -1.9,
+    "island_fill": {
+     "max_channel_difference_box_vs_bar": 0.28,
+     "pass": true
+    },
+    "sheets": [
+     "contact-glob2-app-preview-iphone-6.9-886x1920-full.jpg",
+     "contact-glob2-app-preview-iphone-6.9-886x1920-thumb.jpg"
+    ],
+    "checks": {
+     "resolution": true,
+     "duration_15_30s": true,
+     "frame_rate_30_constant": true,
+     "frame_count_matches_duration": true,
+     "codec_h264": true,
+     "profile_high_or_lower": true,
+     "level_at_most_4_0": true,
+     "progressive": true,
+     "pix_fmt_yuv420p": true,
+     "colour_tags_bt709": true,
+     "container_mp4": true,
+     "size_under_500MB": true,
+     "video_bitrate_10_12_mbps": true,
+     "audio_one_stereo_track": true,
+     "audio_aac_256k": true,
+     "audio_44_1_or_48_khz": true,
+     "audio_track_enabled": true,
+     "island_fill_matches_bar": true
+    },
+    "all_pass": true
+   }
+  },
+  {
+   "device": "ipad-13",
+   "file": "glob2-app-preview-ipad-13-1200x1600.mp4",
+   "location": "../storefront-v2-renders/app-previews/glob2-app-preview-ipad-13-1200x1600.mp4",
+   "bytes": 35182344,
+   "sha256": "373fb954e84b140b04848214ef7fbfc0352b32bc19507f08e98538987d7b36ee",
+   "duration_s": 25.0,
+   "timeline": [
+    {
+     "take": "fight-a-r2",
+     "in": 6.0,
+     "seconds": 3.0,
+     "shot": "fight",
+     "note": "opens inside the fight: red army against blue defenders at the front",
+     "start": 0.0,
+     "end": 3.0
+    },
+    {
+     "take": "build-r11-a1",
+     "in": 1.2,
+     "seconds": 4.2,
+     "shot": "build",
+     "note": "Build palette opens (named on tablets), the Inn is armed, the map is tapped and the ghost shows",
+     "start": 3.0,
+     "end": 7.2
+    },
+    {
+     "take": "build-r11-a1",
+     "in": 7.8,
+     "seconds": 4.4,
+     "shot": "build-site",
+     "note": "same take, 2.4 s later (cut past the app's 2 s hitch while it confirms): Ok has placed the Inn site, the palette closes, workers head for the scaffold",
+     "start": 7.2,
+     "end": 11.6
+    },
+    {
+     "take": "fed-r4",
+     "in": 2.0,
+     "seconds": 3.4,
+     "shot": "fed",
+     "note": "wheat fields above the lake shore, inns below, workers carrying",
+     "start": 11.6,
+     "end": 15.0
+    },
+    {
+     "take": "fight-b-r2",
+     "in": 9.0,
+     "seconds": 4.4,
+     "shot": "fight-2",
+     "note": "the front from a second load of the save: the red and blue lines clash",
+     "start": 15.0,
+     "end": 19.4
+    },
+    {
+     "take": "hero-r1",
+     "in": 5.0,
+     "seconds": 5.6,
+     "shot": "colony",
+     "note": "the colony core: pools, racetracks, barracks, inns and hundreds of globs",
+     "start": 19.4,
+     "end": 25.0
+    }
+   ],
+   "text": [
+    {
+     "field": "trailer_line_1",
+     "start": 7.5,
+     "end": 11.4
+    },
+    {
+     "field": "trailer_line_2",
+     "start": 11.9,
+     "end": 14.7
+    },
+    {
+     "field": "trailer_line_3",
+     "start": 15.3,
+     "end": 19.2
+    },
+    {
+     "field": "trailer_line_4",
+     "start": 19.8,
+     "end": 22.6
+    }
+   ],
+   "wordmark": {
+    "start": 22.8
+   },
+   "music_plan": {
+    "set": "original",
+    "offset": 0,
+    "crossfade": 0.8,
+    "tail_fade": 2.0,
+    "gain_db": 0,
+    "segments": [
+     {
+      "mood": "a3",
+      "from": 0,
+      "to": 3.0
+     },
+     {
+      "mood": "a2",
+      "from": 3.0,
+      "to": 15.0
+     },
+     {
+      "mood": "a3",
+      "from": 15.0,
+      "to": 19.4
+     },
+     {
+      "mood": "a2",
+      "from": 19.4,
+      "to": 25.0
+     }
+    ],
+    "mood_gain_db": {
+     "a3": 4.0
+    },
+    "limiter": {
+     "limit": 0.79,
+     "attack_ms": 2,
+     "release_ms": 60
+    }
+   },
+   "poster": {
+    "time": 16.6,
+    "file": "poster-ipad-13-1200x1600.png",
+    "sha256": "24ff524c701372a4b59ef3471844832a6b587cf7c1c200416ad8a2f7f957a716"
+   },
+   "spec_check": {
+    "file": "glob2-app-preview-ipad-13-1200x1600.mp4",
+    "bytes": 35182344,
+    "container": "mov,mp4,m4a,3gp,3g2,mj2",
+    "duration_s": 25.0,
+    "video": {
+     "codec_name": "h264",
+     "profile": "High",
+     "level": 40,
+     "width": 1200,
+     "height": 1600,
+     "pix_fmt": "yuv420p",
+     "field_order": "progressive",
+     "r_frame_rate": "30/1",
+     "avg_frame_rate": "30/1",
+     "nb_frames": "750",
+     "bit_rate": "10993180",
+     "color_primaries": "bt709",
+     "color_transfer": "bt709",
+     "color_space": "bt709"
+    },
+    "audio": [
+     {
+      "codec_name": "aac",
+      "profile": "LC",
+      "channels": 2,
+      "channel_layout": "stereo",
+      "sample_rate": "48000",
+      "bit_rate": "256227",
+      "disposition": {
+       "default": 1,
+       "dub": 0,
+       "original": 0,
+       "comment": 0,
+       "lyrics": 0,
+       "karaoke": 0,
+       "forced": 0,
+       "hearing_impaired": 0,
+       "visual_impaired": 0,
+       "clean_effects": 0,
+       "attached_pic": 0,
+       "timed_thumbnails": 0,
+       "non_diegetic": 0,
+       "captions": 0,
+       "descriptions": 0,
+       "metadata": 0,
+       "dependent": 0,
+       "still_image": 0,
+       "multilayer": 0
+      }
+     }
+    ],
+    "frames": 750,
+    "frame_step_ms": [
+     33.333,
+     33.334
+    ],
+    "integrated_lufs": -14.2,
+    "true_peak_dbtp": -1.9,
+    "sheets": [
+     "contact-glob2-app-preview-ipad-13-1200x1600-full.jpg",
+     "contact-glob2-app-preview-ipad-13-1200x1600-thumb.jpg"
+    ],
+    "checks": {
+     "resolution": true,
+     "duration_15_30s": true,
+     "frame_rate_30_constant": true,
+     "frame_count_matches_duration": true,
+     "codec_h264": true,
+     "profile_high_or_lower": true,
+     "level_at_most_4_0": true,
+     "progressive": true,
+     "pix_fmt_yuv420p": true,
+     "colour_tags_bt709": true,
+     "container_mp4": true,
+     "size_under_500MB": true,
+     "video_bitrate_10_12_mbps": true,
+     "audio_one_stereo_track": true,
+     "audio_aac_256k": true,
+     "audio_44_1_or_48_khz": true,
+     "audio_track_enabled": true
+    },
+    "all_pass": true
+   }
+  }
+ ],
+ "takes": {
+  "ipad-13/build-r11-a1": {
+   "take": "build-r11-a1",
+   "device": "ipad-13",
+   "model": "iPad Pro 13-inch (M5) simulator, iOS 26.5",
+   "save": "bigpond-n-t45017",
+   "loaded_tick": 45024,
+   "first_tick": 47911,
+   "camera": {
+    "tile": [
+     44,
+     32
+    ],
+    "zoom": 1.25,
+    "tile_points": 40
+   },
+   "recorder": "xcrun simctl io recordVideo --codec=h264 --mask=ignored",
+   "speed": "1x (normal), live; never paused or stepped",
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "player_actions": [
+    "end-of-match dialog (You have won): Continue playing",
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the co-controlling AI's forbidden, guard and clearing zones before the take and every 1.5 s during it",
+    "Build: opened the build palette",
+    "build palette: armed the Inn",
+    "tapped the map to put the Inn site",
+    "Ok: confirmed the construction",
+    "closed the build palette",
+    "closed the build palette (tablets keep the building armed after Ok)"
+   ],
+   "actions": [
+    {
+     "t": 1.57,
+     "action": {
+      "t": 1.5,
+      "do": "act",
+      "key": "touch/navigation/buildings",
+      "note": "Build: opened the build palette"
+     }
+    },
+    {
+     "t": 3.14,
+     "action": {
+      "t": 3.0,
+      "do": "act",
+      "key": "touch/palette/inn.0.site",
+      "note": "build palette: armed the Inn"
+     }
+    },
+    {
+     "t": 4.59,
+     "action": {
+      "t": 4.5,
+      "do": "tap_tile",
+      "tile": "site",
+      "note": "tapped the map to put the Inn site"
+     }
+    },
+    {
+     "t": 6.57,
+     "action": {
+      "t": 5.8,
+      "do": "act",
+      "key": "touch/placement/confirm",
+      "note": "Ok: confirmed the construction"
+     }
+    },
+    {
+     "t": 9.38,
+     "action": {
+      "t": 8.0,
+      "do": "close",
+      "note": "closed the build palette"
+     }
+    },
+    {
+     "t": 9.46,
+     "action": {
+      "t": 9.0,
+      "do": "close",
+      "note": "closed the build palette (tablets keep the building armed after Ok)"
+     }
+    }
+   ],
+   "samples": [
+    {
+     "t": 0.02,
+     "tick": 47912,
+     "event_rows": 1
+    },
+    {
+     "t": 2.03,
+     "tick": 47972,
+     "event_rows": 1
+    },
+    {
+     "t": 4.03,
+     "tick": 48032,
+     "event_rows": 0
+    },
+    {
+     "t": 7.49,
+     "tick": 48140,
+     "event_rows": 0
+    },
+    {
+     "t": 9.66,
+     "tick": 48202,
+     "event_rows": 0
+    },
+    {
+     "t": 10.05,
+     "tick": 48213,
+     "event_rows": 0
+    },
+    {
+     "t": 12.21,
+     "tick": 48278,
+     "event_rows": 0
+    },
+    {
+     "t": 14.05,
+     "tick": 48333,
+     "event_rows": 0
+    },
+    {
+     "t": 16.06,
+     "tick": 48396,
+     "event_rows": 0
+    },
+    {
+     "t": 18.29,
+     "tick": 48461,
+     "event_rows": 0
+    },
+    {
+     "t": 20.02,
+     "tick": 48513,
+     "event_rows": 0
+    },
+    {
+     "t": 22.02,
+     "tick": 48573,
+     "event_rows": 0
+    },
+    {
+     "t": 24.18,
+     "tick": 48638,
+     "event_rows": 0
+    },
+    {
+     "t": 26.01,
+     "tick": 48692,
+     "event_rows": 0
+    },
+    {
+     "t": 28.02,
+     "tick": 48752,
+     "event_rows": 0
+    },
+    {
+     "t": 30.21,
+     "tick": 48818,
+     "event_rows": 0
+    },
+    {
+     "t": 32.05,
+     "tick": 48875,
+     "event_rows": 0
+    },
+    {
+     "t": 34.05,
+     "tick": 48938,
+     "event_rows": 0
+    },
+    {
+     "t": 36.19,
+     "tick": 48997,
+     "event_rows": 1
+    },
+    {
+     "t": 38.05,
+     "tick": 49050,
+     "event_rows": 1
+    },
+    {
+     "t": 40.03,
+     "tick": 49110,
+     "event_rows": 2
+    },
+    {
+     "t": 42.15,
+     "tick": 49174,
+     "event_rows": 1
+    },
+    {
+     "t": 44.03,
+     "tick": 49230,
+     "event_rows": 1
+    },
+    {
+     "t": 46.0,
+     "tick": 49289,
+     "event_rows": 0
+    },
+    {
+     "t": 48.15,
+     "tick": 49354,
+     "event_rows": 0
+    }
+   ],
+   "note": "The player places an Inn in the colony; workers come to build it",
+   "probe_site": {
+    "x": 43,
+    "y": 31,
+    "w": 3,
+    "h": 3,
+    "note": "fixed tile, clear ground (no probe site)"
+   },
+   "buildings_at_site_after": [
+    {
+     "type": "inn",
+     "x": 43,
+     "y": 31,
+     "hp": 135,
+     "max_hp": 200,
+     "level": 1
+    }
+   ],
+   "raw_movie": {
+    "file": "build-r11-a1.mov",
+    "bytes": 241716836,
+    "sha256": "4b91718924c28687daa51916a32268bd291e203624fbf7370803f68aeeef73fc",
+    "note": "kept in the session scratch directory, not committed"
+   },
+   "event_rows_range": [
+    0,
+    2
+   ],
+   "ticks_per_second_min": 27.6
+  },
+  "ipad-13/fed-r4": {
+   "take": "fed",
+   "device": "ipad-13",
+   "model": "iPad Pro 13-inch (M5) simulator, iOS 26.5",
+   "save": "bigpond-n-t45017",
+   "loaded_tick": 45028,
+   "first_tick": 49712,
+   "camera": {
+    "tile": [
+     40,
+     19
+    ],
+    "zoom": 1.087,
+    "tile_points": 34
+   },
+   "recorder": "xcrun simctl io recordVideo --codec=h264 --mask=ignored",
+   "speed": "1x (normal), live; never paused or stepped",
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "player_actions": [
+    "end-of-match dialog (You have won): Continue playing",
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the co-controlling AI's forbidden, guard and clearing zones before the take and every 1.5 s during it"
+   ],
+   "actions": [],
+   "samples": [
+    {
+     "t": 0.06,
+     "tick": 49715,
+     "event_rows": 1
+    },
+    {
+     "t": 1.04,
+     "tick": 49743,
+     "event_rows": 1
+    },
+    {
+     "t": 2.05,
+     "tick": 49773,
+     "event_rows": 1
+    },
+    {
+     "t": 3.46,
+     "tick": 49816,
+     "event_rows": 0
+    },
+    {
+     "t": 4.02,
+     "tick": 49832,
+     "event_rows": 0
+    },
+    {
+     "t": 5.04,
+     "tick": 49863,
+     "event_rows": 0
+    },
+    {
+     "t": 6.4,
+     "tick": 49904,
+     "event_rows": 0
+    },
+    {
+     "t": 7.03,
+     "tick": 49922,
+     "event_rows": 0
+    },
+    {
+     "t": 8.04,
+     "tick": 49953,
+     "event_rows": 0
+    },
+    {
+     "t": 9.4,
+     "tick": 49993,
+     "event_rows": 0
+    },
+    {
+     "t": 10.05,
+     "tick": 50013,
+     "event_rows": 0
+    },
+    {
+     "t": 11.04,
+     "tick": 50044,
+     "event_rows": 0
+    },
+    {
+     "t": 12.37,
+     "tick": 50083,
+     "event_rows": 0
+    },
+    {
+     "t": 13.01,
+     "tick": 50102,
+     "event_rows": 0
+    }
+   ],
+   "note": "Inns and wheat fields, workers harvesting and carrying",
+   "raw_movie": {
+    "file": "fed-r4.mov",
+    "bytes": 69841212,
+    "sha256": "21d295d363b8eaffdbbb639282457f6d4b0af171585bea8aab206a4794f0af08",
+    "note": "kept in the session scratch directory, not committed"
+   },
+   "event_rows_range": [
+    0,
+    1
+   ],
+   "ticks_per_second_min": 28.6
+  },
+  "ipad-13/fight-a-r2": {
+   "take": "fight-a",
+   "device": "ipad-13",
+   "model": "iPad Pro 13-inch (M5) simulator, iOS 26.5",
+   "save": "bigpond-n-t27015",
+   "loaded_tick": 27025,
+   "first_tick": 27507,
+   "camera": {
+    "tile": [
+     39,
+     58
+    ],
+    "zoom": 1.663,
+    "tile_points": 52
+   },
+   "recorder": "xcrun simctl io recordVideo --codec=h264 --mask=ignored",
+   "speed": "1x (normal), live; never paused or stepped",
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "player_actions": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the co-controlling AI's forbidden, guard and clearing zones before the take and every 1.5 s during it"
+   ],
+   "actions": [],
+   "samples": [
+    {
+     "t": 0.01,
+     "tick": 27508,
+     "event_rows": 6
+    },
+    {
+     "t": 0.53,
+     "tick": 27523,
+     "event_rows": 5
+    },
+    {
+     "t": 1.04,
+     "tick": 27539,
+     "event_rows": 5
+    },
+    {
+     "t": 1.64,
+     "tick": 27557,
+     "event_rows": 5
+    },
+    {
+     "t": 2.05,
+     "tick": 27569,
+     "event_rows": 5
+    },
+    {
+     "t": 2.54,
+     "tick": 27583,
+     "event_rows": 5
+    },
+    {
+     "t": 3.59,
+     "tick": 27619,
+     "event_rows": 4
+    },
+    {
+     "t": 3.76,
+     "tick": 27624,
+     "event_rows": 4
+    },
+    {
+     "t": 4.03,
+     "tick": 27630,
+     "event_rows": 4
+    },
+    {
+     "t": 4.74,
+     "tick": 27651,
+     "event_rows": 4
+    },
+    {
+     "t": 5.03,
+     "tick": 27659,
+     "event_rows": 4
+    },
+    {
+     "t": 5.52,
+     "tick": 27676,
+     "event_rows": 4
+    },
+    {
+     "t": 6.53,
+     "tick": 27707,
+     "event_rows": 5
+    },
+    {
+     "t": 6.67,
+     "tick": 27710,
+     "event_rows": 5
+    },
+    {
+     "t": 7.01,
+     "tick": 27721,
+     "event_rows": 5
+    },
+    {
+     "t": 7.76,
+     "tick": 27741,
+     "event_rows": 4
+    },
+    {
+     "t": 8.04,
+     "tick": 27750,
+     "event_rows": 4
+    },
+    {
+     "t": 8.53,
+     "tick": 27765,
+     "event_rows": 4
+    },
+    {
+     "t": 9.24,
+     "tick": 27786,
+     "event_rows": 3
+    },
+    {
+     "t": 9.52,
+     "tick": 27794,
+     "event_rows": 3
+    },
+    {
+     "t": 10.01,
+     "tick": 27809,
+     "event_rows": 2
+    },
+    {
+     "t": 10.76,
+     "tick": 27831,
+     "event_rows": 3
+    },
+    {
+     "t": 11.04,
+     "tick": 27839,
+     "event_rows": 4
+    },
+    {
+     "t": 11.51,
+     "tick": 27853,
+     "event_rows": 4
+    },
+    {
+     "t": 12.23,
+     "tick": 27875,
+     "event_rows": 4
+    },
+    {
+     "t": 12.51,
+     "tick": 27883,
+     "event_rows": 4
+    },
+    {
+     "t": 13.04,
+     "tick": 27899,
+     "event_rows": 4
+    },
+    {
+     "t": 13.72,
+     "tick": 27920,
+     "event_rows": 4
+    },
+    {
+     "t": 14.05,
+     "tick": 27930,
+     "event_rows": 4
+    },
+    {
+     "t": 14.53,
+     "tick": 27944,
+     "event_rows": 4
+    },
+    {
+     "t": 15.19,
+     "tick": 27964,
+     "event_rows": 6
+    },
+    {
+     "t": 15.51,
+     "tick": 27973,
+     "event_rows": 6
+    }
+   ],
+   "note": "The red army attacking the blue colony at the front, first seconds after loading",
+   "raw_movie": {
+    "file": "fight-a-r2.mov",
+    "bytes": 78634209,
+    "sha256": "ed5b52ebb42c96977ca545c97668e0da2f08a875b6c2892d3b51792925a032ec",
+    "note": "kept in the session scratch directory, not committed"
+   },
+   "event_rows_range": [
+    2,
+    6
+   ],
+   "ticks_per_second_min": 26.7
+  },
+  "ipad-13/fight-b-r2": {
+   "take": "fight-b",
+   "device": "ipad-13",
+   "model": "iPad Pro 13-inch (M5) simulator, iOS 26.5",
+   "save": "bigpond-n-t27015",
+   "loaded_tick": 27033,
+   "first_tick": 27532,
+   "camera": {
+    "tile": [
+     38,
+     59
+    ],
+    "zoom": 1.407,
+    "tile_points": 44
+   },
+   "recorder": "xcrun simctl io recordVideo --codec=h264 --mask=ignored",
+   "speed": "1x (normal), live; never paused or stepped",
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "player_actions": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the co-controlling AI's forbidden, guard and clearing zones before the take and every 1.5 s during it"
+   ],
+   "actions": [],
+   "samples": [
+    {
+     "t": 0.01,
+     "tick": 27533,
+     "event_rows": 5
+    },
+    {
+     "t": 0.55,
+     "tick": 27549,
+     "event_rows": 6
+    },
+    {
+     "t": 1.01,
+     "tick": 27563,
+     "event_rows": 5
+    },
+    {
+     "t": 1.63,
+     "tick": 27581,
+     "event_rows": 5
+    },
+    {
+     "t": 2.05,
+     "tick": 27594,
+     "event_rows": 5
+    },
+    {
+     "t": 2.5,
+     "tick": 27608,
+     "event_rows": 4
+    },
+    {
+     "t": 3.12,
+     "tick": 27626,
+     "event_rows": 4
+    },
+    {
+     "t": 3.53,
+     "tick": 27640,
+     "event_rows": 5
+    },
+    {
+     "t": 4.0,
+     "tick": 27655,
+     "event_rows": 5
+    },
+    {
+     "t": 4.79,
+     "tick": 27677,
+     "event_rows": 5
+    },
+    {
+     "t": 5.0,
+     "tick": 27682,
+     "event_rows": 5
+    },
+    {
+     "t": 5.52,
+     "tick": 27698,
+     "event_rows": 5
+    },
+    {
+     "t": 6.27,
+     "tick": 27722,
+     "event_rows": 6
+    },
+    {
+     "t": 6.55,
+     "tick": 27729,
+     "event_rows": 5
+    },
+    {
+     "t": 7.01,
+     "tick": 27743,
+     "event_rows": 5
+    },
+    {
+     "t": 7.63,
+     "tick": 27761,
+     "event_rows": 5
+    },
+    {
+     "t": 8.01,
+     "tick": 27773,
+     "event_rows": 5
+    },
+    {
+     "t": 8.53,
+     "tick": 27788,
+     "event_rows": 4
+    },
+    {
+     "t": 9.16,
+     "tick": 27807,
+     "event_rows": 4
+    },
+    {
+     "t": 9.52,
+     "tick": 27818,
+     "event_rows": 3
+    },
+    {
+     "t": 10.03,
+     "tick": 27834,
+     "event_rows": 5
+    },
+    {
+     "t": 10.65,
+     "tick": 27852,
+     "event_rows": 5
+    },
+    {
+     "t": 11.01,
+     "tick": 27863,
+     "event_rows": 5
+    },
+    {
+     "t": 11.52,
+     "tick": 27878,
+     "event_rows": 5
+    },
+    {
+     "t": 12.14,
+     "tick": 27897,
+     "event_rows": 5
+    },
+    {
+     "t": 12.5,
+     "tick": 27908,
+     "event_rows": 5
+    },
+    {
+     "t": 13.03,
+     "tick": 27923,
+     "event_rows": 5
+    },
+    {
+     "t": 13.64,
+     "tick": 27942,
+     "event_rows": 6
+    },
+    {
+     "t": 14.0,
+     "tick": 27953,
+     "event_rows": 6
+    },
+    {
+     "t": 14.52,
+     "tick": 27968,
+     "event_rows": 7
+    },
+    {
+     "t": 15.14,
+     "tick": 27987,
+     "event_rows": 6
+    },
+    {
+     "t": 15.55,
+     "tick": 27999,
+     "event_rows": 6
+    }
+   ],
+   "note": "The same front, wider",
+   "raw_movie": {
+    "file": "fight-b-r2.mov",
+    "bytes": 78224649,
+    "sha256": "efa4de1e3247a16da0a81e29adc96a7e3f34c1518bd18c2bb9ab2cf2fa52761d",
+    "note": "kept in the session scratch directory, not committed"
+   },
+   "event_rows_range": [
+    3,
+    7
+   ],
+   "ticks_per_second_min": 27.8
+  },
+  "ipad-13/hero-r1": {
+   "take": "hero",
+   "device": "ipad-13",
+   "model": "iPad Pro 13-inch (M5) simulator, iOS 26.5",
+   "save": "bigpond-n-t45017",
+   "loaded_tick": 45035,
+   "first_tick": 49553,
+   "camera": {
+    "tile": [
+     52,
+     30
+    ],
+    "zoom": 0.895,
+    "tile_points": 28
+   },
+   "recorder": "xcrun simctl io recordVideo --codec=h264 --mask=ignored",
+   "speed": "1x (normal), live; never paused or stepped",
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "player_actions": [
+    "end-of-match dialog (You have won): Continue playing",
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the co-controlling AI's forbidden, guard and clearing zones before the take and every 1.5 s during it"
+   ],
+   "actions": [],
+   "samples": [
+    {
+     "t": 0.03,
+     "tick": 49555,
+     "event_rows": 0
+    },
+    {
+     "t": 0.55,
+     "tick": 49570,
+     "event_rows": 0
+    },
+    {
+     "t": 1.06,
+     "tick": 49585,
+     "event_rows": 0
+    },
+    {
+     "t": 1.95,
+     "tick": 49612,
+     "event_rows": 0
+    },
+    {
+     "t": 2.0,
+     "tick": 49614,
+     "event_rows": 0
+    },
+    {
+     "t": 2.51,
+     "tick": 49629,
+     "event_rows": 0
+    },
+    {
+     "t": 3.44,
+     "tick": 49657,
+     "event_rows": 0
+    },
+    {
+     "t": 3.51,
+     "tick": 49660,
+     "event_rows": 0
+    },
+    {
+     "t": 4.05,
+     "tick": 49677,
+     "event_rows": 0
+    },
+    {
+     "t": 5.15,
+     "tick": 49713,
+     "event_rows": 0
+    },
+    {
+     "t": 5.37,
+     "tick": 49719,
+     "event_rows": 0
+    },
+    {
+     "t": 5.82,
+     "tick": 49730,
+     "event_rows": 0
+    },
+    {
+     "t": 7.11,
+     "tick": 49769,
+     "event_rows": 0
+    },
+    {
+     "t": 7.23,
+     "tick": 49772,
+     "event_rows": 0
+    },
+    {
+     "t": 7.33,
+     "tick": 49775,
+     "event_rows": 0
+    },
+    {
+     "t": 8.0,
+     "tick": 49794,
+     "event_rows": 0
+    },
+    {
+     "t": 8.07,
+     "tick": 49796,
+     "event_rows": 0
+    },
+    {
+     "t": 8.56,
+     "tick": 49811,
+     "event_rows": 0
+    },
+    {
+     "t": 9.53,
+     "tick": 49840,
+     "event_rows": 0
+    },
+    {
+     "t": 9.61,
+     "tick": 49843,
+     "event_rows": 0
+    },
+    {
+     "t": 10.04,
+     "tick": 49855,
+     "event_rows": 0
+    },
+    {
+     "t": 11.02,
+     "tick": 49885,
+     "event_rows": 0
+    },
+    {
+     "t": 11.1,
+     "tick": 49888,
+     "event_rows": 0
+    },
+    {
+     "t": 11.52,
+     "tick": 49900,
+     "event_rows": 0
+    },
+    {
+     "t": 12.6,
+     "tick": 49933,
+     "event_rows": 0
+    },
+    {
+     "t": 12.71,
+     "tick": 49936,
+     "event_rows": 0
+    },
+    {
+     "t": 13.03,
+     "tick": 49946,
+     "event_rows": 0
+    },
+    {
+     "t": 13.92,
+     "tick": 49973,
+     "event_rows": 0
+    }
+   ],
+   "note": "The colony core: both swimming pools and racetracks, barracks, school, inns and hundreds of globs",
+   "raw_movie": {
+    "file": "hero-r1.mov",
+    "bytes": 68757841,
+    "sha256": "ac58976c80f1657fdbe7c4e28642418d120adfaca6fb8ae7dc0efa43ace3d2d2",
+    "note": "kept in the session scratch directory, not committed"
+   },
+   "event_rows_range": [
+    0,
+    0
+   ],
+   "ticks_per_second_min": 24.4
+  },
+  "iphone-6.9/build-r3": {
+   "take": "build",
+   "device": "iphone-6.9",
+   "model": "iPhone 17 Pro Max simulator, iOS 26.5",
+   "save": "bigpond-n-t45017",
+   "loaded_tick": 45028,
+   "first_tick": 47900,
+   "camera": {
+    "tile": [
+     44,
+     32
+    ],
+    "zoom": 1.705,
+    "tile_points": 30
+   },
+   "recorder": "xcrun simctl io recordVideo --codec=h264 --mask=ignored",
+   "speed": "1x (normal), live; never paused or stepped",
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "player_actions": [
+    "end-of-match dialog (You have won): Continue playing",
+    "Tools strip: Health and food bars lens switched off",
+    "before the take (off the recording): a probe site placed and destroyed to find clear ground",
+    "zone tool: erased the co-controlling AI's forbidden, guard and clearing zones before the take and every 1.5 s during it",
+    "Build: opened the build palette",
+    "build palette: armed the Inn",
+    "tapped the map to put the Inn site",
+    "Ok: confirmed the construction",
+    "closed the build palette"
+   ],
+   "actions": [
+    {
+     "t": 1.54,
+     "action": {
+      "t": 1.5,
+      "do": "act",
+      "key": "touch/navigation/buildings",
+      "note": "Build: opened the build palette"
+     }
+    },
+    {
+     "t": 3.07,
+     "action": {
+      "t": 3.0,
+      "do": "act",
+      "key": "touch/palette/inn.0.site",
+      "note": "build palette: armed the Inn"
+     }
+    },
+    {
+     "t": 4.64,
+     "action": {
+      "t": 4.6,
+      "do": "tap_tile",
+      "tile": "site",
+      "note": "tapped the map to put the Inn site"
+     }
+    },
+    {
+     "t": 6.28,
+     "action": {
+      "t": 6.2,
+      "do": "act",
+      "key": "touch/placement/confirm",
+      "note": "Ok: confirmed the construction"
+     }
+    },
+    {
+     "t": 7.44,
+     "action": {
+      "t": 7.4,
+      "do": "close",
+      "note": "closed the build palette"
+     }
+    }
+   ],
+   "samples": [
+    {
+     "t": 0.01,
+     "tick": 47901,
+     "event_rows": 1
+    },
+    {
+     "t": 0.53,
+     "tick": 47916,
+     "event_rows": 1
+    },
+    {
+     "t": 1.04,
+     "tick": 47931,
+     "event_rows": 1
+    },
+    {
+     "t": 1.62,
+     "tick": 47948,
+     "event_rows": 1
+    },
+    {
+     "t": 2.01,
+     "tick": 47960,
+     "event_rows": 1
+    },
+    {
+     "t": 2.52,
+     "tick": 47976,
+     "event_rows": 2
+    },
+    {
+     "t": 3.15,
+     "tick": 47995,
+     "event_rows": 0
+    },
+    {
+     "t": 3.51,
+     "tick": 48009,
+     "event_rows": 0
+    },
+    {
+     "t": 4.01,
+     "tick": 48021,
+     "event_rows": 0
+    },
+    {
+     "t": 4.64,
+     "tick": 48040,
+     "event_rows": 0
+    },
+    {
+     "t": 5.05,
+     "tick": 48052,
+     "event_rows": 0
+    },
+    {
+     "t": 5.52,
+     "tick": 48066,
+     "event_rows": 0
+    },
+    {
+     "t": 6.11,
+     "tick": 48083,
+     "event_rows": 0
+    },
+    {
+     "t": 6.55,
+     "tick": 48096,
+     "event_rows": 1
+    },
+    {
+     "t": 7.0,
+     "tick": 48110,
+     "event_rows": 1
+    },
+    {
+     "t": 7.62,
+     "tick": 48129,
+     "event_rows": 1
+    },
+    {
+     "t": 8.04,
+     "tick": 48141,
+     "event_rows": 1
+    },
+    {
+     "t": 8.55,
+     "tick": 48156,
+     "event_rows": 1
+    },
+    {
+     "t": 9.14,
+     "tick": 48174,
+     "event_rows": 2
+    },
+    {
+     "t": 9.54,
+     "tick": 48186,
+     "event_rows": 2
+    },
+    {
+     "t": 10.05,
+     "tick": 48201,
+     "event_rows": 2
+    },
+    {
+     "t": 10.58,
+     "tick": 48218,
+     "event_rows": 1
+    },
+    {
+     "t": 11.03,
+     "tick": 48231,
+     "event_rows": 1
+    },
+    {
+     "t": 11.54,
+     "tick": 48246,
+     "event_rows": 1
+    },
+    {
+     "t": 12.15,
+     "tick": 48265,
+     "event_rows": 1
+    },
+    {
+     "t": 12.51,
+     "tick": 48275,
+     "event_rows": 1
+    },
+    {
+     "t": 13.02,
+     "tick": 48291,
+     "event_rows": 1
+    },
+    {
+     "t": 13.62,
+     "tick": 48309,
+     "event_rows": 1
+    },
+    {
+     "t": 14.03,
+     "tick": 48321,
+     "event_rows": 1
+    },
+    {
+     "t": 14.53,
+     "tick": 48337,
+     "event_rows": 1
+    },
+    {
+     "t": 15.14,
+     "tick": 48354,
+     "event_rows": 0
+    },
+    {
+     "t": 15.53,
+     "tick": 48366,
+     "event_rows": 0
+    },
+    {
+     "t": 16.03,
+     "tick": 48381,
+     "event_rows": 0
+    },
+    {
+     "t": 16.63,
+     "tick": 48399,
+     "event_rows": 0
+    },
+    {
+     "t": 17.02,
+     "tick": 48411,
+     "event_rows": 0
+    },
+    {
+     "t": 17.53,
+     "tick": 48426,
+     "event_rows": 0
+    },
+    {
+     "t": 18.14,
+     "tick": 48444,
+     "event_rows": 0
+    },
+    {
+     "t": 18.54,
+     "tick": 48456,
+     "event_rows": 0
+    },
+    {
+     "t": 19.04,
+     "tick": 48471,
+     "event_rows": 0
+    },
+    {
+     "t": 19.64,
+     "tick": 48489,
+     "event_rows": 0
+    },
+    {
+     "t": 20.03,
+     "tick": 48501,
+     "event_rows": 1
+    },
+    {
+     "t": 20.55,
+     "tick": 48517,
+     "event_rows": 1
+    },
+    {
+     "t": 21.11,
+     "tick": 48533,
+     "event_rows": 1
+    },
+    {
+     "t": 21.5,
+     "tick": 48545,
+     "event_rows": 1
+    },
+    {
+     "t": 22.02,
+     "tick": 48561,
+     "event_rows": 1
+    },
+    {
+     "t": 22.64,
+     "tick": 48579,
+     "event_rows": 1
+    },
+    {
+     "t": 23.04,
+     "tick": 48591,
+     "event_rows": 1
+    },
+    {
+     "t": 23.5,
+     "tick": 48605,
+     "event_rows": 1
+    },
+    {
+     "t": 24.1,
+     "tick": 48623,
+     "event_rows": 1
+    },
+    {
+     "t": 24.5,
+     "tick": 48635,
+     "event_rows": 1
+    },
+    {
+     "t": 25.01,
+     "tick": 48651,
+     "event_rows": 1
+    },
+    {
+     "t": 25.62,
+     "tick": 48669,
+     "event_rows": 1
+    },
+    {
+     "t": 26.03,
+     "tick": 48681,
+     "event_rows": 0
+    },
+    {
+     "t": 26.54,
+     "tick": 48697,
+     "event_rows": 0
+    },
+    {
+     "t": 27.12,
+     "tick": 48714,
+     "event_rows": 0
+    },
+    {
+     "t": 27.54,
+     "tick": 48726,
+     "event_rows": 0
+    },
+    {
+     "t": 28.04,
+     "tick": 48742,
+     "event_rows": 0
+    },
+    {
+     "t": 28.6,
+     "tick": 48758,
+     "event_rows": 0
+    },
+    {
+     "t": 29.05,
+     "tick": 48772,
+     "event_rows": 0
+    },
+    {
+     "t": 29.55,
+     "tick": 48787,
+     "event_rows": 0
+    },
+    {
+     "t": 30.12,
+     "tick": 48804,
+     "event_rows": 0
+    },
+    {
+     "t": 30.51,
+     "tick": 48816,
+     "event_rows": 0
+    },
+    {
+     "t": 31.02,
+     "tick": 48831,
+     "event_rows": 1
+    },
+    {
+     "t": 31.63,
+     "tick": 48849,
+     "event_rows": 1
+    },
+    {
+     "t": 32.03,
+     "tick": 48861,
+     "event_rows": 1
+    },
+    {
+     "t": 32.54,
+     "tick": 48877,
+     "event_rows": 1
+    },
+    {
+     "t": 33.11,
+     "tick": 48894,
+     "event_rows": 1
+    },
+    {
+     "t": 33.51,
+     "tick": 48906,
+     "event_rows": 2
+    },
+    {
+     "t": 34.01,
+     "tick": 48921,
+     "event_rows": 2
+    },
+    {
+     "t": 34.6,
+     "tick": 48938,
+     "event_rows": 2
+    },
+    {
+     "t": 35.05,
+     "tick": 48952,
+     "event_rows": 2
+    },
+    {
+     "t": 35.5,
+     "tick": 48966,
+     "event_rows": 2
+    },
+    {
+     "t": 36.1,
+     "tick": 48983,
+     "event_rows": 2
+    },
+    {
+     "t": 36.55,
+     "tick": 48997,
+     "event_rows": 2
+    },
+    {
+     "t": 37.05,
+     "tick": 49012,
+     "event_rows": 1
+    },
+    {
+     "t": 37.59,
+     "tick": 49028,
+     "event_rows": 1
+    },
+    {
+     "t": 38.04,
+     "tick": 49042,
+     "event_rows": 1
+    },
+    {
+     "t": 38.5,
+     "tick": 49056,
+     "event_rows": 1
+    },
+    {
+     "t": 39.11,
+     "tick": 49074,
+     "event_rows": 1
+    },
+    {
+     "t": 39.52,
+     "tick": 49086,
+     "event_rows": 0
+    },
+    {
+     "t": 40.02,
+     "tick": 49101,
+     "event_rows": 0
+    },
+    {
+     "t": 40.63,
+     "tick": 49119,
+     "event_rows": 0
+    },
+    {
+     "t": 41.03,
+     "tick": 49131,
+     "event_rows": 0
+    },
+    {
+     "t": 41.53,
+     "tick": 49146,
+     "event_rows": 0
+    },
+    {
+     "t": 42.13,
+     "tick": 49164,
+     "event_rows": 0
+    },
+    {
+     "t": 42.53,
+     "tick": 49176,
+     "event_rows": 0
+    },
+    {
+     "t": 43.03,
+     "tick": 49191,
+     "event_rows": 0
+    },
+    {
+     "t": 43.63,
+     "tick": 49209,
+     "event_rows": 0
+    },
+    {
+     "t": 44.02,
+     "tick": 49221,
+     "event_rows": 0
+    },
+    {
+     "t": 44.54,
+     "tick": 49236,
+     "event_rows": 0
+    },
+    {
+     "t": 45.13,
+     "tick": 49254,
+     "event_rows": 0
+    },
+    {
+     "t": 45.53,
+     "tick": 49266,
+     "event_rows": 0
+    },
+    {
+     "t": 46.04,
+     "tick": 49282,
+     "event_rows": 0
+    },
+    {
+     "t": 46.63,
+     "tick": 49299,
+     "event_rows": 0
+    },
+    {
+     "t": 47.02,
+     "tick": 49311,
+     "event_rows": 0
+    },
+    {
+     "t": 47.54,
+     "tick": 49326,
+     "event_rows": 0
+    },
+    {
+     "t": 48.13,
+     "tick": 49344,
+     "event_rows": 0
+    },
+    {
+     "t": 48.52,
+     "tick": 49356,
+     "event_rows": 0
+    },
+    {
+     "t": 49.05,
+     "tick": 49372,
+     "event_rows": 0
+    },
+    {
+     "t": 49.6,
+     "tick": 49388,
+     "event_rows": 1
+    }
+   ],
+   "note": "The player places an Inn in the colony; workers come to build it",
+   "probe_site": {
+    "x": 43,
+    "y": 31,
+    "w": 3,
+    "h": 3,
+    "note": "found with game_place near and destroyed at once, before the take; the take then places the building there by touch"
+   },
+   "placements_after": [],
+   "raw_movie": {
+    "file": "build-r3.mov",
+    "bytes": 162844139,
+    "sha256": "b94f3160b991701f6a30ac545eb2c8c798a68e4973da8427b6552ab8f993d277",
+    "note": "kept in the session scratch directory, not committed"
+   },
+   "event_rows_range": [
+    0,
+    2
+   ],
+   "ticks_per_second_min": 24.0
+  },
+  "iphone-6.9/fed-r3": {
+   "take": "fed",
+   "device": "iphone-6.9",
+   "model": "iPhone 17 Pro Max simulator, iOS 26.5",
+   "save": "bigpond-n-t45017",
+   "loaded_tick": 45028,
+   "first_tick": 49532,
+   "camera": {
+    "tile": [
+     40,
+     18
+    ],
+    "zoom": 1.477,
+    "tile_points": 26
+   },
+   "recorder": "xcrun simctl io recordVideo --codec=h264 --mask=ignored",
+   "speed": "1x (normal), live; never paused or stepped",
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "player_actions": [
+    "end-of-match dialog (You have won): Continue playing",
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the co-controlling AI's forbidden, guard and clearing zones before the take and every 1.5 s during it"
+   ],
+   "actions": [],
+   "samples": [
+    {
+     "t": 0.01,
+     "tick": 49534,
+     "event_rows": 1
+    },
+    {
+     "t": 0.55,
+     "tick": 49549,
+     "event_rows": 1
+    },
+    {
+     "t": 1.01,
+     "tick": 49563,
+     "event_rows": 0
+    },
+    {
+     "t": 1.7,
+     "tick": 49584,
+     "event_rows": 0
+    },
+    {
+     "t": 2.0,
+     "tick": 49593,
+     "event_rows": 0
+    },
+    {
+     "t": 2.52,
+     "tick": 49608,
+     "event_rows": 0
+    },
+    {
+     "t": 3.26,
+     "tick": 49630,
+     "event_rows": 0
+    },
+    {
+     "t": 3.51,
+     "tick": 49638,
+     "event_rows": 0
+    },
+    {
+     "t": 4.02,
+     "tick": 49653,
+     "event_rows": 0
+    },
+    {
+     "t": 4.71,
+     "tick": 49674,
+     "event_rows": 0
+    },
+    {
+     "t": 5.01,
+     "tick": 49683,
+     "event_rows": 0
+    },
+    {
+     "t": 5.52,
+     "tick": 49698,
+     "event_rows": 0
+    },
+    {
+     "t": 6.23,
+     "tick": 49719,
+     "event_rows": 1
+    },
+    {
+     "t": 6.53,
+     "tick": 49728,
+     "event_rows": 1
+    },
+    {
+     "t": 7.04,
+     "tick": 49744,
+     "event_rows": 1
+    },
+    {
+     "t": 7.76,
+     "tick": 49765,
+     "event_rows": 1
+    },
+    {
+     "t": 8.05,
+     "tick": 49774,
+     "event_rows": 1
+    },
+    {
+     "t": 8.55,
+     "tick": 49789,
+     "event_rows": 1
+    },
+    {
+     "t": 9.2,
+     "tick": 49809,
+     "event_rows": 1
+    },
+    {
+     "t": 9.51,
+     "tick": 49818,
+     "event_rows": 1
+    },
+    {
+     "t": 10.02,
+     "tick": 49833,
+     "event_rows": 1
+    },
+    {
+     "t": 10.74,
+     "tick": 49855,
+     "event_rows": 2
+    },
+    {
+     "t": 11.04,
+     "tick": 49864,
+     "event_rows": 2
+    },
+    {
+     "t": 11.5,
+     "tick": 49878,
+     "event_rows": 2
+    },
+    {
+     "t": 12.2,
+     "tick": 49899,
+     "event_rows": 2
+    },
+    {
+     "t": 12.51,
+     "tick": 49908,
+     "event_rows": 2
+    },
+    {
+     "t": 13.03,
+     "tick": 49923,
+     "event_rows": 2
+    },
+    {
+     "t": 13.74,
+     "tick": 49945,
+     "event_rows": 2
+    }
+   ],
+   "note": "Inns and wheat fields, workers harvesting and carrying",
+   "raw_movie": {
+    "file": "fed-r3.mov",
+    "bytes": 46205009,
+    "sha256": "8951c3c6219d05702a4ec399310d4416cac174847247b573e831b0f7c8dfc306",
+    "note": "kept in the session scratch directory, not committed"
+   },
+   "event_rows_range": [
+    0,
+    2
+   ],
+   "ticks_per_second_min": 27.8
+  },
+  "iphone-6.9/fight-a-r1": {
+   "take": "fight-a",
+   "device": "iphone-6.9",
+   "model": "iPhone 17 Pro Max simulator, iOS 26.5",
+   "save": "bigpond-n-t27015",
+   "loaded_tick": 27025,
+   "first_tick": 27508,
+   "camera": {
+    "tile": [
+     40,
+     58
+    ],
+    "zoom": 1.705,
+    "tile_points": 30
+   },
+   "recorder": "xcrun simctl io recordVideo --codec=h264 --mask=ignored",
+   "speed": "1x (normal), live; never paused or stepped",
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "player_actions": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the co-controlling AI's forbidden, guard and clearing zones before the take and every 3.0 s during it"
+   ],
+   "actions": [],
+   "samples": [
+    {
+     "t": 0.02,
+     "tick": 27509,
+     "event_rows": 6
+    },
+    {
+     "t": 0.54,
+     "tick": 27524,
+     "event_rows": 5
+    },
+    {
+     "t": 1.04,
+     "tick": 27539,
+     "event_rows": 5
+    },
+    {
+     "t": 1.54,
+     "tick": 27554,
+     "event_rows": 5
+    },
+    {
+     "t": 2.03,
+     "tick": 27569,
+     "event_rows": 5
+    },
+    {
+     "t": 2.55,
+     "tick": 27585,
+     "event_rows": 5
+    },
+    {
+     "t": 3.51,
+     "tick": 27613,
+     "event_rows": 4
+    },
+    {
+     "t": 3.54,
+     "tick": 27614,
+     "event_rows": 4
+    },
+    {
+     "t": 4.01,
+     "tick": 27629,
+     "event_rows": 4
+    },
+    {
+     "t": 4.55,
+     "tick": 27645,
+     "event_rows": 4
+    },
+    {
+     "t": 5.02,
+     "tick": 27659,
+     "event_rows": 4
+    },
+    {
+     "t": 5.53,
+     "tick": 27674,
+     "event_rows": 4
+    },
+    {
+     "t": 6.75,
+     "tick": 27711,
+     "event_rows": 4
+    },
+    {
+     "t": 6.79,
+     "tick": 27712,
+     "event_rows": 4
+    },
+    {
+     "t": 7.05,
+     "tick": 27719,
+     "event_rows": 5
+    },
+    {
+     "t": 7.55,
+     "tick": 27734,
+     "event_rows": 4
+    },
+    {
+     "t": 8.0,
+     "tick": 27748,
+     "event_rows": 4
+    },
+    {
+     "t": 8.51,
+     "tick": 27763,
+     "event_rows": 4
+    },
+    {
+     "t": 9.45,
+     "tick": 27791,
+     "event_rows": 3
+    },
+    {
+     "t": 9.54,
+     "tick": 27794,
+     "event_rows": 3
+    },
+    {
+     "t": 10.05,
+     "tick": 27809,
+     "event_rows": 2
+    },
+    {
+     "t": 10.5,
+     "tick": 27823,
+     "event_rows": 3
+    },
+    {
+     "t": 11.01,
+     "tick": 27838,
+     "event_rows": 4
+    },
+    {
+     "t": 11.52,
+     "tick": 27853,
+     "event_rows": 4
+    },
+    {
+     "t": 12.41,
+     "tick": 27880,
+     "event_rows": 4
+    },
+    {
+     "t": 12.55,
+     "tick": 27884,
+     "event_rows": 4
+    },
+    {
+     "t": 13.05,
+     "tick": 27899,
+     "event_rows": 4
+    },
+    {
+     "t": 13.55,
+     "tick": 27914,
+     "event_rows": 4
+    },
+    {
+     "t": 14.01,
+     "tick": 27928,
+     "event_rows": 4
+    },
+    {
+     "t": 14.5,
+     "tick": 27943,
+     "event_rows": 5
+    },
+    {
+     "t": 15.4,
+     "tick": 27970,
+     "event_rows": 6
+    },
+    {
+     "t": 15.54,
+     "tick": 27974,
+     "event_rows": 6
+    }
+   ],
+   "note": "The red army attacking the blue colony at the front, first seconds after loading",
+   "raw_movie": {
+    "file": "fight-a-r1.mov",
+    "bytes": 52124459,
+    "sha256": "9f1d036068330833f6c5d599765eacaf95ec42299d45bedd08c75d7a89a18edd",
+    "note": "kept in the session scratch directory, not committed"
+   },
+   "event_rows_range": [
+    2,
+    6
+   ],
+   "ticks_per_second_min": 28.8
+  },
+  "iphone-6.9/fight-b-r1": {
+   "take": "fight-b",
+   "device": "iphone-6.9",
+   "model": "iPhone 17 Pro Max simulator, iOS 26.5",
+   "save": "bigpond-n-t27015",
+   "loaded_tick": 27025,
+   "first_tick": 27545,
+   "camera": {
+    "tile": [
+     39,
+     60
+    ],
+    "zoom": 1.364,
+    "tile_points": 24
+   },
+   "recorder": "xcrun simctl io recordVideo --codec=h264 --mask=ignored",
+   "speed": "1x (normal), live; never paused or stepped",
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "player_actions": [
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the co-controlling AI's forbidden, guard and clearing zones before the take and every 3.0 s during it"
+   ],
+   "actions": [],
+   "samples": [
+    {
+     "t": 0.01,
+     "tick": 27549,
+     "event_rows": 6
+    },
+    {
+     "t": 0.52,
+     "tick": 27562,
+     "event_rows": 5
+    },
+    {
+     "t": 1.05,
+     "tick": 27577,
+     "event_rows": 5
+    },
+    {
+     "t": 1.52,
+     "tick": 27592,
+     "event_rows": 5
+    },
+    {
+     "t": 2.02,
+     "tick": 27607,
+     "event_rows": 4
+    },
+    {
+     "t": 2.51,
+     "tick": 27621,
+     "event_rows": 4
+    },
+    {
+     "t": 3.89,
+     "tick": 27663,
+     "event_rows": 5
+    },
+    {
+     "t": 3.95,
+     "tick": 27670,
+     "event_rows": 5
+    },
+    {
+     "t": 4.19,
+     "tick": 27678,
+     "event_rows": 5
+    },
+    {
+     "t": 4.51,
+     "tick": 27686,
+     "event_rows": 5
+    },
+    {
+     "t": 5.04,
+     "tick": 27700,
+     "event_rows": 5
+    },
+    {
+     "t": 5.5,
+     "tick": 27711,
+     "event_rows": 6
+    },
+    {
+     "t": 6.53,
+     "tick": 27741,
+     "event_rows": 5
+    },
+    {
+     "t": 6.57,
+     "tick": 27743,
+     "event_rows": 5
+    },
+    {
+     "t": 7.03,
+     "tick": 27756,
+     "event_rows": 5
+    },
+    {
+     "t": 7.54,
+     "tick": 27772,
+     "event_rows": 5
+    },
+    {
+     "t": 8.02,
+     "tick": 27787,
+     "event_rows": 4
+    },
+    {
+     "t": 8.5,
+     "tick": 27800,
+     "event_rows": 4
+    },
+    {
+     "t": 9.41,
+     "tick": 27828,
+     "event_rows": 4
+    },
+    {
+     "t": 9.55,
+     "tick": 27832,
+     "event_rows": 5
+    },
+    {
+     "t": 10.05,
+     "tick": 27847,
+     "event_rows": 5
+    },
+    {
+     "t": 10.51,
+     "tick": 27861,
+     "event_rows": 5
+    },
+    {
+     "t": 11.02,
+     "tick": 27876,
+     "event_rows": 5
+    },
+    {
+     "t": 11.54,
+     "tick": 27891,
+     "event_rows": 5
+    },
+    {
+     "t": 12.44,
+     "tick": 27919,
+     "event_rows": 5
+    },
+    {
+     "t": 12.52,
+     "tick": 27921,
+     "event_rows": 5
+    },
+    {
+     "t": 13.05,
+     "tick": 27937,
+     "event_rows": 5
+    },
+    {
+     "t": 13.51,
+     "tick": 27951,
+     "event_rows": 5
+    },
+    {
+     "t": 14.02,
+     "tick": 27966,
+     "event_rows": 7
+    },
+    {
+     "t": 14.53,
+     "tick": 27981,
+     "event_rows": 6
+    },
+    {
+     "t": 15.45,
+     "tick": 28009,
+     "event_rows": 5
+    },
+    {
+     "t": 15.54,
+     "tick": 28011,
+     "event_rows": 5
+    }
+   ],
+   "note": "The same front, wider",
+   "raw_movie": {
+    "file": "fight-b-r1.mov",
+    "bytes": 52326961,
+    "sha256": "b1c51bb1dada559e3a21af4e5fb738fae5712357cf0e73cb0a3b5711f1fe0e1a",
+    "note": "kept in the session scratch directory, not committed"
+   },
+   "event_rows_range": [
+    4,
+    7
+   ],
+   "ticks_per_second_min": 23.9
+  },
+  "iphone-6.9/hero-r3": {
+   "take": "hero",
+   "device": "iphone-6.9",
+   "model": "iPhone 17 Pro Max simulator, iOS 26.5",
+   "save": "bigpond-n-t45017",
+   "loaded_tick": 45028,
+   "first_tick": 50076,
+   "camera": {
+    "tile": [
+     56,
+     29
+    ],
+    "zoom": 1.136,
+    "tile_points": 20
+   },
+   "recorder": "xcrun simctl io recordVideo --codec=h264 --mask=ignored",
+   "speed": "1x (normal), live; never paused or stepped",
+   "hd_artwork": "on (highResolutionArtworkChoice=on in the capture profile; Auto step-down cannot apply)",
+   "player_actions": [
+    "end-of-match dialog (You have won): Continue playing",
+    "Tools strip: Health and food bars lens switched off",
+    "zone tool: erased the co-controlling AI's forbidden, guard and clearing zones before the take and every 1.5 s during it"
+   ],
+   "actions": [],
+   "samples": [
+    {
+     "t": 0.01,
+     "tick": 50077,
+     "event_rows": 1
+    },
+    {
+     "t": 0.53,
+     "tick": 50093,
+     "event_rows": 1
+    },
+    {
+     "t": 1.04,
+     "tick": 50108,
+     "event_rows": 1
+    },
+    {
+     "t": 1.68,
+     "tick": 50127,
+     "event_rows": 0
+    },
+    {
+     "t": 2.03,
+     "tick": 50138,
+     "event_rows": 0
+    },
+    {
+     "t": 2.54,
+     "tick": 50153,
+     "event_rows": 1
+    },
+    {
+     "t": 3.19,
+     "tick": 50173,
+     "event_rows": 1
+    },
+    {
+     "t": 3.55,
+     "tick": 50183,
+     "event_rows": 1
+    },
+    {
+     "t": 4.05,
+     "tick": 50198,
+     "event_rows": 1
+    },
+    {
+     "t": 4.69,
+     "tick": 50218,
+     "event_rows": 1
+    },
+    {
+     "t": 5.05,
+     "tick": 50228,
+     "event_rows": 1
+    },
+    {
+     "t": 5.51,
+     "tick": 50242,
+     "event_rows": 1
+    },
+    {
+     "t": 6.23,
+     "tick": 50264,
+     "event_rows": 1
+    },
+    {
+     "t": 6.53,
+     "tick": 50273,
+     "event_rows": 1
+    },
+    {
+     "t": 7.04,
+     "tick": 50288,
+     "event_rows": 1
+    },
+    {
+     "t": 7.67,
+     "tick": 50307,
+     "event_rows": 1
+    },
+    {
+     "t": 8.03,
+     "tick": 50318,
+     "event_rows": 1
+    },
+    {
+     "t": 8.54,
+     "tick": 50333,
+     "event_rows": 0
+    },
+    {
+     "t": 9.21,
+     "tick": 50353,
+     "event_rows": 0
+    },
+    {
+     "t": 9.51,
+     "tick": 50362,
+     "event_rows": 0
+    },
+    {
+     "t": 10.02,
+     "tick": 50378,
+     "event_rows": 0
+    },
+    {
+     "t": 10.7,
+     "tick": 50398,
+     "event_rows": 0
+    },
+    {
+     "t": 11.03,
+     "tick": 50408,
+     "event_rows": 0
+    },
+    {
+     "t": 11.54,
+     "tick": 50423,
+     "event_rows": 0
+    },
+    {
+     "t": 12.23,
+     "tick": 50444,
+     "event_rows": 0
+    },
+    {
+     "t": 12.53,
+     "tick": 50453,
+     "event_rows": 0
+    },
+    {
+     "t": 13.04,
+     "tick": 50468,
+     "event_rows": 0
+    }
+   ],
+   "note": "The colony core: both swimming pools and racetracks, barracks, school, inns and hundreds of globs",
+   "raw_movie": {
+    "file": "hero-r3.mov",
+    "bytes": 44704080,
+    "sha256": "7dcf8502433277fe2fb52d68d89cf2a0d01be11f6946681cef9a0025bdf59192",
+    "note": "kept in the session scratch directory, not committed"
+   },
+   "event_rows_range": [
+    0,
+    1
+   ],
+   "ticks_per_second_min": 27.8
+  }
+ },
+ "cards": {
+  "1200x1600": {
+   "tool": {
+    "render_cards.py": "b126be64494d0e05de69036eadbcf8ce42ec8938467cbbe57f3b2014ce5daab2",
+    "cards.html": "e6bd28f09020e4d138ed5ab36e71ffcf4ee1cd8ad37ebfd3e72fd5400ba9c93e"
+   },
+   "cards": [
+    {
+     "locale": "en",
+     "size": "1200x1600",
+     "field": "trailer_line_1",
+     "text": "You decide. They build.",
+     "font": "Nunito",
+     "weight": 900,
+     "dir": "ltr",
+     "placement": "bottom",
+     "font_px": 93,
+     "scale": 0.92,
+     "lines": 1,
+     "line_texts": [
+      "You decide. They build."
+     ],
+     "sentence_break": false,
+     "file": "en/1200x1600/trailer_line_1.png",
+     "sha256": "d06ff7f0bed471d1f30eefe6cbfbb40240ffbbf36be6058c1719463509a2740d"
+    },
+    {
+     "locale": "en",
+     "size": "1200x1600",
+     "field": "trailer_line_2",
+     "text": "Keep the colony fed.",
+     "font": "Nunito",
+     "weight": 900,
+     "dir": "ltr",
+     "placement": "bottom",
+     "font_px": 101,
+     "scale": 1,
+     "lines": 1,
+     "line_texts": [
+      "Keep the colony fed."
+     ],
+     "sentence_break": false,
+     "file": "en/1200x1600/trailer_line_2.png",
+     "sha256": "0a58ff3a9588724eb1254d4db934a21bedd6d7f70af31b27b3fd01a1537d8528"
+    },
+    {
+     "locale": "en",
+     "size": "1200x1600",
+     "field": "trailer_line_3",
+     "text": "Fight rivals for the land.",
+     "font": "Nunito",
+     "weight": 900,
+     "dir": "ltr",
+     "placement": "bottom",
+     "font_px": 101,
+     "scale": 1,
+     "lines": 2,
+     "line_texts": [
+      "Fight rivals",
+      "for the land."
+     ],
+     "sentence_break": false,
+     "file": "en/1200x1600/trailer_line_3.png",
+     "sha256": "e6f8fea32cb467824d429ea049841edb735c14b4b576e5e09e91fa1f2678e8a9"
+    },
+    {
+     "locale": "en",
+     "size": "1200x1600",
+     "field": "trailer_line_4",
+     "text": "No ads. No in-app purchases.",
+     "font": "Nunito",
+     "weight": 900,
+     "dir": "ltr",
+     "placement": "bottom",
+     "font_px": 101,
+     "scale": 1,
+     "lines": 2,
+     "line_texts": [
+      "No ads.",
+      "No in-app purchases."
+     ],
+     "sentence_break": true,
+     "file": "en/1200x1600/trailer_line_4.png",
+     "sha256": "b68f87c0e806e67eccffab66f7547e158e4fb25db898539b040ddc5e548b9829"
+    }
+   ],
+   "wordmark": {
+    "1200x1600": {
+     "file": "wordmark-1200x1600.png",
+     "source_sha256": "020f34e218f137b34f9af53c85532662a9efebcf7b4b8f955b761b07528cd32d",
+     "sha256": "1395844fee55493ef67c096b4921a32d76321e138783753a21364a5867e69f97"
+    }
+   },
+   "chromium": "153.0.8010.12"
+  },
+  "886x1920": {
+   "tool": {
+    "render_cards.py": "b126be64494d0e05de69036eadbcf8ce42ec8938467cbbe57f3b2014ce5daab2",
+    "cards.html": "e6bd28f09020e4d138ed5ab36e71ffcf4ee1cd8ad37ebfd3e72fd5400ba9c93e"
+   },
+   "cards": [
+    {
+     "locale": "en",
+     "size": "886x1920",
+     "field": "trailer_line_1",
+     "text": "You decide. They build.",
+     "font": "Nunito",
+     "weight": 900,
+     "dir": "ltr",
+     "placement": "bottom",
+     "font_px": 70,
+     "scale": 0.9,
+     "lines": 1,
+     "line_texts": [
+      "You decide. They build."
+     ],
+     "sentence_break": false,
+     "file": "en/886x1920/trailer_line_1.png",
+     "sha256": "50a24eeb2786d4dea31aff9c12d43e02e661c7d1c2d6ba64e371396670e8b97b"
+    },
+    {
+     "locale": "en",
+     "size": "886x1920",
+     "field": "trailer_line_2",
+     "text": "Keep the colony fed.",
+     "font": "Nunito",
+     "weight": 900,
+     "dir": "ltr",
+     "placement": "bottom",
+     "font_px": 78,
+     "scale": 1,
+     "lines": 1,
+     "line_texts": [
+      "Keep the colony fed."
+     ],
+     "sentence_break": false,
+     "file": "en/886x1920/trailer_line_2.png",
+     "sha256": "f2644f3efa3991b423890db355893210d53d15121fd2fd313a7a6df882cc6dd6"
+    },
+    {
+     "locale": "en",
+     "size": "886x1920",
+     "field": "trailer_line_3",
+     "text": "Fight rivals for the land.",
+     "font": "Nunito",
+     "weight": 900,
+     "dir": "ltr",
+     "placement": "bottom",
+     "font_px": 78,
+     "scale": 1,
+     "lines": 2,
+     "line_texts": [
+      "Fight rivals",
+      "for the land."
+     ],
+     "sentence_break": false,
+     "file": "en/886x1920/trailer_line_3.png",
+     "sha256": "76fb2e4cda2a54f646ae2b8547f969685681ced9cecdebe875d1702b7b2d1bfe"
+    },
+    {
+     "locale": "en",
+     "size": "886x1920",
+     "field": "trailer_line_4",
+     "text": "No ads. No in-app purchases.",
+     "font": "Nunito",
+     "weight": 900,
+     "dir": "ltr",
+     "placement": "bottom",
+     "font_px": 76,
+     "scale": 0.98,
+     "lines": 2,
+     "line_texts": [
+      "No ads.",
+      "No in-app purchases."
+     ],
+     "sentence_break": true,
+     "file": "en/886x1920/trailer_line_4.png",
+     "sha256": "4a029c99c0500596ea460e6f2292ee7d1e8a186db8ee203b26006632c067afd6"
+    }
+   ],
+   "wordmark": {
+    "886x1920": {
+     "file": "wordmark-886x1920.png",
+     "source_sha256": "020f34e218f137b34f9af53c85532662a9efebcf7b4b8f955b761b07528cd32d",
+     "sha256": "9fcab03ff75d5843e205959f16bd3c4cee04e106770c25aea21e59bf7715eeba"
+    }
+   },
+   "chromium": "153.0.8010.12"
+  }
+ },
+ "music": {
+  "source": "content/data/zik/original/a2.opus (building) and a3.opus (combat), the game's original soundtrack by Jacques-Paul Grivaz, GPL-3.0-or-later (as the trailer)"
+ },
+ "tools": {
+  "build_previews.py": "5921985300becdba8ea0f3fec828773a8f52905349dc0efffc9a9aaa491cd729",
+  "check_previews.py": "d7809f9e1b71f0e28874da3d834373cd980bf94e28721de64bdc0d7056de830a",
+  "previews.json": "3f3216fe0a057a35cb11f0341dc4b2eec81e9a0f065663948861570275ac9e34",
+  "pv.py": "d03383d35ab2893c99fb38db9d3f89055d37c9265c8aff694c7427bc3aeabe39",
+  "record.py": "595bba9bfb9f701c447377dedd87a3c2fbe7b4737315af9e72895efc9b5681b0",
+  "render_preview_cards.py": "a38efa3e684d7e4b32038a398e6e87b3d0edaa13160e22bbf6f5e789d64a560a",
+  "takes.json": "8afa165c5ed5d57219ef5dde10f32c1e77dc73eb98183e2f4f76e5ad4ae8490f",
+  "make_manifest.py": "0907fd7225b4f9b762e37a48411176d70d1bdc26f17c464d9ceeeae18a9cf119"
+ }
+}
