@@ -1,0 +1,289 @@
+{
+ "store": "itch",
+ "title": "itch.io",
+ "package_dir": "packages:itch",
+ "generated_by": "assets/storefront/store-packages/build.py",
+ "inputs": {
+  "stores.json": "bdb603665544f44032e56a6a1ae75d2a200c80dbd45f5764cd4800a4817e474d",
+  "review": {
+   "file": "assets/storefront/review/round-2-final.md",
+   "sha256": "d9646b0a35b585db391192076005e86511aa4c9f8977e4f1dafecedc4722a5ce"
+  },
+  "platforms.json": "af448133ed18adcd9a846dcb3b649379d7c3433fe16801a4cb92b6a2db2f6e37",
+  "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
+  "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)",
+  "trailer_manifest": "d373b93cbfd917072614d1e3465aa6eae21668e0d953e69565cb598e6f4f82c1"
+ },
+ "review_row": "itch.io",
+ "review_frames": [
+  "01",
+  "04",
+  "08b",
+  "02",
+  "06",
+  "05",
+  "03"
+ ],
+ "screenshots": [
+  {
+   "file": "screenshots/01-hero-1920x1080.jpg",
+   "upload_order": 1,
+   "role": "hero",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/01-hero-marchland-colony-under-raid-3840x2160.png",
+    "capture_sha256": "5970e91bdec955ad5320efecb09d3c8f419cda7a16a07b0a63dcd3a1a44d17cd",
+    "frame": "01",
+    "export": "assets/storefront/captures/desktop/web-1920/01-hero-marchland-colony-under-raid-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1191849,
+   "sha256": "68eed70ac99443175813b113c5e1892959d34ced9b8f7c08b6dd37815aa6b02d",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 4000000
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/02-battle-1920x1080.jpg",
+   "upload_order": 2,
+   "role": "battle",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/04-battle-honeycomb-oasis-3840x2160.png",
+    "capture_sha256": "1ed22a0809b695f3789e4b44a0fce8a7e94600ebd99eef73d6dbb8c6624ca22e",
+    "frame": "04",
+    "export": "assets/storefront/captures/desktop/web-1920/04-battle-honeycomb-oasis-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1076113,
+   "sha256": "a067b13789a7be7268c1f0736ad5e7a522e1b940d7f641806a8d41e62967c05a",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 4000000
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/03-ai-coplay-side-by-side-1920x1080.jpg",
+   "upload_order": 3,
+   "role": "ai_coplay",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/08b-ai-coplay-side-by-side-coral-3840x2160.png",
+    "capture_sha256": "0243e067c77f9370a92f07b9d04a68f9074c9a9cbfae42cf8161fe3cfad04ce3",
+    "frame": "08b",
+    "export": "assets/storefront/captures/desktop/web-1920/08b-ai-coplay-side-by-side-coral-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 915654,
+   "sha256": "fe5e437f4683a24996b5f330dc360b55ec2bab6a996d7062cc7a2da6d8e6f0e5",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 4000000
+   },
+   "variant": "side-by-side",
+   "capture_kind": "game frame plus transcript of the same session, arranged side by side"
+  },
+  {
+   "file": "screenshots/04-build-1920x1080.jpg",
+   "upload_order": 4,
+   "role": "build",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/02-build-coral-school-site-3840x2160.png",
+    "capture_sha256": "26330fa7093f9f390ad1662efefc4bc183e971ffdfc3037331917c344a6147fd",
+    "frame": "02",
+    "export": "assets/storefront/captures/desktop/web-1920/02-build-coral-school-site-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1236728,
+   "sha256": "bb51166b4dfaa9149b92add268c559d95037cac71afcad0183d4d6e990b292dd",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 4000000
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/05-maps-1920x1080.jpg",
+   "upload_order": 5,
+   "role": "maps",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/06-maps-city-states-3840x2160.png",
+    "capture_sha256": "cc80ae170605d1fd57326dca366c90d528d64eb6f1965d1aadc6ad3862124b87",
+    "frame": "06",
+    "export": "assets/storefront/captures/desktop/web-1920/06-maps-city-states-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1173738,
+   "sha256": "8ffc8cb99a262dbcadb4483c12d843dab9dff5f31f34cb6accc92e728bb8bfdf",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 4000000
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/06-territory-1920x1080.jpg",
+   "upload_order": 6,
+   "role": "territory",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/05-territory-crater-lakes-3840x2160.png",
+    "capture_sha256": "8657b2add6bf7ac964c87dd69fdb19d5e667de03b6453d5d3b540852bbe78930",
+    "frame": "05",
+    "export": "assets/storefront/captures/desktop/web-1920/05-territory-crater-lakes-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1469128,
+   "sha256": "ccd3de49052df0967b5d45a2418dac818b2e522f665e7f2bd965defb1b3bc049",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 4000000
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/07-economy-1920x1080.jpg",
+   "upload_order": 7,
+   "role": "economy",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/03-economy-coral-inn-and-wheat-3840x2160.png",
+    "capture_sha256": "7a23dd01e4c981f582a2666cc1c82687726e9ced61def9295f5a08b458936bbe",
+    "frame": "03",
+    "export": "assets/storefront/captures/desktop/web-1920/03-economy-coral-inn-and-wheat-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1118662,
+   "sha256": "b8bbb451775f2ba36d0cd5f7272efb9ffda16ba3ce21cf4be715bbfd75bfec03",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 4000000
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  }
+ ],
+ "assets": [
+  {
+   "file": "cover-630x500.jpg",
+   "slot": "cover",
+   "source": {
+    "file": "assets/storefront/key-art/derivatives/itch-cover-630x500.jpg",
+    "sha256": "b9f5689c8eb824d8672aee468ad9ca5083af67b89b343910ce785d285595a4c9",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "630x500",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 253407,
+   "sha256": "b9f5689c8eb824d8672aee468ad9ca5083af67b89b343910ce785d285595a4c9",
+   "rules": {
+    "size": [
+     630,
+     500
+    ],
+    "format": [
+     "JPEG",
+     "PNG"
+    ]
+   }
+  }
+ ],
+ "text": {
+  "dir": "text",
+  "locales": [
+   "en"
+  ]
+ },
+ "trailer": [
+  {
+   "slot": "video-url",
+   "file": "trailer/glob2-trailer-30s-1080p.mp4",
+   "link_to": "trailer:glob2-trailer-30s-1080p.mp4",
+   "in_repository": false,
+   "bytes": 54010516,
+   "sha256": "e72e876e381143c8c7f733774c4ae9c46b279fdf04948b2c4beebd851cbaf203",
+   "duration_s": 30.0,
+   "pixels": "1920x1080",
+   "codec": "h264",
+   "shows_ai_coplay": false,
+   "rules": {},
+   "source": {
+    "manifest": "assets/storefront/trailer/manifest.json",
+    "review": "assets/storefront/review/trailer-review.md"
+   },
+   "needs_hosted_url": "YouTube or Vimeo URL",
+   "note": "Trailer review table: the master only, as a YouTube embed; the page also offers browser play, which has no MCP, so no co-play cut."
+  }
+ ],
+ "blocked": [
+  "trailer video-url: needs a hosted video URL (YouTube or Vimeo URL); upload glob2-trailer-30s-1080p.mp4 (linked at trailer/glob2-trailer-30s-1080p.mp4) there and enter the URL"
+ ],
+ "pending": [],
+ "errors": [],
+ "not_packaged": [],
+ "unverified": [
+  "itch.io publishes no screenshot pixel or file-size limit that this project has recorded; the 4 MB cap here is this tool's own (review M5 asks to check before upload). Cover 630x500 is itch's recommended size."
+ ],
+ "notes": []
+}

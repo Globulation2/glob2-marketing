@@ -1,0 +1,378 @@
+{
+ "store": "epic",
+ "title": "Epic Games Store",
+ "package_dir": "packages:epic",
+ "generated_by": "assets/storefront/store-packages/build.py",
+ "inputs": {
+  "stores.json": "bdb603665544f44032e56a6a1ae75d2a200c80dbd45f5764cd4800a4817e474d",
+  "review": {
+   "file": "assets/storefront/review/round-2-final.md",
+   "sha256": "d9646b0a35b585db391192076005e86511aa4c9f8977e4f1dafecedc4722a5ce"
+  },
+  "platforms.json": "af448133ed18adcd9a846dcb3b649379d7c3433fe16801a4cb92b6a2db2f6e37",
+  "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
+  "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)",
+  "trailer_manifest": "d373b93cbfd917072614d1e3465aa6eae21668e0d953e69565cb598e6f4f82c1"
+ },
+ "review_row": "Epic",
+ "review_frames": [
+  "01",
+  "04",
+  "02",
+  "06",
+  "05",
+  "03"
+ ],
+ "screenshots": [
+  {
+   "file": "screenshots/01-hero-1920x1080.jpg",
+   "upload_order": 1,
+   "role": "hero",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/01-hero-marchland-colony-under-raid-3840x2160.png",
+    "capture_sha256": "5970e91bdec955ad5320efecb09d3c8f419cda7a16a07b0a63dcd3a1a44d17cd",
+    "frame": "01",
+    "export": "assets/storefront/captures/desktop/web-1920/01-hero-marchland-colony-under-raid-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1191849,
+   "sha256": "68eed70ac99443175813b113c5e1892959d34ced9b8f7c08b6dd37815aa6b02d",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 4000000
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/02-battle-1920x1080.jpg",
+   "upload_order": 2,
+   "role": "battle",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/04-battle-honeycomb-oasis-3840x2160.png",
+    "capture_sha256": "1ed22a0809b695f3789e4b44a0fce8a7e94600ebd99eef73d6dbb8c6624ca22e",
+    "frame": "04",
+    "export": "assets/storefront/captures/desktop/web-1920/04-battle-honeycomb-oasis-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1076113,
+   "sha256": "a067b13789a7be7268c1f0736ad5e7a522e1b940d7f641806a8d41e62967c05a",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 4000000
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/03-build-1920x1080.jpg",
+   "upload_order": 3,
+   "role": "build",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/02-build-coral-school-site-3840x2160.png",
+    "capture_sha256": "26330fa7093f9f390ad1662efefc4bc183e971ffdfc3037331917c344a6147fd",
+    "frame": "02",
+    "export": "assets/storefront/captures/desktop/web-1920/02-build-coral-school-site-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1236728,
+   "sha256": "bb51166b4dfaa9149b92add268c559d95037cac71afcad0183d4d6e990b292dd",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 4000000
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/04-maps-1920x1080.jpg",
+   "upload_order": 4,
+   "role": "maps",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/06-maps-city-states-3840x2160.png",
+    "capture_sha256": "cc80ae170605d1fd57326dca366c90d528d64eb6f1965d1aadc6ad3862124b87",
+    "frame": "06",
+    "export": "assets/storefront/captures/desktop/web-1920/06-maps-city-states-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1173738,
+   "sha256": "8ffc8cb99a262dbcadb4483c12d843dab9dff5f31f34cb6accc92e728bb8bfdf",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 4000000
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/05-territory-1920x1080.jpg",
+   "upload_order": 5,
+   "role": "territory",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/05-territory-crater-lakes-3840x2160.png",
+    "capture_sha256": "8657b2add6bf7ac964c87dd69fdb19d5e667de03b6453d5d3b540852bbe78930",
+    "frame": "05",
+    "export": "assets/storefront/captures/desktop/web-1920/05-territory-crater-lakes-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1469128,
+   "sha256": "ccd3de49052df0967b5d45a2418dac818b2e522f665e7f2bd965defb1b3bc049",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 4000000
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/06-economy-1920x1080.jpg",
+   "upload_order": 6,
+   "role": "economy",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/03-economy-coral-inn-and-wheat-3840x2160.png",
+    "capture_sha256": "7a23dd01e4c981f582a2666cc1c82687726e9ced61def9295f5a08b458936bbe",
+    "frame": "03",
+    "export": "assets/storefront/captures/desktop/web-1920/03-economy-coral-inn-and-wheat-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1118662,
+   "sha256": "b8bbb451775f2ba36d0cd5f7272efb9ffda16ba3ce21cf4be715bbfd75bfec03",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 4000000
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  }
+ ],
+ "assets": [
+  {
+   "file": "offer-landscape-2560x1440.jpg",
+   "slot": "offer-landscape",
+   "source": {
+    "file": "assets/storefront/key-art/derivatives/epic-offer-landscape-2560x1440.jpg",
+    "sha256": "7e3508a22df83904f35f7b7d2c6c9f9e1cf6bd3c954a56a0fd5a54fcaefd57b5",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "2560x1440",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1596975,
+   "sha256": "7e3508a22df83904f35f7b7d2c6c9f9e1cf6bd3c954a56a0fd5a54fcaefd57b5",
+   "rules": {
+    "size": [
+     2560,
+     1440
+    ],
+    "format": [
+     "JPEG",
+     "PNG"
+    ],
+    "alpha": "forbid"
+   }
+  },
+  {
+   "file": "offer-portrait-1200x1600.jpg",
+   "slot": "offer-portrait",
+   "source": {
+    "file": "assets/storefront/key-art/derivatives/epic-offer-portrait-1200x1600.jpg",
+    "sha256": "28f5fd43a195ff0860691d5845bc27923cc933b680ae27bb7a4670092e14c42e",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "1200x1600",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 982083,
+   "sha256": "28f5fd43a195ff0860691d5845bc27923cc933b680ae27bb7a4670092e14c42e",
+   "rules": {
+    "size": [
+     1200,
+     1600
+    ],
+    "format": [
+     "JPEG",
+     "PNG"
+    ],
+    "alpha": "forbid"
+   }
+  },
+  {
+   "file": "product-logo-960x540.png",
+   "slot": "product-logo",
+   "source": {
+    "file": "assets/storefront/key-art/derivatives/epic-product-logo-960x540.png",
+    "sha256": "dc718edb7b247627fa40ca315f35902cb5542aef5c5d63ef24233fc669200ccb",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "960x540",
+   "format": "PNG",
+   "mode": "RGBA",
+   "bytes": 68586,
+   "sha256": "dc718edb7b247627fa40ca315f35902cb5542aef5c5d63ef24233fc669200ccb",
+   "rules": {
+    "size": [
+     960,
+     540
+    ],
+    "format": [
+     "PNG"
+    ],
+    "alpha": "require",
+    "max_bytes": 1000000
+   }
+  },
+  {
+   "file": "social-preview-1200x1200.jpg",
+   "slot": "social-preview",
+   "source": {
+    "file": "assets/storefront/key-art/derivatives/epic-social-preview-1200x1200.jpg",
+    "sha256": "25c3cbf1d0b7662e2e366d653e5a6b24fc2713cb1e29d3fa66ab77be9981644f",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "1200x1200",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 875302,
+   "sha256": "25c3cbf1d0b7662e2e366d653e5a6b24fc2713cb1e29d3fa66ab77be9981644f",
+   "rules": {
+    "size": [
+     1200,
+     1200
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 4000000
+   }
+  }
+ ],
+ "text": {
+  "dir": "text",
+  "locales": [
+   "ar",
+   "bg",
+   "cs",
+   "da",
+   "de",
+   "en",
+   "es-ES",
+   "fi",
+   "fil",
+   "fr",
+   "hi",
+   "hu",
+   "id",
+   "it",
+   "ja",
+   "ko",
+   "ms",
+   "nl",
+   "no",
+   "pl",
+   "pt",
+   "pt-BR",
+   "ro",
+   "ru",
+   "sv",
+   "th",
+   "tr",
+   "uk",
+   "vi",
+   "zh-CN",
+   "zh-Hant"
+  ]
+ },
+ "trailer": [
+  {
+   "slot": "carousel-01-trailer",
+   "file": "trailer/glob2-trailer-30s-textless-1080p.mp4",
+   "link_to": "trailer:glob2-trailer-30s-textless-1080p.mp4",
+   "in_repository": false,
+   "bytes": 55295043,
+   "sha256": "f61552c1555c07675628295efdb78bcc902dc4644ec98dd52bb498a03c24102c",
+   "duration_s": 30.0,
+   "pixels": "1920x1080",
+   "codec": "h264",
+   "shows_ai_coplay": false,
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "container": [
+     "mp4"
+    ],
+    "max_bytes": 300000000,
+    "fps": [
+     30,
+     60
+    ]
+   },
+   "source": {
+    "manifest": "assets/storefront/trailer/manifest.json",
+    "review": "assets/storefront/review/trailer-review.md"
+   },
+   "carousel_position": 1,
+   "note": "Trailer review table: the text-free master (no co-play: the Epic ai_coplay switch is off) as the first carousel item. Epic video rule: 1920x1080 MP4, 300 MB max, 30 or 60 fps, non-black cover frame (frame 0 is gameplay)."
+  }
+ ],
+ "carousel_lead": [
+  "carousel-01-trailer"
+ ],
+ "blocked": [],
+ "pending": [],
+ "errors": [],
+ "not_packaged": [],
+ "unverified": [
+  "Epic's About-section images (at least 700 px wide, 4 MB) are not packaged: the About text has no image placement decided."
+ ],
+ "notes": []
+}

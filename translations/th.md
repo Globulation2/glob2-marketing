@@ -1,6 +1,6 @@
 # Globulation 2 storefront translations — ไทย
 
-Source version: storefront-v2. Observation date: 2026-11-24. Locale: th. Translated afresh on 2026-11-24 from the [English master](en.md), following the [field map](storefront-v2-field-map.md) and [terminology](glossary.md). `epic_tail` and `epic_legal` keep their storefront-v1 text, and `windows_search_term_1` keeps the v1 `windows_search_term` text. AI translation with independent AI linguistic review; not human or native-speaker validation. Game terminology reference: data/texts.th.txt in the Globulation2/glob2 repository.
+Source version: storefront-v2. Observation date: 2026-11-24. Locale: th. Translated afresh on 2026-11-24 from the [English master](en.md), following the [field map](storefront-field-map.md) and [terminology](glossary.md). `epic_tail` and `epic_legal` keep their storefront-v1 text, and `windows_search_term_1` keeps the v1 `windows_search_term` text. AI translation with independent AI linguistic review; not human or native-speaker validation. Game terminology reference: data/texts.th.txt in the Globulation2/glob2 repository.
 
 ## product_name
 

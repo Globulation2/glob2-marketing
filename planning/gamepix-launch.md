@@ -1,6 +1,6 @@
 # GamePix launch
 
-[Planning index](README.md) · [Storefront v2 rollout](storefront-v2-rollout.md) · [Game repo: GamePix release guide](https://github.com/Globulation2/glob2/blob/master/docs/releases/gamepix.md) · [Game repo: web portals](https://github.com/Globulation2/glob2/blob/master/docs/releases/web-portals.md)
+[Planning index](README.md) · [Storefront v2 rollout](storefront-rollout.md) · [Game repo: GamePix release guide](https://github.com/Globulation2/glob2/blob/master/docs/releases/gamepix.md) · [Game repo: web portals](https://github.com/Globulation2/glob2/blob/master/docs/releases/web-portals.md)
 
 [GamePix](https://www.gamepix.com/) is a web games platform owned by Xsolla. It hosts HTML5 games in an iframe on its own site.
 
@@ -160,7 +160,7 @@ No answer yet. A colleague copied on the thread is out of office until 2026-11-3
 
 ## Listing
 
-Status: **approved by the user on 2026-11-26** ("Use draft A"). Nothing has been entered on the dashboard. The copy is built from the storefront-v2 [English source](../translations/en.md) and limited to the claims [storefront v2 claims](../facts/storefront-v2-claims.md) marks safe for browser play. It is narrowed further to what the GamePix build contains.
+Status: **approved by the user on 2026-11-26** ("Use draft A"). Nothing has been entered on the dashboard. The copy is built from the storefront-v2 [English source](../translations/en.md) and limited to the claims [storefront v2 claims](../facts/storefront-claims.md) marks safe for browser play. It is narrowed further to what the GamePix build contains.
 
 The form warns: "Do not copy from other websites. Original content helps your game get more traffic." The description is therefore new wording of approved claims, not storefront-v2 text pasted in.
 
@@ -215,9 +215,9 @@ Status: **approved by the owner** ("Approve and add") and **saved on GamePix**. 
 
     Hint: play the 10-lesson Tutorial first, and keep inns full of food before training an army.
 
-**Icon:** [`gamepix-icon-256.png`](../assets/storefront-v2/icon/gamepix-icon-256.png), 256×256 PNG, 24 KB (limit 1 MB). It is the storefront-v2 Google Play icon (purple `#2B1C42`) downscaled. Recorded in the [icon manifest](../assets/storefront-v2/icon/manifest.json).
+**Icon:** [`gamepix-icon-256.png`](../assets/storefront/icon/gamepix-icon-256.png), 256×256 PNG, 24 KB (limit 1 MB). It is the storefront-v2 Google Play icon (purple `#2B1C42`) downscaled. Recorded in the [icon manifest](../assets/storefront/icon/manifest.json).
 
-**Cover:** [`gamepix-cover-1360x850.jpg`](../assets/storefront-v2/key-art/derivatives/gamepix-cover-1360x850.jpg), 1360×850 JPEG, 677 KB (limit 1.5 MB). It was added to the [key-art build script](../assets/storefront-v2/key-art/build-assets.py) as a derivative of the recommended "Shoreline colony" plate: real in-engine captures, the wordmark on the water. Every other derivative and concept rebuilt byte-identical, and the [key-art manifest](../assets/storefront-v2/key-art/manifest.json) records it.
+**Cover:** [`gamepix-cover-1360x850.jpg`](../assets/storefront/key-art/derivatives/gamepix-cover-1360x850.jpg), 1360×850 JPEG, 677 KB (limit 1.5 MB). It was added to the [key-art build script](../assets/storefront/key-art/build-assets.py) as a derivative of the recommended "Shoreline colony" plate: real in-engine captures, the wordmark on the water. Every other derivative and concept rebuilt byte-identical, and the [key-art manifest](../assets/storefront/key-art/manifest.json) records it.
 
 ### Claims left out, and why
 

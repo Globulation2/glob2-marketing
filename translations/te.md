@@ -1,6 +1,6 @@
 # Globulation 2 storefront translations — తెలుగు
 
-Source version: storefront-v2. Observation date: 2026-11-24. Locale: te. Translation: AI translation from the [English master](en.md), following the [field map](storefront-v2-field-map.md) and [terminology](glossary.md), with independent AI linguistic review; not human or native-speaker validation. Game terminology reference: data/texts.te.txt in the Globulation2/glob2 repository.
+Source version: storefront-v2. Observation date: 2026-11-24. Locale: te. Translation: AI translation from the [English master](en.md), following the [field map](storefront-field-map.md) and [terminology](glossary.md), with independent AI linguistic review; not human or native-speaker validation. Game terminology reference: data/texts.te.txt in the Globulation2/glob2 repository.
 
 ## product_name
 

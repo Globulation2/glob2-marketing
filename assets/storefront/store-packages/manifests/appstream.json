@@ -1,0 +1,317 @@
+{
+ "store": "appstream",
+ "title": "AppStream / Flathub (game repository metainfo)",
+ "package_dir": "packages:appstream",
+ "generated_by": "assets/storefront/store-packages/build.py",
+ "inputs": {
+  "stores.json": "bdb603665544f44032e56a6a1ae75d2a200c80dbd45f5764cd4800a4817e474d",
+  "review": {
+   "file": "assets/storefront/review/round-2-final.md",
+   "sha256": "d9646b0a35b585db391192076005e86511aa4c9f8977e4f1dafecedc4722a5ce"
+  },
+  "platforms.json": "af448133ed18adcd9a846dcb3b649379d7c3433fe16801a4cb92b6a2db2f6e37",
+  "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
+  "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)",
+  "trailer_manifest": "d373b93cbfd917072614d1e3465aa6eae21668e0d953e69565cb598e6f4f82c1"
+ },
+ "review_row": "AppStream / Flathub source",
+ "review_frames": [
+  "01",
+  "04",
+  "08b",
+  "02",
+  "06",
+  "05",
+  "03"
+ ],
+ "screenshots": [
+  {
+   "file": "screenshots/hero-1920x1080.png",
+   "upload_order": 1,
+   "role": "hero",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/01-hero-marchland-colony-under-raid-3840x2160.png",
+    "capture_sha256": "5970e91bdec955ad5320efecb09d3c8f419cda7a16a07b0a63dcd3a1a44d17cd",
+    "frame": "01",
+    "treatment": "Lanczos reduction of the capture to 1920x1080, PNG, no other change"
+   },
+   "pixels": "1920x1080",
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 3102111,
+   "sha256": "975d15627c602da5e2698e63d34ed366b9f6a2328aa69dc620bef62327e2096c",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "PNG"
+    ],
+    "alpha": "forbid"
+   },
+   "capture_kind": "gameplay frame (player seat)",
+   "caption": {
+    "field": "shot_caption_hero",
+    "en": "Command a whole colony: workers, buildings and warriors in the middle of a match.",
+    "languages": 45
+   },
+   "intended_url": "https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront/store-packages/appstream/hero-1920x1080.png",
+   "repo_path": "assets/storefront/store-packages/appstream/hero-1920x1080.png"
+  },
+  {
+   "file": "screenshots/battle-1920x1080.png",
+   "upload_order": 2,
+   "role": "battle",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/04-battle-honeycomb-oasis-3840x2160.png",
+    "capture_sha256": "1ed22a0809b695f3789e4b44a0fce8a7e94600ebd99eef73d6dbb8c6624ca22e",
+    "frame": "04",
+    "treatment": "Lanczos reduction of the capture to 1920x1080, PNG, no other change"
+   },
+   "pixels": "1920x1080",
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 3240175,
+   "sha256": "784a80e8aa83352e200c245613618b997918fb8415042a36c270e006d2b0dc98",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "PNG"
+    ],
+    "alpha": "forbid"
+   },
+   "capture_kind": "gameplay frame (player seat)",
+   "caption": {
+    "field": "shot_caption_battle",
+    "en": "Warriors from rival colonies fight for the same land.",
+    "languages": 45
+   },
+   "intended_url": "https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront/store-packages/appstream/battle-1920x1080.png",
+   "repo_path": "assets/storefront/store-packages/appstream/battle-1920x1080.png"
+  },
+  {
+   "file": "screenshots/ai-coplay-side-by-side-1920x1080.png",
+   "upload_order": 3,
+   "role": "ai_coplay",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/08b-ai-coplay-side-by-side-coral-3840x2160.png",
+    "capture_sha256": "0243e067c77f9370a92f07b9d04a68f9074c9a9cbfae42cf8161fe3cfad04ce3",
+    "frame": "08b",
+    "treatment": "Lanczos reduction of the capture to 1920x1080, PNG, no other change"
+   },
+   "pixels": "1920x1080",
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 1979503,
+   "sha256": "ca2dbfd86be97f20a4c2abbac2d6a71ca1651b30077f674f7a224be7559e864d",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "PNG"
+    ],
+    "alpha": "forbid"
+   },
+   "variant": "side-by-side",
+   "capture_kind": "game frame plus transcript of the same session, arranged side by side",
+   "caption": {
+    "field": "shot_caption_ai_coplay",
+    "en": "A local game shared with the player's own AI agent, connected through the built-in MCP server.",
+    "languages": 45
+   },
+   "intended_url": "https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront/store-packages/appstream/ai-coplay-side-by-side-1920x1080.png",
+   "repo_path": "assets/storefront/store-packages/appstream/ai-coplay-side-by-side-1920x1080.png"
+  },
+  {
+   "file": "screenshots/build-1920x1080.png",
+   "upload_order": 4,
+   "role": "build",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/02-build-coral-school-site-3840x2160.png",
+    "capture_sha256": "26330fa7093f9f390ad1662efefc4bc183e971ffdfc3037331917c344a6147fd",
+    "frame": "02",
+    "treatment": "Lanczos reduction of the capture to 1920x1080, PNG, no other change"
+   },
+   "pixels": "1920x1080",
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 2599362,
+   "sha256": "16e2bac25279308c22a077033b0b05fb662bc8333aec3ffd5aa555d94dd97491",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "PNG"
+    ],
+    "alpha": "forbid"
+   },
+   "capture_kind": "gameplay frame (player seat)",
+   "caption": {
+    "field": "shot_caption_build",
+    "en": "Choose a building and how many workers it gets; they gather the materials and build it.",
+    "languages": 45
+   },
+   "intended_url": "https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront/store-packages/appstream/build-1920x1080.png",
+   "repo_path": "assets/storefront/store-packages/appstream/build-1920x1080.png"
+  },
+  {
+   "file": "screenshots/maps-1920x1080.png",
+   "upload_order": 5,
+   "role": "maps",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/06-maps-city-states-3840x2160.png",
+    "capture_sha256": "cc80ae170605d1fd57326dca366c90d528d64eb6f1965d1aadc6ad3862124b87",
+    "frame": "06",
+    "treatment": "Lanczos reduction of the capture to 1920x1080, PNG, no other change"
+   },
+   "pixels": "1920x1080",
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 3159062,
+   "sha256": "ab1ec3cdde6c031b2d075969da43f32b92623571fd6188c97d410386fe38cf6e",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "PNG"
+    ],
+    "alpha": "forbid"
+   },
+   "capture_kind": "gameplay frame (player seat)",
+   "caption": {
+    "field": "shot_caption_maps",
+    "en": "One of the game's maps, each with its own terrain, resources and routes.",
+    "languages": 45
+   },
+   "intended_url": "https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront/store-packages/appstream/maps-1920x1080.png",
+   "repo_path": "assets/storefront/store-packages/appstream/maps-1920x1080.png"
+  },
+  {
+   "file": "screenshots/territory-1920x1080.png",
+   "upload_order": 6,
+   "role": "territory",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/05-territory-crater-lakes-3840x2160.png",
+    "capture_sha256": "8657b2add6bf7ac964c87dd69fdb19d5e667de03b6453d5d3b540852bbe78930",
+    "frame": "05",
+    "treatment": "Lanczos reduction of the capture to 1920x1080, PNG, no other change"
+   },
+   "pixels": "1920x1080",
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 2866926,
+   "sha256": "c3a6e06f7e533c08dc47b9b6dc68af37dd263424e2c2e9fdb3c638125abcce45",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "PNG"
+    ],
+    "alpha": "forbid"
+   },
+   "capture_kind": "gameplay frame (player seat)",
+   "caption": {
+    "field": "shot_caption_territory",
+    "en": "A wider view of the map shows where rival colonies meet.",
+    "languages": 45
+   },
+   "intended_url": "https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront/store-packages/appstream/territory-1920x1080.png",
+   "repo_path": "assets/storefront/store-packages/appstream/territory-1920x1080.png"
+  },
+  {
+   "file": "screenshots/economy-1920x1080.png",
+   "upload_order": 7,
+   "role": "economy",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/03-economy-coral-inn-and-wheat-3840x2160.png",
+    "capture_sha256": "7a23dd01e4c981f582a2666cc1c82687726e9ced61def9295f5a08b458936bbe",
+    "frame": "03",
+    "treatment": "Lanczos reduction of the capture to 1920x1080, PNG, no other change"
+   },
+   "pixels": "1920x1080",
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 2591245,
+   "sha256": "10b441e27e018fdfd8bfd6fffbdd18f4111acd89c09a083ed20611cf5a0bb2e3",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "PNG"
+    ],
+    "alpha": "forbid"
+   },
+   "capture_kind": "gameplay frame (player seat)",
+   "caption": {
+    "field": "shot_caption_economy",
+    "en": "Workers carry wheat to the inns and swarms that feed and grow the colony.",
+    "languages": 45
+   },
+   "intended_url": "https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront/store-packages/appstream/economy-1920x1080.png",
+   "repo_path": "assets/storefront/store-packages/appstream/economy-1920x1080.png"
+  }
+ ],
+ "assets": [],
+ "text": {
+  "files": [
+   "appstream-fragment.xml",
+   "desktop-fragment.ini"
+  ]
+ },
+ "trailer": [
+  {
+   "slot": "video",
+   "file": "trailer/glob2-trailer-30s-1080p.webm",
+   "link_to": "assets/storefront/trailer/glob2-trailer-30s-1080p.webm",
+   "in_repository": true,
+   "bytes": 30158578,
+   "sha256": "3aa7a3e84891a9d41b788b109f81ab0b4ec26d924b02c9e21a44d55ee215847f",
+   "duration_s": 30.008,
+   "pixels": "1920x1080",
+   "codec": "vp9",
+   "shows_ai_coplay": false,
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "container": [
+     "webm"
+    ],
+    "codec": [
+     "vp9"
+    ]
+   },
+   "source": {
+    "manifest": "assets/storefront/trailer/manifest.json",
+    "review": "assets/storefront/review/trailer-review.md"
+   },
+   "repo_path": "assets/storefront/trailer/glob2-trailer-30s-1080p.webm",
+   "intended_url": "https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront/trailer/glob2-trailer-30s-1080p.webm",
+   "note": "The master as VP9 in WebM, the form the AppStream spec asks for (VP9 or AV1 in WebM or Matroska). Committed in the repository so its URL is stable; screenshots.xml gets it as a last, non-default screenshot (the spec forbids a video as the default screenshot)."
+  }
+ ],
+ "blocked": [],
+ "pending": [],
+ "errors": [],
+ "not_packaged": [],
+ "unverified": [
+  "Whether Flathub or a given software centre plays the AppStream video is not verified (trailer review, store table).",
+  "Flathub's current screenshot guidance (size, count, caption length) was not re-read for v2; 1920x1080 PNG follows the brief. The image URLs only resolve after the Git steward commits the PNGs at the listed repository paths (run build.py --stage-appstream to copy them there) and pushes to main."
+ ],
+ "notes": []
+}

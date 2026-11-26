@@ -2,14 +2,14 @@
 
 This is the shared Markdown workspace for preparing the revamped Globulation 2 launch: understanding the existing estate, examining audiences and business possibilities, and eventually establishing consistent messaging and assets.
 
-The initial research records evidence and explores options. The user subsequently selected a [working launch positioning v1](analysis/positioning-v1.md): **“Build a thriving colony in contested territory.”** Colony building and economics lead, supported by spatial strategy and rival pressure. This is a launch starting point chosen through discussion, not player-validated positioning.
+The initial research records evidence and explores options. The user subsequently selected a [working launch positioning v1](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md): **“Build a thriving colony in contested territory.”** Colony building and economics lead, supported by spatial strategy and rival pressure. This is a launch starting point chosen through discussion, not player-validated positioning.
 
-On 2026-11-24 the user superseded v1 for store listings with [positioning v2](analysis/positioning-v2.md): great real-time-strategy gameplay and a fair deal (free, no ads, nothing sold) on every platform, plus AI co-play through MCP on desktop. This is also a user decision, not player-validated.
+On 2026-11-24 the user superseded v1 for store listings with [positioning v2](analysis/positioning.md): great real-time-strategy gameplay and a fair deal (free, no ads, nothing sold) on every platform, plus AI co-play through MCP on desktop. This is also a user decision, not player-validated.
 
 ## Start here
 
 - [Working rules](AGENTS.md): delegation, evidence, structure, and trunk-based commits.
-- [Storefront v2 revamp](planning/storefront-v2-rollout.md): the current record of store listing work: the 2026-11-24 decisions, [current per-store status and owner to-dos](planning/storefront-v2-rollout.md#current-status-and-open-follow-ups), work units and a dated log for the new copy, key art, screenshots, icon and trailer. The [storefront v2 summary](analysis/storefront-v2-summary.md) explains what changed, how to measure it and the traffic options. Binding rules are in [AGENTS.md](AGENTS.md#storefront-v2-revamp--2026-11-24); the message is [positioning v2](analysis/positioning-v2.md).
+- [Storefront v2 revamp](planning/storefront-rollout.md): the current record of store listing work: the 2026-11-24 decisions, [current per-store status and owner to-dos](planning/storefront-rollout.md#current-status-and-open-follow-ups), work units and a dated log for the new copy, key art, screenshots, icon and trailer. The [storefront v2 summary](analysis/storefront-summary.md) explains what changed, how to measure it and the traffic options. Binding rules are in [AGENTS.md](AGENTS.md#storefront-v2-revamp--2026-11-24); the message is [positioning v2](analysis/positioning.md).
 - [Canonical storefront translations](translations/README.md): approved English source, 44 reviewed non-English language catalogs, terminology and platform exports.
 - [Main website localization](planning/website-localization-rollout.md): 44 translated languages for the four marketing pages, independent AI review and deployment/readback receipts.
 - [Domain migration](planning/domain-migration.md): switch to `glob2.online` across maintained sources, hosting and controlled listings.
@@ -27,7 +27,7 @@ The 2026-10-26 pass is documented in six factual ledgers and four separate possi
 
 The authorized follow-up phase adds a [public platform audit](facts/platform-audit.md) with 21 presentation records and 18 visually inspected image assets, plus [four positioning candidates](analysis/positioning-options.md) and a [proposed validation protocol](analysis/validation-plan.md). The candidates lead with colony priorities, colony systems under rival pressure, free-software/native/local access, or JavaScript opponent authoring. They are unranked and untested.
 
-The [phase review](planning/platform-positioning-review.md) records evidence checks, cross-review and remaining dependencies. The [working v1 message](analysis/positioning-v1.md) was then selected, and was superseded by [positioning v2](analysis/positioning-v2.md) on 2026-11-24. The user stopped the recruitment/testing approach; historical study materials are preserved rather than treated as launch prerequisites. Asset normalization, launch-material production and campaign execution remain separate work. See the [open task ledger](planning/tasks.md#open-follow-up-work).
+The [phase review](planning/platform-positioning-review.md) records evidence checks, cross-review and remaining dependencies. The [working v1 message](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md) was then selected, and was superseded by [positioning v2](analysis/positioning.md) on 2026-11-24. The user stopped the recruitment/testing approach; historical study materials are preserved rather than treated as launch prerequisites. Asset normalization, launch-material production and campaign execution remain separate work. See the [open task ledger](planning/tasks.md#open-follow-up-work).
 
 ## Structure
 

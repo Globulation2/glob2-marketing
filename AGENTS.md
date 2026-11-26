@@ -21,7 +21,7 @@ These Git workflow rules apply only to the `glob2-marketing` repository. On 2026
 - `planning/` holds task ledgers and execution records. Update status, dependencies, evidence links, gaps, and next work as progress is made.
 - Keep paths and indexes consistent. Link related records instead of creating divergent copies. Preserve provenance and asset usage-rights uncertainty.
 - This repository is public: do not commit secrets, tokens, private account details, or unnecessary private correspondence. Use public evidence and minimal relevant metadata.
-- **No version-suffixed copies** (user request, 2026-11-26: "why do we have all these v1s and v2s and v3s in the repo when the repo already has a version history", then "Yes, clean up"). Update assets and records in place. Do not create `-v2`, `-v3` or similar copies of folders or files: Git history keeps earlier versions. Refer to a past version with a permanent GitHub link at a commit SHA (`https://github.com/Globulation2/glob2-marketing/blob/<sha>/<path>`), and mark an approved set with a Git tag. The existing `storefront-approved-v1` and `storefront-v2` folders keep their names until they are retired; remove `storefront-approved-v1` once storefront-v2 is live on every store, and repoint its links to history the same way.
+- **No version labels in names** (user requests, 2026-11-26: "why do we have all these v1s and v2s and v3s in the repo when the repo already has a version history", then "Yes, clean up"; and "why do we have any v's in the names at all", then "Yes, rename them"). Files and folders carry no version labels: the current set is simply `assets/storefront/`, `planning/storefront-rollout.md`, `facts/storefront-claims.md`, `analysis/positioning.md` and so on. Update assets and records in place, and never create `-v1`, `-v2` or similar copies: Git history keeps earlier versions. Refer to a past version with a permanent GitHub link at a commit SHA (`https://github.com/Globulation2/glob2-marketing/blob/<sha>/<path>`), and mark an approved set with a Git tag. The storefront-v1 upload set (`assets/storefront-approved-v1/`) and positioning v1 were removed on 2026-11-26 rather than renamed; they remain at commit `4e62f80` ([tree](https://github.com/Globulation2/glob2-marketing/tree/4e62f805935fa57724d66338071ee8553f059f18)). "storefront-v1" and "storefront-v2" remain fine as names of those rollouts in dated records and prose.
 
 ## Initial research boundary
 
@@ -33,9 +33,9 @@ The user subsequently authorized a public platform audit and positioning-option 
 
 ## Selected launch v1
 
-**Superseded as the current message reference on 2026-11-24** by [positioning v2](analysis/positioning-v2.md); see [Storefront v2 revamp](#storefront-v2-revamp--2026-11-24). The text below is kept as the record of the earlier decision.
+**Superseded as the current message reference on 2026-11-24** by [positioning v2](analysis/positioning.md); see [Storefront v2 revamp](#storefront-v2-revamp--2026-11-24). The text below is kept as the record of the earlier decision.
 
-The user subsequently stopped recruitment/testing as the immediate approach and selected a working launch positioning through discussion on 2026-10-26. Use [the agreed v1](analysis/positioning-v1.md) as the current message reference: colony building and economics lead, with spatial strategy and rival pressure supporting. Historical research plans remain preserved but are not active launch prerequisites. This is a user decision, not player validation or authorization to contact people or change live listings.
+The user subsequently stopped recruitment/testing as the immediate approach and selected a working launch positioning through discussion on 2026-10-26. Use [the agreed v1](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md) as the current message reference: colony building and economics lead, with spatial strategy and rival pressure supporting. Historical research plans remain preserved but are not active launch prerequisites. This is a user decision, not player validation or authorization to contact people or change live listings.
 
 ## Approved storefront rollout
 
@@ -55,7 +55,7 @@ Keep legal, fee, security and policy answers truthful and evidence-backed. Do no
 
 ## Storefront v2 revamp — 2026-11-24
 
-On 2026-11-24 the user asked for a revamp of the store listings and made the decisions below. They are binding for all storefront work from that date. The working records are [positioning v2](analysis/positioning-v2.md) and the [storefront v2 rollout ledger](planning/storefront-v2-rollout.md); work from those files, not from chat.
+On 2026-11-24 the user asked for a revamp of the store listings and made the decisions below. They are binding for all storefront work from that date. The working records are [positioning v2](analysis/positioning.md) and the [storefront v2 rollout ledger](planning/storefront-rollout.md); work from those files, not from chat.
 
 Where the user's own words are available they are quoted. The other decisions were selected by the user from options the coordinating agent presented, and are recorded as user selections, not quotations.
 
@@ -101,7 +101,7 @@ Wherever an earlier section or ledger refers to the approved-imagery restriction
 
 When asked what is sold to players, the user answered: "Nothing is sold". The listing says so flatly: free, no ads, no in-app purchases, no lootboxes, no in-game currency.
 
-The source contains payment and credit machinery for colony skins, Hive Mind and the Studios ([product ledger](facts/product.md#existing-commercial-machinery)). Those are not promoted in any listing. The claims verifier checks production and each store's ads and purchase declarations and records the result in [storefront v2 claims](facts/storefront-v2-claims.md). A claim that cannot be confirmed for a store is dropped or scoped there and reported to the user.
+The source contains payment and credit machinery for colony skins, Hive Mind and the Studios ([product ledger](facts/product.md#existing-commercial-machinery)). Those are not promoted in any listing. The claims verifier checks production and each store's ads and purchase declarations and records the result in [storefront v2 claims](facts/storefront-claims.md). A claim that cannot be confirmed for a store is dropped or scoped there and reported to the user.
 
 ### MCP: never claim "first"
 
@@ -114,7 +114,7 @@ The desktop pitch is: play the same colony alongside your own AI agent through t
 - **Mobile listings** lead with great real-time-strategy gameplay plus the fair deal (free, no ads, no in-app purchases).
 - **Desktop listings** carry the same, and add AI co-play through MCP.
 
-This supersedes [positioning v1](analysis/positioning-v1.md), including its line that AI tooling is not the lead promise. Positioning v2 is a user decision, not player validation.
+This supersedes [positioning v1](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md), including its line that AI tooling is not the lead promise. Positioning v2 is a user decision, not player validation.
 
 ### Other user selections
 

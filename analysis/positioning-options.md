@@ -4,7 +4,7 @@
 
 Drafted **2026-10-26** following authorization to develop concrete audience/message combinations. These are four **untested candidates**, not a selected positioning, claims approval, or evidence of audience demand. No new player research or current-build playtest was performed. Copy below is review material; it has not been published or applied to listings.
 
-**Later decision, 2026-10-26:** the user selected [launch positioning v1](positioning-v1.md) through discussion, centering colony building and economics with spatial strategy and rival pressure. These earlier options remain untested historical drafts. Recruitment/testing is no longer the immediate approach.
+**Later decision, 2026-10-26:** the user selected [launch positioning v1](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md) through discussion, centering colony building and economics with spatial strategy and rival pressure. These earlier options remain untested historical drafts. Recruitment/testing is no longer the immediate approach.
 
 The rows have no preference order. Options A and B describe different motivations for the same core gameplay; C changes the trust/access emphasis; D addresses a separate creator circumstance. A person could respond to several. Each test must distinguish understanding of the game from attraction to a slogan.
 
@@ -93,4 +93,4 @@ The rows have no preference order. Options A and B describe different motivation
 
 ## Subsequent decision
 
-The user selected a [working launch v1](positioning-v1.md) through conversation, without running the proposed research. That record supersedes the open message decision while preserving these options as historical alternatives. No candidate has been player-validated. Canonical screenshots and publication remain separate work.
+The user selected a [working launch v1](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md) through conversation, without running the proposed research. That record supersedes the open message decision while preserving these options as historical alternatives. No candidate has been player-validated. Canonical screenshots and publication remain separate work.

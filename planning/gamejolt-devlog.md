@@ -35,7 +35,7 @@ Status: **prepared** 2026-11-26, awaiting the user's review. Not saved on Game J
 
 ### Claims check
 
-Against [storefront v2 claims](../facts/storefront-v2-claims.md):
+Against [storefront v2 claims](../facts/storefront-claims.md):
 
 - "No account needed for single-player": safe on every platform.
 - Online rooms with invite codes: safe. The Game Jolt build keeps online sign-in on. Quick matches are left out because the online service is nearly empty (R12), and the post must not imply quick human opponents.

@@ -1,6 +1,6 @@
 # What strategy players say they value and resent
 
-[Analysis index](README.md) · [Mobile and desktop store comparables](mobile-store-comparables.md) · [Audiences](audiences.md) · [Jobs to be done](jobs-to-be-done.md) · [Positioning v2](positioning-v2.md) · [MCP claims and prior art](../planning/mcp-outreach/product-and-prior-art.md)
+[Analysis index](README.md) · [Mobile and desktop store comparables](mobile-store-comparables.md) · [Audiences](audiences.md) · [Jobs to be done](jobs-to-be-done.md) · [Positioning v2](positioning.md) · [MCP claims and prior art](../planning/mcp-outreach/product-and-prior-art.md)
 
 Observed **2026-11-24**. This record collects public evidence on twelve things mobile and PC strategy players are said to care about, how games with fair monetisation word them in store listings, and what that implies for Globulation 2's wording on mobile and on desktop. It ends with prioritised message lists.
 

@@ -1,6 +1,6 @@
 # Store artwork reference review
 
-[Planning index](README.md) · [Epic profile](epic-store-profile-v1.md) · [First artwork pack](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v1/README.md) · [Positioning](../analysis/positioning-v1.md)
+[Planning index](README.md) · [Epic profile](epic-store-profile.md) · [First artwork pack](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v1/README.md) · [Positioning](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md)
 
 Observed **2026-10-26**, following the user's rejection of the first artwork pack as resembling a presentation slide. This pass visually inspected the current publisher-provided Steam header and small capsule images for six strategy/colony games. The Steam app-details API supplied the actual image URLs; the images were downloaded to a temporary inspection directory and viewed together. This is visual analysis, not evidence of conversion performance. No third-party game artwork is included in Glob2's exported or committed assets.
 

@@ -1,8 +1,8 @@
 # Gameplay video for marketing
 
-[Planning index](README.md) · [Current positioning v2](../analysis/positioning-v2.md) · [Positioning v1, superseded](../analysis/positioning-v1.md) · [Reddit media plan](reddit-campaign/media.md) · [Twitch streaming](twitch-streaming.md)
+[Planning index](README.md) · [Current positioning v2](../analysis/positioning.md) · [Positioning v1, superseded](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md) · [Reddit media plan](reddit-campaign/media.md) · [Twitch streaming](twitch-streaming.md)
 
-**Note, 2026-11-26:** drafted on 2026-11-23 under [positioning v1](../analysis/positioning-v1.md). [Positioning v2](../analysis/positioning-v2.md) has been the current store message since 2026-11-24, and this guide has been binding for all storefront-v2 screenshots and trailer footage since that date ([working rules](../AGENTS.md#footage-rule)).
+**Note, 2026-11-26:** drafted on 2026-11-23 under [positioning v1](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md). [Positioning v2](../analysis/positioning.md) has been the current store message since 2026-11-24, and this guide has been binding for all storefront-v2 screenshots and trailer footage since that date ([working rules](../AGENTS.md#footage-rule)).
 
 For trailers, store media, release posts, social clips, and other promotional placements, lead with a moment that shows why a match is exciting to watch and play. Use footage of the actual game. A busy mid-game match between computer opponents works well because the camera can show several parts of the colony and a fight at the same time.
 

@@ -334,7 +334,7 @@ class EnglishSourceTests(unittest.TestCase):
         return next(rule for rule in self.config['field_limits'] if rule['fields'] == pattern)
 
     def test_overlay_limits_follow_the_measured_script_ceilings(self):
-        """Ceilings from assets/storefront-v2/tools/README.md, "How long a caption can be" (measured 2026-11-24)."""
+        """Ceilings from assets/storefront/tools/README.md, "How long a caption can be" (measured 2026-11-24)."""
         rule = self.rule('shot_overlay_*')
         groups = rule['script_groups']
         assigned = [code for group in groups.values() for code in group['locales']]

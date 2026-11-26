@@ -1,6 +1,6 @@
 # Globulation 2 স্টোরের অনুবাদ — বাংলা
 
-Source version: storefront-v2. Observation date: 2026-11-24. Locale: bn. Translated 2026-11-24 from the [English master](en.md) with the [field map](storefront-v2-field-map.md) and [terminology](glossary.md); the storefront-v1 fields that no longer exist were removed. Independently reviewed and edited against the English source on 2026-11-24. Method: AI translation with independent AI linguistic review; not human or native-speaker validation. Game terminology reference: content/data/texts.bn.txt in the Globulation2/glob2 repository. Counts and years are written in Bengali numerals; Latin digits remain only in Latin-script terms (Globulation 2, 1v1) and URLs.
+Source version: storefront-v2. Observation date: 2026-11-24. Locale: bn. Translated 2026-11-24 from the [English master](en.md) with the [field map](storefront-field-map.md) and [terminology](glossary.md); the storefront-v1 fields that no longer exist were removed. Independently reviewed and edited against the English source on 2026-11-24. Method: AI translation with independent AI linguistic review; not human or native-speaker validation. Game terminology reference: content/data/texts.bn.txt in the Globulation2/glob2 repository. Counts and years are written in Bengali numerals; Latin digits remain only in Latin-script terms (Globulation 2, 1v1) and URLs.
 
 ## product_name
 

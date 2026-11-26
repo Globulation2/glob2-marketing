@@ -1,8 +1,8 @@
 # Globulation 2 Reddit campaign kit
 
-[Planning index](../README.md) · [Current positioning v2](../../analysis/positioning-v2.md) · [Positioning v1, superseded](../../analysis/positioning-v1.md)
+[Planning index](../README.md) · [Current positioning v2](../../analysis/positioning.md) · [Positioning v1, superseded](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md)
 
-**Note, 2026-11-26:** drafted on 2026-11-23 under [positioning v1](../../analysis/positioning-v1.md). [Positioning v2](../../analysis/positioning-v2.md) has been the current store message since 2026-11-24; the text below has not been revised for it.
+**Note, 2026-11-26:** drafted on 2026-11-23 under [positioning v1](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md). [Positioning v2](../../analysis/positioning.md) has been the current store message since 2026-11-24; the text below has not been revised for it.
 
 Prepared November 23, 2026 for the free, open-source desktop remaster. These are internal working materials in the marketing repository. The submission record below tracks Reddit outcomes. Android and iOS are outside this campaign. The release story is the modernization of the whole RTS, including current desktop support, HD graphics and rebuilt online play. The recovered Blender artwork is one example of the work.
 

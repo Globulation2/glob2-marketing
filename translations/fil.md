@@ -1,6 +1,6 @@
 # Globulation 2 storefront translations — Filipino
 
-Source version: storefront-v2. Observation date: 2026-11-24. Locale: fil. AI translation from the [English master](en.md), following the [field map](storefront-v2-field-map.md) and [terminology](glossary.md), with independent AI linguistic review; this is not human or native-speaker validation. `epic_tail` and `epic_legal` keep their storefront-v1 text. Game terminology reference: content/data/texts.fil.txt in the Globulation2/glob2 repository.
+Source version: storefront-v2. Observation date: 2026-11-24. Locale: fil. AI translation from the [English master](en.md), following the [field map](storefront-field-map.md) and [terminology](glossary.md), with independent AI linguistic review; this is not human or native-speaker validation. `epic_tail` and `epic_legal` keep their storefront-v1 text. Game terminology reference: content/data/texts.fil.txt in the Globulation2/glob2 repository.
 
 ## product_name
 

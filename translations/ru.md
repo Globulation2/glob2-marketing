@@ -1,6 +1,6 @@
 # Globulation 2 storefront translations — ru
 
-Source version: storefront-v2. Observation date: 2026-11-24. Locale: ru. AI translation with independent AI linguistic review; not human or native-speaker validation. Building and interface names follow the game's own Russian translation (`content/data/texts.ru.txt`). `epic_tail` and `epic_legal` keep their storefront-v1 text. See [field map](storefront-v2-field-map.md), [terminology](glossary.md) and [translation contract](README.md).
+Source version: storefront-v2. Observation date: 2026-11-24. Locale: ru. AI translation with independent AI linguistic review; not human or native-speaker validation. Building and interface names follow the game's own Russian translation (`content/data/texts.ru.txt`). `epic_tail` and `epic_legal` keep their storefront-v1 text. See [field map](storefront-field-map.md), [terminology](glossary.md) and [translation contract](README.md).
 
 ## product_name
 

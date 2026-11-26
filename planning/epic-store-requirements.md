@@ -1,6 +1,6 @@
 # Epic Games Store preparation requirements
 
-[Planning index](README.md) · [Epic profile draft](epic-store-profile-v1.md) · [Reusable copy](store-profile-v1.md) · [Asset brief](store-assets-v1.md)
+[Planning index](README.md) · [Epic profile draft](epic-store-profile.md) · [Reusable copy](store-profile.md) · [Asset brief](store-assets.md)
 
 Checked **2026-10-26** against Epic's public documentation. The user selected Epic as the first storefront. This record covers preparing its Windows profile; no Developer Portal session, account state, submission or publication was inspected or changed. Portal validation and previews remain the final field checks.
 

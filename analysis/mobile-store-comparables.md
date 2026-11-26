@@ -1,6 +1,6 @@
 # Mobile and desktop store comparables
 
-[Analysis index](README.md) · [Player priorities](player-priorities.md) · [Comparable games (mechanics)](comparables.md) · [Positioning v2](positioning-v2.md) · [Storefront v2 rollout](../planning/storefront-v2-rollout.md) · [English listing source](../translations/en.md)
+[Analysis index](README.md) · [Player priorities](player-priorities.md) · [Comparable games (mechanics)](comparables.md) · [Positioning v2](positioning.md) · [Storefront v2 rollout](../planning/storefront-rollout.md) · [English listing source](../translations/en.md)
 
 Observed **2026-11-24** (US storefronts, English). This record covers how comparable strategy games present their store listings, what each store's rules allow, and where the current Globulation 2 listing falls short. It complements [comparables.md](comparables.md), which compares mechanics and motivations and did not examine any mobile store page.
 

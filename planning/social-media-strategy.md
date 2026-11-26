@@ -1,8 +1,8 @@
 # Globulation 2 social media strategy
 
-[Planning index](README.md) · [Channel inventory](../facts/social-media-accounts.md) · [Current positioning v2](../analysis/positioning-v2.md) · [Positioning v1, superseded](../analysis/positioning-v1.md) · [Approved media](../assets/storefront-approved-v1/README.md)
+[Planning index](README.md) · [Channel inventory](../facts/social-media-accounts.md) · [Current positioning v2](../analysis/positioning.md) · [Positioning v1, superseded](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md) · [Approved media](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/assets/storefront-approved-v1/README.md)
 
-**Note, 2026-11-26:** drafted on 2026-11-23 under [positioning v1](../analysis/positioning-v1.md). [Positioning v2](../analysis/positioning-v2.md) has been the current store message since 2026-11-24; the text below has not been revised for it.
+**Note, 2026-11-26:** drafted on 2026-11-23 under [positioning v1](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md). [Positioning v2](../analysis/positioning.md) has been the current store message since 2026-11-24; the text below has not been revised for it.
 
 Working plan drafted 2026-11-23. YouTube is the first new social channel. The publishing cadence and later channels are proposals. Track access, account creation and public verification in the channel inventory.
 
@@ -42,7 +42,7 @@ Use Twitch highlights for the next featured challenge and YouTube Shorts for a s
 - Website: `https://glob2.online/`
 - Short bio: **Build a thriving colony in contested territory. Free, open-source RTS. Play in your browser.**
 - Extended description: **Globulation 2 is a free, open-source real-time strategy game where food, workers and space shape your expansion. Grow a colony, balance competing needs, and contend with rivals for land and resources. Play in your browser, start with the tutorial, or download the game at glob2.online.**
-- Use a project-approved logo for the avatar and prepare a banner crop from the [approved colony screenshot](../assets/storefront-approved-v1/01-colony.png). Verify that gameplay stays legible in desktop and mobile crops. Add alt text and caption video clips.
+- Use a project-approved logo for the avatar and prepare a banner crop from the [approved colony screenshot](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/assets/storefront-approved-v1/01-colony.png). Verify that gameplay stays legible in desktop and mobile crops. Add alt text and caption video clips.
 
 ### First post draft
 

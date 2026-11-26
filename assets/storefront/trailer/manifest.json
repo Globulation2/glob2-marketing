@@ -1,0 +1,3744 @@
+{
+ "title": "Globulation 2 storefront-v2 gameplay trailer",
+ "made": "2026-11-24 (fix round after the independent review the same day)",
+ "build": {
+  "version": "0.11.7.0 + 15 commits",
+  "revision": "5bf966285aa8",
+  "label": "0.11.7.0 + 15 commits, revision 5bf966285aa8; not the public release binary; maps, AI roster and simulation identical to the tag",
+  "executable": "/Applications/Glob2.app/Contents/MacOS/glob2",
+  "executable_sha256": "252fd7d7ff8383c2f72760eccb418b4792bfdfe9f820cd8925b8d8cb69cb7c7f",
+  "public_release": false,
+  "note": "The installed build is 15 commits after the v0.11.7.0 tag. It has MCP tools the release lacks (for example game_time, which stepped every frame of the capture); the maps, AI roster and simulation are identical to the tag. Source of the correction: storefront-v2 trailer review M1 and facts/storefront-claims.md R13."
+ },
+ "platform": "macOS 26.6 on Apple silicon",
+ "capture_conditions": {
+  "window": "4256x2800 off-screen (SDL dummy video driver), --ui-scale 2, --interface desktop",
+  "renderer": "portable-sdl (one of the release's own backends)",
+  "artwork": "high-resolution artwork forced on (highResolutionArtworkChoice=on)",
+  "graphics": "clouds and cloud shadows off; everything else default",
+  "health_food_bars": "off: the in-game 'draw information' toggle (key I) pressed once after each load",
+  "zones": "the seat erased the colony's forbidden, clearing and guard areas in and around the view during the lead-in and while filming (Flags and areas tool, an ordinary player action); the AI repaints them",
+  "frame_capture": "the match is held between ticks and stepped one simulation tick per frame (game_time step ticks=1); each frame is the game's own framebuffer saved at native pixels by the embedded MCP UI server (ui_screenshot)",
+  "speed": "one frame per tick, played at 30 frames a second = the game's normal speed of 30 ticks a second; nothing retimed, interpolated, blended or sped up",
+  "crop": "the edit keeps the 3840x2160 map rectangle at (0,200) of each 4256x2800 frame: the HUD (top bar, event list, sidebar, the 'Paused' label of tick stepping) is outside it. Exceptions, per segment in edit.cuts: the opening fight is a 2560x1440 punch-in (1.5x); the placement beat first shows a 2848x1602 window that includes the real right-hand build palette with the Inn armed, then cuts in to a 1920x1080 window (2x) inside the same take; the desktop co-play beat is a 2144x1206 window (1.8x) with the game's own Hive card from the same frame inset bottom left. Each output size is scaled straight from the native crop (Lanczos): the 1080p files are downscales or native pixels, the 2160p files upscale the punch-ins; the vertical crops 1215x2160 (one shot 1080x1920) and downscales to 1080x1920",
+  "mcp_server": "enabled in every shot (--mcp-port 47814); only the f-coplay2 shot uses it for colony orders (Hive standing order)"
+ },
+ "footage_label": "AI versus AI matches (spectator-equivalent). Every colony on screen is played by the game's own AIs from a headless all-AI match. Each shot is filmed from a local player seat that shares one colony with its AI (join-seat.py), so the camera, fog of war and interface are a real player's. The seat's only inputs are listed per shot under seat_inputs: the zone erase, and in the placement shot one Inn placed through the build palette; in the desktop co-play shot one Hive standing order installed over MCP by the editing agent. Not human-versus-human footage.",
+ "matches": "headless matches and checkpoints under the desktop capture work directory; see ../captures/desktop/tools/matches.json for maps, seeds and AIs",
+ "music": {
+  "track": "Globulation 2 original soundtrack (content/data/zik/original: a2.opus building mood, a3.opus combat mood)",
+  "composer": "Jacques-Paul Grivaz",
+  "licence": "GPL-3.0-or-later (content/data/zik and docs/assets/source-attribution.md in the game repository; in-game credits content/data/authors.txt)",
+  "use": "the two moods share one timeline; the edit crossfades between them at the same playback position, as the game's SoundMixer does, and fades the tail. The combat mood (a3) is lifted 4 dB against the building mood so the fights do not read as a lull; a limiter at 4x oversampling keeps every file's true peak at or below -1 dBTP (measured per file under deliverables[].audio_loudness)"
+ },
+ "text": {
+  "source": "translations/<locale>.md fields trailer_line_1..4 and trailer_line_ai_coplay (desktop only)",
+  "renderer": "headless Chromium (HarfBuzz shaping, ICU bidi) via render_cards.py; no ffmpeg drawtext",
+  "colours": {
+   "ink": "#f9e8bb",
+   "accent": "#e3c077"
+  },
+  "wordmark": "glob2/content/data/gfx/menu-wordmark.png keyed into two masks, coloured cream and gold",
+  "placement": "bottom of the frame over a scrim (landscape centre 80 % of the height, portrait 60 %); trailer_line_ai_coplay at the top of the frame (15 %) so the Hive card inset stays clear"
+ },
+ "storage": {
+  "policy": "Decided 2026-11-24 by the coordinating agent: the repository keeps this manifest, README.md, tools/, the posters, the contact sheets and the AppStream WebM (glob2-trailer-30s-1080p.webm, about 30 MB, committed because AppStream metadata needs a stable URL for it). The MP4 cuts (13 files, about 0.9 GB) are not committed; .gitignore in this folder ignores *.mp4.",
+  "mp4_location": "../storefront-v2-renders/trailer/ relative to the repository root (/Users/bradley/glob2/storefront-v2-renders/trailer/ on the machine that made them), beside the captioned screenshot renders",
+  "reproducible": "Every MP4 is reproducible from the raw frames with tools/ (README.md, Reproduce). The bytes and SHA-256 under deliverables identify the exact files; they were re-checked against the moved files on 2026-11-24 and all matched.",
+  "webm_url": "https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront/trailer/glob2-trailer-30s-1080p.webm (pin a commit hash in place of main for AppStream metainfo)",
+  "store_packages": "assets/storefront/store-packages/build.py links the per-store trailer files from both places (stores.json, trailer)"
+ },
+ "deliverables": [
+  {
+   "file": "contact-sheet-15s.jpg",
+   "bytes": 2231047,
+   "sha256": "e9bdab164169fa1064848b0a48ad62327d7136a2ccf59835a209267cfed9ca6c",
+   "location": "repository"
+  },
+  {
+   "file": "contact-sheet-desktop-34s.jpg",
+   "bytes": 5391452,
+   "sha256": "d5db23fc9163f6a2e0dd3460dc956e81f64c7d63dfe5f43ebfa3a3146b9b8932",
+   "location": "repository"
+  },
+  {
+   "file": "contact-sheet-master-30s-textless.jpg",
+   "bytes": 5062817,
+   "sha256": "f5351383c012b66a91988e7f6fe33054b59923cf87058ebc5fcdaa4f422cb3d0",
+   "location": "repository"
+  },
+  {
+   "file": "contact-sheet-master-30s.jpg",
+   "bytes": 4682358,
+   "sha256": "1876b9abe7246fc699df788490b620d0f120f3fe5de961dfbee8e848ef9f41f0",
+   "location": "repository"
+  },
+  {
+   "file": "contact-sheet-vertical-30s.jpg",
+   "bytes": 4279951,
+   "sha256": "3d0d91eeb761bb566ede7db1126ec6fa4e64b6396af1bac85ca801cb4659f12c",
+   "location": "repository"
+  },
+  {
+   "file": "glob2-trailer-15s-1080p.mp4",
+   "bytes": 28633874,
+   "sha256": "4504cdef3e3033122115fdaecb921dddee477791a397da38637c366ead5462f5",
+   "duration_s": 15.0,
+   "video": {
+    "codec": "h264",
+    "profile": "High",
+    "level": 42,
+    "width": 1920,
+    "height": 1080,
+    "frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "frames": 450,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "bit_rate": 15005140
+   },
+   "audio": {
+    "codec": "aac",
+    "profile": "LC",
+    "channels": 2,
+    "channel_layout": "stereo",
+    "sample_rate": 48000,
+    "bit_rate": 256567
+   },
+   "fast_start": true,
+   "audio_loudness": {
+    "integrated_lufs": -14.0,
+    "true_peak_dbtp": -2.0
+   },
+   "location": "outside the repository (storage.mp4_location)"
+  },
+  {
+   "file": "glob2-trailer-15s-2160p.mp4",
+   "bytes": 71098503,
+   "sha256": "07db43a0fb2dee40d7de2c76d663ac6d758d72d47197802091d92b86347dd037",
+   "duration_s": 15.0,
+   "video": {
+    "codec": "h264",
+    "profile": "High",
+    "level": 51,
+    "width": 3840,
+    "height": 2160,
+    "frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "frames": 450,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "bit_rate": 37652959
+   },
+   "audio": {
+    "codec": "aac",
+    "profile": "LC",
+    "channels": 2,
+    "channel_layout": "stereo",
+    "sample_rate": 48000,
+    "bit_rate": 256567
+   },
+   "fast_start": true,
+   "audio_loudness": {
+    "integrated_lufs": -14.0,
+    "true_peak_dbtp": -2.0
+   },
+   "location": "outside the repository (storage.mp4_location)"
+  },
+  {
+   "file": "glob2-trailer-30s-1080p.mp4",
+   "bytes": 54010516,
+   "sha256": "e72e876e381143c8c7f733774c4ae9c46b279fdf04948b2c4beebd851cbaf203",
+   "duration_s": 30.0,
+   "video": {
+    "codec": "h264",
+    "profile": "High",
+    "level": 42,
+    "width": 1920,
+    "height": 1080,
+    "frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "frames": 900,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "bit_rate": 14137750
+   },
+   "audio": {
+    "codec": "aac",
+    "profile": "LC",
+    "channels": 2,
+    "channel_layout": "stereo",
+    "sample_rate": 48000,
+    "bit_rate": 256114
+   },
+   "fast_start": true,
+   "audio_loudness": {
+    "integrated_lufs": -14.6,
+    "true_peak_dbtp": -2.0
+   },
+   "location": "outside the repository (storage.mp4_location)"
+  },
+  {
+   "file": "glob2-trailer-30s-1080p.webm",
+   "bytes": 30158578,
+   "sha256": "3aa7a3e84891a9d41b788b109f81ab0b4ec26d924b02c9e21a44d55ee215847f",
+   "duration_s": 30.008,
+   "video": {
+    "codec": "vp9",
+    "profile": "Profile 0",
+    "level": null,
+    "width": 1920,
+    "height": 1080,
+    "frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "frames": 0,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "bit_rate": 0
+   },
+   "audio": {
+    "codec": "opus",
+    "profile": null,
+    "channels": 2,
+    "channel_layout": "stereo",
+    "sample_rate": 48000,
+    "bit_rate": 0
+   },
+   "fast_start": null,
+   "audio_loudness": {
+    "integrated_lufs": -14.6,
+    "true_peak_dbtp": -1.7
+   },
+   "location": "repository"
+  },
+  {
+   "file": "glob2-trailer-30s-2160p.mp4",
+   "bytes": 132906058,
+   "sha256": "a8a0d0032e177e2dc00fad89953c1bc758487a1063954aa1fa6b6ca632620abe",
+   "duration_s": 30.0,
+   "video": {
+    "codec": "h264",
+    "profile": "High",
+    "level": 51,
+    "width": 3840,
+    "height": 2160,
+    "frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "frames": 900,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "bit_rate": 35176572
+   },
+   "audio": {
+    "codec": "aac",
+    "profile": "LC",
+    "channels": 2,
+    "channel_layout": "stereo",
+    "sample_rate": 48000,
+    "bit_rate": 256114
+   },
+   "fast_start": true,
+   "audio_loudness": {
+    "integrated_lufs": -14.6,
+    "true_peak_dbtp": -2.0
+   },
+   "location": "outside the repository (storage.mp4_location)"
+  },
+  {
+   "file": "glob2-trailer-30s-ar-1080p.mp4",
+   "bytes": 54026885,
+   "sha256": "168da6ab24c81194b10d3118a8753960a914bded1e3cce54fba236b5302dd446",
+   "duration_s": 30.0,
+   "video": {
+    "codec": "h264",
+    "profile": "High",
+    "level": 42,
+    "width": 1920,
+    "height": 1080,
+    "frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "frames": 900,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "bit_rate": 14142116
+   },
+   "audio": {
+    "codec": "aac",
+    "profile": "LC",
+    "channels": 2,
+    "channel_layout": "stereo",
+    "sample_rate": 48000,
+    "bit_rate": 256114
+   },
+   "fast_start": true,
+   "audio_loudness": {
+    "integrated_lufs": -14.6,
+    "true_peak_dbtp": -2.0
+   },
+   "location": "outside the repository (storage.mp4_location)"
+  },
+  {
+   "file": "glob2-trailer-30s-ja-1080p.mp4",
+   "bytes": 53984032,
+   "sha256": "cd7ac03f008b0c0fa4f3f6770c82f58ed25fef97a28916492facf3baa8cdfd5f",
+   "duration_s": 30.0,
+   "video": {
+    "codec": "h264",
+    "profile": "High",
+    "level": 42,
+    "width": 1920,
+    "height": 1080,
+    "frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "frames": 900,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "bit_rate": 14130688
+   },
+   "audio": {
+    "codec": "aac",
+    "profile": "LC",
+    "channels": 2,
+    "channel_layout": "stereo",
+    "sample_rate": 48000,
+    "bit_rate": 256114
+   },
+   "fast_start": true,
+   "audio_loudness": {
+    "integrated_lufs": -14.6,
+    "true_peak_dbtp": -2.0
+   },
+   "location": "outside the repository (storage.mp4_location)"
+  },
+  {
+   "file": "glob2-trailer-30s-preview-720p.mp4",
+   "bytes": 15835959,
+   "sha256": "f1c4acdf3e25e36da5b1d20c0bd207b9008aaa0a87fab06e8f31898291298683",
+   "duration_s": 30.0,
+   "video": {
+    "codec": "h264",
+    "profile": "High",
+    "level": 40,
+    "width": 1280,
+    "height": 720,
+    "frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "frames": 900,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "bit_rate": 4054049
+   },
+   "audio": {
+    "codec": "aac",
+    "profile": "LC",
+    "channels": 2,
+    "channel_layout": "stereo",
+    "sample_rate": 48000,
+    "bit_rate": 160056
+   },
+   "fast_start": true,
+   "audio_loudness": {
+    "integrated_lufs": -14.6,
+    "true_peak_dbtp": -2.0
+   },
+   "location": "outside the repository (storage.mp4_location)"
+  },
+  {
+   "file": "glob2-trailer-30s-textless-1080p.mp4",
+   "bytes": 55295043,
+   "sha256": "f61552c1555c07675628295efdb78bcc902dc4644ec98dd52bb498a03c24102c",
+   "duration_s": 30.0,
+   "video": {
+    "codec": "h264",
+    "profile": "High",
+    "level": 42,
+    "width": 1920,
+    "height": 1080,
+    "frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "frames": 900,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "bit_rate": 14480295
+   },
+   "audio": {
+    "codec": "aac",
+    "profile": "LC",
+    "channels": 2,
+    "channel_layout": "stereo",
+    "sample_rate": 48000,
+    "bit_rate": 256114
+   },
+   "fast_start": true,
+   "audio_loudness": {
+    "integrated_lufs": -14.6,
+    "true_peak_dbtp": -2.0
+   },
+   "location": "outside the repository (storage.mp4_location)"
+  },
+  {
+   "file": "glob2-trailer-30s-textless-2160p.mp4",
+   "bytes": 132556004,
+   "sha256": "bcb7a5f428f7ba4af2e5b2dce56fd26de6f097e155d77960ced9429b47e64053",
+   "duration_s": 30.0,
+   "video": {
+    "codec": "h264",
+    "profile": "High",
+    "level": 51,
+    "width": 3840,
+    "height": 2160,
+    "frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "frames": 900,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "bit_rate": 35083220
+   },
+   "audio": {
+    "codec": "aac",
+    "profile": "LC",
+    "channels": 2,
+    "channel_layout": "stereo",
+    "sample_rate": 48000,
+    "bit_rate": 256114
+   },
+   "fast_start": true,
+   "audio_loudness": {
+    "integrated_lufs": -14.6,
+    "true_peak_dbtp": -2.0
+   },
+   "location": "outside the repository (storage.mp4_location)"
+  },
+  {
+   "file": "glob2-trailer-30s-vertical-1080x1920.mp4",
+   "bytes": 49909517,
+   "sha256": "f0bebc99f1719e63a3f9068a1db7bddc4c54445ee62c538084f8c6b7d42583d9",
+   "duration_s": 30.0,
+   "video": {
+    "codec": "h264",
+    "profile": "High",
+    "level": 42,
+    "width": 1080,
+    "height": 1920,
+    "frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "frames": 900,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "bit_rate": 13044149
+   },
+   "audio": {
+    "codec": "aac",
+    "profile": "LC",
+    "channels": 2,
+    "channel_layout": "stereo",
+    "sample_rate": 48000,
+    "bit_rate": 256114
+   },
+   "fast_start": true,
+   "audio_loudness": {
+    "integrated_lufs": -14.6,
+    "true_peak_dbtp": -2.0
+   },
+   "location": "outside the repository (storage.mp4_location)"
+  },
+  {
+   "file": "glob2-trailer-30s-vertical-textless-1080x1920.mp4",
+   "bytes": 51603687,
+   "sha256": "0846a233f6014643776dc938bb872cfd2ecac024eccbf2cb322ca4002ccad51f",
+   "duration_s": 30.0,
+   "video": {
+    "codec": "h264",
+    "profile": "High",
+    "level": 42,
+    "width": 1080,
+    "height": 1920,
+    "frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "frames": 900,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "bit_rate": 13495929
+   },
+   "audio": {
+    "codec": "aac",
+    "profile": "LC",
+    "channels": 2,
+    "channel_layout": "stereo",
+    "sample_rate": 48000,
+    "bit_rate": 256114
+   },
+   "fast_start": true,
+   "audio_loudness": {
+    "integrated_lufs": -14.6,
+    "true_peak_dbtp": -2.0
+   },
+   "location": "outside the repository (storage.mp4_location)"
+  },
+  {
+   "file": "glob2-trailer-desktop-34s-1080p.mp4",
+   "bytes": 61490258,
+   "sha256": "bfa0db9b58de51b885f9729eb9431d4f516f562d1873a0b1a0fe5112d7ebe769",
+   "duration_s": 34.5,
+   "video": {
+    "codec": "h264",
+    "profile": "High",
+    "level": 42,
+    "width": 1920,
+    "height": 1080,
+    "frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "frames": 1035,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "bit_rate": 13993537
+   },
+   "audio": {
+    "codec": "aac",
+    "profile": "LC",
+    "channels": 2,
+    "channel_layout": "stereo",
+    "sample_rate": 48000,
+    "bit_rate": 256215
+   },
+   "fast_start": true,
+   "audio_loudness": {
+    "integrated_lufs": -14.3,
+    "true_peak_dbtp": -2.0
+   },
+   "location": "outside the repository (storage.mp4_location)"
+  },
+  {
+   "file": "glob2-trailer-desktop-34s-2160p.mp4",
+   "bytes": 149147999,
+   "sha256": "0c50281b0178561c91041237f9d0204032363790e40ae4d723b999dc5323ac8e",
+   "duration_s": 34.5,
+   "video": {
+    "codec": "h264",
+    "profile": "High",
+    "level": 51,
+    "width": 3840,
+    "height": 2160,
+    "frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "frames": 1035,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "bit_rate": 34319977
+   },
+   "audio": {
+    "codec": "aac",
+    "profile": "LC",
+    "channels": 2,
+    "channel_layout": "stereo",
+    "sample_rate": 48000,
+    "bit_rate": 256215
+   },
+   "fast_start": true,
+   "audio_loudness": {
+    "integrated_lufs": -14.3,
+    "true_peak_dbtp": -2.0
+   },
+   "location": "outside the repository (storage.mp4_location)"
+  },
+  {
+   "file": "poster-1920x1080.png",
+   "bytes": 3513454,
+   "sha256": "bc17457f1320acf4b640eb7bd29168a8e176d37f6b2ddd7b4001269d5bc1fca9",
+   "location": "repository"
+  },
+  {
+   "file": "poster-3840x2160.png",
+   "bytes": 10686234,
+   "sha256": "d6f1222b52beaef1a964309a2a18e667fa27e9efb2304299c6f2fe5d36098ff1",
+   "location": "repository"
+  }
+ ],
+ "shots": [
+  {
+   "id": "f-battle-honey",
+   "frames": 180,
+   "first_tick": 67450,
+   "last_tick": 67629,
+   "speed": "1x",
+   "ticks_per_second": 30.000000300000004,
+   "source_save": "honeycomb/checkpoint-66000.game.gz",
+   "source_save_sha256": "8887eb1106bb176658cd66b57c82ec9793330a756b65f8d8cc868b14f5b902b3",
+   "seat": "local player sharing colony 0 with its AI",
+   "camera": {
+    "centre_tile": [
+     72,
+     63
+    ],
+    "zoom": 2.0,
+    "view_tiles": {
+     "height": 22,
+     "width": 31,
+     "x": 57,
+     "y": 52
+    },
+    "pan_native_px_per_frame": null
+   },
+   "map": {
+    "height": 128,
+    "width": 128
+   },
+   "window": [
+    4256,
+    2800
+   ],
+   "ui_scale": 2.0,
+   "erase_zones": [
+    "clearing",
+    "forbidden",
+    "guard"
+   ],
+   "health_food_bars": "off (key I after load)",
+   "match": "honeycomb",
+   "checkpoint": 66000,
+   "team": 0,
+   "seat_inputs": [],
+   "tick_continuity": {
+    "every_frame_one_tick": true,
+    "declared_cuts_inside_take": [],
+    "undeclared_jumps": []
+   }
+  },
+  {
+   "id": "f-place",
+   "frames": 290,
+   "first_tick": 60300,
+   "last_tick": 61329,
+   "speed": "1x",
+   "ticks_per_second": 30.000000300000004,
+   "source_save": "fsq-mix/checkpoint-60000.game.gz",
+   "source_save_sha256": "b63b5b9c5ac161c7ba1defa89b161f417a6c320dafdd6559a63235e0138f50cf",
+   "seat": "local player sharing colony 0 with its AI",
+   "camera": {
+    "centre_tile": [
+     0,
+     124
+    ],
+    "zoom": 1.5,
+    "view_tiles": {
+     "height": 30,
+     "width": 41,
+     "x": 108,
+     "y": 109
+    },
+    "pan_native_px_per_frame": null
+   },
+   "map": {
+    "height": 128,
+    "width": 128
+   },
+   "window": [
+    4256,
+    2800
+   ],
+   "ui_scale": 2.0,
+   "erase_zones": [
+    "clearing",
+    "forbidden",
+    "guard"
+   ],
+   "health_food_bars": "off (key I after load)",
+   "match": "fsq-mix",
+   "checkpoint": 60000,
+   "team": 0,
+   "seat_inputs": [
+    {
+     "frame": 10,
+     "tick": 60310,
+     "action": {
+      "act": "game/buildings/inn.0.site"
+     }
+    },
+    {
+     "frame": 11,
+     "tick": 60311,
+     "action": {
+      "move_tile": [
+       124.5,
+       122.5
+      ],
+      "over": 30,
+      "from_dx": 700,
+      "from_dy": -500
+     }
+    },
+    {
+     "frame": 48,
+     "tick": 60348,
+     "action": {
+      "click_tile": [
+       124.5,
+       122.5
+      ]
+     }
+    },
+    {
+     "frame": 58,
+     "tick": 60358,
+     "action": {
+      "click_tile": [
+       124.5,
+       122.5
+      ],
+      "button": "right"
+     }
+    },
+    {
+     "frame": 110,
+     "tick": 61150,
+     "action": {
+      "skip_ticks": 740
+     }
+    }
+   ],
+   "tick_continuity": {
+    "every_frame_one_tick": true,
+    "declared_cuts_inside_take": [
+     {
+      "at_frame": 110,
+      "ticks_skipped": 740
+     }
+    ],
+    "undeclared_jumps": []
+   }
+  },
+  {
+   "id": "f-fed",
+   "frames": 150,
+   "first_tick": 60500,
+   "last_tick": 60649,
+   "speed": "1x",
+   "ticks_per_second": 30.000000300000004,
+   "source_save": "fsq-mix/checkpoint-60000.game.gz",
+   "source_save_sha256": "b63b5b9c5ac161c7ba1defa89b161f417a6c320dafdd6559a63235e0138f50cf",
+   "seat": "local player sharing colony 0 with its AI",
+   "camera": {
+    "centre_tile": [
+     124,
+     112
+    ],
+    "zoom": 1.5,
+    "view_tiles": {
+     "height": 30,
+     "width": 41,
+     "x": 104,
+     "y": 97
+    },
+    "pan_native_px_per_frame": {
+     "dx": 1.5,
+     "dy": 0
+    }
+   },
+   "map": {
+    "height": 128,
+    "width": 128
+   },
+   "window": [
+    4256,
+    2800
+   ],
+   "ui_scale": 2.0,
+   "erase_zones": [
+    "clearing",
+    "forbidden",
+    "guard"
+   ],
+   "health_food_bars": "off (key I after load)",
+   "match": "fsq-mix",
+   "checkpoint": 60000,
+   "team": 0,
+   "seat_inputs": [],
+   "tick_continuity": {
+    "every_frame_one_tick": true,
+    "declared_cuts_inside_take": [],
+    "undeclared_jumps": []
+   }
+  },
+  {
+   "id": "f-cabino",
+   "frames": 120,
+   "first_tick": 60300,
+   "last_tick": 60419,
+   "speed": "1x",
+   "ticks_per_second": 30.000000300000004,
+   "source_save": "fsq-mix/checkpoint-60000.game.gz",
+   "source_save_sha256": "b63b5b9c5ac161c7ba1defa89b161f417a6c320dafdd6559a63235e0138f50cf",
+   "seat": "local player sharing colony 1 with its AI",
+   "camera": {
+    "centre_tile": [
+     125,
+     64
+    ],
+    "zoom": 1.5,
+    "view_tiles": {
+     "height": 30,
+     "width": 41,
+     "x": 105,
+     "y": 49
+    },
+    "pan_native_px_per_frame": null
+   },
+   "map": {
+    "height": 128,
+    "width": 128
+   },
+   "window": [
+    4256,
+    2800
+   ],
+   "ui_scale": 2.0,
+   "erase_zones": [
+    "clearing",
+    "forbidden",
+    "guard"
+   ],
+   "health_food_bars": "off (key I after load)",
+   "match": "fsq-mix",
+   "checkpoint": 60000,
+   "team": 1,
+   "seat_inputs": [],
+   "tick_continuity": {
+    "every_frame_one_tick": true,
+    "declared_cuts_inside_take": [],
+    "undeclared_jumps": []
+   }
+  },
+  {
+   "id": "f-battle3",
+   "frames": 120,
+   "first_tick": 67780,
+   "last_tick": 67899,
+   "speed": "1x",
+   "ticks_per_second": 30.000000300000004,
+   "source_save": "honeycomb/checkpoint-66000.game.gz",
+   "source_save_sha256": "8887eb1106bb176658cd66b57c82ec9793330a756b65f8d8cc868b14f5b902b3",
+   "seat": "local player sharing colony 0 with its AI",
+   "camera": {
+    "centre_tile": [
+     64,
+     59
+    ],
+    "zoom": 1.25,
+    "view_tiles": {
+     "height": 35,
+     "width": 49,
+     "x": 40,
+     "y": 42
+    },
+    "pan_native_px_per_frame": null
+   },
+   "map": {
+    "height": 128,
+    "width": 128
+   },
+   "window": [
+    4256,
+    2800
+   ],
+   "ui_scale": 2.0,
+   "erase_zones": [
+    "clearing",
+    "forbidden",
+    "guard"
+   ],
+   "health_food_bars": "off (key I after load)",
+   "match": "honeycomb",
+   "checkpoint": 66000,
+   "team": 0,
+   "seat_inputs": [],
+   "tick_continuity": {
+    "every_frame_one_tick": true,
+    "declared_cuts_inside_take": [],
+    "undeclared_jumps": []
+   }
+  },
+  {
+   "id": "f-hero",
+   "frames": 150,
+   "first_tick": 60620,
+   "last_tick": 60769,
+   "speed": "1x",
+   "ticks_per_second": 30.000000300000004,
+   "source_save": "fsq-mix/checkpoint-60000.game.gz",
+   "source_save_sha256": "b63b5b9c5ac161c7ba1defa89b161f417a6c320dafdd6559a63235e0138f50cf",
+   "seat": "local player sharing colony 0 with its AI",
+   "camera": {
+    "centre_tile": [
+     0,
+     0
+    ],
+    "zoom": 1.0,
+    "view_tiles": {
+     "height": 44,
+     "width": 61,
+     "x": 98,
+     "y": 106
+    },
+    "pan_native_px_per_frame": {
+     "dx": 1.5,
+     "dy": 0
+    }
+   },
+   "map": {
+    "height": 128,
+    "width": 128
+   },
+   "window": [
+    4256,
+    2800
+   ],
+   "ui_scale": 2.0,
+   "erase_zones": [
+    "clearing",
+    "forbidden",
+    "guard"
+   ],
+   "health_food_bars": "off (key I after load)",
+   "match": "fsq-mix",
+   "checkpoint": 60000,
+   "team": 0,
+   "seat_inputs": [],
+   "tick_continuity": {
+    "every_frame_one_tick": true,
+    "declared_cuts_inside_take": [],
+    "undeclared_jumps": []
+   }
+  },
+  {
+   "id": "f-econ",
+   "frames": 150,
+   "first_tick": 48400,
+   "last_tick": 48549,
+   "speed": "1x",
+   "ticks_per_second": 30.000000300000004,
+   "source_save": "fsq-mix/checkpoint-48000.game.gz",
+   "source_save_sha256": "3c380be1b622e759317428ab15a41c4cfd3459dab292f62ba5d0cb15fca975d7",
+   "seat": "local player sharing colony 0 with its AI",
+   "camera": {
+    "centre_tile": [
+     0,
+     0
+    ],
+    "zoom": 1.25,
+    "view_tiles": {
+     "height": 35,
+     "width": 49,
+     "x": 104,
+     "y": 111
+    },
+    "pan_native_px_per_frame": {
+     "dx": -1.5,
+     "dy": 0
+    }
+   },
+   "map": {
+    "height": 128,
+    "width": 128
+   },
+   "window": [
+    4256,
+    2800
+   ],
+   "ui_scale": 2.0,
+   "erase_zones": [
+    "clearing",
+    "forbidden",
+    "guard"
+   ],
+   "health_food_bars": "off (key I after load)",
+   "match": "fsq-mix",
+   "checkpoint": 48000,
+   "team": 0,
+   "seat_inputs": [],
+   "tick_continuity": {
+    "every_frame_one_tick": true,
+    "declared_cuts_inside_take": [],
+    "undeclared_jumps": []
+   }
+  },
+  {
+   "id": "f-coplay2",
+   "frames": 150,
+   "first_tick": 60460,
+   "last_tick": 60609,
+   "speed": "1x",
+   "ticks_per_second": 30.000000300000004,
+   "source_save": "fsq-mix/checkpoint-60000.game.gz",
+   "source_save_sha256": "b63b5b9c5ac161c7ba1defa89b161f417a6c320dafdd6559a63235e0138f50cf",
+   "seat": "local player sharing colony 0 with its AI",
+   "camera": {
+    "centre_tile": [
+     8,
+     119
+    ],
+    "zoom": 1.5,
+    "view_tiles": {
+     "height": 30,
+     "width": 41,
+     "x": 116,
+     "y": 104
+    },
+    "pan_native_px_per_frame": null
+   },
+   "map": {
+    "height": 128,
+    "width": 128
+   },
+   "window": [
+    4256,
+    2800
+   ],
+   "ui_scale": 2.0,
+   "erase_zones": [
+    "clearing",
+    "forbidden",
+    "guard"
+   ],
+   "health_food_bars": "off (key I after load)",
+   "match": "fsq-mix",
+   "checkpoint": 60000,
+   "team": 0,
+   "seat_inputs": [
+    {
+     "frame": 10,
+     "tick": 60470,
+     "action": {
+      "hive_install": {
+       "name": "inn-plan",
+       "description": "Lay four Inn sites on free grass near (8,118), one per run",
+       "source": "coplay_order.js",
+       "interval": 25,
+       "plan": [
+        {
+         "type": "inn",
+         "x": 8,
+         "y": 118
+        },
+        {
+         "type": "inn",
+         "x": 8,
+         "y": 118
+        },
+        {
+         "type": "inn",
+         "x": 8,
+         "y": 118
+        },
+        {
+         "type": "inn",
+         "x": 8,
+         "y": 118
+        }
+       ]
+      },
+      "result": {
+       "operation_key": "f-coplay2-1795565837",
+       "session": "8418333151041-21",
+       "status": "queued",
+       "submitted": false
+      }
+     }
+    },
+    {
+     "frame": 140,
+     "tick": 60600,
+     "action": {
+      "hive_list": true
+     }
+    }
+   ],
+   "tick_continuity": {
+    "every_frame_one_tick": true,
+    "declared_cuts_inside_take": [],
+    "undeclared_jumps": []
+   }
+  }
+ ],
+ "mcp_transcripts": {
+  "f-coplay2": [
+   {
+    "frame": 10,
+    "tick": 60470,
+    "tool": "hive_status",
+    "result": {
+     "available": true,
+     "limits": {
+      "journal_entries": 256,
+      "minimum_interval_ticks": 25,
+      "orders_per_invocation": 32,
+      "programs": 8,
+      "source_bytes": 131072,
+      "submission_capacity": 64
+     },
+     "programs": 0,
+     "queued": 0,
+     "running": false,
+     "session": "8418333151041-21",
+     "tick": 60470
+    }
+   },
+   {
+    "frame": 10,
+    "tick": 60470,
+    "tool": "hive_program",
+    "arguments": {
+     "action": "install",
+     "session": "8418333151041-21",
+     "operation_key": "f-coplay2-1795565837",
+     "name": "inn-plan",
+     "description": "Lay four Inn sites on free grass near (8,118), one per run",
+     "source": "// SPDX-License-Identifier: GPL-3.0-or-later\n// Standing order installed by the trailer editor (an AI agent) through the game's\n// MCP server (hive_program install) for the desktop trailer's co-play beat.\n//\n// Each run (every interval_ticks) lays the next building site of a short plan.\n// PLAN lists a building family and an anchor tile in the filmed view; the run reads\n// the colony's own view of the ground around the anchor (map.region: explored and\n// visible tiles, no resource, no building, grass on every corner), picks\n// the free footprint nearest the anchor that keeps one tile clear of the sites this\n// order already laid, and orders one construction site there. capture_shot.py fills\n// PLAN in from the shot's data. Only the player's fog-filtered view and ordinary\n// player orders are used.\nconst PLAN = [{\"type\": \"inn\", \"x\": 8, \"y\": 118}, {\"type\": \"inn\", \"x\": 8, \"y\": 118}, {\"type\": \"inn\", \"x\": 8, \"y\": 118}, {\"type\": \"inn\", \"x\": 8, \"y\": 118}];\nconst NONE = 65535;\nconst GRASS = 2;   // terrain id of grass, the buildable ground (the release's local Hive has no terrainTypes())\nlet next = 0;\nconst placed = [];\nfunction step(ctx) {\n  if (next >= PLAN.length) return {output: {done: placed}};\n  const g = ctx.game;\n  const p = PLAN[next++];\n  const type = g.buildingTypes().find(t => t.placeable && t.site && t.level === 0 &&\n                                         String(t.name).toLowerCase() === p.type);\n  if (!type) return {output: {missing_type: p.type}};\n  const r = p.radius || 7, W = g.map.width, H = g.map.height;\n  const x0 = p.x - r, y0 = p.y - r, size = 2 * r + type.width;\n  const tiles = g.map.region(x0, y0, size, size);\n  const free = tiles.map(t => t.explored && t.visible && t.resource && t.resource.type === NONE &&\n    (t.building === undefined || t.building === NONE) && t.corners &&\n    t.corners.every(c => c === GRASS));\n  const wrap = (a, n) => { const d = Math.abs(a) % n; return Math.min(d, n - d); };\n  let best = null, bestD = 1e9;\n  for (let dy = 0; dy + type.height <= size; dy++) {\n    for (let dx = 0; dx + type.width <= size; dx++) {\n      let ok = true;\n      for (let j = 0; j < type.height && ok; j++)\n        for (let i = 0; i < type.width && ok; i++) ok = free[(dy + j) * size + dx + i];\n      if (!ok) continue;\n      const x = ((x0 + dx) % W + W) % W, y = ((y0 + dy) % H + H) % H;\n      if (placed.some(q => wrap(q[0] - x, W) <= type.width && wrap(q[1] - y, H) <= type.height)) continue;\n      const d = wrap(x - p.x, W) + wrap(y - p.y, H);\n      if (d < bestD) { bestD = d; best = [x, y]; }\n    }\n  }\n  if (!best) return {output: {no_room_near: [p.x, p.y], step: next}};\n  placed.push(best);\n  return {\n    output: {placing: p.type, at: best, step: next, of: PLAN.length},\n    orders: [{type: 'create', buildingType: type.id, x: best[0], y: best[1],\n              workers: p.workers || 6, futureWorkers: p.workers || 6}],\n  };\n}\n",
+     "interval_ticks": 25
+    },
+    "result": {
+     "operation_key": "f-coplay2-1795565837",
+     "session": "8418333151041-21",
+     "status": "queued",
+     "submitted": false
+    }
+   },
+   {
+    "frame": 140,
+    "tick": 60600,
+    "tool": "hive_program",
+    "arguments": {
+     "action": "list"
+    },
+    "result": {
+     "programs": [
+      {
+       "description": "Lay four Inn sites on free grass near (8,118), one per run",
+       "id": "inn-plan",
+       "intervalTicks": 25,
+       "name": "inn-plan",
+       "nextTick": 60620,
+       "paused": false,
+       "recent": {
+        "error": "",
+        "local_events": [],
+        "observation_tick": 60595,
+        "order_count": 0,
+        "output": {
+         "done": [
+          [
+           5,
+           118
+          ],
+          [
+           11,
+           118
+          ],
+          [
+           8,
+           121
+          ],
+          [
+           7,
+           115
+          ]
+         ]
+        },
+        "status": "completed",
+        "submission_tick": 60595,
+        "submitted": false
+       },
+       "revision": 1
+      }
+     ],
+     "session": "8418333151041-21"
+    }
+   },
+   {
+    "frame": 150,
+    "tick": 60609,
+    "tool": "hive_program",
+    "arguments": {
+     "action": "inspect"
+    },
+    "result": {
+     "paused": false,
+     "program": {
+      "description": "Lay four Inn sites on free grass near (8,118), one per run",
+      "id": "inn-plan",
+      "intervalTicks": 25,
+      "name": "inn-plan",
+      "revision": 1,
+      "source": "// SPDX-License-Identifier: GPL-3.0-or-later\n// Standing order installed by the trailer editor (an AI agent) through the game's\n// MCP server (hive_program install) for the desktop trailer's co-play beat.\n//\n// Each run (every interval_ticks) lays the next building site of a short plan.\n// PLAN lists a building family and an anchor tile in the filmed view; the run reads\n// the colony's own view of the ground around the anchor (map.region: explored and\n// visible tiles, no resource, no building, grass on every corner), picks\n// the free footprint nearest the anchor that keeps one tile clear of the sites this\n// order already laid, and orders one construction site there. capture_shot.py fills\n// PLAN in from the shot's data. Only the player's fog-filtered view and ordinary\n// player orders are used.\nconst PLAN = [{\"type\": \"inn\", \"x\": 8, \"y\": 118}, {\"type\": \"inn\", \"x\": 8, \"y\": 118}, {\"type\": \"inn\", \"x\": 8, \"y\": 118}, {\"type\": \"inn\", \"x\": 8, \"y\": 118}];\nconst NONE = 65535;\nconst GRASS = 2;   // terrain id of grass, the buildable ground (the release's local Hive has no terrainTypes())\nlet next = 0;\nconst placed = [];\nfunction step(ctx) {\n  if (next >= PLAN.length) return {output: {done: placed}};\n  const g = ctx.game;\n  const p = PLAN[next++];\n  const type = g.buildingTypes().find(t => t.placeable && t.site && t.level === 0 &&\n                                         String(t.name).toLowerCase() === p.type);\n  if (!type) return {output: {missing_type: p.type}};\n  const r = p.radius || 7, W = g.map.width, H = g.map.height;\n  const x0 = p.x - r, y0 = p.y - r, size = 2 * r + type.width;\n  const tiles = g.map.region(x0, y0, size, size);\n  const free = tiles.map(t => t.explored && t.visible && t.resource && t.resource.type === NONE &&\n    (t.building === undefined || t.building === NONE) && t.corners &&\n    t.corners.every(c => c === GRASS));\n  const wrap = (a, n) => { const d = Math.abs(a) % n; return Math.min(d, n - d); };\n  let best = null, bestD = 1e9;\n  for (let dy = 0; dy + type.height <= size; dy++) {\n    for (let dx = 0; dx + type.width <= size; dx++) {\n      let ok = true;\n      for (let j = 0; j < type.height && ok; j++)\n        for (let i = 0; i < type.width && ok; i++) ok = free[(dy + j) * size + dx + i];\n      if (!ok) continue;\n      const x = ((x0 + dx) % W + W) % W, y = ((y0 + dy) % H + H) % H;\n      if (placed.some(q => wrap(q[0] - x, W) <= type.width && wrap(q[1] - y, H) <= type.height)) continue;\n      const d = wrap(x - p.x, W) + wrap(y - p.y, H);\n      if (d < bestD) { bestD = d; best = [x, y]; }\n    }\n  }\n  if (!best) return {output: {no_room_near: [p.x, p.y], step: next}};\n  placed.push(best);\n  return {\n    output: {placing: p.type, at: best, step: next, of: PLAN.length},\n    orders: [{type: 'create', buildingType: type.id, x: best[0], y: best[1],\n              workers: p.workers || 6, futureWorkers: p.workers || 6}],\n  };\n}\n"
+     },
+     "recent": {
+      "error": "",
+      "local_events": [],
+      "observation_tick": 60595,
+      "order_count": 0,
+      "output": {
+       "done": [
+        [
+         5,
+         118
+        ],
+        [
+         11,
+         118
+        ],
+        [
+         8,
+         121
+        ],
+        [
+         7,
+         115
+        ]
+       ]
+      },
+      "status": "completed",
+      "submission_tick": 60595,
+      "submitted": false
+     },
+     "session": "8418333151041-21"
+    }
+   }
+  ]
+ },
+ "review_timing": {
+  "glob2-trailer-15s-1080p": {
+   "file": "glob2-trailer-15s-1080p.mp4",
+   "frames": 450,
+   "avg_frame_rate": "30/1",
+   "r_frame_rate": "30/1",
+   "duration": 15.0,
+   "frame_step_ms": {
+    "min": 33.333,
+    "max": 33.334
+   },
+   "constant_frame_rate": true,
+   "repeated_frames": [],
+   "luma_change_between_frames": {
+    "min": 0.982,
+    "median": 1.788,
+    "max": 45.941
+   },
+   "cuts_detected_at_s": [
+    1.5,
+    2.367,
+    4.8,
+    5.8,
+    9.0,
+    12.3
+   ],
+   "near_black_share": {
+    "max": 0.1184,
+    "mean": 0.0083,
+    "frames_over_15_percent": []
+   }
+  },
+  "glob2-trailer-15s-2160p": {
+   "file": "glob2-trailer-15s-2160p.mp4",
+   "frames": 450,
+   "avg_frame_rate": "30/1",
+   "r_frame_rate": "30/1",
+   "duration": 15.0,
+   "frame_step_ms": {
+    "min": 33.333,
+    "max": 33.334
+   },
+   "constant_frame_rate": true,
+   "repeated_frames": [],
+   "luma_change_between_frames": {
+    "min": 0.964,
+    "median": 1.747,
+    "max": 45.9
+   },
+   "cuts_detected_at_s": [
+    1.5,
+    2.367,
+    4.8,
+    5.8,
+    9.0,
+    12.3
+   ],
+   "near_black_share": {
+    "max": 0.1184,
+    "mean": 0.0083,
+    "frames_over_15_percent": []
+   }
+  },
+  "glob2-trailer-30s-1080p-webm": {
+   "file": "glob2-trailer-30s-1080p.webm",
+   "frames": 900,
+   "avg_frame_rate": "30/1",
+   "r_frame_rate": "30/1",
+   "duration": 30.008,
+   "frame_step_ms": {
+    "min": 33.0,
+    "max": 34.0
+   },
+   "constant_frame_rate": false,
+   "repeated_frames": [],
+   "luma_change_between_frames": {
+    "min": 0.792,
+    "median": 1.617,
+    "max": 40.755
+   },
+   "cuts_detected_at_s": [
+    2.5,
+    3.633,
+    8.5,
+    12.0,
+    15.0,
+    18.5,
+    21.5,
+    26.0
+   ],
+   "near_black_share": {
+    "max": 0.1184,
+    "mean": 0.0065,
+    "frames_over_15_percent": []
+   }
+  },
+  "glob2-trailer-30s-1080p": {
+   "file": "glob2-trailer-30s-1080p.mp4",
+   "frames": 900,
+   "avg_frame_rate": "30/1",
+   "r_frame_rate": "30/1",
+   "duration": 30.0,
+   "frame_step_ms": {
+    "min": 33.333,
+    "max": 33.334
+   },
+   "constant_frame_rate": true,
+   "repeated_frames": [],
+   "luma_change_between_frames": {
+    "min": 0.794,
+    "median": 1.522,
+    "max": 40.749
+   },
+   "cuts_detected_at_s": [
+    2.5,
+    3.633,
+    8.5,
+    12.0,
+    15.0,
+    18.5,
+    21.5,
+    26.0
+   ],
+   "near_black_share": {
+    "max": 0.1184,
+    "mean": 0.0064,
+    "frames_over_15_percent": []
+   }
+  },
+  "glob2-trailer-30s-2160p": {
+   "file": "glob2-trailer-30s-2160p.mp4",
+   "frames": 900,
+   "avg_frame_rate": "30/1",
+   "r_frame_rate": "30/1",
+   "duration": 30.0,
+   "frame_step_ms": {
+    "min": 33.333,
+    "max": 33.334
+   },
+   "constant_frame_rate": true,
+   "repeated_frames": [],
+   "luma_change_between_frames": {
+    "min": 0.773,
+    "median": 1.502,
+    "max": 40.697
+   },
+   "cuts_detected_at_s": [
+    2.5,
+    3.633,
+    8.5,
+    12.0,
+    15.0,
+    18.5,
+    21.5,
+    26.0
+   ],
+   "near_black_share": {
+    "max": 0.1184,
+    "mean": 0.0064,
+    "frames_over_15_percent": []
+   }
+  },
+  "glob2-trailer-30s-ar-1080p": {
+   "file": "glob2-trailer-30s-ar-1080p.mp4",
+   "frames": 900,
+   "avg_frame_rate": "30/1",
+   "r_frame_rate": "30/1",
+   "duration": 30.0,
+   "frame_step_ms": {
+    "min": 33.333,
+    "max": 33.334
+   },
+   "constant_frame_rate": true,
+   "repeated_frames": [],
+   "luma_change_between_frames": {
+    "min": 0.794,
+    "median": 1.521,
+    "max": 40.75
+   },
+   "cuts_detected_at_s": [
+    2.5,
+    3.633,
+    8.5,
+    12.0,
+    15.0,
+    18.5,
+    21.5,
+    26.0
+   ],
+   "near_black_share": {
+    "max": 0.1184,
+    "mean": 0.0065,
+    "frames_over_15_percent": []
+   }
+  },
+  "glob2-trailer-30s-ja-1080p": {
+   "file": "glob2-trailer-30s-ja-1080p.mp4",
+   "frames": 900,
+   "avg_frame_rate": "30/1",
+   "r_frame_rate": "30/1",
+   "duration": 30.0,
+   "frame_step_ms": {
+    "min": 33.333,
+    "max": 33.334
+   },
+   "constant_frame_rate": true,
+   "repeated_frames": [],
+   "luma_change_between_frames": {
+    "min": 0.794,
+    "median": 1.522,
+    "max": 40.75
+   },
+   "cuts_detected_at_s": [
+    2.5,
+    3.633,
+    8.5,
+    12.0,
+    15.0,
+    18.5,
+    21.5,
+    26.0
+   ],
+   "near_black_share": {
+    "max": 0.1184,
+    "mean": 0.0064,
+    "frames_over_15_percent": []
+   }
+  },
+  "glob2-trailer-30s-preview-720p": {
+   "file": "glob2-trailer-30s-preview-720p.mp4",
+   "frames": 900,
+   "avg_frame_rate": "30/1",
+   "r_frame_rate": "30/1",
+   "duration": 30.0,
+   "frame_step_ms": {
+    "min": 33.333,
+    "max": 33.334
+   },
+   "constant_frame_rate": true,
+   "repeated_frames": [],
+   "luma_change_between_frames": {
+    "min": 0.803,
+    "median": 1.459,
+    "max": 40.54
+   },
+   "cuts_detected_at_s": [
+    2.5,
+    3.633,
+    8.5,
+    12.0,
+    15.0,
+    18.5,
+    21.5,
+    26.0
+   ],
+   "near_black_share": {
+    "max": 0.1182,
+    "mean": 0.0063,
+    "frames_over_15_percent": []
+   }
+  },
+  "glob2-trailer-30s-textless-1080p": {
+   "file": "glob2-trailer-30s-textless-1080p.mp4",
+   "frames": 900,
+   "avg_frame_rate": "30/1",
+   "r_frame_rate": "30/1",
+   "duration": 30.0,
+   "frame_step_ms": {
+    "min": 33.333,
+    "max": 33.334
+   },
+   "constant_frame_rate": true,
+   "repeated_frames": [],
+   "luma_change_between_frames": {
+    "min": 0.795,
+    "median": 1.76,
+    "max": 40.718
+   },
+   "cuts_detected_at_s": [
+    2.5,
+    3.633,
+    8.5,
+    12.0,
+    15.0,
+    18.5,
+    21.5,
+    26.0
+   ],
+   "near_black_share": {
+    "max": 0.1184,
+    "mean": 0.0067,
+    "frames_over_15_percent": []
+   }
+  },
+  "glob2-trailer-30s-textless-2160p": {
+   "file": "glob2-trailer-30s-textless-2160p.mp4",
+   "frames": 900,
+   "avg_frame_rate": "30/1",
+   "r_frame_rate": "30/1",
+   "duration": 30.0,
+   "frame_step_ms": {
+    "min": 33.333,
+    "max": 33.334
+   },
+   "constant_frame_rate": true,
+   "repeated_frames": [],
+   "luma_change_between_frames": {
+    "min": 0.776,
+    "median": 1.747,
+    "max": 40.666
+   },
+   "cuts_detected_at_s": [
+    2.5,
+    3.633,
+    8.5,
+    12.0,
+    15.0,
+    18.5,
+    21.5,
+    26.0
+   ],
+   "near_black_share": {
+    "max": 0.1183,
+    "mean": 0.0066,
+    "frames_over_15_percent": []
+   }
+  },
+  "glob2-trailer-30s-vertical-1080x1920": {
+   "file": "glob2-trailer-30s-vertical-1080x1920.mp4",
+   "frames": 900,
+   "avg_frame_rate": "30/1",
+   "r_frame_rate": "30/1",
+   "duration": 30.0,
+   "frame_step_ms": {
+    "min": 33.333,
+    "max": 33.334
+   },
+   "constant_frame_rate": true,
+   "repeated_frames": [],
+   "luma_change_between_frames": {
+    "min": 0.574,
+    "median": 1.866,
+    "max": 40.937
+   },
+   "cuts_detected_at_s": [
+    2.5,
+    5.8,
+    8.5,
+    12.0,
+    15.0,
+    18.5,
+    21.5,
+    26.0
+   ],
+   "near_black_share": {
+    "max": 0.0047,
+    "mean": 0.0023,
+    "frames_over_15_percent": []
+   }
+  },
+  "glob2-trailer-30s-vertical-textless-1080x1920": {
+   "file": "glob2-trailer-30s-vertical-textless-1080x1920.mp4",
+   "frames": 900,
+   "avg_frame_rate": "30/1",
+   "r_frame_rate": "30/1",
+   "duration": 30.0,
+   "frame_step_ms": {
+    "min": 33.333,
+    "max": 33.334
+   },
+   "constant_frame_rate": true,
+   "repeated_frames": [],
+   "luma_change_between_frames": {
+    "min": 0.574,
+    "median": 2.229,
+    "max": 40.92
+   },
+   "cuts_detected_at_s": [
+    2.5,
+    5.8,
+    8.5,
+    12.0,
+    15.0,
+    18.5,
+    21.5,
+    26.0
+   ],
+   "near_black_share": {
+    "max": 0.0043,
+    "mean": 0.0026,
+    "frames_over_15_percent": []
+   }
+  },
+  "glob2-trailer-desktop-34s-1080p": {
+   "file": "glob2-trailer-desktop-34s-1080p.mp4",
+   "frames": 1035,
+   "avg_frame_rate": "30/1",
+   "r_frame_rate": "30/1",
+   "duration": 34.5,
+   "frame_step_ms": {
+    "min": 33.333,
+    "max": 33.334
+   },
+   "constant_frame_rate": true,
+   "repeated_frames": [],
+   "luma_change_between_frames": {
+    "min": 0.794,
+    "median": 1.747,
+    "max": 40.749
+   },
+   "cuts_detected_at_s": [
+    2.5,
+    3.633,
+    8.5,
+    12.0,
+    15.0,
+    18.5,
+    21.5,
+    26.0,
+    30.5
+   ],
+   "near_black_share": {
+    "max": 0.1184,
+    "mean": 0.0058,
+    "frames_over_15_percent": []
+   }
+  },
+  "glob2-trailer-desktop-34s-2160p": {
+   "file": "glob2-trailer-desktop-34s-2160p.mp4",
+   "frames": 1035,
+   "avg_frame_rate": "30/1",
+   "r_frame_rate": "30/1",
+   "duration": 34.5,
+   "frame_step_ms": {
+    "min": 33.333,
+    "max": 33.334
+   },
+   "constant_frame_rate": true,
+   "repeated_frames": [],
+   "luma_change_between_frames": {
+    "min": 0.773,
+    "median": 1.71,
+    "max": 40.697
+   },
+   "cuts_detected_at_s": [
+    2.5,
+    3.633,
+    8.5,
+    12.0,
+    15.0,
+    18.5,
+    21.5,
+    26.0,
+    30.5
+   ],
+   "near_black_share": {
+    "max": 0.1184,
+    "mean": 0.0058,
+    "frames_over_15_percent": []
+   }
+  }
+ },
+ "review_hud_check": {
+  "frames_checked": 1935,
+  "inset_frames_checked": 135,
+  "problems": []
+ },
+ "edit": {
+  "fps": 30,
+  "frame": {
+   "native": [
+    4256,
+    2800
+   ],
+   "size": [
+    3840,
+    2160
+   ],
+   "crop": [
+    3840,
+    2160,
+    0,
+    200
+   ],
+   "note": "Each captured frame is the game's full 4256x2800 window; the cut keeps the HUD-free map rectangle 3840x2160 at (0,200): left of the 416-px sidebar, below the top bar and event list, above the 'Paused' label of tick stepping. A segment may give its own 16:9 'crop' rectangle (native pixels of the 4256x2800 frame); with 'upscale': true it may be smaller than the 3840x2160 canvas (a punch-in), and each output size is scaled straight from that rectangle (the 1080p files never pass through an upscaled 2160p picture)."
+  },
+  "text": {
+   "fields": [
+    "trailer_line_1",
+    "trailer_line_2",
+    "trailer_line_3",
+    "trailer_line_4",
+    "trailer_line_ai_coplay"
+   ],
+   "ink": "#f9e8bb",
+   "accent": "#e3c077",
+   "latin_stack": [
+    "Nunito",
+    "Noto Sans"
+   ],
+   "latin_size": {
+    "Nunito": 1.0,
+    "Noto Sans": 0.94
+   },
+   "weights": {
+    "default": 800,
+    "Nunito": 900,
+    "Noto Nastaliq Urdu": 700
+   },
+   "rule": {
+    "width": 1.5,
+    "height": 0.075,
+    "gap": 0.26
+   },
+   "landscape": {
+    "size": 0.082,
+    "centre_y": 0.8,
+    "scrim_height": 0.46,
+    "max_width": 0.84,
+    "one_line_floor": 0.8,
+    "two_line_floor": 0.62,
+    "wordmark_width": 0.56
+   },
+   "portrait": {
+    "size": 0.092,
+    "centre_y": 0.6,
+    "scrim_height": 0.62,
+    "max_width": 0.88,
+    "one_line_floor": 0.9,
+    "two_line_floor": 0.6,
+    "wordmark_width": 0.84
+   },
+   "fade": 0.25,
+   "top_fields": [
+    "trailer_line_ai_coplay"
+   ],
+   "landscape_top": {
+    "centre_y": 0.15,
+    "scrim_height": 0.4
+   }
+  },
+  "cuts": {
+   "master": {
+    "file": "glob2-trailer-30s",
+    "duration": 30.0,
+    "timeline": [
+     {
+      "shot": "f-battle-honey",
+      "in": 0,
+      "frames": 75,
+      "crop": [
+       2560,
+       1440,
+       770,
+       630
+      ],
+      "upscale": true,
+      "note": "1.5x punch-in on the clash (2560x1440 window of the map rectangle centred near 4K (2050,1150)); 2160p is a 1.5x upscale, 1080p a downscale"
+     },
+     {
+      "shot": "f-place",
+      "in": 0,
+      "frames": 34,
+      "crop": [
+       2848,
+       1602,
+       1408,
+       40
+      ],
+      "upscale": true,
+      "note": "build mode with the real build palette in frame: the right-hand sidebar shows the Inn armed from frame 10; window x 1408-4256 below the top bar (y 40), above the 'Paused' label"
+     },
+     {
+      "shot": "f-place",
+      "in": 34,
+      "frames": 65,
+      "crop": [
+       1920,
+       1080,
+       680,
+       846
+      ],
+      "upscale": true,
+      "note": "cut-in inside the take (continuous ticks): 2x on the Inn ghost landing, the click at frame 48 and the scaffold; 1080p is native pixels, 2160p a 2x upscale"
+     },
+     {
+      "shot": "f-place",
+      "in": 125,
+      "frames": 81,
+      "crop": [
+       1920,
+       1080,
+       680,
+       846
+      ],
+      "upscale": true,
+      "note": "same 2x window after the declared 740-tick cut: the Inn completes at frame 146"
+     },
+     {
+      "shot": "f-fed",
+      "in": 20,
+      "frames": 105
+     },
+     {
+      "shot": "f-cabino",
+      "in": 0,
+      "frames": 90
+     },
+     {
+      "shot": "f-battle-honey",
+      "in": 75,
+      "frames": 105
+     },
+     {
+      "shot": "f-battle3",
+      "in": 0,
+      "frames": 90
+     },
+     {
+      "shot": "f-hero",
+      "in": 0,
+      "frames": 135
+     },
+     {
+      "shot": "f-econ",
+      "in": 0,
+      "frames": 120
+     }
+    ],
+    "text": [
+     {
+      "field": "trailer_line_1",
+      "start": 3.8,
+      "end": 6.9
+     },
+     {
+      "field": "trailer_line_2",
+      "start": 8.9,
+      "end": 11.7
+     },
+     {
+      "field": "trailer_line_3",
+      "start": 15.4,
+      "end": 18.3
+     },
+     {
+      "field": "trailer_line_4",
+      "start": 22.0,
+      "end": 25.0
+     }
+    ],
+    "wordmark": {
+     "start": 27.0,
+     "fade": 0.5
+    },
+    "music": {
+     "set": "original",
+     "offset": 0,
+     "crossfade": 0.8,
+     "tail_fade": 2.5,
+     "gain_db": 0,
+     "segments": [
+      {
+       "mood": "a3",
+       "from": 0,
+       "to": 2.5
+      },
+      {
+       "mood": "a2",
+       "from": 2.5,
+       "to": 15.0
+      },
+      {
+       "mood": "a3",
+       "from": 15.0,
+       "to": 21.5
+      },
+      {
+       "mood": "a2",
+       "from": 21.5,
+       "to": 30.0
+      }
+     ],
+     "mood_gain_db": {
+      "a3": 4.0
+     },
+     "limiter": {
+      "limit": 0.79,
+      "attack_ms": 2,
+      "release_ms": 60
+     }
+    },
+    "extra_outputs": [
+     {
+      "file": "glob2-trailer-30s-1080p.webm",
+      "size": [
+       1920,
+       1080
+      ],
+      "codec": "vp9",
+      "note": "AppStream (VP9/Opus in WebM)"
+     },
+     {
+      "file": "glob2-trailer-30s-preview-720p.mp4",
+      "size": [
+       1280,
+       720
+      ],
+      "codec": "h264-preview",
+      "note": "review preview, under 30 MB"
+     }
+    ]
+   },
+   "desktop": {
+    "file": "glob2-trailer-desktop-34s",
+    "duration": 34.5,
+    "textless": false,
+    "timeline": [
+     {
+      "shot": "f-battle-honey",
+      "in": 0,
+      "frames": 75,
+      "crop": [
+       2560,
+       1440,
+       770,
+       630
+      ],
+      "upscale": true,
+      "note": "1.5x punch-in on the clash (2560x1440 window of the map rectangle centred near 4K (2050,1150)); 2160p is a 1.5x upscale, 1080p a downscale"
+     },
+     {
+      "shot": "f-place",
+      "in": 0,
+      "frames": 34,
+      "crop": [
+       2848,
+       1602,
+       1408,
+       40
+      ],
+      "upscale": true,
+      "note": "build mode with the real build palette in frame: the right-hand sidebar shows the Inn armed from frame 10; window x 1408-4256 below the top bar (y 40), above the 'Paused' label"
+     },
+     {
+      "shot": "f-place",
+      "in": 34,
+      "frames": 65,
+      "crop": [
+       1920,
+       1080,
+       680,
+       846
+      ],
+      "upscale": true,
+      "note": "cut-in inside the take (continuous ticks): 2x on the Inn ghost landing, the click at frame 48 and the scaffold; 1080p is native pixels, 2160p a 2x upscale"
+     },
+     {
+      "shot": "f-place",
+      "in": 125,
+      "frames": 81,
+      "crop": [
+       1920,
+       1080,
+       680,
+       846
+      ],
+      "upscale": true,
+      "note": "same 2x window after the declared 740-tick cut: the Inn completes at frame 146"
+     },
+     {
+      "shot": "f-fed",
+      "in": 20,
+      "frames": 105
+     },
+     {
+      "shot": "f-cabino",
+      "in": 0,
+      "frames": 90
+     },
+     {
+      "shot": "f-battle-honey",
+      "in": 75,
+      "frames": 105
+     },
+     {
+      "shot": "f-battle3",
+      "in": 0,
+      "frames": 90
+     },
+     {
+      "shot": "f-hero",
+      "in": 0,
+      "frames": 135
+     },
+     {
+      "shot": "f-coplay2",
+      "in": 15,
+      "frames": 135,
+      "crop": [
+       2144,
+       1206,
+       901,
+       627
+      ],
+      "upscale": true,
+      "inset": {
+       "region_x": [
+        32,
+        632
+       ],
+       "bottom": 2704,
+       "top_probe_x": 610,
+       "card_rgb": [
+        43,
+        29,
+        65
+       ],
+       "tolerance": [
+        6,
+        5,
+        6
+       ],
+       "scale_at_3840": 2.0,
+       "margin": [
+        0.025,
+        0.035
+       ],
+       "shadow": 0.6
+      },
+      "note": "1.8x on the four Inn sites around tile (8,118) (window 901-3045 x 627-1833, clear of the Hive card, event list and 'Paused' label); the game's own Hive card from the same frame is inset bottom left, cropped to the card itself (its top edge found per frame, so the 'Stop commander' and 'Reports' buttons above it stay out), 2x at 2160p, native pixels at 1080p"
+     },
+     {
+      "shot": "f-econ",
+      "in": 0,
+      "frames": 120
+     }
+    ],
+    "text": [
+     {
+      "field": "trailer_line_1",
+      "start": 3.8,
+      "end": 6.9
+     },
+     {
+      "field": "trailer_line_2",
+      "start": 8.9,
+      "end": 11.7
+     },
+     {
+      "field": "trailer_line_3",
+      "start": 15.4,
+      "end": 18.3
+     },
+     {
+      "field": "trailer_line_4",
+      "start": 22.0,
+      "end": 25.0
+     },
+     {
+      "field": "trailer_line_ai_coplay",
+      "start": 26.4,
+      "end": 30.2
+     }
+    ],
+    "wordmark": {
+     "start": 31.5,
+     "fade": 0.5
+    },
+    "music": {
+     "set": "original",
+     "offset": 0,
+     "crossfade": 0.8,
+     "tail_fade": 2.5,
+     "gain_db": 0,
+     "segments": [
+      {
+       "mood": "a3",
+       "from": 0,
+       "to": 2.5
+      },
+      {
+       "mood": "a2",
+       "from": 2.5,
+       "to": 15.0
+      },
+      {
+       "mood": "a3",
+       "from": 15.0,
+       "to": 21.5
+      },
+      {
+       "mood": "a2",
+       "from": 21.5,
+       "to": 34.5
+      }
+     ],
+     "mood_gain_db": {
+      "a3": 4.0
+     },
+     "limiter": {
+      "limit": 0.79,
+      "attack_ms": 2,
+      "release_ms": 60
+     }
+    }
+   },
+   "cut15": {
+    "file": "glob2-trailer-15s",
+    "duration": 15.0,
+    "textless": false,
+    "timeline": [
+     {
+      "shot": "f-battle-honey",
+      "in": 0,
+      "frames": 45,
+      "crop": [
+       2560,
+       1440,
+       770,
+       630
+      ],
+      "upscale": true,
+      "note": "1.5x punch-in on the clash (2560x1440 window of the map rectangle centred near 4K (2050,1150)); 2160p is a 1.5x upscale, 1080p a downscale"
+     },
+     {
+      "shot": "f-place",
+      "in": 8,
+      "frames": 26,
+      "crop": [
+       2848,
+       1602,
+       1408,
+       40
+      ],
+      "upscale": true,
+      "note": "build palette, Inn armed at frame 10"
+     },
+     {
+      "shot": "f-place",
+      "in": 34,
+      "frames": 34,
+      "crop": [
+       1920,
+       1080,
+       680,
+       846
+      ],
+      "upscale": true,
+      "note": "2x cut-in: the click at frame 48"
+     },
+     {
+      "shot": "f-place",
+      "in": 128,
+      "frames": 39,
+      "crop": [
+       1920,
+       1080,
+       680,
+       846
+      ],
+      "upscale": true,
+      "note": "the Inn completes at frame 146"
+     },
+     {
+      "shot": "f-fed",
+      "in": 20,
+      "frames": 30
+     },
+     {
+      "shot": "f-battle-honey",
+      "in": 84,
+      "frames": 96
+     },
+     {
+      "shot": "f-hero",
+      "in": 0,
+      "frames": 99
+     },
+     {
+      "shot": "f-econ",
+      "in": 0,
+      "frames": 81
+     }
+    ],
+    "text": [
+     {
+      "field": "trailer_line_1",
+      "start": 1.8,
+      "end": 4.8
+     },
+     {
+      "field": "trailer_line_3",
+      "start": 6.0,
+      "end": 8.8
+     },
+     {
+      "field": "trailer_line_4",
+      "start": 9.4,
+      "end": 12.2
+     }
+    ],
+    "wordmark": {
+     "start": 12.5,
+     "fade": 0.5
+    },
+    "music": {
+     "set": "original",
+     "offset": 0,
+     "crossfade": 0.8,
+     "tail_fade": 2.0,
+     "gain_db": 0,
+     "segments": [
+      {
+       "mood": "a3",
+       "from": 0,
+       "to": 1.5
+      },
+      {
+       "mood": "a2",
+       "from": 1.5,
+       "to": 5.8
+      },
+      {
+       "mood": "a3",
+       "from": 5.8,
+       "to": 9.0
+      },
+      {
+       "mood": "a2",
+       "from": 9.0,
+       "to": 15.0
+      }
+     ],
+     "mood_gain_db": {
+      "a3": 4.0
+     },
+     "limiter": {
+      "limit": 0.79,
+      "attack_ms": 2,
+      "release_ms": 60
+     }
+    }
+   },
+   "vertical": {
+    "file": "glob2-trailer-30s-vertical",
+    "size": [
+     1080,
+     1920
+    ],
+    "timeline_from": "master",
+    "reframe": {
+     "width": 1215,
+     "x": [
+      1490,
+      1100,
+      1100,
+      980,
+      1350,
+      560,
+      1490,
+      [
+       1960,
+       240,
+       1080
+      ],
+      1312,
+      1312
+     ],
+     "note": "one entry per master segment: a crop x for a 1215x2160 window of the map rectangle, or [x, y, width] for a smaller 9:16 window (still downscaled or 1:1, never upscaled). Shot 5 sits on the lime colony's west building cluster; shot 7 is a native 1080x1920 window centred on the clash, 240 px below the top of the map rectangle."
+    }
+   }
+  },
+  "poster": {
+   "shot": "f-battle-honey",
+   "frame": 30,
+   "crop": [
+    2560,
+    1440,
+    770,
+    630
+   ],
+   "files": {
+    "poster-3840x2160.png": [
+     3840,
+     2160
+    ],
+    "poster-1920x1080.png": [
+     1920,
+     1080
+    ]
+   },
+   "note": "frame 30 of the opening shot (master 1.0 s) at the opening's 1.5x punch-in: red and lime warriors locked together in the centre"
+  }
+ },
+ "inset_card_tops": {
+  "desktop-seg9-inset.json": {
+   "shot": "f-coplay2",
+   "card_tops": [
+    {
+     "frame": 15,
+     "card_top": 2540
+    },
+    {
+     "frame": 16,
+     "card_top": 2540
+    },
+    {
+     "frame": 17,
+     "card_top": 2540
+    },
+    {
+     "frame": 18,
+     "card_top": 2540
+    },
+    {
+     "frame": 19,
+     "card_top": 2540
+    },
+    {
+     "frame": 20,
+     "card_top": 2540
+    },
+    {
+     "frame": 21,
+     "card_top": 2540
+    },
+    {
+     "frame": 22,
+     "card_top": 2540
+    },
+    {
+     "frame": 23,
+     "card_top": 2540
+    },
+    {
+     "frame": 24,
+     "card_top": 2540
+    },
+    {
+     "frame": 25,
+     "card_top": 2540
+    },
+    {
+     "frame": 26,
+     "card_top": 2540
+    },
+    {
+     "frame": 27,
+     "card_top": 2540
+    },
+    {
+     "frame": 28,
+     "card_top": 2540
+    },
+    {
+     "frame": 29,
+     "card_top": 2540
+    },
+    {
+     "frame": 30,
+     "card_top": 2540
+    },
+    {
+     "frame": 31,
+     "card_top": 2540
+    },
+    {
+     "frame": 32,
+     "card_top": 2540
+    },
+    {
+     "frame": 33,
+     "card_top": 2540
+    },
+    {
+     "frame": 34,
+     "card_top": 2540
+    },
+    {
+     "frame": 35,
+     "card_top": 2540
+    },
+    {
+     "frame": 36,
+     "card_top": 2506
+    },
+    {
+     "frame": 37,
+     "card_top": 2506
+    },
+    {
+     "frame": 38,
+     "card_top": 2506
+    },
+    {
+     "frame": 39,
+     "card_top": 2506
+    },
+    {
+     "frame": 40,
+     "card_top": 2506
+    },
+    {
+     "frame": 41,
+     "card_top": 2506
+    },
+    {
+     "frame": 42,
+     "card_top": 2506
+    },
+    {
+     "frame": 43,
+     "card_top": 2506
+    },
+    {
+     "frame": 44,
+     "card_top": 2506
+    },
+    {
+     "frame": 45,
+     "card_top": 2506
+    },
+    {
+     "frame": 46,
+     "card_top": 2506
+    },
+    {
+     "frame": 47,
+     "card_top": 2506
+    },
+    {
+     "frame": 48,
+     "card_top": 2506
+    },
+    {
+     "frame": 49,
+     "card_top": 2506
+    },
+    {
+     "frame": 50,
+     "card_top": 2506
+    },
+    {
+     "frame": 51,
+     "card_top": 2506
+    },
+    {
+     "frame": 52,
+     "card_top": 2506
+    },
+    {
+     "frame": 53,
+     "card_top": 2506
+    },
+    {
+     "frame": 54,
+     "card_top": 2506
+    },
+    {
+     "frame": 55,
+     "card_top": 2506
+    },
+    {
+     "frame": 56,
+     "card_top": 2506
+    },
+    {
+     "frame": 57,
+     "card_top": 2506
+    },
+    {
+     "frame": 58,
+     "card_top": 2506
+    },
+    {
+     "frame": 59,
+     "card_top": 2506
+    },
+    {
+     "frame": 60,
+     "card_top": 2468
+    },
+    {
+     "frame": 61,
+     "card_top": 2468
+    },
+    {
+     "frame": 62,
+     "card_top": 2468
+    },
+    {
+     "frame": 63,
+     "card_top": 2468
+    },
+    {
+     "frame": 64,
+     "card_top": 2468
+    },
+    {
+     "frame": 65,
+     "card_top": 2468
+    },
+    {
+     "frame": 66,
+     "card_top": 2468
+    },
+    {
+     "frame": 67,
+     "card_top": 2468
+    },
+    {
+     "frame": 68,
+     "card_top": 2468
+    },
+    {
+     "frame": 69,
+     "card_top": 2468
+    },
+    {
+     "frame": 70,
+     "card_top": 2468
+    },
+    {
+     "frame": 71,
+     "card_top": 2468
+    },
+    {
+     "frame": 72,
+     "card_top": 2468
+    },
+    {
+     "frame": 73,
+     "card_top": 2468
+    },
+    {
+     "frame": 74,
+     "card_top": 2468
+    },
+    {
+     "frame": 75,
+     "card_top": 2468
+    },
+    {
+     "frame": 76,
+     "card_top": 2468
+    },
+    {
+     "frame": 77,
+     "card_top": 2468
+    },
+    {
+     "frame": 78,
+     "card_top": 2468
+    },
+    {
+     "frame": 79,
+     "card_top": 2468
+    },
+    {
+     "frame": 80,
+     "card_top": 2468
+    },
+    {
+     "frame": 81,
+     "card_top": 2468
+    },
+    {
+     "frame": 82,
+     "card_top": 2468
+    },
+    {
+     "frame": 83,
+     "card_top": 2468
+    },
+    {
+     "frame": 84,
+     "card_top": 2468
+    },
+    {
+     "frame": 85,
+     "card_top": 2506
+    },
+    {
+     "frame": 86,
+     "card_top": 2506
+    },
+    {
+     "frame": 87,
+     "card_top": 2506
+    },
+    {
+     "frame": 88,
+     "card_top": 2506
+    },
+    {
+     "frame": 89,
+     "card_top": 2506
+    },
+    {
+     "frame": 90,
+     "card_top": 2506
+    },
+    {
+     "frame": 91,
+     "card_top": 2506
+    },
+    {
+     "frame": 92,
+     "card_top": 2506
+    },
+    {
+     "frame": 93,
+     "card_top": 2506
+    },
+    {
+     "frame": 94,
+     "card_top": 2506
+    },
+    {
+     "frame": 95,
+     "card_top": 2506
+    },
+    {
+     "frame": 96,
+     "card_top": 2506
+    },
+    {
+     "frame": 97,
+     "card_top": 2506
+    },
+    {
+     "frame": 98,
+     "card_top": 2506
+    },
+    {
+     "frame": 99,
+     "card_top": 2506
+    },
+    {
+     "frame": 100,
+     "card_top": 2506
+    },
+    {
+     "frame": 101,
+     "card_top": 2506
+    },
+    {
+     "frame": 102,
+     "card_top": 2506
+    },
+    {
+     "frame": 103,
+     "card_top": 2506
+    },
+    {
+     "frame": 104,
+     "card_top": 2506
+    },
+    {
+     "frame": 105,
+     "card_top": 2506
+    },
+    {
+     "frame": 106,
+     "card_top": 2506
+    },
+    {
+     "frame": 107,
+     "card_top": 2506
+    },
+    {
+     "frame": 108,
+     "card_top": 2506
+    },
+    {
+     "frame": 109,
+     "card_top": 2506
+    },
+    {
+     "frame": 110,
+     "card_top": 2506
+    },
+    {
+     "frame": 111,
+     "card_top": 2506
+    },
+    {
+     "frame": 112,
+     "card_top": 2506
+    },
+    {
+     "frame": 113,
+     "card_top": 2506
+    },
+    {
+     "frame": 114,
+     "card_top": 2506
+    },
+    {
+     "frame": 115,
+     "card_top": 2506
+    },
+    {
+     "frame": 116,
+     "card_top": 2506
+    },
+    {
+     "frame": 117,
+     "card_top": 2506
+    },
+    {
+     "frame": 118,
+     "card_top": 2506
+    },
+    {
+     "frame": 119,
+     "card_top": 2506
+    },
+    {
+     "frame": 120,
+     "card_top": 2506
+    },
+    {
+     "frame": 121,
+     "card_top": 2506
+    },
+    {
+     "frame": 122,
+     "card_top": 2506
+    },
+    {
+     "frame": 123,
+     "card_top": 2506
+    },
+    {
+     "frame": 124,
+     "card_top": 2506
+    },
+    {
+     "frame": 125,
+     "card_top": 2506
+    },
+    {
+     "frame": 126,
+     "card_top": 2506
+    },
+    {
+     "frame": 127,
+     "card_top": 2506
+    },
+    {
+     "frame": 128,
+     "card_top": 2506
+    },
+    {
+     "frame": 129,
+     "card_top": 2506
+    },
+    {
+     "frame": 130,
+     "card_top": 2506
+    },
+    {
+     "frame": 131,
+     "card_top": 2506
+    },
+    {
+     "frame": 132,
+     "card_top": 2506
+    },
+    {
+     "frame": 133,
+     "card_top": 2506
+    },
+    {
+     "frame": 134,
+     "card_top": 2506
+    },
+    {
+     "frame": 135,
+     "card_top": 2506
+    },
+    {
+     "frame": 136,
+     "card_top": 2506
+    },
+    {
+     "frame": 137,
+     "card_top": 2506
+    },
+    {
+     "frame": 138,
+     "card_top": 2506
+    },
+    {
+     "frame": 139,
+     "card_top": 2506
+    },
+    {
+     "frame": 140,
+     "card_top": 2506
+    },
+    {
+     "frame": 141,
+     "card_top": 2506
+    },
+    {
+     "frame": 142,
+     "card_top": 2506
+    },
+    {
+     "frame": 143,
+     "card_top": 2506
+    },
+    {
+     "frame": 144,
+     "card_top": 2506
+    },
+    {
+     "frame": 145,
+     "card_top": 2506
+    },
+    {
+     "frame": 146,
+     "card_top": 2506
+    },
+    {
+     "frame": 147,
+     "card_top": 2506
+    },
+    {
+     "frame": 148,
+     "card_top": 2506
+    },
+    {
+     "frame": 149,
+     "card_top": 2506
+    }
+   ]
+  }
+ },
+ "text_cards": {
+  "tool": {
+   "render_cards.py": "b126be64494d0e05de69036eadbcf8ce42ec8938467cbbe57f3b2014ce5daab2",
+   "cards.html": "e6bd28f09020e4d138ed5ab36e71ffcf4ee1cd8ad37ebfd3e72fd5400ba9c93e"
+  },
+  "cards": [
+   {
+    "locale": "en",
+    "size": "3840x2160",
+    "field": "trailer_line_1",
+    "text": "You decide. They build.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 177,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "You decide. They build."
+    ],
+    "sentence_break": false,
+    "file": "en/3840x2160/trailer_line_1.png",
+    "sha256": "e5c3468326e09fd5faff93763712a1e8ba11d01d9f0edb952524e04035a579cc"
+   },
+   {
+    "locale": "en",
+    "size": "3840x2160",
+    "field": "trailer_line_2",
+    "text": "Keep the colony fed.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 177,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "Keep the colony fed."
+    ],
+    "sentence_break": false,
+    "file": "en/3840x2160/trailer_line_2.png",
+    "sha256": "eb17338a2eb435b9a47edc9250a0dc9bb7fe19cd0288d109aad66db40a2e3224"
+   },
+   {
+    "locale": "en",
+    "size": "3840x2160",
+    "field": "trailer_line_3",
+    "text": "Fight rivals for the land.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 177,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "Fight rivals for the land."
+    ],
+    "sentence_break": false,
+    "file": "en/3840x2160/trailer_line_3.png",
+    "sha256": "2ca4f9b51f60297f3aa7c7b0e854d46ecbca91619d699cdae97a8cac673ec352"
+   },
+   {
+    "locale": "en",
+    "size": "3840x2160",
+    "field": "trailer_line_4",
+    "text": "No ads. No in-app purchases.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 177,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "No ads. No in-app purchases."
+    ],
+    "sentence_break": false,
+    "file": "en/3840x2160/trailer_line_4.png",
+    "sha256": "3bf1fbf2a70a9bbacc4822fcaf3e603daf21f14a26338e0627f071cc8d0d7e64"
+   },
+   {
+    "locale": "en",
+    "size": "3840x2160",
+    "field": "trailer_line_ai_coplay",
+    "text": "Play alongside your AI agent.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "top",
+    "font_px": 177,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "Play alongside your AI agent."
+    ],
+    "sentence_break": false,
+    "file": "en/3840x2160/trailer_line_ai_coplay.png",
+    "sha256": "ff7a118a3f2ac2e87eb852b4574372d4dd4174380c32e2b93fd2cea5f2710e98"
+   },
+   {
+    "locale": "ja",
+    "size": "3840x2160",
+    "field": "trailer_line_1",
+    "text": "決めるのはあなた。建てるのはコロニー。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 159,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "決めるのはあなた。建てるのはコロニー。"
+    ],
+    "sentence_break": false,
+    "file": "ja/3840x2160/trailer_line_1.png",
+    "sha256": "912c94b564911b2a82fea875da163b5dc8d71130a9b78db920818c9f3a5b8080"
+   },
+   {
+    "locale": "ja",
+    "size": "3840x2160",
+    "field": "trailer_line_2",
+    "text": "コロニーの食料を確保しよう。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 159,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "コロニーの食料を確保しよう。"
+    ],
+    "sentence_break": false,
+    "file": "ja/3840x2160/trailer_line_2.png",
+    "sha256": "735807e3b1717ddcf0e13d1f5189d4518ae347acba62ad3da867bac08f86d138"
+   },
+   {
+    "locale": "ja",
+    "size": "3840x2160",
+    "field": "trailer_line_3",
+    "text": "ライバルと土地を奪い合おう。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 159,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "ライバルと土地を奪い合おう。"
+    ],
+    "sentence_break": false,
+    "file": "ja/3840x2160/trailer_line_3.png",
+    "sha256": "072b1f6b87a8ac611c6e810a6ba9a6f138b5be777af0f802e8780306628cca07"
+   },
+   {
+    "locale": "ja",
+    "size": "3840x2160",
+    "field": "trailer_line_4",
+    "text": "広告なし。アプリ内課金なし。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 159,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "広告なし。アプリ内課金なし。"
+    ],
+    "sentence_break": false,
+    "file": "ja/3840x2160/trailer_line_4.png",
+    "sha256": "04e8778c0c5d8f6c210e1b4f4bad032b265af65fde2bf53306f1a82913cccf1f"
+   },
+   {
+    "locale": "ja",
+    "size": "3840x2160",
+    "field": "trailer_line_ai_coplay",
+    "text": "自分のAIエージェントと一緒に遊ぼう。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "top",
+    "font_px": 159,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "自分のAIエージェントと一緒に遊ぼう。"
+    ],
+    "sentence_break": false,
+    "file": "ja/3840x2160/trailer_line_ai_coplay.png",
+    "sha256": "b4cbc3deb5eb6235d1569c21f1461919e9501729ca1780ad5f2b9d1f6f108643"
+   },
+   {
+    "locale": "ar",
+    "size": "3840x2160",
+    "field": "trailer_line_1",
+    "text": "أنت تقرّر. وعمالك يبنون.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "bottom",
+    "font_px": 184,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "أنت تقرّر. وعمالك يبنون."
+    ],
+    "sentence_break": false,
+    "file": "ar/3840x2160/trailer_line_1.png",
+    "sha256": "ab831788cf297b19c2f847f6509b53d397cd3e11f3ab23a6b7e06afe402f1bba"
+   },
+   {
+    "locale": "ar",
+    "size": "3840x2160",
+    "field": "trailer_line_2",
+    "text": "وفّر الغذاء لمستعمرتك.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "bottom",
+    "font_px": 184,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "وفّر الغذاء لمستعمرتك."
+    ],
+    "sentence_break": false,
+    "file": "ar/3840x2160/trailer_line_2.png",
+    "sha256": "6d47019c01b568aa00fd8dc32760e29f2db9af5b0fd16420e585616a4d3b023c"
+   },
+   {
+    "locale": "ar",
+    "size": "3840x2160",
+    "field": "trailer_line_3",
+    "text": "قاتل منافسيك من أجل الأرض.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "bottom",
+    "font_px": 184,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "قاتل منافسيك من أجل الأرض."
+    ],
+    "sentence_break": false,
+    "file": "ar/3840x2160/trailer_line_3.png",
+    "sha256": "6a6b53717642e2d14af4f649bff67de7a495851bb65a8dac2336b23ef78d8be5"
+   },
+   {
+    "locale": "ar",
+    "size": "3840x2160",
+    "field": "trailer_line_4",
+    "text": "بدون إعلانات ومشتريات داخلية.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "bottom",
+    "font_px": 184,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "بدون إعلانات ومشتريات داخلية."
+    ],
+    "sentence_break": false,
+    "file": "ar/3840x2160/trailer_line_4.png",
+    "sha256": "f5b00054a492f63345e27a245ee01dc27d4becb1ecc732ebd3cd41b92697f190"
+   },
+   {
+    "locale": "ar",
+    "size": "3840x2160",
+    "field": "trailer_line_ai_coplay",
+    "text": "العب مع وكيل ذكائك الاصطناعي.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "top",
+    "font_px": 184,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "العب مع وكيل ذكائك الاصطناعي."
+    ],
+    "sentence_break": false,
+    "file": "ar/3840x2160/trailer_line_ai_coplay.png",
+    "sha256": "8573b5978fa93769201dd8ab662f342df3fdae33557423d0db81048bafafd18a"
+   },
+   {
+    "locale": "en",
+    "size": "1920x1080",
+    "field": "trailer_line_1",
+    "text": "You decide. They build.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 89,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "You decide. They build."
+    ],
+    "sentence_break": false,
+    "file": "en/1920x1080/trailer_line_1.png",
+    "sha256": "e9dfb63efbfdcd74569ae70aec7f8aef68164558c68ec65404182eb78ecf7907"
+   },
+   {
+    "locale": "en",
+    "size": "1920x1080",
+    "field": "trailer_line_2",
+    "text": "Keep the colony fed.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 89,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "Keep the colony fed."
+    ],
+    "sentence_break": false,
+    "file": "en/1920x1080/trailer_line_2.png",
+    "sha256": "69c301584ac0c5bbfeb540489f6c6e98482978481613d782fee62979d7bc92ac"
+   },
+   {
+    "locale": "en",
+    "size": "1920x1080",
+    "field": "trailer_line_3",
+    "text": "Fight rivals for the land.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 89,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "Fight rivals for the land."
+    ],
+    "sentence_break": false,
+    "file": "en/1920x1080/trailer_line_3.png",
+    "sha256": "ecd511a834fd3ff7dbf56b1e667b15c017148314605ef802735c708a6c3a87a5"
+   },
+   {
+    "locale": "en",
+    "size": "1920x1080",
+    "field": "trailer_line_4",
+    "text": "No ads. No in-app purchases.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 89,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "No ads. No in-app purchases."
+    ],
+    "sentence_break": false,
+    "file": "en/1920x1080/trailer_line_4.png",
+    "sha256": "74fa25d3211953b04ef7b4202542bf611f5039d10b7f5ad764caa8ffbc92036e"
+   },
+   {
+    "locale": "en",
+    "size": "1920x1080",
+    "field": "trailer_line_ai_coplay",
+    "text": "Play alongside your AI agent.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "top",
+    "font_px": 89,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "Play alongside your AI agent."
+    ],
+    "sentence_break": false,
+    "file": "en/1920x1080/trailer_line_ai_coplay.png",
+    "sha256": "dd51c945531b373483ce062be02ad57e06070cc034df4062adb21f394d0876e2"
+   },
+   {
+    "locale": "ja",
+    "size": "1920x1080",
+    "field": "trailer_line_1",
+    "text": "決めるのはあなた。建てるのはコロニー。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 80,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "決めるのはあなた。建てるのはコロニー。"
+    ],
+    "sentence_break": false,
+    "file": "ja/1920x1080/trailer_line_1.png",
+    "sha256": "83b797a3e80bfe984850d12c3e10c1e5d4fc9500ba8ddc90be40481466b38543"
+   },
+   {
+    "locale": "ja",
+    "size": "1920x1080",
+    "field": "trailer_line_2",
+    "text": "コロニーの食料を確保しよう。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 80,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "コロニーの食料を確保しよう。"
+    ],
+    "sentence_break": false,
+    "file": "ja/1920x1080/trailer_line_2.png",
+    "sha256": "4efc0ccc59a6b8c422c2d15e56ba34fbdb4146a299609638c73bad10d3f10ab6"
+   },
+   {
+    "locale": "ja",
+    "size": "1920x1080",
+    "field": "trailer_line_3",
+    "text": "ライバルと土地を奪い合おう。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 80,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "ライバルと土地を奪い合おう。"
+    ],
+    "sentence_break": false,
+    "file": "ja/1920x1080/trailer_line_3.png",
+    "sha256": "eed86b5903ca46157a5bc82a3bf52abf7efacfd71ecbcb4c20ecfd058ca30b37"
+   },
+   {
+    "locale": "ja",
+    "size": "1920x1080",
+    "field": "trailer_line_4",
+    "text": "広告なし。アプリ内課金なし。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 80,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "広告なし。アプリ内課金なし。"
+    ],
+    "sentence_break": false,
+    "file": "ja/1920x1080/trailer_line_4.png",
+    "sha256": "0205f05a7be87cbdf44c36c36edcfa2f4940761c738b0172364dcee1cf3e5050"
+   },
+   {
+    "locale": "ja",
+    "size": "1920x1080",
+    "field": "trailer_line_ai_coplay",
+    "text": "自分のAIエージェントと一緒に遊ぼう。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "top",
+    "font_px": 80,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "自分のAIエージェントと一緒に遊ぼう。"
+    ],
+    "sentence_break": false,
+    "file": "ja/1920x1080/trailer_line_ai_coplay.png",
+    "sha256": "59f75fa0415b33bbc34b9693f7101acbb64f193b81cd5d2c65853fe4ed05cc36"
+   },
+   {
+    "locale": "ar",
+    "size": "1920x1080",
+    "field": "trailer_line_1",
+    "text": "أنت تقرّر. وعمالك يبنون.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "bottom",
+    "font_px": 93,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "أنت تقرّر. وعمالك يبنون."
+    ],
+    "sentence_break": false,
+    "file": "ar/1920x1080/trailer_line_1.png",
+    "sha256": "3c11413d2abb13b1de25fc53581f7f8c5706d3c15b39eaa0fb4ed0c5b836c1b7"
+   },
+   {
+    "locale": "ar",
+    "size": "1920x1080",
+    "field": "trailer_line_2",
+    "text": "وفّر الغذاء لمستعمرتك.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "bottom",
+    "font_px": 93,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "وفّر الغذاء لمستعمرتك."
+    ],
+    "sentence_break": false,
+    "file": "ar/1920x1080/trailer_line_2.png",
+    "sha256": "105fb76e08443225e804ac68f04e8b240537b24bf4fa7bc8775fbbd156692f91"
+   },
+   {
+    "locale": "ar",
+    "size": "1920x1080",
+    "field": "trailer_line_3",
+    "text": "قاتل منافسيك من أجل الأرض.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "bottom",
+    "font_px": 93,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "قاتل منافسيك من أجل الأرض."
+    ],
+    "sentence_break": false,
+    "file": "ar/1920x1080/trailer_line_3.png",
+    "sha256": "a74f99977e43b59ebb805610519391f8f2b69bff04bfcca4e1ca3fd13ea59dea"
+   },
+   {
+    "locale": "ar",
+    "size": "1920x1080",
+    "field": "trailer_line_4",
+    "text": "بدون إعلانات ومشتريات داخلية.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "bottom",
+    "font_px": 93,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "بدون إعلانات ومشتريات داخلية."
+    ],
+    "sentence_break": false,
+    "file": "ar/1920x1080/trailer_line_4.png",
+    "sha256": "3ca408da3acce062e8b5a3d03ab4566103d516bda05a7755649603d500a2436d"
+   },
+   {
+    "locale": "ar",
+    "size": "1920x1080",
+    "field": "trailer_line_ai_coplay",
+    "text": "العب مع وكيل ذكائك الاصطناعي.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "top",
+    "font_px": 93,
+    "scale": 1,
+    "lines": 1,
+    "line_texts": [
+     "العب مع وكيل ذكائك الاصطناعي."
+    ],
+    "sentence_break": false,
+    "file": "ar/1920x1080/trailer_line_ai_coplay.png",
+    "sha256": "72a5db2ffec5d589314d5ab8731a3974cc732df1ece069f7a9b1b9c57be2ee46"
+   },
+   {
+    "locale": "en",
+    "size": "1080x1920",
+    "field": "trailer_line_1",
+    "text": "You decide. They build.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 99,
+    "scale": 1,
+    "lines": 2,
+    "line_texts": [
+     "You decide.",
+     "They build."
+    ],
+    "sentence_break": true,
+    "file": "en/1080x1920/trailer_line_1.png",
+    "sha256": "380b264619fce71e3c5b4e58d6181e42e05a8c302848e4ef4c2c3ecadbe18a0f"
+   },
+   {
+    "locale": "en",
+    "size": "1080x1920",
+    "field": "trailer_line_2",
+    "text": "Keep the colony fed.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 95,
+    "scale": 0.96,
+    "lines": 1,
+    "line_texts": [
+     "Keep the colony fed."
+    ],
+    "sentence_break": false,
+    "file": "en/1080x1920/trailer_line_2.png",
+    "sha256": "1e2217fda0658e848069f1a467012c30cefa350d2947341ea38de01088def9b7"
+   },
+   {
+    "locale": "en",
+    "size": "1080x1920",
+    "field": "trailer_line_3",
+    "text": "Fight rivals for the land.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 99,
+    "scale": 1,
+    "lines": 2,
+    "line_texts": [
+     "Fight rivals",
+     "for the land."
+    ],
+    "sentence_break": false,
+    "file": "en/1080x1920/trailer_line_3.png",
+    "sha256": "37ad6af97156a73d800ab6a2d8e413380d8e93e7356fd392903fcfe4a6459b33"
+   },
+   {
+    "locale": "en",
+    "size": "1080x1920",
+    "field": "trailer_line_4",
+    "text": "No ads. No in-app purchases.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 93,
+    "scale": 0.94,
+    "lines": 2,
+    "line_texts": [
+     "No ads.",
+     "No in-app purchases."
+    ],
+    "sentence_break": true,
+    "file": "en/1080x1920/trailer_line_4.png",
+    "sha256": "4ceb07b9bda732f03c3cb0ff3725eecff79bb49c0cf76c1b630b79a7588ff4de"
+   },
+   {
+    "locale": "en",
+    "size": "1080x1920",
+    "field": "trailer_line_ai_coplay",
+    "text": "Play alongside your AI agent.",
+    "font": "Nunito",
+    "weight": 900,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 99,
+    "scale": 1,
+    "lines": 2,
+    "line_texts": [
+     "Play alongside",
+     "your AI agent."
+    ],
+    "sentence_break": false,
+    "file": "en/1080x1920/trailer_line_ai_coplay.png",
+    "sha256": "3574a343062877eb4300a4045c4988edffb594b1690743187c42bb2f884aa81c"
+   },
+   {
+    "locale": "ja",
+    "size": "1080x1920",
+    "field": "trailer_line_1",
+    "text": "決めるのはあなた。建てるのはコロニー。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 89,
+    "scale": 1,
+    "lines": 2,
+    "line_texts": [
+     "決めるのはあなた。",
+     "建てるのはコロニー。"
+    ],
+    "sentence_break": true,
+    "file": "ja/1080x1920/trailer_line_1.png",
+    "sha256": "1462fe3760df65be3d9b50726d7dc92745d8a9ca9b29a168d9918f53b88ff43d"
+   },
+   {
+    "locale": "ja",
+    "size": "1080x1920",
+    "field": "trailer_line_2",
+    "text": "コロニーの食料を確保しよう。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 89,
+    "scale": 1,
+    "lines": 2,
+    "line_texts": [
+     "コロニーの食料を",
+     "確保しよう。"
+    ],
+    "sentence_break": false,
+    "file": "ja/1080x1920/trailer_line_2.png",
+    "sha256": "50f53f71ba01fdce1a1e2459a132715fa5aa5f7047cbc0b62555a5526f810217"
+   },
+   {
+    "locale": "ja",
+    "size": "1080x1920",
+    "field": "trailer_line_3",
+    "text": "ライバルと土地を奪い合おう。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 89,
+    "scale": 1,
+    "lines": 2,
+    "line_texts": [
+     "ライバルと土地を",
+     "奪い合おう。"
+    ],
+    "sentence_break": false,
+    "file": "ja/1080x1920/trailer_line_3.png",
+    "sha256": "9f81f64aa409d94f09dc05b8c5f231c2ccfc33e5099f040d108f5038278bf467"
+   },
+   {
+    "locale": "ja",
+    "size": "1080x1920",
+    "field": "trailer_line_4",
+    "text": "広告なし。アプリ内課金なし。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 89,
+    "scale": 1,
+    "lines": 2,
+    "line_texts": [
+     "広告なし。",
+     "アプリ内課金なし。"
+    ],
+    "sentence_break": true,
+    "file": "ja/1080x1920/trailer_line_4.png",
+    "sha256": "fcd236fbb39a45f758711f22cd2605c4ad058e48528fab43687ae0dbc9738fd9"
+   },
+   {
+    "locale": "ja",
+    "size": "1080x1920",
+    "field": "trailer_line_ai_coplay",
+    "text": "自分のAIエージェントと一緒に遊ぼう。",
+    "font": "Noto Sans JP",
+    "weight": 800,
+    "dir": "ltr",
+    "placement": "bottom",
+    "font_px": 85,
+    "scale": 0.96,
+    "lines": 2,
+    "line_texts": [
+     "自分のAIエージェントと",
+     "一緒に遊ぼう。"
+    ],
+    "sentence_break": false,
+    "file": "ja/1080x1920/trailer_line_ai_coplay.png",
+    "sha256": "c4a31cba74de28875f8cb736121d5869494f1ea4108dd76ccd4755fded00804c"
+   },
+   {
+    "locale": "ar",
+    "size": "1080x1920",
+    "field": "trailer_line_1",
+    "text": "أنت تقرّر. وعمالك يبنون.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "bottom",
+    "font_px": 103,
+    "scale": 1,
+    "lines": 2,
+    "line_texts": [
+     "أنت تقرّر.",
+     "وعمالك يبنون."
+    ],
+    "sentence_break": true,
+    "file": "ar/1080x1920/trailer_line_1.png",
+    "sha256": "082a9b882c01739f6e3d037ec1e3d53b4aba4021d057f5834d6f173056ae562a"
+   },
+   {
+    "locale": "ar",
+    "size": "1080x1920",
+    "field": "trailer_line_2",
+    "text": "وفّر الغذاء لمستعمرتك.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "bottom",
+    "font_px": 103,
+    "scale": 1,
+    "lines": 2,
+    "line_texts": [
+     "وفّر الغذاء",
+     "لمستعمرتك."
+    ],
+    "sentence_break": false,
+    "file": "ar/1080x1920/trailer_line_2.png",
+    "sha256": "ecf0e6391850f9653c199a391970835ac85f92ba8ee0ceb13398ecfde8f0b6f8"
+   },
+   {
+    "locale": "ar",
+    "size": "1080x1920",
+    "field": "trailer_line_3",
+    "text": "قاتل منافسيك من أجل الأرض.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "bottom",
+    "font_px": 103,
+    "scale": 1,
+    "lines": 2,
+    "line_texts": [
+     "قاتل منافسيك",
+     "من أجل الأرض."
+    ],
+    "sentence_break": false,
+    "file": "ar/1080x1920/trailer_line_3.png",
+    "sha256": "9baba7d18d20ebe5da49424bf49d5cfc99e2eaf7af5f8f62b7072a564977a285"
+   },
+   {
+    "locale": "ar",
+    "size": "1080x1920",
+    "field": "trailer_line_4",
+    "text": "بدون إعلانات ومشتريات داخلية.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "bottom",
+    "font_px": 103,
+    "scale": 1,
+    "lines": 2,
+    "line_texts": [
+     "بدون إعلانات",
+     "ومشتريات داخلية."
+    ],
+    "sentence_break": false,
+    "file": "ar/1080x1920/trailer_line_4.png",
+    "sha256": "7ceb3cbba365f80063486698da8b22931557e23364ca972a499c6e79868e7d6c"
+   },
+   {
+    "locale": "ar",
+    "size": "1080x1920",
+    "field": "trailer_line_ai_coplay",
+    "text": "العب مع وكيل ذكائك الاصطناعي.",
+    "font": "Noto Sans Arabic",
+    "weight": 800,
+    "dir": "rtl",
+    "placement": "bottom",
+    "font_px": 103,
+    "scale": 1,
+    "lines": 2,
+    "line_texts": [
+     "العب مع وكيل",
+     "ذكائك الاصطناعي."
+    ],
+    "sentence_break": false,
+    "file": "ar/1080x1920/trailer_line_ai_coplay.png",
+    "sha256": "289bc4407d01161b4cf9e870cf7cb49bab2491001311bca4621dafb043a38482"
+   }
+  ],
+  "wordmark": {
+   "3840x2160": {
+    "file": "wordmark-3840x2160.png",
+    "source_sha256": "020f34e218f137b34f9af53c85532662a9efebcf7b4b8f955b761b07528cd32d",
+    "sha256": "975f777d4843719467f58fd00eeccb4022978e3332fbcab3c716858f2238e73e"
+   },
+   "1920x1080": {
+    "file": "wordmark-1920x1080.png",
+    "source_sha256": "020f34e218f137b34f9af53c85532662a9efebcf7b4b8f955b761b07528cd32d",
+    "sha256": "6d6cf6fbb0bc6dfa1a909f738b16f8635895713b83d9e6c5ddc2d9e9988be6d9"
+   },
+   "1080x1920": {
+    "file": "wordmark-1080x1920.png",
+    "source_sha256": "020f34e218f137b34f9af53c85532662a9efebcf7b4b8f955b761b07528cd32d",
+    "sha256": "6a7f79441ae5237f63fb6f8c41fc199e0caf6274d7541a5422ab60fcfcf7e187"
+   }
+  },
+  "chromium": "153.0.8010.12"
+ }
+}

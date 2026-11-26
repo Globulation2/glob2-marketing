@@ -1,0 +1,734 @@
+{
+ "store": "amazon",
+ "title": "Amazon Appstore",
+ "package_dir": "packages:amazon",
+ "generated_by": "assets/storefront/store-packages/build.py",
+ "inputs": {
+  "stores.json": "bdb603665544f44032e56a6a1ae75d2a200c80dbd45f5764cd4800a4817e474d",
+  "review": {
+   "file": "assets/storefront/review/round-2-final.md",
+   "sha256": "d9646b0a35b585db391192076005e86511aa4c9f8977e4f1dafecedc4722a5ce"
+  },
+  "platforms.json": "af448133ed18adcd9a846dcb3b649379d7c3433fe16801a4cb92b6a2db2f6e37",
+  "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
+  "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)",
+  "trailer_manifest": "d373b93cbfd917072614d1e3465aa6eae21668e0d953e69565cb598e6f4f82c1"
+ },
+ "sets": {
+  "tablet": {
+   "render_set": "amazon-tablet",
+   "order": [
+    "hero",
+    "battle",
+    "fair_deal",
+    "build",
+    "economy",
+    "territory",
+    "maps"
+   ],
+   "blocked": null,
+   "rules": {
+    "size": [
+     2560,
+     1600
+    ],
+    "format": [
+     "PNG",
+     "JPEG"
+    ],
+    "alpha": "forbid",
+    "max_bytes": 8000000,
+    "count": [
+     3,
+     10
+    ]
+   }
+  }
+ },
+ "locales": [
+  {
+   "locale": "en",
+   "store_locale": "English (United States)",
+   "folder": "English-United-States",
+   "sets": {
+    "tablet": {
+     "render_set": "amazon-tablet",
+     "render_manifest_sha256": "5dc26bf38469a973b3e206600a1637169d3d54431feffbf7db1f31703117955d",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "English-United-States/tablet/01-hero-2560x1600.png", "link_to": "renders:amazon-tablet/en/01-hero-2560x1600.png", "sha256": "4f364f097c3de7565bd95a8159917d118d9717a94f98cbf1e98e0dfef36bc743", "bytes": 5255123},
+      {"upload_order": 2, "role": "battle", "file": "English-United-States/tablet/02-battle-2560x1600.png", "link_to": "renders:amazon-tablet/en/02-battle-2560x1600.png", "sha256": "0b9b638d3bc35f8f95944fa47ee068dd22f51a6e7d2c5eb64d9c54191c4e3ffc", "bytes": 4367106},
+      {"upload_order": 3, "role": "fair_deal", "file": "English-United-States/tablet/03-fair_deal-2560x1600.png", "link_to": "renders:amazon-tablet/en/03-fair_deal-2560x1600.png", "sha256": "7759db35a0a1a7b012ce544111d295cb431acb0e12f63400b2cf3eaf53ddcf6a", "bytes": 4668695},
+      {"upload_order": 4, "role": "build", "file": "English-United-States/tablet/04-build-2560x1600.png", "link_to": "renders:amazon-tablet/en/04-build-2560x1600.png", "sha256": "e8e2e7f3fb02e089a41f2163395206b78f9a2a59686e397336c84704a03ab49c", "bytes": 4803040},
+      {"upload_order": 5, "role": "economy", "file": "English-United-States/tablet/05-economy-2560x1600.png", "link_to": "renders:amazon-tablet/en/05-economy-2560x1600.png", "sha256": "2a6c3ee831bb0ea9dd3ff0339ecaa48ce0fec380b4c99a3546512fb680b975bb", "bytes": 5024902},
+      {"upload_order": 6, "role": "territory", "file": "English-United-States/tablet/06-territory-2560x1600.png", "link_to": "renders:amazon-tablet/en/06-territory-2560x1600.png", "sha256": "b0820fe202e6f5d94b274dbeaaf309a5348701ca81101a2a51df4034661a6e25", "bytes": 4381302},
+      {"upload_order": 7, "role": "maps", "file": "English-United-States/tablet/07-maps-2560x1600.png", "link_to": "renders:amazon-tablet/en/07-maps-2560x1600.png", "sha256": "b100f2cee68ab271ab523ad59bae307685cc528a189c178461a33bafaa11986a", "bytes": 5217564}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Real-time colony strategy"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Fight for the land"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "No ads. No in-app buys"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "You decide. They build."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Keep the colony fed"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Choose where to expand"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 maps, or random ones"
+    }
+   },
+   "listing": {
+    "file": "English-United-States/listing.json",
+    "sha256": "d0c3b6379c2f106451edca6a79bb9aaa92cb66c7b66258349a804dfd4b3e3e15"
+   }
+  },
+  {
+   "locale": "nl",
+   "store_locale": "Dutch",
+   "folder": "Dutch",
+   "sets": {
+    "tablet": {
+     "render_set": "amazon-tablet",
+     "render_manifest_sha256": "0350dea8f65d5837b759951d804e57cc9038274412b1bdee5d0985466d7e23fe",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "Dutch/tablet/01-hero-2560x1600.png", "link_to": "renders:amazon-tablet/nl/01-hero-2560x1600.png", "sha256": "c36c1657685a559a170488bc86c1e85fedc46bee55cab2d70357fa4d8ef31102", "bytes": 5252763},
+      {"upload_order": 2, "role": "battle", "file": "Dutch/tablet/02-battle-2560x1600.png", "link_to": "renders:amazon-tablet/nl/02-battle-2560x1600.png", "sha256": "a34d57c15ba9c93e1a451bbf1ad1153072388c0681abbf6d8bc6af548e23dc6d", "bytes": 4368232},
+      {"upload_order": 3, "role": "fair_deal", "file": "Dutch/tablet/03-fair_deal-2560x1600.png", "link_to": "renders:amazon-tablet/nl/03-fair_deal-2560x1600.png", "sha256": "72e44ce5885b3339f5316aa9044d7562fae8c80bee198fe84c8415c0f083ba8e", "bytes": 4672679},
+      {"upload_order": 4, "role": "build", "file": "Dutch/tablet/04-build-2560x1600.png", "link_to": "renders:amazon-tablet/nl/04-build-2560x1600.png", "sha256": "a9786c92edf6e9e2e6a11d707b0430cae0e476f476653bc39e5617d07463c6ae", "bytes": 4802341},
+      {"upload_order": 5, "role": "economy", "file": "Dutch/tablet/05-economy-2560x1600.png", "link_to": "renders:amazon-tablet/nl/05-economy-2560x1600.png", "sha256": "22d2dff6085fb41cb33d21a0272185f7838f0a356ad65d12fa822f18eeebcd27", "bytes": 5020983},
+      {"upload_order": 6, "role": "territory", "file": "Dutch/tablet/06-territory-2560x1600.png", "link_to": "renders:amazon-tablet/nl/06-territory-2560x1600.png", "sha256": "7e43d92c56664d03fbf607a0cb90cb0e1e84bfd49f61a490e1e93e68c08183f2", "bytes": 4371306},
+      {"upload_order": 7, "role": "maps", "file": "Dutch/tablet/07-maps-2560x1600.png", "link_to": "renders:amazon-tablet/nl/07-maps-2560x1600.png", "sha256": "9928e18c89c714a4709579aaac4d8337e9e6aad8158063ef2217c3e448b8394e", "bytes": 5218618}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Realtime koloniestrategie"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Vecht om land"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Geen reclame. Geen in-app-koop"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Jij beslist. Zij bouwen."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Voed je kolonie"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Breid uit ​waar je wilt"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 kaarten, of willekeurige"
+    }
+   },
+   "listing": {
+    "file": "Dutch/listing.json",
+    "sha256": "b256ccac077dbc5109e4432b3cacf35ddaa3a948cba1781f31209f715b80134d"
+   }
+  },
+  {
+   "locale": "fr",
+   "store_locale": "French",
+   "folder": "French",
+   "sets": {
+    "tablet": {
+     "render_set": "amazon-tablet",
+     "render_manifest_sha256": "3f3f998771e694e01ccfe31220fc636a3b92fd514cac5c75d1ebef80139d3e1b",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "French/tablet/01-hero-2560x1600.png", "link_to": "renders:amazon-tablet/fr/01-hero-2560x1600.png", "sha256": "e57af31d7682b70c61b7d58b3039a286ec5ab0760837029b57da9caa7d100874", "bytes": 5253143},
+      {"upload_order": 2, "role": "battle", "file": "French/tablet/02-battle-2560x1600.png", "link_to": "renders:amazon-tablet/fr/02-battle-2560x1600.png", "sha256": "506fc4b2b421f7368ed5eb377020332298ec7df831dd1e4d9465098e7cc167d6", "bytes": 4378704},
+      {"upload_order": 3, "role": "fair_deal", "file": "French/tablet/03-fair_deal-2560x1600.png", "link_to": "renders:amazon-tablet/fr/03-fair_deal-2560x1600.png", "sha256": "f2da3dd73b41e1882e3e7c5b3c4a39fc05381be78f55f96d955fdee399abda97", "bytes": 4666314},
+      {"upload_order": 4, "role": "build", "file": "French/tablet/04-build-2560x1600.png", "link_to": "renders:amazon-tablet/fr/04-build-2560x1600.png", "sha256": "9f1a4b7d3f04252f55ed56b475c2d8a6f5a20163ca8030842d741c7adb779232", "bytes": 4811101},
+      {"upload_order": 5, "role": "economy", "file": "French/tablet/05-economy-2560x1600.png", "link_to": "renders:amazon-tablet/fr/05-economy-2560x1600.png", "sha256": "e118056aa7b63629581f585a7206c4fda565f11132be74a05744a50b55ca93d5", "bytes": 5025338},
+      {"upload_order": 6, "role": "territory", "file": "French/tablet/06-territory-2560x1600.png", "link_to": "renders:amazon-tablet/fr/06-territory-2560x1600.png", "sha256": "8b8d34aa83da1893fa682966ca5e2686b19be21ae98b07dd09a36945bbc5f671", "bytes": 4384512},
+      {"upload_order": 7, "role": "maps", "file": "French/tablet/07-maps-2560x1600.png", "link_to": "renders:amazon-tablet/fr/07-maps-2560x1600.png", "sha256": "ec3159dd06831df6f3760c2f54a4063f897dbd29e2ff72991843d934e16c3b6c", "bytes": 5218675}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Stratégie en temps réel"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Combattez pour le territoire"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Ni pub, ni achats in-app"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Vous décidez. La colonie bâtit"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Nourrissez la colonie"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Choisissez où vous étendre"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 cartes, ou aléatoires"
+    }
+   },
+   "listing": {
+    "file": "French/listing.json",
+    "sha256": "f230549a71afb1c1858cbf8f699a1fd2eb1cecce5f0c6f8a9d0def8f464330bc"
+   }
+  },
+  {
+   "locale": "de",
+   "store_locale": "German",
+   "folder": "German",
+   "sets": {
+    "tablet": {
+     "render_set": "amazon-tablet",
+     "render_manifest_sha256": "22d22a2e7fb3f6855e94ac27f42bf83a677caccf35617265ee9469bb97784e10",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "German/tablet/01-hero-2560x1600.png", "link_to": "renders:amazon-tablet/de/01-hero-2560x1600.png", "sha256": "6681a612db80a190ea0762050284658341c47b26b19673e26ab354511014c6f3", "bytes": 5249773},
+      {"upload_order": 2, "role": "battle", "file": "German/tablet/02-battle-2560x1600.png", "link_to": "renders:amazon-tablet/de/02-battle-2560x1600.png", "sha256": "6b882d6bb00c7e10156606e9427fd537ce3a4b451a02dc0011bb6409d65f8498", "bytes": 4369540},
+      {"upload_order": 3, "role": "fair_deal", "file": "German/tablet/03-fair_deal-2560x1600.png", "link_to": "renders:amazon-tablet/de/03-fair_deal-2560x1600.png", "sha256": "909f31f6ccfcd8dc54940fb2ff4a88c226e55180700a5d5caa7f71eeef566dac", "bytes": 4671620},
+      {"upload_order": 4, "role": "build", "file": "German/tablet/04-build-2560x1600.png", "link_to": "renders:amazon-tablet/de/04-build-2560x1600.png", "sha256": "bafc607377e733f2381ef3d88170e26739334390c0522acad41b9e98c39391a4", "bytes": 4806446},
+      {"upload_order": 5, "role": "economy", "file": "German/tablet/05-economy-2560x1600.png", "link_to": "renders:amazon-tablet/de/05-economy-2560x1600.png", "sha256": "b6d7c7b96d4f3933a731a3c819d8778863bc0990dad2758557b4ce332e4afe89", "bytes": 5020475},
+      {"upload_order": 6, "role": "territory", "file": "German/tablet/06-territory-2560x1600.png", "link_to": "renders:amazon-tablet/de/06-territory-2560x1600.png", "sha256": "ba67bfbe9334d4a58e765aadabfefb0a67f08f6923369421cb9f2ebe34d940fd", "bytes": 4376010},
+      {"upload_order": 7, "role": "maps", "file": "German/tablet/07-maps-2560x1600.png", "link_to": "renders:amazon-tablet/de/07-maps-2560x1600.png", "sha256": "add49e771b39db97f03f41e1a5e9fcae724e29de50df9796c2fcd612deefd528", "bytes": 5216284}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Koloniestrategie in Echtzeit"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Kämpfe ums Land"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Keine Werbung. Kein In-App-Kauf"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Du entscheidest, sie bauen"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Ernähre deine Kolonie"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Wähle, wohin du wächst"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 Karten oder zufällige"
+    }
+   },
+   "listing": {
+    "file": "German/listing.json",
+    "sha256": "92c4d6cefdbfd4f352746f126586d8414e10190c187544beec314bce19de1991"
+   }
+  },
+  {
+   "locale": "it",
+   "store_locale": "Italian",
+   "folder": "Italian",
+   "sets": {
+    "tablet": {
+     "render_set": "amazon-tablet",
+     "render_manifest_sha256": "da3bbcfbf6aa22122c1763d39910e93c03fccdad834946def997553c55f353f8",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "Italian/tablet/01-hero-2560x1600.png", "link_to": "renders:amazon-tablet/it/01-hero-2560x1600.png", "sha256": "32cf7c6aaaa11ec6f56becf2efafbac7e9e0c01f9d22b22e0366486e971440c7", "bytes": 5250709},
+      {"upload_order": 2, "role": "battle", "file": "Italian/tablet/02-battle-2560x1600.png", "link_to": "renders:amazon-tablet/it/02-battle-2560x1600.png", "sha256": "517f4ede4cb2b6ffb510e3489ebe0e6277692ad5e2222ab2bfbe03ccee1f4890", "bytes": 4372774},
+      {"upload_order": 3, "role": "fair_deal", "file": "Italian/tablet/03-fair_deal-2560x1600.png", "link_to": "renders:amazon-tablet/it/03-fair_deal-2560x1600.png", "sha256": "b93c89c38421b0631b2e7f1673a955644de152238810ddef471084f32fc97ec8", "bytes": 4671474},
+      {"upload_order": 4, "role": "build", "file": "Italian/tablet/04-build-2560x1600.png", "link_to": "renders:amazon-tablet/it/04-build-2560x1600.png", "sha256": "b4316f81b7f6fcc187b355714dc8514c868f83e73e9da3b0564592a86295d8fd", "bytes": 4805021},
+      {"upload_order": 5, "role": "economy", "file": "Italian/tablet/05-economy-2560x1600.png", "link_to": "renders:amazon-tablet/it/05-economy-2560x1600.png", "sha256": "e61fc6c4e21a044f9430bc9aa83b75263a847360793e9426489f2d89845694f1", "bytes": 5019584},
+      {"upload_order": 6, "role": "territory", "file": "Italian/tablet/06-territory-2560x1600.png", "link_to": "renders:amazon-tablet/it/06-territory-2560x1600.png", "sha256": "30255cb6b6a1511872b785bec52bd529fbe1d3d6d1497849ccb1d4d9ad56dc88", "bytes": 4378618},
+      {"upload_order": 7, "role": "maps", "file": "Italian/tablet/07-maps-2560x1600.png", "link_to": "renders:amazon-tablet/it/07-maps-2560x1600.png", "sha256": "1d431e2313154e0a7533c029dd0073810ca24667e43e68778d2499ee4cedac3d", "bytes": 5221581}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Strategia ​in tempo reale"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Combatti per la terra"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Senza pubblicità ​o acquisti in-app"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Tu decidi, loro costruiscono"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Sfama la colonia"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Scegli dove espanderti"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 mappe, o mappe casuali"
+    }
+   },
+   "listing": {
+    "file": "Italian/listing.json",
+    "sha256": "8dfb177bb8bcf7a794f5282bd49d4e76c4c9feec7046c85aae493faf7e347bf7"
+   }
+  },
+  {
+   "locale": "ja",
+   "store_locale": "Japanese",
+   "folder": "Japanese",
+   "sets": {
+    "tablet": {
+     "render_set": "amazon-tablet",
+     "render_manifest_sha256": "056c586f52711f609af0faee28782c09901e1cae9ea79e462be9666990a8f0c3",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "Japanese/tablet/01-hero-2560x1600.png", "link_to": "renders:amazon-tablet/ja/01-hero-2560x1600.png", "sha256": "3b78ea1031f26a3e3b61e1abef6eebacc69b1113a6641678924e7facabb8b068", "bytes": 5255466},
+      {"upload_order": 2, "role": "battle", "file": "Japanese/tablet/02-battle-2560x1600.png", "link_to": "renders:amazon-tablet/ja/02-battle-2560x1600.png", "sha256": "788022a4244455e543df350eed64cf69a98c847aafdb870684819420c9cc0b27", "bytes": 4381104},
+      {"upload_order": 3, "role": "fair_deal", "file": "Japanese/tablet/03-fair_deal-2560x1600.png", "link_to": "renders:amazon-tablet/ja/03-fair_deal-2560x1600.png", "sha256": "911e21a96393f8d6fc39ed5003befc853f951fcf475ef2b92ccbc423c63c5f04", "bytes": 4668301},
+      {"upload_order": 4, "role": "build", "file": "Japanese/tablet/04-build-2560x1600.png", "link_to": "renders:amazon-tablet/ja/04-build-2560x1600.png", "sha256": "cd019ff6d3b88dbe039ef23b631d02f96e7ab98bb0d1d2791f29ebeb31325b4e", "bytes": 4819724},
+      {"upload_order": 5, "role": "economy", "file": "Japanese/tablet/05-economy-2560x1600.png", "link_to": "renders:amazon-tablet/ja/05-economy-2560x1600.png", "sha256": "d2ef67b53a3af4079e52907061d8b2a6ea78d30fe65e6812c0011be5869a4b4b", "bytes": 5026596},
+      {"upload_order": 6, "role": "territory", "file": "Japanese/tablet/06-territory-2560x1600.png", "link_to": "renders:amazon-tablet/ja/06-territory-2560x1600.png", "sha256": "3de1eda798a420a50e3bd31437bdad6623008060b38801e391091622de210cdd", "bytes": 4384246},
+      {"upload_order": 7, "role": "maps", "file": "Japanese/tablet/07-maps-2560x1600.png", "link_to": "renders:amazon-tablet/ja/07-maps-2560x1600.png", "sha256": "ae42641e27ebb2e0481c4a6bf63e3a81c49d7fc46c8e061c7493e33e6dff61c8", "bytes": 5226412}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "コロニーを指揮する​リアルタイム戦略"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "土地をめぐって戦おう"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "広告なし。アプリ内課金なし"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "決めるのはあなた。建てるのはコロニー"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "コロニーの食料を​確保しよう"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "コロニーを​どこへ広げるか選ぼう"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23のマップか、ランダムマップ"
+    }
+   },
+   "listing": {
+    "file": "Japanese/listing.json",
+    "sha256": "9fe0b9ef201d3147da86331f7f2132126526413abfca080d1de7acc49c4efcce"
+   }
+  },
+  {
+   "locale": "pl",
+   "store_locale": "Polish",
+   "folder": "Polish",
+   "sets": {
+    "tablet": {
+     "render_set": "amazon-tablet",
+     "render_manifest_sha256": "5c371f6188550b6142ad8e422a17d7e64cb96201182d723a75221d62f8028350",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "Polish/tablet/01-hero-2560x1600.png", "link_to": "renders:amazon-tablet/pl/01-hero-2560x1600.png", "sha256": "499c7d1c951e2a319acf120080b698aa673b79e902ec22a2acf5b8b3bed5a34d", "bytes": 5253414},
+      {"upload_order": 2, "role": "battle", "file": "Polish/tablet/02-battle-2560x1600.png", "link_to": "renders:amazon-tablet/pl/02-battle-2560x1600.png", "sha256": "a6b9abe3e0f753719b4839d2ea99bb5015403bb8f9daca9b0b787e0e7dc2dc32", "bytes": 4371590},
+      {"upload_order": 3, "role": "fair_deal", "file": "Polish/tablet/03-fair_deal-2560x1600.png", "link_to": "renders:amazon-tablet/pl/03-fair_deal-2560x1600.png", "sha256": "6d0de27a2170d582ffa7fd2226775f7ca2c68bf8ac8e36c5c6ec9b0c6cd3bd02", "bytes": 4670246},
+      {"upload_order": 4, "role": "build", "file": "Polish/tablet/04-build-2560x1600.png", "link_to": "renders:amazon-tablet/pl/04-build-2560x1600.png", "sha256": "10fcb1923d6cf3a123cfa0906f532fd16fbd2c91a9ba0ee9ef2552b0121b2eee", "bytes": 4812028},
+      {"upload_order": 5, "role": "economy", "file": "Polish/tablet/05-economy-2560x1600.png", "link_to": "renders:amazon-tablet/pl/05-economy-2560x1600.png", "sha256": "19bbba775a162941e2641d5bd958fa928a69ca840e4813ca6cae9641f4b9240b", "bytes": 5023690},
+      {"upload_order": 6, "role": "territory", "file": "Polish/tablet/06-territory-2560x1600.png", "link_to": "renders:amazon-tablet/pl/06-territory-2560x1600.png", "sha256": "65290eb5b1936418aa2c877b27b0eb3751d30a1ae2425b01acf2f991cc15e3f7", "bytes": 4383806},
+      {"upload_order": 7, "role": "maps", "file": "Polish/tablet/07-maps-2560x1600.png", "link_to": "renders:amazon-tablet/pl/07-maps-2560x1600.png", "sha256": "a2dbf5802cffb6eb4b429ac6e38cd8f61eb28d130e849cf5c8059fe98b01986e", "bytes": 5219582}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Strategia RTS: buduj kolonię"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Walcz o ziemię"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Bez reklam i zakupów w grze"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Ty decydujesz. Oni budują."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Wykarm kolonię"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Wybierz kierunek ekspansji"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 mapy lub losowe"
+    }
+   },
+   "listing": {
+    "file": "Polish/listing.json",
+    "sha256": "9b8a580b2a987c35f420581f1830347e8ccc3ba39bf8f854bbc349747fc48411"
+   }
+  },
+  {
+   "locale": "pt-BR",
+   "store_locale": "Portuguese (Brazil)",
+   "folder": "Portuguese-Brazil",
+   "sets": {
+    "tablet": {
+     "render_set": "amazon-tablet",
+     "render_manifest_sha256": "11ce9461f044132b8615e61aacb203e8b516d5c706d1a82aef85bf4f91157bfb",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "Portuguese-Brazil/tablet/01-hero-2560x1600.png", "link_to": "renders:amazon-tablet/pt-BR/01-hero-2560x1600.png", "sha256": "8fcad312e5bf131b2feac2f4f6d4ef94fbedb6398cd3e87081c94c22b1f8bf0d", "bytes": 5249658},
+      {"upload_order": 2, "role": "battle", "file": "Portuguese-Brazil/tablet/02-battle-2560x1600.png", "link_to": "renders:amazon-tablet/pt-BR/02-battle-2560x1600.png", "sha256": "ae07d434d120fb49dbbb7fdd9e48130cf771af45d2a295fc6568fc82a0855fb2", "bytes": 4372809},
+      {"upload_order": 3, "role": "fair_deal", "file": "Portuguese-Brazil/tablet/03-fair_deal-2560x1600.png", "link_to": "renders:amazon-tablet/pt-BR/03-fair_deal-2560x1600.png", "sha256": "b4bd9d07f4393addfd7a5a5c4aaba7d5a0ec6d2bb502f467c89eb1669c41acad", "bytes": 4672766},
+      {"upload_order": 4, "role": "build", "file": "Portuguese-Brazil/tablet/04-build-2560x1600.png", "link_to": "renders:amazon-tablet/pt-BR/04-build-2560x1600.png", "sha256": "50dd1c4bad20385680e91d2a24a6f9a64b4ac27640b681e1838eaf5ae202bd88", "bytes": 4811300},
+      {"upload_order": 5, "role": "economy", "file": "Portuguese-Brazil/tablet/05-economy-2560x1600.png", "link_to": "renders:amazon-tablet/pt-BR/05-economy-2560x1600.png", "sha256": "be04c6ca9916f4c6f13201cbf2c7b3af06eb1dccd602d7bdba560565ef7cb74c", "bytes": 5021582},
+      {"upload_order": 6, "role": "territory", "file": "Portuguese-Brazil/tablet/06-territory-2560x1600.png", "link_to": "renders:amazon-tablet/pt-BR/06-territory-2560x1600.png", "sha256": "322406c5499c15ca2301eb767735803c7a6b48f388d71baaf6ef7f9817ab9d90", "bytes": 4376939},
+      {"upload_order": 7, "role": "maps", "file": "Portuguese-Brazil/tablet/07-maps-2560x1600.png", "link_to": "renders:amazon-tablet/pt-BR/07-maps-2560x1600.png", "sha256": "13fa295febae4c9016aebd00d7d6dfd2a8bc2fc146b5ec8ea932c32b811e21dc", "bytes": 5219280}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Estratégia em tempo real"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Dispute o território"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Sem anúncios e compras in-app"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Você decide. Eles constroem."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Alimente a colônia"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Escolha onde expandir"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 mapas, ou aleatórios"
+    }
+   },
+   "listing": {
+    "file": "Portuguese-Brazil/listing.json",
+    "sha256": "e7323a57e7ed6c0f52fef091dfb11348a42346baf57788296ce3db7a13c8c5dd"
+   }
+  },
+  {
+   "locale": "pt-PT",
+   "store_locale": "Portuguese (Portugal)",
+   "folder": "Portuguese-Portugal",
+   "sets": {
+    "tablet": {
+     "render_set": "amazon-tablet",
+     "render_manifest_sha256": "76bb69311274beb182deb4a46093cd3a863bdf963a7ee864527ab4f64fc1225a",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "Portuguese-Portugal/tablet/01-hero-2560x1600.png", "link_to": "renders:amazon-tablet/pt-PT/01-hero-2560x1600.png", "sha256": "997a6c1e7b858bb7c215e0f38f59e4b35e41339eaa8419c11763efd52e54579b", "bytes": 5246367},
+      {"upload_order": 2, "role": "battle", "file": "Portuguese-Portugal/tablet/02-battle-2560x1600.png", "link_to": "renders:amazon-tablet/pt-PT/02-battle-2560x1600.png", "sha256": "f60cdb65ba3e7521d3af5d941eddac952c4e92d03253e6e1a06c45f19eede723", "bytes": 4368925},
+      {"upload_order": 3, "role": "fair_deal", "file": "Portuguese-Portugal/tablet/03-fair_deal-2560x1600.png", "link_to": "renders:amazon-tablet/pt-PT/03-fair_deal-2560x1600.png", "sha256": "f6555766e0d7bfb778fb38d3330d70e418d480c0a971550e68bf822f2e471acf", "bytes": 4672180},
+      {"upload_order": 4, "role": "build", "file": "Portuguese-Portugal/tablet/04-build-2560x1600.png", "link_to": "renders:amazon-tablet/pt-PT/04-build-2560x1600.png", "sha256": "4212a7e5b464e685fd054ffb0e460750185d8b3233889596584b808bc7dbc464", "bytes": 4804571},
+      {"upload_order": 5, "role": "economy", "file": "Portuguese-Portugal/tablet/05-economy-2560x1600.png", "link_to": "renders:amazon-tablet/pt-PT/05-economy-2560x1600.png", "sha256": "0fa6680b859a8c02907a8c6edb2838216fd8693f6116ab3d422b2cf89394fefe", "bytes": 5021007},
+      {"upload_order": 6, "role": "territory", "file": "Portuguese-Portugal/tablet/06-territory-2560x1600.png", "link_to": "renders:amazon-tablet/pt-PT/06-territory-2560x1600.png", "sha256": "08b340ede16de1cb7c9ff95a01f09d32574f4be897748a0e95627cab1694fe4a", "bytes": 4376569},
+      {"upload_order": 7, "role": "maps", "file": "Portuguese-Portugal/tablet/07-maps-2560x1600.png", "link_to": "renders:amazon-tablet/pt-PT/07-maps-2560x1600.png", "sha256": "cbf1b3cf69b86906d03a66f0932ddd71e2dd08685467c4c050d7c72935958a93", "bytes": 5218564}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "RTS de colónias"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Luta por território"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Sem anúncios ou compras in-app"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Tu decides. Eles constroem."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Alimenta a colónia"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Escolhe onde expandir"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 mapas, ou aleatórios"
+    }
+   },
+   "listing": {
+    "file": "Portuguese-Portugal/listing.json",
+    "sha256": "1c1f3d1ab58632a6d89ac84a8f8ff585191823d71a84e30b6a471ead4a7b16b2"
+   }
+  },
+  {
+   "locale": "es",
+   "store_locale": "Spanish",
+   "folder": "Spanish",
+   "sets": {
+    "tablet": {
+     "render_set": "amazon-tablet",
+     "render_manifest_sha256": "b7a79bc80037eb1c70c407db39da464dc82877d6df6e6c13812c876323db7501",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "Spanish/tablet/01-hero-2560x1600.png", "link_to": "renders:amazon-tablet/es/01-hero-2560x1600.png", "sha256": "088bccf21dd82a7b5f1c3f0182320c91282c41dd3b3432f647d0cdd9fc56dab2", "bytes": 5249793},
+      {"upload_order": 2, "role": "battle", "file": "Spanish/tablet/02-battle-2560x1600.png", "link_to": "renders:amazon-tablet/es/02-battle-2560x1600.png", "sha256": "3b0cf27afb6a66c619fb83235d52008281516b290fe5c2db077c34347808f7b6", "bytes": 4372918},
+      {"upload_order": 3, "role": "fair_deal", "file": "Spanish/tablet/03-fair_deal-2560x1600.png", "link_to": "renders:amazon-tablet/es/03-fair_deal-2560x1600.png", "sha256": "38dbadc264b1cfe05762876e772acd5b093bbbd8700e5c6fd5f845b451d94026", "bytes": 4667155},
+      {"upload_order": 4, "role": "build", "file": "Spanish/tablet/04-build-2560x1600.png", "link_to": "renders:amazon-tablet/es/04-build-2560x1600.png", "sha256": "a6bb920d7f7846570b740af67b21c9229f604c811c2241dfff190f2a579af4a4", "bytes": 4808240},
+      {"upload_order": 5, "role": "economy", "file": "Spanish/tablet/05-economy-2560x1600.png", "link_to": "renders:amazon-tablet/es/05-economy-2560x1600.png", "sha256": "23ccceba522fe1db720c83f4c9f57c6c851700b0d05b61de9ceb7459347bc6d4", "bytes": 5022519},
+      {"upload_order": 6, "role": "territory", "file": "Spanish/tablet/06-territory-2560x1600.png", "link_to": "renders:amazon-tablet/es/06-territory-2560x1600.png", "sha256": "906e6e8ab432bf025882bf02c2f79dacf47ef537041efa90aefb3354d0b5bfc7", "bytes": 4376073},
+      {"upload_order": 7, "role": "maps", "file": "Spanish/tablet/07-maps-2560x1600.png", "link_to": "renders:amazon-tablet/es/07-maps-2560x1600.png", "sha256": "c1c38ec9b78b759666ed20b1f465a16e3957b63ecba4903f2aded466e3d556f5", "bytes": 5218265}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Estrategia ​en tiempo real"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Lucha ​por el territorio"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Sin anuncios ni micropagos"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Tú decides. Ellos construyen"
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Alimenta ​a tu colonia"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Elige dónde expandirte"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 mapas, o uno aleatorio"
+    }
+   },
+   "listing": {
+    "file": "Spanish/listing.json",
+    "sha256": "fb7ee11ab756f3a231f2bc9c871abda8519c00d6a1a0abcce4b9a707868909b1"
+   }
+  },
+  {
+   "locale": "sv",
+   "store_locale": "Swedish",
+   "folder": "Swedish",
+   "sets": {
+    "tablet": {
+     "render_set": "amazon-tablet",
+     "render_manifest_sha256": "22463b07323be317ad1ba61aa06be4e22f2d05614301e1f3d5acdb1c0797e020",
+     "screenshots": [
+      {"upload_order": 1, "role": "hero", "file": "Swedish/tablet/01-hero-2560x1600.png", "link_to": "renders:amazon-tablet/sv/01-hero-2560x1600.png", "sha256": "da475c76c3ff6abdaab47205ca68008a4d7597968e05afd7ae33f6302b36c2d2", "bytes": 5254526},
+      {"upload_order": 2, "role": "battle", "file": "Swedish/tablet/02-battle-2560x1600.png", "link_to": "renders:amazon-tablet/sv/02-battle-2560x1600.png", "sha256": "8997f8df5070c45ff24bb7494f3c10581ea4937aa41f009ff64a3a373fe6e68e", "bytes": 4376000},
+      {"upload_order": 3, "role": "fair_deal", "file": "Swedish/tablet/03-fair_deal-2560x1600.png", "link_to": "renders:amazon-tablet/sv/03-fair_deal-2560x1600.png", "sha256": "a43be7bb09531397c65330b632ec517c4d3f868955a13d2de5fc4ab1c0173f47", "bytes": 4671953},
+      {"upload_order": 4, "role": "build", "file": "Swedish/tablet/04-build-2560x1600.png", "link_to": "renders:amazon-tablet/sv/04-build-2560x1600.png", "sha256": "bca80d60466ea06d4cbf13f3d2f3d36dfc45c6fee7e1f9a85231cd4390243d8f", "bytes": 4808541},
+      {"upload_order": 5, "role": "economy", "file": "Swedish/tablet/05-economy-2560x1600.png", "link_to": "renders:amazon-tablet/sv/05-economy-2560x1600.png", "sha256": "cb3b78c4e3be684f06a0007062db1eee8ab7b4066f6664215149c9598ad9809f", "bytes": 5018632},
+      {"upload_order": 6, "role": "territory", "file": "Swedish/tablet/06-territory-2560x1600.png", "link_to": "renders:amazon-tablet/sv/06-territory-2560x1600.png", "sha256": "938ef04d2c590203af7f229bb2817e9a6033370299224eafc0c849d3f5bce510", "bytes": 4378977},
+      {"upload_order": 7, "role": "maps", "file": "Swedish/tablet/07-maps-2560x1600.png", "link_to": "renders:amazon-tablet/sv/07-maps-2560x1600.png", "sha256": "0f0854c2aa6a61ee4106e90e8cdfdf2e239151823923fb71b9f4e97db7f80428", "bytes": 5217538}
+     ]
+    }
+   },
+   "captions": {
+    "hero": {
+     "field": "shot_overlay_hero",
+     "text": "Realtidsstrategi om kolonier"
+    },
+    "battle": {
+     "field": "shot_overlay_battle",
+     "text": "Slåss om marken"
+    },
+    "fair_deal": {
+     "field": "shot_overlay_fair_deal",
+     "text": "Ingen reklam. Inga köp i appen"
+    },
+    "build": {
+     "field": "shot_overlay_build",
+     "text": "Du bestämmer. De bygger."
+    },
+    "economy": {
+     "field": "shot_overlay_economy",
+     "text": "Håll kolonin mätt"
+    },
+    "territory": {
+     "field": "shot_overlay_territory",
+     "text": "Välj var kolonin ska växa"
+    },
+    "maps": {
+     "field": "shot_overlay_maps",
+     "text": "23 kartor, eller slumpade"
+    }
+   },
+   "listing": {
+    "file": "Swedish/listing.json",
+    "sha256": "52ddd821994078e2ad3785f6507093a22124e3a721e9612706ba95e38c93e8ce"
+   }
+  }
+ ],
+ "assets": [
+  {
+   "file": "_store-wide/promotional-image-1024x500.png",
+   "slot": "promotional-image",
+   "source": {
+    "file": "assets/storefront/key-art/derivatives/amazon-promo-1024x500.png",
+    "sha256": "3129d24a947847b82c0173543bcf9da6a71f5561fb7aa2835c1c7551e3730b7b",
+    "treatment": "copied unchanged",
+    "wordmark_margins": {
+     "left": 349,
+     "top": 73,
+     "right": 102,
+     "bottom": 348
+    }
+   },
+   "pixels": "1024x500",
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 798482,
+   "sha256": "3129d24a947847b82c0173543bcf9da6a71f5561fb7aa2835c1c7551e3730b7b",
+   "rules": {
+    "size": [
+     1024,
+     500
+    ],
+    "format": [
+     "JPEG",
+     "PNG"
+    ],
+    "alpha": "forbid"
+   }
+  },
+  {
+   "file": "_store-wide/icon-large-512x512.png",
+   "slot": "icon-large",
+   "source": {
+    "file": "assets/storefront/icon/icon-512.png",
+    "sha256": "76c980dc43ca180bf6b9f0b3292fcb5026930c2d9df56627e737f579e5d191da",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "512x512",
+   "format": "PNG",
+   "mode": "RGBA",
+   "bytes": 69145,
+   "sha256": "76c980dc43ca180bf6b9f0b3292fcb5026930c2d9df56627e737f579e5d191da",
+   "rules": {
+    "size": [
+     512,
+     512
+    ],
+    "format": [
+     "PNG"
+    ]
+   }
+  },
+  {
+   "file": "_store-wide/icon-small-114x114.png",
+   "slot": "icon-small",
+   "source": {
+    "file": "assets/storefront/icon/glob2-icon.svg",
+    "sha256": "0b281abeaa827c71fd94033acaaf1278a31a19a3f07a2b3288a2d1b1b9e24978",
+    "treatment": "vector rendered at 93 px with resvg-py and centred on #2B1C42"
+   },
+   "pixels": "114x114",
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 6400,
+   "sha256": "b68e913558a35004e9a017917322d8b29852a4de148348b8d199afa8ea896e80",
+   "rules": {
+    "size": [
+     114,
+     114
+    ],
+    "format": [
+     "PNG"
+    ]
+   }
+  }
+ ],
+ "blocked": [],
+ "pending": [
+  "caption catalog changed since render: 11 locale sets (amazon-tablet)",
+  "rendered by an older screenshots.py/caption.html/gallery.json/fonts.json: 11 locale sets (amazon-tablet)"
+ ],
+ "errors": [],
+ "not_packaged": [],
+ "unverified": [
+  "Amazon's icon guidance says not to simply scale one size from the other: the 114 px icon is rendered from the vector master at that size (glob at 82% on the Android purple #2B1C42, as the 512 px icon), not reduced from the 512 px file."
+ ],
+ "notes": []
+}

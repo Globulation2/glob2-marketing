@@ -2,7 +2,7 @@
 
 [Planning index](README.md) · [Three-player test kit](three-player-test-kit.md) · [Full validation plan](../analysis/validation-plan.md)
 
-**Current status, 2026-10-26:** the user stopped this recruitment/testing approach and selected [launch positioning v1](../analysis/positioning-v1.md) through discussion. This document is retained as historical preparation; do not execute it as an active launch task. No outreach or sessions occurred.
+**Current status, 2026-10-26:** the user stopped this recruitment/testing approach and selected [launch positioning v1](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md) through discussion. This document is retained as historical preparation; do not execute it as an active launch task. No outreach or sessions occurred.
 
 Prepared **2026-10-26**. This is a ready-to-review recruitment draft for three 15-minute, description-only conversations. No invitations, moderator messages, scheduling or recruitment have occurred. No paid recruitment or incentive is arranged. The goal is to expose confusing wording and reasons for interest, not select a statistically supported winner.
 

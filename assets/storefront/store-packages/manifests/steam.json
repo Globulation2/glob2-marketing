@@ -1,0 +1,454 @@
+{
+ "store": "steam",
+ "title": "Steam (prepared only)",
+ "package_dir": "packages:steam",
+ "generated_by": "assets/storefront/store-packages/build.py",
+ "inputs": {
+  "stores.json": "bdb603665544f44032e56a6a1ae75d2a200c80dbd45f5764cd4800a4817e474d",
+  "review": {
+   "file": "assets/storefront/review/round-2-final.md",
+   "sha256": "d9646b0a35b585db391192076005e86511aa4c9f8977e4f1dafecedc4722a5ce"
+  },
+  "platforms.json": "af448133ed18adcd9a846dcb3b649379d7c3433fe16801a4cb92b6a2db2f6e37",
+  "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
+  "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)",
+  "trailer_manifest": "d373b93cbfd917072614d1e3465aa6eae21668e0d953e69565cb598e6f4f82c1"
+ },
+ "review_row": "Steam",
+ "review_frames": [
+  "01",
+  "04",
+  "02",
+  "08",
+  "06",
+  "05",
+  "03"
+ ],
+ "screenshots": [
+  {
+   "file": "screenshots/01-hero-1920x1080.jpg",
+   "upload_order": 1,
+   "role": "hero",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/01-hero-marchland-colony-under-raid-3840x2160.png",
+    "capture_sha256": "5970e91bdec955ad5320efecb09d3c8f419cda7a16a07b0a63dcd3a1a44d17cd",
+    "frame": "01",
+    "export": "assets/storefront/captures/desktop/web-1920/01-hero-marchland-colony-under-raid-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1191849,
+   "sha256": "68eed70ac99443175813b113c5e1892959d34ced9b8f7c08b6dd37815aa6b02d",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ]
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/02-battle-1920x1080.jpg",
+   "upload_order": 2,
+   "role": "battle",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/04-battle-honeycomb-oasis-3840x2160.png",
+    "capture_sha256": "1ed22a0809b695f3789e4b44a0fce8a7e94600ebd99eef73d6dbb8c6624ca22e",
+    "frame": "04",
+    "export": "assets/storefront/captures/desktop/web-1920/04-battle-honeycomb-oasis-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1076113,
+   "sha256": "a067b13789a7be7268c1f0736ad5e7a522e1b940d7f641806a8d41e62967c05a",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ]
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/03-build-1920x1080.jpg",
+   "upload_order": 3,
+   "role": "build",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/02-build-coral-school-site-3840x2160.png",
+    "capture_sha256": "26330fa7093f9f390ad1662efefc4bc183e971ffdfc3037331917c344a6147fd",
+    "frame": "02",
+    "export": "assets/storefront/captures/desktop/web-1920/02-build-coral-school-site-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1236728,
+   "sha256": "bb51166b4dfaa9149b92add268c559d95037cac71afcad0183d4d6e990b292dd",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ]
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/04-ai-coplay-1920x1080.jpg",
+   "upload_order": 4,
+   "role": "ai_coplay",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/08-ai-coplay-in-game-coral-3840x2160.png",
+    "capture_sha256": "51a75a4e16a77c4ef83c1489a456e01256115ce7fd5fe70ca8da4613a0b1f22d",
+    "frame": "08",
+    "export": "assets/storefront/captures/desktop/web-1920/08-ai-coplay-in-game-coral-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1035644,
+   "sha256": "9e82c03cae0f0f8a368f877ae16beaede82730de4694506e5527084e8c2e6096",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ]
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/05-maps-1920x1080.jpg",
+   "upload_order": 5,
+   "role": "maps",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/06-maps-city-states-3840x2160.png",
+    "capture_sha256": "cc80ae170605d1fd57326dca366c90d528d64eb6f1965d1aadc6ad3862124b87",
+    "frame": "06",
+    "export": "assets/storefront/captures/desktop/web-1920/06-maps-city-states-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1173738,
+   "sha256": "8ffc8cb99a262dbcadb4483c12d843dab9dff5f31f34cb6accc92e728bb8bfdf",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ]
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/06-territory-1920x1080.jpg",
+   "upload_order": 6,
+   "role": "territory",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/05-territory-crater-lakes-3840x2160.png",
+    "capture_sha256": "8657b2add6bf7ac964c87dd69fdb19d5e667de03b6453d5d3b540852bbe78930",
+    "frame": "05",
+    "export": "assets/storefront/captures/desktop/web-1920/05-territory-crater-lakes-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1469128,
+   "sha256": "ccd3de49052df0967b5d45a2418dac818b2e522f665e7f2bd965defb1b3bc049",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ]
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/07-economy-1920x1080.jpg",
+   "upload_order": 7,
+   "role": "economy",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/03-economy-coral-inn-and-wheat-3840x2160.png",
+    "capture_sha256": "7a23dd01e4c981f582a2666cc1c82687726e9ced61def9295f5a08b458936bbe",
+    "frame": "03",
+    "export": "assets/storefront/captures/desktop/web-1920/03-economy-coral-inn-and-wheat-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1118662,
+   "sha256": "b8bbb451775f2ba36d0cd5f7272efb9ffda16ba3ce21cf4be715bbfd75bfec03",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ]
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  }
+ ],
+ "assets": [
+  {
+   "file": "header-capsule-920x430.jpg",
+   "slot": "header-capsule",
+   "source": {
+    "file": "assets/storefront/key-art/derivatives/steam-header-920x430.jpg",
+    "sha256": "78b3856f82ac314c52889604f648db4776e54d76e9815345af8c40edf713ce91",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "920x430",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 249528,
+   "sha256": "78b3856f82ac314c52889604f648db4776e54d76e9815345af8c40edf713ce91",
+   "rules": {
+    "size": [
+     920,
+     430
+    ],
+    "format": [
+     "JPEG",
+     "PNG"
+    ]
+   }
+  },
+  {
+   "file": "small-capsule-462x174.jpg",
+   "slot": "small-capsule",
+   "source": {
+    "file": "assets/storefront/key-art/derivatives/steam-small-capsule-462x174.jpg",
+    "sha256": "ba857a9aaa9e6cd095b24a24d491ad225bc4315c596b67f946927b98bd30c1bd",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "462x174",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 50287,
+   "sha256": "ba857a9aaa9e6cd095b24a24d491ad225bc4315c596b67f946927b98bd30c1bd",
+   "rules": {
+    "size": [
+     462,
+     174
+    ],
+    "format": [
+     "JPEG",
+     "PNG"
+    ]
+   }
+  },
+  {
+   "file": "main-capsule-1232x706.jpg",
+   "slot": "main-capsule",
+   "source": {
+    "file": "assets/storefront/key-art/derivatives/steam-main-capsule-1232x706.jpg",
+    "sha256": "bdcafc18e1fc9c84ae2c1722a3cb11f4eec2472ae173f7662d590141da118851",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "1232x706",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 517779,
+   "sha256": "bdcafc18e1fc9c84ae2c1722a3cb11f4eec2472ae173f7662d590141da118851",
+   "rules": {
+    "size": [
+     1232,
+     706
+    ],
+    "format": [
+     "JPEG",
+     "PNG"
+    ]
+   }
+  },
+  {
+   "file": "vertical-capsule-748x896.jpg",
+   "slot": "vertical-capsule",
+   "source": {
+    "file": "assets/storefront/key-art/derivatives/steam-vertical-capsule-748x896.jpg",
+    "sha256": "ae2f3188d9893702ba0182dc2f175192643e5e2253c8625cdff2997f5b984227",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "748x896",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 448014,
+   "sha256": "ae2f3188d9893702ba0182dc2f175192643e5e2253c8625cdff2997f5b984227",
+   "rules": {
+    "size": [
+     748,
+     896
+    ],
+    "format": [
+     "JPEG",
+     "PNG"
+    ]
+   }
+  },
+  {
+   "file": "library-capsule-600x900.jpg",
+   "slot": "library-capsule",
+   "source": {
+    "file": "assets/storefront/key-art/derivatives/steam-library-capsule-600x900.jpg",
+    "sha256": "6e3dfcc0fadb42baca57932b1326c237e5c62b53b6f3869b901d2dd25b47aa47",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "600x900",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 357101,
+   "sha256": "6e3dfcc0fadb42baca57932b1326c237e5c62b53b6f3869b901d2dd25b47aa47",
+   "rules": {
+    "size": [
+     600,
+     900
+    ],
+    "format": [
+     "JPEG",
+     "PNG"
+    ]
+   }
+  },
+  {
+   "file": "library-hero-3840x1240.jpg",
+   "slot": "library-hero",
+   "source": {
+    "file": "assets/storefront/key-art/derivatives/steam-library-hero-3840x1240.jpg",
+    "sha256": "8b317a5e91786ec24c6d101f3471a2bfa9cf8e7b8a3924089a9c5a6e5fc76ddf",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "3840x1240",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1833856,
+   "sha256": "8b317a5e91786ec24c6d101f3471a2bfa9cf8e7b8a3924089a9c5a6e5fc76ddf",
+   "rules": {
+    "size": [
+     3840,
+     1240
+    ],
+    "format": [
+     "JPEG",
+     "PNG"
+    ]
+   },
+   "contains_text": false
+  },
+  {
+   "file": "library-logo-1280x217.png",
+   "slot": "library-logo",
+   "source": {
+    "file": "assets/storefront/key-art/derivatives/steam-logo-1280.png",
+    "sha256": "a5703c28cc0bfe0cea822419fdfe7b0fe1220279f5465656873d8cb844ac541e",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "1280x217",
+   "format": "PNG",
+   "mode": "RGBA",
+   "bytes": 100036,
+   "sha256": "a5703c28cc0bfe0cea822419fdfe7b0fe1220279f5465656873d8cb844ac541e",
+   "rules": {
+    "format": [
+     "PNG"
+    ],
+    "alpha": "require"
+   }
+  }
+ ],
+ "text": {
+  "dir": "text",
+  "locales": [
+   "en"
+  ]
+ },
+ "trailer": [
+  {
+   "slot": "trailer-1",
+   "file": "trailer/glob2-trailer-desktop-34s-1080p.mp4",
+   "link_to": "trailer:glob2-trailer-desktop-34s-1080p.mp4",
+   "in_repository": false,
+   "bytes": 61490258,
+   "sha256": "bfa0db9b58de51b885f9729eb9431d4f516f562d1873a0b1a0fe5112d7ebe769",
+   "duration_s": 34.5,
+   "pixels": "1920x1080",
+   "codec": "h264",
+   "shows_ai_coplay": true,
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "container": [
+     "mp4"
+    ]
+   },
+   "source": {
+    "manifest": "assets/storefront/trailer/manifest.json",
+    "review": "assets/storefront/review/trailer-review.md"
+   },
+   "note": "Trailer review table: the desktop cut first; it leads with gameplay, as Steam asks."
+  },
+  {
+   "slot": "trailer-2",
+   "file": "trailer/glob2-trailer-30s-1080p.mp4",
+   "link_to": "trailer:glob2-trailer-30s-1080p.mp4",
+   "in_repository": false,
+   "bytes": 54010516,
+   "sha256": "e72e876e381143c8c7f733774c4ae9c46b279fdf04948b2c4beebd851cbaf203",
+   "duration_s": 30.0,
+   "pixels": "1920x1080",
+   "codec": "h264",
+   "shows_ai_coplay": false,
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "container": [
+     "mp4"
+    ]
+   },
+   "source": {
+    "manifest": "assets/storefront/trailer/manifest.json",
+    "review": "assets/storefront/review/trailer-review.md"
+   },
+   "note": "Trailer review table: the master as the second trailer."
+  }
+ ],
+ "blocked": [],
+ "pending": [],
+ "errors": [],
+ "not_packaged": [],
+ "unverified": [
+  "Library capsule 600x900, library hero 3840x1240 and library logo sizes are Steam's library-asset sizes as the key-art agent built them; the comparables record lists only header, small, main, vertical capsules and the page background.",
+  "No Steam app exists yet: nothing here has been checked against a real Steamworks upload form, including the trailer upload rules."
+ ],
+ "notes": []
+}

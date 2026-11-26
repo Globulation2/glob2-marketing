@@ -20,7 +20,7 @@ The owner registered an itch.io account and signed in. Its dashboard offered to 
 
 Use **Globulation 2** as the title and the approved short pitch and About copy. Lead with colony building and economy, with autonomous creatures as the distinctive mechanic. Use the Strategy genre and relevant tags such as real-time strategy, colony building and resource management. Set the initial listing to free with payments disabled. Display the [first-session tutorial](https://glob2.online/learn/getting-started/) as the browser play route and use `https://glob2.online/` as the official website. [Approved copy](approved-storefront-rollout.md#approved-copy) · [itch.io RTS browse](https://itch.io/games/tag-real-time-strategy) · [Pricing options](https://itch.io/docs/creators/pricing)
 
-Use the approved landscape illustration for the cover and the four approved desktop gameplay screenshots in their existing order. A short gameplay clip showing the colony respond to new priorities is optional and requires approved source footage or separate approval. [Approved cover and gallery](../assets/storefront-approved-v1/README.md) · [itch.io creator guidelines](https://itch.io/docs/creators/quality-guidelines)
+Use the approved landscape illustration for the cover and the four approved desktop gameplay screenshots in their existing order. A short gameplay clip showing the colony respond to new priorities is optional and requires approved source footage or separate approval. [Approved cover and gallery](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/assets/storefront-approved-v1/README.md) · [itch.io creator guidelines](https://itch.io/docs/creators/quality-guidelines)
 
 ### AI disclosure evidence
 
@@ -73,6 +73,6 @@ The previously enabled sensitive content flag was turned off. **Unlisted in sear
 
 ## Published launch devlog
 
-The signed-out [launch devlog](https://genixpro.itch.io/globulation-2/devlog/1802485/globulation-2-is-now-playable-on-itchio) was verified after publication under **Major Update or Launch**. It announces fullscreen browser play, guest rooms shared with Glob2 Online, and the Windows, macOS and Linux downloads. The post asks players to name their browser when reporting problems. It uses one approved gameplay image from the Four Squares strategic view. [Image source and provenance](../assets/storefront-approved-v1/snap/README.md)
+The signed-out [launch devlog](https://genixpro.itch.io/globulation-2/devlog/1802485/globulation-2-is-now-playable-on-itchio) was verified after publication under **Major Update or Launch**. It announces fullscreen browser play, guest rooms shared with Glob2 Online, and the Windows, macOS and Linux downloads. The post asks players to name their browser when reporting problems. It uses one approved gameplay image from the Four Squares strategic view. [Image source and provenance](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/assets/storefront-approved-v1/snap/README.md)
 
 A subsequent signed-out [exact-title search](https://itch.io/search?q=Globulation+2) returned **Globulation 2** with a direct link to the [official listing](https://genixpro.itch.io/globulation-2). This verifies search indexing.

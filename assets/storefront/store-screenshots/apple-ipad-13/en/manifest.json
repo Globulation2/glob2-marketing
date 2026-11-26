@@ -1,0 +1,554 @@
+{
+ "generated_by": "assets/storefront/tools/screenshots.py",
+ "tool": {
+  "screenshots.py": "b165b86eeaab8a9b3bb4063d7bf0e961d7fbf4f49f3e96b20fbe058b98b79770",
+  "caption.html": "277570196f62add3a704177b089b6126dc11b1765753195378d7a521be146a95",
+  "gallery.json": "66469b4cfadf946699a3f1bd75cdb1555e966c4df36319efa317ffd0bcfe4972",
+  "fonts.json": "9344863fb6ad5a5d4d4c6cdd9cc7259e8f14a781800b34baddae162d7107b0c1",
+  "pillow": "13.0.0",
+  "playwright": "1.63.0",
+  "chromium": "153.0.8010.12"
+ },
+ "store_set": "apple-ipad-13",
+ "store": "apple",
+ "device_class": "ipad-13",
+ "locale": "en",
+ "layout": "framed",
+ "partial": false,
+ "gallery": {
+  "file": "assets/storefront/captures/mobile/selection.json",
+  "sha256": "046859432c560a4e4c7efce5e05e0493786025db7e5bd7a39bd3ac7c82ca48ac"
+ },
+ "catalog": {
+  "file": "translations/en.md",
+  "sha256": "5740c1e7113f849a3a45fa226af7857b03879a9d2963df2849089e9dcaf2fb9a",
+  "in_repository": true
+ },
+ "fonts": {
+  "DejaVu Sans Bold": {
+   "file": "DejaVuSans-Bold.ttf",
+   "sha256": "e6476c1b80502924294eed40894c5b18e06c181444ca953e5334262df9c27724",
+   "licence": "Bitstream Vera / DejaVu (permissive)"
+  }
+ },
+ "images": [
+  {
+   "file": "01-hero-2064x2752.png",
+   "slot": 1,
+   "role": "hero",
+   "pixels": "2064x2752",
+   "format": "png",
+   "capture": {
+    "file": "assets/storefront/captures/mobile/ipad-13/01-hero-2064x2752.png",
+    "sha256": "4c5780c99aa6be4534946053783342097aa2ddcca9eecc776053a9579fcce5a4",
+    "kind": "gameplay",
+    "trim": {
+     "top": 64,
+     "bottom": 40
+    },
+    "trim_mode": "flat-margins",
+    "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
+    "trim_flat_share": {
+     "top": 0.9468,
+     "bottom": 0.995
+    },
+    "placed": [
+     62,
+     468,
+     1940,
+     2284
+    ],
+    "scaled": [
+     1940,
+     2489
+    ],
+    "scale": 0.939922,
+    "corner_radius": 40,
+    "gameplay_share": 0.780081
+   },
+   "caption": {
+    "text": "Real-time colony strategy",
+    "lines": [
+     "Real-time",
+     "colony strategy"
+    ],
+    "fit": "safe",
+    "font_size": 172,
+    "short_word_letters": 4,
+    "full_size": 172,
+    "direction": "ltr",
+    "font_weight": 700,
+    "fonts": [
+     {
+      "family": "DejaVu Sans Bold",
+      "glyphs": 24
+     }
+    ],
+    "font_stack": [
+     "DejaVu Sans Bold"
+    ],
+    "variant": "night",
+    "rect": [
+     0,
+     0,
+     2064,
+     468
+    ],
+    "ink": [
+     309,
+     62,
+     1762,
+     430
+    ],
+    "area": 0.170058,
+    "own_size": 172,
+    "field": "shot_overlay_hero"
+   },
+   "sha256": "4530468eb0ec38e01424585102487c70fe9fde848dfb5e2a801542c08173673c",
+   "bytes": 7284531
+  },
+  {
+   "file": "02-battle-2064x2752.png",
+   "slot": 2,
+   "role": "battle",
+   "pixels": "2064x2752",
+   "format": "png",
+   "capture": {
+    "file": "assets/storefront/captures/mobile/ipad-13/04-battle-2064x2752.png",
+    "sha256": "712eecd6c43009a47f61424d51ac25e3636139caec5d021e16d901cc4fa30f32",
+    "kind": "gameplay",
+    "trim": {
+     "top": 64,
+     "bottom": 40
+    },
+    "trim_mode": "flat-margins",
+    "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
+    "trim_flat_share": {
+     "top": 0.9468,
+     "bottom": 0.995
+    },
+    "placed": [
+     62,
+     468,
+     1940,
+     2284
+    ],
+    "scaled": [
+     1940,
+     2489
+    ],
+    "scale": 0.939922,
+    "corner_radius": 40,
+    "gameplay_share": 0.780081
+   },
+   "caption": {
+    "text": "Fight for the land",
+    "lines": [
+     "Fight for the land"
+    ],
+    "fit": "none",
+    "font_size": 172,
+    "full_size": 172,
+    "direction": "ltr",
+    "font_weight": 700,
+    "fonts": [
+     {
+      "family": "DejaVu Sans Bold",
+      "glyphs": 18
+     }
+    ],
+    "font_stack": [
+     "DejaVu Sans Bold"
+    ],
+    "variant": "night",
+    "rect": [
+     0,
+     0,
+     2064,
+     468
+    ],
+    "ink": [
+     227,
+     162,
+     1842,
+     330
+    ],
+    "area": 0.170058,
+    "own_size": 172,
+    "field": "shot_overlay_battle"
+   },
+   "sha256": "29a012d218af9f87b8795b55a71987c43d8ae4d4a6abb48b47345f3d2ab647bb",
+   "bytes": 5710497
+  },
+  {
+   "file": "03-fair_deal-2064x2752.png",
+   "slot": 3,
+   "role": "fair_deal",
+   "pixels": "2064x2752",
+   "format": "png",
+   "capture": {
+    "file": "assets/storefront/captures/mobile/ipad-13/03-fair_deal-2064x2752.png",
+    "sha256": "17e211ffe9945780c297518e63f51deb965d2661b168a776b1777fdc98d367c1",
+    "kind": "gameplay",
+    "trim": {
+     "top": 64,
+     "bottom": 40
+    },
+    "trim_mode": "flat-margins",
+    "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
+    "trim_flat_share": {
+     "top": 0.9468,
+     "bottom": 0.995
+    },
+    "placed": [
+     62,
+     468,
+     1940,
+     2284
+    ],
+    "scaled": [
+     1940,
+     2489
+    ],
+    "scale": 0.939922,
+    "corner_radius": 40,
+    "gameplay_share": 0.780081
+   },
+   "caption": {
+    "text": "No ads. No in-app buys",
+    "lines": [
+     "No ads.",
+     "No in-app buys"
+    ],
+    "fit": "clause",
+    "font_size": 172,
+    "full_size": 172,
+    "direction": "ltr",
+    "font_weight": 700,
+    "fonts": [
+     {
+      "family": "DejaVu Sans Bold",
+      "glyphs": 21
+     }
+    ],
+    "font_stack": [
+     "DejaVu Sans Bold"
+    ],
+    "variant": "gold",
+    "rect": [
+     0,
+     0,
+     2064,
+     468
+    ],
+    "ink": [
+     343,
+     62,
+     1732,
+     430
+    ],
+    "area": 0.170058,
+    "own_size": 172,
+    "field": "shot_overlay_fair_deal"
+   },
+   "sha256": "73cfde6cb379635f03450381458b993a3bdc9d85220df990d639d4bd1db06547",
+   "bytes": 6744083
+  },
+  {
+   "file": "04-build-2064x2752.png",
+   "slot": 4,
+   "role": "build",
+   "pixels": "2064x2752",
+   "format": "png",
+   "capture": {
+    "file": "assets/storefront/captures/mobile/ipad-13/02-build-2064x2752.png",
+    "sha256": "936b837fd8da2ef3a3229efa697930f40f8aab7dec59f82b950011e2c3025b5b",
+    "kind": "gameplay",
+    "trim": {
+     "top": 64,
+     "bottom": 40
+    },
+    "trim_mode": "flat-margins",
+    "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
+    "trim_flat_share": {
+     "top": 0.9468,
+     "bottom": 0.995
+    },
+    "placed": [
+     62,
+     468,
+     1940,
+     2284
+    ],
+    "scaled": [
+     1940,
+     2489
+    ],
+    "scale": 0.939922,
+    "corner_radius": 40,
+    "gameplay_share": 0.780081
+   },
+   "caption": {
+    "text": "You decide. They build.",
+    "lines": [
+     "You decide.",
+     "They build."
+    ],
+    "fit": "clause",
+    "font_size": 172,
+    "full_size": 172,
+    "direction": "ltr",
+    "font_weight": 700,
+    "fonts": [
+     {
+      "family": "DejaVu Sans Bold",
+      "glyphs": 22
+     }
+    ],
+    "font_stack": [
+     "DejaVu Sans Bold"
+    ],
+    "variant": "night",
+    "rect": [
+     0,
+     0,
+     2064,
+     468
+    ],
+    "ink": [
+     492,
+     62,
+     1557,
+     430
+    ],
+    "area": 0.170058,
+    "own_size": 172,
+    "field": "shot_overlay_build"
+   },
+   "sha256": "046d955eaa2ab2a5840f9f5700b4f19caa778a08ff9984258fc40a4c7803e85f",
+   "bytes": 6614278
+  },
+  {
+   "file": "05-economy-2064x2752.png",
+   "slot": 5,
+   "role": "economy",
+   "pixels": "2064x2752",
+   "format": "png",
+   "capture": {
+    "file": "assets/storefront/captures/mobile/ipad-13/05-economy-2064x2752.png",
+    "sha256": "541ca53e1b3ce215e13654059268f8ea25398ff07ece4d960aa20fec2fbea757",
+    "kind": "gameplay",
+    "trim": {
+     "top": 64,
+     "bottom": 40
+    },
+    "trim_mode": "flat-margins",
+    "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
+    "trim_flat_share": {
+     "top": 0.9468,
+     "bottom": 0.995
+    },
+    "placed": [
+     62,
+     468,
+     1940,
+     2284
+    ],
+    "scaled": [
+     1940,
+     2489
+    ],
+    "scale": 0.939922,
+    "corner_radius": 40,
+    "gameplay_share": 0.780081
+   },
+   "caption": {
+    "text": "Keep the colony fed",
+    "lines": [
+     "Keep the colony fed"
+    ],
+    "fit": "none",
+    "font_size": 172,
+    "full_size": 172,
+    "direction": "ltr",
+    "font_weight": 700,
+    "fonts": [
+     {
+      "family": "DejaVu Sans Bold",
+      "glyphs": 19
+     }
+    ],
+    "font_stack": [
+     "DejaVu Sans Bold"
+    ],
+    "variant": "night",
+    "rect": [
+     0,
+     0,
+     2064,
+     468
+    ],
+    "ink": [
+     113,
+     162,
+     1956,
+     330
+    ],
+    "area": 0.170058,
+    "own_size": 172,
+    "field": "shot_overlay_economy"
+   },
+   "sha256": "7d5993f80ad1f5b002e2d432026069f520b235b3ec88a732e85c17ed499961ca",
+   "bytes": 6560015
+  },
+  {
+   "file": "06-territory-2064x2752.png",
+   "slot": 6,
+   "role": "territory",
+   "pixels": "2064x2752",
+   "format": "png",
+   "capture": {
+    "file": "assets/storefront/captures/mobile/ipad-13/06-territory-2064x2752.png",
+    "sha256": "c1f18b4e13a3db7b182f63538d94d0e0155baf944f43939beaadd07b6c70b97e",
+    "kind": "gameplay",
+    "trim": {
+     "top": 64,
+     "bottom": 40
+    },
+    "trim_mode": "flat-margins",
+    "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
+    "trim_flat_share": {
+     "top": 0.9468,
+     "bottom": 0.995
+    },
+    "placed": [
+     62,
+     468,
+     1940,
+     2284
+    ],
+    "scaled": [
+     1940,
+     2489
+    ],
+    "scale": 0.939922,
+    "corner_radius": 40,
+    "gameplay_share": 0.780081
+   },
+   "caption": {
+    "text": "Choose where to expand",
+    "lines": [
+     "Choose where",
+     "to expand"
+    ],
+    "fit": "safe",
+    "font_size": 172,
+    "short_word_letters": 4,
+    "full_size": 172,
+    "direction": "ltr",
+    "font_weight": 700,
+    "fonts": [
+     {
+      "family": "DejaVu Sans Bold",
+      "glyphs": 21
+     }
+    ],
+    "font_stack": [
+     "DejaVu Sans Bold"
+    ],
+    "variant": "night",
+    "rect": [
+     0,
+     0,
+     2064,
+     468
+    ],
+    "ink": [
+     379,
+     62,
+     1688,
+     429
+    ],
+    "area": 0.170058,
+    "own_size": 172,
+    "field": "shot_overlay_territory"
+   },
+   "sha256": "48e4cf913a8f2cc98b512eb0a305619fb352e55e122393ffb23da418c656279e",
+   "bytes": 5990495
+  },
+  {
+   "file": "07-maps-2064x2752.png",
+   "slot": 7,
+   "role": "maps",
+   "pixels": "2064x2752",
+   "format": "png",
+   "capture": {
+    "file": "assets/storefront/captures/mobile/ipad-13/07-maps-2064x2752.png",
+    "sha256": "76e0e02d6479567c84f19d28a7116192c0ef23840dddd7e0b696a9a6ce49729b",
+    "kind": "gameplay",
+    "trim": {
+     "top": 64,
+     "bottom": 40
+    },
+    "trim_mode": "flat-margins",
+    "trim_rule": "trims the size's configured system-bar strips only where each strip is a flat margin; refuses otherwise",
+    "trim_flat_share": {
+     "top": 0.9468,
+     "bottom": 0.995
+    },
+    "placed": [
+     62,
+     468,
+     1940,
+     2284
+    ],
+    "scaled": [
+     1940,
+     2489
+    ],
+    "scale": 0.939922,
+    "corner_radius": 40,
+    "gameplay_share": 0.780081
+   },
+   "caption": {
+    "text": "23 maps, or random ones",
+    "lines": [
+     "23 maps,",
+     "or random ones"
+    ],
+    "fit": "clause",
+    "font_size": 172,
+    "full_size": 172,
+    "direction": "ltr",
+    "font_weight": 700,
+    "fonts": [
+     {
+      "family": "DejaVu Sans Bold",
+      "glyphs": 22
+     }
+    ],
+    "font_stack": [
+     "DejaVu Sans Bold"
+    ],
+    "variant": "night",
+    "rect": [
+     0,
+     0,
+     2064,
+     468
+    ],
+    "ink": [
+     300,
+     65,
+     1767,
+     396
+    ],
+    "area": 0.170058,
+    "own_size": 172,
+    "field": "shot_overlay_maps"
+   },
+   "sha256": "2850f84df3678745295ea2ff593d1d5906ce5061ef7a77d5f4a155700289cd0b",
+   "bytes": 6392278
+  }
+ ]
+}

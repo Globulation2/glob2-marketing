@@ -1,0 +1,304 @@
+{
+ "store": "snap",
+ "title": "Snap Store",
+ "package_dir": "packages:snap",
+ "generated_by": "assets/storefront/store-packages/build.py",
+ "inputs": {
+  "stores.json": "bdb603665544f44032e56a6a1ae75d2a200c80dbd45f5764cd4800a4817e474d",
+  "review": {
+   "file": "assets/storefront/review/round-2-final.md",
+   "sha256": "d9646b0a35b585db391192076005e86511aa4c9f8977e4f1dafecedc4722a5ce"
+  },
+  "platforms.json": "af448133ed18adcd9a846dcb3b649379d7c3433fe16801a4cb92b6a2db2f6e37",
+  "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
+  "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)",
+  "trailer_manifest": "d373b93cbfd917072614d1e3465aa6eae21668e0d953e69565cb598e6f4f82c1"
+ },
+ "review_row": "Snap",
+ "review_frames": [
+  "01",
+  "04",
+  "08b",
+  "02",
+  "06"
+ ],
+ "screenshots": [
+  {
+   "file": "screenshots/01-hero-1920x1080.jpg",
+   "upload_order": 1,
+   "role": "hero",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/01-hero-marchland-colony-under-raid-3840x2160.png",
+    "capture_sha256": "5970e91bdec955ad5320efecb09d3c8f419cda7a16a07b0a63dcd3a1a44d17cd",
+    "frame": "01",
+    "export": "assets/storefront/captures/desktop/web-1920/01-hero-marchland-colony-under-raid-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1191849,
+   "sha256": "68eed70ac99443175813b113c5e1892959d34ced9b8f7c08b6dd37815aa6b02d",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 2000000,
+    "min_side": 480,
+    "max_size": [
+     3840,
+     2160
+    ],
+    "aspect_range": [
+     0.5,
+     2.0
+    ]
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/02-battle-1920x1080.jpg",
+   "upload_order": 2,
+   "role": "battle",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/04-battle-honeycomb-oasis-3840x2160.png",
+    "capture_sha256": "1ed22a0809b695f3789e4b44a0fce8a7e94600ebd99eef73d6dbb8c6624ca22e",
+    "frame": "04",
+    "export": "assets/storefront/captures/desktop/web-1920/04-battle-honeycomb-oasis-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1076113,
+   "sha256": "a067b13789a7be7268c1f0736ad5e7a522e1b940d7f641806a8d41e62967c05a",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 2000000,
+    "min_side": 480,
+    "max_size": [
+     3840,
+     2160
+    ],
+    "aspect_range": [
+     0.5,
+     2.0
+    ]
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/03-ai-coplay-side-by-side-1920x1080.jpg",
+   "upload_order": 3,
+   "role": "ai_coplay",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/08b-ai-coplay-side-by-side-coral-3840x2160.png",
+    "capture_sha256": "0243e067c77f9370a92f07b9d04a68f9074c9a9cbfae42cf8161fe3cfad04ce3",
+    "frame": "08b",
+    "export": "assets/storefront/captures/desktop/web-1920/08b-ai-coplay-side-by-side-coral-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 915654,
+   "sha256": "fe5e437f4683a24996b5f330dc360b55ec2bab6a996d7062cc7a2da6d8e6f0e5",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 2000000,
+    "min_side": 480,
+    "max_size": [
+     3840,
+     2160
+    ],
+    "aspect_range": [
+     0.5,
+     2.0
+    ]
+   },
+   "variant": "side-by-side",
+   "capture_kind": "game frame plus transcript of the same session, arranged side by side"
+  },
+  {
+   "file": "screenshots/04-build-1920x1080.jpg",
+   "upload_order": 4,
+   "role": "build",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/02-build-coral-school-site-3840x2160.png",
+    "capture_sha256": "26330fa7093f9f390ad1662efefc4bc183e971ffdfc3037331917c344a6147fd",
+    "frame": "02",
+    "export": "assets/storefront/captures/desktop/web-1920/02-build-coral-school-site-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1236728,
+   "sha256": "bb51166b4dfaa9149b92add268c559d95037cac71afcad0183d4d6e990b292dd",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 2000000,
+    "min_side": 480,
+    "max_size": [
+     3840,
+     2160
+    ],
+    "aspect_range": [
+     0.5,
+     2.0
+    ]
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  },
+  {
+   "file": "screenshots/05-maps-1920x1080.jpg",
+   "upload_order": 5,
+   "role": "maps",
+   "source": {
+    "capture": "assets/storefront/captures/desktop/06-maps-city-states-3840x2160.png",
+    "capture_sha256": "cc80ae170605d1fd57326dca366c90d528d64eb6f1965d1aadc6ad3862124b87",
+    "frame": "06",
+    "export": "assets/storefront/captures/desktop/web-1920/06-maps-city-states-1920x1080.jpg",
+    "treatment": "web-1920 JPEG export copied unchanged"
+   },
+   "pixels": "1920x1080",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 1173738,
+   "sha256": "8ffc8cb99a262dbcadb4483c12d843dab9dff5f31f34cb6accc92e728bb8bfdf",
+   "rules": {
+    "size": [
+     1920,
+     1080
+    ],
+    "format": [
+     "JPEG"
+    ],
+    "max_bytes": 2000000,
+    "min_side": 480,
+    "max_size": [
+     3840,
+     2160
+    ],
+    "aspect_range": [
+     0.5,
+     2.0
+    ]
+   },
+   "capture_kind": "gameplay frame (player seat)"
+  }
+ ],
+ "assets": [
+  {
+   "file": "banner-1440x480.jpg",
+   "slot": "banner",
+   "source": {
+    "file": "assets/storefront/key-art/derivatives/snap-banner-1440x480.jpg",
+    "sha256": "abb9507fd0c76168da9700b28170cd3cb7928cf86a57f300401287ecb712b1a5",
+    "treatment": "copied unchanged"
+   },
+   "pixels": "1440x480",
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 331343,
+   "sha256": "abb9507fd0c76168da9700b28170cd3cb7928cf86a57f300401287ecb712b1a5",
+   "rules": {
+    "size": [
+     1440,
+     480
+    ],
+    "format": [
+     "JPEG",
+     "PNG"
+    ],
+    "max_bytes": 2000000
+   }
+  },
+  {
+   "file": "icon-256x256.png",
+   "slot": "icon",
+   "source": {
+    "file": "assets/storefront/icon/glob-1024.png",
+    "sha256": "2d9c72f3df8f1a54f8da4b7e3acbcb5b754333a640b5bdd006141aea3f99b501",
+    "treatment": "master reduced to 256 px (premultiplied Lanczos, as the game's platforms/mobile/icons.py) on a transparent canvas"
+   },
+   "pixels": "256x256",
+   "format": "PNG",
+   "mode": "RGBA",
+   "bytes": 37136,
+   "sha256": "cb3725c0fe6d548b6eb8d44452458d8ed12b7379362a6d93d431910fc43552a3",
+   "rules": {
+    "size": [
+     256,
+     256
+    ],
+    "format": [
+     "PNG"
+    ],
+    "alpha": "require"
+   }
+  }
+ ],
+ "text": {
+  "dir": "text",
+  "locales": [
+   "en"
+  ]
+ },
+ "trailer": [
+  {
+   "slot": "video-url",
+   "file": "trailer/glob2-trailer-desktop-34s-1080p.mp4",
+   "link_to": "trailer:glob2-trailer-desktop-34s-1080p.mp4",
+   "in_repository": false,
+   "bytes": 61490258,
+   "sha256": "bfa0db9b58de51b885f9729eb9431d4f516f562d1873a0b1a0fe5112d7ebe769",
+   "duration_s": 34.5,
+   "pixels": "1920x1080",
+   "codec": "h264",
+   "shows_ai_coplay": true,
+   "rules": {},
+   "source": {
+    "manifest": "assets/storefront/trailer/manifest.json",
+    "review": "assets/storefront/review/trailer-review.md"
+   },
+   "needs_hosted_url": "YouTube or Vimeo URL",
+   "note": "Trailer review table: the desktop cut, as a YouTube URL; the Snap listing takes a video URL only (YouTube, Vimeo or asciinema), not a file."
+  }
+ ],
+ "blocked": [
+  "trailer video-url: needs a hosted video URL (YouTube or Vimeo URL); upload glob2-trailer-desktop-34s-1080p.mp4 (linked at trailer/glob2-trailer-desktop-34s-1080p.mp4) there and enter the URL"
+ ],
+ "pending": [],
+ "errors": [],
+ "not_packaged": [],
+ "unverified": [
+  "Snap's video field (YouTube, Vimeo or asciinema URL) was not re-checked for v2 (trailer review, store table).",
+  "Snap icon limits are not recorded in this project (v1 kept the existing icon). The packaged 256x256 transparent PNG is the same image the game repository generates for the snap (content/data/icons/glob2-icon-256x256.png, from the same master).",
+  "Snap's guidance asks cross-platform games for Linux workstation captures; these frames were captured on macOS from the same release build.",
+  "Snap screenshot limits (2,000,000 bytes, 480x480 to 3840x2160, aspect 1:2 to 2:1) come from the v1 record (validator source read 2026-10-30), not re-checked for v2 (review M5)."
+ ],
+ "notes": []
+}

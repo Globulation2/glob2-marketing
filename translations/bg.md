@@ -1,6 +1,6 @@
 # Globulation 2 storefront translations — Български
 
-Source version: storefront-v2. Observation date: 2026-11-24. Locale: bg. Translated 2026-11-24 from the [English master](en.md) with the [field map](storefront-v2-field-map.md) and [terminology](glossary.md). AI translation with independent AI linguistic review; not human or native-speaker validation. Game terminology reference: content/data/texts.bg.txt in the Globulation2/glob2 repository.
+Source version: storefront-v2. Observation date: 2026-11-24. Locale: bg. Translated 2026-11-24 from the [English master](en.md) with the [field map](storefront-field-map.md) and [terminology](glossary.md). AI translation with independent AI linguistic review; not human or native-speaker validation. Game terminology reference: content/data/texts.bg.txt in the Globulation2/glob2 repository.
 
 ## product_name
 

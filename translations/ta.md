@@ -1,6 +1,6 @@
 # Globulation 2 storefront translations — தமிழ்
 
-Source version: storefront-v2. Observation date: 2026-11-24. Locale: ta. Translated 2026-11-24 from the [English master](en.md) with the [field map](storefront-v2-field-map.md) and [terminology](glossary.md). AI translation with independent AI linguistic review; not human or native-speaker validation. `epic_tail` and `epic_legal` keep their reviewed storefront-v1 text. Game terminology reference: content/data/texts.ta.txt in the Globulation2/glob2 repository.
+Source version: storefront-v2. Observation date: 2026-11-24. Locale: ta. Translated 2026-11-24 from the [English master](en.md) with the [field map](storefront-field-map.md) and [terminology](glossary.md). AI translation with independent AI linguistic review; not human or native-speaker validation. `epic_tail` and `epic_legal` keep their reviewed storefront-v1 text. Game terminology reference: content/data/texts.ta.txt in the Globulation2/glob2 repository.
 
 ## product_name
 

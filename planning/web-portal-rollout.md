@@ -100,6 +100,6 @@ A pitch email to Armor Games' game submission address is **prepared** as a Gmail
 
 ## Open decisions
 
-- **Ads:** storefront-v2 copy says "No ads". CrazyGames, GameDistribution, Yandex and Poki run their own ads around or inside games, so the claim needs scoping per portal before those listings go live. See [storefront v2 claims](../facts/storefront-v2-claims.md).
+- **Ads:** storefront-v2 copy says "No ads". CrazyGames, GameDistribution, Yandex and Poki run their own ads around or inside games, so the claim needs scoping per portal before those listings go live. See [storefront v2 claims](../facts/storefront-claims.md).
 - **Game Jolt development stage:** Early Access or Complete/Stable.
 - **Game Jolt devlog:** whether to post a launch devlog. The comparison found devlog posting is the main gap against top games.

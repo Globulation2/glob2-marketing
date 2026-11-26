@@ -1,0 +1,372 @@
+{
+  "notes": [
+    "Configuration for build.py. Paths are relative to the repository root unless they start with /.",
+    "Gallery order is not set here. Desktop stores take their image order from the 'Desktop' table of the review file (the backticked frame numbers in the Images column, up to the first ';'), mobile stores take their slide order from the 'Mobile' table, keyed by the backticked store-set id. Frame numbers are resolved to files through captures/desktop/selection.json (and the captures folder for the side-by-side alternative); mobile roles are resolved to rendered files through each render manifest.",
+    "review_row names the row of the review table a store follows (matched on the text before any parenthesis in the first column). A row reading 'As <other store>' copies that store's list.",
+    "Rules: every limit below comes from analysis/mobile-store-comparables.md (observed 2026-11-24) or the storefront-v1 packaging records, unless the 'unverified' list of the store says otherwise. build.py fails on any breach.",
+    "switch: the platforms.json platform whose ai_coplay switch must be on for an ai_coplay image to be packaged; a review row that puts co-play on a store whose switch is off is an error.",
+    "trailer: per store, the trailer slots, following the 'Which file goes to which store' table of trailer.review. Each file is looked up in trailer.dir (committed: WebM, posters) or trailer.outside_dir (the MP4s, not committed), checked against its bytes, SHA-256 and ffprobe facts in trailer.manifest, and linked (symbolic link) into the package's trailer/ folder. coplay: true means the cut shows AI co-play, so the store's ai_coplay switch must be on. hosted: the store takes a video URL (YouTube, Vimeo) rather than a file, so the slot is reported as blocked, 'needs a hosted video URL', with the file to upload there linked. repo_url: the slot uses the file's raw.githubusercontent.com URL.",
+    "copyright: the product copyright line the owner decided on 2026-11-25 (planning/storefront-rollout.md, decision 11). The top-level block holds the line and its variants: line (with ©), plain (where © is unavailable or the platform adds it) and apple (Apple prints its own leading ©). Each store's copyright entry gives the exact value to enter, the field and when; value null means the store has no copyright field to fill. build.py does not read these entries."
+  ],
+  "output_root": "../storefront-v2-renders/store-packages",
+  "renders_root": "../storefront-v2-renders/screenshots",
+  "review": "assets/storefront/review/round-2-final.md",
+  "platforms": "translations/platforms.json",
+  "translations": "translations",
+  "export_command": ["python3", "translations/tools/storefront.py", "export", "--require-review"],
+  "desktop": {
+    "captures": "assets/storefront/captures/desktop",
+    "selection": "assets/storefront/captures/desktop/selection.json",
+    "manifest": "assets/storefront/captures/desktop/manifest.json",
+    "web_1920": "assets/storefront/captures/desktop/web-1920",
+    "alternatives": {"08b": {"role": "ai_coplay", "variant": "side-by-side"}},
+    "aspects": {"16:9": [3840, 2160], "16:10": [2880, 1800]}
+  },
+  "mobile_tools": {
+    "dir": "assets/storefront/tools",
+    "files": ["screenshots.py", "caption.html", "gallery.json", "fonts.json"],
+    "selection": "assets/storefront/captures/mobile/selection.json"
+  },
+  "key_art": {
+    "dir": "assets/storefront/key-art/derivatives",
+    "manifest": "assets/storefront/key-art/manifest.json"
+  },
+  "icon": {
+    "dir": "assets/storefront/icon",
+    "svg": "assets/storefront/icon/glob2-icon.svg",
+    "master": "assets/storefront/icon/glob-1024.png"
+  },
+  "appstream": {
+    "repo_dir": "assets/storefront/store-packages/appstream",
+    "url_base": "https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/"
+  },
+  "trailer": {
+    "dir": "assets/storefront/trailer",
+    "outside_dir": "../storefront-v2-renders/trailer",
+    "manifest": "assets/storefront/trailer/manifest.json",
+    "review": "assets/storefront/review/trailer-review.md"
+  },
+  "jpeg": {"quality": [92, 90, 88, 86, 84], "subsampling": 0},
+  "copyright": {
+    "decided": "2026-11-25",
+    "line": "© 2006–2026 Bradley Arsenault. © 2001–2008 Stephane Magnenat. © the Globulation 2 contributors.",
+    "plain": "2006–2026 Bradley Arsenault. 2001–2008 Stephane Magnenat. The Globulation 2 contributors.",
+    "apple": "2006–2026 Bradley Arsenault. © 2001–2008 Stephane Magnenat. © the Globulation 2 contributors."
+  },
+  "stores": {
+    "microsoft": {
+      "title": "Microsoft Store",
+      "copyright": {"value": "© 2006–2026 Bradley Arsenault. © 2001–2008 Stephane Magnenat. © the Globulation 2 contributors.", "field": "Copyright and trademark info (every one of the 44 listing languages)", "when": "The follow-up submission after the current certification clears; do not edit the submission in certification."},
+      "kind": "desktop",
+      "review_row": "Microsoft Store",
+      "switch": "microsoft",
+      "text": {"platform": "microsoft", "layout": "per-locale"},
+      "screenshots": {
+        "aspect": "16:9",
+        "size": [3840, 2160],
+        "source": "capture",
+        "format": "PNG",
+        "max_bytes": 50000000,
+        "count": [1, 10],
+        "captions": "microsoft"
+      },
+      "assets": [
+        {"slot": "poster", "file": "microsoft-poster-1440x2160.png", "size": [1440, 2160], "format": "PNG", "alpha": "forbid"},
+        {"slot": "box-art", "file": "microsoft-box-art-2160x2160.png", "size": [2160, 2160], "format": "PNG", "alpha": "forbid"},
+        {"slot": "box-art-alt", "file": "microsoft-box-art-1080x1080.png", "size": [1080, 1080], "format": "PNG", "alpha": "forbid", "optional_slot": "alternative size; upload one box art"},
+        {"slot": "super-hero", "file": "microsoft-super-hero-3840x2160.png", "size": [3840, 2160], "format": "PNG", "alpha": "forbid", "text": false},
+        {"slot": "super-hero-alt", "file": "microsoft-super-hero-1920x1080.png", "size": [1920, 1080], "format": "PNG", "alpha": "forbid", "text": false, "optional_slot": "alternative size; upload one super hero"},
+        {"slot": "app-tile-icon", "render_icon": {"size": 300, "fraction": 0.82, "background": "#2B1C42", "method": "vector"}, "size": [300, 300], "format": "PNG",
+         "note": "1:1 app tile icon under Store display images. Partner Center requires the 300x300 size when 'Display uploaded logo images instead of the images from my packages' is ticked (observed 2026-11-26); 150x150 and 71x71 are optional (packaged below). Same plate colour and glob fraction as the Amazon small icon and the Android launcher icon."},
+        {"slot": "app-tile-icon-150", "render_icon": {"size": 150, "fraction": 0.82, "background": "#2B1C42", "method": "vector"}, "size": [150, 150], "format": "PNG",
+         "note": "Optional 150x150 app tile icon under Store display images. Added 2026-11-26 after Partner Center's Review and publish page stopped loading once the override was on with only the 300x300 tile set; filling every Store display slot rules that out."},
+        {"slot": "app-tile-icon-71", "render_icon": {"size": 71, "fraction": 0.82, "background": "#2B1C42", "method": "vector"}, "size": [71, 71], "format": "PNG",
+         "note": "Optional 71x71 app tile icon under Store display images; see app-tile-icon-150."}
+      ],
+      "trailer": [
+        {"slot": "trailer", "file": "glob2-trailer-desktop-34s-1080p.mp4", "coplay": true,
+         "rules": {"size": [1920, 1080], "container": ["mp4", "mov"], "max_bytes": 2000000000},
+         "thumbnail": {"file": "poster-1920x1080.png", "size": [1920, 1080], "format": "PNG", "alpha": "forbid"},
+         "title_field": "trailer_title",
+         "with_asset": "super-hero",
+         "note": "Trailer review table: the desktop cut, since the Microsoft listing carries AI co-play. Upload the text-free super hero (super-hero slot) as well, or the trailer does not show at the top of the listing. Title: the export's trailer_title field per locale."}
+      ],
+      "not_packaged": [],
+      "unverified": [
+        "Whether Partner Center still accepts a 3840x2160 PNG for every screenshot slot of an existing listing: the 2026-08-24 page says 4K is supported and 50 MB is the limit; v1 uploaded 2560x1440."
+      ]
+    },
+    "epic": {
+      "title": "Epic Games Store",
+      "copyright": {"value": "© 2006–2026 Bradley Arsenault. © 2001–2008 Stephane Magnenat. © the Globulation 2 contributors.", "field": "Legal text (product legal notice)", "when": "Before the product goes Live."},
+      "kind": "desktop",
+      "review_row": "Epic",
+      "switch": "epic",
+      "text": {"platform": "epic", "layout": "per-locale"},
+      "screenshots": {
+        "aspect": "16:9",
+        "size": [1920, 1080],
+        "source": "web-1920",
+        "format": "JPEG",
+        "max_bytes": 4000000,
+        "count": [1, 30]
+      },
+      "trailer": [
+        {"slot": "carousel-01-trailer", "lead": true, "file": "glob2-trailer-30s-textless-1080p.mp4", "coplay": false,
+         "rules": {"size": [1920, 1080], "container": ["mp4"], "max_bytes": 300000000, "fps": [30, 60]},
+         "note": "Trailer review table: the text-free master (no co-play: the Epic ai_coplay switch is off) as the first carousel item. Epic video rule: 1920x1080 MP4, 300 MB max, 30 or 60 fps, non-black cover frame (frame 0 is gameplay)."}
+      ],
+      "assets": [
+        {"slot": "offer-landscape", "file": "epic-offer-landscape-2560x1440.jpg", "size": [2560, 1440], "format": ["JPEG", "PNG"], "alpha": "forbid"},
+        {"slot": "offer-portrait", "file": "epic-offer-portrait-1200x1600.jpg", "size": [1200, 1600], "format": ["JPEG", "PNG"], "alpha": "forbid"},
+        {"slot": "product-logo", "file": "epic-product-logo-960x540.png", "size": [960, 540], "format": "PNG", "alpha": "require", "max_bytes": 1000000},
+        {"slot": "social-preview", "file": "epic-social-preview-1200x1200.jpg", "size": [1200, 1200], "format": "JPEG", "max_bytes": 4000000}
+      ],
+      "unverified": [
+        "Epic's About-section images (at least 700 px wide, 4 MB) are not packaged: the About text has no image placement decided."
+      ]
+    },
+    "snap": {
+      "title": "Snap Store",
+      "copyright": {"value": null, "field": null, "when": "None: decision 11 sets no copyright entry for this store."},
+      "kind": "desktop",
+      "review_row": "Snap",
+      "switch": "snap",
+      "text": {"platform": "snap", "layout": "per-locale"},
+      "screenshots": {
+        "aspect": "16:9",
+        "size": [1920, 1080],
+        "source": "web-1920",
+        "format": "JPEG",
+        "max_bytes": 2000000,
+        "target_bytes": 1950000,
+        "count": [1, 5],
+        "min_side": 480,
+        "max_size": [3840, 2160],
+        "aspect_range": [0.5, 2.0]
+      },
+      "assets": [
+        {"slot": "banner", "file": "snap-banner-1440x480.jpg", "size": [1440, 480], "format": ["JPEG", "PNG"], "max_bytes": 2000000},
+        {"slot": "icon", "render_icon": {"size": 256, "fraction": 1.0, "background": null, "method": "master-resize"}, "size": [256, 256], "format": "PNG", "alpha": "require"}
+      ],
+      "trailer": [
+        {"slot": "video-url", "file": "glob2-trailer-desktop-34s-1080p.mp4", "coplay": true, "hosted": "YouTube or Vimeo URL",
+         "note": "Trailer review table: the desktop cut, as a YouTube URL; the Snap listing takes a video URL only (YouTube, Vimeo or asciinema), not a file."}
+      ],
+      "unverified": [
+        "Snap's video field (YouTube, Vimeo or asciinema URL) was not re-checked for v2 (trailer review, store table).",
+        "Snap icon limits are not recorded in this project (v1 kept the existing icon). The packaged 256x256 transparent PNG is the same image the game repository generates for the snap (content/data/icons/glob2-icon-256x256.png, from the same master).",
+        "Snap's guidance asks cross-platform games for Linux workstation captures; these frames were captured on macOS from the same release build.",
+        "Snap screenshot limits (2,000,000 bytes, 480x480 to 3840x2160, aspect 1:2 to 2:1) come from the v1 record (validator source read 2026-10-30), not re-checked for v2 (review M5)."
+      ]
+    },
+    "itch": {
+      "title": "itch.io",
+      "copyright": {"value": null, "field": null, "when": "None: decision 11 sets no copyright entry for this store."},
+      "kind": "desktop",
+      "review_row": "itch.io",
+      "switch": "itch",
+      "text": {"platform": "itch", "layout": "per-locale"},
+      "screenshots": {
+        "aspect": "16:9",
+        "size": [1920, 1080],
+        "source": "web-1920",
+        "format": "JPEG",
+        "max_bytes": 4000000,
+        "count": [1, 20]
+      },
+      "assets": [
+        {"slot": "cover", "file": "itch-cover-630x500.jpg", "size": [630, 500], "format": ["JPEG", "PNG"]}
+      ],
+      "trailer": [
+        {"slot": "video-url", "file": "glob2-trailer-30s-1080p.mp4", "coplay": false, "hosted": "YouTube or Vimeo URL",
+         "note": "Trailer review table: the master only, as a YouTube embed; the page also offers browser play, which has no MCP, so no co-play cut."}
+      ],
+      "unverified": [
+        "itch.io publishes no screenshot pixel or file-size limit that this project has recorded; the 4 MB cap here is this tool's own (review M5 asks to check before upload). Cover 630x500 is itch's recommended size."
+      ]
+    },
+    "mac": {
+      "title": "Mac App Store",
+      "copyright": {"value": "2006–2026 Bradley Arsenault. © 2001–2008 Stephane Magnenat. © the Globulation 2 contributors.", "field": "App Store Connect version copyright (Apple adds the leading ©)", "when": "The next editable macOS version; do not edit a version in review. The game sets the same line, with ©, as NSHumanReadableCopyright in the Mac App Store bundle (Globulation2/glob2 PR 1922)."},
+      "kind": "desktop",
+      "review_row": "Mac App Store",
+      "switch": "mac",
+      "text": {"platform": "mac", "layout": "per-locale"},
+      "screenshots": {
+        "aspect": "16:10",
+        "size": [2880, 1800],
+        "source": "capture",
+        "format": "PNG",
+        "alpha": "forbid",
+        "count": [1, 10]
+      },
+      "assets": [],
+      "not_packaged": [
+        "App icon: comes from the build's asset catalog, not uploaded with the listing.",
+        "App previews: none of the trailer files (trailer review, store table). Mac previews must be captures of the Mac app; this footage is an off-screen desktop build with the HUD cropped. Capture from the sandboxed store build."
+      ],
+      "unverified": [
+        "Apple's per-file byte limit for screenshots is not recorded in this project; the PNGs are 5-8 MB.",
+        "The same Mac screenshot set serves every Mac locale (no captions inside the images), so it is packaged once."
+      ]
+    },
+    "steam": {
+      "title": "Steam (prepared only)",
+      "copyright": {"value": null, "field": null, "when": "Prepared only (decision 5) and no Steamworks form has been seen; if the store form asks for a copyright or legal line when Steam opens, use the top-level line."},
+      "kind": "desktop",
+      "review_row": "Steam",
+      "switch": "steam",
+      "text": {"platform": "steam", "layout": "per-locale"},
+      "screenshots": {
+        "aspect": "16:9",
+        "size": [1920, 1080],
+        "source": "web-1920",
+        "format": "JPEG",
+        "count": [5, 50]
+      },
+      "assets": [
+        {"slot": "header-capsule", "file": "steam-header-920x430.jpg", "size": [920, 430], "format": ["JPEG", "PNG"]},
+        {"slot": "small-capsule", "file": "steam-small-capsule-462x174.jpg", "size": [462, 174], "format": ["JPEG", "PNG"]},
+        {"slot": "main-capsule", "file": "steam-main-capsule-1232x706.jpg", "size": [1232, 706], "format": ["JPEG", "PNG"]},
+        {"slot": "vertical-capsule", "file": "steam-vertical-capsule-748x896.jpg", "size": [748, 896], "format": ["JPEG", "PNG"]},
+        {"slot": "library-capsule", "file": "steam-library-capsule-600x900.jpg", "size": [600, 900], "format": ["JPEG", "PNG"]},
+        {"slot": "library-hero", "file": "steam-library-hero-3840x1240.jpg", "size": [3840, 1240], "format": ["JPEG", "PNG"], "text": false},
+        {"slot": "library-logo", "file": "steam-logo-1280.png", "format": "PNG", "alpha": "require", "review_width": 1280, "review_fix": "S6 (resize steam-logo-1280.png to 1280 px wide)"}
+      ],
+      "trailer": [
+        {"slot": "trailer-1", "file": "glob2-trailer-desktop-34s-1080p.mp4", "coplay": true, "rules": {"size": [1920, 1080], "container": ["mp4"]},
+         "note": "Trailer review table: the desktop cut first; it leads with gameplay, as Steam asks."},
+        {"slot": "trailer-2", "file": "glob2-trailer-30s-1080p.mp4", "coplay": false, "rules": {"size": [1920, 1080], "container": ["mp4"]},
+         "note": "Trailer review table: the master as the second trailer."}
+      ],
+      "unverified": [
+        "Library capsule 600x900, library hero 3840x1240 and library logo sizes are Steam's library-asset sizes as the key-art agent built them; the comparables record lists only header, small, main, vertical capsules and the page background.",
+        "No Steam app exists yet: nothing here has been checked against a real Steamworks upload form, including the trailer upload rules."
+      ]
+    },
+    "gog": {
+      "title": "GOG (prepared only)",
+      "copyright": {"value": null, "field": null, "when": "Prepared only (decision 5) and no GOG form has been seen; if the store form asks for a copyright or legal line when GOG opens, use the top-level line."},
+      "kind": "desktop",
+      "review_row": "GOG",
+      "switch": "gog",
+      "text": {"platform": "gog", "layout": "per-locale"},
+      "screenshots": {
+        "aspect": "16:9",
+        "size": [1920, 1080],
+        "source": "web-1920",
+        "format": "JPEG",
+        "count": [1, 50]
+      },
+      "assets": [
+        {"slot": "main-banner", "file": "gog-main-banner-1600x740.jpg", "size": [1600, 740], "format": ["JPEG", "PNG"]},
+        {"slot": "logo", "file": "gog-logo-1600x740.png", "size": [1600, 740], "format": "PNG", "alpha": "require"},
+        {"slot": "box", "file": "gog-box-342x482.jpg", "size": [342, 482], "format": ["JPEG", "PNG"]},
+        {"slot": "galaxy-background", "file": "gog-background-2560x670.jpg", "size": [2560, 670], "format": ["JPEG", "PNG"], "text": false},
+        {"slot": "product-background", "file": "gog-background-2560x655.jpg", "size": [2560, 655], "format": ["JPEG", "PNG"], "text": false}
+      ],
+      "trailer": [
+        {"slot": "trailer-1", "file": "glob2-trailer-desktop-34s-1080p.mp4", "coplay": true, "rules": {"size": [1920, 1080], "container": ["mp4"]},
+         "note": "Prepared as Steam: the desktop cut first (the GOG ai_coplay switch is on). The trailer review's GOG row named the master only."},
+        {"slot": "trailer-2", "file": "glob2-trailer-30s-1080p.mp4", "coplay": false, "rules": {"size": [1920, 1080], "container": ["mp4"]},
+         "note": "Trailer review table: the master."}
+      ],
+      "unverified": [
+        "GOG trailer policy is not confirmed (trailer review, store table).",
+        "GOG screenshot size and format rules are not confirmed in this project; 1920x1080 JPEG is used as for Steam. Board sizes follow the GOG template archive inspected for v1 (2026-10-31); portal acceptance is unverified (no portal access)."
+      ]
+    },
+    "appstream": {
+      "title": "AppStream / Flathub (game repository metainfo)",
+      "copyright": {"value": null, "field": null, "when": "None: AppStream metainfo has no copyright element (the licence is project_license; developer name unchanged)."},
+      "kind": "desktop",
+      "review_row": "AppStream / Flathub source",
+      "switch": null,
+      "appstream_switch": true,
+      "text": {"platform": null, "files": ["appstream-fragment.xml", "desktop-fragment.ini"]},
+      "screenshots": {
+        "aspect": "16:9",
+        "size": [1920, 1080],
+        "source": "resize",
+        "format": "PNG",
+        "alpha": "forbid",
+        "count": [1, 20],
+        "captions": "appstream",
+        "stable_names": true
+      },
+      "assets": [],
+      "trailer": [
+        {"slot": "video", "file": "glob2-trailer-30s-1080p.webm", "coplay": false, "repo_url": true,
+         "rules": {"size": [1920, 1080], "container": ["webm"], "codec": ["vp9"]},
+         "note": "The master as VP9 in WebM, the form the AppStream spec asks for (VP9 or AV1 in WebM or Matroska). Committed in the repository so its URL is stable; screenshots.xml gets it as a last, non-default screenshot (the spec forbids a video as the default screenshot)."}
+      ],
+      "unverified": [
+        "Whether Flathub or a given software centre plays the AppStream video is not verified (trailer review, store table).",
+        "Flathub's current screenshot guidance (size, count, caption length) was not re-read for v2; 1920x1080 PNG follows the brief. The image URLs only resolve after the Git steward commits the PNGs at the listed repository paths (run build.py --stage-appstream to copy them there) and pushes to main."
+      ]
+    },
+    "google-play": {
+      "title": "Google Play",
+      "copyright": {"value": null, "field": null, "when": "None: decision 11 sets no copyright entry for this store."},
+      "kind": "mobile",
+      "platform": "google-play",
+      "text": {"platform": "google-play"},
+      "sets": [
+        {"slot": "phone", "render_set": "google-play-phone", "size": [1080, 1920], "count": [2, 8], "max_bytes": 8000000, "format": ["PNG", "JPEG"], "alpha": "forbid", "min_side": 320, "max_side": 3840},
+        {"slot": "tablet-7", "render_set": "google-play-tablet-7", "size": [1920, 1200], "count": [4, 8], "max_bytes": 8000000, "format": ["PNG", "JPEG"], "alpha": "forbid", "min_side": 1080, "max_side": 7680},
+        {"slot": "tablet-10", "render_set": "google-play-tablet-10", "size": [2560, 1600], "count": [4, 8], "max_bytes": 8000000, "format": ["PNG", "JPEG"], "alpha": "forbid", "min_side": 1080, "max_side": 7680}
+      ],
+      "assets": [
+        {"slot": "feature-graphic", "file": "google-play-feature-1024x500.jpg", "size": [1024, 500], "format": ["JPEG", "PNG"], "alpha": "forbid", "max_bytes": 15000000, "review_wordmark_margin": {"right": 80, "top": 60}, "review_fix": "M6 (move the wordmark at least 80 px from the right and 60 px from the top)"},
+        {"slot": "icon", "icon_file": "icon-512.png", "size": [512, 512], "format": "PNG", "mode": "RGBA", "max_bytes": 1024000}
+      ],
+      "trailer": [
+        {"slot": "preview-video", "file": "glob2-trailer-30s-2160p.mp4", "coplay": false, "hosted": "YouTube URL",
+         "note": "Trailer review table: the master (no co-play: no MCP on Android), uploaded to YouTube (unlisted or public, embeddable, monetisation off); Play takes one YouTube URL per listing. The Japanese and Arabic listings can take their own URLs of glob2-trailer-30s-ja-1080p.mp4 and -ar-1080p.mp4. Gate before the URL goes on the listing: read the Play Console ads and in-app purchase declarations (trailer review, store gates)."}
+      ],
+      "unverified": [
+        "Play's per-screenshot byte limit is not in the comparables record; 8 MB is the renderer's ceiling (verified by screenshots.py verify).",
+        "M9: which build Play users will install when these go live (closed test last recorded at 0.11.2.0; the frames show 0.11.8.0's touch interface)."
+      ]
+    },
+    "apple": {
+      "title": "Apple App Store (iPhone and iPad)",
+      "copyright": {"value": "2006–2026 Bradley Arsenault. © 2001–2008 Stephane Magnenat. © the Globulation 2 contributors.", "field": "App Store Connect version copyright (Apple adds the leading ©)", "when": "The next editable iOS version; do not edit a version in review."},
+      "kind": "mobile",
+      "platform": "ios",
+      "text": {"platform": "ios"},
+      "sets": [
+        {"slot": "iphone-6.9", "render_set": "apple-iphone-6.9", "size": [1320, 2868], "count": [1, 10], "format": ["PNG", "JPEG"], "alpha": "forbid", "max_bytes": 8000000},
+        {"slot": "ipad-13", "render_set": "apple-ipad-13", "size": [2064, 2752], "count": [1, 10], "format": ["PNG", "JPEG"], "alpha": "forbid", "max_bytes": 8000000}
+      ],
+      "assets": [],
+      "not_packaged": [
+        "App icon: the 1024x1024 icon comes from the build's asset catalog (icon/icon-1024.png is that file).",
+        "App previews: wait for the trailer's 15-30 second cut captured on each device family."
+      ],
+      "unverified": [
+        "Apple's per-file byte limit for screenshots is not recorded in this project; 8 MB is the renderer's ceiling."
+      ]
+    },
+    "amazon": {
+      "title": "Amazon Appstore",
+      "copyright": {"value": null, "field": null, "when": "None: decision 11 sets no copyright entry for this store."},
+      "kind": "mobile",
+      "platform": "amazon",
+      "text": {"platform": "amazon"},
+      "sets": [
+        {"slot": "tablet", "render_set": "amazon-tablet", "size": [2560, 1600], "count": [3, 10], "format": ["PNG", "JPEG"], "alpha": "forbid", "max_bytes": 8000000,
+         "note": "M8 cleared 2026-11-25: amazon-tablet is rendered from the Android emulator captures in captures/mobile/android-tablet-10-emulator/ (the real Android app, Android 15, 2560x1600 at 320 dpi, system bars trimmed), not host renders. Not a Fire OS device or Fire OS image."}
+      ],
+      "assets": [
+        {"slot": "promotional-image", "file": ["amazon-promo*-1024x500.*", "amazon-promotional*-1024x500.*", "amazon-*1024x500*", "google-play-feature-1024x500.jpg"], "size": [1024, 500], "format": ["JPEG", "PNG"], "alpha": "forbid", "wordmark_margin": 50},
+        {"slot": "icon-large", "icon_file": "icon-512.png", "size": [512, 512], "format": "PNG"},
+        {"slot": "icon-small", "render_icon": {"size": 114, "fraction": 0.82, "background": "#2B1C42", "method": "vector"}, "size": [114, 114], "format": "PNG"}
+      ],
+      "unverified": [
+        "Amazon's icon guidance says not to simply scale one size from the other: the 114 px icon is rendered from the vector master at that size (glob at 82% on the Android purple #2B1C42, as the 512 px icon), not reduced from the 512 px file."
+      ]
+    }
+  }
+}

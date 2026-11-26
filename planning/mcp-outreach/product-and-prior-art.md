@@ -1,8 +1,8 @@
 # What the Glob2 MCP pitch can claim
 
-[Outreach project](README.md) · [Marketing product ledger](../../facts/product.md) · [Current positioning v2](../../analysis/positioning-v2.md) · [Positioning v1, superseded](../../analysis/positioning-v1.md)
+[Outreach project](README.md) · [Marketing product ledger](../../facts/product.md) · [Current positioning v2](../../analysis/positioning.md) · [Positioning v1, superseded](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md)
 
-**Note, 2026-11-26:** drafted on 2026-11-23 under [positioning v1](../../analysis/positioning-v1.md). [Positioning v2](../../analysis/positioning-v2.md) has been the current store message since 2026-11-24; the text below has not been revised for it.
+**Note, 2026-11-26:** drafted on 2026-11-23 under [positioning v1](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md). [Positioning v2](../../analysis/positioning.md) has been the current store message since 2026-11-24; the text below has not been revised for it.
 
 Evidence checked 2026-11-23, Toronto time. The project owner expects the public servers to deploy overnight November 23–24. The production readback below predates that rollout. Public release, deployed server configuration, source behavior and engineering tests establish different things.
 

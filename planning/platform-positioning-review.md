@@ -2,7 +2,7 @@
 
 [Planning index](README.md) · [Task ledger](tasks.md) · [Public audit](../facts/platform-audit.md) · [Positioning options](../analysis/positioning-options.md) · [Validation plan](../analysis/validation-plan.md)
 
-**Note, 2026-11-26:** historical record. Where it calls v1 the current reference, read [positioning v2](../analysis/positioning-v2.md) (2026-11-24), which superseded [v1](../analysis/positioning-v1.md) for store listings.
+**Note, 2026-11-26:** historical record. Where it calls v1 the current reference, read [positioning v2](../analysis/positioning.md) (2026-11-24), which superseded [v1](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md) for store listings.
 
 Completed **2026-10-26** following the user's authorization to audit public platform presentation and draft positioning options in parallel. This is a bounded follow-up pass, not a completed launch or validated strategy.
 
@@ -30,7 +30,7 @@ Relative Markdown file links, local heading anchors and whitespace were checked.
 
 ## Subsequent message decision
 
-On 2026-10-26, the user stopped the recruitment/testing approach and selected [working launch positioning v1](../analysis/positioning-v1.md) through discussion. Colony building and economics lead, with spatial strategy and rival pressure supporting. This is a practical launch starting point, not a participant finding.
+On 2026-10-26, the user stopped the recruitment/testing approach and selected [working launch positioning v1](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md) through discussion. Colony building and economics lead, with spatial strategy and rival pressure supporting. This is a practical launch starting point, not a participant finding.
 
 ## Still open
 
@@ -40,4 +40,4 @@ On 2026-10-26, the user reduced the immediate scope to preparation for three 15-
 
 The larger proposed study remains deferred. Before it can run, its named build, common gameplay proof, baseline card and reproducible player/access/creator tasks need preparation and an internal pilot. Participant access, recruitment/consent arrangements and a moderator/reviewer are also unresolved. No tracking or conversion experiment occurred.
 
-The [working v1 message](../analysis/positioning-v1.md) is the current reference, with the four earlier drafts preserved as alternatives. Canonical screenshots, detailed audience decisions, live copy changes, a final launch kit and campaign execution remain subsequent work. Player research is not an active prerequisite for using the v1. The task ledger preserves these dependencies rather than marking them complete.
+The [working v1 message](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md) is the current reference, with the four earlier drafts preserved as alternatives. Canonical screenshots, detailed audience decisions, live copy changes, a final launch kit and campaign execution remain subsequent work. Player research is not an active prerequisite for using the v1. The task ledger preserves these dependencies rather than marking them complete.
