@@ -117,6 +117,16 @@ Until a token arrives: dispatch `browser-release` with `gamejolt` off, download 
 
 Game Jolt shows its own site advertisements around the game page. "No ads" in the description refers to the game itself, which shows none.
 
+## GamePix Testing Toolkit run of 0.11.8.2 (2026-11-26)
+
+The user uploaded the release run's standard `glob2-0.11.8.2-gamepix.zip` to my.gamepix.com, SDK, Testing Toolkit ("upload my local build"). Its test URL loaded straight away, with no 403 this time. The game ran in the toolkit's 800×450 desktop frame. The Debug Console showed the GamePix SDK receiving LOADING 0–100, LOADED, GAME_START and FIRST_INTERACTION, and the toolkit's Pause and Resume reached the game. Audio was not checked by ear.
+
+**Defect found:** in that 800×450 desktop frame the game shows the phone's "Left or right hand?" prompt. Choosing "Use desktop layout" and confirming brings the same prompt back, in a loop. A mouse player can only continue by picking a hand, which gives the touch layout.
+
+Cause, from the glob2 code: `Application::mainMenu` asks whenever `Glob2UI::touchPresentation()` is true. That is `phonePresentationRequested()`, which equals `adaptedControls()` = touch input **or** the compact layout. Compact is chosen when the usable area is under 480 px tall, or narrower than 480 px plus the panel width. "Use desktop layout" turns touch off but cannot make the frame fit, so the layout stays compact and the prompt returns. Any portal that embeds the game below 480 px tall on desktop is affected. Not yet fixed.
+
+A dashboard notice asked the account owner to "Update Payment Settings" for future GamePix payouts. It was dismissed, not acted on; it is the user's to do.
+
 ## Newgrounds
 
 **Project 8315233 (draft, saved 2026-11-26)**, account username `Globulation2`:
