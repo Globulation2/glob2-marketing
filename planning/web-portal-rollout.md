@@ -44,6 +44,40 @@ The lite edition leaves out the map editor, online play, LAN, MCP, the JavaScrip
 
 Not yet done: the portal packager still repackages the standard build only. Pointing the CrazyGames, Poki and Yandex profiles at the lite artifact is a change in the game repository.
 
+## Local test of master before 0.11.8.2 (2026-11-26)
+
+The release was going to take longer, so the user asked for a local build to test the browser packages sooner. Built on this machine from glob2 master at `8fb3c06aee` ("Prepare release 0.11.8.2", #1935). That commit includes the terrain fix #1932, portal mode #1927, the lite edition #1933 and the water fix #1929. Both editions were built with `release=1` (free client profile, as in CI) and packaged with `package-static.py` and `package-portal.py`, exactly as `browser-release.yml` does.
+
+**Packages (version 0.11.8.2):**
+
+| | Zip | Unpacked | Files |
+|---|---|---|---|
+| Standard | 132.1 MB | 219.3 MB | 494–495 |
+| Lite | 17.7 MB | 45.8 MB | 32–33 |
+
+Every portal profile packaged both editions, except Yandex standard, which the packager refused as over 100 MB unpacked. Yandex lite fits.
+
+**How it was tested:** each zip was served the way a portal hosts it: an iframe on a different origin, plain static files, no COOP/COEP headers. This forces the single-threaded runtime that portal players get. Confirmed on the game page: `crossOriginIsolated` false, no `SharedArrayBuffer`.
+
+**Results:**
+
+| Package | Desktop Chrome | iPhone 17 Pro simulator (Safari, iOS 26.5) |
+|---|---|---|
+| Game Jolt (standard) | loads; textured terrain; Play online and Discord shown (policy keeps them) | not run |
+| Newgrounds (standard) | loads; textured; links and online shown (policy keeps them) | not run |
+| CrazyGames (standard) | loads; textured; links and online hidden; custom match plays | not run |
+| GamePix (standard) | loads; textured; links and online hidden | not run |
+| GameDistribution (standard) | loads; textured; links and online hidden | not run |
+| Poki (lite) | menu in under 10 s; textured; links, online and editor hidden; custom match plays | not run |
+| Yandex (lite) | loads; textured; links and online hidden | not run |
+| CrazyGames (lite) | loads; textured; links and online hidden | loads; textured; sound prompt and handedness prompt work by touch; introduction match plays |
+
+The terrain fix is confirmed: the console logs `DIRECT_TERRAIN_BASE` and no `ANIMATED_TERRAIN_FALLBACK`.
+
+**Defect found:** every portal build still shows **Quit** on the main menu. Inside a portal iframe it leaves a blank dark screen that only a page reload recovers from. CrazyGames' rules ban exit buttons. Portal mode should hide Quit as it hides external links. This needs a game repository change.
+
+**Not covered:** desktop Safari and Firefox; Android; audio pause and resume through each portal's SDK (the SDKs only respond on their own sites); the real portal sites. The real-site checks need uploads (Game Jolt unlisted release, GamePix Testing Toolkit, CrazyGames preview and QA tool, Newgrounds unpublished project, Poki Inspector).
+
 ## Game Jolt
 
 - Page: https://gamejolt.com/games/globulation2/1122762, developer account `genixpro`. Game ID 1122762, package ID 1154961.
