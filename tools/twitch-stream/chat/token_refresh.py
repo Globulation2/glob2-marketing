@@ -4,6 +4,9 @@
     token_refresh.py status     validate the installed token (login, scopes, minutes left)
     token_refresh.py ensure     refresh only if invalid or under 30 minutes left
     token_refresh.py refresh    refresh now
+    token_refresh.py login-url  print a browser login link (for logging in from another machine)
+    token_refresh.py redeem URL install the login from the localhost:3000/?code=... address the browser
+                                ends on (it fails to load off the stream machine; copy it anyway)
 
 The Twitch CLI (`twitch`, configured with `twitch configure` and logged in with
 `twitch token -u -s 'chat:read chat:edit channel:manage:broadcast clips:edit'`) keeps CLIENTID, CLIENTSECRET,
@@ -103,8 +106,9 @@ def _redact(text: str, secrets) -> str:
 
 
 class TokenRefresher:
-    def __init__(self, token_file: str, cli_env: str = None, cli: str = None):
+    def __init__(self, token_file: str, cli_env: str = None, cli: str = None, expect_login: str = ""):
         self.token_file = token_file
+        self.expect_login = (expect_login or "").lower()   # refuse a token for any other account
         self.cli_env = cli_env or default_cli_env()
         del cli  # kept for compatibility: refreshing no longer runs the Twitch CLI
 
@@ -133,24 +137,72 @@ class TokenRefresher:
         info = validate(new) if new else None
         if info is None:
             raise RefreshError("Twitch returned no usable access token")
+        self.check_login(info)
         expires = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(seconds=int(got.get("expires_in", 0)))
         update_env(self.cli_env, {"ACCESSTOKEN": new, "REFRESHTOKEN": got.get("refresh_token") or env["REFRESHTOKEN"],
                                   "TOKENEXPIRATION": expires.strftime("%Y-%m-%dT%H:%M:%SZ")})
         install_token(new, self.token_file)
         return info
 
+    def check_login(self, info: dict):
+        """A login authorized in a browser signed in to another account (it happened on 2026-11-26)
+        must never be installed or used: it would chat, title and clip as that account."""
+        if self.expect_login and info.get("login", "").lower() != self.expect_login:
+            raise RefreshError(f"the token belongs to {info.get('login')}, not {self.expect_login}; log in "
+                               f"again as {self.expect_login} (a private window avoids a signed-in account)")
+
     def ensure(self, below: int = REFRESH_BELOW) -> tuple:
         """Refresh if the installed token is missing, invalid or close to expiry. Returns (info, refreshed)."""
         tok = self.current()
         info = validate(tok) if tok else None
         if info and info.get("expires_in", 0) >= below:
+            self.check_login(info)
             return info, False
         return self.refresh(), True
 
 
 def from_config(cfg: dict = None) -> TokenRefresher:
     cfg = cfg or rigconfig.load()
-    return TokenRefresher(cfg["TWITCH_CHAT_TOKEN_FILE"], os.environ.get("TWITCH_CLI_ENV") or cfg.get("TWITCH_CLI_ENV"))
+    return TokenRefresher(cfg["TWITCH_CHAT_TOKEN_FILE"], os.environ.get("TWITCH_CLI_ENV") or cfg.get("TWITCH_CLI_ENV"),
+                          expect_login=cfg.get("TWITCH_BOT_USER") or cfg.get("TWITCH_CHANNEL", ""))
+
+
+SCOPES = "chat:read chat:edit channel:manage:broadcast clips:edit"
+REDIRECT = "http://localhost:3000"
+
+
+def login_url(r: "TokenRefresher") -> str:
+    """force_verify makes Twitch show which account is signing in, so a browser signed in to the
+    owner's personal account is noticed before it authorizes the wrong one."""
+    import secrets
+    env = read_env(r.cli_env)
+    return "https://id.twitch.tv/oauth2/authorize?" + urllib.parse.urlencode({
+        "client_id": env["CLIENTID"], "redirect_uri": REDIRECT, "response_type": "code",
+        "scope": SCOPES, "force_verify": "true", "state": secrets.token_urlsafe(12)})
+
+
+def redeem(r: "TokenRefresher", address: str) -> dict:
+    """Trade the one-time code for tokens, check the account, then install them."""
+    q = urllib.parse.parse_qs(urllib.parse.urlparse(address).query)
+    code = (q.get("code") or [address.strip()])[0]
+    env = read_env(r.cli_env)
+    body = urllib.parse.urlencode({"client_id": env["CLIENTID"], "client_secret": env["CLIENTSECRET"], "code": code,
+                                   "grant_type": "authorization_code", "redirect_uri": REDIRECT}).encode()
+    try:
+        with urllib.request.urlopen(urllib.request.Request(TOKEN_URL, body), timeout=30) as resp:
+            got = json.load(resp)
+    except urllib.error.HTTPError as e:
+        raise RefreshError(f"Twitch refused the code (HTTP {e.code}); codes work once, for a few minutes") from None
+    info = validate(got.get("access_token", ""))
+    if info is None:
+        raise RefreshError("Twitch returned no usable access token")
+    r.check_login(info)   # before anything is written
+    expires = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(seconds=int(got.get("expires_in", 0)))
+    update_env(r.cli_env, {"ACCESSTOKEN": got["access_token"], "REFRESHTOKEN": got["refresh_token"],
+                           "TOKENEXPIRATION": expires.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                           "TOKENSCOPES": "[" + " ".join(sorted(info.get("scopes", []))) + "]"})
+    install_token(got["access_token"], r.token_file)
+    return info
 
 
 def describe(info: dict) -> str:
@@ -171,6 +223,10 @@ def main():
             print(("refreshed: " if refreshed else "still valid: ") + describe(info))
         elif cmd == "refresh":
             print("refreshed: " + describe(r.refresh()))
+        elif cmd == "login-url":
+            print(login_url(r))
+        elif cmd == "redeem" and len(sys.argv) > 2:
+            print("installed: " + describe(redeem(r, sys.argv[2])))
         else:
             sys.exit(__doc__)
     except (RefreshError, urllib.error.URLError) as e:

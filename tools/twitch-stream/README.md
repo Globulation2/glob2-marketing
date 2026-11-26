@@ -122,6 +122,8 @@ Viewers mostly find the channel through clips and past broadcasts, and Twitch de
   chat/token_refresh.py refresh
   highlights.py status          # shows which parts are enabled
   ```
+  From another machine (the CLI's browser login needs a browser on the stream machine): run `chat/token_refresh.py login-url`, open the link where you're signed in to Twitch **as the channel account**, authorize, then copy the `http://localhost:3000/?code=…` address the page fails to load and run `chat/token_refresh.py redeem 'ADDRESS'` within a few minutes.
+- **Wrong-account guard:** a token whose login isn't `TWITCH_BOT_USER` (else `TWITCH_CHANNEL`) is never installed or used, so a browser signed in to the owner's personal account can't make the rig chat, retitle or clip as that account (on 2026-11-26 three logins in a row came back as the personal account). If it happens, sign in as the channel account (log out on twitch.tv first, or use a browser already signed in as it) and disconnect the app from the personal account under Twitch Settings → Connections.
 - **Fewer, longer broadcasts:** every supervisor or stream restart ends the broadcast and starts a new past-broadcast video, which splits viewer counts. Prefer `touch $STATE_DIR/restart-game` and changes to the highlights service, which leave the broadcast running.
 - **Manual tests:** `highlights.py marker TEXT` and `highlights.py clip TITLE`. `HIGHLIGHTS=0` turns it off; `autostart/install-autostart.sh` installs the service only for `AUTOSTART_STREAM=live`.
 
