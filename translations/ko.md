@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: ko. AI tran
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - 오프라인 RTS
+
 ## headline
 
 유닛 하나하나가 아닌 식민지 전체를 지휘하는 실시간 전략 게임.

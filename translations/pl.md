@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: pl. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - RTS offline
+
 ## headline
 
 Strategia RTS, w której dowodzisz kolonią, a nie każdą jednostką z osobna.

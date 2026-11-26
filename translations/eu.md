@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: eu. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - RTS offline
+
 ## headline
 
 Denbora errealeko estrategia: kolonia gidatzen duzu, ez unitate bakoitza.

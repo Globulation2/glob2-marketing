@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: hu. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - Offline RTS
+
 ## headline
 
 Valós idejű stratégia, amelyben a kolóniát irányítod, nem az egységeket egyenként.

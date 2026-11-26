@@ -8,6 +8,10 @@ Provenance: AI translation with independent AI linguistic review; not human or n
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - RTS офлайн
+
 ## headline
 
 Стратегія в реальному часі, де ви керуєте колонією, а не кожним юнітом.

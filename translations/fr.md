@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: fr. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - RTS hors ligne
+
 ## headline
 
 Un jeu de stratégie en temps réel où vous dirigez la colonie, pas chaque unité.

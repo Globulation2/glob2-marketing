@@ -1,11 +1,12 @@
 {
   "status": "reviewed",
-  "translator": "storefront-v2-caption-editor-ko",
-  "reviewer": "storefront-v2-caption-reviewer-ko",
+  "translator": "storefront-v2-android-title-translator",
+  "reviewer": "storefront-v2-android-title-reviewer",
   "method": "AI translation with independent AI linguistic review; not human/native-speaker validation",
   "issues": [],
   "source_hashes": {
     "product_name": "d7130c6c87ffcb35cf1154c65141eabf7cc12557c72fa725e77749cc13f210f2",
+    "android_title": "4bc986fc1532f61c987375c05da36be8ac8fd8db3a23cc0847dd2304b244e30e",
     "headline": "9af3c8fe502fbcb34ab5c5469d4c73aaf85822888878033390ea7c699d351138",
     "fair_deal_line": "086f3744e21e013955569975ab458a888424842da0dfb28bff853ea82e0f00de",
     "short_pitch": "e5bb55e2569628d8c90136f267e0ad54b66d4ff02eab70dc18d2d8934de13ce7",
@@ -86,6 +87,7 @@
   },
   "translation_hashes": {
     "product_name": "d7130c6c87ffcb35cf1154c65141eabf7cc12557c72fa725e77749cc13f210f2",
+    "android_title": "fd0003271b666b85828d568a7588f13ae897be8ef152296d2d44c604ae8496a1",
     "headline": "196bbeafbfd73c9068c25115248084a21c2f094480faf1222a42c9dc07dd01c6",
     "fair_deal_line": "bac72cc1352daf9edfcb6642feebf3e87cc27404d9d3397b9b0126ada273a7eb",
     "short_pitch": "b949181ec6dc75ef00c4b2d8570d95ca5f83ec18e7d9961261ca6fab1ec59e76",

@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: pt-PT. Tran
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - RTS offline
+
 ## headline
 
 Estratégia em tempo real em que comandas a colónia, não cada unidade.

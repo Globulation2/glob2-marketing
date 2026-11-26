@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: bn. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - অফলাইন RTS
+
 ## headline
 
 রিয়েল-টাইম স্ট্র্যাটেজি গেম, যেখানে আপনি প্রতিটি ইউনিট নয়, গোটা উপনিবেশ পরিচালনা করেন।

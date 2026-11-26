@@ -222,6 +222,10 @@
     {
       "fields": "trailer_line_*",
       "limit": 44
+    },
+    {
+      "fields": "android_title",
+      "limit": 30
     }
   ],
   "asset_text": {
@@ -408,7 +412,7 @@
         "title": {
           "paragraphs": [
             [
-              "product_name"
+              "android_title"
             ]
           ],
           "limit": 30
@@ -1153,7 +1157,7 @@
         "title": {
           "paragraphs": [
             [
-              "product_name"
+              "android_title"
             ]
           ],
           "limit": 200

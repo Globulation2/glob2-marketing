@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: te. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - ఆఫ్‌లైన్ RTS
+
 ## headline
 
 రియల్-టైమ్ స్ట్రాటజీ: మీరు నడిపేది కాలనీని, ఒక్కో యూనిట్‌ను కాదు.

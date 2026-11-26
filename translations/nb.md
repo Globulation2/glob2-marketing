@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: nb. AI tran
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - RTS uten nett
+
 ## headline
 
 Sanntidsstrategi der du styrer kolonien, ikke hver enkelt enhet.

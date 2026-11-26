@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: zh-Hant (Tr
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - 離線即時戰略
+
 ## headline
 
 即時戰略遊戲：你指揮的是整個殖民地，不是每一個單位。

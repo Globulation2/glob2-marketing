@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: ar. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - RTS بدون نت
+
 ## headline
 
 لعبة استراتيجية في الوقت الحقيقي تقود فيها المستعمرة، لا كل وحدة على حدة.

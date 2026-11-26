@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: sv. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - RTS offline
+
 ## headline
 
 Realtidsstrategi där du styr kolonin, inte varje enskild enhet.

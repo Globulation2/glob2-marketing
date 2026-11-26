@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: es (Spanish
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - RTS offline
+
 ## headline
 
 Estrategia en tiempo real en la que diriges la colonia, no cada unidad.

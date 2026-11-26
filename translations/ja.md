@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: ja. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - オフラインRTS
+
 ## headline
 
 ユニットを一体ずつ操作するのではなく、コロニー全体を指揮するリアルタイムストラテジー。

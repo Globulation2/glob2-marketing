@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: tr. AI tran
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - Çevrimdışı RTS
+
 ## headline
 
 Tek tek birimleri değil, koloniyi yönettiğiniz gerçek zamanlı strateji.

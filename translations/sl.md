@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: sl. AI tran
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - Offline RTS
+
 ## headline
 
 Strategija v realnem času, v kateri vodite kolonijo, ne vsake enote posebej.

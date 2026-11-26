@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: fi. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - Offline-RTS
+
 ## headline
 
 Reaaliaikainen strategiapeli, jossa johdat siirtokuntaa etkä jokaista yksikköä erikseen.

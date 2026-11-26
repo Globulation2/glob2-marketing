@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: sr-Cyrl. AI
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - Офлајн RTS
+
 ## headline
 
 Стратегија у реалном времену у којој командујете колонијом, а не сваком јединицом.

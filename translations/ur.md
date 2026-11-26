@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: ur. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - آف لائن RTS
+
 ## headline
 
 ریئل ٹائم حکمت عملی، جس میں آپ ایک ایک یونٹ کی نہیں، پوری بستی کی کمان سنبھالتے ہیں۔

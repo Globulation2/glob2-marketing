@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: hi. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - ऑफ़लाइन RTS
+
 ## headline
 
 रियल-टाइम रणनीति गेम, जिसमें आप हर इकाई की नहीं, पूरी कॉलोनी की कमान सँभालते हैं।

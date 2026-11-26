@@ -379,6 +379,19 @@ class EnglishSourceTests(unittest.TestCase):
         self.assertEqual(desktop, list(self.config['appstream']['screenshot_captions']))
         self.assertEqual(captions, list(self.config['appstream']['screenshot_captions'].values()))
 
+    def test_android_title_is_the_title_on_google_play_and_amazon_only(self):
+        """User request of 2026-11-26: Play and Amazon titles become "Globulation 2 - Offline RTS"; every other store keeps the name."""
+        self.assertEqual('Globulation 2 - Offline RTS', self.fields['android_title'])
+        android = {('google-play', 'title'), ('amazon', 'title')}
+        for name, platform in self.config['platforms'].items():
+            for field, spec in platform['fields'].items():
+                self.assertEqual((name, field) in android, 'android_title' in S.referenced(spec['paragraphs']), f'{name}/{field}')
+        for name, field in android: self.assertEqual(self.fields['android_title'], self.payloads[name][field], name)
+        for name, field in (('ios', 'name'), ('mac', 'name'), ('microsoft', 'title'), ('epic', 'title'), ('fastlane', 'title'),
+                            ('itch', 'title'), ('steam', 'title'), ('gog', 'title')):
+            self.assertEqual(self.fields['product_name'], self.payloads[name][field], name)
+        self.assertEqual({30}, {S.field_limit(self.rule('android_title'), code) for code in S.CODES + ['not-a-locale']})
+
     def test_short_store_fields_carry_no_price_words(self):
         for platform, names in {'google-play': ('title', 'short_description'), 'fastlane': ('title', 'short_description'),
                                 'ios': ('name', 'subtitle', 'keywords'), 'mac': ('name', 'subtitle', 'keywords')}.items():

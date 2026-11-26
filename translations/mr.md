@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: mr. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - ऑफलाइन RTS
+
 ## headline
 
 रिअल-टाइम रणनीतीचा खेळ, ज्यात तुम्ही एकेका युनिटला नव्हे, तर संपूर्ण वसाहतीला आदेश देता.

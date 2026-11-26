@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: cs. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - Offline RTS
+
 ## headline
 
 Strategie v reálném čase, ve které velíte kolonii, ne každé jednotce zvlášť.

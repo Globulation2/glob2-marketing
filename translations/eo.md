@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: eo. Method:
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - Senreta RTS
+
 ## headline
 
 Realtempa strategio, en kiu vi komandas la kolonion, ne ĉiun unuon aparte.

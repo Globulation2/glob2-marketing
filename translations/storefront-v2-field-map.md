@@ -2,11 +2,12 @@
 
 [Translation contract](README.md) · [English master](en.md) · [Terminology](glossary.md) · [Platform matrix](platforms.json) · [Storefront v2 claims](../facts/storefront-v2-claims.md) · [Positioning v2](../analysis/positioning-v2.md)
 
-Written 2026-11-24 for the `storefront-v2` English source and revised the same day after an independent copy and store-policy review, and again when the caption renderer measured how much text fits on a screenshot: overlay captions now have a limit per script instead of 28 characters everywhere, and trailer lines have 44 instead of 32 ([overlay caption length by script](#overlay-caption-length-by-script)). It lists every field, how it differs from `storefront-v1`, its limits, where players see it, and how to handle the tight ones. It records the prepared source only; it does not show that any store listing has changed.
+Written 2026-11-24 for the `storefront-v2` English source and revised the same day after an independent copy and store-policy review, and again when the caption renderer measured how much text fits on a screenshot: overlay captions now have a limit per script instead of 28 characters everywhere, and trailer lines have 44 instead of 32 ([overlay caption length by script](#overlay-caption-length-by-script)). Revised 2026-11-26 to add `android_title`. It lists every field, how it differs from `storefront-v1`, its limits, where players see it, and how to handle the tight ones. It records the prepared source only; it does not show that any store listing has changed.
 
 ## What changed, in short
 
 - v1 had 38 fields. v2 has 78. Three keep their v1 text, one is renamed with the same text, 17 are rewritten under the same ID, 17 are removed and 57 are new.
+- 2026-11-26: `android_title` added at the user's request, so v2 now has 79 fields. It is the title on Google Play and Amazon only; see the [field status table](#field-status-against-storefront-v1).
 - The listing now says what the player does ("you command the colony, not every unit"), states the deal on the second line ("Free. No ads. No in-app purchases. No loot boxes. No premium currency."), and lists verified numbers.
 - Stores no longer share one description. Each store composes its own from shared blocks, so a field can appear on some stores and not others. Translate every field as if it could stand next to any other; do not rely on a sentence from another field for context.
 - The word "globs" appears only in the description body, after `listing_intro` has said what globs are. Short fields, feature bullets, captions and trailer lines stand alone, so they say "your colony", "workers" or "warriors" instead. Do not put "globs" into a field whose English does not have it.
@@ -33,7 +34,8 @@ Status: **unchanged** (keep the reviewed v1 translation), **renamed** (move the 
 
 | Field | Status | Note |
 | --- | --- | --- |
-| `product_name` | unchanged | Always exactly `Globulation 2`. |
+| `product_name` | unchanged | Always exactly `Globulation 2`. Still the title on every store except Google Play and Amazon. |
+| `android_title` | new (2026-11-26) | `Globulation 2 - Offline RTS`. Added at the user's request of 2026-11-26: "For Android, on google play and amazon appstore - rename main title from "Globulation 2" to "Globulation 2 - Offline RTS" and translate that into all the languages. All other stores, just keep as is." The offline claim is safe on every platform ([storefront v2 claims](../facts/storefront-v2-claims.md), "Offline single-player without an account"), and the Amazon Fire edition is LAN and offline only. |
 | `epic_tail`, `epic_legal` | unchanged | Account and legal wording saved in the Epic console. |
 | `windows_search_term_1` | renamed from `windows_search_term` | Same English ("real time strategy"). |
 | `headline`, `short_pitch`, `listing_intro` | changed | |
@@ -64,6 +66,7 @@ Units are characters unless marked bytes. "Bytes" means UTF-8 bytes: a Latin let
 
 | Field | Limit | Appears | Notes |
 | --- | --- | --- | --- |
+| `android_title` | 30 in every locale | Google Play title; Amazon Appstore title | Keep `Globulation 2` exactly and the ` - ` separator, then "Offline RTS" in the words players in your language type into a store search: the genre term of your `ios_keywords` (usually "RTS") and the word for offline your catalog already uses, or the local loanword when that does not fit. No price word, ranking word, call to action, emoji or all-capitals word other than the acronym. The 30 is Google Play's title limit and binds in every locale (Amazon allows 200). English uses 27. |
 | `play_short_description` | 80 | Google Play short description; F-Droid summary | The line under the title on Google Play, and the only text most visitors read. Names the genre, says "no ads" and "offline", and gives the colony-not-units contrast. No price word ("free", "no purchases"), no call to action ("play now", "download"), no ranking word, no capitals for emphasis, no symbols. Full stops are allowed because there are two sentences. English uses 75. |
 | `ios_subtitle` | 30 | App Store and Mac App Store subtitle | Genre terms players search for. No price word, no claim that cannot be checked. English uses 25. |
 | `ios_keywords` | 100 **bytes** | App Store keywords (not shown to players) | Comma-separated, no spaces after commas. Do not repeat words from the name or your subtitle. No price word, no other app's name. English uses 100. |
@@ -108,7 +111,7 @@ Every description starts with `headline` on line one and `fair_deal_line` on lin
 
 ### Which locales reach which store
 
-A locale file must hold all 78 fields, but a limit only binds where the locale is mapped to that store in the [platform matrix](platforms.json). The limits on overlay, trailer and caption fields bind in every locale, because the images and video are rendered for all 45: the overlay limit of the locale's script, 44 for a trailer line, 50 for the trailer title and 100 for a caption sentence.
+A locale file must hold all 79 fields, but a limit only binds where the locale is mapped to that store in the [platform matrix](platforms.json). The limits on overlay, trailer and caption fields bind in every locale, because the images and video are rendered for all 45: the overlay limit of the locale's script, 44 for a trailer line, 50 for the trailer title and 100 for a caption sentence. `android_title` is also held to 30 in every locale, so the Play title fits wherever a locale is added to Play later.
 
 ## Advice for the tight fields
 

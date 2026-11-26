@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: ta. Transla
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - ஆஃப்லைன் RTS
+
 ## headline
 
 ஒவ்வொரு அலகையும் அல்ல, குடியிருப்பையே நீங்கள் வழிநடத்தும் நிகழ்நேர உத்தி விளையாட்டு.

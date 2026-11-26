@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: zh-Hans. AI
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - 离线即时战略
+
 ## headline
 
 即时战略游戏：你指挥的是整个殖民地，而不是每一个单位。

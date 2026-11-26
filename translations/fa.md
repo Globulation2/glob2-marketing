@@ -6,6 +6,10 @@ Source version: storefront-v2. Observation date: 2026-11-24. Locale: fa (Persian
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - RTS آفلاین
+
 ## headline
 
 استراتژی هم‌زمانی که در آن به کلونی فرمان می‌دهید، نه به تک‌تک واحدها.

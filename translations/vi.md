@@ -10,6 +10,10 @@ Translator notes: "globs" is kept as the name "glob" (Vietnamese has no plural e
 
 Globulation 2
 
+## android_title
+
+Globulation 2 - RTS offline
+
 ## headline
 
 Chiến lược thời gian thực nơi bạn chỉ huy cả thuộc địa, chứ không phải từng đơn vị.
