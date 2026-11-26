@@ -196,6 +196,29 @@ The tags follow the game's pillars: fighting rivals, building the colony, runnin
 
 The controls match the game's desktop and touch control documentation. An alternative leading with "Command a whole colony, not single units" was offered and not chosen.
 
+### How to Play and art (drafts, 2026-11-26)
+
+Status: **drafted for owner review**. Nothing is entered on the dashboard yet.
+
+**How to Play – Instructions (497 of 500 characters).** GamePix asks for controls first, grouped by platform, then a short hint. The desktop controls come from the website's [control reference](https://glob2.online/learn/reference-controls/) and [controls and HUD](https://glob2.online/learn/controls-and-hud/) guides, observed on 2026-11-18 in the public browser build. The mobile controls come from the game's touch-controls documentation, and the bottom toolbar was seen in the serial web build on 2026-11-26.
+
+    Desktop
+    - Left-click: select a glob or building, or place the chosen building or flag
+    - Right-click: cancel the tool or clear the selection
+    - Arrow keys or minimap: move the view. Wheel: zoom
+    - P: pause. Esc: game menu
+    - Shortcuts: B then I builds an inn, F then E places an exploration flag
+
+    Mobile
+    - Tap to select or place. Drag to pan, pinch to zoom
+    - Build, Flags and Tools buttons sit at the bottom
+
+    Hint: play the 10-lesson Tutorial first, and keep inns full of food before training an army.
+
+**Icon:** [`gamepix-icon-256.png`](../assets/storefront-v2/icon/gamepix-icon-256.png), 256×256 PNG, 24 KB (limit 1 MB). It is the storefront-v2 Google Play icon (purple `#2B1C42`) downscaled. Recorded in the [icon manifest](../assets/storefront-v2/icon/manifest.json).
+
+**Cover:** [`gamepix-cover-1360x850.jpg`](../assets/storefront-v2/key-art/derivatives/gamepix-cover-1360x850.jpg), 1360×850 JPEG, 677 KB (limit 1.5 MB). It was added to the [key-art build script](../assets/storefront-v2/key-art/build-assets.py) as a derivative of the recommended "Shoreline colony" plate: real in-engine captures, the wordmark on the water. Every other derivative and concept rebuilt byte-identical, and the [key-art manifest](../assets/storefront-v2/key-art/manifest.json) records it.
+
 ### Claims left out, and why
 
 | Claim | Reason |
@@ -213,7 +236,7 @@ The controls match the game's desktop and touch control documentation. An altern
 2. **GamePix's answers.** Their answers on links and online play may change the portal-mode switches and the listing's claims.
 3. **Next release.** Re-test its zip in the Testing Toolkit: textured terrain, and audio silence on pause, checked by ear.
 4. **Allow distribution.** It is on by GamePix default and lets GamePix syndicate the game to third-party sites. Owner decision.
-5. **How to Play copy.** A draft is needed, with controls grouped by platform (desktop, mobile). The description also carries the controls today; it could drop them once How to Play exists, freeing characters for gameplay. Owner decision.
-6. **Icon and cover** at 256×256 and 1360×850, from storefront-v2 real game art.
+5. **How to Play copy.** Drafted above for owner review. The description also carries the controls today; it could drop them once How to Play is saved, freeing characters for gameplay. Owner decision.
+6. **Icon and cover.** Made from storefront-v2 real game art (above) and awaiting owner review. Upload them on the Assets tab once approved, then verify them after a fresh reload.
 7. **Build.** After the next release with #1932, either upload that release's zip or switch to a Game URL (see the proposal above). Re-test in the Testing Toolkit first.
 8. **Submission.** Third-party notes say a submitted build is locked until GamePix QA responds; this is unverified. Submit only a build that has passed the Testing Toolkit and includes #1932.

@@ -60,6 +60,7 @@ All in `derivatives/`. Each one is re-framed for its aspect from the 4396×2600 
 | Steam library logo | `steam-logo-1280.png` | **1280×217** (exactly 1280 wide, tight in height) | PNG, transparent | wordmark |
 | Open Graph | `open-graph-1200x630.jpg` | 1200×630 | JPEG q95 | yes |
 | Square promo tile | `promo-tile-1024x1024.jpg` | 1024×1024 | JPEG q95 | yes |
+| GamePix cover | `gamepix-cover-1360x850.jpg` | 1360×850 | JPEG q95, 677 KB (limit 1.5 MB) | yes: the wide framing a little taller for 16:10; added 2026-11-26, every other output rebuilt byte-identical |
 
 Microsoft Store listing art is PNG, which Partner Center accepts for these images (check the current Partner Center limits before upload). The two 3840×2160 PNGs are about 10 MB each.
 

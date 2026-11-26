@@ -8,6 +8,7 @@ silhouette, pose, proportions, colours, gloss and outline. It is not a redesign.
 | --- | --- |
 | `icon-1024.png` | Apple App Store icon. 1024x1024, opaque, full-bleed purple `#4C3676`, square corners. Identical to the iOS app's compiled `icon-1024.png`. |
 | `icon-512.png` | Google Play store icon. 512x512, 32-bit PNG, full-bleed purple `#2B1C42`, square corners. Matches the Android launcher icon, whose background is that colour. |
+| `gamepix-icon-256.png` | GamePix icon. 256x256 PNG, the Google Play icon (purple `#2B1C42`) downscaled with Lanczos. GamePix takes 256x256, JPG or PNG, at most 1 MB. |
 | `glob-1024.png` | The glob alone on a transparent background, 1024x1024, for compositions. |
 | `glob2-icon.svg` | The vector master (viewBox 0 0 128 128, transparent). Render it for any other size. |
 | `manifest.json` | SHA-256, size and source path of each file. |

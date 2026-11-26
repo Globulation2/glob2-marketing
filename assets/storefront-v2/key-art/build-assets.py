@@ -413,6 +413,9 @@ DERIVATIVES = [
     ("steam-library-hero-3840x1240", (3840, 1240), "jpg", S((1995, 894), 1288, None, focus=(0.4, 0.55))),
     ("open-graph-1200x630", (1200, 630), "jpg", S((2250, 880), 1560, (0.665, 0.19, 0.56), focus=(0.35, 0.6))),
     ("promo-tile-1024x1024", (1024, 1024), "jpg", SQUARE),
+    # GamePix cover (Assets tab, 2026-11-26): 1360x850 JPG or PNG, at most 1.5 MB. 16:10, so
+    # the wide framing a little taller; the wordmark stays on the water L.
+    ("gamepix-cover-1360x850", (1360, 850), "jpg", S((1995, 1280), 2440, (0.665, 0.17, 0.56), focus=(0.36, 0.58))),
 ]
 
 # Transparent wordmark logos: name, canvas size (None = tight to the letters), letters width.
@@ -435,6 +438,7 @@ SIZE_LIMITS = {
     "google-play-feature-1024x500": 15_000_000,
     "amazon-promo-1024x500": 15_000_000,
     "snap-banner-1440x480": 2_000_000,
+    "gamepix-cover-1360x850": 1_500_000,
     "microsoft-": 50_000_000,
 }
 JPEG_QUALITY = 95
@@ -521,7 +525,7 @@ DISPLAY_WIDTH = {
     "microsoft-super-hero-1920x1080": 480, "snap-banner-1440x480": 480, "itch-cover-630x500": 315,
     "gog-main-banner-1600x740": 400, "gog-box-342x482": 171, "gog-background-2560x670": 960,
     "gog-background-2560x655": 960, "open-graph-1200x630": 400, "promo-tile-1024x1024": 256,
-    "master-3840x2160": 480, "master-no-text-3840x2160": 480,
+    "master-3840x2160": 480, "master-no-text-3840x2160": 480, "gamepix-cover-1360x850": 340,
 }
 
 

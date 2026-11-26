@@ -862,6 +862,34 @@
    ]
   },
   {
+   "file": "derivatives/gamepix-cover-1360x850.jpg",
+   "size": [
+    1360,
+    850
+   ],
+   "format": "JPEG",
+   "mode": "RGB",
+   "bytes": 677216,
+   "sha256": "54c56e0b08c3f41730eaa69c179214d6124ec3ecab5c84517303e969066c3ebe",
+   "kind": "derivative",
+   "concept": "a-shoreline",
+   "text": true,
+   "plate": "shoreline",
+   "crop_box": [
+    43,
+    60,
+    3904,
+    2440
+   ],
+   "scale": 0.3484,
+   "wordmark_box": [
+    523,
+    92,
+    1285,
+    197
+   ]
+  },
+  {
    "file": "derivatives/epic-product-logo-960x540.png",
    "size": [
     960,
@@ -904,12 +932,12 @@
    "file": "contact-sheet-derivatives.jpg",
    "size": [
     1966,
-    2800
+    3070
    ],
    "kind": "review-sheet",
    "note": "every derivative at its store display width; logos on dark and light",
-   "bytes": 2696862,
-   "sha256": "ded60f27cafb8b112bb88cd501d2d9ebc3fe3080a6590b9b97ea32cbf0037b13"
+   "bytes": 2790935,
+   "sha256": "ae41bc7c69b54c487425acde9ded1c24ca1227d158a6a10786fdd2ab674b03d7"
   }
  ]
 }

@@ -49,6 +49,18 @@
         512
       ],
       "mode": "RGBA"
+    },
+    {
+      "file": "gamepix-icon-256.png",
+      "sha256": "13f92ddc7b4262cc6afa275316e9d6ae8beb28d84c14217807e973e99f6821fd",
+      "bytes": 24174,
+      "description": "GamePix icon: 256x256, opaque RGB, the Google Play icon (purple #2B1C42, glob at 82%) downscaled with Lanczos; GamePix limit 1 MB, JPG or PNG",
+      "derived_from": "icon-512.png",
+      "pixels": [
+        256,
+        256
+      ],
+      "mode": "RGB"
     }
   ]
 }
