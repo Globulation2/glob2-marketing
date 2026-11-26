@@ -164,6 +164,9 @@ Local state never lives here: `$GLOB2_STREAM_HOME` (default `~/glob2-stream`) ho
 | `status.py [--json]` | Display, game, supervisor, stream, current match, player, chat host, record by opponent, recent results and free disk. |
 | `stream_ctl.py info\|setup-done\|caption\|result` | The player's match tools from a shell, for operators and tests. `stream_ctl.py mcp` serves them to the player. |
 | `highlights.py run\|status\|marker TEXT\|clip TITLE` | Per-game Twitch titles, markers and clips (the `glob2-stream-highlights` service runs `run`). |
+| `analysis/cost_report.py "YYYY-MM-DD HH:MM"` | API-equivalent model cost since a local time, from the player transcripts and the chat log: tokens by kind, $/h, $/day, calls per minute. Prices are in the script. |
+| `analysis/player_tail.py [N]` | The newest player session's last N tool calls, errors and text (tokens dropped): is it stuck or looping? |
+| `analysis/setup_tokens.py [TRANSCRIPT ...]` | Tokens each session spends before the match starts and in total (default: the five newest). |
 | `down.sh` | Stop the supervisor, stream, game, Xvfb and sink. |
 | `mcp/activate.py [--acquire] KEY` | Activate a game control by key over MCP (for example `menu/1`, then `tutorial/lesson/0`). |
 | `mcp/mcp_call.py TOOL [JSON]` | Call any game MCP tool over HTTP, for scripting without an agent. |

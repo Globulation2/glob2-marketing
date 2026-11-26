@@ -25,6 +25,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 sys.path.insert(0, str(HERE))
 import rigconfig  # noqa: E402
+import rigstate  # noqa: E402
 import twitch_chat  # noqa: E402
 import camera  # noqa: E402
 import director  # noqa: E402
@@ -94,7 +95,8 @@ def status_summary(state_dir: pathlib.Path) -> str:
         "stream live": (st.get("stream") or {}).get("running"),
         "mode": st.get("mode"),
         "game screen": (st.get("game") or {}).get("screen"),
-        "match number": m.get("number"),
+        # The viewer-facing number, as on the caption: aborted matches don't count (rigstate.caption_record).
+        "game number (as on the stream caption)": rigstate.decided(rigstate.read_jsonl(state_dir / "games.jsonl")) + 1,
         "phase": m.get("phase"),
         "opponent AI": m.get("opponent"),
         "overall record": m.get("record"),
