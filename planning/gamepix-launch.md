@@ -9,7 +9,7 @@
 | State | GamePix |
 | --- | --- |
 | Prepared | Release pipeline builds a verified GamePix upload; listing copy approved |
-| Saved on GamePix | Draft game entry [BL8O73](https://my.gamepix.com/games/globulation-2) with the approved title, tags and description and the Info settings. No assets, no How to Play and no build attached |
+| Saved on GamePix | Draft game entry [BL8O73](https://my.gamepix.com/games/globulation-2) with the approved title, tags, description, How to Play, icon and cover, and the Info settings. No build attached |
 | Submitted for review | No |
 | Publicly live | No |
 
@@ -26,7 +26,7 @@ Blocked:
 - **GamePix's answers** on links and online play.
 - **The owner's decision on ads on web portals.**
 - **The owner's decision on Allow distribution**, which GamePix turned on by default.
-- **The rest of the entry:** How to Play copy, icon, cover and a build.
+- **The rest of the entry:** a build.
 
 ## Game entry created — 2026-11-26
 
@@ -196,9 +196,9 @@ The tags follow the game's pillars: fighting rivals, building the colony, runnin
 
 The controls match the game's desktop and touch control documentation. An alternative leading with "Command a whole colony, not single units" was offered and not chosen.
 
-### How to Play and art (drafts, 2026-11-26)
+### How to Play and art (2026-11-26)
 
-Status: **drafted for owner review**. Nothing is entered on the dashboard yet.
+Status: **approved by the owner** ("Approve and add") and **saved on GamePix**. The coordinating agent typed How to Play into the Editorial tab; the saved text matched the draft exactly (497 characters), and GamePix answered "Successfully updated!". The owner uploaded the icon and cover on the Assets tab, because the agent's browser cannot open a file picker. After a fresh reload the tab read "Assets: icon, cover". GamePix stores re-encoded WebP renditions (`gdn.gamepix.com/games/globulation-2/draft/`), so the check was by pixels, not bytes: the 256 px icon rendition differs from our file by under 0.1/255 per channel on average, and the 320 px cover rendition by under 1/255. Those differences are WebP recompression; they are the same images.
 
 **How to Play – Instructions (497 of 500 characters).** GamePix asks for controls first, grouped by platform, then a short hint. The desktop controls come from the website's [control reference](https://glob2.online/learn/reference-controls/) and [controls and HUD](https://glob2.online/learn/controls-and-hud/) guides, observed on 2026-11-18 in the public browser build. The mobile controls come from the game's touch-controls documentation, and the bottom toolbar was seen in the serial web build on 2026-11-26.
 
@@ -236,7 +236,7 @@ Status: **drafted for owner review**. Nothing is entered on the dashboard yet.
 2. **GamePix's answers.** Their answers on links and online play may change the portal-mode switches and the listing's claims.
 3. **Next release.** Re-test its zip in the Testing Toolkit: textured terrain, and audio silence on pause, checked by ear.
 4. **Allow distribution.** It is on by GamePix default and lets GamePix syndicate the game to third-party sites. Owner decision.
-5. **How to Play copy.** Drafted above for owner review. The description also carries the controls today; it could drop them once How to Play is saved, freeing characters for gameplay. Owner decision.
-6. **Icon and cover.** Made from storefront-v2 real game art (above) and awaiting owner review. Upload them on the Assets tab once approved, then verify them after a fresh reload.
+5. **How to Play copy.** Saved. The description also carries the controls; it could drop them to free characters for gameplay. Owner decision.
+6. **Icon and cover.** Uploaded and verified on 2026-11-26.
 7. **Build.** After the next release with #1932, either upload that release's zip or switch to a Game URL (see the proposal above). Re-test in the Testing Toolkit first.
 8. **Submission.** Third-party notes say a submitted build is locked until GamePix QA responds; this is unverified. Submit only a build that has passed the Testing Toolkit and includes #1932.
