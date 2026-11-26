@@ -80,6 +80,12 @@ The terrain fix is confirmed: the console logs `DIRECT_TERRAIN_BASE` and no `ANI
 
 **Not covered:** desktop Safari and Firefox; Android; audio pause and resume through each portal's SDK (the SDKs only respond on their own sites); the real portal sites. The real-site checks need uploads (Game Jolt unlisted release, GamePix Testing Toolkit, CrazyGames preview and QA tool, Newgrounds unpublished project, Poki Inspector).
 
+## Release 0.11.8.2 packages (2026-11-26)
+
+Tag v0.11.8.2 is commit `8fb3c06aee`, the same commit tested locally above. Release-mirror run 45902410410 published the standard and lite browser builds and produced the five standard portal zips (gamepix, crazygames, newgrounds, gamejolt, gamedistribution; 126 MB each). The workflow makes no lite portal zips, so those were packaged locally from the run's verified `browser-release-lite` artifact with `package-portal.py` for poki, crazygames, yandex, gamedistribution, gamepix, newgrounds and gamejolt (17.7 MB zip, 45.8 MB unpacked each). All are in `~/Downloads/glob2-0.11.8.2-portals/` on the build machine.
+
+Smoke test in the simulated portal: the release CrazyGames zip and the lite Poki zip load with textured terrain and the expected menus. **The tag predates the Quit fix (#1938)**, so these packages still show Quit.
+
 ## Game Jolt
 
 - Page: https://gamejolt.com/games/globulation2/1122762, developer account `genixpro`. Game ID 1122762, package ID 1154961.
