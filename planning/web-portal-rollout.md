@@ -16,7 +16,7 @@ Evidence levels used below: **prepared** (drafted locally), **saved** (stored on
 
 | Portal | State | Next step |
 |---|---|---|
-| Game Jolt | **Unlisted** 2026-11-26: release 0.11.801 has flat terrain | Upload the next release (with glob2 #1932), re-publish, then the devlog post |
+| Game Jolt | **Live** again 2026-11-26 with release 0.11.802 (textured terrain verified on gamejolt.net) | Launch devlog post (awaiting approval); next release brings the Quit fix |
 | Newgrounds | Account signed in; no project yet | Create the project page and upload the Newgrounds zip |
 | CrazyGames | Developer portal set up; nothing submitted | Needs a build with portal mode and a first download under 50 MB |
 | GameDistribution | Developer application submitted, awaiting approval | Game ID from the dashboard, then upload |
@@ -102,6 +102,10 @@ Smoke test in the simulated portal: the release CrazyGames zip and the lite Poki
 ### Terrain defect in release 0.11.801
 
 Reported by the user on 2026-11-26, after the page went public: the Game Jolt build has the flat-colour terrain flaw. Cause: Game Jolt sends no cross-origin isolation headers, so the game uses the single-threaded browser runtime. In v0.11.8.1 that runtime draws every terrain tile as flat colour. The fix, Globulation2/glob2#1932, merged after v0.11.8.1, so it reaches Game Jolt only with the next release tag. GamePix is waiting on the same release ([GamePix launch](gamepix-launch.md)). The user chose to **unlist** the page until then. It was unlisted on 2026-11-26 (dashboard badge "Unlisted", site API status 0), so it is still reachable by link but not in listings. Re-publish after the fixed release is uploaded and the terrain is checked visually, then post the [launch devlog](gamejolt-devlog.md). My earlier check, that the game "loaded to the Introduction screen", confirmed only that it loads, not that the terrain draws correctly.
+
+### Release 0.11.802 and re-publication (2026-11-26)
+
+The user approved uploading 0.11.8.2 to Game Jolt, Newgrounds and GamePix ("Yes, those three"). Release 0.11.802 was created with the release run's standard `glob2-0.11.8.2-gamejolt.zip`: the user uploaded it, and Claude set fit-to-screen and published the release. The page now serves only 0.11.802's build (overview API: one published release, one build). It was played on gamejolt.net and the terrain is textured, with blended shorelines. The page was then re-published (site API status 1), as planned when it was unlisted. Known issue: Quit is still shown until a release that includes glob2 #1938.
 
 ### Automated upload: blocked
 

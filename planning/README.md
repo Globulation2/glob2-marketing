@@ -13,7 +13,7 @@
 - [Approved storefront rollout](approved-storefront-rollout.md): 2026-10-30 user approval, exact approved copy/media and cross-store execution status. Storefront-v1; being replaced by the v2 revamp above.
 - [itch.io launch](itch-io-launch.md) tracks listing preparation, desktop downloads, access and launch verification.
 - [GamePix launch](gamepix-launch.md) is the GamePix launch record: inbound outreach, platform terms, the release pipeline, Testing Toolkit verification, the approved listing and next steps.
-- [Web game portal rollout](web-portal-rollout.md): Game Jolt (unlisted until the next release), Newgrounds, CrazyGames, GameDistribution, Yandex Games and Poki listings, the portal build pipeline and its blockers, and the Armor Games pitch. Listing comparison in [Game Jolt listing comparison](../analysis/gamejolt-listing-comparison.md).
+- [Web game portal rollout](web-portal-rollout.md): Game Jolt (live, 0.11.802), Newgrounds, CrazyGames, GameDistribution, Yandex Games and Poki listings, the portal build pipeline and its blockers, and the Armor Games pitch. Listing comparison in [Game Jolt listing comparison](../analysis/gamejolt-listing-comparison.md).
 - [Game Jolt devlog](gamejolt-devlog.md): drafted and posted Game Jolt devlog posts with their claims checks.
 - [GOG release readiness](gog-release-readiness.md): approved English copy/source assets, official delivery checklist and unresolved onboarding/build handoff.
 - [Canonical storefront translations](../translations/README.md): 44 non-English language catalogs, independent AI review, platform field exports, maintenance and artwork audit.
