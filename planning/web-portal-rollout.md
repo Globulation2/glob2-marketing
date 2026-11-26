@@ -76,6 +76,8 @@ The terrain fix is confirmed: the console logs `DIRECT_TERRAIN_BASE` and no `ANI
 
 **Defect found:** every portal build still shows **Quit** on the main menu. Inside a portal iframe it leaves a blank dark screen that only a page reload recovers from. CrazyGames' rules ban exit buttons. Fix: Globulation2/glob2#1938 (opened 2026-11-26) hides Quit and makes Escape on the top-level menu do nothing in every portal. It was checked in the simulated portal: CrazyGames and Game Jolt menus show no Quit, and Escape keeps the menu. Upload packages only from a build that includes it.
 
+**Phone layout depends on the portal page.** The first iPhone run drew the desktop layout with tiny controls. Cause: the test harness's host page had no `<meta name="viewport">`, so Safari laid it out 980 px wide and scaled it down, and the game's iframe took that width. The game's own page sets `width=device-width` and gets the phone layout, both standalone and inside a host page that sets the tag (re-checked the same day). On the real sites, check the mobile layout on a phone-sized screen. If a portal's page lacks the tag, its iframe will show the desktop layout.
+
 **Not covered:** desktop Safari and Firefox; Android; audio pause and resume through each portal's SDK (the SDKs only respond on their own sites); the real portal sites. The real-site checks need uploads (Game Jolt unlisted release, GamePix Testing Toolkit, CrazyGames preview and QA tool, Newgrounds unpublished project, Poki Inspector).
 
 ## Game Jolt
