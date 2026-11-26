@@ -103,6 +103,13 @@ Browser game portals host the HTML5 build on their own sites. Each portal has it
 | ID | Task | Status | Dependency / completion evidence |
 | --- | --- | --- | --- |
 | MKT-071 | Launch Globulation 2 on GamePix | In progress | [GamePix launch record](gamepix-launch.md). Pipeline built and verified in GamePix's Testing Toolkit; listing copy approved. Waits on the next release with [#1932](https://github.com/Globulation2/glob2/pull/1932), GamePix's answers on links and online play, the owner's decision on ads, then game entry, art and submission. |
+| MKT-072 | Launch Globulation 2 on Game Jolt | Live; follow-up open | [Web portal rollout](web-portal-rollout.md#game-jolt). Page public and release 0.11.801 verified playable on 2026-11-26; trailer, theme and `#multiplayer` added after the [listing comparison](../analysis/gamejolt-listing-comparison.md). Open: devlog posts, development stage decision, gjpush token (request drafted, not sent); until then uploads are manual. |
+| MKT-073 | Launch Globulation 2 on Newgrounds | Planned | [Web portal rollout](web-portal-rollout.md#newgrounds). Account signed in; project page and upload not started. |
+| MKT-074 | Launch Globulation 2 on CrazyGames | Blocked | [Web portal rollout](web-portal-rollout.md#crazygames). Portal set up. Needs a tag containing portal mode (glob2 #1927) and a first download under 50 MB; the small download build may solve the size limit. Ads claim needs scoping. |
+| MKT-075 | Launch Globulation 2 on GameDistribution (Azerion) | Waiting | [Web portal rollout](web-portal-rollout.md#gamedistribution-azerion). Developer application submitted 2026-11-26; needs approval and a Game ID, then a tag containing portal mode. Ads claim needs scoping. |
+| MKT-076 | Launch Globulation 2 on Yandex Games | Parked | [Web portal rollout](web-portal-rollout.md#yandex-games). New developer applications closed; full build over the 100 MB limit. |
+| MKT-077 | Apply to Poki | Waiting | [Web portal rollout](web-portal-rollout.md#poki). Waits on the small download build (merged 2026-11-26, build pending) passing Poki's limits and Inspector. |
+| MKT-078 | Pitch Globulation 2 to Armor Games | Prepared | [Web portal rollout](web-portal-rollout.md#armor-games). Pitch drafted in Gmail; the user checks the generative-AI disclosure line and sends it. |
 
 ## Deferred decisions
 
