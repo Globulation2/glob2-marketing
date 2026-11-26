@@ -74,7 +74,7 @@ Every portal profile packaged both editions, except Yandex standard, which the p
 
 The terrain fix is confirmed: the console logs `DIRECT_TERRAIN_BASE` and no `ANIMATED_TERRAIN_FALLBACK`.
 
-**Defect found:** every portal build still shows **Quit** on the main menu. Inside a portal iframe it leaves a blank dark screen that only a page reload recovers from. CrazyGames' rules ban exit buttons. Portal mode should hide Quit as it hides external links. This needs a game repository change.
+**Defect found:** every portal build still shows **Quit** on the main menu. Inside a portal iframe it leaves a blank dark screen that only a page reload recovers from. CrazyGames' rules ban exit buttons. Fix: Globulation2/glob2#1938 (opened 2026-11-26) hides Quit and makes Escape on the top-level menu do nothing in every portal. It was checked in the simulated portal: CrazyGames and Game Jolt menus show no Quit, and Escape keeps the menu. Upload packages only from a build that includes it.
 
 **Not covered:** desktop Safari and Firefox; Android; audio pause and resume through each portal's SDK (the SDKs only respond on their own sites); the real portal sites. The real-site checks need uploads (Game Jolt unlisted release, GamePix Testing Toolkit, CrazyGames preview and QA tool, Newgrounds unpublished project, Poki Inspector).
 
