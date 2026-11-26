@@ -75,7 +75,7 @@ if [[ -n "$AGENT_USER" ]]; then : "${AGENT_SHARED_DIR:=/var/lib/glob2-stream}"; 
 : "${BRAND_MARGIN_RIGHT:=224}"          # clears the ~200 px right sidebar and its zoom controls
 : "${BRAND_MARGIN_BOTTOM:=16}"
 # Agents and Twitch chat.
-: "${STATE_DIR:=$AGENT_SHARED_DIR/state}"         # status.json, games.jsonl, chat.json, viewer-suggestions.jsonl
+: "${STATE_DIR:=$AGENT_SHARED_DIR/state}"         # status.json, games.jsonl, chat.json, viewer-relay.jsonl
 : "${NOTES_DIR:=$AGENT_SHARED_DIR/notes}"         # the player agent's strategy notes and game log
 : "${PLAYER_MODEL:=claude-sonnet-5-5}"          # the agent playing the game
 : "${CHAT_MODEL:=claude-sonnet-5-5}"            # the agent answering Twitch chat

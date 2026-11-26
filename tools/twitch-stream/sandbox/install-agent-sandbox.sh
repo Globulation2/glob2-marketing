@@ -92,7 +92,7 @@ home_mode="$(stat -c %a "$HOME")"
 claude_src="${CLAUDE_BIN:-$(readlink -f "$(command -v claude)")}"
 [[ -x "$claude_src" ]] || { echo "no claude binary found (set CLAUDE_BIN)" >&2; exit 1; }
 S install -d -o root -g root -m 755 "$AGENT_INSTALL_DIR" "$AGENT_INSTALL_DIR/bin" "$AGENT_INSTALL_DIR/chat" "$AGENT_INSTALL_DIR/prompts" "$AGENT_INSTALL_DIR/policy"
-manifest=(pacing.py stream_ctl.py game_proxy.py rigstate.py rigconfig.py lib.sh caption.sh chat/readonly_mcp.py chat/camera.py chat/reply_schema.json prompts/chat.md)
+manifest=(pacing.py viewer_relay.py stream_ctl.py game_proxy.py rigstate.py rigconfig.py lib.sh caption.sh chat/readonly_mcp.py chat/camera.py chat/reply_schema.json prompts/chat.md)
 for f in "${manifest[@]}"; do
   mode=644; [[ "$f" == *.sh || "$f" == stream_ctl.py ]] && mode=755
   S install -o root -g root -m "$mode" "$RIG_DIR/$f" "$AGENT_INSTALL_DIR/$f"

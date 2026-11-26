@@ -5,7 +5,7 @@ Everything lives in $STATE_DIR (default ~/glob2-stream/state):
   games.jsonl                one line per finished or aborted match (the score source)
   status.json                written by the supervisor every few seconds; read by the chat agent
   chat.json                  written by the chat agent
-  viewer-suggestions.jsonl   appended by the chat agent; untrusted viewer ideas
+  viewer-relay*.jsonl        the chat side's relayed viewer messages and their acks (viewer_relay.py)
 """
 import datetime
 import json
@@ -131,5 +131,3 @@ def save_current(cfg: dict, data: dict) -> None:
     write_json(state_dir(cfg) / "current.json", data)
 
 
-def viewer_suggestions(cfg: dict, n: int = 5) -> list:
-    return read_jsonl(state_dir(cfg) / "viewer-suggestions.jsonl")[-n:]

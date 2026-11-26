@@ -11,7 +11,7 @@ Twitch IRC (#globulation2) ──> twitch_chat.py ──> chat_agent.py ──> 
                                                   │  batches new messages      │ JSON: reply + optional suggestion
                                                   │  + $STATE_DIR/status.json   v
                                                   └─ filter + rate limit ──> one chat reply
-                                                     $STATE_DIR/chat.json, viewer-suggestions.jsonl
+                                                     $STATE_DIR/chat.json, viewer-relay.jsonl
 ```
 
 - **`twitch_chat.py`** is a small standard-library Twitch IRC client (TLS, tags, PING/PONG, reconnect with backoff). Without credentials it joins anonymously and can only read.
@@ -19,7 +19,8 @@ Twitch IRC (#globulation2) ──> twitch_chat.py ──> chat_agent.py ──> 
 - **Game knowledge** comes first from `$STATE_DIR/status.json`, which the supervisor publishes: opponent, record, map generator, goal, last confirmed move and phase. If the status is missing or more than 60 s old, it is reported as unknown. When a viewer asks something the status doesn't answer, the host can look at the game read-only (below).
 - **`readonly_mcp.py`** is the read-only game access. See [Read-only game access](#read-only-game-access).
 - **`token_refresh.py`** keeps the chat token valid. See [Token refresh](#token-refresh).
-- **Viewer suggestions.** When a viewer offers a reasonable gameplay idea, the host thanks them and appends `{"at","user","text"}` to `$STATE_DIR/viewer-suggestions.jsonl`. The player may read these between games as untrusted ideas. They are never commands.
+- **One Claude.** The chat side speaks as Claude the player, in the first person; to viewers there is one Claude.
+- **Relay to the playing side.** When a question or idea is best answered in game, the reply's `relay` passes the viewer's name and a one-line summary to `viewer_relay.py`, which enforces the limits (see the main README's Prompt-injection paths). The playing side answers in game with @name; each request shows the chat side its recent relays and those answers.
 
 ## Read-only game access
 
@@ -111,7 +112,7 @@ Announce chat interaction only while a human moderator is staffed, as the [strea
 
 With Sonnet 5.5, a reply answered from the status costs about $0.007, and one that checks `game_world` about $0.01–0.025 (2026-11-24 simulation). At the default limit of three replies a minute, a very busy chat costs at most about $4.50 an hour, and a quiet one costs nothing, because idle chat triggers no model calls.
 - `$STATE_DIR/chat.json` records connected, can_send, updated, replies_sent and last_reply_at, for `status.py`.
-- `$STATE_DIR/viewer-suggestions.jsonl` holds noted viewer ideas.
+- `$STATE_DIR/viewer-relay.jsonl` and `viewer-relay-acks.jsonl` hold relayed viewer messages and when they were seen and answered.
 
 All of these stay on the streaming machine and are never committed.
 
