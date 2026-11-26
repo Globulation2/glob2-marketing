@@ -2,6 +2,8 @@
 
 [Planning index](README.md) · [Task ledger](tasks.md) · [Public audit](../facts/platform-audit.md) · [Positioning options](../analysis/positioning-options.md) · [Validation plan](../analysis/validation-plan.md)
 
+**Note, 2026-11-26:** historical record. Where it calls v1 the current reference, read [positioning v2](../analysis/positioning-v2.md) (2026-11-24), which superseded [v1](../analysis/positioning-v1.md) for store listings.
+
 Completed **2026-10-26** following the user's authorization to audit public platform presentation and draft positioning options in parallel. This is a bounded follow-up pass, not a completed launch or validated strategy.
 
 ## Completed work

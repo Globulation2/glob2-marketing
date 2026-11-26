@@ -2,6 +2,10 @@
 
 [Planning index](README.md) · [Social account inventory](../facts/social-media-accounts.md) · [Social media strategy](social-media-strategy.md) · [Channel C06: long-form video and livestreams](../analysis/channels-and-business-models.md) · [Stream rig code](../tools/twitch-stream/README.md)
 
+## Update — 2026-11-26
+
+The Claude Plays Glob stream moved to a new harness on another machine, and the local setup on this machine was deleted. The rig code in [tools/twitch-stream](../tools/twitch-stream/README.md) is still in the repository. This record does not track that harness, and the stream's live status is not recorded here. The rest of this file is kept as the historical record of the local rig.
+
 ## Status — 2026-11-24
 
 - **One setup.** Claude Plays Glob runs only on the tracked [stream rig](../tools/twitch-stream/README.md). The separate host-local OBS automation recorded earlier was retired in favour of this rig.

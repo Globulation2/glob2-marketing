@@ -1,6 +1,8 @@
 # Globulation 2 MCP outreach research
 
-[Planning index](../README.md) · [Working launch positioning](../../analysis/positioning-v1.md) · [Mobile press activity](../mobile-press-outreach.md)
+[Planning index](../README.md) · [Current positioning v2](../../analysis/positioning-v2.md) · [Positioning v1, superseded](../../analysis/positioning-v1.md) · [Mobile press activity](../mobile-press-outreach.md)
+
+**Note, 2026-11-26:** drafted on 2026-11-23 under [positioning v1](../../analysis/positioning-v1.md). [Positioning v2](../../analysis/positioning-v2.md) has been the current store message since 2026-11-24; the text below has not been revised for it.
 
 **Research completed November 23, 2026.** The dossiers contain 39 editorial leads and 23 creator leads, plus 10 ecosystem and collaboration routes. The outreach angle is a free, open-source colony strategy game where a player can share controls with a coding agent over Model Context Protocol (MCP), ask it to write one small colony-management routine, and keep playing alongside it. The project owner expects public-server deployment overnight November 23–24. The recommended launch story leads with human-plus-agent online competition once the rollout is visible. The local standing-order demo gives journalists and creators an accessible way to try the underlying idea.
 

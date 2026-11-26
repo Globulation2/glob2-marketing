@@ -1,6 +1,8 @@
 # Globulation 2 social media strategy
 
-[Planning index](README.md) · [Channel inventory](../facts/social-media-accounts.md) · [Launch positioning](../analysis/positioning-v1.md) · [Approved media](../assets/storefront-approved-v1/README.md)
+[Planning index](README.md) · [Channel inventory](../facts/social-media-accounts.md) · [Current positioning v2](../analysis/positioning-v2.md) · [Positioning v1, superseded](../analysis/positioning-v1.md) · [Approved media](../assets/storefront-approved-v1/README.md)
+
+**Note, 2026-11-26:** drafted on 2026-11-23 under [positioning v1](../analysis/positioning-v1.md). [Positioning v2](../analysis/positioning-v2.md) has been the current store message since 2026-11-24; the text below has not been revised for it.
 
 Working plan drafted 2026-11-23. YouTube is the first new social channel. The publishing cadence and later channels are proposals. Track access, account creation and public verification in the channel inventory.
 

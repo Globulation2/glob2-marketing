@@ -1,6 +1,8 @@
 # Mobile games press for Globulation 2
 
-[Analysis index](README.md) · [Launch positioning](positioning-v1.md) · [Publishing ledger](../planning/approved-storefront-rollout.md#publishing-and-review-submission-authorized--2026-10-30)
+[Analysis index](README.md) · [Current positioning v2](positioning-v2.md) · [Positioning v1, superseded](positioning-v1.md) · [Publishing ledger](../planning/approved-storefront-rollout.md#publishing-and-review-submission-authorized--2026-10-30)
+
+**Note, 2026-11-26:** drafted on 2026-11-23 under [positioning v1](positioning-v1.md). [Positioning v2](positioning-v2.md) has been the current store message since 2026-11-24; the text below has not been revised for it.
 
 Researched **2026-11-23**. These publications have public contact routes and evidence of coverage relevant to a Globulation 2 mobile release. The assessment reflects editorial scope and previous stories. Interest in Globulation 2 and inbox deliverability remain untested. No outreach was sent.
 

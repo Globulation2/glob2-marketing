@@ -1,6 +1,8 @@
 # Asia-Pacific mobile press drafts
 
-[Outreach plan and checks](mobile-press-outreach.md) · [Press research](../analysis/mobile-games-press.md#asia-pacific) · [Launch positioning](../analysis/positioning-v1.md) · [Publishing ledger](approved-storefront-rollout.md)
+[Outreach plan and checks](mobile-press-outreach.md) · [Press research](../analysis/mobile-games-press.md#asia-pacific) · [Current positioning v2](../analysis/positioning-v2.md) · [Positioning v1, superseded](../analysis/positioning-v1.md) · [Publishing ledger](approved-storefront-rollout.md)
+
+**Note, 2026-11-26:** drafted on 2026-11-23 under [positioning v1](../analysis/positioning-v1.md). [Positioning v2](../analysis/positioning-v2.md) has been the current store message since 2026-11-24; the text below has not been revised for it.
 
 Drafts for 10 outlets, prepared 2026-11-23. Replace every bracketed field with verified information. The linked Apple storefronts showed Globulation 2 version 0.11.700 on 2026-11-23 for iOS 15 or later. Verify each listing again before sending. The mainland China entry is a routing inquiry. Describe the game's supported languages separately if useful. Link to approved materials and sign with the authorized sender's name. The subject labels below also serve as the opening line for forms or QQ. Contact instructions reflect the publications' public pages.
 

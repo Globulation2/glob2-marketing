@@ -1,6 +1,8 @@
 # Mobile launch pitches for Europe, the Middle East and Africa
 
-[Press research](../analysis/mobile-games-press.md) · [Approved positioning](../analysis/positioning-v1.md) · [Publishing ledger](approved-storefront-rollout.md) · [Approved media](../assets/storefront-approved-v1/README.md)
+[Press research](../analysis/mobile-games-press.md) · [Current positioning v2](../analysis/positioning-v2.md) · [Positioning v1, superseded](../analysis/positioning-v1.md) · [Publishing ledger](approved-storefront-rollout.md) · [Approved media](../assets/storefront-approved-v1/README.md)
+
+**Note, 2026-11-26:** drafted on 2026-11-23 under [positioning v1](../analysis/positioning-v1.md). [Positioning v2](../analysis/positioning-v2.md) has been the current store message since 2026-11-24; the text below has not been revised for it.
 
 Prepared for review on **2026-11-23**. Apple’s public lookup confirmed version 0.11.700 on 23 November for iPhone and iPad on the storefronts below. The Android draft is on hold pending a verified public Google Play production listing in Spain. Before use, fill remaining bracketed fields and use the game team’s approved sender name and reply address. Use publicly shareable approved assets, with desktop footage or screenshots labelled by source platform. Recheck the local listing at send time.
 

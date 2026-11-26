@@ -1,6 +1,8 @@
 # Globulation 2 mobile press outreach
 
-[Planning index](README.md) · [Publication and contact research](../analysis/mobile-games-press.md) · [Launch positioning](../analysis/positioning-v1.md) · [Storefront rollout](approved-storefront-rollout.md)
+[Planning index](README.md) · [Publication and contact research](../analysis/mobile-games-press.md) · [Current positioning v2](../analysis/positioning-v2.md) · [Positioning v1, superseded](../analysis/positioning-v1.md) · [Storefront rollout](approved-storefront-rollout.md)
+
+**Note, 2026-11-26:** drafted on 2026-11-23 under [positioning v1](../analysis/positioning-v1.md). [Positioning v2](../analysis/positioning-v2.md) has been the current store message since 2026-11-24; the text below has not been revised for it.
 
 The draft set covers 33 publications. On **2026-11-23**, 29 unique publications had an attempt confirmed in Gmail Sent or by a publisher form. Of those, 28 have an attempt with no known hard bounce. Gamereactor’s only attempt hard-bounced. Inbox delivery remains unverified. Three publications are on hold and 148Apps has a shared editorial-network disposition. Saudi Gamer was contacted as a supplemental outlet outside the original list.
 
