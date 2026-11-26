@@ -9,7 +9,7 @@
 | State | GamePix |
 | --- | --- |
 | Prepared | Release pipeline builds a verified GamePix upload; listing copy approved |
-| Saved on GamePix | Nothing. No game entry has been created on the dashboard |
+| Saved on GamePix | Draft game entry [BL8O73](https://my.gamepix.com/games/globulation-2) with the approved title, tags and description and the Info settings. No assets, no How to Play and no build attached |
 | Submitted for review | No |
 | Publicly live | No |
 
@@ -19,12 +19,51 @@ Done:
 - Upload built in CI and verified in GamePix's Testing Toolkit.
 - Terrain defect found and fixed in the game.
 - Listing copy approved.
+- Draft game entry created and its Info settings saved.
 
 Blocked:
 - **The next game release.** It carries the terrain fix ([#1932](https://github.com/Globulation2/glob2/pull/1932)). The owner is holding the patch release for other fixes.
 - **GamePix's answers** on links and online play.
 - **The owner's decision on ads on web portals.**
-- **Creating the game entry.** The owner has not yet chosen whether to do it now or after the release.
+- **The owner's decision on Allow distribution**, which GamePix turned on by default.
+- **The rest of the entry:** How to Play copy, icon, cover and a build.
+
+## Game entry created — 2026-11-26
+
+At the owner's instruction ("Yes, create it"), the coordinating agent created the draft entry on the dashboard. Nothing was submitted for review.
+
+**Create New Game** saved:
+- title "Globulation 2";
+- main tag `strategy`, plus `war`, `city-building`, `management` and `simulation`;
+- the approved 449-character description;
+- Game Jam: None.
+
+The dashboard reported "Game successfully created!". The entry is Game Id `BL8O73` at <https://my.gamepix.com/games/globulation-2>.
+
+**Info tab**, saved and verified after a fresh reload:
+- Orientation: All.
+- Desktop friendly and Mobile friendly: on.
+- Game engine: Other. The game is C++ compiled to WebAssembly, and none of the listed engines fit.
+- SDK integration: on.
+- Multiplayer SDK integration: off.
+- Allow distribution: on. This was GamePix's default and was left unchanged. It lets GamePix syndicate the game to third-party sites, and is an open owner decision.
+
+**The other tabs**, as observed and not yet filled:
+- **Assets:**
+  - Icon: 256×256, at most 1 MB, JPG or PNG.
+  - Cover: 1360×850, at most 1.5 MB, JPG or PNG.
+- **Editorial:**
+  - Description: done.
+  - How to Play – Instructions: required, up to 500 characters, controls first, organised by platform.
+  - Custom Sections: optional, titles up to 35 characters, content up to 350.
+  - Video: optional, a YouTube or Vimeo link to footage that belongs to us.
+  - FAQs: optional, questions up to 80 characters, answers up to 150.
+- **Build:**
+  - Either upload a `.zip` or `.gpx` with `index.html` at the root, up to **2 GB**, or set a Game URL.
+  - A preview link valid for 24 hours can be generated.
+- **Submit for review:** not touched.
+
+**Proposal, not decided.** The Build tab's Game URL option would let us host the GamePix package ourselves, next to the browser release, so each release updates GamePix automatically. That is the itch-style automation the owner asked for. It needs two things: a hosting location serving the GamePix package, and GamePix's confirmation that URL-hosted games are allowed under their relative-path rule.
 
 ## Defect found and fixed — 2026-11-26
 
@@ -54,7 +93,7 @@ Work in the game repository. Every browser release now also produces the GamePix
 | --- | --- |
 | [#1924](https://github.com/Globulation2/glob2/pull/1924) | `gamepix` job in `browser-release.yml`; `package-gamepix.py` repackages the verified browser release; `gamepix.js` reports loading and silences audio on pause |
 | [#1925](https://github.com/Globulation2/glob2/pull/1925) | Packages with the workflow's own script, so older tags work; a `publish` switch builds uploads without replacing the live browser game |
-| [#1926](https://github.com/Globulation2/glob2/pull/1926) | Generalised into `package-portal.py` for every web portal; the GamePix profile enforces the 200 MB limit |
+| [#1926](https://github.com/Globulation2/glob2/pull/1926) | Generalised into `package-portal.py` for every web portal; the GamePix profile enforces the 200 MB Testing Toolkit limit (the game Build tab accepts up to 2 GB) |
 | [#1927](https://github.com/Globulation2/glob2/pull/1927) | Portal mode: GamePix builds run with external links and online sign-in turned off |
 | [#1931](https://github.com/Globulation2/glob2/pull/1931) | Closed as superseded by #1926 |
 
@@ -102,7 +141,7 @@ Read on 2026-11-26 from [developers](https://partners.gamepix.com/developers), [
 - Rewarded ads must say what they give.
 
 **Observed in use, not in the docs**
-- Uploads must be a zip of up to 200 MB with `index.html` at the root.
+- Testing Toolkit uploads must be a zip of up to 200 MB with `index.html` at the root. The game's Build tab, seen after the entry was created, accepts `.zip` or `.gpx` up to 2 GB.
 - Test uploads stay up for 24 hours.
 
 ## Inbound outreach — 2026-11-26
@@ -117,7 +156,7 @@ GamePix invited the project to publish after seeing the [itch.io page](https://g
 6. An upload API for CI, and whether every update is reviewed again.
 7. Languages beyond the ten `GamePix.lang()` lists.
 
-No answer yet. A colleague copied on the thread is out of office until 2026-11-30. Record the answers here when they arrive. The toolkit has since answered part of question 3: a 200 MB zip with `index.html` at the root.
+No answer yet. A colleague copied on the thread is out of office until 2026-11-30. Record the answers here when they arrive. The dashboard has since answered most of question 3. The Testing Toolkit takes a zip of up to 200 MB with `index.html` at the root. The game's Build tab takes a `.zip` or `.gpx` of up to 2 GB, or a Game URL.
 
 ## Listing
 
@@ -173,6 +212,8 @@ The controls match the game's desktop and touch control documentation. An altern
 1. **Ads on web portals.** The storefront copy says "No ads", but GamePix earns only from ads around and between plays. Either the portal copy stays silent on ads, as it does now, or the portals are reach-only. Showing GamePix ads between matches would also need a game hook. Owner decision.
 2. **GamePix's answers.** Their answers on links and online play may change the portal-mode switches and the listing's claims.
 3. **Next release.** Re-test its zip in the Testing Toolkit: textured terrain, and audio silence on pause, checked by ear.
-4. **Game entry.** Create it on the dashboard with the approved copy, saved but not submitted. Not yet authorized: the owner is choosing between now and after the release.
-5. **Art and settings.** The icon and cover at GamePix's sizes, which the dashboard shows only once the game exists, follow the storefront-v2 real-game-art rule. Platform: desktop and mobile. Orientation: landscape and portrait.
-6. **Submission.** Third-party notes say a submitted build is locked until GamePix QA responds; this is unverified. Submit only a build that has passed the Testing Toolkit and includes #1932.
+4. **Allow distribution.** It is on by GamePix default and lets GamePix syndicate the game to third-party sites. Owner decision.
+5. **How to Play copy.** A draft is needed, with controls grouped by platform (desktop, mobile). The description also carries the controls today; it could drop them once How to Play exists, freeing characters for gameplay. Owner decision.
+6. **Icon and cover** at 256×256 and 1360×850, from storefront-v2 real game art.
+7. **Build.** After the next release with #1932, either upload that release's zip or switch to a Game URL (see the proposal above). Re-test in the Testing Toolkit first.
+8. **Submission.** Third-party notes say a submitted build is locked until GamePix QA responds; this is unverified. Submit only a build that has passed the Testing Toolkit and includes #1932.
