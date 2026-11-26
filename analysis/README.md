@@ -20,6 +20,7 @@ The four initial maps have undergone evidence-boundary and peer review. No hypot
 - [Storefront positioning v2](positioning-v2.md): user decision of 2026-11-24. Mobile listings lead with real-time-strategy gameplay and the fair deal; desktop listings add AI co-play through MCP. Key messages per platform, proof points, banned and cautioned claims, and differences from v1. Not player-validated.
 - [Mobile store comparables](mobile-store-comparables.md): how comparable strategy games present their store listings; evidence for the v2 revamp.
 - [Player priorities](player-priorities.md): what players say they want from a strategy listing and its monetisation; evidence for the v2 revamp.
+- [Storefront v2 summary](storefront-v2-summary.md): what changed from v1 to v2, why it should convert better, how to measure it, and the traffic routes with links to their plans (2026-11-26). Evidence, inference and options labelled; no channel decision made.
 
 - [Game Jolt listing comparison](gamejolt-listing-comparison.md): how 22 top Game Jolt strategy listings use trailers, themes, tags and devlogs, compared with ours on 2026-11-26.
 

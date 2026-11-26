@@ -9,7 +9,7 @@ On 2026-11-24 the user superseded v1 for store listings with [positioning v2](an
 ## Start here
 
 - [Working rules](AGENTS.md): delegation, evidence, structure, and trunk-based commits.
-- [Storefront v2 revamp](planning/storefront-v2-rollout.md): the 2026-11-24 decisions, work units and per-store rollout status for the new copy, key art, screenshots, icon and trailer. Binding rules are in [AGENTS.md](AGENTS.md#storefront-v2-revamp--2026-11-24); the message is [positioning v2](analysis/positioning-v2.md).
+- [Storefront v2 revamp](planning/storefront-v2-rollout.md): the current record of store listing work: the 2026-11-24 decisions, [current per-store status and owner to-dos](planning/storefront-v2-rollout.md#current-status-and-open-follow-ups), work units and a dated log for the new copy, key art, screenshots, icon and trailer. The [storefront v2 summary](analysis/storefront-v2-summary.md) explains what changed, how to measure it and the traffic options. Binding rules are in [AGENTS.md](AGENTS.md#storefront-v2-revamp--2026-11-24); the message is [positioning v2](analysis/positioning-v2.md).
 - [Canonical storefront translations](translations/README.md): approved English source, 44 reviewed non-English language catalogs, terminology and platform exports.
 - [Main website localization](planning/website-localization-rollout.md): 44 translated languages for the four marketing pages, independent AI review and deployment/readback receipts.
 - [Domain migration](planning/domain-migration.md): switch to `glob2.online` across maintained sources, hosting and controlled listings.
