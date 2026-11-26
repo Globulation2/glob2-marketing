@@ -56,6 +56,10 @@ Not yet done: the portal packager still repackages the standard build only. Poin
   - Languages: no change was needed. Game Jolt has no languages field, and the description already says "45 languages".
 - Not done yet: devlog posts (none so far; launch post 1 is [prepared for review](gamejolt-devlog.md)), development stage still "Early Access" (the user's call whether to switch to "Complete/Stable").
 
+### Terrain defect in release 0.11.801
+
+Reported by the user on 2026-11-26, after the page went public: the Game Jolt build has the flat-colour terrain flaw. Cause: Game Jolt sends no cross-origin isolation headers, so the game uses the single-threaded browser runtime. In v0.11.8.1 that runtime draws every terrain tile as flat colour. The fix, Globulation2/glob2#1932, merged after v0.11.8.1, so it reaches Game Jolt only with the next release tag. GamePix is waiting on the same release ([GamePix launch](gamepix-launch.md)). My earlier check, that the game "loaded to the Introduction screen", confirmed only that it loads, not that the terrain draws correctly.
+
 ### Automated upload: blocked
 
 gjpush rejected every token with "Authorization token is invalid" (three attempts on 2026-11-26, including a whitespace-stripped paste). gjpush's README says it needs a "service API authentication token" and that "only testers are given a token". The Game Token in the avatar menu is a different credential, for the in-game Game API. A request for a gjpush token, addressed to the gjpush maintainer listed in that README, is **prepared** as a Gmail draft and not yet sent.
