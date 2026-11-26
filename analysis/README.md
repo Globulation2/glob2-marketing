@@ -21,6 +21,8 @@ The four initial maps have undergone evidence-boundary and peer review. No hypot
 - [Mobile store comparables](mobile-store-comparables.md): how comparable strategy games present their store listings; evidence for the v2 revamp.
 - [Player priorities](player-priorities.md): what players say they want from a strategy listing and its monetisation; evidence for the v2 revamp.
 
+- [Game Jolt listing comparison](gamejolt-listing-comparison.md): how 22 top Game Jolt strategy listings use trailers, themes, tags and devlogs, compared with ours on 2026-11-26.
+
 ## Superseded positioning
 
 - [Launch positioning v1](positioning-v1.md): superseded by v2 on 2026-11-24. Agreed headline and pitch, message emphasis and decision limits. Colony building and economics lead; selected through discussion, without player testing.
