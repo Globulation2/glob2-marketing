@@ -6,7 +6,7 @@ Posts are public and appear in followers' feeds and on Discover, so each one is 
 
 ## Post 1: launch on Game Jolt
 
-Status: **prepared** 2026-11-26, awaiting the user's review. Not saved on Game Jolt.
+Status: **prepared** 2026-11-26, awaiting the user's review. Not saved on Game Jolt. Hold it until the page is re-published with a release that includes the terrain fix (glob2 #1932); the post's first line promises play in the browser.
 
 **Media:** the gameplay trailer, https://www.youtube.com/watch?v=t6Q3ZpY9aTM (already the first item in the page's media, so it meets the [footage rule](gameplay-video.md)).
 

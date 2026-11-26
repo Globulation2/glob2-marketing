@@ -9,13 +9,14 @@ Evidence levels used below: **prepared** (drafted locally), **saved** (stored on
 - 2026-11-26: the user asked for "a game plan to get builds done, accounts registered and automated release pipelines implemented" for the six portals, with Poki to use the small download build from another thread, and to "pitch Armor Games just to see what they say".
 - External links and online sign-in follow **per-portal rules** (user selection): each portal turns off only what it bans.
 - Accounts: Claude fills in sign-up forms; passwords are saved in the user's password manager, never typed by Claude. Usernames are the user's own handle, not a Globulation-branded one (the user renamed the Game Jolt account to their handle).
+- 2026-11-26: after the terrain defect was confirmed, the user chose "Unlist it for now" over cutting the patch release.
 - 2026-11-26: after the gjpush token was rejected, the user said "lets get it on there manually for now too", then approved making the Game Jolt page public, then approved the four listing fixes in [Game Jolt listing comparison](../analysis/gamejolt-listing-comparison.md) ("Apply all four").
 
 ## Status
 
 | Portal | State | Next step |
 |---|---|---|
-| Game Jolt | **Live** 2026-11-26, release 0.11.801 playable in the browser | Devlog posts; automated upload once a gjpush token arrives |
+| Game Jolt | **Unlisted** 2026-11-26: release 0.11.801 has flat terrain | Upload the next release (with glob2 #1932), re-publish, then the devlog post |
 | Newgrounds | Account signed in; no project yet | Create the project page and upload the Newgrounds zip |
 | CrazyGames | Developer portal set up; nothing submitted | Needs a build with portal mode and a first download under 50 MB |
 | GameDistribution | Developer application submitted, awaiting approval | Game ID from the dashboard, then upload |
@@ -58,7 +59,7 @@ Not yet done: the portal packager still repackages the standard build only. Poin
 
 ### Terrain defect in release 0.11.801
 
-Reported by the user on 2026-11-26, after the page went public: the Game Jolt build has the flat-colour terrain flaw. Cause: Game Jolt sends no cross-origin isolation headers, so the game uses the single-threaded browser runtime. In v0.11.8.1 that runtime draws every terrain tile as flat colour. The fix, Globulation2/glob2#1932, merged after v0.11.8.1, so it reaches Game Jolt only with the next release tag. GamePix is waiting on the same release ([GamePix launch](gamepix-launch.md)). My earlier check, that the game "loaded to the Introduction screen", confirmed only that it loads, not that the terrain draws correctly.
+Reported by the user on 2026-11-26, after the page went public: the Game Jolt build has the flat-colour terrain flaw. Cause: Game Jolt sends no cross-origin isolation headers, so the game uses the single-threaded browser runtime. In v0.11.8.1 that runtime draws every terrain tile as flat colour. The fix, Globulation2/glob2#1932, merged after v0.11.8.1, so it reaches Game Jolt only with the next release tag. GamePix is waiting on the same release ([GamePix launch](gamepix-launch.md)). The user chose to **unlist** the page until then. It was unlisted on 2026-11-26 (dashboard badge "Unlisted", site API status 0), so it is still reachable by link but not in listings. Re-publish after the fixed release is uploaded and the terrain is checked visually, then post the [launch devlog](gamejolt-devlog.md). My earlier check, that the game "loaded to the Introduction screen", confirmed only that it loads, not that the terrain draws correctly.
 
 ### Automated upload: blocked
 
