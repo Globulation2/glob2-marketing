@@ -23,6 +23,12 @@ The four initial maps have undergone evidence-boundary and peer review. No hypot
 - [Storefront v2 summary](storefront-summary.md): what changed from v1 to v2, why it should convert better, how to measure it, and the traffic routes with links to their plans (2026-11-26). Evidence, inference and options labelled; no channel decision made.
 
 - [Game Jolt listing comparison](gamejolt-listing-comparison.md): how 22 top Game Jolt strategy listings use trailers, themes, tags and devlogs, compared with ours on 2026-11-26.
+- [Newgrounds listing comparison](newgrounds-listing-comparison.md): 25 top Newgrounds RTS and overall games (frontpage, awards, medals, tags, short descriptions) against our draft project, with an action list (2026-11-26).
+- [GamePix listing comparison](gamepix-listing-comparison.md): GamePix's quality-ranked strategy feed and page structure (tags, FAQs, custom sections, video, orientation) against our draft entry, with an action list (2026-11-26).
+- [CrazyGames listing comparison](crazygames-listing-comparison.md): top CrazyGames strategy games (preview videos, covers, tags, description structure) and the Basic Launch metrics, including the new cover click-through metric, for a lite-build submission (2026-11-26).
+- [Poki listing comparison](poki-listing-comparison.md): ten top Poki strategy games, Poki's house page template, thumbnail rules and Player Fit Test thresholds, and the ads requirement that conflicts with "No ads" (2026-11-26).
+- [GameDistribution listing comparison](gamedistribution-listing-comparison.md): what GameDistribution promotes to publishers (Hot, Best New), the filter fields publishers search by, and the SDK's pre-roll/mid-roll expectation (2026-11-26).
+- [Yandex Games listing notes](yandex-games-listing-comparison.md): Yandex's listing rules and the mandatory-monetisation rule, for a parked portal (2026-11-26).
 
 ## Superseded positioning
 
