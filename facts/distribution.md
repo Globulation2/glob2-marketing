@@ -34,6 +34,7 @@ Source evidence: game repository [`docs/releases/`](https://github.com/Globulati
 | F-Droid | `fdroid.md` and build metadata. | Repository presence/approval and live package catalog not verified. |
 | Flathub | Flatpak preparation; direct bundle on current downloads page. | No Flathub listing verified; runtime use is not game listing proof. |
 | Steam / itch.io | `store-setup.md` preparation and release workflow references. | Targeted title/domain searches did not identify exact public listing URLs. Absence from search does not establish absence of drafts/submissions. |
+| GamePix (web portal) | Game repo [`docs/releases/gamepix.md`](https://github.com/Globulation2/glob2/blob/master/docs/releases/gamepix.md) and the browser-release `gamepix` job; [GamePix launch record](../planning/gamepix-launch.md). | Observed 2026-11-26: no public listing. A developer account exists; no game entry has been created and nothing has been submitted. |
 | GOG | `gog-release.md` submission and packaging preparation. | Public listing/acceptance not verified. |
 | China channels | `china-release.md` planning and separate edition constraints. | No distribution approval, publisher partnership or live store listing established. |
 | Ubuntu | Legacy upstream link and package ecosystem references. | Direct noble package fetch returned500; current package version not verified. |

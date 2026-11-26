@@ -96,6 +96,14 @@ On 2026-11-24 the user asked for the store listings to be revamped and made the 
 | MKT-069 | Produce storefront-v2: English copy, key art, screenshots, icon, trailer, and 44 reviewed translations | Planned | Depends on MKT-068. Work units V2-03 to V2-11 in the [rollout ledger](storefront-v2-rollout.md#work-units). All footage follows [gameplay video](gameplay-video.md). |
 | MKT-070 | Apply storefront-v2 to project-controlled stores and verify each by readback | Planned | Depends on MKT-069. [Per-store table](storefront-v2-rollout.md#per-store-rollout): Snap, itch.io, Microsoft Store, Google Play and source metadata now; Apple, Epic and Amazon when each review clears; Steam and GOG prepared only. |
 
+## Web portals
+
+Browser game portals host the HTML5 build on their own sites. Each portal has its own launch record; the game repository's [web portals guide](https://github.com/Globulation2/glob2/blob/master/docs/releases/web-portals.md) covers packaging.
+
+| ID | Task | Status | Dependency / completion evidence |
+| --- | --- | --- | --- |
+| MKT-071 | Launch Globulation 2 on GamePix | In progress | [GamePix launch record](gamepix-launch.md). Pipeline built and verified in GamePix's Testing Toolkit; listing copy approved. Waits on the next release with [#1932](https://github.com/Globulation2/glob2/pull/1932), GamePix's answers on links and online play, the owner's decision on ads, then game entry, art and submission. |
+
 ## Deferred decisions
 
 On 2026-11-24, [positioning v2](../analysis/positioning-v2.md) superseded v1 for store listings, the user stated that nothing is sold to players, and storefront-v2 began replacing the presentation approved under MKT-030. The paragraph below is the earlier record.
