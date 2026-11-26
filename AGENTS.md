@@ -21,6 +21,7 @@ These Git workflow rules apply only to the `glob2-marketing` repository. On 2026
 - `planning/` holds task ledgers and execution records. Update status, dependencies, evidence links, gaps, and next work as progress is made.
 - Keep paths and indexes consistent. Link related records instead of creating divergent copies. Preserve provenance and asset usage-rights uncertainty.
 - This repository is public: do not commit secrets, tokens, private account details, or unnecessary private correspondence. Use public evidence and minimal relevant metadata.
+- **No version-suffixed copies** (user request, 2026-11-26: "why do we have all these v1s and v2s and v3s in the repo when the repo already has a version history", then "Yes, clean up"). Update assets and records in place. Do not create `-v2`, `-v3` or similar copies of folders or files: Git history keeps earlier versions. Refer to a past version with a permanent GitHub link at a commit SHA (`https://github.com/Globulation2/glob2-marketing/blob/<sha>/<path>`), and mark an approved set with a Git tag. The existing `storefront-approved-v1` and `storefront-v2` folders keep their names until they are retired; remove `storefront-approved-v1` once storefront-v2 is live on every store, and repoint its links to history the same way.
 
 ## Initial research boundary
 

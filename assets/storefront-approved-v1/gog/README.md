@@ -17,8 +17,10 @@ The official [template archive](https://items.gog.com/templates/gog_art_assets.z
 
 The PSDs contain **three genuine raster layers**: approved flattened colony composite, wordmark shadow and original wordmark. These are not vector originals, independently editable colony objects or fully reconstructed source scenes. Background native source is 1672×941 and visible title raster 900×131; larger output canvases resample those pixels with Lanczos and create no new detail. Layered files are reopened, checked for size/three layers and recomposited against the corresponding PNG (maximum one RGB code-value difference from alpha-rounding). The transparent-logo export retains its visible native dimensions.
 
-Run `build-assets.py` with Pillow and psd-tools. The [manifest](manifest.json) records exact source hashes, crops/resampling, layer names and output hashes. The script writes only this directory. Source provenance/rights qualifications remain those of the [approved v5 artwork](../../epic-v5/README.md); these adaptations make no new blanket rights declaration.
+Run `build-assets.py` with Pillow and psd-tools. The [manifest](manifest.json) records exact source hashes, crops/resampling, layer names and output hashes. The script writes only this directory. Source provenance/rights qualifications remain those of the [approved v5 artwork](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/README.md); these adaptations make no new blanket rights declaration.
 
 Compiled application icons are preserved. Demo-only boards, campaign/social formats and public trailers have not been fabricated or exported. No portal upload, acceptance, QA submission or release is implied by this package.
 
 Coordinating review confirmed centered-title fit, retained colony in portrait/wide crops and no visible guide/mockup leakage. This local review does not prove publisher portal acceptance or change unresolved onboarding.
+
+`build-assets.py` reads `assets/epic-v5`, which was removed on 2026-11-26. Restore it first with `git checkout eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba -- assets/epic-v5` ([history](https://github.com/Globulation2/glob2-marketing/tree/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5)); see [Source folders removed](../README.md#source-folders-removed-2026-11-26).

@@ -1,10 +1,10 @@
 # Approved storefront presentation and rollout
 
-[Planning index](README.md) · [Task ledger](tasks.md) · [Approved page](../assets/epic-page-preview/README.md) · [Positioning](../analysis/positioning-v1.md) · [Distribution evidence](../facts/distribution.md)
+[Planning index](README.md) · [Task ledger](tasks.md) · [Approved page](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-page-preview/README.md) · [Positioning](../analysis/positioning-v1.md) · [Distribution evidence](../facts/distribution.md)
 
 ## Approval and scope
 
-On **2026-10-30**, after the final River battle and developed Four Squares strategic replacements, the user approved the presentation for use and instructed: “lets commit this and then apply this to all of our various storefroents”. The approval applies to the final copy and media displayed in the [local page](../assets/epic-page-preview/index.html), recorded at source revision `baa3093` before this approval entry.
+On **2026-10-30**, after the final River battle and developed Four Squares strategic replacements, the user approved the presentation for use and instructed: “lets commit this and then apply this to all of our various storefroents”. The approval applies to the final copy and media displayed in the [local page](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-page-preview/index.html), recorded at source revision `baa3093` before this approval entry.
 
 Apply this presentation to project-controlled storefront listings and their maintained metadata sources, with destination-specific field formatting and required asset exports. The instruction authorizes those listing updates. It does not establish account control, a successful upload, platform acceptance, a product release, or verified release metadata. The later publishing authorization below now permits actual submissions and releases. Preserve truthful current-artifact qualification, prices, declarations, system requirements, dates and ratings rather than filling gaps with guesses. No outreach or independent-catalog edits are included.
 
@@ -62,12 +62,12 @@ The product title is **Globulation 2**. Descriptive terms are **Strategy / Real-
 
 | Role | Exact source | Treatment and provenance |
 | --- | --- | --- |
-| Cover | [Illustrated landscape](../assets/epic-v5/offer-landscape-2560x1440.png) | Promotional illustration, existing title and real source-unit silhouettes; not gameplay. [Artwork provenance](../assets/epic-v5/README.md). Use its existing JPEG delivery export where required. |
-| Colony | [Colony replay](../assets/epic-page-preview/media/colony.webp) | Actual Fingerprint replay, tick 41350, fog disabled and outer HUD cropped. [Page provenance](../assets/epic-page-preview/README.md). |
-| Battle | [River, blue and gold armies](../assets/epic-gallery-v4/river-battle.jpg) | Staged native scenario with actual combat; [capture pack](../assets/epic-gallery-v4/README.md). |
-| Strategic view | [Developed Four Squares match](../assets/epic-gallery-v5/four-squares-midgame-strategic.jpg) | Genuine Cortex AI match at 25,000 ticks; [capture pack](../assets/epic-gallery-v5/README.md). |
-| Terrain | [Lava Shield in use](../assets/epic-gallery-v3/lava-shield-terrain-in-use.jpg) | Closer native staged-scene capture; [capture pack](../assets/epic-gallery-v3/README.md). |
-| Product logo | [Transparent logo](../assets/epic-v5/product-logo-960x540.png) | Existing wordmark; preserve proportions. |
+| Cover | [Illustrated landscape](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/offer-landscape-2560x1440.png) | Promotional illustration, existing title and real source-unit silhouettes; not gameplay. [Artwork provenance](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/README.md). Use its existing JPEG delivery export where required. |
+| Colony | [Colony replay](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-page-preview/media/colony.webp) | Actual Fingerprint replay, tick 41350, fog disabled and outer HUD cropped. [Page provenance](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-page-preview/README.md). |
+| Battle | [River, blue and gold armies](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-gallery-v4/river-battle.jpg) | Staged native scenario with actual combat; [capture pack](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-gallery-v4/README.md). |
+| Strategic view | [Developed Four Squares match](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-gallery-v5/four-squares-midgame-strategic.jpg) | Genuine Cortex AI match at 25,000 ticks; [capture pack](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-gallery-v5/README.md). |
+| Terrain | [Lava Shield in use](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-gallery-v3/lava-shield-terrain-in-use.jpg) | Closer native staged-scene capture; [capture pack](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-gallery-v3/README.md). |
+| Product logo | [Transparent logo](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/product-logo-960x540.png) | Existing wordmark; preserve proportions. |
 
 The cover belongs in key-art/cover slots. Keep the four gameplay images separate where a store permits screenshots only. The preview uses colony, strategic and battle images with their corresponding About sections. Preserve full HUDs in the native captures; do not retouch game content or recolour units. Keep the rejected fog image, older repetitive crops and superseded whole-map view out of new listing uploads. Additional platform crops or device-specific screenshots require their own fit check; desktop images do not demonstrate phone/tablet compatibility.
 

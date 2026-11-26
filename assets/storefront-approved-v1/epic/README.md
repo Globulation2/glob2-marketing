@@ -23,10 +23,10 @@ The colony upscale is a user-authorized direct adaptation of the approved 1280×
 
 Use the original approved artwork files without duplicating them here:
 
-- [Landscape PNG](../../epic-v5/offer-landscape-2560x1440.png) / [JPEG](../../epic-v5/offer-landscape-2560x1440.jpg): 2560×1440.
-- [Portrait PNG](../../epic-v5/offer-portrait-1200x1600.png) / [JPEG](../../epic-v5/offer-portrait-1200x1600.jpg): 1200×1600.
-- [Transparent product logo](../../epic-v5/product-logo-960x540.png): 960×540.
+- [Landscape PNG](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/offer-landscape-2560x1440.png) / [JPEG](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/offer-landscape-2560x1440.jpg): 2560×1440.
+- [Portrait PNG](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/offer-portrait-1200x1600.png) / [JPEG](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/offer-portrait-1200x1600.jpg): 1200×1600.
+- [Transparent product logo](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/product-logo-960x540.png): 960×540.
 
-Keep promotional illustration in key-art fields, separate from actual gameplay. Preserve the title and source-unit geometry. The [source artwork](../../epic-v5/README.md) and [desktop gallery](../README.md) retain provenance and notices.
+Keep promotional illustration in key-art fields, separate from actual gameplay. Preserve the title and source-unit geometry. The [source artwork](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/README.md) and [desktop gallery](../README.md) retain provenance and notices.
 
 Epic's [storefront media guide](https://dev.epicgames.com/docs/epic-games-store/sales-and-marketing/marketing/storefront-media-guide) is the requirements source recorded in the preparation checklist. Match the actual portal fields before upload. File preparation alone does not claim a saved listing, submission or release; current console outcomes belong in the approved rollout ledger.

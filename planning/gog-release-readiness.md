@@ -52,13 +52,13 @@ A strategy game to play, explore and help shape.
 
 | Slot / order | Source | Readiness and limits |
 | --- | --- | --- |
-| Key art | [Landscape 2560×1440](../assets/epic-v5/offer-landscape-2560x1440.png) | Approved promotional illustration, not gameplay. [Source provenance](../assets/epic-v5/README.md). |
-| Logo | [Transparent wordmark 960×540](../assets/epic-v5/product-logo-960x540.png) | Approved original; preserve proportions. Smaller native dimensions must be disclosed if placed on a larger canvas. |
+| Key art | [Landscape 2560×1440](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/offer-landscape-2560x1440.png) | Approved promotional illustration, not gameplay. [Source provenance](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/README.md). |
+| Logo | [Transparent wordmark 960×540](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/product-logo-960x540.png) | Approved original; preserve proportions. Smaller native dimensions must be disclosed if placed on a larger canvas. |
 | Screenshot 1: colony | [1280×720 PNG](../assets/storefront-approved-v1/01-colony.png) | Approved actual Fingerprint replay; do not claim native 1920 capture. |
 | Screenshot 2: battle | [2560×1440 PNG](../assets/storefront-approved-v1/02-river-battle.png) | Approved staged native River combat. |
 | Screenshot 3: strategy | [2560×1440 PNG](../assets/storefront-approved-v1/03-four-squares-strategic.png) | Approved developed Four Squares AI match. |
 | Screenshot 4: terrain | [2560×1440 PNG](../assets/storefront-approved-v1/04-lava-shield-terrain.png) | Approved staged Lava Shield terrain in use. |
-| Layered delivery | [Existing compositing script and source family](../assets/epic-v5/build-assets.py) | [Reviewed GOG layered derivatives](../assets/storefront-approved-v1/gog/README.md) now separate background/shadow/original-wordmark raster layers. The colony composite remains flattened and resampling is disclosed; no editable original scene/vector claim. |
+| Layered delivery | [Existing compositing script and source family](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/build-assets.py) | [Reviewed GOG layered derivatives](../assets/storefront-approved-v1/gog/README.md) now separate background/shadow/original-wordmark raster layers. The colony composite remains flattened and resampling is disclosed; no editable original scene/vector claim. |
 | Trailer | None prepared in the approved kit | Private Apple review clips are not an approved public GOG trailer. No new footage prepared or reused. |
 
 See the [desktop source manifest](../assets/storefront-approved-v1/README.md) for capture provenance. Only approved images or direct technical derivatives may be introduced. Keep gameplay frames separate from key art. [Reviewed GOG product-format adapters](../assets/storefront-approved-v1/gog/README.md) now provide technical crops/layouts and layered delivery; no new imagery was created.

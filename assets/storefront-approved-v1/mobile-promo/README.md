@@ -1,6 +1,6 @@
 # Shared mobile-store promotional graphic
 
-[Approved storefront copy and media](../../../planning/approved-storefront-rollout.md) · [Artwork source](../../epic-v5/README.md) · [Manifest](manifest.json)
+[Approved storefront copy and media](../../../planning/approved-storefront-rollout.md) · [Artwork source](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/README.md) · [Manifest](manifest.json)
 
 Prepared **2026-10-30** from the approved illustrated landscape for dedicated promotional-art fields. [feature-graphic-1024x500.png](feature-graphic-1024x500.png) is **1024×500**, opaque RGB PNG, **1,005,747 bytes**. Coordinating visual review approved the complete wordmark, central colony and resulting crop before upload.
 
@@ -17,6 +17,6 @@ This is promotional key art, not a mobile gameplay capture. Keep phone/tablet sc
 
 ## Source and treatment
 
-Source: the approved [2560×1440 illustrated landscape](../../epic-v5/offer-landscape-2560x1440.png). Crop rectangle `(0,30,2560,1280)` yields an exact 2.048:1 composition, then Lanczos resampling produces 1024×500. The existing title and central colony remain fully visible. No new image generation, retouching, recolouring, text replacement or app-icon substitution was applied.
+Source: the approved [2560×1440 illustrated landscape](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/offer-landscape-2560x1440.png). Crop rectangle `(0,30,2560,1280)` yields an exact 2.048:1 composition, then Lanczos resampling produces 1024×500. The existing title and central colony remain fully visible. No new image generation, retouching, recolouring, text replacement or app-icon substitution was applied.
 
-The [source artwork record](../../epic-v5/README.md) retains the generated environment, real source-unit silhouettes, original title and notices. The manifest records source/output hashes, crop, dimensions and encoding. Image decoding, RGB mode, exact dimensions, file-size fit and source/output hashes were verified; creating this file alone does not claim an external listing save.
+The [source artwork record](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/README.md) retains the generated environment, real source-unit silhouettes, original title and notices. The manifest records source/output hashes, crop, dimensions and encoding. Image decoding, RGB mode, exact dimensions, file-size fit and source/output hashes were verified; creating this file alone does not claim an external listing save.

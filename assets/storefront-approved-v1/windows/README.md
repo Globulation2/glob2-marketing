@@ -1,6 +1,6 @@
 # Microsoft Store promotional exports
 
-[Approved presentation](../../../planning/approved-storefront-rollout.md) · [Approved artwork provenance](../../epic-v5/README.md) · [Manifest](manifest.json) · [Build script](build-assets.py)
+[Approved presentation](../../../planning/approved-storefront-rollout.md) · [Approved artwork provenance](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/README.md) · [Manifest](manifest.json) · [Build script](build-assets.py)
 
 Prepared **2026-10-30** for the dedicated fields inspected in the authenticated Microsoft Store product editor. These are promotional illustration exports, separate from gameplay screenshots and application icons.
 
@@ -14,9 +14,9 @@ The editor accepts poster dimensions 720×1080 or 1440×2160, box art 1080×1080
 
 ## Source and composition
 
-All three exports start with the retained, approved [pre-title colony composite](../../epic-v5/colony-native.png), 1672×941. That layer already contains the approved illustrated environment and unchanged game-unit silhouettes placed at environmental scale. No unit is generated, repainted, restaged or anatomically altered here.
+All three exports start with the retained, approved [pre-title colony composite](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/colony-native.png), 1672×941. That layer already contains the approved illustrated environment and unchanged game-unit silhouettes placed at environmental scale. No unit is generated, repainted, restaged or anatomically altered here.
 
-The poster uses source crop `(554,0,1178,936)` and resizes it to 1440×2160. The square uses `(365,0,1306,941)` and resizes it to 1080×1080. Their title is extracted from the approved [product-logo canvas](../../epic-v5/product-logo-960x540.png), rectangle `(30,204,930,335)`, preserving the existing cream/gold wordmark. Each format repositions that wordmark with the same shadow treatment as the [approved v5 script](../../epic-v5/build-assets.py), without clipping or stretching the title.
+The poster uses source crop `(554,0,1178,936)` and resizes it to 1440×2160. The square uses `(365,0,1306,941)` and resizes it to 1080×1080. Their title is extracted from the approved [product-logo canvas](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/product-logo-960x540.png), rectangle `(30,204,930,335)`, preserving the existing cream/gold wordmark. Each format repositions that wordmark with the same shadow treatment as the [approved v5 script](https://github.com/Globulation2/glob2-marketing/blob/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5/build-assets.py), without clipping or stretching the title.
 
 The titleless Super hero export fits the complete pre-title colony composition to 1920×1080 with aspect-preserving Lanczos resampling and the minimal centered aspect crop. It never loads a title-bearing cover, erases text or paints over lettering. No new image generation, inpainting or screenshot retouching is involved.
 
@@ -25,3 +25,5 @@ The titleless Super hero export fits the complete pre-title colony composition t
 ## Review and use
 
 Coordinating visual review approved all three compositions; inspect their actual portal previews before upload. File preparation does not claim a saved listing or live publication. Keep the approved four-image gameplay gallery in screenshot slots; do not label these illustrations as actual gameplay. Existing app icons, builds, releases, prices and policy fields are outside this export unit. See the [rollout ledger](../../../planning/approved-storefront-rollout.md) for destination outcomes.
+
+`build-assets.py` reads `assets/epic-v5`, which was removed on 2026-11-26. Restore it first with `git checkout eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba -- assets/epic-v5` ([history](https://github.com/Globulation2/glob2-marketing/tree/eb6cad4be97ffe9ac5d0422d9c44aa3d60e632ba/assets/epic-v5)); see [Source folders removed](../README.md#source-folders-removed-2026-11-26).
