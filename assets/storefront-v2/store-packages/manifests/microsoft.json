@@ -4,7 +4,7 @@
  "package_dir": "packages:microsoft",
  "generated_by": "assets/storefront-v2/store-packages/build.py",
  "inputs": {
-  "stores.json": "c23b6d6b4c1be790ff462ebef065423e3d247da2ea1886765359ea9b3eaa0965",
+  "stores.json": "01b67b62a3f2779d86b7c242c87af2e12cd07bffe4e4ce1174fbdb81a81fe111",
   "review": {
    "file": "assets/storefront-v2/review/round-2-final.md",
    "sha256": "12bdda11795a52fcfc41a90e94851117b0a8564d7217b5f94ddc32ca5897e385"
@@ -689,6 +689,29 @@
    },
    "contains_text": false,
    "note": "alternative size; upload one super hero"
+  },
+  {
+   "file": "app-tile-icon-300x300.png",
+   "slot": "app-tile-icon",
+   "source": {
+    "file": "assets/storefront-v2/icon/glob2-icon.svg",
+    "sha256": "0b281abeaa827c71fd94033acaaf1278a31a19a3f07a2b3288a2d1b1b9e24978",
+    "treatment": "vector rendered at 246 px with resvg-py and centred on #2B1C42"
+   },
+   "pixels": "300x300",
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 25144,
+   "sha256": "f1754af0e67e10fd140eb45020d29a27951e92d9518550b1573a1c1c82124731",
+   "rules": {
+    "size": [
+     300,
+     300
+    ],
+    "format": [
+     "PNG"
+    ]
+   }
   }
  ],
  "text": {
@@ -843,9 +866,7 @@
  "blocked": [],
  "pending": [],
  "errors": [],
- "not_packaged": [
-  "1:1 app tile icon 300x300: optional; the Store uses the package's own tile logo when it is not set (v1 kept the existing tile). The new icon ships in the package with the next build (game PR 1915)."
- ],
+ "not_packaged": [],
  "unverified": [
   "Whether Partner Center still accepts a 3840x2160 PNG for every screenshot slot of an existing listing: the 2026-08-24 page says 4K is supported and 50 MB is the limit; v1 uploaded 2560x1440."
  ],

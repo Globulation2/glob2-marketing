@@ -75,7 +75,9 @@
         {"slot": "box-art", "file": "microsoft-box-art-2160x2160.png", "size": [2160, 2160], "format": "PNG", "alpha": "forbid"},
         {"slot": "box-art-alt", "file": "microsoft-box-art-1080x1080.png", "size": [1080, 1080], "format": "PNG", "alpha": "forbid", "optional_slot": "alternative size; upload one box art"},
         {"slot": "super-hero", "file": "microsoft-super-hero-3840x2160.png", "size": [3840, 2160], "format": "PNG", "alpha": "forbid", "text": false},
-        {"slot": "super-hero-alt", "file": "microsoft-super-hero-1920x1080.png", "size": [1920, 1080], "format": "PNG", "alpha": "forbid", "text": false, "optional_slot": "alternative size; upload one super hero"}
+        {"slot": "super-hero-alt", "file": "microsoft-super-hero-1920x1080.png", "size": [1920, 1080], "format": "PNG", "alpha": "forbid", "text": false, "optional_slot": "alternative size; upload one super hero"},
+        {"slot": "app-tile-icon", "render_icon": {"size": 300, "fraction": 0.82, "background": "#2B1C42", "method": "vector"}, "size": [300, 300], "format": "PNG",
+         "note": "1:1 app tile icon under Store display images. Partner Center requires the 300x300 size when 'Display uploaded logo images instead of the images from my packages' is ticked (observed 2026-11-26); 150x150 and 71x71 are optional and left to the Store. Same plate colour and glob fraction as the Amazon small icon and the Android launcher icon."}
       ],
       "trailer": [
         {"slot": "trailer", "file": "glob2-trailer-desktop-34s-1080p.mp4", "coplay": true,
@@ -85,9 +87,7 @@
          "with_asset": "super-hero",
          "note": "Trailer review table: the desktop cut, since the Microsoft listing carries AI co-play. Upload the text-free super hero (super-hero slot) as well, or the trailer does not show at the top of the listing. Title: the export's trailer_title field per locale."}
       ],
-      "not_packaged": [
-        "1:1 app tile icon 300x300: optional; the Store uses the package's own tile logo when it is not set (v1 kept the existing tile). The new icon ships in the package with the next build (game PR 1915)."
-      ],
+      "not_packaged": [],
       "unverified": [
         "Whether Partner Center still accepts a 3840x2160 PNG for every screenshot slot of an existing listing: the 2026-08-24 page says 4K is supported and 50 MB is the limit; v1 uploaded 2560x1440."
       ]
