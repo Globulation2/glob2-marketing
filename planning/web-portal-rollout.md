@@ -171,6 +171,14 @@ A pitch email to Armor Games' game submission address is **prepared** as a Gmail
 
 ## Open decisions
 
+Listing research for every portal (2026-11-26, commit 1f95e7b): see the `analysis/<portal>-listing-comparison.md` files. Decisions it surfaced:
+
+- **Ads are now blocking for three portals.** Poki requires its ad calls. GameDistribution's SDK expects a pre-roll and mid-rolls. Yandex rule 1.12 requires ads or in-app purchases. CrazyGames shows no ads in Basic Launch but needs SDK ads for Full Launch. This sharpens the "No ads" decision below.
+- **Newgrounds content rating:** T, as currently set (recommended), or E.
+- **Newgrounds build:** standard, as currently set (recommended), or lite.
+- **GameDistribution build:** standard or lite (no size limit found).
+- **Lite copy:** never claim campaigns (claims R5: none ship). Check whether "8 computer opponents" holds in lite, which drops the JavaScript AIs.
+
 - **Ads:** storefront-v2 copy says "No ads". CrazyGames, GameDistribution, Yandex and Poki run their own ads around or inside games, so the claim needs scoping per portal before those listings go live. See [storefront v2 claims](../facts/storefront-claims.md).
 - **Game Jolt development stage:** Early Access or Complete/Stable.
 - **Game Jolt devlog:** whether to post a launch devlog. The comparison found devlog posting is the main gap against top games.
