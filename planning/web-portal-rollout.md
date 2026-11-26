@@ -17,7 +17,7 @@ Evidence levels used below: **prepared** (drafted locally), **saved** (stored on
 | Portal | State | Next step |
 |---|---|---|
 | Game Jolt | **Live** again 2026-11-26 with release 0.11.802 (textured terrain verified on gamejolt.net) | Launch devlog post (awaiting approval); next release brings the Quit fix |
-| Newgrounds | Account signed in; no project yet | Create the project page and upload the Newgrounds zip |
+| Newgrounds | Draft project 8315233 **saved** with 0.11.8.2; preview verified 2026-11-26 | Publish (awaiting the user's go-ahead) |
 | CrazyGames | Developer portal set up; nothing submitted | Needs a build with portal mode and a first download under 50 MB |
 | GameDistribution | Developer application submitted, awaiting approval | Game ID from the dashboard, then upload |
 | Yandex Games | Parked | Not accepting new developer applications; the full build is also over its 100 MB limit |
@@ -118,6 +118,21 @@ Until a token arrives: dispatch `browser-release` with `gamejolt` off, download 
 Game Jolt shows its own site advertisements around the game page. "No ads" in the description refers to the game itself, which shows none.
 
 ## Newgrounds
+
+**Project 8315233 (draft, saved 2026-11-26)**, account username `Globulation2`:
+- Title: Globulation 2.
+- Short description: the storefront-v2 headline.
+- Genre: Strategy - Real-time (RTS).
+- Rating: T, with violence "Some" for cartoon combat. Everything else is None.
+- Commentary: the browser-safe copy, the same claims as Game Jolt.
+- Tags: strategy, rts, colony, base-building, economy, multiplayer, open-source, map-editor.
+- Icon: the itch.io cover, 630×500, from storefront-v2-renders.
+- HTML5 file: the release run's standard `glob2-0.11.8.2-newgrounds.zip` (126 MB), uploaded by the user. Embed 1280×720, touchscreen friendly. "Uses SharedArrayBuffer/Cross Origin Isolation" is left off because the serial runtime is the verified path. Newgrounds offering cross-origin isolation means the threaded runtime could be tried there later.
+- Allow Embedding: off.
+
+Newgrounds' own preview loaded the game with textured terrain to the Introduction screen. Not published yet.
+
+Earlier notes:
 
 Account signed in on 2026-11-26. No project page yet. The Newgrounds zip from run 45873293249 keeps links and sign-in, so it can be used as is. The upload limit was reported as about 250 MB but is not confirmed from Newgrounds documentation.
 
