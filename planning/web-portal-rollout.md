@@ -46,7 +46,7 @@ Release run 45873293249 on the release mirror (2026-11-26, tag v0.11.8.1, publis
   - Set the page colour theme to the brand accent `#e3c077` from glob2-design-system.
   - Added `#multiplayer` to the description hashtags, now `#strategy #rts #opensource #multiplayer`. Only `#strategy` and `#multiplayer` are on Game Jolt's official browse-tag list; the other two still help search.
   - Languages: no change was needed. Game Jolt has no languages field, and the description already says "45 languages".
-- Not done yet: devlog posts (none so far), development stage still "Early Access" (the user's call whether to switch to "Complete/Stable").
+- Not done yet: devlog posts (none so far; launch post 1 is [prepared for review](gamejolt-devlog.md)), development stage still "Early Access" (the user's call whether to switch to "Complete/Stable").
 
 ### Automated upload: blocked
 

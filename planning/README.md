@@ -14,6 +14,7 @@
 - [itch.io launch](itch-io-launch.md) tracks listing preparation, desktop downloads, access and launch verification.
 - [GamePix launch](gamepix-launch.md) is the GamePix launch record: inbound outreach, platform terms, the release pipeline, Testing Toolkit verification, the approved listing and next steps.
 - [Web game portal rollout](web-portal-rollout.md): Game Jolt (live 2026-11-26), Newgrounds, CrazyGames, GameDistribution, Yandex Games and Poki listings, the portal build pipeline and its blockers, and the Armor Games pitch. Listing comparison in [Game Jolt listing comparison](../analysis/gamejolt-listing-comparison.md).
+- [Game Jolt devlog](gamejolt-devlog.md): drafted and posted Game Jolt devlog posts with their claims checks.
 - [GOG release readiness](gog-release-readiness.md): approved English copy/source assets, official delivery checklist and unresolved onboarding/build handoff.
 - [Canonical storefront translations](../translations/README.md): 44 non-English language catalogs, independent AI review, platform field exports, maintenance and artwork audit.
 - [Storefront v2 translation review record](storefront-v2-translation-review.md): 2026-11-24 AI translation and independent AI review of the 44 non-English storefront-v2 catalogs: method and limits, patterns worth a human check, per-locale ratings, the errors reviewers fixed and the residual concerns a native speaker should check. Not human or native-speaker validation.
