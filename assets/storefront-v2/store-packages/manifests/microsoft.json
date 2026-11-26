@@ -4,12 +4,12 @@
  "package_dir": "packages:microsoft",
  "generated_by": "assets/storefront-v2/store-packages/build.py",
  "inputs": {
-  "stores.json": "01b67b62a3f2779d86b7c242c87af2e12cd07bffe4e4ce1174fbdb81a81fe111",
+  "stores.json": "4b362ac72af631ec9f0e0da83496d2beb44833507a23a4015e2bcdada095bf50",
   "review": {
    "file": "assets/storefront-v2/review/round-2-final.md",
    "sha256": "12bdda11795a52fcfc41a90e94851117b0a8564d7217b5f94ddc32ca5897e385"
   },
-  "platforms.json": "444308fd7a05f230fd0de0108bc8ce6a1f8b4920bc34abf2946603a423e8f2e5",
+  "platforms.json": "aa05a48ccf585a40bb0957283a3115143412a787b089c28b797f2f4dd6d5c0d5",
   "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
   "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)",
   "trailer_manifest": "a7f26a5a2a4f7e5c7cdf196749810a58ab4aaf29c423aaced31faa1e186ba488"
@@ -707,6 +707,52 @@
     "size": [
      300,
      300
+    ],
+    "format": [
+     "PNG"
+    ]
+   }
+  },
+  {
+   "file": "app-tile-icon-150-150x150.png",
+   "slot": "app-tile-icon-150",
+   "source": {
+    "file": "assets/storefront-v2/icon/glob2-icon.svg",
+    "sha256": "0b281abeaa827c71fd94033acaaf1278a31a19a3f07a2b3288a2d1b1b9e24978",
+    "treatment": "vector rendered at 123 px with resvg-py and centred on #2B1C42"
+   },
+   "pixels": "150x150",
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 9443,
+   "sha256": "8e6f4332209c2285c18621a6f1313b20caf58a4b685370518b3d6ea32dd3929d",
+   "rules": {
+    "size": [
+     150,
+     150
+    ],
+    "format": [
+     "PNG"
+    ]
+   }
+  },
+  {
+   "file": "app-tile-icon-71-71x71.png",
+   "slot": "app-tile-icon-71",
+   "source": {
+    "file": "assets/storefront-v2/icon/glob2-icon.svg",
+    "sha256": "0b281abeaa827c71fd94033acaaf1278a31a19a3f07a2b3288a2d1b1b9e24978",
+    "treatment": "vector rendered at 58 px with resvg-py and centred on #2B1C42"
+   },
+   "pixels": "71x71",
+   "format": "PNG",
+   "mode": "RGB",
+   "bytes": 3430,
+   "sha256": "4d8f62eaad3cc2e0788416936dcb06ef8c5f392912d50733daffe446bef3c191",
+   "rules": {
+    "size": [
+     71,
+     71
     ],
     "format": [
      "PNG"

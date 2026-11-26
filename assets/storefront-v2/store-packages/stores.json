@@ -77,7 +77,11 @@
         {"slot": "super-hero", "file": "microsoft-super-hero-3840x2160.png", "size": [3840, 2160], "format": "PNG", "alpha": "forbid", "text": false},
         {"slot": "super-hero-alt", "file": "microsoft-super-hero-1920x1080.png", "size": [1920, 1080], "format": "PNG", "alpha": "forbid", "text": false, "optional_slot": "alternative size; upload one super hero"},
         {"slot": "app-tile-icon", "render_icon": {"size": 300, "fraction": 0.82, "background": "#2B1C42", "method": "vector"}, "size": [300, 300], "format": "PNG",
-         "note": "1:1 app tile icon under Store display images. Partner Center requires the 300x300 size when 'Display uploaded logo images instead of the images from my packages' is ticked (observed 2026-11-26); 150x150 and 71x71 are optional and left to the Store. Same plate colour and glob fraction as the Amazon small icon and the Android launcher icon."}
+         "note": "1:1 app tile icon under Store display images. Partner Center requires the 300x300 size when 'Display uploaded logo images instead of the images from my packages' is ticked (observed 2026-11-26); 150x150 and 71x71 are optional (packaged below). Same plate colour and glob fraction as the Amazon small icon and the Android launcher icon."},
+        {"slot": "app-tile-icon-150", "render_icon": {"size": 150, "fraction": 0.82, "background": "#2B1C42", "method": "vector"}, "size": [150, 150], "format": "PNG",
+         "note": "Optional 150x150 app tile icon under Store display images. Added 2026-11-26 after Partner Center's Review and publish page stopped loading once the override was on with only the 300x300 tile set; filling every Store display slot rules that out."},
+        {"slot": "app-tile-icon-71", "render_icon": {"size": 71, "fraction": 0.82, "background": "#2B1C42", "method": "vector"}, "size": [71, 71], "format": "PNG",
+         "note": "Optional 71x71 app tile icon under Store display images; see app-tile-icon-150."}
       ],
       "trailer": [
         {"slot": "trailer", "file": "glob2-trailer-desktop-34s-1080p.mp4", "coplay": true,
