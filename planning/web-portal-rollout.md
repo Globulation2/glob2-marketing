@@ -20,7 +20,7 @@ Evidence levels used below: **prepared** (drafted locally), **saved** (stored on
 | CrazyGames | Developer portal set up; nothing submitted | Needs a build with portal mode and a first download under 50 MB |
 | GameDistribution | Developer application submitted, awaiting approval | Game ID from the dashboard, then upload |
 | Yandex Games | Parked | Not accepting new developer applications; the full build is also over its 100 MB limit |
-| Poki | Not applied | Apply through the game submission form once the small download build exists |
+| Poki | Not applied | Lite edition is ready (8 MB startup); needs a lite portal package, then apply |
 | Armor Games | Pitch email **prepared** as a draft, not sent | The user checks the generative-AI disclosure line and sends it |
 
 ## Build and packaging (glob2 repository)
@@ -34,6 +34,14 @@ All three pieces are merged on glob2 master (2026-11-26):
 Release run 45873293249 on the release mirror (2026-11-26, tag v0.11.8.1, publish off) built all five portal zips. Package size: 126 MB zipped, about 219 MB unpacked, about 495 files.
 
 **Caveat:** the game binary is built from the release tag, and v0.11.8.1 predates portal mode. Zips from that tag ignore the portal settings. That is harmless for Game Jolt and Newgrounds, which keep links and sign-in, but the CrazyGames and GameDistribution zips must wait for the first tag that contains #1927.
+
+## Lite browser edition
+
+Merged 2026-11-26 as Globulation2/glob2#1933. The user reported it finished that day, at the target of about 8 MB before the game starts. According to the PR, an English-speaking player downloads 8.07 MB (Brotli) before the game starts and 9.04 MB in total, against 21.93 MB and 106.62 MB for the standard build. It is published at `/play/lite/`.
+
+The lite edition leaves out the map editor, online play, LAN, MCP, the JavaScript AIs, premade maps (random maps and campaigns remain), translations (English only), HD art and most music. Terrain looks simpler by design. Listing copy for a portal that uses lite must therefore drop the editor, online play, the 23 handmade maps and the 45 languages.
+
+Not yet done: the portal packager still repackages the standard build only. Pointing the CrazyGames, Poki and Yandex profiles at the lite artifact is a change in the game repository.
 
 ## Game Jolt
 
