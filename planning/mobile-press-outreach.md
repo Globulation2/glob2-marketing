@@ -103,6 +103,14 @@ Gmail Sent confirmed an Arabic iPhone and iPad pitch to Saudi Gamer at its publi
 
 The subsequent inbox sweep found the two delivery failures already recorded and no relevant editorial reply. Fresh US and Spain Google Play checks returned 404, and the mainland China App Store lookup returned zero results.
 
+## Gamezebo reply and paid-placement offer — 2026-11-25 to 2026-11-26
+
+- **2026-11-25:** Gamezebo did not reply editorially. Its editorial team forwarded the review pitch to Push Your App, the agency that sells Gamezebo's advertising and advertorials. The agency replied with a general offer of paid editorial, ads, consultancy and PR.
+- **2026-11-26:** The user had a reply sent asking for rates on entry-level editorial and fixed-price ads, out of curiosity. The agency quoted $250 for a Gamezebo news article, or $450 for articles on Gamezebo and Kongbakpao plus 3-day front-page features. It attached a media pack, which was not opened. It also shared contacts for its editorial writers, saying most of the network's coverage is unpaid. The contacts are kept out of this public repository.
+- **Decision (2026-11-26):** the user declined paid placement ("nah it doesn't sound like its worth it"). The user also said a global audience matters more than a US one. No reply to the agency is required.
+- **Research and reasoning:** [Paid placement: Push Your App](../analysis/paid-placement-push-your-app.md).
+- **Open option:** pitch the network's editorial writers directly for free coverage. This has not been sent, and the user has not decided whether to do it.
+
 ## Remaining dispositions
 
 - **148Apps:** The first-wave Pocket Gamer pitch reached the shared Steel Media network. Both publications list Dann Sullivan as editor-in-chief. There was no separate send or receipt for 148Apps, so it is outside the 29 unique outlets with confirmed attempts. [148Apps contact](https://www.148apps.com/pages/contact/) · [Pocket Gamer masthead](https://www.pocketgamer.com/pages/about/)

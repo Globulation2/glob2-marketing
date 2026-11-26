@@ -31,6 +31,7 @@ The four initial maps have undergone evidence-boundary and peer review. No hypot
 ## Launch press research
 
 - [Mobile games press](mobile-games-press.md) lists public contacts and relevant coverage by language and market.
+- [Paid placement: Push Your App](paid-placement-push-your-app.md): Gamezebo-network paid editorial offer, its reach, prices and labelling, and the user's 2026-11-26 decision not to buy.
 
 ## Historical positioning draft phase
 
