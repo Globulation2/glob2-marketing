@@ -246,6 +246,8 @@ The Inspector's "Initial download size 25 MB" and "loading 37 s" figures come fr
 
 **Gap found:** opening the in-game menu or choosing Pause during a match sends no `gameplayStop`, and resuming sends no `gameplayStart`. Poki's checklist asks for stop and start "accurately fired when the game is paused". The Inspector's QA modules are a developer self-assessment (SDK Basics, Technical Stability, Mobile Optimization, Privacy & Security, Playground Integration, Ad Implementation); none have been ticked.
 
+**Gap fixed** in glob2 #1955, merged 2026-11-27 as a592d8b. The in-game menu and Pause now send `gameplayStop`, and closing or resuming sends `gameplayStart` (Poki, CrazyGames, Yandex). Pause never triggers an ad. Checked headless with stand-in SDKs (`start, stop, start, stop, start, stop`, then the ad break). The live Inspector re-check is still to do: the lite Poki package from the merged code is unpacked at `portals-unpacked/poki-master`. The desktop app's built-in browser shows a blank game frame when the Inspector loads a localhost URL, so the check needs Chrome or a folder upload.
+
 Earlier notes:
 
 Art (2026-11-26, not uploaded): text-free 1080×1080 thumbnail and 5.85 s 60 fps animated thumbnail from lite-build footage, in [portal art](../assets/portal-art/README.md).
