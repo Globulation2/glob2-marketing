@@ -24,7 +24,7 @@ Prepared 2026-11-26. This is paste-ready copy for every field each web portal as
 | 10-lesson tutorial | yes | yes | yes |
 | Replays | yes | yes | yes |
 | Map editor | yes | yes | **no** |
-| Online room with an invite code | yes (see owner decision 4) | **no** (portal mode hides online) | **no** (online removed) |
+| Online room with an invite code | **no** (decided 2026-11-27: the online service refuses cross-site requests, so portal pages cannot connect) | **no** (portal mode hides online) | **no** (online removed) |
 | 45 languages | yes | yes | **no** (English only) |
 | LAN, MCP | no | no | no |
 | Campaigns | never (R5) | never | never |
@@ -77,7 +77,6 @@ Project 8315233, a draft saved with 0.11.8.2. **Standard build, no ads in the ga
 > - A 10-lesson tutorial
 > - Built-in map editor
 > - Save and watch replays
-> - Host an online room and invite friends with a code
 > - Available in 45 languages
 >
 > The game itself has no ads, no in-app purchases and no loot boxes. Globulation 2 is free and open source (GPLv3). It was started in 2001 and has been built by volunteers over two decades.
@@ -86,15 +85,15 @@ Project 8315233, a draft saved with 0.11.8.2. **Standard build, no ads in the ga
 >
 > Desktop versions for Windows, macOS and Linux: https://glob2.online/
 
-- Evidence: NG-2 (open with what the game is and where to start, avoid "complete", a "Features" list, 150–250 words). NG-4: rooms only, no quick matches, and "no ads" scoped to the game. Feature lines from claims §3. "Online rooms with invite codes" is safe with caveat (R6). Heritage from claims §4. The link is allowed because the Newgrounds package keeps external links (rollout).
+- Evidence: NG-2 (open with what the game is and where to start, avoid "complete", a "Features" list, 150–250 words). NG-4: "no ads" scoped to the game. Feature lines from claims §3. The online rooms line was cut on 2026-11-27 (owner decision 4): `https://app.glob2.online` sends no cross-origin headers and answers CORS preflight with 404, so a Newgrounds-hosted page cannot reach it. Heritage from claims §4. The link is allowed because the Newgrounds package keeps external links (rollout).
 - No MCP (claims §2: not in browser builds), no LAN (§5), no campaigns (R5), no quick-match line (R12).
 - AI disclosure (added 2026-11-27, approved by the owner and entered on the Newgrounds draft the same day, verified after a reload): Newgrounds requires disclosing any AI use in the author commentary ([other portals audit](../analysis/other-portals-requirements-audit.md), NG-9). Wording matches the maintainer-reviewed line in [the Linux and preservation Reddit draft](reddit-campaign/linux-and-preservation.md).
 
 **Tags (8):** strategy, rts, real-time-strategy, colony, base-building, economy, open-source, map-editor
-- Evidence: NG-7, taking its optional swap of `multiplayer` for `real-time-strategy`, because online play is thin (R12). See owner decision 5.
+- Evidence: NG-7, taking its optional swap of `multiplayer` for `real-time-strategy`, because online play does not work from the portal (owner decision 5, accepted 2026-11-27).
 
 **Content rating:** T. Violence: "Some" (cartoon combat). Everything else: None.
-- Evidence: the draft as saved. Newgrounds comparison, "Decisions for the user" (T is the safe choice). Owner decision 6 is T or E.
+- Evidence: the draft as saved. Newgrounds comparison, "Decisions for the user" (T is the safe choice). Owner decision 6: T, accepted 2026-11-27.
 
 **Touchscreen friendly:** tick it only if a phone-sized test of the published page shows the phone layout. Otherwise untick it.
 - Evidence: NG-3 (the page has two viewport tags). Rollout, "Phone layout depends on the portal page".
@@ -121,12 +120,11 @@ Draft entry BL8O73. **Standard build, portal mode, with ads.** Online play and e
 **Main tag:** Strategy. **More tags:** War, City Building, Management, Simulation
 - Evidence: GP-5 (keep the five). No Multiplayer tag: online is hidden in this build.
 
-**Description (443 of 100–500 characters), replacing the approved 449-character text:**
+**Description (443 of 100–500 characters), replacing the approved 449-character text (owner decision 7, accepted 2026-11-27):**
 
 > Grow a colony of globs and fight rival colonies for land in this real-time strategy game. You never steer single units: choose what to build and how many globs work on it, then place flags to explore or attack. Your globs gather, build, eat and fight on their own. Keep the inns full, train warriors and defend your borders before rivals take the best ground. Click or tap to build and place flags; drag or use the arrow keys to move the view.
 
 - Evidence: GP-3 (move the controls to How to Play and free the space for gameplay). GamePix's form requires the description to explain the controls, so one short controls sentence stays. Claims from `control_body`, `economy_body` and `defense_body`. The wording is new, as GamePix asks for original text.
-- The approved text does not say "No ads" either, so keeping it is also compliant. See owner decision 7.
 
 **How to Play – Instructions (497 of 500 characters):** keep the saved text unchanged. It is in [GamePix launch](gamepix-launch.md#how-to-play-and-art-2026-11-26).
 - Evidence: saved and verified on 2026-11-26. It contains no ads, online or MCP claims.
@@ -291,7 +289,8 @@ Developer application awaiting approval. **Standard build (per the brief), porta
 **Age group:** Teens, YoungAdults, Adults, Seniors. **Gender:** leave unset, or all.
 - Evidence: GD-1 ("Teens and up"). No evidence supports targeting a gender.
 
-**`no_blood`, `no_cruelty`, `kids_friendly`:** **not filled.** GD-1 says to set them only after checking combat in the game, and that check was not done. See owner decision 8.
+**`no_blood`:** on. **`no_cruelty`:** on. **`kids_friendly`:** off.
+- Evidence: combat checked 2026-11-27 (owner decision 8). The game shows no blood: a unit's death is a green sparkle that fades (`content/data/gfx/death0r.png` to `death9r.png`, 32×32), and warriors fight without wounds or gore. Nothing tortures or mistreats creatures. `kids_friendly` stays off because the age group is Teens and up (GD-1) and the game has real combat and starvation ("dying hungry"). One ruleset is named "Bloodbath" ("Fragile, fearless armies"), but that is only a name; nothing bloody is drawn.
 
 **Frame size:** 1280×720 (16:9).
 - Evidence: GameDistribution comparison table.
@@ -329,7 +328,7 @@ Developer application awaiting approval. **Standard build (per the brief), porta
 
 **Categories:** Strategy. Yandex's category list was not observed, so choose the nearest match there.
 
-**Age rating:** 12+, the conservative choice for cartoon combat.
+**Age rating:** 12+, the conservative choice for cartoon combat (owner decision 9, accepted 2026-11-27).
 - Evidence: Yandex 2.7 (the rating must match the content). Claims §5: the iOS listing shows 12+/13+, and Microsoft's IARC rating is PEGI 3. See owner decision 9.
 
 **Languages:** English (the game). Russian for the listing only, if Yandex accepts listing-only localisation (8.2.3). Ask Yandex first (YA-2).
@@ -343,7 +342,6 @@ Developer application awaiting approval. **Standard build (per the brief), porta
 | Portal | Field | Why |
 |---|---|---|
 | GamePix | Video | The only trailer on YouTube shows a "No ads" card. A textless cut needs uploading and checking (owner decision 2) |
-| GameDistribution | `no_blood`, `no_cruelty`, `kids_friendly` | Combat has not been checked in the game for blood or cruelty |
 | GameDistribution | Exact language entries | GameDistribution's picklist has not been seen |
 | Yandex | How to play (Russian), categories | No reviewed Russian controls text. The category list has not been observed |
 | CrazyGames, Poki, Yandex, GameDistribution | Mobile flags | Real-device test not done (simulator only) |
@@ -353,12 +351,14 @@ Developer application awaiting approval. **Standard build (per the brief), porta
 
 ## Owner decisions
 
-1. **Lite claims "7 computer opponents"**, not 8. Lite has no Hard opponent. Alternatives: drop the count, or say "7 computer opponents, easy and medium".
-2. **GamePix video:** upload the textless 30 s trailer cut as a second YouTube video for ad-enabled portals, or leave the field empty.
-3. **The YouTube trailer `t6Q3ZpY9aTM` and its description say "No ads".** Do not embed it on any ad-enabled portal.
-4. **Newgrounds online rooms line:** keep it only if the 0.11.8.2 browser build actually connects to the production service (R6: production serves one simulation version). Check this before publishing, or cut the bullet.
-5. **Newgrounds tags:** `real-time-strategy` replaces `multiplayer` (NG-7, optional swap). The draft still has `multiplayer`.
-6. **Newgrounds rating:** T (as saved) or E.
-7. **GamePix description:** replace the approved 449-character text with the gameplay-led 443-character one (GP-3, open decision 5 in the GamePix record), or keep the approved text.
-8. **GameDistribution content flags:** someone checks combat in the game, then sets `no_blood` and `no_cruelty`.
-9. **Yandex age rating:** 12+ (conservative) or 6+.
+All nine were resolved on 2026-11-27, when the owner accepted every recommendation ("I accept your recommendations on all of these issues").
+
+1. **Lite opponents:** "7 computer opponents", with no "easy to hard". Already used in the CrazyGames, Poki and Yandex copy.
+2. **GamePix video:** upload the textless 30 s cut (`storefront-v2-renders/trailer/glob2-trailer-30s-textless-1080p.mp4`, outside the repository) as a second YouTube video and use it only on ad-enabled portals. Footage checked on 2026-11-27 against [the contact sheet](../assets/storefront/trailer/contact-sheet-master-30s-textless.jpg): match footage only, with no menus, online, link or MCP screens, and no text cards. Its YouTube description must not carry `fair_deal_line` ("No ads.").
+3. **Trailer `t6Q3ZpY9aTM`:** never embedded on an ad-enabled portal (unchanged).
+4. **Newgrounds online rooms line:** cut. `https://app.glob2.online` answers a CORS preflight with 404 and sends no `Access-Control-Allow-Origin`, so the game on a Newgrounds (or Game Jolt) page cannot sign in or join rooms.
+5. **Newgrounds tags:** `real-time-strategy` replaces `multiplayer`.
+6. **Newgrounds rating:** T.
+7. **GamePix description:** the gameplay-led 443-character text replaces the approved one.
+8. **GameDistribution content flags:** `no_blood` and `no_cruelty` on, `kids_friendly` off, after the combat check recorded under GameDistribution.
+9. **Yandex age rating:** 12+.
