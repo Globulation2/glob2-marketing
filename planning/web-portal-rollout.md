@@ -275,6 +275,16 @@ Simulated portal frame (Chrome, separate origin, no COOP/COEP): Newgrounds, Game
 
 The CrazyGames 0.11.8.4 package needs no #1983 change and is ready for the QA Tool. The upload is the owner's step.
 
+**CrazyGames QA Tool, 0.11.8.4, 2026-11-27, passed.** The owner uploaded the unpacked package (gameBuildId 8b23f07b-96c9-4e47-bcc5-9839942ddd75) and has not pressed Continue, so the build has not gone to QA. The Tool reports 44.5 MB total, 10.3 MB load size, and a 33.6 s load time that includes time spent in menus.
+
+Log: sdkInit, sdkGameLoadingStart, gameLoaded, gameFinishedLoading, sdkGameLoadingStop when the menu is ready. Then, in a custom match:
+- gameplayStart at the start;
+- gameplayStop when the menu opens;
+- gameplayStart on return;
+- gameplayStop on the menu before quitting, with nothing extra on quit.
+
+Leaving the results requested no ad, which is right for Basic Launch. The Warnings tab is empty. Settings > Display has no Window mode option, only the "Windowed" status text. The first-visit lesson wasn't seen, because this preview's storage already marks the introduction offered from earlier runs. Mobile checks need a phone; the Tool's QR code opens the preview.
+
 Earlier notes:
 
 Art (2026-11-26, not uploaded): text-free 1080×1080 thumbnail and 5.85 s 60 fps animated thumbnail from lite-build footage, in [portal art](../assets/portal-art/README.md).
