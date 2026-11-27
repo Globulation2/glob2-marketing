@@ -204,6 +204,15 @@ QA results:
 
 **Resolution (2026-11-26):** CrazyGames' rules say the first gameplay start "excludes menus", and their 20-second time-to-gameplay rule applies only to externally hosted games ([technical requirements](https://docs.crazygames.com/requirements/technical/)). So match-based gameplay events stay. A first-screen gameplay change was tried in glob2 #1952 and removed. The QA load-time figure is informational for us; the binding limit is the ≤ 50 MB initial download (10.4 MB). The user decided to keep the current first-run flow: sound prompt, then the Introduction offer, which is one click into a skippable onboarding match. That already meets the quality guideline that new players "land directly" in a skippable onboarding. The in-game menu fit is fixed in glob2 #1952 (wheel scrolling, two columns in short frames, AI telemetry hidden in portals), and "Report a problem" is confirmed link-free there.
 
+**QA Tool re-run, 2026-11-27**, with the lite package from glob2 master `8e03a98` (#1947 and #1952 merged): 18.0 MB zip, 46.8 MB unpacked, 138 files, because the game pack is now split into about 107 parts. The draft's old files were replaced and the saved answers kept, with mobile orientation set to Both. Results:
+- `sdkInit` to `sdkGameLoadingStop` took about 8 s; load size 10.3 MB; total 44.6 MB.
+- `gameplayStart` and `gameplayStop` arrive around the match.
+- The in-game menu shows two columns at the ~910×470 frame, with every item including Quit the game visible.
+- AI telemetry is hidden and there is no Quit on the main menu.
+- No QA warnings.
+
+Not sent to QA and not submitted: submission should use the next release tag, with the Details step filled from [portal listing copy](portal-listing-copy.md) and the art in `assets/portal-art/crazygames/`.
+
 **To fix before submission (original findings):**
 1. QA "Load time 61.9 s". CrazyGames measures it from Play Now to the first gameplay event, which the game sends only when a match starts, so it included the sound prompt, the introduction offer and slow manual clicks. Their bar is 20 s: send gameplay when the player is interacting with the main menu, or shorten the path to the first match.
 2. The in-game menu doesn't fit the ~470 px tall frame: "Quit the game" is cut off and the mouse wheel doesn't scroll the list.
