@@ -129,6 +129,7 @@ Epic approved the Globulation 2 page on 2026-10-31 and again on 2026-11-18, but 
 - **Epic specifically:** check Release Management before every Push to Stage. If any Stage entity reads Ready for Live, push the approved entities to Live first, then push the new changes from Dev. A "Coming soon" offer (available date unknown) can go Live without a download.
 - **Check-ins:** after a review is submitted, check its state at least daily until it's approved, and publish as soon as it is. An approval nobody acts on is a lost launch.
 - Record each publish in the store's ledger (currently the [storefront rollout](planning/storefront-rollout.md)).
+- The same rule is in the game repo's release guide, [`docs/releases/store-setup.md`](https://github.com/Globulation2/glob2/blob/master/docs/releases/store-setup.md#store-setup) (Globulation2/glob2#1949, merged 2026-11-27 without checks at the user's request; docs only).
 
 ## Web portal ads — 2026-11-26
 
