@@ -37,7 +37,10 @@ import urllib.request
 
 PROTOCOL = "2025-11-25"
 HIDDEN = {"ui_acquire_control", "ui_renew_control", "ui_release_control",   # control is managed here
-          "game_view", "game_wait", "game_chat"}                               # stream-ctl owns these
+          "game_view", "game_wait", "game_chat",                               # stream-ctl owns these
+          # Never used in 84 matches (analysis rec. 11): their schemas cost ~2-3k tokens on every call.
+          # game_alliance is forbidden anyway (1v1); the camera drift drives the pointer itself.
+          "game_alliance", "ui_drag", "ui_move", "ui_mouse_button", "ui_type_text", "ui_release_inputs"}
 LEASE_ERRORS = ("does not match", "not controlled", "no control", "controls the game", "control lease",
                 "lease lost", "holds control", "acquire_control", "stale token")
 ACQUIRE_TRIES = int(os.environ.get("GAME_PROXY_ACQUIRE_TRIES", "40"))         # x5 s while another lease holds

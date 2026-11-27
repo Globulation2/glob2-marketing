@@ -20,7 +20,7 @@ This is how Claude plays and presents Globulation 2 on stream. It follows the us
 
 1. **Connect through MCP.** Play through the `glob2-stream` MCP server (the game on port 27300). Game control is handled by the rig: no tokens to acquire, renew or release.
 2. **Check the window size.** The game must run at `STREAM_SIZE` (1920×1080). The supervisor checks this before each session; confirm that `ui_status` reports the same width and height. If it doesn't, record the match as aborted and end the session.
-3. **Read your notes.** Read `strategy.md` and the most recent game log entries (see [Learning loop](#learning-loop)).
+3. **Read your notes.** `match_info` gives your current playbook and the last game log entries (see [Learning loop](#learning-loop)).
 4. **Set up the match.** Play a 1v1 against one AI opponent with the default rules, on a randomly generated 256×256 map. Use the Custom game screen's generator list, and pick a generator different from the one the last game used. The `match_setup_done` tool refuses a repeat.
 5. **Play only a strong opponent.** Play only against one of the four stronger AIs: **Cortex, Nicowar, Cabino or Maxima**. Never play the weaker ones (Numbi, Castor, Warrush, Econo, or a scripted JavaScript AI). The supervisor rotates the opponent, least recently played first, and assigns it to each session; play the assigned one.
 
@@ -68,8 +68,8 @@ The player runs the show camera with `camera_show` (stream-ctl), the only camera
 
 Keep local notes in `$GLOB2_STREAM_HOME/notes/` (default `~/glob2-stream/notes/`, the player session's working directory), and reread them before each game and after any context compaction, so play keeps improving.
 
-- **`strategy.md`.** Current strategy, openings that work, mistakes to avoid and ideas to try. Revise it after each game.
-- **`games.md`.** One entry per game: the date, map generator, opponent AI, outcome and lessons. The official score comes from `match_result`, which records every match in the supervisor's state, aborted matches included but never counted in the record.
+- **`strategy.md`.** Starts with `## Current playbook` (at most 4,000 characters): the rules you play by now, rewritten in place; every session starts from it. Below it: openings that work, mistakes to avoid and ideas to try. Revise it after each game.
+- **`games.md`.** One entry per game: the date, map generator, opponent AI, outcome and lessons. It keeps the newest 30; older entries move to `games-archive.md` automatically. The official score comes from `match_result`, which records every match in the supervisor's state, aborted matches included but never counted in the record.
 
 Notes stay local and are never committed. This repository is public, and notes may be messy.
 

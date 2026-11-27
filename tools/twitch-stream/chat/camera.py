@@ -190,8 +190,15 @@ def show(x=None, y=None, zoom=None, width=None, height=None, label="", source="c
     since = time.time() - float(last.get("at", 0))
     limit = min_interval() if (source != "chat" or last.get("source") == "chat") else 2.0
     wait = limit - since
+    if wait > 0 and source == "player" and wait <= min_interval():
+        # The player's refusals here were mostly the director's moves holding the gap (analysis rec. 12):
+        # wait it out, as pacing does, rather than spend a call on a refusal.
+        time.sleep(wait)
+        if hold_remaining() > 0:
+            return False, "a viewer request took the camera meanwhile; keep playing and narrate instead"
+        wait = 0
     if wait > 0:
-        return False, f"the camera moved {since:.0f} s ago; wait {wait:.0f} s before moving it again"
+        return False, (f"the camera moved {since:.0f} s ago; wait {math.ceil(wait)} s before moving it again")
     token = read_token()
     if not token:
         return False, "camera unavailable right now (no match is being played)"

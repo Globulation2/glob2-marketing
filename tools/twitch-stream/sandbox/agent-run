@@ -194,6 +194,12 @@ def main():
     }
     if role == "chat":
         env["CLAUDE_CODE_SKIP_PROMPT_HISTORY"] = "1"
+    # The player calls every ~11 s, so a 5-minute prompt cache never goes cold mid-match, while the
+    # subscription default (1 hour) bills every cache write at the higher 1-hour rate: ~16% of the
+    # player's cost (analysis/twitch-mcp-tool-usage.md, rec. 2). Only "5m" or "1h" are accepted.
+    if role == "player":
+        ttl = conf.get("AGENT_PLAYER_CACHE_TTL", "5m")
+        env["CLAUDE_CODE_PROMPT_CACHE_TTL"] = ttl if ttl in ("5m", "1h") else "5m"
     # Aggressive compaction for the player (user decision 2026-11-24): in a real-time match older
     # context is stale, and lessons live in the notes it rereads. Validated whole numbers only:
     # window >= 100000 tokens (the documented floor), threshold 1-100 percent of it.

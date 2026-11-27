@@ -426,7 +426,7 @@ class Supervisor:
         prompt = ("Your full brief for this session follows (also saved as session-brief.md). Play the match.\n\n" + brief)
         deadline = time.time() + self.args.game_timeout * 60
         stamp = time.strftime("%Y%m%d-%H%M%S")
-        session_id, part, quick, total_cost = None, 0, 0, 0.0
+        session_id, part, quick, session_costs = None, 0, 0, {}
         log.info("player session for match %d vs %s%s", cur["number"], cur["opponent"], " [recovery]" if recovery else "")
         finished = lambda: any(g.get("number") == cur["number"] for g in rigstate.games(self.cfg))  # noqa: E731
         try:
@@ -436,8 +436,12 @@ class Supervisor:
                 began = time.time()
                 code, sid, cost = self.run_turn(self.player_cmd(session_id), prompt, out_path, deadline)
                 self.player_last_code = code
-                total_cost += cost or 0.0
                 session_id = sid or session_id
+                # total_cost_usd is cumulative over a resumed session's turns (analysis rec. 13: summing
+                # it logged $7.93 for a $1.39 session), so keep the latest figure per session.
+                if cost:
+                    session_costs[session_id] = cost
+                total_cost = sum(session_costs.values())
                 log.info("player turn %d exited with %s after %.0f s (cost so far $%.2f)",
                          part, "supervisor stop" if code is None else code, time.time() - began, total_cost)
                 if code is None or finished() or code != 0 or not session_id:
