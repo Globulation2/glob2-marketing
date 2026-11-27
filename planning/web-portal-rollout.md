@@ -257,6 +257,24 @@ Checked on master f2b70e4 (lite static 2877a91ed764acfb), simulated portal frame
 
 Open, from the audits: GameDistribution mobile ads should start inside the player's tap (needs a game-side signal); phone players' first lesson is silent until the deferred sound question; the Yandex draft cannot be checked until Yandex accepts applications; ownership wording for Yandex 3.5 and Newgrounds (GPL project with many contributors) is the owner's call.
 
+**Release 0.11.8.4 check, 2026-11-27.** Owner's instruction: no final portal submissions until the next patch release, but keep testing every portal against its standards. The release's browser run, genixpro/glob2-release run 46027109895 at af161e2, built all seven portal packages. Its crash-symbols upload failed, so its own GCS publish was skipped; that is a release-pipeline item, not a portal one. Sizes: CrazyGames, Poki and Yandex lite are 140 files and 45 MB unpacked (about 18 MB zipped). Newgrounds, Game Jolt, GameDistribution and GamePix full are 537 to 538 files and 198 MB unpacked (about 122 MB zipped).
+
+Poki Inspector on the release package: SDK initialized, Game loading finished, then Commercial break and Gameplay start. A break runs before every return to play, and Pause sends nothing extra. Inspector warnings stayed empty.
+
+The `gameplayStart()` checklist item showed a notice, "fired without a player interaction". On a first visit the lesson starts by itself, so the first start was reported before any input. Fixed in glob2 #1983: Poki and GameDistribution hold the first start and its break until the player's first key, click or tap, and begin them just after the press, so the click that closes the briefing still works. CrazyGames is unchanged, because its QA Tool times loading up to the first gameplayStart.
+
+Re-checked with the fix swapped into the release package:
+- nothing is reported until the first click;
+- that one click closes the briefing, then a break and a start follow;
+- the notice is gone;
+- Force show ads plays an ad on return from the menu and holds the game, and Gameplay start follows when it ends.
+
+The Inspector's Scaling Tests (640×360, and Galaxy S20 in portrait and landscape) show the layout adapting. In portrait the lesson title is shortened ("Scou…").
+
+Simulated portal frame (Chrome, separate origin, no COOP/COEP): Newgrounds, Game Jolt, GameDistribution, GamePix and Yandex 0.11.8.4 all load to the main menu. Newgrounds and Game Jolt show Play online and Discord community. GameDistribution, GamePix and Yandex hide both, and Yandex (lite) also has no Editor.
+
+The CrazyGames 0.11.8.4 package needs no #1983 change and is ready for the QA Tool. The upload is the owner's step.
+
 Earlier notes:
 
 Art (2026-11-26, not uploaded): text-free 1080×1080 thumbnail and 5.85 s 60 fps animated thumbnail from lite-build footage, in [portal art](../assets/portal-art/README.md).
