@@ -224,6 +224,8 @@ _waits = []                   # (start, end) wall times of this session's waits
 # wait (analysis/twitch-mcp-tool-usage.md, rec. 10), so only attacks on buildings wake by default; unit
 # attacks still appear in alerts, and "attack" / "attack_warriors" can be asked for.
 WAIT_ALWAYS = ["attack_buildings", "building_lost", "conversion_lost", "enemy_sighted"]
+WAIT_MODERN = ["economy"]      # glob2 #1960 and later
+_old_game = [False]
 WAIT_EXTRA = ["attack", "attack_warriors", "building_completed", "enemy_building_gone", "hive_failure", "hive_wake",
               "conversion_gained"]
 
@@ -238,14 +240,25 @@ def match_wait(cfg, a) -> str:
         raise CtlError("ticks must be a whole number")
     ticks = max(30, min(ticks, WAIT_MAX_TICKS))
     extra = [e for e in (a.get("also_until") or []) if e in WAIT_EXTRA]
-    args = {"ticks": ticks, "timeout_ms": WAIT_TIMEOUT_MS, "until": WAIT_ALWAYS + extra}
-    # game_wait applies include as a filter on its alerts-only report, so include ["buildings"] returned
-    # neither buildings nor the alerts and status (seen live 2026-11-27). The wait keeps its full report,
-    # and the sections asked for come from one game_world read after it (no extra model call).
     wanted = [str(x) for x in (a.get("include") or [])][:8]
+    # Games from glob2 #1960 on wake on economy alerts (an Inn low on food, a field running out, a
+    # stalled site, an unstaffed flag: the colony's own state only) and add include sections to the
+    # wait's reply. Before #1960 include filtered the reply down to nothing useful (seen live
+    # 2026-11-27), so an older game gets neither, and _with_sections fetches what was asked for.
+    modern = not _old_game[0]
+    args = {"ticks": ticks, "timeout_ms": WAIT_TIMEOUT_MS,
+            "until": WAIT_ALWAYS + (WAIT_MODERN if modern else []) + extra}
+    if modern and wanted:
+        args["include"] = wanted
     try:
         started = time.time()
         out = camera._rpc("game_wait", args, timeout=WAIT_TIMEOUT_MS / 1000 + 10)
+        res = out.get("result") or {}
+        if modern and (out.get("error") or res.get("isError")) and 'got \\"economy\\"' in json.dumps(out):
+            _old_game[0] = True          # a game from before #1960: retry the old way
+            args["until"] = WAIT_ALWAYS + extra
+            args.pop("include", None)
+            out = camera._rpc("game_wait", args, timeout=WAIT_TIMEOUT_MS / 1000 + 10)
         _waits.append((started, time.time()))
         del _waits[:-50]
     except Exception as e:  # noqa: BLE001 - report, don't crash the server
@@ -289,7 +302,9 @@ def _with_sections(text: str, wanted: list) -> str:
         reply = json.loads(text)
     except ValueError:
         return text
-    missing, errors = list(wanted), []
+    missing, errors = [w for w in wanted if w not in reply], []
+    if not missing:
+        return text
     for detail in ("brief", "summary"):
         if not missing:
             break
