@@ -206,3 +206,4 @@ Append dated entries below, oldest first. One entry per event: date, store or wo
 - **2026-11-27 — Epic check at 06:46 UTC not done.** Claude in Chrome was not connected, and the in-app browser is not signed in to the Epic developer portal. Next try in about 3 hours.
 - **2026-11-27 — Epic check at 09:46 UTC not done.** Claude in Chrome still not connected (owner not yet back). Next try in about 3 hours.
 - **2026-11-27 — Epic check at 12:47 UTC not done.** Claude in Chrome still not connected; third miss in a row. Next try in about 6 hours, or sooner when the owner reconnects Chrome.
+- **2026-11-27 — Epic check at 12:58 UTC (owner reconnected Chrome): unchanged.** Stage Locked; Store Settings 2, Offers 1, Pages 1, Artifacts 1 all In review; Live 0. Next check about 18:47 UTC.
