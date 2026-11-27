@@ -120,3 +120,12 @@ This supersedes [positioning v1](https://github.com/Globulation2/glob2-marketing
 
 - **Trailer:** yes, 30–45 seconds, from real in-engine recordings.
 - **Localized screenshot captions:** captioned sets rendered by script for all 44 non-English languages and English; uploads are tiered, top languages first.
+
+## Web portal ads — 2026-11-26
+
+After the [portal listing research](analysis/README.md) showed that Poki, GameDistribution and Yandex Games require their ad SDKs, and CrazyGames requires them for Full Launch, the user said: "Yes please implement all of these reccomendations and get to work on enabling portal-specific builds with portal-ads that follow the reccomendations of each of these platforms."
+
+- **Scope:** only the portal packages whose portal requires or expects ads (Poki, GameDistribution, Yandex Games, CrazyGames, and GamePix where its SDK offers interstitials), each following that portal's own ad rules. Our own site, itch.io, desktop and mobile stores stay ad-free, and so do Game Jolt and Newgrounds, which don't require game ads.
+- **Claims:** a listing for an ad-enabled portal package must not say "No ads" or "ad-free" in any form. "No in-app purchases" and "no loot boxes" stay true. Copy elsewhere is unchanged. Record each portal's ad configuration in the [web portal rollout](planning/web-portal-rollout.md).
+- **Still not sold:** nothing is sold to players. Portal ads are the portal's monetisation, and revenue share is under each portal's developer terms, which the user accepts. Agreements, payout and tax forms stay with the user.
+- The approved listing recommendations in the per-portal `analysis/*-listing-comparison.md` files are authorized for execution, subject to the claims record and the real-game-art and footage rules above.
