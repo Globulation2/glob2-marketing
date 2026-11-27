@@ -190,6 +190,24 @@ Account signed in on 2026-11-26. No project page yet. The Newgrounds zip from ru
 
 ## CrazyGames
 
+**QA Tool run, 2026-11-26** (not sent to QA, not submitted). The user ticked the six pre-submission declarations; Claude filled the upload form:
+- Name: Globulation 2. Engine: HTML5. Save progress: "No, the game does not need progress save" (user choice; saves stay in browser storage, which CrazyGames' automatic LocalStorage backup doesn't cover).
+- Options: mobile supported, CrazyGames SDK muting supported, not online multiplayer.
+- Build: the lite package from glob2 master `616d966` plus PR #1947. The first upload attempts lost `core.<hash>.data`, because the uploader refused it as an archive; #1947 fixed that (see Lite browser edition notes).
+
+QA results:
+- SDK: `sdkInit`, then `sdkGameLoadingStart`, `gameLoaded` and `sdkGameLoadingStop`, about 3 s from init to loading finished.
+- Load size 10.4 MB (limit 50 MB); total 44.1 MB.
+- `gameplayStart` at match start and `gameplayStop` on leaving.
+- No hand prompt in the desktop frame, no Quit, and no QA warnings.
+- No `requestAd` appears in the QA log after leaving the match. Ads are disabled in Basic Launch, so this has to be re-checked for Full Launch.
+
+**To fix before submission:**
+1. QA "Load time 61.9 s". CrazyGames measures it from Play Now to the first gameplay event, which the game sends only when a match starts, so it included the sound prompt, the introduction offer and slow manual clicks. Their bar is 20 s: send gameplay when the player is interacting with the main menu, or shorten the path to the first match.
+2. The in-game menu doesn't fit the ~470 px tall frame: "Quit the game" is cut off and the mouse wheel doesn't scroll the list.
+3. Check that the new "Report a problem" menu button doesn't open an external page when external links are off.
+
+
 Art (2026-11-26, not uploaded): the three covers (1920×1080, 800×1200, 800×800) and both 18 s preview videos (1920×1080 and 1080×1620, one opening on a real fight) from lite-build footage, spectator view with areas hidden, in [portal art](../assets/portal-art/README.md). GameDistribution's five asset sizes are there too.
 
 Developer portal set up on 2026-11-26. Target is Basic Launch. Two blockers:
