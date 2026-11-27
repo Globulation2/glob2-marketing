@@ -121,6 +121,15 @@ This supersedes [positioning v1](https://github.com/Globulation2/glob2-marketing
 - **Trailer:** yes, 30–45 seconds, from real in-engine recordings.
 - **Localized screenshot captions:** captioned sets rendered by script for all 44 non-English languages and English; uploads are tiered, top languages first.
 
+## Publish approved versions before staging new ones — 2026-11-27
+
+Epic approved the Globulation 2 page on 2026-10-31 and again on 2026-11-18, but nobody pushed it to Live. On 2026-11-25 the v2 listing was pushed to Stage and sent for review, which replaced the approved entities, so the game still had no public Epic page a month after first approval. The user said: "lets record that we will publish the approved version before staging any new ones next time".
+
+- **Rule:** when a store holds an approved but unpublished version (Epic Stage "Ready for Live", a Partner Center submission waiting on manual publish, an App Store version "Pending Developer Release", a Play release held by managed publishing), publish it before pushing, staging or submitting anything that would replace it. Only skip this if the user has said to hold that version back.
+- **Epic specifically:** check Release Management before every Push to Stage. If any Stage entity reads Ready for Live, push the approved entities to Live first, then push the new changes from Dev. A "Coming soon" offer (available date unknown) can go Live without a download.
+- **Check-ins:** after a review is submitted, check its state at least daily until it's approved, and publish as soon as it is. An approval nobody acts on is a lost launch.
+- Record each publish in the store's ledger (currently the [storefront rollout](planning/storefront-rollout.md)).
+
 ## Web portal ads — 2026-11-26
 
 After the [portal listing research](analysis/README.md) showed that Poki, GameDistribution and Yandex Games require their ad SDKs, and CrazyGames requires them for Full Launch, the user said: "Yes please implement all of these reccomendations and get to work on enabling portal-specific builds with portal-ads that follow the reccomendations of each of these platforms."

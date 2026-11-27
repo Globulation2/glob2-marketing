@@ -31,6 +31,7 @@ Each offer needs landscape and portrait general images; a base game also needs b
 - Prepare the logo, both offer orientations and a genuine-game carousel image. The five-image story in the asset brief is an editorial target, not Epic's minimum gallery count. Keep illustrated covers distinct from gameplay captures.
 - Confirm the portal's developer/publisher identity, support and privacy links, Windows minimum/recommended specifications, supported languages, dates, availability, regions/ratings and free-base-offer configuration. Leave unverified values pending rather than copying historical editions.
 - Decide whether this release is Early Access; that changes FAQ work. Do not infer its status from the current website wording or a GitHub prerelease flag.
+- Before any Push to Stage, check Release Management: if Stage holds entities that read "Ready for Live", push them to Live first (see the AGENTS.md rule of 2026-11-27).
 - Preview desktop and narrow layouts, including offer-image crops and logo contrast. Exact safe-area templates/portal previews still need checking; no invented pixel margins are prescribed here.
 
 This list is project preparation, not proof that every field is mandatory for every offer. Epic groups release setup into artifacts/binaries, store settings, offers and pages, then promotes work through private Dev and Stage before reviewed Live publication. [Epic release management](https://dev.epicgames.com/docs/epic-games-store/publishing-tools/publishing-process/release-management).
