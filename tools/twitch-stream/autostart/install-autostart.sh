@@ -18,11 +18,12 @@ here="$(dirname "$(readlink -f "$0")")"
 source "$here/../lib.sh"
 unit=glob2-stream.service
 hl_unit=glob2-stream-highlights.service   # per-game titles, markers and clips (highlights.py)
+ar_unit=glob2-stream-archive               # .service + .timer: keep every player transcript (archive-transcripts.sh)
 unit_dir="$HOME/.config/systemd/user"
 
 if [[ "${1:-}" == --uninstall ]]; then
-  systemctl --user disable --now "$unit" "$hl_unit" 2>/dev/null || true
-  rm -f "$unit_dir/$unit" "$unit_dir/$hl_unit"; systemctl --user daemon-reload
+  systemctl --user disable --now "$unit" "$hl_unit" "$ar_unit.timer" 2>/dev/null || true
+  rm -f "$unit_dir/$unit" "$unit_dir/$hl_unit" "$unit_dir/$ar_unit.service" "$unit_dir/$ar_unit.timer"; systemctl --user daemon-reload
   echo "removed $unit and $hl_unit (lingering left as it was)"; exit 0
 fi
 [[ -z "${1:-}" ]] || { sed -n 2,5p "$0"; exit 2; }
@@ -83,8 +84,31 @@ else
   systemctl --user disable --now "$hl_unit" 2>/dev/null || true
   rm -f "$unit_dir/$hl_unit"
 fi
+# Transcript archive for analysis/: hard links past the supervisor's 100-transcript rotation.
+cat > "$unit_dir/$ar_unit.service" <<UNIT
+# Written by autostart/install-autostart.sh.
+[Unit]
+Description=Claude Plays Glob: archive player transcripts for analysis
+
+[Service]
+Type=oneshot
+ExecStart=$RIG_DIR/autostart/archive-transcripts.sh
+UNIT
+cat > "$unit_dir/$ar_unit.timer" <<UNIT
+# Written by autostart/install-autostart.sh.
+[Unit]
+Description=Claude Plays Glob: archive player transcripts every 10 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=10min
+
+[Install]
+WantedBy=timers.target
+UNIT
 systemctl --user daemon-reload
 systemctl --user enable "$unit" >/dev/null 2>&1
+systemctl --user enable --now "$ar_unit.timer" >/dev/null 2>&1 && echo "installed $ar_unit.timer"
 [[ -f "$unit_dir/$hl_unit" ]] && systemctl --user enable --now "$hl_unit" >/dev/null 2>&1 && echo "installed $hl_unit (running)"
 echo "installed $unit: supervisor.py ${args[*]}"
 echo "start now with: systemctl --user restart $unit  (stop any hand-started supervisor first)"

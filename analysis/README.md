@@ -39,6 +39,10 @@ The four initial maps have undergone evidence-boundary and peer review. No hypot
 - [Mobile games press](mobile-games-press.md) lists public contacts and relevant coverage by language and market.
 - [Paid placement: Push Your App](paid-placement-push-your-app.md): Gamezebo-network paid editorial offer, its reach, prices and labelling, and the user's 2026-11-26 decision not to buy.
 
+## Claude Plays Glob stream
+
+- [MCP tool usage on the stream](twitch-mcp-tool-usage.md): how the stream's player spends tool calls, tokens and errors over matches 58–140 (21k tool calls, about $141 at API prices), and 14 ranked changes to the game's MCP server, the stream harness and the prompts. Re-run with `tools/twitch-stream/analysis/tool_usage.py`.
+
 ## Historical positioning draft phase
 
 - [Positioning options](positioning-options.md): four unranked audience/message candidates, draft headlines and pitches, source-backed proof, tradeoffs and tests.

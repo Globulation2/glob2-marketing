@@ -7,7 +7,9 @@ Reads the player transcripts modified since the cutoff and the chat host's decis
 ($LOG_DIR/chat/agent.jsonl), and prices them at API list prices (PRICES, per million tokens;
 update them when the model or prices change). The stream runs on a subscription, so this is
 the API-equivalent cost, useful for comparing settings (pacing, compaction, prompts). Compare
-runs per hour of stream, not per game: game lengths vary a lot.
+runs per hour of stream, not per game: game lengths vary a lot. Compaction summaries aren't in
+the call events, so this undercounts by roughly 15%; tool_usage.py --section coverage has the full
+per-turn accounting, including compaction and killed turns.
 """
 import argparse
 import datetime
@@ -31,11 +33,15 @@ def main():
     for path in files:
         for _, u in transcripts.calls(path):
             n_calls += 1
-            for k in ("input_tokens", "output_tokens", "cache_read_input_tokens"):
+            for k in ("input_tokens", "cache_read_input_tokens"):
                 tot[k] += u[k]
             tot["cache_write_1h"] += u["cache_write_1h"]
             tot["cache_write_5m"] += u["cache_creation_input_tokens"] - u["cache_write_1h"]
-        cli_cost += sum(e.get("total_cost_usd") or 0 for e in transcripts.events(path) if e.get("type") == "result")
+        # Streamed call events carry only a partial output count; each turn's result has the real one.
+        # In a resumed session total_cost_usd is cumulative over its turns, so take the last, not the sum.
+        results = [e for e in transcripts.events(path) if e.get("type") == "result"]
+        tot["output_tokens"] += sum((e.get("usage") or {}).get("output_tokens", 0) or 0 for e in results)
+        cli_cost += max([e.get("total_cost_usd") or 0 for e in results] or [0])
     cost = {k: tot[k] / 1e6 * PRICES[k] for k in PRICES}
     player = sum(cost.values())
 

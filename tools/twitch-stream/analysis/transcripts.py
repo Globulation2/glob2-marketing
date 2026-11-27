@@ -41,19 +41,28 @@ def events(path):
 
 def calls(path):
     """Yield (message, usage) once per model call: usage has the four USAGE_KEYS plus
-    cache_write_1h (the part of cache creation written with the one-hour TTL)."""
-    seen = set()
+    cache_write_1h (the part of cache creation written with the one-hour TTL).
+
+    A call's events are streaming snapshots: the first carries the input and cache counts but
+    only a partial output count, so each key takes its largest value across the call's events."""
+    order, best = [], {}
     for e in events(path):
         if e.get("type") != "assistant":
             continue
         m = e.get("message") or {}
-        if m.get("id") in seen:
-            continue
-        seen.add(m.get("id"))
         u = m.get("usage") or {}
         usage = {k: u.get(k, 0) or 0 for k in USAGE_KEYS}
         usage["cache_write_1h"] = (u.get("cache_creation") or {}).get("ephemeral_1h_input_tokens", 0) or 0
-        yield m, usage
+        mid = m.get("id")
+        if mid not in best:
+            order.append(mid)
+            best[mid] = [m, usage]
+        else:
+            prev = best[mid]
+            prev[1] = {k: max(prev[1][k], usage[k]) for k in usage}
+            prev[0] = {**prev[0], "content": (prev[0].get("content") or []) + (m.get("content") or [])}
+    for mid in order:
+        yield best[mid][0], best[mid][1]
 
 
 def tool_names(message) -> list:
