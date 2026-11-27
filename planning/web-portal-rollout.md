@@ -236,6 +236,18 @@ Parked on 2026-11-26. The Yandex account was completed, but the Games console is
 
 ## Poki
 
+**Poki Inspector run, 2026-11-27** (https://inspector.poki.dev/). The lite package from glob2 master `8e03a98` (18.0 MB zip, `ads: true`) was served from the build machine at `http://localhost:8801/poki-master/index.html` and opened by URL, so no upload was needed. Event log:
+- SDK initialized, then gameloadingstart, Game loading finished and gameloadingcomplete.
+- Gameplay start when the introduction match began; Gameplay stop on leaving it.
+- Commercial break straight after returning to the menu.
+- No warnings.
+
+The Inspector's "Initial download size 25 MB" and "loading 37 s" figures come from the local Python server, which sends files uncompressed. The lite build's compressed startup download is about 8 MB.
+
+**Gap found:** opening the in-game menu or choosing Pause during a match sends no `gameplayStop`, and resuming sends no `gameplayStart`. Poki's checklist asks for stop and start "accurately fired when the game is paused". The Inspector's QA modules are a developer self-assessment (SDK Basics, Technical Stability, Mobile Optimization, Privacy & Security, Playground Integration, Ad Implementation); none have been ticked.
+
+Earlier notes:
+
 Art (2026-11-26, not uploaded): text-free 1080×1080 thumbnail and 5.85 s 60 fps animated thumbnail from lite-build footage, in [portal art](../assets/portal-art/README.md).
 
 Poki's sign-up is its game submission form. The application waits for the small download build from the "Small Download Browser Build" thread, which the user reported as merged on 2026-11-26 and about to be built. Check it with Poki's limits and the Poki Inspector before applying.
