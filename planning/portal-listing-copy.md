@@ -150,8 +150,8 @@ Body (239 of 350 characters):
 
 - Evidence: GP-2. The victory wording was checked against `docs/features/custom-game-setup/README.md` in the game repository, which lists win reasons: opponents defeated, prestige, time limit, and others. The lesson topics come from claims §3 (tutorial catalogue). The fourth FAQ is monetisation (claims §1) without "No ads".
 
-**Video:** **not filled. Hold.**
-- GP-1 recommends the YouTube trailer `t6Q3ZpY9aTM`. That cut shows the end card "No ads. No in-app purchases." ([trailer manifest](../assets/storefront/trailer/manifest.json), `text_cards`), and its YouTube description carries `fair_deal_line` ("No ads."). Both break the ads rule on an ad-enabled package. A textless 30 s cut exists (`glob2-trailer-30s-textless-1080p.mp4`, not committed). It would need its own YouTube upload, and its footage would need checking for online, link and MCP screens. See owner decision 2.
+**Video:** https://www.youtube.com/watch?v=BJoMHyCxzkg, the unlisted textless gameplay cut (owner decision 2).
+- History: GP-1 recommends the YouTube trailer `t6Q3ZpY9aTM`. That cut shows the end card "No ads. No in-app purchases." ([trailer manifest](../assets/storefront/trailer/manifest.json), `text_cards`), and its YouTube description carries `fair_deal_line` ("No ads."). Both break the ads rule on an ad-enabled package. A textless 30 s cut exists (`glob2-trailer-30s-textless-1080p.mp4`, not committed). It would need its own YouTube upload, and its footage would need checking for online, link and MCP screens. See owner decision 2.
 
 **Orientation:** Landscape (change from All). **Desktop friendly / Mobile friendly:** on.
 - Evidence: GP-4 (63 of 96 strategy games are landscape). Return to All only if a portrait phone test passes.
@@ -354,11 +354,11 @@ Developer application awaiting approval. **Standard build (per the brief), porta
 All nine were resolved on 2026-11-27, when the owner accepted every recommendation ("I accept your recommendations on all of these issues").
 
 1. **Lite opponents:** "7 computer opponents", with no "easy to hard". Already used in the CrazyGames, Poki and Yandex copy.
-2. **GamePix video:** upload the textless 30 s cut (`storefront-v2-renders/trailer/glob2-trailer-30s-textless-1080p.mp4`, outside the repository) as a second YouTube video and use it only on ad-enabled portals. Footage checked on 2026-11-27 against [the contact sheet](../assets/storefront/trailer/contact-sheet-master-30s-textless.jpg): match footage only, with no menus, online, link or MCP screens, and no text cards. Its YouTube description must not carry `fair_deal_line` ("No ads.").
+2. **GamePix video:** the textless 30 s cut. Already done on 2026-11-26: it is the unlisted YouTube video https://www.youtube.com/watch?v=BJoMHyCxzkg ("Globulation 2 gameplay"), set on the GamePix draft ([rollout](web-portal-rollout.md#gameplay-video-for-ad-enabled-portals-2026-11-26)). Re-checked 2026-11-27: still in the GamePix Video field.
 3. **Trailer `t6Q3ZpY9aTM`:** never embedded on an ad-enabled portal (unchanged).
 4. **Newgrounds online rooms line:** cut. `https://app.glob2.online` answers a CORS preflight with 404 and sends no `Access-Control-Allow-Origin`, so the game on a Newgrounds (or Game Jolt) page cannot sign in or join rooms.
-5. **Newgrounds tags:** `real-time-strategy` replaces `multiplayer`.
+5. **Newgrounds tags:** `real-time-strategy` replaces `multiplayer`. The draft already had the swap when checked on 2026-11-27. The online-rooms bullet was removed from the draft's author comments the same day and verified after a reload.
 6. **Newgrounds rating:** T.
-7. **GamePix description:** the gameplay-led 443-character text replaces the approved one.
+7. **GamePix description:** the gameplay-led 443-character text. Already saved on the GamePix draft on 2026-11-26 and re-read on 2026-11-27. The GamePix changes are in an unsubmitted new release, which waits for the next patch.
 8. **GameDistribution content flags:** `no_blood` and `no_cruelty` on, `kids_friendly` off, after the combat check recorded under GameDistribution.
 9. **Yandex age rating:** 12+.
