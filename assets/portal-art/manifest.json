@@ -1,0 +1,503 @@
+{
+ "build": {
+  "edition": "lite",
+  "version": "0.11.8.2",
+  "tag": "v0.11.8.2",
+  "commit": "8fb3c06aee",
+  "package": "browser-release-lite b3eb782b40c80032 (release-mirror run 45902410410)"
+ },
+ "renders": "storefront-v2-renders/portal-art",
+ "crops": {
+  "land": [
+   0,
+   110,
+   1920,
+   1080
+  ],
+  "port": [
+   0,
+   100,
+   1080,
+   1620
+  ],
+  "poki": [
+   0,
+   110,
+   1080,
+   1080
+  ]
+ },
+ "title": {
+  "hold_s": 1.2,
+  "fade_s": 0.6
+ },
+ "takes": {
+  "land-s1": {
+   "codec": "[\"video/mp4;codecs=avc1.640033\",\"video/webm;codecs=h264\"]",
+   "save": "saves/crater-lakes-36000-t0.game.gz",
+   "viewport": [
+    2122,
+    1200
+   ],
+   "minimap_point": [
+    0.44,
+    0.51
+   ],
+   "zoom_clicks": 2,
+   "seconds": 9,
+   "tick_start": 36170,
+   "tick_end": 36494,
+   "frames_start": 331,
+   "frames_end": 941,
+   "renderer": "webgl2",
+   "edition": "lite",
+   "version": 1,
+   "webm_sha256": "ae6e3ac82fdbdbc94fd0cba4a03be429ce1077eb0858c5fd08206e7c8765a94f"
+  },
+  "land-s2": {
+   "codec": "[\"video/mp4;codecs=avc1.640033\",\"video/webm;codecs=h264\"]",
+   "save": "saves/crater-lakes-42000-t0.game.gz",
+   "viewport": [
+    2122,
+    1200
+   ],
+   "minimap_point": [
+    0.42,
+    0.56
+   ],
+   "zoom_clicks": 2,
+   "seconds": 9,
+   "tick_start": 42170,
+   "tick_end": 42497,
+   "frames_start": 326,
+   "frames_end": 938,
+   "renderer": "webgl2",
+   "edition": "lite",
+   "version": 1,
+   "webm_sha256": "32b4518a8a09e3f8738c997a10e3e6281e5f24e2716a78cd1b02156b2884127e"
+  },
+  "land-s3": {
+   "codec": "[\"video/mp4;codecs=avc1.640033\",\"video/webm;codecs=h264\"]",
+   "save": "saves/crater-lakes-36000-t0.game.gz",
+   "viewport": [
+    2122,
+    1200
+   ],
+   "minimap_point": [
+    0.36,
+    0.62
+   ],
+   "zoom_clicks": 2,
+   "seconds": 9,
+   "tick_start": 36171,
+   "tick_end": 36488,
+   "frames_start": 326,
+   "frames_end": 930,
+   "renderer": "webgl2",
+   "edition": "lite",
+   "version": 1,
+   "webm_sha256": "b7dc637be4de35c156e0b5a2fe8bf41b3d3f09d26cd42c8320804dd9a18d847f"
+  },
+  "poki-p1": {
+   "codec": "vp9",
+   "save": "saves/crater-lakes-42000-t0.game.gz",
+   "viewport": [
+    1282,
+    1200
+   ],
+   "minimap_point": [
+    0.535,
+    0.586
+   ],
+   "zoom_clicks": 7,
+   "seconds": 7,
+   "tick_start": 42216,
+   "tick_end": 42444,
+   "frames_start": 421,
+   "frames_end": 861,
+   "renderer": "webgl2",
+   "edition": "lite",
+   "version": 1,
+   "webm_sha256": "b96a5d431cfeaafe514768f28d129a935ca6bee23ec6b3722de4652eabcebfc1"
+  },
+  "poki-p2": {
+   "codec": "vp9",
+   "save": "saves/crater-lakes-42000-t0.game.gz",
+   "viewport": [
+    1282,
+    1200
+   ],
+   "minimap_point": [
+    0.544,
+    0.536
+   ],
+   "zoom_clicks": 7,
+   "seconds": 7,
+   "tick_start": 42216,
+   "tick_end": 42447,
+   "frames_start": 421,
+   "frames_end": 862,
+   "renderer": "webgl2",
+   "edition": "lite",
+   "version": 1,
+   "webm_sha256": "07b1a5573d7fea00f654382410ec08f74ea30b9f3ac341920bdbf3eed8c612f1"
+  },
+  "poki-p3": {
+   "codec": "vp9",
+   "save": "saves/crater-lakes-36000-t0.game.gz",
+   "viewport": [
+    1282,
+    1200
+   ],
+   "minimap_point": [
+    0.45,
+    0.5
+   ],
+   "zoom_clicks": 7,
+   "seconds": 7,
+   "tick_start": 36216,
+   "tick_end": 36447,
+   "frames_start": 421,
+   "frames_end": 864,
+   "renderer": "webgl2",
+   "edition": "lite",
+   "version": 1,
+   "webm_sha256": "2bf14eb6b9d28c9435247abaaae78ef7853503132882732c74eb2a83b1f72d91"
+  },
+  "port-s1": {
+   "codec": "[\"video/mp4;codecs=avc1.640033\",\"video/webm;codecs=h264\"]",
+   "save": "saves/crater-lakes-36000-t0.game.gz",
+   "viewport": [
+    1282,
+    1740
+   ],
+   "minimap_point": [
+    0.44,
+    0.51
+   ],
+   "zoom_clicks": 2,
+   "seconds": 9,
+   "tick_start": 36171,
+   "tick_end": 36486,
+   "frames_start": 328,
+   "frames_end": 925,
+   "renderer": "webgl2",
+   "edition": "lite",
+   "version": 1,
+   "webm_sha256": "773cf99a624e76f35a68e36505f5edb4d02de6dead4e75a8b74dc2298990448d"
+  },
+  "port-s2": {
+   "codec": "[\"video/mp4;codecs=avc1.640033\",\"video/webm;codecs=h264\"]",
+   "save": "saves/crater-lakes-42000-t0.game.gz",
+   "viewport": [
+    1282,
+    1740
+   ],
+   "minimap_point": [
+    0.42,
+    0.56
+   ],
+   "zoom_clicks": 2,
+   "seconds": 9,
+   "tick_start": 42171,
+   "tick_end": 42492,
+   "frames_start": 326,
+   "frames_end": 935,
+   "renderer": "webgl2",
+   "edition": "lite",
+   "version": 1,
+   "webm_sha256": "dff4bb4a78eaab015366224697c3ea38bda7d0792b30fa46d11d3877f9b6b2e8"
+  },
+  "port-s3": {
+   "codec": "[\"video/mp4;codecs=avc1.640033\",\"video/webm;codecs=h264\"]",
+   "save": "saves/crater-lakes-36000-t0.game.gz",
+   "viewport": [
+    1282,
+    1740
+   ],
+   "minimap_point": [
+    0.36,
+    0.62
+   ],
+   "zoom_clicks": 2,
+   "seconds": 9,
+   "tick_start": 36170,
+   "tick_end": 36483,
+   "frames_start": 329,
+   "frames_end": 921,
+   "renderer": "webgl2",
+   "edition": "lite",
+   "version": 1,
+   "webm_sha256": "191487e44638501f45ba8e9293e1aa0ad780b98e4d4633faddedd5a5f6365153"
+  }
+ },
+ "outputs": [
+  {
+   "file": "assets/portal-art/poki/poki-thumbnail-1080x1080.png",
+   "kind": "Poki static thumbnail (no text)",
+   "bytes": 1389802,
+   "sha256": "f42d3053b9ed7eac25c54147019fbf517fdd33b228698859eccd8af6b8b7e47a",
+   "source": [
+    "poki-p2",
+    0.3
+   ],
+   "crop": [
+    0,
+    110,
+    1080,
+    1080
+   ],
+   "size": [
+    1080,
+    1080
+   ]
+  },
+  {
+   "file": "storefront-v2-renders/portal-art/poki/glob2-lite-poki-animated-thumbnail-1080x1080.mp4",
+   "kind": "Poki animated thumbnail (no text)",
+   "bytes": 5860143,
+   "sha256": "96c1f3050c5c0820acb923e14ad8f514f2bd3399b27e8328f451ec7a2ee238a6",
+   "cuts": [
+    [
+     "poki-p2",
+     0.3,
+     1.95
+    ],
+    [
+     "poki-p1",
+     0.3,
+     1.95
+    ],
+    [
+     "poki-p3",
+     0.3,
+     1.95
+    ]
+   ],
+   "width": 1080,
+   "height": 1080,
+   "codec": "h264",
+   "fps": "60/1",
+   "frames": 351,
+   "duration": 5.85,
+   "audio_streams": 0
+  },
+  {
+   "file": "assets/portal-art/crazygames/crazygames-cover-landscape-1920x1080.jpg",
+   "kind": "CrazyGames cover 16:9 (title only)",
+   "bytes": 919803,
+   "sha256": "3d74187d96a8662c7fec20f98b592fdb4eff360fe69e76b3bf99010455a5fcd3",
+   "source": [
+    "land-s1",
+    1.0
+   ],
+   "crop": [
+    0,
+    110,
+    1920,
+    1080
+   ],
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  {
+   "file": "assets/portal-art/crazygames/crazygames-cover-portrait-800x1200.jpg",
+   "kind": "CrazyGames cover 2:3 (title only)",
+   "bytes": 453562,
+   "sha256": "eec98de2a3323e979d4029576689dce498c1ad7bb0ea6ea82904aca771bed61f",
+   "source": [
+    "port-s1",
+    1.0
+   ],
+   "crop": [
+    0,
+    100,
+    1080,
+    1620
+   ],
+   "scale": 0.7407,
+   "size": [
+    800,
+    1200
+   ]
+  },
+  {
+   "file": "assets/portal-art/crazygames/crazygames-cover-square-800x800.jpg",
+   "kind": "CrazyGames cover 1:1 (title only)",
+   "bytes": 322532,
+   "sha256": "8b46b297862f74d160cdc14deea9d861aa708c5a67b37c69077d0a874fda1213",
+   "source": [
+    "land-s1",
+    1.0
+   ],
+   "crop": [
+    420,
+    110,
+    1080,
+    1080
+   ],
+   "scale": 0.7407,
+   "size": [
+    800,
+    800
+   ]
+  },
+  {
+   "file": "storefront-v2-renders/portal-art/crazygames/glob2-lite-crazygames-preview-landscape-1920x1080.mp4",
+   "kind": "CrazyGames preview 16:9 (opens on the cover, title fades by 1.8 s)",
+   "bytes": 21507935,
+   "sha256": "0a670c038e0089b9fd5a50e92f2d83fbadd1f8f1ddc37481ee98d0fa07d30d28",
+   "cuts": [
+    [
+     "land-s1",
+     1.0,
+     6.0
+    ],
+    [
+     "land-s2",
+     1.0,
+     6.0
+    ],
+    [
+     "land-s3",
+     1.0,
+     6.0
+    ]
+   ],
+   "width": 1920,
+   "height": 1080,
+   "codec": "h264",
+   "fps": "30/1",
+   "frames": 541,
+   "duration": 18.033333,
+   "audio_streams": 0
+  },
+  {
+   "file": "storefront-v2-renders/portal-art/crazygames/glob2-lite-crazygames-preview-portrait-1080x1620.mp4",
+   "kind": "CrazyGames preview 2:3 at 1080x1620 (opens on the cover, title fades by 1.8 s)",
+   "bytes": 17391776,
+   "sha256": "62049d7904ec976c5f68af29302772917f0fa0c35dadb8f7190665e9b7fc217d",
+   "cuts": [
+    [
+     "port-s1",
+     1.0,
+     6.0
+    ],
+    [
+     "port-s2",
+     1.0,
+     6.0
+    ],
+    [
+     "port-s3",
+     1.0,
+     6.0
+    ]
+   ],
+   "width": 1080,
+   "height": 1620,
+   "codec": "h264",
+   "fps": "30/1",
+   "frames": 540,
+   "duration": 18.0,
+   "audio_streams": 0
+  },
+  {
+   "file": "assets/portal-art/gamedistribution/gamedistribution-1280x720.jpg",
+   "kind": "GameDistribution 1280x720",
+   "bytes": 454016,
+   "sha256": "e5f3e8ac5c1af9ea0249e9dcaa5e2a0af472b53af0f5edae025bfcd43f4ee413",
+   "source": [
+    "land-s1",
+    1.0
+   ],
+   "crop_of_cover": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "size": [
+    1280,
+    720
+   ]
+  },
+  {
+   "file": "assets/portal-art/gamedistribution/gamedistribution-1280x550.jpg",
+   "kind": "GameDistribution 1280x550",
+   "bytes": 345259,
+   "sha256": "58ce6e0163f92151f08c9b9670532e7a3048c88987e065ee9a5885c3bb431ad7",
+   "source": [
+    "land-s1",
+    1.0
+   ],
+   "crop_of_cover": [
+    0,
+    0,
+    1920,
+    825
+   ],
+   "size": [
+    1280,
+    550
+   ]
+  },
+  {
+   "file": "assets/portal-art/gamedistribution/gamedistribution-512x384.jpg",
+   "kind": "GameDistribution 512x384",
+   "bytes": 132978,
+   "sha256": "45dbd6225f6b2b3b7856cfcd2f5d73eacaf2ea7731e153d4f65975aa0dd8eeba",
+   "source": [
+    "land-s1",
+    1.0
+   ],
+   "crop_of_cover": [
+    240,
+    0,
+    1440,
+    1080
+   ],
+   "size": [
+    512,
+    384
+   ]
+  },
+  {
+   "file": "assets/portal-art/gamedistribution/gamedistribution-512x512.jpg",
+   "kind": "GameDistribution 512x512",
+   "bytes": 158728,
+   "sha256": "e655184c4004f5a1de5fddb7d0683e9dd3d367981da8606d954a53a1e00bfb40",
+   "source": [
+    "land-s1",
+    1.0
+   ],
+   "crop_of_cover": "crazygames square cover",
+   "size": [
+    512,
+    512
+   ]
+  },
+  {
+   "file": "assets/portal-art/gamedistribution/gamedistribution-200x120.jpg",
+   "kind": "GameDistribution 200x120",
+   "bytes": 19406,
+   "sha256": "c0eaac683d6d742c339416cbd049fc995d1bb0a7ece733c71b060f4286e30131",
+   "source": [
+    "land-s1",
+    1.0
+   ],
+   "crop_of_cover": [
+    60,
+    0,
+    1800,
+    1080
+   ],
+   "size": [
+    200,
+    120
+   ]
+  }
+ ]
+}

@@ -15,6 +15,7 @@ On 2026-11-24 the user superseded v1 for store listings with [positioning v2](an
 - [Domain migration](planning/domain-migration.md): switch to `glob2.online` across maintained sources, hosting and controlled listings.
 - [Social media accounts](facts/social-media-accounts.md) and [strategy](planning/social-media-strategy.md) cover the public account inventory, access gaps, onboarding and editorial plan.
 - [Twitch stream rig](tools/twitch-stream/README.md) and [streaming record](planning/twitch-streaming.md): scripts for streaming Claude playing over MCP; historical since 2026-11-26, when the stream moved to a new harness on another machine.
+- [Web-portal art](assets/portal-art/README.md): Poki thumbnails, CrazyGames covers and previews, and GameDistribution images from real lite-build footage.
 - [Task ledger](planning/tasks.md): scope, progress, dependencies, and follow-up work.
 - [Facts](facts/README.md): existing repositories, channels, listings, websites, assets, product capabilities, and history.
 - [Analysis](analysis/README.md): hypotheses about audiences, jobs, channels, business models, and comparable games.
