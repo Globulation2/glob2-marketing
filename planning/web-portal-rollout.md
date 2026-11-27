@@ -261,7 +261,7 @@ Open, from the audits: GameDistribution mobile ads should start inside the playe
 
 Poki Inspector on the release package: SDK initialized, Game loading finished, then Commercial break and Gameplay start. A break runs before every return to play, and Pause sends nothing extra. Inspector warnings stayed empty.
 
-The `gameplayStart()` checklist item showed a notice, "fired without a player interaction". On a first visit the lesson starts by itself, so the first start was reported before any input. Fixed in glob2 #1983: Poki and GameDistribution hold the first start and its break until the player's first key, click or tap, and begin them just after the press, so the click that closes the briefing still works. CrazyGames is unchanged, because its QA Tool times loading up to the first gameplayStart.
+The `gameplayStart()` checklist item showed a notice, "fired without a player interaction". On a first visit the lesson starts by itself, so the first start was reported before any input. Fixed in glob2 #1983 (merged 2026-11-27 as 792b3ba; owner approved merging despite the unrelated master-wide `contracts` failure, a NASM requirement on the CI runner): Poki and GameDistribution hold the first start and its break until the player's first key, click or tap, and begin them just after the press, so the click that closes the briefing still works. CrazyGames is unchanged, because its QA Tool times loading up to the first gameplayStart.
 
 Re-checked with the fix swapped into the release package:
 - nothing is reported until the first click;
