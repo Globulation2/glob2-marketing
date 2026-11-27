@@ -21,6 +21,13 @@ API error are logged once and skipped: highlights must never disturb the show.
   highlights.py marker TEXT       add a marker now (manual test)
   highlights.py clip TITLE        clip the last 60 s now (manual test)
 
+It is also the broadcast's watchdog (LiveWatch). Twitch ends any broadcast after 48 hours, and
+ffmpeg kept sending without an error while the channel was offline for 10.5 hours (2026-11-27).
+So it asks Twitch whether the channel is live, and if the encoder runs while Twitch says offline
+for WATCH_OFFLINE_CHECKS polls in a row, it stops ffmpeg (stream.pid) with SIGINT; the supervisor
+starts a fresh one, which begins a new broadcast. Near the 48-hour limit it restarts the encoder
+between matches instead, so no game is cut off mid-match.
+
 Scopes: titles and markers need channel:manage:broadcast; clips need clips:edit. To add
 clips:edit, log in again with the Twitch CLI (see README.md, "Clips and highlights").
 """
@@ -40,6 +47,10 @@ import rigstate  # noqa: E402
 import token_refresh  # noqa: E402
 
 HELIX = "https://api.twitch.tv/helix"
+WATCH_OFFLINE_CHECKS = 3          # x POLL seconds offline while the encoder runs -> restart it
+WATCH_MIN_UPTIME = 180            # give a new broadcast time to appear before judging it
+WATCH_PLANNED_AFTER = 46.5 * 3600 # Twitch's limit is 48 h: restart between matches after this
+WATCH_COOLDOWN = 600
 POLL = 30   # seconds
 log = logging.getLogger("highlights")
 
@@ -86,6 +97,15 @@ class TwitchAPI:
     def marker(self, text: str) -> dict:
         out = self.call("POST", "streams/markers", body={"user_id": self.broadcaster, "description": text[:140]})
         return (out.get("data") or [{}])[0]
+
+    def live_since(self):
+        """The broadcast's start (epoch seconds), or None when the channel is offline."""
+        out = self.call("GET", "streams", {"user_id": self.broadcaster})
+        data = out.get("data") or []
+        if not data:
+            return None
+        import datetime
+        return datetime.datetime.fromisoformat(data[0]["started_at"].replace("Z", "+00:00")).timestamp()
 
     def clip(self, title: str, duration: float = 60) -> dict:
         out = self.call("POST", "clips", {"broadcaster_id": self.broadcaster, "title": title[:100],
@@ -212,6 +232,54 @@ class Highlights:
         self._clip(f"{verdict} · Game {number} on {cur.get('generator') or 'a random map'}", cur["number"], "match end")
 
 
+class LiveWatch:
+    def __init__(self, cfg: dict, api: TwitchAPI):
+        self.cfg, self.api = cfg, api
+        self.pid_file = pathlib.Path(cfg["LOG_DIR"]) / "stream.pid"
+        self.offline = 0
+        self.last_restart = 0.0
+
+    def encoder(self):
+        """(pid, seconds running) of the live ffmpeg, or (None, 0)."""
+        import os
+        try:
+            pid = int(self.pid_file.read_text().strip())
+            os.kill(pid, 0)
+            started = pathlib.Path(f"/proc/{pid}").stat().st_mtime
+            return pid, time.time() - started
+        except (OSError, ValueError):
+            return None, 0
+
+    def restart(self, pid: int, why: str):
+        import os
+        import signal
+        log.warning("restarting the stream encoder (pid %d): %s", pid, why)
+        os.kill(pid, signal.SIGINT)
+        self.last_restart = time.time()
+        self.offline = 0
+
+    def poll(self):
+        pid, uptime = self.encoder()
+        if not pid or uptime < WATCH_MIN_UPTIME or time.time() - self.last_restart < WATCH_COOLDOWN:
+            self.offline = 0
+            return
+        try:
+            since = self.api.live_since()
+        except Exception as e:  # noqa: BLE001 - can't tell: don't act
+            log.warning("live check failed: %s", e)
+            return
+        if since is None:
+            self.offline += 1
+            if self.offline >= WATCH_OFFLINE_CHECKS:
+                self.restart(pid, f"Twitch says offline for {self.offline} checks while the encoder runs")
+            return
+        self.offline = 0
+        phase = rigstate.current(self.cfg).get("phase")
+        if time.time() - since > WATCH_PLANNED_AFTER and phase in ("intermission", "setup"):
+            self.restart(pid, f"broadcast is {(time.time() - since) / 3600:.1f} h old (Twitch ends them at 48 h); "
+                              f"restarting between matches")
+
+
 def win_chance_reader(cfg: dict):
     """Read the player's win chance from the game's MCP server (observation only, no control lease)."""
     def read() -> int:
@@ -233,12 +301,18 @@ def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "status"
     if cmd == "run":
         hl = Highlights(cfg, win_chance_reader(cfg))
+        watch = LiveWatch(cfg, hl.api) if str(cfg.get("LIVE_WATCH", "1")) == "1" else None
         log.info("highlights running (enabled=%s, swing %d points, cooldown %d s)", hl.enabled, hl.swing, hl.cooldown)
         while True:
             try:
                 hl.poll()
             except Exception:  # noqa: BLE001 - keep polling
                 log.exception("poll failed")
+            try:
+                if watch:
+                    watch.poll()
+            except Exception:  # noqa: BLE001
+                log.exception("live watch failed")
             time.sleep(POLL)
     elif cmd == "status":
         api.has("x")

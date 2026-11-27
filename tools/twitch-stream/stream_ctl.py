@@ -136,7 +136,7 @@ def caption(cfg, goal, last=None) -> str:
     last = clean(last, "last") if last else None
     rec = rigstate.caption_record(rigstate.games(cfg), cur["number"])
     set_caption(cfg, "--match", cur["opponent"], rec, goal, *([last] if last else []))
-    cur.update(goal=goal, last_move=last)
+    cur.update(goal=goal, last_move=last, caption_at=time.time())
     rigstate.save_current(cfg, cur)
     return "caption updated"
 
@@ -256,10 +256,30 @@ def match_wait(cfg, a) -> str:
     text = content[0].get("text", "") if content else ""
     if wanted:
         text = _with_sections(text, wanted)
-    ff = bool(rigstate.current(cfg).get("fast_forward"))
+    cur = rigstate.current(cfg)
+    ff = bool(cur.get("fast_forward"))
     lean = _lean_wait(text)
     _record_trend(cfg, text)
-    return _wait_notes(text, ff) + _viewer_notes(cfg) + lean
+    return _wait_notes(text, ff) + _caption_note(cur) + _viewer_notes(cfg) + lean
+
+
+# Match 170 called match_caption once in 50 minutes, so viewers read "find wheat and wood" while it
+# was sacking the enemy base (2026-11-27). A stale caption is pointed out, at most every 3 minutes.
+CAPTION_STALE = 300.0
+_caption_nudged = [0.0]
+_server_started = time.time()
+
+
+def _caption_note(cur: dict) -> str:
+    if cur.get("phase") != "playing":
+        return ""
+    # Without a caption yet this session, count from when this server started (the session's start).
+    since = time.time() - max(float(cur.get("caption_at") or 0), _server_started)
+    if since < CAPTION_STALE or time.time() - _caption_nudged[0] < 180:
+        return ""
+    _caption_nudged[0] = time.time()
+    return ("The stream caption hasn't changed for over 5 minutes: call match_caption with your current goal and "
+            "your latest confirmed move, so viewers can follow.\n")
 
 
 def _with_sections(text: str, wanted: list) -> str:
