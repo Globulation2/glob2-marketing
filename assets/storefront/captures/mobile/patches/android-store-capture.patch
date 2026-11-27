@@ -1,0 +1,47 @@
+diff --git a/cmake/mobile.cmake b/cmake/mobile.cmake
+index 3f1cef453f..fe77f7c429 100644
+--- a/cmake/mobile.cmake
++++ b/cmake/mobile.cmake
+@@ -94,6 +94,13 @@ if(android)
+ else()
+   set(mobile_sources ${GLOB2_IOS_SOURCES})
+ endif()
++# Local capture builds only (GLOB2_CAPTURE_MCP=1 in the environment at configure
++# time): compile the desktop MCP listener into the mobile core so store
++# screenshots can be scripted against the real touch interface. Never shipped.
++if(DEFINED ENV{GLOB2_CAPTURE_MCP})
++  list(APPEND mobile_sources src/mcp/Tools.cpp src/mcp/Guide.cpp src/mcp/Protocol.cpp src/mcp/HttpServer.cpp)
++  add_compile_definitions(GLOB2_CAPTURE_MCP=1)
++endif()
+ list(TRANSFORM mobile_sources PREPEND "${GLOB2_ROOT}/")
+ add_library(glob2_mobile OBJECT ${mobile_sources})
+ add_dependencies(glob2_mobile glob2_generated)
+diff --git a/platforms/mobile/ios.py b/platforms/mobile/ios.py
+index ece8d65607..708ad89e31 100644
+--- a/platforms/mobile/ios.py
++++ b/platforms/mobile/ios.py
+@@ -135,7 +135,7 @@ def main():
+         'set(CMAKE_CXX_STANDARD 20)', 'set(CMAKE_CXX_STANDARD_REQUIRED ON)',
+         'add_executable(Glob2 MACOSX_BUNDLE '+cmake_quote(ROOT/('platforms/mobile/ios/ScriptTests.mm' if args.script_tests else 'src/app/Glob2.cpp'))+')',
+         'install(TARGETS Glob2 BUNDLE DESTINATION Applications)',
+-        'target_compile_definitions(Glob2 PRIVATE HAVE_CONFIG_H)',
++        'target_compile_definitions(Glob2 PRIVATE HAVE_CONFIG_H'+(' GLOB2_CAPTURE_MCP=1' if os.environ.get('GLOB2_CAPTURE_MCP') else '')+')',
+         'target_include_directories(Glob2 PRIVATE '+' '.join(map(cmake_quote,include))+')',
+         'add_custom_target(Glob2Core COMMAND '+' '.join(map(cmake_quote,command))+' WORKING_DIRECTORY '+cmake_quote(ROOT)+' VERBATIM)',
+         'add_dependencies(Glob2 Glob2Core)',
+diff --git a/src/mcp/Availability.h b/src/mcp/Availability.h
+index 10f586ecda..9e90596004 100644
+--- a/src/mcp/Availability.h
++++ b/src/mcp/Availability.h
+@@ -3,7 +3,10 @@
+ #if defined(__APPLE__)
+ #include <TargetConditionals.h>
+ #endif
+-#if !defined(__EMSCRIPTEN__) && !defined(__ANDROID__) && !(defined(__APPLE__) && TARGET_OS_IPHONE) && !defined(SERVER_ONLY)
++// GLOB2_CAPTURE_MCP: local store-screenshot capture builds for the iOS Simulator
++// (never shipped) expose the loopback automation listener so scripted input can
++// drive the real touch interface; see cmake/mobile.cmake.
++#if defined(GLOB2_CAPTURE_MCP) || (!defined(__EMSCRIPTEN__) && !defined(__ANDROID__) && !(defined(__APPLE__) && TARGET_OS_IPHONE) && !defined(SERVER_ONLY))
+ #define GLOB2_DESKTOP_MCP 1
+ #else
+ #define GLOB2_DESKTOP_MCP 0

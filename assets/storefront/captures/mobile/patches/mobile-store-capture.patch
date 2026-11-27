@@ -1,0 +1,355 @@
+diff --git a/cmake/mobile.cmake b/cmake/mobile.cmake
+index 3f1cef453f..fe77f7c429 100644
+--- a/cmake/mobile.cmake
++++ b/cmake/mobile.cmake
+@@ -94,6 +94,13 @@ if(android)
+ else()
+   set(mobile_sources ${GLOB2_IOS_SOURCES})
+ endif()
++# Local capture builds only (GLOB2_CAPTURE_MCP=1 in the environment at configure
++# time): compile the desktop MCP listener into the mobile core so store
++# screenshots can be scripted against the real touch interface. Never shipped.
++if(DEFINED ENV{GLOB2_CAPTURE_MCP})
++  list(APPEND mobile_sources src/mcp/Tools.cpp src/mcp/Guide.cpp src/mcp/Protocol.cpp src/mcp/HttpServer.cpp)
++  add_compile_definitions(GLOB2_CAPTURE_MCP=1)
++endif()
+ list(TRANSFORM mobile_sources PREPEND "${GLOB2_ROOT}/")
+ add_library(glob2_mobile OBJECT ${mobile_sources})
+ add_dependencies(glob2_mobile glob2_generated)
+diff --git a/platforms/mobile/ios.py b/platforms/mobile/ios.py
+index ece8d65607..708ad89e31 100644
+--- a/platforms/mobile/ios.py
++++ b/platforms/mobile/ios.py
+@@ -135,7 +135,7 @@ def main():
+         'set(CMAKE_CXX_STANDARD 20)', 'set(CMAKE_CXX_STANDARD_REQUIRED ON)',
+         'add_executable(Glob2 MACOSX_BUNDLE '+cmake_quote(ROOT/('platforms/mobile/ios/ScriptTests.mm' if args.script_tests else 'src/app/Glob2.cpp'))+')',
+         'install(TARGETS Glob2 BUNDLE DESTINATION Applications)',
+-        'target_compile_definitions(Glob2 PRIVATE HAVE_CONFIG_H)',
++        'target_compile_definitions(Glob2 PRIVATE HAVE_CONFIG_H'+(' GLOB2_CAPTURE_MCP=1' if os.environ.get('GLOB2_CAPTURE_MCP') else '')+')',
+         'target_include_directories(Glob2 PRIVATE '+' '.join(map(cmake_quote,include))+')',
+         'add_custom_target(Glob2Core COMMAND '+' '.join(map(cmake_quote,command))+' WORKING_DIRECTORY '+cmake_quote(ROOT)+' VERBATIM)',
+         'add_dependencies(Glob2 Glob2Core)',
+diff --git a/src/common/CaptureClock.h b/src/common/CaptureClock.h
+new file mode 100644
+index 0000000000..ed7343f365
+--- /dev/null
++++ b/src/common/CaptureClock.h
+@@ -0,0 +1,82 @@
++// SPDX-License-Identifier: GPL-3.0-or-later
++#pragma once
++
++#include <SDL3/SDL_timer.h>
++
++#include <algorithm>
++#include <atomic>
++#include <cstdint>
++
++//! Frame-by-frame store capture (local capture builds only: GLOB2_CAPTURE_MCP,
++//! never shipped). While the capture clock runs, the match view draws only the
++//! frames a device at a fixed frame rate would draw for the ticks the match
++//! actually ran (framesPerTick frames for every new tick, plus frames granted
++//! explicitly), and the presentation clocks (water and cloud animation, the
++//! event list's lifetimes, the tick-rate readout, unit-motion and fog-fade
++//! fractions) read a virtual time that advances by exactly one frame interval
++//! per drawn frame. Between frames nothing is drawn, so a slow screenshot of the
++//! held match shows exactly the frame the device would have shown, at real
++//! game speed, however long the capture takes. The simulation itself is never
++//! touched: its ticks are stepped with game_time as usual.
++namespace CaptureClock
++{
++#if defined(GLOB2_CAPTURE_MCP)
++inline std::atomic<bool> enabled{false};
++inline std::atomic<std::uint64_t> baseNs{0};
++inline std::atomic<std::uint64_t> virtualNs{0};
++inline std::atomic<std::uint64_t> drawnFrames{0};
++inline std::atomic<int> pendingFrames{0};
++inline std::atomic<int> framesPerTick{2};
++inline std::atomic<std::uint64_t> lastTick{~std::uint64_t(0)};
++inline std::atomic<std::uint64_t> lastDrawnTick{~std::uint64_t(0)};
++//! Ticks a second at the normal game speed (1x).
++inline constexpr std::uint64_t TICKS_PER_SECOND = 30;
++
++inline bool active() { return enabled.load(); }
++inline std::uint64_t nowNs() { return active() ? virtualNs.load() : SDL_GetTicksNS(); }
++inline std::uint64_t nowMs() { return nowNs() / 1'000'000ULL; }
++
++inline void start(int frames)
++{
++	framesPerTick = frames > 0 ? frames : 2;
++	baseNs = SDL_GetTicksNS();
++	virtualNs = baseNs.load();
++	drawnFrames = 0;
++	pendingFrames = 0;
++	lastTick = ~std::uint64_t(0);
++	enabled = true;
++}
++inline void stop() { enabled = false; }
++inline void grant(int frames) { pendingFrames += frames; }
++
++//! The draw gate, asked once per host frame with the tick of the scene about to
++//! be drawn: true when this frame draws (and the virtual time has advanced by
++//! one frame interval), false when the host frame must draw nothing.
++inline bool admit(std::uint64_t tick)
++{
++	if (!active())
++		return true;
++	// framesPerTick frames for every tick run since the last drawn scene (a step of
++	// several ticks draws its newest scene that many times), so the presentation
++	// time always advances by exactly one tick interval per tick.
++	const std::uint64_t previous = lastTick.exchange(tick);
++	if (previous != tick)
++	{
++		const std::uint64_t ran = previous == ~std::uint64_t(0) || tick < previous ? 1 : std::min<std::uint64_t>(tick - previous, 3000);
++		pendingFrames += int(ran) * framesPerTick.load();
++	}
++	if (pendingFrames.load() <= 0)
++		return false;
++	--pendingFrames;
++	const std::uint64_t frame = ++drawnFrames;
++	virtualNs = baseNs.load() + frame * 1'000'000'000ULL / (TICKS_PER_SECOND * std::uint64_t(framesPerTick.load()));
++	lastDrawnTick = tick;
++	return true;
++}
++#else
++inline constexpr bool active() { return false; }
++inline std::uint64_t nowNs() { return SDL_GetTicksNS(); }
++inline std::uint64_t nowMs() { return SDL_GetTicks(); }
++inline constexpr bool admit(std::uint64_t) { return true; }
++#endif
++} // namespace CaptureClock
+diff --git a/src/engine/EngineRun.cpp b/src/engine/EngineRun.cpp
+index 792574afda..130de93dc1 100644
+--- a/src/engine/EngineRun.cpp
++++ b/src/engine/EngineRun.cpp
+@@ -2,6 +2,7 @@
+ #include <PresentationWork.h>
+ #include "gradient/MapRouting.h"
+ #include "OwnerTickProfile.h"
++#include "CaptureClock.h"
+ // Copyright (C) 2001-2004 Stephane Magnenat & Luc-Olivier de Charrière
+ 
+ #include <GameplayRecording.h>
+@@ -324,6 +325,8 @@ void Engine::executeOrdersAndStep(bool readyNow)
+ 
+ void Engine::drawFrame(MainLoopState& st, bool everyFrame, const PresentationFrame* scene)
+ {
++    // Frame-by-frame capture builds draw only the frames the capture clock admits.
++    if (!CaptureClock::admit(scene ? scene->tick : gui.game.stepCounter)) return;
+     GAGCore::PresentationWorkScope cpuWork(gui.game.map.computeExecutor());
+     GAGCore::ApplicationHost::matchFrame(gui.gamePaused);
+ 	const bool renderedFrame = everyFrame || st.nextGuiStep == 0;
+@@ -1544,7 +1547,7 @@ bool Engine::advanceSession(Uint64 now, const std::function<void()>& clientWork,
+             observedSimulationLateness.store(lateness, std::memory_order_relaxed);
+             perf.record(PerformanceTelemetry::Id::SimulationLateness, lateness);
+             OwnerTickProfile::Scope phase(OwnerTickProfile::Phase::Statistics);
+-            gui.recordTick(SDL_GetTicks(), Uint32(st.speed));
++            gui.recordTick(CaptureClock::nowMs(), Uint32(st.speed));
+             if (stepping) gui.spendHeldStep();
+         }
+     }
+diff --git a/src/hive/LocalCommander.cpp b/src/hive/LocalCommander.cpp
+index b728cec0d8..9aa303b896 100644
+--- a/src/hive/LocalCommander.cpp
++++ b/src/hive/LocalCommander.cpp
+@@ -1,5 +1,6 @@
+ // SPDX-License-Identifier: GPL-3.0-or-later
+ #include "LocalCommander.h"
++#include "CaptureClock.h"
+ #include "UnitConsts.h"
+ #include <deque>
+ #include <set>
+@@ -2162,6 +2163,19 @@ Json LocalCommander::time(const Json &args)
+ 	if (args.contains("speed"))
+ 		if (const auto error = gui.setGameSpeedFromAutomation(args.at("speed").get<int>()); !error.empty())
+ 			throw std::runtime_error(error);
++#if defined(GLOB2_CAPTURE_MCP)
++	// Capture builds only: start or stop the frame-by-frame capture clock, or let
++	// the view draw extra frames without a tick (common/CaptureClock.h).
++	if (args.contains("capture_clock"))
++	{
++		if (args.at("capture_clock").get<bool>())
++			CaptureClock::start(args.value("frames_per_tick", 2));
++		else
++			CaptureClock::stop();
++	}
++	if (args.contains("capture_frames"))
++		CaptureClock::grant(args.at("capture_frames").get<int>());
++#endif
+ 	unsigned steps = 0;
+ 	if (action == "pause")
+ 	{
+@@ -2220,6 +2234,14 @@ Json LocalCommander::time(const Json &args)
+ 	else if (result["paused"] == true)
+ 		result["note"] = "Paused: no ticks run. You can still read, place, click and type; "
+ 						 "orders apply once the match runs again (resume or step).";
++#if defined(GLOB2_CAPTURE_MCP)
++	result["capture_clock"] = {{"active", CaptureClock::active()},
++							   {"frames_per_tick", CaptureClock::framesPerTick.load()},
++							   {"drawn_frames", CaptureClock::drawnFrames.load()},
++							   {"pending_frames", CaptureClock::pendingFrames.load()},
++							   {"last_drawn_tick", CaptureClock::lastDrawnTick.load()},
++							   {"virtual_ms", CaptureClock::nowMs()}};
++#endif
+ 	return result;
+ }
+ void LocalCommander::refreshMemory()
+diff --git a/src/hud/GameGUIStep.cpp b/src/hud/GameGUIStep.cpp
+index 8a6571c1a3..36096ef75b 100644
+--- a/src/hud/GameGUIStep.cpp
++++ b/src/hud/GameGUIStep.cpp
+@@ -1,4 +1,5 @@
+ // SPDX-License-Identifier: GPL-3.0-or-later
++#include "CaptureClock.h"
+ #include "InGameStatistics.h"
+ // Copyright (C) 2001-2004 Stephane Magnenat & Luc-Olivier de Charrière
+ 
+@@ -385,7 +386,7 @@ void GameGUI::stepEventFeed(int viewedTeam)
+ 
+ 	// The simulation forwards GameEvents through ClientEvents; coalesce the
+ 	// ones for the team being viewed, oldest first.
+-	const Uint64 nowMs = SDL_GetTicks();
++	const Uint64 nowMs = CaptureClock::nowMs();
+ 	const auto distanceSquared = [this](int px, int py, int qx, int qy) -> std::int64_t
+ 	{
+         const int width = drawnScene().map.getW(), height = drawnScene().map.getH();
+diff --git a/src/hud/draw/GameGUIDraw.cpp b/src/hud/draw/GameGUIDraw.cpp
+index 6d2a472cb7..cb23c72dcd 100644
+--- a/src/hud/draw/GameGUIDraw.cpp
++++ b/src/hud/draw/GameGUIDraw.cpp
+@@ -1,3 +1,4 @@
++#include "CaptureClock.h"
+ #include "tutorial/TutorialGuidance.h"
+ #include "hive/HiveDialog.h"
+ #include "render/scene/SceneExtract.h"
+@@ -853,9 +854,9 @@ void GameGUI::drawAll(int team)
+ 	view.render.zonesEmphasised = selectionMode==BRUSH_SELECTION;
+ 	view.render.minimumZoom = camera.minimumZoom();
+ 	view.render.unitMotion = globalContainer->settings.unitInterpolation && !gamePaused && !hardPause
+-		? unitMotionFraction(scene, SDL_GetTicks()) : 0.f;
++		? unitMotionFraction(scene, CaptureClock::nowMs()) : 0.f;
+ 	const Uint64 clock = tickClock;
+-	tickRate.sample(Uint32(SDL_GetTicks()), Uint32(clock), Uint32(clock >> 32));
++	tickRate.sample(Uint32(CaptureClock::nowMs()), Uint32(clock), Uint32(clock >> 32));
+ 	// Panels, the top bar and the statistics pages draw the scene's copy of the stats.
+ 	teamStats = scene.panels.localStats.get();
+ 	toolManager.setDrawnScene(&scene);
+@@ -918,7 +919,7 @@ void GameGUI::drawAll(int team)
+ 	}
+ 	// if paused, tint the game area; an agent's hard pause (MCP game_time) shows
+ 	// as paused too, so people watching know the match is waiting.
+-	if (gamePaused || (agentPaused && simulationHeld()))
++	if (gamePaused || (agentPaused && simulationHeld() && !CaptureClock::active()))
+ 	{
+ 		std::string s;
+ 
+diff --git a/src/hud/draw/GameGUIDrawEventFeed.cpp b/src/hud/draw/GameGUIDrawEventFeed.cpp
+index 2a8e1b8623..f193c7a89b 100644
+--- a/src/hud/draw/GameGUIDrawEventFeed.cpp
++++ b/src/hud/draw/GameGUIDrawEventFeed.cpp
+@@ -2,6 +2,7 @@
+ // The game-event notification rows (GameEventFeed): an icon for the unit,
+ // building or team concerned, the message, and how many reports it stands for.
+ 
++#include "CaptureClock.h"
+ #include <FormatableString.h>
+ #include <SDL3/SDL.h>
+ #include <TouchText.h>
+@@ -102,7 +103,7 @@ EventFeedLayout GameGUI::eventFeedLayout(int x, int y) const
+ 		result.mobile ? std::max(EVENT_ROW_H_PX, font->getStringHeight("Ag") + 4) : EVENT_ROW_H_PX;
+ 	if (result.mobile)
+ 		x = y = 0;
+-	const Uint64 now = SDL_GetTicks();
++	const Uint64 now = CaptureClock::nowMs();
+ 	for (const auto &event : eventFeed.rows())
+ 	{
+ 		EventFeedRowLayout row;
+diff --git a/src/mcp/Availability.h b/src/mcp/Availability.h
+index 10f586ecda..9e90596004 100644
+--- a/src/mcp/Availability.h
++++ b/src/mcp/Availability.h
+@@ -3,7 +3,10 @@
+ #if defined(__APPLE__)
+ #include <TargetConditionals.h>
+ #endif
+-#if !defined(__EMSCRIPTEN__) && !defined(__ANDROID__) && !(defined(__APPLE__) && TARGET_OS_IPHONE) && !defined(SERVER_ONLY)
++// GLOB2_CAPTURE_MCP: local store-screenshot capture builds for the iOS Simulator
++// (never shipped) expose the loopback automation listener so scripted input can
++// drive the real touch interface; see cmake/mobile.cmake.
++#if defined(GLOB2_CAPTURE_MCP) || (!defined(__EMSCRIPTEN__) && !defined(__ANDROID__) && !(defined(__APPLE__) && TARGET_OS_IPHONE) && !defined(SERVER_ONLY))
+ #define GLOB2_DESKTOP_MCP 1
+ #else
+ #define GLOB2_DESKTOP_MCP 0
+diff --git a/src/mcp/Tools.cpp b/src/mcp/Tools.cpp
+index 895829ae41..8af202c3ff 100644
+--- a/src/mcp/Tools.cpp
++++ b/src/mcp/Tools.cpp
+@@ -619,11 +619,21 @@ void registerUITools(ToolRegistry &registry)
+ 		"speed sets game speed: -3..9 are 0.25, 0.5, 0.75, 1, 1.25, 1.6, 2, 2.5, 4, 5, 8, 13, 40x; "
+ 		"10 is unlimited. action defaults to status (no token unless speed). step with wait: "
+ 		"true returns once the steps ran.",
+-		{{"action", enumeration({"status", "pause", "resume", "step"})},
+-		 {"token", token},
+-		 {"ticks", {{"type", "integer"}, {"minimum", 1}, {"maximum", 3000}}},
+-		 {"speed", {{"type", "integer"}, {"minimum", -3}, {"maximum", 10}}},
+-		 {"wait", {{"type", "boolean"}}}},
++		[&]
++		{
++			Json properties = {{"action", enumeration({"status", "pause", "resume", "step"})},
++							   {"token", token},
++							   {"ticks", {{"type", "integer"}, {"minimum", 1}, {"maximum", 3000}}},
++							   {"speed", {{"type", "integer"}, {"minimum", -3}, {"maximum", 10}}},
++							   {"wait", {{"type", "boolean"}}}};
++#if defined(GLOB2_CAPTURE_MCP)
++			// Capture builds only: the frame-by-frame capture clock (common/CaptureClock.h).
++			properties["capture_clock"] = {{"type", "boolean"}};
++			properties["capture_frames"] = {{"type", "integer"}, {"minimum", 0}, {"maximum", 600}};
++			properties["frames_per_tick"] = {{"type", "integer"}, {"minimum", 1}, {"maximum", 8}};
++#endif
++			return properties;
++		}(),
+ 		{}, false);
+ 	add("game_wait",
+ 		"Let game time pass until ticks elapse (30/s), an until event hits your colony "
+diff --git a/src/render/AnimationClock.h b/src/render/AnimationClock.h
+index 95c2caa264..ce6636de4b 100644
+--- a/src/render/AnimationClock.h
++++ b/src/render/AnimationClock.h
+@@ -3,6 +3,8 @@
+ 
+ #include <SDL3/SDL_timer.h>
+ 
++#include "CaptureClock.h"
++
+ #include <algorithm>
+ #include <cmath>
+ #include <cstdint>
+@@ -88,7 +90,7 @@ public:
+ 
+ 	//! Steps this frame advances; 0 while paused. The first frame advances one
+ 	//! step. Pausing forgets the last timestamp, so resuming does not jump.
+-	int advance(bool paused) { return advanceAt(paused, SDL_GetTicksNS()); }
++	int advance(bool paused) { return advanceAt(paused, CaptureClock::nowNs()); }
+ 	int advanceAt(bool paused, std::uint64_t nowNs)
+ 	{
+ 		const int preset = pending;
+diff --git a/src/render/GameRender.cpp b/src/render/GameRender.cpp
+index 6f9800a78f..7a627b4f49 100644
+--- a/src/render/GameRender.cpp
++++ b/src/render/GameRender.cpp
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: GPL-3.0-or-later
+ // Copyright (C) 2001-2004 Stephane Magnenat & Luc-Olivier de Charrière
+ 
++#include "CaptureClock.h"
+ #include "MapCopies.h"
+ #include "unit/render/ColonySkinPreview.h"
+ 
+@@ -190,7 +191,7 @@ void MapDrawer::prepareSceneMapFrame(const PresentationFrame &scene, int localTe
+         : scene.entities.teams[localTeam].mask;
+     if (globalContainer->settings.smoothFog && !(drawOptions & Game::DRAW_WHOLE_MAP))
+         view.render.fogFade.update(scene.map, visibleTeams, scene.tick,
+-            scene.tick + unitMotionFraction(scene, SDL_GetTicks()));
++            scene.tick + unitMotionFraction(scene, CaptureClock::nowMs()));
+     else if (view.render.fogFade.active()) view.render.fogFade.reset();
+ }
+ 
