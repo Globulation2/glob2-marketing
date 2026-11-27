@@ -130,11 +130,19 @@ Cause, from the glob2 code: `Application::mainMenu` asks whenever `Glob2UI::touc
 - New gameplay-led description, 443 characters (GP-3).
 - "Game features" custom section added (GP-3).
 - FAQs: "Do I control each unit?" and "How do I win?" (GP-2). The dashboard silently refused a third FAQ on every attempt, including after a save, so "Where should I start?" and "Does it cost anything?" are not on the listing.
-- Video left empty: the YouTube trailer's end card says "No ads", which this ad-enabled package can't claim.
+- Video: initially left empty because the YouTube trailer's end card says "No ads". Then set to the unlisted gameplay cut https://www.youtube.com/watch?v=BJoMHyCxzkg (see "Gameplay video for ad-enabled portals" below), saved and re-read after a reload.
 
 All changes were re-read after a reload. "Allow distribution" was already ticked and was not changed. Not submitted for review.
 
 A dashboard notice asked the account owner to "Update Payment Settings" for future GamePix payouts. It was dismissed, not acted on; it is the user's to do.
+
+## Gameplay video for ad-enabled portals (2026-11-26)
+
+At the user's request ("Yes, cut it"), the existing textless 30-second trailer cut was used for listings on ad-enabled portals. The published trailer `t6Q3ZpY9aTM` ends on a "No ads" card and says "No ads" in its description.
+- Source file: `storefront-v2-renders/trailer/glob2-trailer-30s-textless-1080p.mp4` (53 MB), from the same storefront trailer footage (manifest in `assets/storefront/trailer/manifest.json`). It has no text cards and no AI co-play beat.
+- Check: the contact sheet `assets/storefront/trailer/contact-sheet-master-30s-textless.jpg` shows gameplay only. There is no text, MCP card, online screen or link. One beat shows the in-game build palette. This is standard-build footage with HD art, so it is not representative of the lite edition.
+- YouTube: https://www.youtube.com/watch?v=BJoMHyCxzkg on the Globulation 2 Online channel, **Unlisted**, titled "Globulation 2 gameplay", not made for kids. The description has no ad claims and labels the footage as AI-versus-AI matches filmed from a player seat. The user uploaded the file; Claude set the details.
+- Use: GamePix (standard build). Not for CrazyGames, Poki or Yandex, which use lite and need lite footage.
 
 ## Newgrounds
 
