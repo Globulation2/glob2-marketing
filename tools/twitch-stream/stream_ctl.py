@@ -239,8 +239,10 @@ def match_wait(cfg, a) -> str:
     ticks = max(30, min(ticks, WAIT_MAX_TICKS))
     extra = [e for e in (a.get("also_until") or []) if e in WAIT_EXTRA]
     args = {"ticks": ticks, "timeout_ms": WAIT_TIMEOUT_MS, "until": WAIT_ALWAYS + extra}
-    if a.get("include"):
-        args["include"] = [str(x) for x in a["include"]][:8]
+    # game_wait applies include as a filter on its alerts-only report, so include ["buildings"] returned
+    # neither buildings nor the alerts and status (seen live 2026-11-27). The wait keeps its full report,
+    # and the sections asked for come from one game_world read after it (no extra model call).
+    wanted = [str(x) for x in (a.get("include") or [])][:8]
     try:
         started = time.time()
         out = camera._rpc("game_wait", args, timeout=WAIT_TIMEOUT_MS / 1000 + 10)
@@ -252,10 +254,41 @@ def match_wait(cfg, a) -> str:
         raise CtlError(str(out["error"].get("message", "wait failed"))[:300])
     content = out.get("result", {}).get("content", [])
     text = content[0].get("text", "") if content else ""
+    if wanted:
+        text = _with_sections(text, wanted)
     ff = bool(rigstate.current(cfg).get("fast_forward"))
     lean = _lean_wait(text)
     _record_trend(cfg, text)
     return _wait_notes(text, ff) + _viewer_notes(cfg) + lean
+
+
+def _with_sections(text: str, wanted: list) -> str:
+    """Merge the sections asked for into the wait's reply. The game serves buildings only at detail
+    brief and resources/others only at summary or full (2026-11-27), so try brief, then summary."""
+    try:
+        reply = json.loads(text)
+    except ValueError:
+        return text
+    missing, errors = list(wanted), []
+    for detail in ("brief", "summary"):
+        if not missing:
+            break
+        try:
+            out = camera._rpc("game_world", {"detail": detail, "include": missing}, timeout=15)
+            res = out.get("result") or {}
+            body = (res.get("content") or [{}])[0].get("text", "")
+            if "error" in out or res.get("isError"):
+                errors.append(str((out.get("error") or {}).get("message") or body)[:300])
+                continue
+            for k, v in json.loads(body).items():
+                if k not in ("tick", "session", "team") and k not in reply:
+                    reply[k] = v
+        except Exception as e:  # noqa: BLE001 - the wait's own reply still stands
+            errors.append(type(e).__name__)
+        missing = [w for w in missing if w not in reply]
+    if missing:
+        reply["include_missing"] = missing + ([f"({errors[-1]})"] if errors else [])
+    return json.dumps(reply)
 
 
 # match_wait replies were a third of all calls and 30% of cache writes, and 57% of each repeated the
