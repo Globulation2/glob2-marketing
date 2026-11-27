@@ -82,10 +82,13 @@ Project 8315233, a draft saved with 0.11.8.2. **Standard build, no ads in the ga
 >
 > The game itself has no ads, no in-app purchases and no loot boxes. Globulation 2 is free and open source (GPLv3). It was started in 2001 and has been built by volunteers over two decades.
 >
+> AI disclosure: this remaster includes AI-assisted code contributions, some AI-generated terrain and some AI-enhanced sprites.
+>
 > Desktop versions for Windows, macOS and Linux: https://glob2.online/
 
 - Evidence: NG-2 (open with what the game is and where to start, avoid "complete", a "Features" list, 150–250 words). NG-4: rooms only, no quick matches, and "no ads" scoped to the game. Feature lines from claims §3. "Online rooms with invite codes" is safe with caveat (R6). Heritage from claims §4. The link is allowed because the Newgrounds package keeps external links (rollout).
 - No MCP (claims §2: not in browser builds), no LAN (§5), no campaigns (R5), no quick-match line (R12).
+- AI disclosure (added 2026-11-27, **awaiting the owner's approval**): Newgrounds requires disclosing any AI use in the author commentary ([other portals audit](../analysis/other-portals-requirements-audit.md), NG-9). Wording matches the maintainer-reviewed line in [the Linux and preservation Reddit draft](reddit-campaign/linux-and-preservation.md). Not yet entered on the Newgrounds draft.
 
 **Tags (8):** strategy, rts, real-time-strategy, colony, base-building, economy, open-source, map-editor
 - Evidence: NG-7, taking its optional swap of `multiplayer` for `real-time-strategy`, because online play is thin (R12). See owner decision 5.
