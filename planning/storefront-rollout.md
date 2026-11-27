@@ -207,3 +207,4 @@ Append dated entries below, oldest first. One entry per event: date, store or wo
 - **2026-11-27 — Epic check at 09:46 UTC not done.** Claude in Chrome still not connected (owner not yet back). Next try in about 3 hours.
 - **2026-11-27 — Epic check at 12:47 UTC not done.** Claude in Chrome still not connected; third miss in a row. Next try in about 6 hours, or sooner when the owner reconnects Chrome.
 - **2026-11-27 — Epic check at 12:58 UTC (owner reconnected Chrome): unchanged.** Stage Locked; Store Settings 2, Offers 1, Pages 1, Artifacts 1 all In review; Live 0. Next check about 18:47 UTC.
+- **2026-11-27 — Epic check cadence: once a day.** The owner asked to check once per day instead of every few hours. Next check about 13:00 UTC on 2026-11-28.
