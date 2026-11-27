@@ -93,7 +93,10 @@ if [[ -n "$AGENT_USER" ]]; then : "${AGENT_SHARED_DIR:=/var/lib/glob2-stream}"; 
 : "${AGENT_COMPACT_PCT:=50}"
 : "${PLAYER_CALLS_PER_MIN:=10}"          # paced game calls per minute for the player (menus unpaced)
 # Game settings forced in the stream profile at each launch (space-separated key=value, preferences.txt keys).
-: "${STREAM_GAME_PREFS:=clouds=0 cloudShadows=0}"
+# ageBand: glob2 #1919 turns chat off for a profile that has not declared an age (or is under 13), which
+# silenced the player's narration on the first #1960 build (2026-11-27). The stream's profile is run by
+# the channel owner, an adult, who approved this declaration (13_plus, source self) on 2026-11-27.
+: "${STREAM_GAME_PREFS:=clouds=0 cloudShadows=0 ageBand=13_plus ageBandSource=self}"
 # Autostart at boot (autostart/install-autostart.sh).
 : "${AUTOSTART_STREAM:=live}"          # live, none or file:PATH
 : "${AUTOSTART_CHAT:=1}"
