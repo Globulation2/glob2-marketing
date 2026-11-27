@@ -202,7 +202,9 @@ QA results:
 - No hand prompt in the desktop frame, no Quit, and no QA warnings.
 - No `requestAd` appears in the QA log after leaving the match. Ads are disabled in Basic Launch, so this has to be re-checked for Full Launch.
 
-**To fix before submission:**
+**Resolution (2026-11-26):** CrazyGames' rules say the first gameplay start "excludes menus", and their 20-second time-to-gameplay rule applies only to externally hosted games ([technical requirements](https://docs.crazygames.com/requirements/technical/)). So match-based gameplay events stay. A first-screen gameplay change was tried in glob2 #1952 and removed. The QA load-time figure is informational for us; the binding limit is the ≤ 50 MB initial download (10.4 MB). The user decided to keep the current first-run flow: sound prompt, then the Introduction offer, which is one click into a skippable onboarding match. That already meets the quality guideline that new players "land directly" in a skippable onboarding. The in-game menu fit is fixed in glob2 #1952 (wheel scrolling, two columns in short frames, AI telemetry hidden in portals), and "Report a problem" is confirmed link-free there.
+
+**To fix before submission (original findings):**
 1. QA "Load time 61.9 s". CrazyGames measures it from Play Now to the first gameplay event, which the game sends only when a match starts, so it included the sound prompt, the introduction offer and slow manual clicks. Their bar is 20 s: send gameplay when the player is interacting with the main menu, or shorten the path to the first match.
 2. The in-game menu doesn't fit the ~470 px tall frame: "Quit the game" is cut off and the mouse wheel doesn't scroll the list.
 3. Check that the new "Report a problem" menu button doesn't open an external page when external links are off.
