@@ -25,7 +25,10 @@ fi
 # which turned to blocky smears after H.264 encoding.
 prefs="$GAME_PROFILE/preferences.txt"
 touch "$prefs"
-for kv in $STREAM_GAME_PREFS; do
+# The age band is applied separately so a running supervisor's older STREAM_GAME_PREFS can't drop it.
+age_prefs=""
+[[ "$GAME_AGE_BAND" =~ ^(13_plus|under_13)$ ]] && age_prefs="ageBand=$GAME_AGE_BAND ageBandSource=self"
+for kv in $STREAM_GAME_PREFS $age_prefs; do
   k="${kv%%=*}"; v="${kv#*=}"
   [[ "$k" =~ ^[A-Za-z][A-Za-z0-9_]*$ ]] || { echo "bad STREAM_GAME_PREFS entry: $kv" >&2; exit 2; }
   if grep -q "^$k=" "$prefs"; then sed -i "s|^$k=.*|$k=$v|" "$prefs"; else echo "$k=$v" >> "$prefs"; fi

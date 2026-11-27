@@ -12,7 +12,7 @@ RIG_SETTINGS=(GLOB2_SRC GLOB2_BIN GAME_RENDERER GAME_USERNAME STREAM_DISPLAY STR
   TWITCH_CHANNEL TWITCH_BOT_USER TWITCH_CHAT_TOKEN_FILE TWITCH_CLI_ENV HIGHLIGHTS HIGHLIGHT_SWING HIGHLIGHT_COOLDOWN LIVE_WATCH
   AGENT_USER AGENT_SHARED_DIR AGENT_INSTALL_DIR AGENT_ETC_DIR AGENT_SUDOERS AGENT_EGRESS EGRESS_PROXY_PORT EGRESS_ALLOW
   AUTOSTART_STREAM AUTOSTART_CHAT CAMERA_OVERLAY_FILE CAMERA_DIRECTOR CAMERA_IDLE_SECONDS CAMERA_LABEL_SECONDS
-  CAMERA_MIN_INTERVAL CAMERA_HOLD_SECONDS STREAM_GAME_PREFS AGENT_COMPACT_WINDOW AGENT_COMPACT_PCT PLAYER_CALLS_PER_MIN
+  CAMERA_MIN_INTERVAL CAMERA_HOLD_SECONDS STREAM_GAME_PREFS GAME_AGE_BAND AGENT_COMPACT_WINDOW AGENT_COMPACT_PCT PLAYER_CALLS_PER_MIN
   CAMERA_DRIFT CAMERA_DRIFT_PX_PER_S CAMERA_DRIFT_MAX_PX_PER_S CAMERA_DRIFT_DEADZONE CAMERA_DRIFT_RANGE)
 if [[ -f "$GLOB2_STREAM_HOME/stream.env" ]]; then
   declare -A rig_env=()
@@ -93,10 +93,12 @@ if [[ -n "$AGENT_USER" ]]; then : "${AGENT_SHARED_DIR:=/var/lib/glob2-stream}"; 
 : "${AGENT_COMPACT_PCT:=50}"
 : "${PLAYER_CALLS_PER_MIN:=10}"          # paced game calls per minute for the player (menus unpaced)
 # Game settings forced in the stream profile at each launch (space-separated key=value, preferences.txt keys).
-# ageBand: glob2 #1919 turns chat off for a profile that has not declared an age (or is under 13), which
-# silenced the player's narration on the first #1960 build (2026-11-27). The stream's profile is run by
-# the channel owner, an adult, who approved this declaration (13_plus, source self) on 2026-11-27.
-: "${STREAM_GAME_PREFS:=clouds=0 cloudShadows=0 ageBand=13_plus ageBandSource=self}"
+# glob2 #1919 turns chat off for a profile that has not declared an age (or is under 13), which
+# silenced the player's narration on the first build from master (2026-11-27). The stream's profile is
+# run by the channel owner, an adult, who approved declaring 13_plus (source self) on 2026-11-27.
+# game-up.sh applies it with STREAM_GAME_PREFS; empty leaves the profile's own answer.
+: "${GAME_AGE_BAND:=13_plus}"
+: "${STREAM_GAME_PREFS:=clouds=0 cloudShadows=0}"
 # Autostart at boot (autostart/install-autostart.sh).
 : "${AUTOSTART_STREAM:=live}"          # live, none or file:PATH
 : "${AUTOSTART_CHAT:=1}"
