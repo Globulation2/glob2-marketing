@@ -86,6 +86,24 @@ Tag v0.11.8.2 is commit `8fb3c06aee`, the same commit tested locally above. Rele
 
 Smoke test in the simulated portal: the release CrazyGames zip and the lite Poki zip load with textured terrain and the expected menus. **The tag predates the Quit fix (#1938)**, so these packages still show Quit.
 
+## Portal ads: build fit and SDK checks (2026-11-26)
+
+Globulation2/glob2#1945 (portal ads at natural breaks, lite portal uploads, a 3-minute minimum gap between breaks) merged as `616d966` after the fast gate and sim-diff passed. Every portal package was rebuilt locally from that commit and fits its portal:
+
+| Portal | Edition | Zip / unpacked | `ads` |
+|---|---|---|---|
+| Game Jolt, Newgrounds | standard | 132.1 / 219.5 MB | false |
+| GamePix, GameDistribution | standard | 132.1 / 219.5 MB | true |
+| CrazyGames, Poki, Yandex | lite | 17.9 / 46.2 MB | true |
+
+**Poki, real SDK on localhost:** verified end to end. The first match started with `gameplayStart` and no ad. Leaving the match sent `gameplayStop`. Returning to the menu called `commercialBreak`, and Poki's local test ad (a promo video) played, then the game resumed. A second match within 3 minutes sent `gameplayStart` with no second break.
+
+**CrazyGames, real SDK on localhost:** the SDK script loads, but `CrazyGames.SDK.init()` neither resolves nor rejects, and no network requests are made, so the adapter keeps running without the SDK. That is the designed fallback, so the game is unaffected. Ad behaviour can't be judged locally; CrazyGames' docs point to their **QA Tool** for that. Re-check that `init()` resolves there. If it hangs on CrazyGames too, the loading and gameplay events never reach the SDK.
+
+**Still to check on each portal's own tool:** CrazyGames QA Tool, Poki Inspector, GamePix Testing Toolkit (interstitial), GameDistribution Upload-tab iframe (once the account is approved). Yandex SDK checks need Yandex's own domain.
+
+**Noticed:** the lite in-game menu still lists "AI telemetry", a developer-facing item, for portal players.
+
 ## Game Jolt
 
 - Page: https://gamejolt.com/games/globulation2/1122762, developer account `genixpro`. Game ID 1122762, package ID 1154961.
