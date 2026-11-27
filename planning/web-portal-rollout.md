@@ -172,7 +172,7 @@ Account signed in on 2026-11-26. No project page yet. The Newgrounds zip from ru
 
 ## CrazyGames
 
-Art (2026-11-26, not uploaded): the three covers (1920×1080, 800×1200, 800×800) and both 18 s preview videos (1920×1080 and 1080×1620) from lite-build footage, in [portal art](../assets/portal-art/README.md). GameDistribution's five asset sizes are there too.
+Art (2026-11-26, not uploaded): the three covers (1920×1080, 800×1200, 800×800) and both 18 s preview videos (1920×1080 and 1080×1620, one opening on a real fight) from lite-build footage, spectator view with areas hidden, in [portal art](../assets/portal-art/README.md). GameDistribution's five asset sizes are there too.
 
 Developer portal set up on 2026-11-26. Target is Basic Launch. Two blockers:
 

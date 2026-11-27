@@ -10,19 +10,19 @@
  "crops": {
   "land": [
    0,
-   110,
+   160,
    1920,
    1080
   ],
   "port": [
    0,
-   100,
+   160,
    1080,
    1620
   ],
   "poki": [
    0,
-   110,
+   160,
    1080,
    1080
   ]
@@ -34,216 +34,216 @@
  "takes": {
   "land-s1": {
    "codec": "[\"video/mp4;codecs=avc1.640033\",\"video/webm;codecs=h264\"]",
-   "save": "saves/crater-lakes-36000-t0.game.gz",
+   "save": "saves/marchland-2t-39000-spectator.game.gz",
    "viewport": [
     2122,
-    1200
+    1260
    ],
    "minimap_point": [
-    0.44,
-    0.51
+    0.733,
+    0.87
    ],
-   "zoom_clicks": 2,
-   "seconds": 9,
-   "tick_start": 36170,
-   "tick_end": 36494,
-   "frames_start": 331,
-   "frames_end": 941,
+   "zoom_clicks": 7,
+   "seconds": 10,
+   "tick_start": 40056,
+   "tick_end": 40389,
+   "frames_start": 2107,
+   "frames_end": 2742,
    "renderer": "webgl2",
    "edition": "lite",
    "version": 1,
-   "webm_sha256": "ae6e3ac82fdbdbc94fd0cba4a03be429ce1077eb0858c5fd08206e7c8765a94f"
+   "webm_sha256": "d2494eb439aed4df7609897a597a3fa9f234ad035ad637db835c32a6b7b587ba"
   },
   "land-s2": {
    "codec": "[\"video/mp4;codecs=avc1.640033\",\"video/webm;codecs=h264\"]",
-   "save": "saves/crater-lakes-42000-t0.game.gz",
+   "save": "saves/marchland-2t-39000-spectator.game.gz",
    "viewport": [
     2122,
-    1200
+    1260
    ],
    "minimap_point": [
-    0.42,
-    0.56
+    0.61,
+    0.44
    ],
    "zoom_clicks": 2,
-   "seconds": 9,
-   "tick_start": 42170,
-   "tick_end": 42497,
-   "frames_start": 326,
-   "frames_end": 938,
+   "seconds": 8,
+   "tick_start": 39167,
+   "tick_end": 39440,
+   "frames_start": 323,
+   "frames_end": 834,
    "renderer": "webgl2",
    "edition": "lite",
    "version": 1,
-   "webm_sha256": "32b4518a8a09e3f8738c997a10e3e6281e5f24e2716a78cd1b02156b2884127e"
+   "webm_sha256": "e6656df3a49d8e2a2251571703a985aebbfb4fe7aad6c9805bfc9ca3303789ca"
   },
   "land-s3": {
    "codec": "[\"video/mp4;codecs=avc1.640033\",\"video/webm;codecs=h264\"]",
-   "save": "saves/crater-lakes-36000-t0.game.gz",
+   "save": "saves/marchland-2t-42000-spectator.game.gz",
    "viewport": [
     2122,
-    1200
+    1260
    ],
    "minimap_point": [
-    0.36,
-    0.62
+    0.7,
+    0.83
    ],
-   "zoom_clicks": 2,
-   "seconds": 9,
-   "tick_start": 36171,
-   "tick_end": 36488,
-   "frames_start": 326,
-   "frames_end": 930,
+   "zoom_clicks": 5,
+   "seconds": 8,
+   "tick_start": 42558,
+   "tick_end": 42819,
+   "frames_start": 1112,
+   "frames_end": 1610,
    "renderer": "webgl2",
    "edition": "lite",
    "version": 1,
-   "webm_sha256": "b7dc637be4de35c156e0b5a2fe8bf41b3d3f09d26cd42c8320804dd9a18d847f"
+   "webm_sha256": "f3671a91d2535a5e4ea7f741a392018fdd8d7ed5e70c818411913f3acd60f4b7"
   },
   "poki-p1": {
    "codec": "vp9",
-   "save": "saves/crater-lakes-42000-t0.game.gz",
+   "save": "saves/marchland-2t-39000-spectator.game.gz",
    "viewport": [
     1282,
-    1200
+    1260
    ],
    "minimap_point": [
-    0.535,
-    0.586
+    0.76,
+    0.87
    ],
    "zoom_clicks": 7,
-   "seconds": 7,
-   "tick_start": 42216,
-   "tick_end": 42444,
-   "frames_start": 421,
-   "frames_end": 861,
+   "seconds": 10,
+   "tick_start": 40054,
+   "tick_end": 40388,
+   "frames_start": 2099,
+   "frames_end": 2728,
    "renderer": "webgl2",
    "edition": "lite",
    "version": 1,
-   "webm_sha256": "b96a5d431cfeaafe514768f28d129a935ca6bee23ec6b3722de4652eabcebfc1"
+   "webm_sha256": "689f5cae08bcaba5e7ca0dfdeaacdb4264e2a37865905a7ca0cac7afb81000ac"
   },
   "poki-p2": {
    "codec": "vp9",
-   "save": "saves/crater-lakes-42000-t0.game.gz",
+   "save": "saves/marchland-2t-39000-spectator.game.gz",
    "viewport": [
     1282,
-    1200
+    1260
    ],
    "minimap_point": [
-    0.544,
-    0.536
+    0.65,
+    0.48
    ],
    "zoom_clicks": 7,
    "seconds": 7,
-   "tick_start": 42216,
-   "tick_end": 42447,
-   "frames_start": 421,
-   "frames_end": 862,
+   "tick_start": 39209,
+   "tick_end": 39424,
+   "frames_start": 415,
+   "frames_end": 841,
    "renderer": "webgl2",
    "edition": "lite",
    "version": 1,
-   "webm_sha256": "07b1a5573d7fea00f654382410ec08f74ea30b9f3ac341920bdbf3eed8c612f1"
+   "webm_sha256": "a33dcf41058f9c609879bca121f78e7adf69bd528af8cd461d6cf6d1edafd4cc"
   },
   "poki-p3": {
    "codec": "vp9",
-   "save": "saves/crater-lakes-36000-t0.game.gz",
+   "save": "saves/marchland-2t-42000-spectator.game.gz",
    "viewport": [
     1282,
-    1200
+    1260
    ],
    "minimap_point": [
-    0.45,
-    0.5
+    0.715,
+    0.83
    ],
    "zoom_clicks": 7,
    "seconds": 7,
-   "tick_start": 36216,
-   "tick_end": 36447,
-   "frames_start": 421,
-   "frames_end": 864,
+   "tick_start": 42575,
+   "tick_end": 42792,
+   "frames_start": 1146,
+   "frames_end": 1573,
    "renderer": "webgl2",
    "edition": "lite",
    "version": 1,
-   "webm_sha256": "2bf14eb6b9d28c9435247abaaae78ef7853503132882732c74eb2a83b1f72d91"
+   "webm_sha256": "dfc2b58c0f816257c4b9bce09c93762cc54a57a7c121c0e9a15c94ff2322631e"
   },
   "port-s1": {
    "codec": "[\"video/mp4;codecs=avc1.640033\",\"video/webm;codecs=h264\"]",
-   "save": "saves/crater-lakes-36000-t0.game.gz",
+   "save": "saves/marchland-2t-39000-spectator.game.gz",
    "viewport": [
     1282,
-    1740
+    1800
    ],
    "minimap_point": [
-    0.44,
-    0.51
+    0.733,
+    0.87
    ],
-   "zoom_clicks": 2,
-   "seconds": 9,
-   "tick_start": 36171,
-   "tick_end": 36486,
-   "frames_start": 328,
-   "frames_end": 925,
+   "zoom_clicks": 7,
+   "seconds": 10,
+   "tick_start": 40056,
+   "tick_end": 40388,
+   "frames_start": 2097,
+   "frames_end": 2723,
    "renderer": "webgl2",
    "edition": "lite",
    "version": 1,
-   "webm_sha256": "773cf99a624e76f35a68e36505f5edb4d02de6dead4e75a8b74dc2298990448d"
+   "webm_sha256": "28cb7da0aaa1e900f6a15a45330b41b0925e9653d751260e1423a0072ddcb6b8"
   },
   "port-s2": {
    "codec": "[\"video/mp4;codecs=avc1.640033\",\"video/webm;codecs=h264\"]",
-   "save": "saves/crater-lakes-42000-t0.game.gz",
+   "save": "saves/marchland-2t-39000-spectator.game.gz",
    "viewport": [
     1282,
-    1740
+    1800
    ],
    "minimap_point": [
-    0.42,
-    0.56
+    0.61,
+    0.44
    ],
    "zoom_clicks": 2,
-   "seconds": 9,
-   "tick_start": 42171,
-   "tick_end": 42492,
-   "frames_start": 326,
-   "frames_end": 935,
+   "seconds": 8,
+   "tick_start": 39170,
+   "tick_end": 39432,
+   "frames_start": 336,
+   "frames_end": 835,
    "renderer": "webgl2",
    "edition": "lite",
    "version": 1,
-   "webm_sha256": "dff4bb4a78eaab015366224697c3ea38bda7d0792b30fa46d11d3877f9b6b2e8"
+   "webm_sha256": "f2ef3bd010e9e2f38c82a5b333234830dbcb24a26eea83fc7376a01025c422b5"
   },
   "port-s3": {
    "codec": "[\"video/mp4;codecs=avc1.640033\",\"video/webm;codecs=h264\"]",
-   "save": "saves/crater-lakes-36000-t0.game.gz",
+   "save": "saves/marchland-2t-42000-spectator.game.gz",
    "viewport": [
     1282,
-    1740
+    1800
    ],
    "minimap_point": [
-    0.36,
-    0.62
+    0.715,
+    0.83
    ],
-   "zoom_clicks": 2,
-   "seconds": 9,
-   "tick_start": 36170,
-   "tick_end": 36483,
-   "frames_start": 329,
-   "frames_end": 921,
+   "zoom_clicks": 5,
+   "seconds": 8,
+   "tick_start": 42557,
+   "tick_end": 42812,
+   "frames_start": 1112,
+   "frames_end": 1606,
    "renderer": "webgl2",
    "edition": "lite",
    "version": 1,
-   "webm_sha256": "191487e44638501f45ba8e9293e1aa0ad780b98e4d4633faddedd5a5f6365153"
+   "webm_sha256": "f5171fe825a2c2ca00a2e68050424f1b7e8ac237b271d2a11794d2a49310caaf"
   }
  },
  "outputs": [
   {
    "file": "assets/portal-art/poki/poki-thumbnail-1080x1080.png",
    "kind": "Poki static thumbnail (no text)",
-   "bytes": 1389802,
-   "sha256": "f42d3053b9ed7eac25c54147019fbf517fdd33b228698859eccd8af6b8b7e47a",
+   "bytes": 1290908,
+   "sha256": "0bd5258274b02c9f3a543d14eed4ebaef182300ae760ef10be85c0f3ca80e2ff",
    "source": [
-    "poki-p2",
+    "poki-p1",
     0.3
    ],
    "crop": [
     0,
-    110,
+    160,
     1080,
     1080
    ],
@@ -255,16 +255,16 @@
   {
    "file": "storefront-v2-renders/portal-art/poki/glob2-lite-poki-animated-thumbnail-1080x1080.mp4",
    "kind": "Poki animated thumbnail (no text)",
-   "bytes": 5860143,
-   "sha256": "96c1f3050c5c0820acb923e14ad8f514f2bd3399b27e8328f451ec7a2ee238a6",
+   "bytes": 4297438,
+   "sha256": "ca128825e244520de02eec297bb316bf1ebdf3289aaaec3bc787ba73e4640a13",
    "cuts": [
     [
-     "poki-p2",
+     "poki-p1",
      0.3,
      1.95
     ],
     [
-     "poki-p1",
+     "poki-p2",
      0.3,
      1.95
     ],
@@ -278,22 +278,22 @@
    "height": 1080,
    "codec": "h264",
    "fps": "60/1",
-   "frames": 351,
-   "duration": 5.85,
+   "frames": 352,
+   "duration": 5.866667,
    "audio_streams": 0
   },
   {
    "file": "assets/portal-art/crazygames/crazygames-cover-landscape-1920x1080.jpg",
    "kind": "CrazyGames cover 16:9 (title only)",
-   "bytes": 919803,
-   "sha256": "3d74187d96a8662c7fec20f98b592fdb4eff360fe69e76b3bf99010455a5fcd3",
+   "bytes": 699167,
+   "sha256": "1a323dba8ebab1708c6094ac29c7de1ae01ec7a7b6f91080608313d0182f6306",
    "source": [
     "land-s1",
-    1.0
+    0.5
    ],
    "crop": [
     0,
-    110,
+    160,
     1920,
     1080
    ],
@@ -305,15 +305,15 @@
   {
    "file": "assets/portal-art/crazygames/crazygames-cover-portrait-800x1200.jpg",
    "kind": "CrazyGames cover 2:3 (title only)",
-   "bytes": 453562,
-   "sha256": "eec98de2a3323e979d4029576689dce498c1ad7bb0ea6ea82904aca771bed61f",
+   "bytes": 381949,
+   "sha256": "c11c9d3fd2aedeeeaa83cc9d25a8c398a76159607335faead8d9671bb2510fcb",
    "source": [
     "port-s1",
-    1.0
+    0.5
    ],
    "crop": [
     0,
-    100,
+    160,
     1080,
     1620
    ],
@@ -326,15 +326,15 @@
   {
    "file": "assets/portal-art/crazygames/crazygames-cover-square-800x800.jpg",
    "kind": "CrazyGames cover 1:1 (title only)",
-   "bytes": 322532,
-   "sha256": "8b46b297862f74d160cdc14deea9d861aa708c5a67b37c69077d0a874fda1213",
+   "bytes": 239447,
+   "sha256": "3e9b83def7f31e4bcc896dbf3c684e7700f1c049ca8b89de97f40a5cece68ae1",
    "source": [
     "land-s1",
-    1.0
+    0.5
    ],
    "crop": [
     420,
-    110,
+    160,
     1080,
     1080
    ],
@@ -347,71 +347,71 @@
   {
    "file": "storefront-v2-renders/portal-art/crazygames/glob2-lite-crazygames-preview-landscape-1920x1080.mp4",
    "kind": "CrazyGames preview 16:9 (opens on the cover, title fades by 1.8 s)",
-   "bytes": 21507935,
-   "sha256": "0a670c038e0089b9fd5a50e92f2d83fbadd1f8f1ddc37481ee98d0fa07d30d28",
+   "bytes": 13233009,
+   "sha256": "de8a7b8e7b16c4970472cecc602411d10015353ccfaaec835fcc4aa06ef1538e",
    "cuts": [
     [
      "land-s1",
-     1.0,
-     6.0
+     0.5,
+     7.0
     ],
     [
      "land-s2",
      1.0,
-     6.0
+     5.5
     ],
     [
      "land-s3",
      1.0,
-     6.0
+     5.5
     ]
    ],
    "width": 1920,
    "height": 1080,
    "codec": "h264",
    "fps": "30/1",
-   "frames": 541,
-   "duration": 18.033333,
+   "frames": 543,
+   "duration": 18.1,
    "audio_streams": 0
   },
   {
    "file": "storefront-v2-renders/portal-art/crazygames/glob2-lite-crazygames-preview-portrait-1080x1620.mp4",
    "kind": "CrazyGames preview 2:3 at 1080x1620 (opens on the cover, title fades by 1.8 s)",
-   "bytes": 17391776,
-   "sha256": "62049d7904ec976c5f68af29302772917f0fa0c35dadb8f7190665e9b7fc217d",
+   "bytes": 12035517,
+   "sha256": "2676a9582f677419fe6694e2cdc96f6a0f874fe72421f3d8b2808064cfff0870",
    "cuts": [
     [
      "port-s1",
-     1.0,
-     6.0
+     0.5,
+     7.0
     ],
     [
      "port-s2",
      1.0,
-     6.0
+     5.5
     ],
     [
      "port-s3",
      1.0,
-     6.0
+     5.5
     ]
    ],
    "width": 1080,
    "height": 1620,
    "codec": "h264",
    "fps": "30/1",
-   "frames": 540,
-   "duration": 18.0,
+   "frames": 543,
+   "duration": 18.1,
    "audio_streams": 0
   },
   {
    "file": "assets/portal-art/gamedistribution/gamedistribution-1280x720.jpg",
    "kind": "GameDistribution 1280x720",
-   "bytes": 454016,
-   "sha256": "e5f3e8ac5c1af9ea0249e9dcaa5e2a0af472b53af0f5edae025bfcd43f4ee413",
+   "bytes": 356866,
+   "sha256": "982f2831c77d7a3b5271e5223b21095a468f166bbb4a4e27183e4337bee5e1a9",
    "source": [
     "land-s1",
-    1.0
+    0.5
    ],
    "crop_of_cover": [
     0,
@@ -427,15 +427,15 @@
   {
    "file": "assets/portal-art/gamedistribution/gamedistribution-1280x550.jpg",
    "kind": "GameDistribution 1280x550",
-   "bytes": 345259,
-   "sha256": "58ce6e0163f92151f08c9b9670532e7a3048c88987e065ee9a5885c3bb431ad7",
+   "bytes": 258170,
+   "sha256": "086669595d6cb7904ec225ffcb5ea5f33518afcd1aedc32db2ec3f7dad308db1",
    "source": [
     "land-s1",
-    1.0
+    0.5
    ],
    "crop_of_cover": [
     0,
-    0,
+    255,
     1920,
     825
    ],
@@ -447,11 +447,11 @@
   {
    "file": "assets/portal-art/gamedistribution/gamedistribution-512x384.jpg",
    "kind": "GameDistribution 512x384",
-   "bytes": 132978,
-   "sha256": "45dbd6225f6b2b3b7856cfcd2f5d73eacaf2ea7731e153d4f65975aa0dd8eeba",
+   "bytes": 102401,
+   "sha256": "67d2afc65698793f887e5371c5120b7971c82c9a9952f38a3b5daeba674cef7a",
    "source": [
     "land-s1",
-    1.0
+    0.5
    ],
    "crop_of_cover": [
     240,
@@ -467,11 +467,11 @@
   {
    "file": "assets/portal-art/gamedistribution/gamedistribution-512x512.jpg",
    "kind": "GameDistribution 512x512",
-   "bytes": 158728,
-   "sha256": "e655184c4004f5a1de5fddb7d0683e9dd3d367981da8606d954a53a1e00bfb40",
+   "bytes": 121573,
+   "sha256": "8cfa4d07df94093cd9308cc33b96c91ec0dcd7a7823f8859d7c9b01554e0ef23",
    "source": [
     "land-s1",
-    1.0
+    0.5
    ],
    "crop_of_cover": "crazygames square cover",
    "size": [
@@ -482,11 +482,11 @@
   {
    "file": "assets/portal-art/gamedistribution/gamedistribution-200x120.jpg",
    "kind": "GameDistribution 200x120",
-   "bytes": 19406,
-   "sha256": "c0eaac683d6d742c339416cbd049fc995d1bb0a7ece733c71b060f4286e30131",
+   "bytes": 16957,
+   "sha256": "995ac4df29d8447d3a63ca2d041ebeb485e311f86a17877c09f8a1a7fd225c9f",
    "source": [
     "land-s1",
-    1.0
+    0.5
    ],
    "crop_of_cover": [
     60,
@@ -497,6 +497,16 @@
    "size": [
     200,
     120
+   ]
+  },
+  {
+   "file": "assets/portal-art/contact-sheet-tile-size.png",
+   "kind": "Review sheet: stills at portal tile size (not an upload)",
+   "bytes": 564327,
+   "sha256": "c29ac7e4a71457c9a7190cf456f1897e4fec04cd193aae49c733b462a338310d",
+   "size": [
+    1272,
+    324
    ]
   }
  ]
