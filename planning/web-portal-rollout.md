@@ -170,6 +170,7 @@ At the user's request ("Yes, cut it"), the existing textless 30-second trailer c
 - Genre: Strategy - Real-time (RTS).
 - Rating: T, with violence "Some" for cartoon combat. Everything else is None.
 - Commentary: the browser-safe copy, the same claims as Game Jolt.
+- AI disclosure added to the commentary 2026-11-27 (owner-approved; NG-9 in the [other portals audit](../analysis/other-portals-requirements-audit.md)). The commentary editor saves only after focus leaves it: click outside, wait, then reload to confirm.
 - Tags: strategy, rts, colony, base-building, economy, multiplayer, open-source, map-editor.
 - Icon: the itch.io cover, 630×500, from storefront-v2-renders.
 - HTML5 file: the release run's standard `glob2-0.11.8.2-newgrounds.zip` (126 MB), uploaded by the user. Embed 1280×720, touchscreen friendly. "Uses SharedArrayBuffer/Cross Origin Isolation" is left off because the serial runtime is the verified path. Newgrounds offering cross-origin isolation means the threaded runtime could be tried there later.
