@@ -28,6 +28,10 @@ The four initial maps have undergone evidence-boundary and peer review. No hypot
 - [CrazyGames listing comparison](crazygames-listing-comparison.md): top CrazyGames strategy games (preview videos, covers, tags, description structure) and the Basic Launch metrics, including the new cover click-through metric, for a lite-build submission (2026-11-26).
 - [Poki listing comparison](poki-listing-comparison.md): ten top Poki strategy games, Poki's house page template, thumbnail rules and Player Fit Test thresholds, and the ads requirement that conflicts with "No ads" (2026-11-26).
 - [GameDistribution listing comparison](gamedistribution-listing-comparison.md): what GameDistribution promotes to publishers (Hot, Best New), the filter fields publishers search by, and the SDK's pre-roll/mid-roll expectation (2026-11-26).
+- [CrazyGames requirements audit](crazygames-requirements-audit.md): the lite build against every published CrazyGames technical, gameplay, ads, account and cover requirement, with the Not met items and their fixes (2026-11-27).
+- [Poki requirements audit](poki-requirements-audit.md): the lite build against Poki's requirements, SDK event rules, external-resources policy and Inspector modules, with the Not met items and their fixes (2026-11-27).
+- [Yandex Games requirements audit](yandex-requirements-audit.md): the lite build against every numbered Yandex Games requirement, with the Not met items and their fixes (2026-11-27).
+- [Other portals requirements audit](other-portals-requirements-audit.md): GameDistribution, GamePix, Newgrounds and Game Jolt against their published developer rules, with the Not met items and their fixes (2026-11-27).
 - [Yandex Games listing notes](yandex-games-listing-comparison.md): Yandex's listing rules and the mandatory-monetisation rule, for a parked portal (2026-11-26).
 
 ## Superseded positioning
