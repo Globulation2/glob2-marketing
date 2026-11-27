@@ -125,6 +125,15 @@ The user uploaded the release run's standard `glob2-0.11.8.2-gamepix.zip` to my.
 
 Cause, from the glob2 code: `Application::mainMenu` asks whenever `Glob2UI::touchPresentation()` is true. That is `phonePresentationRequested()`, which equals `adaptedControls()` = touch input **or** the compact layout. Compact is chosen when the usable area is under 480 px tall, or narrower than 480 px plus the panel width. "Use desktop layout" turns touch off but cannot make the frame fit, so the layout stays compact and the prompt returns. Any portal that embeds the game below 480 px tall on desktop is affected. Fix: Globulation2/glob2#1941 (opened 2026-11-26) asks for the thumb side only on touch hosts. Verified in an 800×450 simulated-portal frame (mouse: straight to the compact main menu) and on the iPhone simulator (touch: still asked).
 
+**Listing optimisation applied 2026-11-26** (entry BL8O73, from [portal listing copy](portal-listing-copy.md)):
+- Orientation changed from All to Landscape (GP-4).
+- New gameplay-led description, 443 characters (GP-3).
+- "Game features" custom section added (GP-3).
+- FAQs: "Do I control each unit?" and "How do I win?" (GP-2). The dashboard silently refused a third FAQ on every attempt, including after a save, so "Where should I start?" and "Does it cost anything?" are not on the listing.
+- Video left empty: the YouTube trailer's end card says "No ads", which this ad-enabled package can't claim.
+
+All changes were re-read after a reload. "Allow distribution" was already ticked and was not changed. Not submitted for review.
+
 A dashboard notice asked the account owner to "Update Payment Settings" for future GamePix payouts. It was dismissed, not acted on; it is the user's to do.
 
 ## Newgrounds
@@ -141,6 +150,13 @@ A dashboard notice asked the account owner to "Update Payment Settings" for futu
 - Allow Embedding: off.
 
 Newgrounds' own preview loaded the game with textured terrain to the Introduction screen. Not published yet.
+
+**Listing optimisation applied 2026-11-26** (from [portal listing copy](portal-listing-copy.md), after the user approved all recommendations):
+- New short description (88 characters, NG-1).
+- New author comments (about 230 words, NG-2 and NG-4).
+- Tag `multiplayer` swapped for `real-time-strategy` (NG-7).
+
+The first commentary typed when the draft was created had **not** been saved: the draft held an empty commentary until this pass. All three changes were re-read after a page reload. Touchscreen friendly stays ticked until the published page passes a phone test (NG-3). Not published.
 
 Earlier notes:
 
