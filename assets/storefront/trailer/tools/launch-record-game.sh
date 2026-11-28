@@ -35,6 +35,10 @@ set -- play --renderer "${GLOB2_RENDERER:-portable-sdl}" --window-size "$size" -
 if [ -n "$record" ]; then
   set -- "$@" --record "$record" --record-fps "$fps" --record-encoder "${GLOB2_RECORD_ENCODER:-auto}" \
     --record-crf "${GLOB2_RECORD_CRF:-12}"
+  # Short chapters give the recording a tick-to-time map (capture_realtime.py).
+  if [ -n "${GLOB2_RECORD_CHAPTER_TICKS:-}" ]; then
+    set -- "$@" --record-chapter-ticks "$GLOB2_RECORD_CHAPTER_TICKS"
+  fi
 fi
 export SDL_AUDIO_DRIVER=dummy GLOB2_USER_DATA_DIR="$profile" GLOB2_USER_DIR="$profile"
 if [ "${GLOB2_WINDOW:-offscreen}" = "offscreen" ]; then

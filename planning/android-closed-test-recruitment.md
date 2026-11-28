@@ -1,6 +1,6 @@
 # Android closed-test recruitment
 
-[Planning index](README.md) · [Publishing ledger](approved-storefront-rollout.md#google-play-production-eligibility--2026-10-30) · [Launch message](../analysis/positioning-v1.md)
+[Planning index](README.md) · [Publishing ledger](approved-storefront-rollout.md#google-play-production-eligibility--2026-10-30) · [Launch message](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md)
 
 Prepared **2026-10-31** after the user requested help obtaining enough registered Android testers to release Glob2. The user selected **both personal invitations and public recruitment** and approved the exact Discord #general invitation below. That invitation is **posted and verified**. The user subsequently authorized personal recruitment to family and friends, with Android primary and iPhone interest welcomed. Fourteen people have been directly invited: eight through WhatsApp, four by individual email and two through Messenger. One additional referral follow-up asked a recipient to include another person; it is not counted as a direct invitation. No new participant enrollment or paid recruitment is recorded. This is a release-testing effort; the historical [three-player description interviews](three-player-recruitment.md) remain stopped and are not this cohort.
 
@@ -11,6 +11,10 @@ The user authorized creating a signup form for Android interest. The [Glob2 Andr
 The form requires a Google Play email address with email-format validation, a preference for testing invitations, release updates or both, and explicit consent. Automatic account-email collection, sign-in/one-response restriction and public response summaries are off. The confirmation explains that closed-test enrollment is manual. Keep responses and contact details private and outside this repository; respect each person's selected contact preference.
 
 This is an interest-intake form. A submission does not add someone to Play's eligible tester list, opt them into the closed test, establish installation or count toward the production gate. Admit willing testing volunteers through the current verified Play configuration before sending joining instructions. No response submission, response count, new outreach, tester admission or Play opt-in is established by creating the form. Existing posts have not been updated with this link.
+
+## Console and intake check — 2026-11-23
+
+Authenticated console check: **0 testers currently opted in**, Production inactive, Apply for production unavailable. One personal-invitation volunteer who replied by email on October 31 with their Play account address was added to the **Main Testers** email list and saved; the list went from **5 to 6** entries (it had grown from 4 since October 31). Google Groups remains unselected. The signup form shows **0 responses**. Joining instructions were then emailed to the newly admitted volunteer. The website now links the signup form from the homepage and downloads page ([glob2-online-website#80](https://github.com/Globulation2/glob2-online-website/pull/80), deployed and verified live on glob2.online the same day). No opt-in, installation or qualifying period is established.
 
 ## Requirement and starting evidence
 
