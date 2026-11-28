@@ -151,7 +151,7 @@ Nothing has been submitted.
   - the listing-copy description with "How to play" and "Features" headings, and the PC and mobile controls;
   - tools: Claude and Other ("Own open-source C++ engine (Globulation 2, developed since 2001), SDL, Emscripten");
   - Google Play and App Store links, and the three covers from `assets/portal-art/crazygames/`.
-  The owner uploaded both preview videos. The Submit step's Terms & Conditions and PEGI 12 checkboxes and "Submit for approval" are the owner's.
+  The owner uploaded both preview videos. The owner accepted the Terms & Conditions, declared PEGI 12 and **submitted for approval** (Basic Launch), 2026-11-28.
 
 ## Game Jolt
 
