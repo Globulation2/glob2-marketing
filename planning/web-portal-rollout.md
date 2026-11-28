@@ -155,6 +155,13 @@ Nothing has been submitted.
 
 **Newgrounds un-published, 2026-11-28.** Minutes after the owner published, the project page showed "This project has been un-published from the game section", while its zip still read "Published". The View Game URL, /portal/view/1064794, returns "That submission doesn't exist", and the account's games list is empty. Checks found no private message, no notifications page and no Newgrounds email in Gmail. The owner did not intend to un-publish. Cause unknown: an accidental click, automatic moderation, or staff action (possibly the "modified version of someone else's work" rule).
 
+**Newgrounds terms flag, 2026-11-28.** On republishing, Newgrounds said the submission violates its terms of service, without naming a rule. Candidates from the 2026-11-27 rules audit:
+- NG-7, creator/owner and "not a modified version";
+- NG-14, third-party servers, now relevant with 0.11.9.1's crash reporting;
+- AI-assisted art (the HD buildings are AI-upscaled).
+
+The owner has confirmed with the original authors that they are happy for the game to be published widely. Claude drafted an email to support@newgrounds.com (Gmail draft; the owner sends it) asking which rule applies and offering to fix credits, AI disclosure or the build. Do not republish until Newgrounds replies.
+
 ## Game Jolt
 
 - Page: https://gamejolt.com/games/globulation2/1122762, developer account `genixpro`. Game ID 1122762, package ID 1154961.
