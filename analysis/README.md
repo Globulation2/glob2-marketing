@@ -42,6 +42,7 @@ The four initial maps have undergone evidence-boundary and peer review. No hypot
 
 - [Mobile games press](mobile-games-press.md) lists public contacts and relevant coverage by language and market.
 - [Paid placement: Push Your App](paid-placement-push-your-app.md): Gamezebo-network paid editorial offer, its reach, prices and labelling, and the user's 2026-11-26 decision not to buy.
+- [Full Circle Ubuntu Games style](full-circle-ubuntu-games-style.md): house style, length, screenshot and byline conventions and contributor rules of Full Circle Magazine's Ubuntu Games section, from issues #222 to #235.
 
 ## Claude Plays Glob stream
 

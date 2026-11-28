@@ -111,6 +111,17 @@ The subsequent inbox sweep found the two delivery failures already recorded and 
 - **Research and reasoning:** [Paid placement: Push Your App](../analysis/paid-placement-push-your-app.md).
 - **Open option:** pitch the network's editorial writers directly for free coverage. This has not been sent, and the user has not decided whether to do it.
 
+## Full Circle Magazine walkthrough — 2026-11-23 to 2026-11-27
+
+Not a mobile outlet: Full Circle Magazine is a free monthly Ubuntu community magazine, recorded here because this is the press ledger.
+
+- **2026-11-23:** the user pitched the editor a short maintainer-written walkthrough for the magazine's Ubuntu Games section: install, the tutorial, a first solo match, and an early decision about feeding a growing colony while freeing workers to build.
+- **2026-11-27:** the editor accepted ("Sounds good. Feel free to do a write up of it") and asked whether the game installs from sources other than Snap, such as Flatpak or AppImage. A reply saying releases ship a Flatpak bundle, an Ubuntu 22.04 tarball and a Fedora RPM, with no AppImage, and asking about length, format and deadline, is drafted and **not sent**.
+- **Draft:** [article](full-circle-article/article.md) and [shot list](full-circle-article/shots.md), written to the magazine's observed house style and submission rules in [Full Circle Ubuntu Games style](../analysis/full-circle-ubuntu-games-style.md). Not yet reviewed by the user; nothing has been submitted.
+- **Facts checked 2026-11-27:** Snap stable is 0.11.8.1 (amd64 only); the latest GitHub release is v0.11.8.1, published 2026-11-25; no Flathub listing exists (the Flathub API returned 404), so the article offers the downloadable Flatpak bundle, not a Flathub install.
+- **Next deadline observed:** issue #236 closes Sunday 2026-12-06 (from the magazine's own schedule; the editor has not given a deadline for this piece).
+- **Open for the user:** byline and bio wording, whether to disclose AI assistance (the magazine states no policy), the Ubuntu version to name as tested, and whether to recapture screenshots on Ubuntu.
+
 ## Remaining dispositions
 
 - **148Apps:** The first-wave Pocket Gamer pitch reached the shared Steel Media network. Both publications list Dann Sullivan as editor-in-chief. There was no separate send or receipt for 148Apps, so it is outside the 29 unique outlets with confirmed attempts. [148Apps contact](https://www.148apps.com/pages/contact/) · [Pocket Gamer masthead](https://www.pocketgamer.com/pages/about/)

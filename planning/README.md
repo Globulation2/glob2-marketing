@@ -30,6 +30,7 @@
 - [Glob 2 Bot Cup](bot-cup/README.md) covers free teen coding pilots, educator outreach and the criteria for running another round.
 - [MCP outreach research](mcp-outreach/README.md) covers AI and game publications, creators, competing precedents, and the evidence needed for a multiplayer pitch.
 - [Mobile press outreach drafts](mobile-press-outreach.md) provides outlet-specific messages and the review checks for platform and regional release details.
+- [Full Circle Magazine article](full-circle-article/article.md): maintainer-written Globulation 2 walkthrough draft for the Ubuntu Games section, with its [shot list](full-circle-article/shots.md).
 - [Launch positioning v1](https://github.com/Globulation2/glob2-marketing/blob/4e62f805935fa57724d66338071ee8553f059f18/analysis/positioning-v1.md): agreed headline, pitch and message emphasis; selected through discussion. Superseded by [positioning v2](../analysis/positioning.md) on 2026-11-24.
 - [Epic profile v1](epic-store-profile.md): historical first-store draft and metadata checks; superseded as a copy source by the approved rollout record.
 - [Epic requirements](epic-store-requirements.md): current official field/media requirements and remaining portal checks.
