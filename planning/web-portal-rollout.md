@@ -131,6 +131,19 @@ Checks, 2026-11-28:
 
 Nothing has been submitted.
 
+**Submissions, 2026-11-28 (owner: "Do all of them").** The browser tool can attach at most 10 MB, so the owner uploaded the builds.
+- **GamePix:** the owner uploaded the 0.11.9.1 zip, and the build processed. Claude **submitted the new release for review**, marking Description and Build as changed, with release notes covering HD art, crash reporting and hidden links/sign-in. GamePix showed "Game in review!".
+- **CrazyGames:** Claude cleared the 0.11.8.4 files, and the owner uploaded the unpacked 0.11.9.1 folder (gameBuildId a6236c57-36b3-446f-9174-dcfa5d4ab1fc).
+  - QA Tool, custom match: log sdkInit, sdkGameLoadingStart, gameLoaded, gameFinishedLoading, sdkGameLoadingStop, gameplayStart, gameplayStop (menu), gameplayStart (return), gameplayStop (quit). No warnings; 45 MB total, 8.7 MB load size, 28.8 s load time.
+  - Claude pressed Continue. The QA Results checklist and its confirmation are the owner's declaration. Open item: the portal build has no Privacy policy button, while crash reporting (with consent) can send data.
+- **Newgrounds:** the owner uploaded the 0.11.9.1 zip ("Ready to be Published"); its preview starts the introduction lesson. "Publish Project" opens a user agreement, left for the owner. Note: its Rights and Ownership section says the game must not be a modified version of someone else's work, which needs the owner's judgement for a long-running open-source project.
+- **Poki:** Claude filled the "Submit your game" form for the owner's review:
+  - studio GenixPro Technologies, registered company, Canada, just me;
+  - lite link https://app.glob2.online/play/lite/;
+  - three desktop screenshots.
+  The guidelines box and Submit are the owner's.
+- **Game Jolt:** browser-release run 46099064215 (v0.11.9.1, publish off, gamejolt on) waits for the owner's `gamejolt-release` approval.
+
 ## Game Jolt
 
 - Page: https://gamejolt.com/games/globulation2/1122762, developer account `genixpro`. Game ID 1122762, package ID 1154961.
