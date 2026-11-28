@@ -226,6 +226,7 @@ At the user's request ("Yes, cut it"), the existing textless 30-second trailer c
 - Check: the contact sheet `assets/storefront/trailer/contact-sheet-master-30s-textless.jpg` shows gameplay only. There is no text, MCP card, online screen or link. One beat shows the in-game build palette. This is standard-build footage with HD art, so it is not representative of the lite edition.
 - YouTube: https://www.youtube.com/watch?v=BJoMHyCxzkg on the Globulation 2 Online channel, **Unlisted**, titled "Globulation 2 gameplay", not made for kids. The description has no ad claims and labels the footage as AI-versus-AI matches filmed from a player seat. The user uploaded the file; Claude set the details.
 - Use: GamePix (standard build). Not for CrazyGames, Poki or Yandex, which use lite and need lite footage.
+- **Re-record, 2026-11-28.** The text-free cut of the real-time V2 re-record (`storefront-v2-renders/trailer/glob2-trailer-30s-textless-1080p.mp4`, 102 MB) is the unlisted YouTube video https://www.youtube.com/watch?v=O2chQJ8nTkU on Globulation 2 Online, titled "Globulation 2 gameplay", not made for kids, with the same description as `BJoMHyCxzkg`. The owner picked the file; Claude set the details. A signed-out oEmbed check returns the title and channel. **Not yet on GamePix:** the GamePix dashboard showed the 0.11.9.1 release in REVIEW (submitted earlier on 2026-11-28), so the Editorial video field still holds `BJoMHyCxzkg`. Swap it to `O2chQJ8nTkU` once that review clears. `BJoMHyCxzkg` stays up until then.
 
 ## Newgrounds
 

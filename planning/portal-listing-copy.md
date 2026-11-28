@@ -150,7 +150,7 @@ Body (239 of 350 characters):
 
 - Evidence: GP-2. The victory wording was checked against `docs/features/custom-game-setup/README.md` in the game repository, which lists win reasons: opponents defeated, prestige, time limit, and others. The lesson topics come from claims §3 (tutorial catalogue). The fourth FAQ is monetisation (claims §1) without "No ads".
 
-**Video:** https://www.youtube.com/watch?v=BJoMHyCxzkg, the unlisted textless gameplay cut (owner decision 2).
+**Video:** https://www.youtube.com/watch?v=BJoMHyCxzkg, the unlisted textless gameplay cut (owner decision 2). Replacement from the V2 re-record: https://www.youtube.com/watch?v=O2chQJ8nTkU (unlisted, 2026-11-28), to set once GamePix's current review clears.
 - History: GP-1 recommends the YouTube trailer `t6Q3ZpY9aTM`. That cut shows the end card "No ads. No in-app purchases." ([trailer manifest](../assets/storefront/trailer/manifest.json), `text_cards`), and its YouTube description carries `fair_deal_line` ("No ads."). Both break the ads rule on an ad-enabled package. A textless 30 s cut exists (`glob2-trailer-30s-textless-1080p.mp4`, not committed). It would need its own YouTube upload, and its footage would need checking for online, link and MCP screens. See owner decision 2.
 
 **Orientation:** Landscape (change from All). **Desktop friendly / Mobile friendly:** on.
