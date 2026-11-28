@@ -48,7 +48,7 @@ Where the browser game is listed or submitted, and the IDs needed to find each e
 | --- | --- | --- | --- |
 | Our site | [app.glob2.online/play/](https://app.glob2.online/play/), lite [app.glob2.online/play/lite/](https://app.glob2.online/play/lite/) | — | Live, 0.11.9.1 |
 | itch.io | [genixpro.itch.io/globulation-2](https://genixpro.itch.io/globulation-2) | — | Live |
-| Game Jolt | [gamejolt.com/games/globulation2/1122762](https://gamejolt.com/games/globulation2/1122762) | game 1122762, package 1154961 | Live (0.11.802). The 0.11.9.1 push is in progress (browser-release run 46099064215) |
+| Game Jolt | [gamejolt.com/games/globulation2/1122762](https://gamejolt.com/games/globulation2/1122762) | game 1122762, package 1154961 | Live, 0.11.9.1 (release 0.11.901, uploaded by hand 2026-11-28; gjpush token still invalid) |
 | Newgrounds | none: the portal page (view ID 1064794) returns "submission doesn't exist" | project 8315233, account `Globulation2` | Published 2026-11-28, then shown as "un-published from the game section" minutes later. No message or email explains it; unresolved |
 | GamePix | none yet | Game Id BL8O73 ([dashboard](https://my.gamepix.com/games/globulation-2)) | 0.11.9.1 release submitted for review |
 | CrazyGames | none yet | game 11b6c5a4-741a-4839-aed8-314eaa8cd0a1, build a6236c57-36b3-446f-9174-dcfa5d4ab1fc | Submitted for Basic Launch approval |

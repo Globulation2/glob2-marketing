@@ -177,6 +177,11 @@ The owner has confirmed with the original authors that they are happy for the ga
 
 **Game Jolt 0.11.9.1 push failed, 2026-11-28.** Claude dispatched browser-release run 46099064215 (gamejolt on, publish off) and approved `gamejolt-release` at the owner's request. gjpush failed again with "Authorization token is invalid". This is the same block recorded under "Automated upload: blocked" below: Claude missed that note, and the run cost about 50 minutes. Until a real gjpush token arrives, Game Jolt is a manual upload of `~/Downloads/glob2-0.11.9.1-portals/glob2-0.11.9.1-gamejolt.zip` (owner, 123 MB).
 
+**Game Jolt 0.11.901 live, 2026-11-28.** The owner uploaded the browser build to a new release on the package page, and Claude set the version to 0.11.901, turned on fit to screen, saved the build and published the release.
+- The live game shows version 0.11.9.1. The first-visit lesson starts.
+- The main menu has Discord community and no Play online.
+- During the lesson the game showed "High-resolution artwork is off for this session to keep…": the runtime turned HD art off in this browser session. This is worth checking with the HD-art work.
+
 ### Terrain defect in release 0.11.801
 
 Reported by the user on 2026-11-26, after the page went public: the Game Jolt build has the flat-colour terrain flaw. Cause: Game Jolt sends no cross-origin isolation headers, so the game uses the single-threaded browser runtime. In v0.11.8.1 that runtime draws every terrain tile as flat colour. The fix, Globulation2/glob2#1932, merged after v0.11.8.1, so it reaches Game Jolt only with the next release tag. GamePix is waiting on the same release ([GamePix launch](gamepix-launch.md)). The user chose to **unlist** the page until then. It was unlisted on 2026-11-26 (dashboard badge "Unlisted", site API status 0), so it is still reachable by link but not in listings. Re-publish after the fixed release is uploaded and the terrain is checked visually, then post the [launch devlog](gamejolt-devlog.md). My earlier check, that the game "loaded to the Introduction screen", confirmed only that it loads, not that the terrain draws correctly.
