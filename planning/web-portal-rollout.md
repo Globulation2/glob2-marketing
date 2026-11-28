@@ -160,7 +160,7 @@ Nothing has been submitted.
 - NG-14, third-party servers, now relevant with 0.11.9.1's crash reporting;
 - AI-assisted art (the HD buildings are AI-upscaled).
 
-The owner has confirmed with the original authors that they are happy for the game to be published widely. Claude drafted an email to support@newgrounds.com (Gmail draft; the owner sends it) asking which rule applies and offering to fix credits, AI disclosure or the build. Do not republish until Newgrounds replies.
+The owner has confirmed with the original authors that they are happy for the game to be published widely. On the owner's "yes send it", Claude **sent** an email to support@newgrounds.com on 2026-11-28 (Gmail thread 1a2201c49294ea01; replies come from tomfulp@ngmail.newgrounds.com) asking which rule applies and offering to fix credits, AI disclosure or the build. Do not republish until Newgrounds replies.
 
 ## Game Jolt
 
