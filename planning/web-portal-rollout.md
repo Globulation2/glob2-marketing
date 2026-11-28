@@ -144,6 +144,15 @@ Nothing has been submitted.
   The guidelines box and Submit are the owner's.
 - **Game Jolt:** browser-release run 46099064215 (v0.11.9.1, publish off, gamejolt on) waits for the owner's `gamejolt-release` approval.
 
+**Follow-up, 2026-11-28.**
+- **Newgrounds:** the owner accepted the agreement and published. The game is live at https://www.newgrounds.com/portal/view/1064794 (project 8315233).
+- **CrazyGames:** the owner completed the QA Results checklist. Claude filled the Details step:
+  - Strategy; tags War, Battle, Building, Management, Mouse (Mobile waits for a phone check);
+  - the listing-copy description with "How to play" and "Features" headings, and the PC and mobile controls;
+  - tools: Claude and Other ("Own open-source C++ engine (Globulation 2, developed since 2001), SDL, Emscripten");
+  - Google Play and App Store links, and the three covers from `assets/portal-art/crazygames/`.
+  The owner uploaded both preview videos. The Submit step's Terms & Conditions and PEGI 12 checkboxes and "Submit for approval" are the owner's.
+
 ## Game Jolt
 
 - Page: https://gamejolt.com/games/globulation2/1122762, developer account `genixpro`. Game ID 1122762, package ID 1154961.
