@@ -162,6 +162,10 @@ def build_timeline(name, cut, data, raw, work, sizes):
             continue
         cmd += ["-framerate", fps, "-start_number", seg["in"], "-i", d / "f%04d.png"]
         cw, ch, cx, cy = crop
+        if seg.get("pan_x"):
+            # A camera pan done in the edit (real-time takes): the window slides pan_x
+            # native pixels a frame, counted from frame 0 of the take.
+            cx = f"'{cx}+{seg['pan_x']}*(n+{seg['in']})'"
         chain = f"[{n_in}:v]trim=end_frame={seg['frames']},setpts=PTS-STARTPTS,crop={cw}:{ch}:{cx}:{cy}"
         chain += f",split={len(sizes)}" + "".join(f"[c{i}_{sz[0]}]" for sz in sizes)
         parts.append(chain)

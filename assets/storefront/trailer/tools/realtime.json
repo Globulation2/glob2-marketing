@@ -1,0 +1,77 @@
+{
+ "note": "Real-time takes for capture_realtime.py: the game's own recorder in a real window (3024x1666 on the capture Mac's Retina display, UI scale 1, so the HUD is the same physical size as in the 4256x2800 tick-stepped frames). Each take keeps the framing of tools/shots.json at `scale` of its old pixel size: the in-game zoom is the old zoom times `scale`, the camera is centred on the same tile, then nudged down by `nudge_y` native pixels (a middle-button map drag) so the edit's crop clears the event list at the top left. Pans are done in the edit as a sliding crop over the recorded frame, not in the game.",
+ "window": [
+  3024,
+  1666
+ ],
+ "chapter_ticks": 30,
+ "preroll_ticks": 90,
+ "postroll_ticks": 30,
+ "old_canvas_centre": [
+  1920,
+  1416
+ ],
+ "new_canvas_centre": [
+  1312,
+  849
+ ],
+ "map_canvas": [
+  0,
+  32,
+  2624,
+  1634
+ ],
+ "safe_top": 210,
+ "erase_zones": false,
+ "erase_zones_note": "The colony's clearing, forbidden and guard zones are left as the colony's AI paints them and are drawn as a player sees them (user decision, 2026-11-27): erasing them in real time could not keep up with the AI repainting, so zones popped in and out, and erasing changed the AI's play. shots.json's erase_zones applies only to the tick-stepped capture.",
+ "takes": [
+  {
+   "id": "f-battle-honey",
+   "scale": 0.6667,
+   "nudge_y": 176
+  },
+  {
+   "id": "f-battle-honey-close",
+   "from": "f-battle-honey",
+   "frames": 80,
+   "scale": 1.0,
+   "nudge_y": 160,
+   "note": "second take of the same ticks at the old zoom, for the 1.5x punch-in and the poster at native pixels"
+  },
+  {
+   "id": "f-place",
+   "scale": 1.0,
+   "nudge_y": 0
+  },
+  {
+   "id": "f-fed",
+   "scale": 0.6,
+   "nudge_y": 95
+  },
+  {
+   "id": "f-cabino",
+   "scale": 0.6667,
+   "nudge_y": 176
+  },
+  {
+   "id": "f-battle3",
+   "scale": 0.6667,
+   "nudge_y": 176
+  },
+  {
+   "id": "f-hero",
+   "scale": 0.6,
+   "nudge_y": 95
+  },
+  {
+   "id": "f-econ",
+   "scale": 0.6,
+   "nudge_y": 95
+  },
+  {
+   "id": "f-coplay2",
+   "scale": 1.0,
+   "nudge_y": 150
+  }
+ ]
+}

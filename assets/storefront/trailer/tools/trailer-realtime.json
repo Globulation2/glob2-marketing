@@ -1,0 +1,886 @@
+{
+ "fps": 30,
+ "frame": {
+  "native": [
+   3024,
+   1666
+  ],
+  "size": [
+   1920,
+   1080
+  ],
+  "crop": null,
+  "note": "Real-time takes (capture_realtime.py): 3024x1666 recordings; every segment names its own crop, computed by make_realtime_edit.py from trailer.json. 1080p only.",
+  "hud_limits": {
+   "top": 32,
+   "bottom": 1666,
+   "card_stack_top": 1320,
+   "inset_text_px": 20
+  }
+ },
+ "text": {
+  "fields": [
+   "trailer_line_1",
+   "trailer_line_2",
+   "trailer_line_3",
+   "trailer_line_4",
+   "trailer_line_ai_coplay"
+  ],
+  "ink": "#f9e8bb",
+  "accent": "#e3c077",
+  "latin_stack": [
+   "Nunito",
+   "Noto Sans"
+  ],
+  "latin_size": {
+   "Nunito": 1.0,
+   "Noto Sans": 0.94
+  },
+  "weights": {
+   "default": 800,
+   "Nunito": 900,
+   "Noto Nastaliq Urdu": 700
+  },
+  "rule": {
+   "width": 1.5,
+   "height": 0.075,
+   "gap": 0.26
+  },
+  "landscape": {
+   "size": 0.082,
+   "centre_y": 0.8,
+   "scrim_height": 0.46,
+   "max_width": 0.84,
+   "one_line_floor": 0.8,
+   "two_line_floor": 0.62,
+   "wordmark_width": 0.56
+  },
+  "portrait": {
+   "size": 0.092,
+   "centre_y": 0.6,
+   "scrim_height": 0.62,
+   "max_width": 0.88,
+   "one_line_floor": 0.9,
+   "two_line_floor": 0.6,
+   "wordmark_width": 0.84
+  },
+  "fade": 0.25,
+  "top_fields": [
+   "trailer_line_ai_coplay"
+  ],
+  "landscape_top": {
+   "centre_y": 0.15,
+   "scrim_height": 0.4
+  }
+ },
+ "cuts": {
+  "master": {
+   "file": "glob2-trailer-30s",
+   "duration": 30.0,
+   "timeline": [
+    {
+     "shot": "f-battle-honey-close",
+     "in": 0,
+     "frames": 75,
+     "crop": [
+      2560,
+      1440,
+      64,
+      223
+     ]
+    },
+    {
+     "shot": "f-place",
+     "in": 0,
+     "frames": 34,
+     "upscale": true,
+     "crop": [
+      2304,
+      1296,
+      720,
+      214
+     ],
+     "note": "build palette: window flush with the frame's right edge, so the sidebar palette (HUD, not scaled) is whole"
+    },
+    {
+     "shot": "f-place",
+     "in": 34,
+     "frames": 65,
+     "crop": [
+      1920,
+      1080,
+      72,
+      279
+     ]
+    },
+    {
+     "shot": "f-place",
+     "in": 125,
+     "frames": 81,
+     "crop": [
+      1920,
+      1080,
+      72,
+      279
+     ]
+    },
+    {
+     "shot": "f-fed",
+     "in": 20,
+     "frames": 105,
+     "crop": [
+      2304,
+      1296,
+      160,
+      214
+     ],
+     "pan_x": 0.9
+    },
+    {
+     "shot": "f-cabino",
+     "in": 0,
+     "frames": 90,
+     "crop": [
+      2560,
+      1440,
+      32,
+      214
+     ]
+    },
+    {
+     "shot": "f-battle-honey",
+     "in": 75,
+     "frames": 105,
+     "crop": [
+      2560,
+      1440,
+      32,
+      214
+     ]
+    },
+    {
+     "shot": "f-battle3",
+     "in": 0,
+     "frames": 90,
+     "crop": [
+      2560,
+      1440,
+      32,
+      214
+     ]
+    },
+    {
+     "shot": "f-hero",
+     "in": 0,
+     "frames": 135,
+     "crop": [
+      2304,
+      1296,
+      160,
+      214
+     ],
+     "pan_x": 0.9
+    },
+    {
+     "shot": "f-econ",
+     "in": 0,
+     "frames": 120,
+     "crop": [
+      2304,
+      1296,
+      160,
+      214
+     ],
+     "pan_x": -0.9
+    }
+   ],
+   "text": [
+    {
+     "field": "trailer_line_1",
+     "start": 3.8,
+     "end": 6.9
+    },
+    {
+     "field": "trailer_line_2",
+     "start": 8.9,
+     "end": 11.7
+    },
+    {
+     "field": "trailer_line_3",
+     "start": 15.4,
+     "end": 18.3
+    },
+    {
+     "field": "trailer_line_4",
+     "start": 22.0,
+     "end": 25.0
+    }
+   ],
+   "wordmark": {
+    "start": 27.0,
+    "fade": 0.5
+   },
+   "music": {
+    "set": "original",
+    "offset": 0,
+    "crossfade": 0.8,
+    "tail_fade": 2.5,
+    "gain_db": 0,
+    "segments": [
+     {
+      "mood": "a3",
+      "from": 0,
+      "to": 2.5
+     },
+     {
+      "mood": "a2",
+      "from": 2.5,
+      "to": 15.0
+     },
+     {
+      "mood": "a3",
+      "from": 15.0,
+      "to": 21.5
+     },
+     {
+      "mood": "a2",
+      "from": 21.5,
+      "to": 30.0
+     }
+    ],
+    "mood_gain_db": {
+     "a3": 4.0
+    },
+    "limiter": {
+     "limit": 0.79,
+     "attack_ms": 2,
+     "release_ms": 60
+    }
+   },
+   "extra_outputs": [
+    {
+     "file": "glob2-trailer-30s-1080p.webm",
+     "size": [
+      1920,
+      1080
+     ],
+     "codec": "vp9",
+     "note": "AppStream (VP9/Opus in WebM)"
+    },
+    {
+     "file": "glob2-trailer-30s-preview-720p.mp4",
+     "size": [
+      1280,
+      720
+     ],
+     "codec": "h264-preview",
+     "note": "review preview, under 30 MB"
+    }
+   ],
+   "uhd": false
+  },
+  "desktop": {
+   "file": "glob2-trailer-desktop-34s",
+   "duration": 34.5,
+   "textless": false,
+   "timeline": [
+    {
+     "shot": "f-battle-honey-close",
+     "in": 0,
+     "frames": 75,
+     "crop": [
+      2560,
+      1440,
+      64,
+      223
+     ]
+    },
+    {
+     "shot": "f-place",
+     "in": 0,
+     "frames": 34,
+     "upscale": true,
+     "crop": [
+      2304,
+      1296,
+      720,
+      214
+     ],
+     "note": "build palette: window flush with the frame's right edge, so the sidebar palette (HUD, not scaled) is whole"
+    },
+    {
+     "shot": "f-place",
+     "in": 34,
+     "frames": 65,
+     "crop": [
+      1920,
+      1080,
+      72,
+      279
+     ]
+    },
+    {
+     "shot": "f-place",
+     "in": 125,
+     "frames": 81,
+     "crop": [
+      1920,
+      1080,
+      72,
+      279
+     ]
+    },
+    {
+     "shot": "f-fed",
+     "in": 20,
+     "frames": 105,
+     "crop": [
+      2304,
+      1296,
+      160,
+      214
+     ],
+     "pan_x": 0.9
+    },
+    {
+     "shot": "f-cabino",
+     "in": 0,
+     "frames": 90,
+     "crop": [
+      2560,
+      1440,
+      32,
+      214
+     ]
+    },
+    {
+     "shot": "f-battle-honey",
+     "in": 75,
+     "frames": 105,
+     "crop": [
+      2560,
+      1440,
+      32,
+      214
+     ]
+    },
+    {
+     "shot": "f-battle3",
+     "in": 0,
+     "frames": 90,
+     "crop": [
+      2560,
+      1440,
+      32,
+      214
+     ]
+    },
+    {
+     "shot": "f-hero",
+     "in": 0,
+     "frames": 135,
+     "crop": [
+      2304,
+      1296,
+      160,
+      214
+     ],
+     "pan_x": 0.9
+    },
+    {
+     "shot": "f-coplay2",
+     "in": 18,
+     "frames": 132,
+     "inset": {
+      "region_x": [
+       32,
+       632
+      ],
+      "bottom": 1570,
+      "top_probe_x": 610,
+      "card_rgb": [
+       43,
+       29,
+       65
+      ],
+      "tolerance": [
+       6,
+       5,
+       6
+      ],
+      "scale_at_3840": 2.0,
+      "margin": [
+       0.025,
+       0.035
+      ],
+      "shadow": 0.6
+     },
+     "crop": [
+      1920,
+      1080,
+      405,
+      220
+     ]
+    },
+    {
+     "shot": "f-econ",
+     "in": 0,
+     "frames": 123,
+     "crop": [
+      2304,
+      1296,
+      160,
+      214
+     ],
+     "pan_x": -0.9
+    }
+   ],
+   "text": [
+    {
+     "field": "trailer_line_1",
+     "start": 3.8,
+     "end": 6.9
+    },
+    {
+     "field": "trailer_line_2",
+     "start": 8.9,
+     "end": 11.7
+    },
+    {
+     "field": "trailer_line_3",
+     "start": 15.4,
+     "end": 18.3
+    },
+    {
+     "field": "trailer_line_4",
+     "start": 22.0,
+     "end": 25.0
+    },
+    {
+     "field": "trailer_line_ai_coplay",
+     "start": 26.4,
+     "end": 30.2
+    }
+   ],
+   "wordmark": {
+    "start": 31.5,
+    "fade": 0.5
+   },
+   "music": {
+    "set": "original",
+    "offset": 0,
+    "crossfade": 0.8,
+    "tail_fade": 2.5,
+    "gain_db": 0,
+    "segments": [
+     {
+      "mood": "a3",
+      "from": 0,
+      "to": 2.5
+     },
+     {
+      "mood": "a2",
+      "from": 2.5,
+      "to": 15.0
+     },
+     {
+      "mood": "a3",
+      "from": 15.0,
+      "to": 21.5
+     },
+     {
+      "mood": "a2",
+      "from": 21.5,
+      "to": 34.5
+     }
+    ],
+    "mood_gain_db": {
+     "a3": 4.0
+    },
+    "limiter": {
+     "limit": 0.79,
+     "attack_ms": 2,
+     "release_ms": 60
+    }
+   },
+   "uhd": false
+  },
+  "cut15": {
+   "file": "glob2-trailer-15s",
+   "duration": 15.0,
+   "textless": false,
+   "timeline": [
+    {
+     "shot": "f-battle-honey-close",
+     "in": 0,
+     "frames": 45,
+     "crop": [
+      2560,
+      1440,
+      64,
+      223
+     ]
+    },
+    {
+     "shot": "f-place",
+     "in": 8,
+     "frames": 26,
+     "upscale": true,
+     "crop": [
+      2304,
+      1296,
+      720,
+      214
+     ],
+     "note": "build palette: window flush with the frame's right edge, so the sidebar palette (HUD, not scaled) is whole"
+    },
+    {
+     "shot": "f-place",
+     "in": 34,
+     "frames": 34,
+     "crop": [
+      1920,
+      1080,
+      72,
+      279
+     ]
+    },
+    {
+     "shot": "f-place",
+     "in": 128,
+     "frames": 39,
+     "crop": [
+      1920,
+      1080,
+      72,
+      279
+     ]
+    },
+    {
+     "shot": "f-fed",
+     "in": 20,
+     "frames": 30,
+     "crop": [
+      2304,
+      1296,
+      160,
+      214
+     ],
+     "pan_x": 0.9
+    },
+    {
+     "shot": "f-battle-honey",
+     "in": 84,
+     "frames": 96,
+     "crop": [
+      2560,
+      1440,
+      32,
+      214
+     ]
+    },
+    {
+     "shot": "f-hero",
+     "in": 0,
+     "frames": 99,
+     "crop": [
+      2304,
+      1296,
+      160,
+      214
+     ],
+     "pan_x": 0.9
+    },
+    {
+     "shot": "f-econ",
+     "in": 0,
+     "frames": 81,
+     "crop": [
+      2304,
+      1296,
+      160,
+      214
+     ],
+     "pan_x": -0.9
+    }
+   ],
+   "text": [
+    {
+     "field": "trailer_line_1",
+     "start": 1.8,
+     "end": 4.8
+    },
+    {
+     "field": "trailer_line_3",
+     "start": 6.0,
+     "end": 8.8
+    },
+    {
+     "field": "trailer_line_4",
+     "start": 9.4,
+     "end": 12.2
+    }
+   ],
+   "wordmark": {
+    "start": 12.5,
+    "fade": 0.5
+   },
+   "music": {
+    "set": "original",
+    "offset": 0,
+    "crossfade": 0.8,
+    "tail_fade": 2.0,
+    "gain_db": 0,
+    "segments": [
+     {
+      "mood": "a3",
+      "from": 0,
+      "to": 1.5
+     },
+     {
+      "mood": "a2",
+      "from": 1.5,
+      "to": 5.8
+     },
+     {
+      "mood": "a3",
+      "from": 5.8,
+      "to": 9.0
+     },
+     {
+      "mood": "a2",
+      "from": 9.0,
+      "to": 15.0
+     }
+    ],
+    "mood_gain_db": {
+     "a3": 4.0
+    },
+    "limiter": {
+     "limit": 0.79,
+     "attack_ms": 2,
+     "release_ms": 60
+    }
+   },
+   "uhd": false
+  },
+  "vertical": {
+   "file": "glob2-trailer-30s-vertical",
+   "size": [
+    1080,
+    1920
+   ],
+   "text": [
+    {
+     "field": "trailer_line_1",
+     "start": 3.8,
+     "end": 6.9
+    },
+    {
+     "field": "trailer_line_2",
+     "start": 8.9,
+     "end": 11.7
+    },
+    {
+     "field": "trailer_line_3",
+     "start": 15.4,
+     "end": 18.3
+    },
+    {
+     "field": "trailer_line_4",
+     "start": 22.0,
+     "end": 25.0
+    }
+   ],
+   "wordmark": {
+    "start": 27.0,
+    "fade": 0.5
+   },
+   "music": {
+    "set": "original",
+    "offset": 0,
+    "crossfade": 0.8,
+    "tail_fade": 2.5,
+    "gain_db": 0,
+    "segments": [
+     {
+      "mood": "a3",
+      "from": 0,
+      "to": 2.5
+     },
+     {
+      "mood": "a2",
+      "from": 2.5,
+      "to": 15.0
+     },
+     {
+      "mood": "a3",
+      "from": 15.0,
+      "to": 21.5
+     },
+     {
+      "mood": "a2",
+      "from": 21.5,
+      "to": 30.0
+     }
+    ],
+    "mood_gain_db": {
+     "a3": 4.0
+    },
+    "limiter": {
+     "limit": 0.79,
+     "attack_ms": 2,
+     "release_ms": 60
+    }
+   },
+   "duration": 30.0,
+   "timeline": [
+    {
+     "shot": "f-battle-honey-close",
+     "in": 0,
+     "frames": 75,
+     "crop": [
+      810,
+      1440,
+      939,
+      223
+     ],
+     "upscale": true
+    },
+    {
+     "shot": "f-place",
+     "in": 0,
+     "frames": 34,
+     "crop": [
+      810,
+      1440,
+      1467,
+      210
+     ],
+     "upscale": true
+    },
+    {
+     "shot": "f-place",
+     "in": 34,
+     "frames": 65,
+     "crop": [
+      810,
+      1440,
+      627,
+      210
+     ],
+     "upscale": true
+    },
+    {
+     "shot": "f-place",
+     "in": 125,
+     "frames": 81,
+     "crop": [
+      810,
+      1440,
+      627,
+      210
+     ],
+     "upscale": true
+    },
+    {
+     "shot": "f-fed",
+     "in": 20,
+     "frames": 105,
+     "crop": [
+      810,
+      1440,
+      907,
+      210
+     ],
+     "upscale": true,
+     "pan_x": 0.9
+    },
+    {
+     "shot": "f-cabino",
+     "in": 0,
+     "frames": 90,
+     "crop": [
+      810,
+      1440,
+      907,
+      214
+     ],
+     "upscale": true
+    },
+    {
+     "shot": "f-battle-honey",
+     "in": 75,
+     "frames": 105,
+     "crop": [
+      810,
+      1440,
+      907,
+      214
+     ],
+     "upscale": true
+    },
+    {
+     "shot": "f-battle3",
+     "in": 0,
+     "frames": 90,
+     "crop": [
+      810,
+      1440,
+      907,
+      214
+     ],
+     "upscale": true
+    },
+    {
+     "shot": "f-hero",
+     "in": 0,
+     "frames": 135,
+     "crop": [
+      810,
+      1440,
+      907,
+      210
+     ],
+     "upscale": true,
+     "pan_x": 0.9
+    },
+    {
+     "shot": "f-econ",
+     "in": 0,
+     "frames": 120,
+     "crop": [
+      810,
+      1440,
+      907,
+      210
+     ],
+     "upscale": true,
+     "pan_x": -0.9
+    }
+   ],
+   "note": "9:16 windows of 810x1440 native pixels centred on the master's framing, upscaled to 1080x1920"
+  }
+ },
+ "poster": {
+  "shot": "f-battle-honey-close",
+  "frame": 30,
+  "crop": [
+   2560,
+   1440,
+   64,
+   223
+  ],
+  "files": {
+   "poster-3840x2160.png": [
+    3840,
+    2160
+   ],
+   "poster-1920x1080.png": [
+    1920,
+    1080
+   ]
+  },
+  "note": "frame 30 of the opening shot (master 1.0 s) at the opening's 1.5x punch-in: red and lime warriors locked together in the centre; real-time take at native pixels, so the 3840x2160 file is a 1.5x upscale"
+ }
+}

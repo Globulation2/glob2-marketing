@@ -322,7 +322,7 @@
         {"slot": "icon", "icon_file": "icon-512.png", "size": [512, 512], "format": "PNG", "mode": "RGBA", "max_bytes": 1024000}
       ],
       "trailer": [
-        {"slot": "preview-video", "file": "glob2-trailer-30s-2160p.mp4", "coplay": false, "hosted": "YouTube URL",
+        {"slot": "preview-video", "file": "glob2-trailer-30s-1080p.mp4", "coplay": false, "hosted": "YouTube URL",
          "note": "Trailer review table: the master (no co-play: no MCP on Android), uploaded to YouTube (unlisted or public, embeddable, monetisation off); Play takes one YouTube URL per listing. The Japanese and Arabic listings can take their own URLs of glob2-trailer-30s-ja-1080p.mp4 and -ar-1080p.mp4. Gate before the URL goes on the listing: read the Play Console ads and in-app purchase declarations (trailer review, store gates)."}
       ],
       "unverified": [

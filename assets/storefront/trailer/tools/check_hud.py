@@ -11,13 +11,17 @@ reframes and the per-segment punch-ins are checked as cut), and every STEP-th fr
   band along the top of the crop;
 - the Hive card's button fill (66,44,94) along the bottom of the crop;
 - the "Paused" label of tick stepping and the top bar: the crop must lie below y 36
-  and above y 2600 of the 4256x2800 frame;
+  and above y 2600 of the 4256x2800 frame (the edit data's frame.hud_limits sets
+  other limits, as trailer-realtime.json does for the 3024x1666 real-time takes);
 - for a segment with an "inset" (the desktop co-play beat), the inset crop of the Hive
   card itself: the button fill (65,43,88) and gold border (199,165,87) may appear only
   in its bottom 90 rows, where the card's own Pause and Cancel buttons are; the
   "Reports / details" and "Stop commander" buttons stacked above the card would show
   up higher, so none of them is in the picture. The main window of that segment must
-  also end above the card stack (y 2380).
+  also end above the card stack (y 2380, or frame.hud_limits.card_stack_top).
+  frame.hud_limits.inset_text_px allows that many button-coloured pixels above the
+  card's own buttons: master's card writes its name and state in anti-aliased text
+  whose edges can match the fill; a button would be hundreds, with a gold border.
 
 The right-hand build palette is in frame on purpose in the placement segments.
 """
@@ -52,10 +56,11 @@ def main():
             crop = tuple(seg.get("crop") or data["frame"]["crop"])
             key = (seg["shot"], crop, json.dumps(seg.get("inset"), sort_keys=True))
             used.setdefault(key, set()).update(range(seg["in"], seg["in"] + seg["frames"]))
+    limits = dict({"top": 36, "bottom": 2600, "card_stack_top": 2380, "inset_text_px": 0}, **(data["frame"].get("hud_limits") or {}))
     bad, n, insets = [], 0, 0
     for (shot, (cw, ch, cx, cy), inset), frames in sorted(used.items()):
         inset = json.loads(inset)
-        if cy < 36 or cy + ch > 2600:
+        if cy < limits["top"] or cy + ch > limits["bottom"]:
             bad.append({"shot": shot, "crop": [cw, ch, cx, cy], "problem": "crop reaches the top bar or the Paused label"})
         for f in sorted(frames)[::args.step]:
             a = np.asarray(Image.open(Path(args.raw) / shot / f"f{f:04d}.png").convert("RGB"))
@@ -76,7 +81,7 @@ def main():
                 region = a[t:inset["bottom"], inset["region_x"][0]:inset["region_x"][1]][:-90]
                 button = int(near(region, (65, 43, 88), 3).sum())
                 gold = int(near(region, (199, 165, 87), 6).sum())
-                if button or gold or cy + ch > 2380:
+                if button > limits["inset_text_px"] or gold or cy + ch > limits["card_stack_top"]:
                     prob.update({"inset_button_px_above_card_buttons": button, "inset_gold_px_above_card_buttons": gold})
             if prob:
                 bad.append(dict({"shot": shot, "frame": f, "crop": [cw, ch, cx, cy]}, **prob))

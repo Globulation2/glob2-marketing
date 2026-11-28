@@ -4,7 +4,7 @@
  "package_dir": "packages:steam",
  "generated_by": "assets/storefront/store-packages/build.py",
  "inputs": {
-  "stores.json": "bdb603665544f44032e56a6a1ae75d2a200c80dbd45f5764cd4800a4817e474d",
+  "stores.json": "d3a0cf0c7c8705767647d04b715c5394e8ae3ec1eaf538837b02f31d466babbf",
   "review": {
    "file": "assets/storefront/review/round-2-final.md",
    "sha256": "d9646b0a35b585db391192076005e86511aa4c9f8977e4f1dafecedc4722a5ce"
@@ -12,7 +12,7 @@
   "platforms.json": "af448133ed18adcd9a846dcb3b649379d7c3433fe16801a4cb92b6a2db2f6e37",
   "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
   "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)",
-  "trailer_manifest": "d373b93cbfd917072614d1e3465aa6eae21668e0d953e69565cb598e6f4f82c1"
+  "trailer_manifest": "1f4d096ed2c387641c1b21ed17429d3c2fc94aefb029e3d1275c3ae25ac9aa89"
  },
  "review_row": "Steam",
  "review_frames": [
@@ -394,8 +394,8 @@
    "file": "trailer/glob2-trailer-desktop-34s-1080p.mp4",
    "link_to": "trailer:glob2-trailer-desktop-34s-1080p.mp4",
    "in_repository": false,
-   "bytes": 61490258,
-   "sha256": "bfa0db9b58de51b885f9729eb9431d4f516f562d1873a0b1a0fe5112d7ebe769",
+   "bytes": 103385113,
+   "sha256": "150df04c3be06a8fc7815bc0f3e146a15f535bd67ede24eb5587adce36db14a6",
    "duration_s": 34.5,
    "pixels": "1920x1080",
    "codec": "h264",
@@ -420,8 +420,8 @@
    "file": "trailer/glob2-trailer-30s-1080p.mp4",
    "link_to": "trailer:glob2-trailer-30s-1080p.mp4",
    "in_repository": false,
-   "bytes": 54010516,
-   "sha256": "e72e876e381143c8c7f733774c4ae9c46b279fdf04948b2c4beebd851cbaf203",
+   "bytes": 90572703,
+   "sha256": "5dfa9218b41e053acfc639b24bf4595168847401c4e7207ba4a83c9e0401ae8d",
    "duration_s": 30.0,
    "pixels": "1920x1080",
    "codec": "h264",

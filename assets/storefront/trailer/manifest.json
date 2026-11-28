@@ -1,29 +1,28 @@
 {
  "title": "Globulation 2 storefront-v2 gameplay trailer",
- "made": "2026-11-24 (fix round after the independent review the same day)",
+ "made": "2026-11-27: re-recorded in real time on master with the game's own recorder (the 2026-11-24 tick-stepped trailer is at commit history)",
  "build": {
-  "version": "0.11.7.0 + 15 commits",
-  "revision": "5bf966285aa8",
-  "label": "0.11.7.0 + 15 commits, revision 5bf966285aa8; not the public release binary; maps, AI roster and simulation identical to the tag",
-  "executable": "/Applications/Glob2.app/Contents/MacOS/glob2",
-  "executable_sha256": "252fd7d7ff8383c2f72760eccb418b4792bfdfe9f820cd8925b8d8cb69cb7c7f",
-  "public_release": false,
-  "note": "The installed build is 15 commits after the v0.11.7.0 tag. It has MCP tools the release lacks (for example game_time, which stepped every frame of the capture); the maps, AI roster and simulation are identical to the tag. Source of the correction: storefront-v2 trailer review M1 and facts/storefront-claims.md R13."
+  "version": "0.11.9.1 (master)",
+  "revision": "46ef8e22768c",
+  "label": "master at 46ef8e2276 (Release 0.11.9.1, #1989), macOS release build made locally from that commit",
+  "executable": "glob2-wt-trailer/build/darwin/client/release/Glob2.app/Contents/MacOS/glob2 (local build, not the store binary)",
+  "executable_sha256": "78135e1eea857111ed8f88dbeb271b0c1c323e02a38f87ee994ba602b2ba6cf7",
+  "public_release": true,
+  "note": "Same source as the v0.11.9.1 release tag; built locally (tools/dev_build.py release=1 bundle), so the executable's bytes differ from the store builds. Its simulation is the one the 2026-11-24 matches ran: both matches replayed to the same final checksums (fsq-mix 2113040471, honeycomb 760558595)."
  },
- "platform": "macOS 26.6 on Apple silicon",
+ "platform": "macOS 26.6 on Apple silicon (Retina display)",
  "capture_conditions": {
-  "window": "4256x2800 off-screen (SDL dummy video driver), --ui-scale 2, --interface desktop",
-  "renderer": "portable-sdl (one of the release's own backends)",
+  "method": "real time: the game's own gameplay recorder (--record, 30 fps, H.264 CRF 12 via VideoToolbox) in a real window, the match running at normal speed (30 ticks a second); frames extracted per tick from the recording's 30-tick chapters (capture_realtime.py)",
+  "window": "3024x1666 physical pixels (the Retina screen, UI scale 1; the HUD is the same physical size as at UI scale 2 on the old 4256x2800 frames)",
+  "renderer": "portable-sdl in a real window (SDL's own renderer for that window, not the software renderer of off-screen runs)",
   "artwork": "high-resolution artwork forced on (highResolutionArtworkChoice=on)",
   "graphics": "clouds and cloud shadows off; everything else default",
-  "health_food_bars": "off: the in-game 'draw information' toggle (key I) pressed once after each load",
-  "zones": "the seat erased the colony's forbidden, clearing and guard areas in and around the view during the lead-in and while filming (Flags and areas tool, an ordinary player action); the AI repaints them",
-  "frame_capture": "the match is held between ticks and stepped one simulation tick per frame (game_time step ticks=1); each frame is the game's own framebuffer saved at native pixels by the embedded MCP UI server (ui_screenshot)",
-  "speed": "one frame per tick, played at 30 frames a second = the game's normal speed of 30 ticks a second; nothing retimed, interpolated, blended or sped up",
-  "crop": "the edit keeps the 3840x2160 map rectangle at (0,200) of each 4256x2800 frame: the HUD (top bar, event list, sidebar, the 'Paused' label of tick stepping) is outside it. Exceptions, per segment in edit.cuts: the opening fight is a 2560x1440 punch-in (1.5x); the placement beat first shows a 2848x1602 window that includes the real right-hand build palette with the Inn armed, then cuts in to a 1920x1080 window (2x) inside the same take; the desktop co-play beat is a 2144x1206 window (1.8x) with the game's own Hive card from the same frame inset bottom left. Each output size is scaled straight from the native crop (Lanczos): the 1080p files are downscales or native pixels, the 2160p files upscale the punch-ins; the vertical crops 1215x2160 (one shot 1080x1920) and downscales to 1080x1920",
-  "mcp_server": "enabled in every shot (--mcp-port 47814); only the f-coplay2 shot uses it for colony orders (Hive standing order)"
+  "health_food_bars": "off: the in-game 'draw information' toggle pressed once after each load (the L key on the capture Mac's Colemak layout types the bound 'i')",
+  "zones": "left as the colony's AI paints them and drawn as a player sees them (user decision 2026-11-27): no zones were erased",
+  "framing": "each shot keeps the old framing at 2/3 (or 0.6 for panning shots, 1.0 for the placement and co-play shots) of its old pixel size, with the in-game zoom scaled to match; camera pans are a sliding crop of the recorded frame in the edit; 1080p only",
+  "recorder_drops": "0-1 frames dropped per take, all outside the cut; one held frame inside the cut in f-hero (frame 115, master 25.33 s): the game took longer than a frame on that tick, so two ticks show the same picture"
  },
- "footage_label": "AI versus AI matches (spectator-equivalent). Every colony on screen is played by the game's own AIs from a headless all-AI match. Each shot is filmed from a local player seat that shares one colony with its AI (join-seat.py), so the camera, fog of war and interface are a real player's. The seat's only inputs are listed per shot under seat_inputs: the zone erase, and in the placement shot one Inn placed through the build palette; in the desktop co-play shot one Hive standing order installed over MCP by the editing agent. Not human-versus-human footage.",
+ "footage_label": "AI versus AI matches (spectator-equivalent). Every colony on screen is played by the game's own AIs from a headless all-AI match. Each shot is filmed from a local player seat that shares one colony with its AI (join-seat.py), so the camera, fog of war and interface are a real player's. The seat's only inputs are listed per shot: in the placement shot one Inn placed through the build palette; in the desktop co-play shot one Hive standing order installed over MCP by the editing agent. Recorded in real time at normal game speed. Not human-versus-human footage.",
  "matches": "headless matches and checkpoints under the desktop capture work directory; see ../captures/desktop/tools/matches.json for maps, seeds and AIs",
  "music": {
   "track": "Globulation 2 original soundtrack (content/data/zik/original: a2.opus building mood, a3.opus combat mood)",
@@ -43,46 +42,42 @@
  },
  "storage": {
   "policy": "Decided 2026-11-24 by the coordinating agent: the repository keeps this manifest, README.md, tools/, the posters, the contact sheets and the AppStream WebM (glob2-trailer-30s-1080p.webm, about 30 MB, committed because AppStream metadata needs a stable URL for it). The MP4 cuts (13 files, about 0.9 GB) are not committed; .gitignore in this folder ignores *.mp4.",
-  "mp4_location": "../storefront-v2-renders/trailer/ relative to the repository root (/Users/bradley/glob2/storefront-v2-renders/trailer/ on the machine that made them), beside the captioned screenshot renders",
+  "mp4_location": "../storefront-v2-renders/trailer/ relative to the repository root (/Users/bradley/glob2/storefront-v2-renders/trailer/ on the machine that made them)",
   "reproducible": "Every MP4 is reproducible from the raw frames with tools/ (README.md, Reproduce). The bytes and SHA-256 under deliverables identify the exact files; they were re-checked against the moved files on 2026-11-24 and all matched.",
   "webm_url": "https://raw.githubusercontent.com/Globulation2/glob2-marketing/main/assets/storefront/trailer/glob2-trailer-30s-1080p.webm (pin a commit hash in place of main for AppStream metainfo)",
-  "store_packages": "assets/storefront/store-packages/build.py links the per-store trailer files from both places (stores.json, trailer)"
+  "store_packages": "assets/storefront/store-packages/build.py links the per-store trailer files from both places (stores.json, trailer)",
+  "note_2026_11_27": "Re-recorded cuts are 1080p only (no 2160p files): the largest map window of a real-time take is 2560x1440. The previous cuts (with 2160p) moved to ../storefront-v2-renders/trailer-tick-stepped-2026-11-24/."
  },
  "deliverables": [
   {
    "file": "contact-sheet-15s.jpg",
-   "bytes": 2231047,
-   "sha256": "e9bdab164169fa1064848b0a48ad62327d7136a2ccf59835a209267cfed9ca6c",
-   "location": "repository"
+   "bytes": 2485468,
+   "sha256": "08d70adc232fdfc00e67052ffee62f45c48e740a29fda29b4f92cab1383a5f24"
   },
   {
    "file": "contact-sheet-desktop-34s.jpg",
-   "bytes": 5391452,
-   "sha256": "d5db23fc9163f6a2e0dd3460dc956e81f64c7d63dfe5f43ebfa3a3146b9b8932",
-   "location": "repository"
+   "bytes": 6205470,
+   "sha256": "86e92741a04aa9ec241ef7d1091bf6abe3017642fb150d0112e60e0877fd2700"
   },
   {
    "file": "contact-sheet-master-30s-textless.jpg",
-   "bytes": 5062817,
-   "sha256": "f5351383c012b66a91988e7f6fe33054b59923cf87058ebc5fcdaa4f422cb3d0",
-   "location": "repository"
+   "bytes": 5847558,
+   "sha256": "0f1bc21d51c98b8b15fc9db9a1bb5ca3b27290dfbb248283750163608a4a4359"
   },
   {
    "file": "contact-sheet-master-30s.jpg",
-   "bytes": 4682358,
-   "sha256": "1876b9abe7246fc699df788490b620d0f120f3fe5de961dfbee8e848ef9f41f0",
-   "location": "repository"
+   "bytes": 5348069,
+   "sha256": "a9c605b78293cf47b580e8c8fd477e17e44894630c08d58604d4761274306b6c"
   },
   {
    "file": "contact-sheet-vertical-30s.jpg",
-   "bytes": 4279951,
-   "sha256": "3d0d91eeb761bb566ede7db1126ec6fa4e64b6396af1bac85ca801cb4659f12c",
-   "location": "repository"
+   "bytes": 12847389,
+   "sha256": "01f8ab2fb6a8cef76737c639cdad0b42adeb5877b1ee0da8a722486e1b1123ad"
   },
   {
    "file": "glob2-trailer-15s-1080p.mp4",
-   "bytes": 28633874,
-   "sha256": "4504cdef3e3033122115fdaecb921dddee477791a397da38637c366ead5462f5",
+   "bytes": 40883526,
+   "sha256": "f22f2286c2a523651e14c37658e1bf4764b9e557340f5d042dab83a9dc03afad",
    "duration_s": 15.0,
    "video": {
     "codec": "h264",
@@ -95,7 +90,7 @@
     "frames": 450,
     "pix_fmt": "yuv420p",
     "color_space": "bt709",
-    "bit_rate": 15005140
+    "bit_rate": 21538300
    },
    "audio": {
     "codec": "aac",
@@ -109,46 +104,12 @@
    "audio_loudness": {
     "integrated_lufs": -14.0,
     "true_peak_dbtp": -2.0
-   },
-   "location": "outside the repository (storage.mp4_location)"
-  },
-  {
-   "file": "glob2-trailer-15s-2160p.mp4",
-   "bytes": 71098503,
-   "sha256": "07db43a0fb2dee40d7de2c76d663ac6d758d72d47197802091d92b86347dd037",
-   "duration_s": 15.0,
-   "video": {
-    "codec": "h264",
-    "profile": "High",
-    "level": 51,
-    "width": 3840,
-    "height": 2160,
-    "frame_rate": "30/1",
-    "avg_frame_rate": "30/1",
-    "frames": 450,
-    "pix_fmt": "yuv420p",
-    "color_space": "bt709",
-    "bit_rate": 37652959
-   },
-   "audio": {
-    "codec": "aac",
-    "profile": "LC",
-    "channels": 2,
-    "channel_layout": "stereo",
-    "sample_rate": 48000,
-    "bit_rate": 256567
-   },
-   "fast_start": true,
-   "audio_loudness": {
-    "integrated_lufs": -14.0,
-    "true_peak_dbtp": -2.0
-   },
-   "location": "outside the repository (storage.mp4_location)"
+   }
   },
   {
    "file": "glob2-trailer-30s-1080p.mp4",
-   "bytes": 54010516,
-   "sha256": "e72e876e381143c8c7f733774c4ae9c46b279fdf04948b2c4beebd851cbaf203",
+   "bytes": 90572703,
+   "sha256": "5dfa9218b41e053acfc639b24bf4595168847401c4e7207ba4a83c9e0401ae8d",
    "duration_s": 30.0,
    "video": {
     "codec": "h264",
@@ -161,7 +122,7 @@
     "frames": 900,
     "pix_fmt": "yuv420p",
     "color_space": "bt709",
-    "bit_rate": 14137750
+    "bit_rate": 23887673
    },
    "audio": {
     "codec": "aac",
@@ -175,13 +136,12 @@
    "audio_loudness": {
     "integrated_lufs": -14.6,
     "true_peak_dbtp": -2.0
-   },
-   "location": "outside the repository (storage.mp4_location)"
+   }
   },
   {
    "file": "glob2-trailer-30s-1080p.webm",
-   "bytes": 30158578,
-   "sha256": "3aa7a3e84891a9d41b788b109f81ab0b4ec26d924b02c9e21a44d55ee215847f",
+   "bytes": 53894427,
+   "sha256": "0faf9f7494e3313097672b85dcdb9a798ad80c0cfab7fe3e582d3b13ba0e0116",
    "duration_s": 30.008,
    "video": {
     "codec": "vp9",
@@ -208,46 +168,12 @@
    "audio_loudness": {
     "integrated_lufs": -14.6,
     "true_peak_dbtp": -1.7
-   },
-   "location": "repository"
-  },
-  {
-   "file": "glob2-trailer-30s-2160p.mp4",
-   "bytes": 132906058,
-   "sha256": "a8a0d0032e177e2dc00fad89953c1bc758487a1063954aa1fa6b6ca632620abe",
-   "duration_s": 30.0,
-   "video": {
-    "codec": "h264",
-    "profile": "High",
-    "level": 51,
-    "width": 3840,
-    "height": 2160,
-    "frame_rate": "30/1",
-    "avg_frame_rate": "30/1",
-    "frames": 900,
-    "pix_fmt": "yuv420p",
-    "color_space": "bt709",
-    "bit_rate": 35176572
-   },
-   "audio": {
-    "codec": "aac",
-    "profile": "LC",
-    "channels": 2,
-    "channel_layout": "stereo",
-    "sample_rate": 48000,
-    "bit_rate": 256114
-   },
-   "fast_start": true,
-   "audio_loudness": {
-    "integrated_lufs": -14.6,
-    "true_peak_dbtp": -2.0
-   },
-   "location": "outside the repository (storage.mp4_location)"
+   }
   },
   {
    "file": "glob2-trailer-30s-ar-1080p.mp4",
-   "bytes": 54026885,
-   "sha256": "168da6ab24c81194b10d3118a8753960a914bded1e3cce54fba236b5302dd446",
+   "bytes": 90642331,
+   "sha256": "ca5f874d07c7a1e9ebc53a300778ffe940cc854ccb116816cd0f9887019ce725",
    "duration_s": 30.0,
    "video": {
     "codec": "h264",
@@ -260,7 +186,7 @@
     "frames": 900,
     "pix_fmt": "yuv420p",
     "color_space": "bt709",
-    "bit_rate": 14142116
+    "bit_rate": 23906241
    },
    "audio": {
     "codec": "aac",
@@ -274,13 +200,12 @@
    "audio_loudness": {
     "integrated_lufs": -14.6,
     "true_peak_dbtp": -2.0
-   },
-   "location": "outside the repository (storage.mp4_location)"
+   }
   },
   {
    "file": "glob2-trailer-30s-ja-1080p.mp4",
-   "bytes": 53984032,
-   "sha256": "cd7ac03f008b0c0fa4f3f6770c82f58ed25fef97a28916492facf3baa8cdfd5f",
+   "bytes": 90565006,
+   "sha256": "eca5ce651bcd0ffbb33b84f426858eab13aadcc9f335fe0f77b91b467252596c",
    "duration_s": 30.0,
    "video": {
     "codec": "h264",
@@ -293,7 +218,7 @@
     "frames": 900,
     "pix_fmt": "yuv420p",
     "color_space": "bt709",
-    "bit_rate": 14130688
+    "bit_rate": 23885621
    },
    "audio": {
     "codec": "aac",
@@ -307,13 +232,12 @@
    "audio_loudness": {
     "integrated_lufs": -14.6,
     "true_peak_dbtp": -2.0
-   },
-   "location": "outside the repository (storage.mp4_location)"
+   }
   },
   {
    "file": "glob2-trailer-30s-preview-720p.mp4",
-   "bytes": 15835959,
-   "sha256": "f1c4acdf3e25e36da5b1d20c0bd207b9008aaa0a87fab06e8f31898291298683",
+   "bytes": 21602667,
+   "sha256": "877ddbb6bec17a0c9919e00906be59d52ace34513530a5e12e6fbbbf0e8a7d97",
    "duration_s": 30.0,
    "video": {
     "codec": "h264",
@@ -326,7 +250,7 @@
     "frames": 900,
     "pix_fmt": "yuv420p",
     "color_space": "bt709",
-    "bit_rate": 4054049
+    "bit_rate": 5591805
    },
    "audio": {
     "codec": "aac",
@@ -340,13 +264,12 @@
    "audio_loudness": {
     "integrated_lufs": -14.6,
     "true_peak_dbtp": -2.0
-   },
-   "location": "outside the repository (storage.mp4_location)"
+   }
   },
   {
    "file": "glob2-trailer-30s-textless-1080p.mp4",
-   "bytes": 55295043,
-   "sha256": "f61552c1555c07675628295efdb78bcc902dc4644ec98dd52bb498a03c24102c",
+   "bytes": 102039427,
+   "sha256": "caf6890f4ab6a5451763033597bce57928f0f2855e4c1376f4077ab8214a5a87",
    "duration_s": 30.0,
    "video": {
     "codec": "h264",
@@ -359,7 +282,7 @@
     "frames": 900,
     "pix_fmt": "yuv420p",
     "color_space": "bt709",
-    "bit_rate": 14480295
+    "bit_rate": 26945469
    },
    "audio": {
     "codec": "aac",
@@ -373,46 +296,12 @@
    "audio_loudness": {
     "integrated_lufs": -14.6,
     "true_peak_dbtp": -2.0
-   },
-   "location": "outside the repository (storage.mp4_location)"
-  },
-  {
-   "file": "glob2-trailer-30s-textless-2160p.mp4",
-   "bytes": 132556004,
-   "sha256": "bcb7a5f428f7ba4af2e5b2dce56fd26de6f097e155d77960ced9429b47e64053",
-   "duration_s": 30.0,
-   "video": {
-    "codec": "h264",
-    "profile": "High",
-    "level": 51,
-    "width": 3840,
-    "height": 2160,
-    "frame_rate": "30/1",
-    "avg_frame_rate": "30/1",
-    "frames": 900,
-    "pix_fmt": "yuv420p",
-    "color_space": "bt709",
-    "bit_rate": 35083220
-   },
-   "audio": {
-    "codec": "aac",
-    "profile": "LC",
-    "channels": 2,
-    "channel_layout": "stereo",
-    "sample_rate": 48000,
-    "bit_rate": 256114
-   },
-   "fast_start": true,
-   "audio_loudness": {
-    "integrated_lufs": -14.6,
-    "true_peak_dbtp": -2.0
-   },
-   "location": "outside the repository (storage.mp4_location)"
+   }
   },
   {
    "file": "glob2-trailer-30s-vertical-1080x1920.mp4",
-   "bytes": 49909517,
-   "sha256": "f0bebc99f1719e63a3f9068a1db7bddc4c54445ee62c538084f8c6b7d42583d9",
+   "bytes": 79517516,
+   "sha256": "fccd3bc7d052ba4178afd50034083fc454ebdf1d1f80bccd3df68043cdf824da",
    "duration_s": 30.0,
    "video": {
     "codec": "h264",
@@ -425,7 +314,7 @@
     "frames": 900,
     "pix_fmt": "yuv420p",
     "color_space": "bt709",
-    "bit_rate": 13044149
+    "bit_rate": 20939617
    },
    "audio": {
     "codec": "aac",
@@ -439,13 +328,12 @@
    "audio_loudness": {
     "integrated_lufs": -14.6,
     "true_peak_dbtp": -2.0
-   },
-   "location": "outside the repository (storage.mp4_location)"
+   }
   },
   {
    "file": "glob2-trailer-30s-vertical-textless-1080x1920.mp4",
-   "bytes": 51603687,
-   "sha256": "0846a233f6014643776dc938bb872cfd2ecac024eccbf2cb322ca4002ccad51f",
+   "bytes": 88627883,
+   "sha256": "ce0568eb85b965435b27a8cbc74b63b9a5bffe97a06dd24cc6f760a0f8f55277",
    "duration_s": 30.0,
    "video": {
     "codec": "h264",
@@ -458,7 +346,7 @@
     "frames": 900,
     "pix_fmt": "yuv420p",
     "color_space": "bt709",
-    "bit_rate": 13495929
+    "bit_rate": 23369055
    },
    "audio": {
     "codec": "aac",
@@ -472,13 +360,12 @@
    "audio_loudness": {
     "integrated_lufs": -14.6,
     "true_peak_dbtp": -2.0
-   },
-   "location": "outside the repository (storage.mp4_location)"
+   }
   },
   {
    "file": "glob2-trailer-desktop-34s-1080p.mp4",
-   "bytes": 61490258,
-   "sha256": "bfa0db9b58de51b885f9729eb9431d4f516f562d1873a0b1a0fe5112d7ebe769",
+   "bytes": 103385113,
+   "sha256": "150df04c3be06a8fc7815bc0f3e146a15f535bd67ede24eb5587adce36db14a6",
    "duration_s": 34.5,
    "video": {
     "codec": "h264",
@@ -491,7 +378,7 @@
     "frames": 1035,
     "pix_fmt": "yuv420p",
     "color_space": "bt709",
-    "bit_rate": 13993537
+    "bit_rate": 23708289
    },
    "audio": {
     "codec": "aac",
@@ -505,63 +392,25 @@
    "audio_loudness": {
     "integrated_lufs": -14.3,
     "true_peak_dbtp": -2.0
-   },
-   "location": "outside the repository (storage.mp4_location)"
-  },
-  {
-   "file": "glob2-trailer-desktop-34s-2160p.mp4",
-   "bytes": 149147999,
-   "sha256": "0c50281b0178561c91041237f9d0204032363790e40ae4d723b999dc5323ac8e",
-   "duration_s": 34.5,
-   "video": {
-    "codec": "h264",
-    "profile": "High",
-    "level": 51,
-    "width": 3840,
-    "height": 2160,
-    "frame_rate": "30/1",
-    "avg_frame_rate": "30/1",
-    "frames": 1035,
-    "pix_fmt": "yuv420p",
-    "color_space": "bt709",
-    "bit_rate": 34319977
-   },
-   "audio": {
-    "codec": "aac",
-    "profile": "LC",
-    "channels": 2,
-    "channel_layout": "stereo",
-    "sample_rate": 48000,
-    "bit_rate": 256215
-   },
-   "fast_start": true,
-   "audio_loudness": {
-    "integrated_lufs": -14.3,
-    "true_peak_dbtp": -2.0
-   },
-   "location": "outside the repository (storage.mp4_location)"
+   }
   },
   {
    "file": "poster-1920x1080.png",
-   "bytes": 3513454,
-   "sha256": "bc17457f1320acf4b640eb7bd29168a8e176d37f6b2ddd7b4001269d5bc1fca9",
-   "location": "repository"
+   "bytes": 3469513,
+   "sha256": "b0861facbe27940d9320b0382c8b3a83fac54243dfad137d126b16925dca5c89"
   },
   {
    "file": "poster-3840x2160.png",
-   "bytes": 10686234,
-   "sha256": "d6f1222b52beaef1a964309a2a18e667fa27e9efb2304299c6f2fe5d36098ff1",
-   "location": "repository"
+   "bytes": 10760658,
+   "sha256": "3188f4806ffd4258524f3dc7bde07a79d376d84986fae9e7b3f6612ae7763e47"
   }
  ],
  "shots": [
   {
-   "id": "f-battle-honey",
-   "frames": 180,
+   "id": "f-battle-honey-close",
+   "frames": 80,
    "first_tick": 67450,
-   "last_tick": 67629,
-   "speed": "1x",
-   "ticks_per_second": 30.000000300000004,
+   "last_tick": 67529,
    "source_save": "honeycomb/checkpoint-66000.game.gz",
    "source_save_sha256": "8887eb1106bb176658cd66b57c82ec9793330a756b65f8d8cc868b14f5b902b3",
    "seat": "local player sharing colony 0 with its AI",
@@ -571,28 +420,26 @@
      63
     ],
     "zoom": 2.0,
+    "old_zoom": 2.0,
+    "nudge_y_px": 160,
     "view_tiles": {
-     "height": 22,
-     "width": 31,
-     "x": 57,
-     "y": 52
+     "height": 14,
+     "width": 21,
+     "x": 62,
+     "y": 56
     },
-    "pan_native_px_per_frame": null
+    "edit_pan_px_per_frame": null
    },
    "map": {
     "height": 128,
     "width": 128
    },
    "window": [
-    4256,
-    2800
+    3024,
+    1666
    ],
-   "ui_scale": 2.0,
-   "erase_zones": [
-    "clearing",
-    "forbidden",
-    "guard"
-   ],
+   "ui_scale": 1,
+   "erase_zones": [],
    "health_food_bars": "off (key I after load)",
    "match": "honeycomb",
    "checkpoint": 66000,
@@ -609,8 +456,6 @@
    "frames": 290,
    "first_tick": 60300,
    "last_tick": 61329,
-   "speed": "1x",
-   "ticks_per_second": 30.000000300000004,
    "source_save": "fsq-mix/checkpoint-60000.game.gz",
    "source_save_sha256": "b63b5b9c5ac161c7ba1defa89b161f417a6c320dafdd6559a63235e0138f50cf",
    "seat": "local player sharing colony 0 with its AI",
@@ -620,28 +465,26 @@
      124
     ],
     "zoom": 1.5,
+    "old_zoom": 1.5,
+    "nudge_y_px": 0,
     "view_tiles": {
-     "height": 30,
-     "width": 41,
-     "x": 108,
-     "y": 109
+     "height": 18,
+     "width": 28,
+     "x": 114,
+     "y": 115
     },
-    "pan_native_px_per_frame": null
+    "edit_pan_px_per_frame": null
    },
    "map": {
     "height": 128,
     "width": 128
    },
    "window": [
-    4256,
-    2800
+    3024,
+    1666
    ],
-   "ui_scale": 2.0,
-   "erase_zones": [
-    "clearing",
-    "forbidden",
-    "guard"
-   ],
+   "ui_scale": 1,
+   "erase_zones": [],
    "health_food_bars": "off (key I after load)",
    "match": "fsq-mix",
    "checkpoint": 60000,
@@ -649,6 +492,7 @@
    "seat_inputs": [
     {
      "frame": 10,
+     "planned_tick": 60310,
      "tick": 60310,
      "action": {
       "act": "game/buildings/inn.0.site"
@@ -656,7 +500,8 @@
     },
     {
      "frame": 11,
-     "tick": 60311,
+     "planned_tick": 60311,
+     "tick": 60312,
      "action": {
       "move_tile": [
        124.5,
@@ -669,6 +514,7 @@
     },
     {
      "frame": 48,
+     "planned_tick": 60348,
      "tick": 60348,
      "action": {
       "click_tile": [
@@ -679,6 +525,7 @@
     },
     {
      "frame": 58,
+     "planned_tick": 60358,
      "tick": 60358,
      "action": {
       "click_tile": [
@@ -686,13 +533,6 @@
        122.5
       ],
       "button": "right"
-     }
-    },
-    {
-     "frame": 110,
-     "tick": 61150,
-     "action": {
-      "skip_ticks": 740
      }
     }
    ],
@@ -712,8 +552,6 @@
    "frames": 150,
    "first_tick": 60500,
    "last_tick": 60649,
-   "speed": "1x",
-   "ticks_per_second": 30.000000300000004,
    "source_save": "fsq-mix/checkpoint-60000.game.gz",
    "source_save_sha256": "b63b5b9c5ac161c7ba1defa89b161f417a6c320dafdd6559a63235e0138f50cf",
    "seat": "local player sharing colony 0 with its AI",
@@ -722,14 +560,16 @@
      124,
      112
     ],
-    "zoom": 1.5,
+    "zoom": 0.8999999999999999,
+    "old_zoom": 1.5,
+    "nudge_y_px": 95,
     "view_tiles": {
-     "height": 30,
-     "width": 41,
-     "x": 104,
-     "y": 97
+     "height": 29,
+     "width": 46,
+     "x": 101,
+     "y": 98
     },
-    "pan_native_px_per_frame": {
+    "edit_pan_px_per_frame": {
      "dx": 1.5,
      "dy": 0
     }
@@ -739,15 +579,11 @@
     "width": 128
    },
    "window": [
-    4256,
-    2800
+    3024,
+    1666
    ],
-   "ui_scale": 2.0,
-   "erase_zones": [
-    "clearing",
-    "forbidden",
-    "guard"
-   ],
+   "ui_scale": 1,
+   "erase_zones": [],
    "health_food_bars": "off (key I after load)",
    "match": "fsq-mix",
    "checkpoint": 60000,
@@ -764,8 +600,6 @@
    "frames": 120,
    "first_tick": 60300,
    "last_tick": 60419,
-   "speed": "1x",
-   "ticks_per_second": 30.000000300000004,
    "source_save": "fsq-mix/checkpoint-60000.game.gz",
    "source_save_sha256": "b63b5b9c5ac161c7ba1defa89b161f417a6c320dafdd6559a63235e0138f50cf",
    "seat": "local player sharing colony 1 with its AI",
@@ -774,29 +608,27 @@
      125,
      64
     ],
-    "zoom": 1.5,
+    "zoom": 1.0000499999999999,
+    "old_zoom": 1.5,
+    "nudge_y_px": 176,
     "view_tiles": {
-     "height": 30,
+     "height": 27,
      "width": 41,
      "x": 105,
-     "y": 49
+     "y": 51
     },
-    "pan_native_px_per_frame": null
+    "edit_pan_px_per_frame": null
    },
    "map": {
     "height": 128,
     "width": 128
    },
    "window": [
-    4256,
-    2800
+    3024,
+    1666
    ],
-   "ui_scale": 2.0,
-   "erase_zones": [
-    "clearing",
-    "forbidden",
-    "guard"
-   ],
+   "ui_scale": 1,
+   "erase_zones": [],
    "health_food_bars": "off (key I after load)",
    "match": "fsq-mix",
    "checkpoint": 60000,
@@ -809,12 +641,55 @@
    }
   },
   {
+   "id": "f-battle-honey",
+   "frames": 180,
+   "first_tick": 67450,
+   "last_tick": 67629,
+   "source_save": "honeycomb/checkpoint-66000.game.gz",
+   "source_save_sha256": "8887eb1106bb176658cd66b57c82ec9793330a756b65f8d8cc868b14f5b902b3",
+   "seat": "local player sharing colony 0 with its AI",
+   "camera": {
+    "centre_tile": [
+     72,
+     63
+    ],
+    "zoom": 1.3334,
+    "old_zoom": 2.0,
+    "nudge_y_px": 176,
+    "view_tiles": {
+     "height": 20,
+     "width": 31,
+     "x": 57,
+     "y": 53
+    },
+    "edit_pan_px_per_frame": null
+   },
+   "map": {
+    "height": 128,
+    "width": 128
+   },
+   "window": [
+    3024,
+    1666
+   ],
+   "ui_scale": 1,
+   "erase_zones": [],
+   "health_food_bars": "off (key I after load)",
+   "match": "honeycomb",
+   "checkpoint": 66000,
+   "team": 0,
+   "seat_inputs": [],
+   "tick_continuity": {
+    "every_frame_one_tick": true,
+    "declared_cuts_inside_take": [],
+    "undeclared_jumps": []
+   }
+  },
+  {
    "id": "f-battle3",
    "frames": 120,
    "first_tick": 67780,
    "last_tick": 67899,
-   "speed": "1x",
-   "ticks_per_second": 30.000000300000004,
    "source_save": "honeycomb/checkpoint-66000.game.gz",
    "source_save_sha256": "8887eb1106bb176658cd66b57c82ec9793330a756b65f8d8cc868b14f5b902b3",
    "seat": "local player sharing colony 0 with its AI",
@@ -823,29 +698,27 @@
      64,
      59
     ],
-    "zoom": 1.25,
+    "zoom": 0.833375,
+    "old_zoom": 1.25,
+    "nudge_y_px": 176,
     "view_tiles": {
-     "height": 35,
-     "width": 49,
-     "x": 40,
-     "y": 42
+     "height": 32,
+     "width": 50,
+     "x": 39,
+     "y": 43
     },
-    "pan_native_px_per_frame": null
+    "edit_pan_px_per_frame": null
    },
    "map": {
     "height": 128,
     "width": 128
    },
    "window": [
-    4256,
-    2800
+    3024,
+    1666
    ],
-   "ui_scale": 2.0,
-   "erase_zones": [
-    "clearing",
-    "forbidden",
-    "guard"
-   ],
+   "ui_scale": 1,
+   "erase_zones": [],
    "health_food_bars": "off (key I after load)",
    "match": "honeycomb",
    "checkpoint": 66000,
@@ -862,8 +735,6 @@
    "frames": 150,
    "first_tick": 60620,
    "last_tick": 60769,
-   "speed": "1x",
-   "ticks_per_second": 30.000000300000004,
    "source_save": "fsq-mix/checkpoint-60000.game.gz",
    "source_save_sha256": "b63b5b9c5ac161c7ba1defa89b161f417a6c320dafdd6559a63235e0138f50cf",
    "seat": "local player sharing colony 0 with its AI",
@@ -872,14 +743,16 @@
      0,
      0
     ],
-    "zoom": 1.0,
+    "zoom": 0.6,
+    "old_zoom": 1.0,
+    "nudge_y_px": 95,
     "view_tiles": {
      "height": 44,
-     "width": 61,
-     "x": 98,
+     "width": 69,
+     "x": 94,
      "y": 106
     },
-    "pan_native_px_per_frame": {
+    "edit_pan_px_per_frame": {
      "dx": 1.5,
      "dy": 0
     }
@@ -889,15 +762,11 @@
     "width": 128
    },
    "window": [
-    4256,
-    2800
+    3024,
+    1666
    ],
-   "ui_scale": 2.0,
-   "erase_zones": [
-    "clearing",
-    "forbidden",
-    "guard"
-   ],
+   "ui_scale": 1,
+   "erase_zones": [],
    "health_food_bars": "off (key I after load)",
    "match": "fsq-mix",
    "checkpoint": 60000,
@@ -914,8 +783,6 @@
    "frames": 150,
    "first_tick": 48400,
    "last_tick": 48549,
-   "speed": "1x",
-   "ticks_per_second": 30.000000300000004,
    "source_save": "fsq-mix/checkpoint-48000.game.gz",
    "source_save_sha256": "3c380be1b622e759317428ab15a41c4cfd3459dab292f62ba5d0cb15fca975d7",
    "seat": "local player sharing colony 0 with its AI",
@@ -924,14 +791,16 @@
      0,
      0
     ],
-    "zoom": 1.25,
+    "zoom": 0.75,
+    "old_zoom": 1.25,
+    "nudge_y_px": 95,
     "view_tiles": {
      "height": 35,
-     "width": 49,
-     "x": 104,
+     "width": 55,
+     "x": 101,
      "y": 111
     },
-    "pan_native_px_per_frame": {
+    "edit_pan_px_per_frame": {
      "dx": -1.5,
      "dy": 0
     }
@@ -941,15 +810,11 @@
     "width": 128
    },
    "window": [
-    4256,
-    2800
+    3024,
+    1666
    ],
-   "ui_scale": 2.0,
-   "erase_zones": [
-    "clearing",
-    "forbidden",
-    "guard"
-   ],
+   "ui_scale": 1,
+   "erase_zones": [],
    "health_food_bars": "off (key I after load)",
    "match": "fsq-mix",
    "checkpoint": 48000,
@@ -966,8 +831,6 @@
    "frames": 150,
    "first_tick": 60460,
    "last_tick": 60609,
-   "speed": "1x",
-   "ticks_per_second": 30.000000300000004,
    "source_save": "fsq-mix/checkpoint-60000.game.gz",
    "source_save_sha256": "b63b5b9c5ac161c7ba1defa89b161f417a6c320dafdd6559a63235e0138f50cf",
    "seat": "local player sharing colony 0 with its AI",
@@ -977,28 +840,26 @@
      119
     ],
     "zoom": 1.5,
+    "old_zoom": 1.5,
+    "nudge_y_px": 150,
     "view_tiles": {
-     "height": 30,
-     "width": 41,
-     "x": 116,
-     "y": 104
+     "height": 18,
+     "width": 28,
+     "x": 122,
+     "y": 110
     },
-    "pan_native_px_per_frame": null
+    "edit_pan_px_per_frame": null
    },
    "map": {
     "height": 128,
     "width": 128
    },
    "window": [
-    4256,
-    2800
+    3024,
+    1666
    ],
-   "ui_scale": 2.0,
-   "erase_zones": [
-    "clearing",
-    "forbidden",
-    "guard"
-   ],
+   "ui_scale": 1,
+   "erase_zones": [],
    "health_food_bars": "off (key I after load)",
    "match": "fsq-mix",
    "checkpoint": 60000,
@@ -1006,6 +867,7 @@
    "seat_inputs": [
     {
      "frame": 10,
+     "planned_tick": 60470,
      "tick": 60470,
      "action": {
       "hive_install": {
@@ -1035,17 +897,12 @@
          "y": 118
         }
        ]
-      },
-      "result": {
-       "operation_key": "f-coplay2-1795565837",
-       "session": "8418333151041-21",
-       "status": "queued",
-       "submitted": false
       }
      }
     },
     {
      "frame": 140,
+     "planned_tick": 60600,
      "tick": 60600,
      "action": {
       "hive_list": true
@@ -1068,17 +925,22 @@
     "result": {
      "available": true,
      "limits": {
+      "data_bytes_per_run": 33554432,
+      "heap_bytes": 134217728,
       "journal_entries": 256,
       "minimum_interval_ticks": 25,
       "orders_per_invocation": 32,
       "programs": 8,
+      "script_data_bytes_per_run": 1048576,
       "source_bytes": 131072,
-      "submission_capacity": 64
+      "submission_capacity": 64,
+      "wall_seconds_per_run": 5,
+      "work_units_per_run": 250000000
      },
      "programs": 0,
      "queued": 0,
      "running": false,
-     "session": "8418333151041-21",
+     "session": "3248697208-1",
      "tick": 60470
     }
    },
@@ -1088,16 +950,16 @@
     "tool": "hive_program",
     "arguments": {
      "action": "install",
-     "session": "8418333151041-21",
-     "operation_key": "f-coplay2-1795565837",
+     "session": "3248697208-1",
+     "operation_key": "f-coplay2-1795838788",
      "name": "inn-plan",
      "description": "Lay four Inn sites on free grass near (8,118), one per run",
      "source": "// SPDX-License-Identifier: GPL-3.0-or-later\n// Standing order installed by the trailer editor (an AI agent) through the game's\n// MCP server (hive_program install) for the desktop trailer's co-play beat.\n//\n// Each run (every interval_ticks) lays the next building site of a short plan.\n// PLAN lists a building family and an anchor tile in the filmed view; the run reads\n// the colony's own view of the ground around the anchor (map.region: explored and\n// visible tiles, no resource, no building, grass on every corner), picks\n// the free footprint nearest the anchor that keeps one tile clear of the sites this\n// order already laid, and orders one construction site there. capture_shot.py fills\n// PLAN in from the shot's data. Only the player's fog-filtered view and ordinary\n// player orders are used.\nconst PLAN = [{\"type\": \"inn\", \"x\": 8, \"y\": 118}, {\"type\": \"inn\", \"x\": 8, \"y\": 118}, {\"type\": \"inn\", \"x\": 8, \"y\": 118}, {\"type\": \"inn\", \"x\": 8, \"y\": 118}];\nconst NONE = 65535;\nconst GRASS = 2;   // terrain id of grass, the buildable ground (the release's local Hive has no terrainTypes())\nlet next = 0;\nconst placed = [];\nfunction step(ctx) {\n  if (next >= PLAN.length) return {output: {done: placed}};\n  const g = ctx.game;\n  const p = PLAN[next++];\n  const type = g.buildingTypes().find(t => t.placeable && t.site && t.level === 0 &&\n                                         String(t.name).toLowerCase() === p.type);\n  if (!type) return {output: {missing_type: p.type}};\n  const r = p.radius || 7, W = g.map.width, H = g.map.height;\n  const x0 = p.x - r, y0 = p.y - r, size = 2 * r + type.width;\n  const tiles = g.map.region(x0, y0, size, size);\n  const free = tiles.map(t => t.explored && t.visible && t.resource && t.resource.type === NONE &&\n    (t.building === undefined || t.building === NONE) && t.corners &&\n    t.corners.every(c => c === GRASS));\n  const wrap = (a, n) => { const d = Math.abs(a) % n; return Math.min(d, n - d); };\n  let best = null, bestD = 1e9;\n  for (let dy = 0; dy + type.height <= size; dy++) {\n    for (let dx = 0; dx + type.width <= size; dx++) {\n      let ok = true;\n      for (let j = 0; j < type.height && ok; j++)\n        for (let i = 0; i < type.width && ok; i++) ok = free[(dy + j) * size + dx + i];\n      if (!ok) continue;\n      const x = ((x0 + dx) % W + W) % W, y = ((y0 + dy) % H + H) % H;\n      if (placed.some(q => wrap(q[0] - x, W) <= type.width && wrap(q[1] - y, H) <= type.height)) continue;\n      const d = wrap(x - p.x, W) + wrap(y - p.y, H);\n      if (d < bestD) { bestD = d; best = [x, y]; }\n    }\n  }\n  if (!best) return {output: {no_room_near: [p.x, p.y], step: next}};\n  placed.push(best);\n  return {\n    output: {placing: p.type, at: best, step: next, of: PLAN.length},\n    orders: [{type: 'create', buildingType: type.id, x: best[0], y: best[1],\n              workers: p.workers || 6, futureWorkers: p.workers || 6}],\n  };\n}\n",
      "interval_ticks": 25
     },
     "result": {
-     "operation_key": "f-coplay2-1795565837",
-     "session": "8418333151041-21",
+     "operation_key": "f-coplay2-1795838788",
+     "session": "3248697208-1",
      "status": "queued",
      "submitted": false
     }
@@ -1110,52 +972,34 @@
      "action": "list"
     },
     "result": {
+     "note": "hive_program inspect gives a program's source, last output and events",
      "programs": [
       {
-       "description": "Lay four Inn sites on free grass near (8,118), one per run",
        "id": "inn-plan",
        "intervalTicks": 25,
+       "last_run_tick": 60577,
        "name": "inn-plan",
-       "nextTick": 60620,
+       "nextTick": 60602,
+       "order_lag_ticks": 6,
        "paused": false,
+       "period_ticks": 25,
        "recent": {
-        "error": "",
-        "local_events": [],
-        "observation_tick": 60595,
-        "order_count": 0,
-        "output": {
-         "done": [
-          [
-           5,
-           118
-          ],
-          [
-           11,
-           118
-          ],
-          [
-           8,
-           121
-          ],
-          [
-           7,
-           115
-          ]
-         ]
-        },
+        "observation_tick": 60577,
+        "order_count": 1,
         "status": "completed",
-        "submission_tick": 60595,
-        "submitted": false
+        "submission_tick": 60583,
+        "submitted": true
        },
-       "revision": 1
+       "revision": 1,
+       "runs": 4
       }
      ],
-     "session": "8418333151041-21"
+     "session": "3248697208-1"
     }
    },
    {
     "frame": 150,
-    "tick": 60609,
+    "tick": 60639,
     "tool": "hive_program",
     "arguments": {
      "action": "inspect"
@@ -1171,9 +1015,8 @@
       "source": "// SPDX-License-Identifier: GPL-3.0-or-later\n// Standing order installed by the trailer editor (an AI agent) through the game's\n// MCP server (hive_program install) for the desktop trailer's co-play beat.\n//\n// Each run (every interval_ticks) lays the next building site of a short plan.\n// PLAN lists a building family and an anchor tile in the filmed view; the run reads\n// the colony's own view of the ground around the anchor (map.region: explored and\n// visible tiles, no resource, no building, grass on every corner), picks\n// the free footprint nearest the anchor that keeps one tile clear of the sites this\n// order already laid, and orders one construction site there. capture_shot.py fills\n// PLAN in from the shot's data. Only the player's fog-filtered view and ordinary\n// player orders are used.\nconst PLAN = [{\"type\": \"inn\", \"x\": 8, \"y\": 118}, {\"type\": \"inn\", \"x\": 8, \"y\": 118}, {\"type\": \"inn\", \"x\": 8, \"y\": 118}, {\"type\": \"inn\", \"x\": 8, \"y\": 118}];\nconst NONE = 65535;\nconst GRASS = 2;   // terrain id of grass, the buildable ground (the release's local Hive has no terrainTypes())\nlet next = 0;\nconst placed = [];\nfunction step(ctx) {\n  if (next >= PLAN.length) return {output: {done: placed}};\n  const g = ctx.game;\n  const p = PLAN[next++];\n  const type = g.buildingTypes().find(t => t.placeable && t.site && t.level === 0 &&\n                                         String(t.name).toLowerCase() === p.type);\n  if (!type) return {output: {missing_type: p.type}};\n  const r = p.radius || 7, W = g.map.width, H = g.map.height;\n  const x0 = p.x - r, y0 = p.y - r, size = 2 * r + type.width;\n  const tiles = g.map.region(x0, y0, size, size);\n  const free = tiles.map(t => t.explored && t.visible && t.resource && t.resource.type === NONE &&\n    (t.building === undefined || t.building === NONE) && t.corners &&\n    t.corners.every(c => c === GRASS));\n  const wrap = (a, n) => { const d = Math.abs(a) % n; return Math.min(d, n - d); };\n  let best = null, bestD = 1e9;\n  for (let dy = 0; dy + type.height <= size; dy++) {\n    for (let dx = 0; dx + type.width <= size; dx++) {\n      let ok = true;\n      for (let j = 0; j < type.height && ok; j++)\n        for (let i = 0; i < type.width && ok; i++) ok = free[(dy + j) * size + dx + i];\n      if (!ok) continue;\n      const x = ((x0 + dx) % W + W) % W, y = ((y0 + dy) % H + H) % H;\n      if (placed.some(q => wrap(q[0] - x, W) <= type.width && wrap(q[1] - y, H) <= type.height)) continue;\n      const d = wrap(x - p.x, W) + wrap(y - p.y, H);\n      if (d < bestD) { bestD = d; best = [x, y]; }\n    }\n  }\n  if (!best) return {output: {no_room_near: [p.x, p.y], step: next}};\n  placed.push(best);\n  return {\n    output: {placing: p.type, at: best, step: next, of: PLAN.length},\n    orders: [{type: 'create', buildingType: type.id, x: best[0], y: best[1],\n              workers: p.workers || 6, futureWorkers: p.workers || 6}],\n  };\n}\n"
      },
      "recent": {
-      "error": "",
       "local_events": [],
-      "observation_tick": 60595,
+      "observation_tick": 60627,
       "order_count": 0,
       "output": {
        "done": [
@@ -1196,17 +1039,17 @@
        ]
       },
       "status": "completed",
-      "submission_tick": 60595,
+      "submission_tick": 60633,
       "submitted": false
      },
-     "session": "8418333151041-21"
+     "session": "3248697208-1"
     }
    }
   ]
  },
  "review_timing": {
   "glob2-trailer-15s-1080p": {
-   "file": "glob2-trailer-15s-1080p.mp4",
+   "file": "/Users/bradley/glob2/storefront-v2-renders/trailer-realtime/glob2-trailer-15s-1080p.mp4",
    "frames": 450,
    "avg_frame_rate": "30/1",
    "r_frame_rate": "30/1",
@@ -1218,9 +1061,9 @@
    "constant_frame_rate": true,
    "repeated_frames": [],
    "luma_change_between_frames": {
-    "min": 0.982,
-    "median": 1.788,
-    "max": 45.941
+    "min": 0.387,
+    "median": 2.959,
+    "max": 54.929
    },
    "cuts_detected_at_s": [
     1.5,
@@ -1231,44 +1074,31 @@
     12.3
    ],
    "near_black_share": {
-    "max": 0.1184,
-    "mean": 0.0083,
-    "frames_over_15_percent": []
-   }
-  },
-  "glob2-trailer-15s-2160p": {
-   "file": "glob2-trailer-15s-2160p.mp4",
-   "frames": 450,
-   "avg_frame_rate": "30/1",
-   "r_frame_rate": "30/1",
-   "duration": 15.0,
-   "frame_step_ms": {
-    "min": 33.333,
-    "max": 33.334
-   },
-   "constant_frame_rate": true,
-   "repeated_frames": [],
-   "luma_change_between_frames": {
-    "min": 0.964,
-    "median": 1.747,
-    "max": 45.9
-   },
-   "cuts_detected_at_s": [
-    1.5,
-    2.367,
-    4.8,
-    5.8,
-    9.0,
-    12.3
-   ],
-   "near_black_share": {
-    "max": 0.1184,
-    "mean": 0.0083,
-    "frames_over_15_percent": []
+    "max": 0.1562,
+    "mean": 0.0104,
+    "frames_over_15_percent": [
+     45,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51,
+     52,
+     53,
+     54,
+     55,
+     56,
+     57,
+     58,
+     59,
+     60,
+     61
+    ]
    }
   },
   "glob2-trailer-30s-1080p-webm": {
-   "file": "glob2-trailer-30s-1080p.webm",
+   "file": "/Users/bradley/glob2/storefront-v2-renders/trailer-realtime/glob2-trailer-30s-1080p.webm",
    "frames": 900,
    "avg_frame_rate": "30/1",
    "r_frame_rate": "30/1",
@@ -1280,9 +1110,9 @@
    "constant_frame_rate": false,
    "repeated_frames": [],
    "luma_change_between_frames": {
-    "min": 0.792,
-    "median": 1.617,
-    "max": 40.755
+    "min": 0.057,
+    "median": 2.921,
+    "max": 49.614
    },
    "cuts_detected_at_s": [
     2.5,
@@ -1295,13 +1125,48 @@
     26.0
    ],
    "near_black_share": {
-    "max": 0.1184,
-    "mean": 0.0065,
-    "frames_over_15_percent": []
+    "max": 0.1562,
+    "mean": 0.0077,
+    "frames_over_15_percent": [
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89,
+     90,
+     91,
+     92,
+     93,
+     94,
+     95,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107,
+     108
+    ]
    }
   },
   "glob2-trailer-30s-1080p": {
-   "file": "glob2-trailer-30s-1080p.mp4",
+   "file": "/Users/bradley/glob2/storefront-v2-renders/trailer-realtime/glob2-trailer-30s-1080p.mp4",
    "frames": 900,
    "avg_frame_rate": "30/1",
    "r_frame_rate": "30/1",
@@ -1313,9 +1178,9 @@
    "constant_frame_rate": true,
    "repeated_frames": [],
    "luma_change_between_frames": {
-    "min": 0.794,
-    "median": 1.522,
-    "max": 40.749
+    "min": 0.112,
+    "median": 2.891,
+    "max": 49.65
    },
    "cuts_detected_at_s": [
     2.5,
@@ -1328,46 +1193,48 @@
     26.0
    ],
    "near_black_share": {
-    "max": 0.1184,
-    "mean": 0.0064,
-    "frames_over_15_percent": []
-   }
-  },
-  "glob2-trailer-30s-2160p": {
-   "file": "glob2-trailer-30s-2160p.mp4",
-   "frames": 900,
-   "avg_frame_rate": "30/1",
-   "r_frame_rate": "30/1",
-   "duration": 30.0,
-   "frame_step_ms": {
-    "min": 33.333,
-    "max": 33.334
-   },
-   "constant_frame_rate": true,
-   "repeated_frames": [],
-   "luma_change_between_frames": {
-    "min": 0.773,
-    "median": 1.502,
-    "max": 40.697
-   },
-   "cuts_detected_at_s": [
-    2.5,
-    3.633,
-    8.5,
-    12.0,
-    15.0,
-    18.5,
-    21.5,
-    26.0
-   ],
-   "near_black_share": {
-    "max": 0.1184,
-    "mean": 0.0064,
-    "frames_over_15_percent": []
+    "max": 0.1562,
+    "mean": 0.0077,
+    "frames_over_15_percent": [
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89,
+     90,
+     91,
+     92,
+     93,
+     94,
+     95,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107,
+     108
+    ]
    }
   },
   "glob2-trailer-30s-ar-1080p": {
-   "file": "glob2-trailer-30s-ar-1080p.mp4",
+   "file": "/Users/bradley/glob2/storefront-v2-renders/trailer-realtime/glob2-trailer-30s-ar-1080p.mp4",
    "frames": 900,
    "avg_frame_rate": "30/1",
    "r_frame_rate": "30/1",
@@ -1379,9 +1246,9 @@
    "constant_frame_rate": true,
    "repeated_frames": [],
    "luma_change_between_frames": {
-    "min": 0.794,
-    "median": 1.521,
-    "max": 40.75
+    "min": 0.112,
+    "median": 2.889,
+    "max": 49.65
    },
    "cuts_detected_at_s": [
     2.5,
@@ -1394,13 +1261,48 @@
     26.0
    ],
    "near_black_share": {
-    "max": 0.1184,
-    "mean": 0.0065,
-    "frames_over_15_percent": []
+    "max": 0.1562,
+    "mean": 0.0077,
+    "frames_over_15_percent": [
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89,
+     90,
+     91,
+     92,
+     93,
+     94,
+     95,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107,
+     108
+    ]
    }
   },
   "glob2-trailer-30s-ja-1080p": {
-   "file": "glob2-trailer-30s-ja-1080p.mp4",
+   "file": "/Users/bradley/glob2/storefront-v2-renders/trailer-realtime/glob2-trailer-30s-ja-1080p.mp4",
    "frames": 900,
    "avg_frame_rate": "30/1",
    "r_frame_rate": "30/1",
@@ -1412,9 +1314,9 @@
    "constant_frame_rate": true,
    "repeated_frames": [],
    "luma_change_between_frames": {
-    "min": 0.794,
-    "median": 1.522,
-    "max": 40.75
+    "min": 0.112,
+    "median": 2.886,
+    "max": 49.65
    },
    "cuts_detected_at_s": [
     2.5,
@@ -1427,13 +1329,48 @@
     26.0
    ],
    "near_black_share": {
-    "max": 0.1184,
-    "mean": 0.0064,
-    "frames_over_15_percent": []
+    "max": 0.1562,
+    "mean": 0.0077,
+    "frames_over_15_percent": [
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89,
+     90,
+     91,
+     92,
+     93,
+     94,
+     95,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107,
+     108
+    ]
    }
   },
   "glob2-trailer-30s-preview-720p": {
-   "file": "glob2-trailer-30s-preview-720p.mp4",
+   "file": "/Users/bradley/glob2/storefront-v2-renders/trailer-realtime/glob2-trailer-30s-preview-720p.mp4",
    "frames": 900,
    "avg_frame_rate": "30/1",
    "r_frame_rate": "30/1",
@@ -1445,9 +1382,9 @@
    "constant_frame_rate": true,
    "repeated_frames": [],
    "luma_change_between_frames": {
-    "min": 0.803,
-    "median": 1.459,
-    "max": 40.54
+    "min": 0.057,
+    "median": 2.755,
+    "max": 49.423
    },
    "cuts_detected_at_s": [
     2.5,
@@ -1460,13 +1397,48 @@
     26.0
    ],
    "near_black_share": {
-    "max": 0.1182,
-    "mean": 0.0063,
-    "frames_over_15_percent": []
+    "max": 0.1559,
+    "mean": 0.0076,
+    "frames_over_15_percent": [
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89,
+     90,
+     91,
+     92,
+     93,
+     94,
+     95,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107,
+     108
+    ]
    }
   },
   "glob2-trailer-30s-textless-1080p": {
-   "file": "glob2-trailer-30s-textless-1080p.mp4",
+   "file": "/Users/bradley/glob2/storefront-v2-renders/trailer-realtime/glob2-trailer-30s-textless-1080p.mp4",
    "frames": 900,
    "avg_frame_rate": "30/1",
    "r_frame_rate": "30/1",
@@ -1478,9 +1450,9 @@
    "constant_frame_rate": true,
    "repeated_frames": [],
    "luma_change_between_frames": {
-    "min": 0.795,
-    "median": 1.76,
-    "max": 40.718
+    "min": 0.106,
+    "median": 3.702,
+    "max": 49.594
    },
    "cuts_detected_at_s": [
     2.5,
@@ -1493,46 +1465,48 @@
     26.0
    ],
    "near_black_share": {
-    "max": 0.1184,
-    "mean": 0.0067,
-    "frames_over_15_percent": []
-   }
-  },
-  "glob2-trailer-30s-textless-2160p": {
-   "file": "glob2-trailer-30s-textless-2160p.mp4",
-   "frames": 900,
-   "avg_frame_rate": "30/1",
-   "r_frame_rate": "30/1",
-   "duration": 30.0,
-   "frame_step_ms": {
-    "min": 33.333,
-    "max": 33.334
-   },
-   "constant_frame_rate": true,
-   "repeated_frames": [],
-   "luma_change_between_frames": {
-    "min": 0.776,
-    "median": 1.747,
-    "max": 40.666
-   },
-   "cuts_detected_at_s": [
-    2.5,
-    3.633,
-    8.5,
-    12.0,
-    15.0,
-    18.5,
-    21.5,
-    26.0
-   ],
-   "near_black_share": {
-    "max": 0.1183,
-    "mean": 0.0066,
-    "frames_over_15_percent": []
+    "max": 0.1562,
+    "mean": 0.0079,
+    "frames_over_15_percent": [
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89,
+     90,
+     91,
+     92,
+     93,
+     94,
+     95,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107,
+     108
+    ]
    }
   },
   "glob2-trailer-30s-vertical-1080x1920": {
-   "file": "glob2-trailer-30s-vertical-1080x1920.mp4",
+   "file": "/Users/bradley/glob2/storefront-v2-renders/trailer-realtime/glob2-trailer-30s-vertical-1080x1920.mp4",
    "frames": 900,
    "avg_frame_rate": "30/1",
    "r_frame_rate": "30/1",
@@ -1542,15 +1516,17 @@
     "max": 33.334
    },
    "constant_frame_rate": true,
-   "repeated_frames": [],
+   "repeated_frames": [
+    760
+   ],
    "luma_change_between_frames": {
-    "min": 0.574,
-    "median": 1.866,
-    "max": 40.937
+    "min": 0.011,
+    "median": 4.247,
+    "max": 48.661
    },
    "cuts_detected_at_s": [
     2.5,
-    5.8,
+    3.633,
     8.5,
     12.0,
     15.0,
@@ -1559,13 +1535,13 @@
     26.0
    ],
    "near_black_share": {
-    "max": 0.0047,
-    "mean": 0.0023,
+    "max": 0.0081,
+    "mean": 0.0014,
     "frames_over_15_percent": []
    }
   },
   "glob2-trailer-30s-vertical-textless-1080x1920": {
-   "file": "glob2-trailer-30s-vertical-textless-1080x1920.mp4",
+   "file": "/Users/bradley/glob2/storefront-v2-renders/trailer-realtime/glob2-trailer-30s-vertical-textless-1080x1920.mp4",
    "frames": 900,
    "avg_frame_rate": "30/1",
    "r_frame_rate": "30/1",
@@ -1575,15 +1551,17 @@
     "max": 33.334
    },
    "constant_frame_rate": true,
-   "repeated_frames": [],
+   "repeated_frames": [
+    760
+   ],
    "luma_change_between_frames": {
-    "min": 0.574,
-    "median": 2.229,
-    "max": 40.92
+    "min": 0.02,
+    "median": 5.104,
+    "max": 48.801
    },
    "cuts_detected_at_s": [
     2.5,
-    5.8,
+    3.633,
     8.5,
     12.0,
     15.0,
@@ -1592,13 +1570,13 @@
     26.0
    ],
    "near_black_share": {
-    "max": 0.0043,
-    "mean": 0.0026,
+    "max": 0.0075,
+    "mean": 0.0016,
     "frames_over_15_percent": []
    }
   },
   "glob2-trailer-desktop-34s-1080p": {
-   "file": "glob2-trailer-desktop-34s-1080p.mp4",
+   "file": "/Users/bradley/glob2/storefront-v2-renders/trailer-realtime/glob2-trailer-desktop-34s-1080p.mp4",
    "frames": 1035,
    "avg_frame_rate": "30/1",
    "r_frame_rate": "30/1",
@@ -1610,9 +1588,9 @@
    "constant_frame_rate": true,
    "repeated_frames": [],
    "luma_change_between_frames": {
-    "min": 0.794,
-    "median": 1.747,
-    "max": 40.749
+    "min": 0.112,
+    "median": 2.887,
+    "max": 49.65
    },
    "cuts_detected_at_s": [
     2.5,
@@ -1623,72 +1601,74 @@
     18.5,
     21.5,
     26.0,
-    30.5
+    30.4
    ],
    "near_black_share": {
-    "max": 0.1184,
-    "mean": 0.0058,
-    "frames_over_15_percent": []
-   }
-  },
-  "glob2-trailer-desktop-34s-2160p": {
-   "file": "glob2-trailer-desktop-34s-2160p.mp4",
-   "frames": 1035,
-   "avg_frame_rate": "30/1",
-   "r_frame_rate": "30/1",
-   "duration": 34.5,
-   "frame_step_ms": {
-    "min": 33.333,
-    "max": 33.334
-   },
-   "constant_frame_rate": true,
-   "repeated_frames": [],
-   "luma_change_between_frames": {
-    "min": 0.773,
-    "median": 1.71,
-    "max": 40.697
-   },
-   "cuts_detected_at_s": [
-    2.5,
-    3.633,
-    8.5,
-    12.0,
-    15.0,
-    18.5,
-    21.5,
-    26.0,
-    30.5
-   ],
-   "near_black_share": {
-    "max": 0.1184,
-    "mean": 0.0058,
-    "frames_over_15_percent": []
+    "max": 0.1562,
+    "mean": 0.0068,
+    "frames_over_15_percent": [
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89,
+     90,
+     91,
+     92,
+     93,
+     94,
+     95,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107,
+     108
+    ]
    }
   }
  },
  "review_hud_check": {
   "frames_checked": 1935,
-  "inset_frames_checked": 135,
+  "inset_frames_checked": 132,
   "problems": []
  },
  "edit": {
   "fps": 30,
   "frame": {
    "native": [
-    4256,
-    2800
+    3024,
+    1666
    ],
    "size": [
-    3840,
-    2160
+    1920,
+    1080
    ],
-   "crop": [
-    3840,
-    2160,
-    0,
-    200
-   ],
-   "note": "Each captured frame is the game's full 4256x2800 window; the cut keeps the HUD-free map rectangle 3840x2160 at (0,200): left of the 416-px sidebar, below the top bar and event list, above the 'Paused' label of tick stepping. A segment may give its own 16:9 'crop' rectangle (native pixels of the 4256x2800 frame); with 'upscale': true it may be smaller than the 3840x2160 canvas (a punch-in), and each output size is scaled straight from that rectangle (the 1080p files never pass through an upscaled 2160p picture)."
+   "crop": null,
+   "note": "Real-time takes (capture_realtime.py): 3024x1666 recordings; every segment names its own crop, computed by make_realtime_edit.py from trailer.json. 1080p only.",
+   "hud_limits": {
+    "top": 32,
+    "bottom": 1666,
+    "card_stack_top": 1320,
+    "inset_text_px": 20
+   }
   },
   "text": {
    "fields": [
@@ -1751,30 +1731,28 @@
     "duration": 30.0,
     "timeline": [
      {
-      "shot": "f-battle-honey",
+      "shot": "f-battle-honey-close",
       "in": 0,
       "frames": 75,
       "crop": [
        2560,
        1440,
-       770,
-       630
-      ],
-      "upscale": true,
-      "note": "1.5x punch-in on the clash (2560x1440 window of the map rectangle centred near 4K (2050,1150)); 2160p is a 1.5x upscale, 1080p a downscale"
+       64,
+       223
+      ]
      },
      {
       "shot": "f-place",
       "in": 0,
       "frames": 34,
-      "crop": [
-       2848,
-       1602,
-       1408,
-       40
-      ],
       "upscale": true,
-      "note": "build mode with the real build palette in frame: the right-hand sidebar shows the Inn armed from frame 10; window x 1408-4256 below the top bar (y 40), above the 'Paused' label"
+      "crop": [
+       2304,
+       1296,
+       720,
+       214
+      ],
+      "note": "build palette: window flush with the frame's right edge, so the sidebar palette (HUD, not scaled) is whole"
      },
      {
       "shot": "f-place",
@@ -1783,11 +1761,9 @@
       "crop": [
        1920,
        1080,
-       680,
-       846
-      ],
-      "upscale": true,
-      "note": "cut-in inside the take (continuous ticks): 2x on the Inn ghost landing, the click at frame 48 and the scaffold; 1080p is native pixels, 2160p a 2x upscale"
+       72,
+       279
+      ]
      },
      {
       "shot": "f-place",
@@ -1796,41 +1772,78 @@
       "crop": [
        1920,
        1080,
-       680,
-       846
-      ],
-      "upscale": true,
-      "note": "same 2x window after the declared 740-tick cut: the Inn completes at frame 146"
+       72,
+       279
+      ]
      },
      {
       "shot": "f-fed",
       "in": 20,
-      "frames": 105
+      "frames": 105,
+      "crop": [
+       2304,
+       1296,
+       160,
+       214
+      ],
+      "pan_x": 0.9
      },
      {
       "shot": "f-cabino",
       "in": 0,
-      "frames": 90
+      "frames": 90,
+      "crop": [
+       2560,
+       1440,
+       32,
+       214
+      ]
      },
      {
       "shot": "f-battle-honey",
       "in": 75,
-      "frames": 105
+      "frames": 105,
+      "crop": [
+       2560,
+       1440,
+       32,
+       214
+      ]
      },
      {
       "shot": "f-battle3",
       "in": 0,
-      "frames": 90
+      "frames": 90,
+      "crop": [
+       2560,
+       1440,
+       32,
+       214
+      ]
      },
      {
       "shot": "f-hero",
       "in": 0,
-      "frames": 135
+      "frames": 135,
+      "crop": [
+       2304,
+       1296,
+       160,
+       214
+      ],
+      "pan_x": 0.9
      },
      {
       "shot": "f-econ",
       "in": 0,
-      "frames": 120
+      "frames": 120,
+      "crop": [
+       2304,
+       1296,
+       160,
+       214
+      ],
+      "pan_x": -0.9
      }
     ],
     "text": [
@@ -1915,7 +1928,8 @@
       "codec": "h264-preview",
       "note": "review preview, under 30 MB"
      }
-    ]
+    ],
+    "uhd": false
    },
    "desktop": {
     "file": "glob2-trailer-desktop-34s",
@@ -1923,30 +1937,28 @@
     "textless": false,
     "timeline": [
      {
-      "shot": "f-battle-honey",
+      "shot": "f-battle-honey-close",
       "in": 0,
       "frames": 75,
       "crop": [
        2560,
        1440,
-       770,
-       630
-      ],
-      "upscale": true,
-      "note": "1.5x punch-in on the clash (2560x1440 window of the map rectangle centred near 4K (2050,1150)); 2160p is a 1.5x upscale, 1080p a downscale"
+       64,
+       223
+      ]
      },
      {
       "shot": "f-place",
       "in": 0,
       "frames": 34,
-      "crop": [
-       2848,
-       1602,
-       1408,
-       40
-      ],
       "upscale": true,
-      "note": "build mode with the real build palette in frame: the right-hand sidebar shows the Inn armed from frame 10; window x 1408-4256 below the top bar (y 40), above the 'Paused' label"
+      "crop": [
+       2304,
+       1296,
+       720,
+       214
+      ],
+      "note": "build palette: window flush with the frame's right edge, so the sidebar palette (HUD, not scaled) is whole"
      },
      {
       "shot": "f-place",
@@ -1955,11 +1967,9 @@
       "crop": [
        1920,
        1080,
-       680,
-       846
-      ],
-      "upscale": true,
-      "note": "cut-in inside the take (continuous ticks): 2x on the Inn ghost landing, the click at frame 48 and the scaffold; 1080p is native pixels, 2160p a 2x upscale"
+       72,
+       279
+      ]
      },
      {
       "shot": "f-place",
@@ -1968,54 +1978,77 @@
       "crop": [
        1920,
        1080,
-       680,
-       846
-      ],
-      "upscale": true,
-      "note": "same 2x window after the declared 740-tick cut: the Inn completes at frame 146"
+       72,
+       279
+      ]
      },
      {
       "shot": "f-fed",
       "in": 20,
-      "frames": 105
+      "frames": 105,
+      "crop": [
+       2304,
+       1296,
+       160,
+       214
+      ],
+      "pan_x": 0.9
      },
      {
       "shot": "f-cabino",
       "in": 0,
-      "frames": 90
+      "frames": 90,
+      "crop": [
+       2560,
+       1440,
+       32,
+       214
+      ]
      },
      {
       "shot": "f-battle-honey",
       "in": 75,
-      "frames": 105
+      "frames": 105,
+      "crop": [
+       2560,
+       1440,
+       32,
+       214
+      ]
      },
      {
       "shot": "f-battle3",
       "in": 0,
-      "frames": 90
+      "frames": 90,
+      "crop": [
+       2560,
+       1440,
+       32,
+       214
+      ]
      },
      {
       "shot": "f-hero",
       "in": 0,
-      "frames": 135
+      "frames": 135,
+      "crop": [
+       2304,
+       1296,
+       160,
+       214
+      ],
+      "pan_x": 0.9
      },
      {
       "shot": "f-coplay2",
-      "in": 15,
-      "frames": 135,
-      "crop": [
-       2144,
-       1206,
-       901,
-       627
-      ],
-      "upscale": true,
+      "in": 18,
+      "frames": 132,
       "inset": {
        "region_x": [
         32,
         632
        ],
-       "bottom": 2704,
+       "bottom": 1570,
        "top_probe_x": 610,
        "card_rgb": [
         43,
@@ -2034,12 +2067,24 @@
        ],
        "shadow": 0.6
       },
-      "note": "1.8x on the four Inn sites around tile (8,118) (window 901-3045 x 627-1833, clear of the Hive card, event list and 'Paused' label); the game's own Hive card from the same frame is inset bottom left, cropped to the card itself (its top edge found per frame, so the 'Stop commander' and 'Reports' buttons above it stay out), 2x at 2160p, native pixels at 1080p"
+      "crop": [
+       1920,
+       1080,
+       405,
+       220
+      ]
      },
      {
       "shot": "f-econ",
       "in": 0,
-      "frames": 120
+      "frames": 123,
+      "crop": [
+       2304,
+       1296,
+       160,
+       214
+      ],
+      "pan_x": -0.9
      }
     ],
     "text": [
@@ -2109,7 +2154,8 @@
       "attack_ms": 2,
       "release_ms": 60
      }
-    }
+    },
+    "uhd": false
    },
    "cut15": {
     "file": "glob2-trailer-15s",
@@ -2117,30 +2163,28 @@
     "textless": false,
     "timeline": [
      {
-      "shot": "f-battle-honey",
+      "shot": "f-battle-honey-close",
       "in": 0,
       "frames": 45,
       "crop": [
        2560,
        1440,
-       770,
-       630
-      ],
-      "upscale": true,
-      "note": "1.5x punch-in on the clash (2560x1440 window of the map rectangle centred near 4K (2050,1150)); 2160p is a 1.5x upscale, 1080p a downscale"
+       64,
+       223
+      ]
      },
      {
       "shot": "f-place",
       "in": 8,
       "frames": 26,
-      "crop": [
-       2848,
-       1602,
-       1408,
-       40
-      ],
       "upscale": true,
-      "note": "build palette, Inn armed at frame 10"
+      "crop": [
+       2304,
+       1296,
+       720,
+       214
+      ],
+      "note": "build palette: window flush with the frame's right edge, so the sidebar palette (HUD, not scaled) is whole"
      },
      {
       "shot": "f-place",
@@ -2149,11 +2193,9 @@
       "crop": [
        1920,
        1080,
-       680,
-       846
-      ],
-      "upscale": true,
-      "note": "2x cut-in: the click at frame 48"
+       72,
+       279
+      ]
      },
      {
       "shot": "f-place",
@@ -2162,31 +2204,56 @@
       "crop": [
        1920,
        1080,
-       680,
-       846
-      ],
-      "upscale": true,
-      "note": "the Inn completes at frame 146"
+       72,
+       279
+      ]
      },
      {
       "shot": "f-fed",
       "in": 20,
-      "frames": 30
+      "frames": 30,
+      "crop": [
+       2304,
+       1296,
+       160,
+       214
+      ],
+      "pan_x": 0.9
      },
      {
       "shot": "f-battle-honey",
       "in": 84,
-      "frames": 96
+      "frames": 96,
+      "crop": [
+       2560,
+       1440,
+       32,
+       214
+      ]
      },
      {
       "shot": "f-hero",
       "in": 0,
-      "frames": 99
+      "frames": 99,
+      "crop": [
+       2304,
+       1296,
+       160,
+       214
+      ],
+      "pan_x": 0.9
      },
      {
       "shot": "f-econ",
       "in": 0,
-      "frames": 81
+      "frames": 81,
+      "crop": [
+       2304,
+       1296,
+       160,
+       214
+      ],
+      "pan_x": -0.9
      }
     ],
     "text": [
@@ -2246,7 +2313,8 @@
       "attack_ms": 2,
       "release_ms": 60
      }
-    }
+    },
+    "uhd": false
    },
    "vertical": {
     "file": "glob2-trailer-30s-vertical",
@@ -2254,37 +2322,206 @@
      1080,
      1920
     ],
-    "timeline_from": "master",
-    "reframe": {
-     "width": 1215,
-     "x": [
-      1490,
-      1100,
-      1100,
-      980,
-      1350,
-      560,
-      1490,
-      [
-       1960,
-       240,
-       1080
-      ],
-      1312,
-      1312
+    "text": [
+     {
+      "field": "trailer_line_1",
+      "start": 3.8,
+      "end": 6.9
+     },
+     {
+      "field": "trailer_line_2",
+      "start": 8.9,
+      "end": 11.7
+     },
+     {
+      "field": "trailer_line_3",
+      "start": 15.4,
+      "end": 18.3
+     },
+     {
+      "field": "trailer_line_4",
+      "start": 22.0,
+      "end": 25.0
+     }
+    ],
+    "wordmark": {
+     "start": 27.0,
+     "fade": 0.5
+    },
+    "music": {
+     "set": "original",
+     "offset": 0,
+     "crossfade": 0.8,
+     "tail_fade": 2.5,
+     "gain_db": 0,
+     "segments": [
+      {
+       "mood": "a3",
+       "from": 0,
+       "to": 2.5
+      },
+      {
+       "mood": "a2",
+       "from": 2.5,
+       "to": 15.0
+      },
+      {
+       "mood": "a3",
+       "from": 15.0,
+       "to": 21.5
+      },
+      {
+       "mood": "a2",
+       "from": 21.5,
+       "to": 30.0
+      }
      ],
-     "note": "one entry per master segment: a crop x for a 1215x2160 window of the map rectangle, or [x, y, width] for a smaller 9:16 window (still downscaled or 1:1, never upscaled). Shot 5 sits on the lime colony's west building cluster; shot 7 is a native 1080x1920 window centred on the clash, 240 px below the top of the map rectangle."
-    }
+     "mood_gain_db": {
+      "a3": 4.0
+     },
+     "limiter": {
+      "limit": 0.79,
+      "attack_ms": 2,
+      "release_ms": 60
+     }
+    },
+    "duration": 30.0,
+    "timeline": [
+     {
+      "shot": "f-battle-honey-close",
+      "in": 0,
+      "frames": 75,
+      "crop": [
+       810,
+       1440,
+       939,
+       223
+      ],
+      "upscale": true
+     },
+     {
+      "shot": "f-place",
+      "in": 0,
+      "frames": 34,
+      "crop": [
+       810,
+       1440,
+       1467,
+       210
+      ],
+      "upscale": true
+     },
+     {
+      "shot": "f-place",
+      "in": 34,
+      "frames": 65,
+      "crop": [
+       810,
+       1440,
+       627,
+       210
+      ],
+      "upscale": true
+     },
+     {
+      "shot": "f-place",
+      "in": 125,
+      "frames": 81,
+      "crop": [
+       810,
+       1440,
+       627,
+       210
+      ],
+      "upscale": true
+     },
+     {
+      "shot": "f-fed",
+      "in": 20,
+      "frames": 105,
+      "crop": [
+       810,
+       1440,
+       907,
+       210
+      ],
+      "upscale": true,
+      "pan_x": 0.9
+     },
+     {
+      "shot": "f-cabino",
+      "in": 0,
+      "frames": 90,
+      "crop": [
+       810,
+       1440,
+       907,
+       214
+      ],
+      "upscale": true
+     },
+     {
+      "shot": "f-battle-honey",
+      "in": 75,
+      "frames": 105,
+      "crop": [
+       810,
+       1440,
+       907,
+       214
+      ],
+      "upscale": true
+     },
+     {
+      "shot": "f-battle3",
+      "in": 0,
+      "frames": 90,
+      "crop": [
+       810,
+       1440,
+       907,
+       214
+      ],
+      "upscale": true
+     },
+     {
+      "shot": "f-hero",
+      "in": 0,
+      "frames": 135,
+      "crop": [
+       810,
+       1440,
+       907,
+       210
+      ],
+      "upscale": true,
+      "pan_x": 0.9
+     },
+     {
+      "shot": "f-econ",
+      "in": 0,
+      "frames": 120,
+      "crop": [
+       810,
+       1440,
+       907,
+       210
+      ],
+      "upscale": true,
+      "pan_x": -0.9
+     }
+    ],
+    "note": "9:16 windows of 810x1440 native pixels centred on the master's framing, upscaled to 1080x1920"
    }
   },
   "poster": {
-   "shot": "f-battle-honey",
+   "shot": "f-battle-honey-close",
    "frame": 30,
    "crop": [
     2560,
     1440,
-    770,
-    630
+    64,
+    223
    ],
    "files": {
     "poster-3840x2160.png": [
@@ -2296,7 +2533,7 @@
      1080
     ]
    },
-   "note": "frame 30 of the opening shot (master 1.0 s) at the opening's 1.5x punch-in: red and lime warriors locked together in the centre"
+   "note": "frame 30 of the opening shot (master 1.0 s) at the opening's 1.5x punch-in: red and lime warriors locked together in the centre; real-time take at native pixels, so the 3840x2160 file is a 1.5x upscale"
   }
  },
  "inset_card_tops": {
@@ -2304,839 +2541,542 @@
    "shot": "f-coplay2",
    "card_tops": [
     {
-     "frame": 15,
-     "card_top": 2540
-    },
-    {
-     "frame": 16,
-     "card_top": 2540
-    },
-    {
-     "frame": 17,
-     "card_top": 2540
-    },
-    {
      "frame": 18,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 19,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 20,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 21,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 22,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 23,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 24,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 25,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 26,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 27,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 28,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 29,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 30,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 31,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 32,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 33,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 34,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 35,
-     "card_top": 2540
+     "card_top": 1410
     },
     {
      "frame": 36,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 37,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 38,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 39,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 40,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 41,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 42,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 43,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 44,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 45,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 46,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 47,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 48,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 49,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 50,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 51,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 52,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 53,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 54,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 55,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 56,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 57,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 58,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 59,
-     "card_top": 2506
+     "card_top": 1410
     },
     {
      "frame": 60,
-     "card_top": 2468
+     "card_top": 1410
     },
     {
      "frame": 61,
-     "card_top": 2468
+     "card_top": 1410
     },
     {
      "frame": 62,
-     "card_top": 2468
+     "card_top": 1410
     },
     {
      "frame": 63,
-     "card_top": 2468
+     "card_top": 1410
     },
     {
      "frame": 64,
-     "card_top": 2468
+     "card_top": 1410
     },
     {
      "frame": 65,
-     "card_top": 2468
+     "card_top": 1410
     },
     {
      "frame": 66,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 67,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 68,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 69,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 70,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 71,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 72,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 73,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 74,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 75,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 76,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 77,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 78,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 79,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 80,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 81,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 82,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 83,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 84,
-     "card_top": 2468
+     "card_top": 1407
     },
     {
      "frame": 85,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 86,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 87,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 88,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 89,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 90,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 91,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 92,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 93,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 94,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 95,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 96,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 97,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 98,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 99,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 100,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 101,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 102,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 103,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 104,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 105,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 106,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 107,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 108,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 109,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 110,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 111,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 112,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 113,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 114,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 115,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 116,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 117,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 118,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 119,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 120,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 121,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 122,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 123,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 124,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 125,
-     "card_top": 2506
+     "card_top": 1407
     },
     {
      "frame": 126,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 127,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 128,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 129,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 130,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 131,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 132,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 133,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 134,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 135,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 136,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 137,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 138,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 139,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 140,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 141,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 142,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 143,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 144,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 145,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 146,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 147,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 148,
-     "card_top": 2506
+     "card_top": 1408
     },
     {
      "frame": 149,
-     "card_top": 2506
+     "card_top": 1408
     }
    ]
   }
  },
  "text_cards": {
   "tool": {
-   "render_cards.py": "b126be64494d0e05de69036eadbcf8ce42ec8938467cbbe57f3b2014ce5daab2",
+   "render_cards.py": "c0282d861eb0a0348a2136f6a1561f46645449c8d0b74317d115d998fa0ebfa9",
    "cards.html": "e6bd28f09020e4d138ed5ab36e71ffcf4ee1cd8ad37ebfd3e72fd5400ba9c93e"
   },
   "cards": [
-   {
-    "locale": "en",
-    "size": "3840x2160",
-    "field": "trailer_line_1",
-    "text": "You decide. They build.",
-    "font": "Nunito",
-    "weight": 900,
-    "dir": "ltr",
-    "placement": "bottom",
-    "font_px": 177,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "You decide. They build."
-    ],
-    "sentence_break": false,
-    "file": "en/3840x2160/trailer_line_1.png",
-    "sha256": "e5c3468326e09fd5faff93763712a1e8ba11d01d9f0edb952524e04035a579cc"
-   },
-   {
-    "locale": "en",
-    "size": "3840x2160",
-    "field": "trailer_line_2",
-    "text": "Keep the colony fed.",
-    "font": "Nunito",
-    "weight": 900,
-    "dir": "ltr",
-    "placement": "bottom",
-    "font_px": 177,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "Keep the colony fed."
-    ],
-    "sentence_break": false,
-    "file": "en/3840x2160/trailer_line_2.png",
-    "sha256": "eb17338a2eb435b9a47edc9250a0dc9bb7fe19cd0288d109aad66db40a2e3224"
-   },
-   {
-    "locale": "en",
-    "size": "3840x2160",
-    "field": "trailer_line_3",
-    "text": "Fight rivals for the land.",
-    "font": "Nunito",
-    "weight": 900,
-    "dir": "ltr",
-    "placement": "bottom",
-    "font_px": 177,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "Fight rivals for the land."
-    ],
-    "sentence_break": false,
-    "file": "en/3840x2160/trailer_line_3.png",
-    "sha256": "2ca4f9b51f60297f3aa7c7b0e854d46ecbca91619d699cdae97a8cac673ec352"
-   },
-   {
-    "locale": "en",
-    "size": "3840x2160",
-    "field": "trailer_line_4",
-    "text": "No ads. No in-app purchases.",
-    "font": "Nunito",
-    "weight": 900,
-    "dir": "ltr",
-    "placement": "bottom",
-    "font_px": 177,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "No ads. No in-app purchases."
-    ],
-    "sentence_break": false,
-    "file": "en/3840x2160/trailer_line_4.png",
-    "sha256": "3bf1fbf2a70a9bbacc4822fcaf3e603daf21f14a26338e0627f071cc8d0d7e64"
-   },
-   {
-    "locale": "en",
-    "size": "3840x2160",
-    "field": "trailer_line_ai_coplay",
-    "text": "Play alongside your AI agent.",
-    "font": "Nunito",
-    "weight": 900,
-    "dir": "ltr",
-    "placement": "top",
-    "font_px": 177,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "Play alongside your AI agent."
-    ],
-    "sentence_break": false,
-    "file": "en/3840x2160/trailer_line_ai_coplay.png",
-    "sha256": "ff7a118a3f2ac2e87eb852b4574372d4dd4174380c32e2b93fd2cea5f2710e98"
-   },
-   {
-    "locale": "ja",
-    "size": "3840x2160",
-    "field": "trailer_line_1",
-    "text": "決めるのはあなた。建てるのはコロニー。",
-    "font": "Noto Sans JP",
-    "weight": 800,
-    "dir": "ltr",
-    "placement": "bottom",
-    "font_px": 159,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "決めるのはあなた。建てるのはコロニー。"
-    ],
-    "sentence_break": false,
-    "file": "ja/3840x2160/trailer_line_1.png",
-    "sha256": "912c94b564911b2a82fea875da163b5dc8d71130a9b78db920818c9f3a5b8080"
-   },
-   {
-    "locale": "ja",
-    "size": "3840x2160",
-    "field": "trailer_line_2",
-    "text": "コロニーの食料を確保しよう。",
-    "font": "Noto Sans JP",
-    "weight": 800,
-    "dir": "ltr",
-    "placement": "bottom",
-    "font_px": 159,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "コロニーの食料を確保しよう。"
-    ],
-    "sentence_break": false,
-    "file": "ja/3840x2160/trailer_line_2.png",
-    "sha256": "735807e3b1717ddcf0e13d1f5189d4518ae347acba62ad3da867bac08f86d138"
-   },
-   {
-    "locale": "ja",
-    "size": "3840x2160",
-    "field": "trailer_line_3",
-    "text": "ライバルと土地を奪い合おう。",
-    "font": "Noto Sans JP",
-    "weight": 800,
-    "dir": "ltr",
-    "placement": "bottom",
-    "font_px": 159,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "ライバルと土地を奪い合おう。"
-    ],
-    "sentence_break": false,
-    "file": "ja/3840x2160/trailer_line_3.png",
-    "sha256": "072b1f6b87a8ac611c6e810a6ba9a6f138b5be777af0f802e8780306628cca07"
-   },
-   {
-    "locale": "ja",
-    "size": "3840x2160",
-    "field": "trailer_line_4",
-    "text": "広告なし。アプリ内課金なし。",
-    "font": "Noto Sans JP",
-    "weight": 800,
-    "dir": "ltr",
-    "placement": "bottom",
-    "font_px": 159,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "広告なし。アプリ内課金なし。"
-    ],
-    "sentence_break": false,
-    "file": "ja/3840x2160/trailer_line_4.png",
-    "sha256": "04e8778c0c5d8f6c210e1b4f4bad032b265af65fde2bf53306f1a82913cccf1f"
-   },
-   {
-    "locale": "ja",
-    "size": "3840x2160",
-    "field": "trailer_line_ai_coplay",
-    "text": "自分のAIエージェントと一緒に遊ぼう。",
-    "font": "Noto Sans JP",
-    "weight": 800,
-    "dir": "ltr",
-    "placement": "top",
-    "font_px": 159,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "自分のAIエージェントと一緒に遊ぼう。"
-    ],
-    "sentence_break": false,
-    "file": "ja/3840x2160/trailer_line_ai_coplay.png",
-    "sha256": "b4cbc3deb5eb6235d1569c21f1461919e9501729ca1780ad5f2b9d1f6f108643"
-   },
-   {
-    "locale": "ar",
-    "size": "3840x2160",
-    "field": "trailer_line_1",
-    "text": "أنت تقرّر. وعمالك يبنون.",
-    "font": "Noto Sans Arabic",
-    "weight": 800,
-    "dir": "rtl",
-    "placement": "bottom",
-    "font_px": 184,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "أنت تقرّر. وعمالك يبنون."
-    ],
-    "sentence_break": false,
-    "file": "ar/3840x2160/trailer_line_1.png",
-    "sha256": "ab831788cf297b19c2f847f6509b53d397cd3e11f3ab23a6b7e06afe402f1bba"
-   },
-   {
-    "locale": "ar",
-    "size": "3840x2160",
-    "field": "trailer_line_2",
-    "text": "وفّر الغذاء لمستعمرتك.",
-    "font": "Noto Sans Arabic",
-    "weight": 800,
-    "dir": "rtl",
-    "placement": "bottom",
-    "font_px": 184,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "وفّر الغذاء لمستعمرتك."
-    ],
-    "sentence_break": false,
-    "file": "ar/3840x2160/trailer_line_2.png",
-    "sha256": "6d47019c01b568aa00fd8dc32760e29f2db9af5b0fd16420e585616a4d3b023c"
-   },
-   {
-    "locale": "ar",
-    "size": "3840x2160",
-    "field": "trailer_line_3",
-    "text": "قاتل منافسيك من أجل الأرض.",
-    "font": "Noto Sans Arabic",
-    "weight": 800,
-    "dir": "rtl",
-    "placement": "bottom",
-    "font_px": 184,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "قاتل منافسيك من أجل الأرض."
-    ],
-    "sentence_break": false,
-    "file": "ar/3840x2160/trailer_line_3.png",
-    "sha256": "6a6b53717642e2d14af4f649bff67de7a495851bb65a8dac2336b23ef78d8be5"
-   },
-   {
-    "locale": "ar",
-    "size": "3840x2160",
-    "field": "trailer_line_4",
-    "text": "بدون إعلانات ومشتريات داخلية.",
-    "font": "Noto Sans Arabic",
-    "weight": 800,
-    "dir": "rtl",
-    "placement": "bottom",
-    "font_px": 184,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "بدون إعلانات ومشتريات داخلية."
-    ],
-    "sentence_break": false,
-    "file": "ar/3840x2160/trailer_line_4.png",
-    "sha256": "f5b00054a492f63345e27a245ee01dc27d4becb1ecc732ebd3cd41b92697f190"
-   },
-   {
-    "locale": "ar",
-    "size": "3840x2160",
-    "field": "trailer_line_ai_coplay",
-    "text": "العب مع وكيل ذكائك الاصطناعي.",
-    "font": "Noto Sans Arabic",
-    "weight": 800,
-    "dir": "rtl",
-    "placement": "top",
-    "font_px": 184,
-    "scale": 1,
-    "lines": 1,
-    "line_texts": [
-     "العب مع وكيل ذكائك الاصطناعي."
-    ],
-    "sentence_break": false,
-    "file": "ar/3840x2160/trailer_line_ai_coplay.png",
-    "sha256": "8573b5978fa93769201dd8ab662f342df3fdae33557423d0db81048bafafd18a"
-   },
    {
     "locale": "en",
     "size": "1920x1080",
@@ -3723,11 +3663,6 @@
    }
   ],
   "wordmark": {
-   "3840x2160": {
-    "file": "wordmark-3840x2160.png",
-    "source_sha256": "020f34e218f137b34f9af53c85532662a9efebcf7b4b8f955b761b07528cd32d",
-    "sha256": "975f777d4843719467f58fd00eeccb4022978e3332fbcab3c716858f2238e73e"
-   },
    "1920x1080": {
     "file": "wordmark-1920x1080.png",
     "source_sha256": "020f34e218f137b34f9af53c85532662a9efebcf7b4b8f955b761b07528cd32d",

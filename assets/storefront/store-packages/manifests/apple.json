@@ -4,7 +4,7 @@
  "package_dir": "packages:apple",
  "generated_by": "assets/storefront/store-packages/build.py",
  "inputs": {
-  "stores.json": "bdb603665544f44032e56a6a1ae75d2a200c80dbd45f5764cd4800a4817e474d",
+  "stores.json": "d3a0cf0c7c8705767647d04b715c5394e8ae3ec1eaf538837b02f31d466babbf",
   "review": {
    "file": "assets/storefront/review/round-2-final.md",
    "sha256": "d9646b0a35b585db391192076005e86511aa4c9f8977e4f1dafecedc4722a5ce"
@@ -12,7 +12,7 @@
   "platforms.json": "af448133ed18adcd9a846dcb3b649379d7c3433fe16801a4cb92b6a2db2f6e37",
   "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
   "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)",
-  "trailer_manifest": "d373b93cbfd917072614d1e3465aa6eae21668e0d953e69565cb598e6f4f82c1"
+  "trailer_manifest": "1f4d096ed2c387641c1b21ed17429d3c2fc94aefb029e3d1275c3ae25ac9aa89"
  },
  "sets": {
   "iphone-6.9": {

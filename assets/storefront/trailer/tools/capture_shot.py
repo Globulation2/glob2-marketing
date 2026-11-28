@@ -413,6 +413,7 @@ def main():
     ap.add_argument("--preview", type=int, default=0)
     ap.add_argument("--frames", type=int, default=0)
     ap.add_argument("--erase-per-frame", type=int, default=2)
+    ap.add_argument("--refilm", action="store_true", help="film shots again even if already finished")
     args = ap.parse_args()
     mcp.PORT = args.port
     os.environ.setdefault("GLOB2_MCP_TOKEN_FILE", os.path.join(args.profile, "mcp-token"))
@@ -420,6 +421,12 @@ def main():
     only = args.only.split(",") if args.only else None
     for shot in shots:
         if only and shot["id"] not in only:
+            continue
+        # Resume: a finished shot (its sidecar is written last) is kept. A take is one
+        # continuous run of ticks, so an unfinished shot is filmed again from its start.
+        done = os.path.join(args.out, shot["id"] + ("-preview" if args.preview else ""), "shot.json")
+        if os.path.exists(done) and not args.refilm:
+            print(f"{shot['id']}: already filmed ({done}); --refilm to film it again")
             continue
         try:
             film(shot, args)

@@ -4,7 +4,7 @@
  "package_dir": "packages:google-play",
  "generated_by": "assets/storefront/store-packages/build.py",
  "inputs": {
-  "stores.json": "bdb603665544f44032e56a6a1ae75d2a200c80dbd45f5764cd4800a4817e474d",
+  "stores.json": "d3a0cf0c7c8705767647d04b715c5394e8ae3ec1eaf538837b02f31d466babbf",
   "review": {
    "file": "assets/storefront/review/round-2-final.md",
    "sha256": "d9646b0a35b585db391192076005e86511aa4c9f8977e4f1dafecedc4722a5ce"
@@ -12,7 +12,7 @@
   "platforms.json": "af448133ed18adcd9a846dcb3b649379d7c3433fe16801a4cb92b6a2db2f6e37",
   "desktop_selection": "862f2861471b5f2c1319e7c85440540cd858fd24ac859b685e6c607ecb696c20",
   "export": "fresh storefront.py export --require-review (upload_eligible false: preparation only)",
-  "trailer_manifest": "d373b93cbfd917072614d1e3465aa6eae21668e0d953e69565cb598e6f4f82c1"
+  "trailer_manifest": "1f4d096ed2c387641c1b21ed17429d3c2fc94aefb029e3d1275c3ae25ac9aa89"
  },
  "sets": {
   "phone": {
@@ -3693,13 +3693,13 @@
  "trailer": [
   {
    "slot": "preview-video",
-   "file": "trailer/glob2-trailer-30s-2160p.mp4",
-   "link_to": "trailer:glob2-trailer-30s-2160p.mp4",
+   "file": "trailer/glob2-trailer-30s-1080p.mp4",
+   "link_to": "trailer:glob2-trailer-30s-1080p.mp4",
    "in_repository": false,
-   "bytes": 132906058,
-   "sha256": "a8a0d0032e177e2dc00fad89953c1bc758487a1063954aa1fa6b6ca632620abe",
+   "bytes": 90572703,
+   "sha256": "5dfa9218b41e053acfc639b24bf4595168847401c4e7207ba4a83c9e0401ae8d",
    "duration_s": 30.0,
-   "pixels": "3840x2160",
+   "pixels": "1920x1080",
    "codec": "h264",
    "shows_ai_coplay": false,
    "rules": {},
@@ -3712,7 +3712,7 @@
   }
  ],
  "blocked": [
-  "trailer preview-video: needs a hosted video URL (YouTube URL); upload glob2-trailer-30s-2160p.mp4 (linked at trailer/glob2-trailer-30s-2160p.mp4) there and enter the URL"
+  "trailer preview-video: needs a hosted video URL (YouTube URL); upload glob2-trailer-30s-1080p.mp4 (linked at trailer/glob2-trailer-30s-1080p.mp4) there and enter the URL"
  ],
  "pending": [
   "caption catalog changed since render: 132 locale sets (google-play-phone, google-play-tablet-10, google-play-tablet-7)",
