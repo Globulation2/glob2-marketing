@@ -153,6 +153,8 @@ Nothing has been submitted.
   - Google Play and App Store links, and the three covers from `assets/portal-art/crazygames/`.
   The owner uploaded both preview videos. The owner accepted the Terms & Conditions, declared PEGI 12 and **submitted for approval** (Basic Launch), 2026-11-28.
 
+**Newgrounds un-published, 2026-11-28.** Minutes after the owner published, the project page showed "This project has been un-published from the game section", while its zip still read "Published". The View Game URL, /portal/view/1064794, returns "That submission doesn't exist", and the account's games list is empty. Checks found no private message, no notifications page and no Newgrounds email in Gmail. The owner did not intend to un-publish. Cause unknown: an accidental click, automatic moderation, or staff action (possibly the "modified version of someone else's work" rule).
+
 ## Game Jolt
 
 - Page: https://gamejolt.com/games/globulation2/1122762, developer account `genixpro`. Game ID 1122762, package ID 1154961.
