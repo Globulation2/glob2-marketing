@@ -40,6 +40,22 @@ Source evidence: game repository [`docs/releases/`](https://github.com/Globulati
 | Ubuntu | Legacy upstream link and package ecosystem references. | Direct noble package fetch returned500; current package version not verified. |
 | Arch/AUR, Gentoo, openSUSE/Packman, Slackware, Mageia, MacPorts | Legacy wiki/Libregamewiki references; wiki itself marks MacPorts unmaintained. | Historical leads only until individual present catalogs are checked. |
 
+## Web portal listings — 2026-11-28
+
+Where the browser game is listed or submitted, and the IDs needed to find each entry. The working log is the [web portal rollout ledger](../planning/web-portal-rollout.md); listing copy is in [portal listing copy](../planning/portal-listing-copy.md). Update this table whenever a listing goes live, changes state or gets a public URL.
+
+| Portal | Public URL | Developer entry | State (2026-11-28) |
+| --- | --- | --- | --- |
+| Our site | [app.glob2.online/play/](https://app.glob2.online/play/), lite [app.glob2.online/play/lite/](https://app.glob2.online/play/lite/) | — | Live, 0.11.9.1 |
+| itch.io | [genixpro.itch.io/globulation-2](https://genixpro.itch.io/globulation-2) | — | Live |
+| Game Jolt | [gamejolt.com/games/globulation2/1122762](https://gamejolt.com/games/globulation2/1122762) | game 1122762, package 1154961 | Live (0.11.802). The 0.11.9.1 push is in progress (browser-release run 46099064215) |
+| Newgrounds | none: the portal page (view ID 1064794) returns "submission doesn't exist" | project 8315233, account `Globulation2` | Published 2026-11-28, then shown as "un-published from the game section" minutes later. No message or email explains it; unresolved |
+| GamePix | none yet | Game Id BL8O73 ([dashboard](https://my.gamepix.com/games/globulation-2)) | 0.11.9.1 release submitted for review |
+| CrazyGames | none yet | game 11b6c5a4-741a-4839-aed8-314eaa8cd0a1, build a6236c57-36b3-446f-9174-dcfa5d4ab1fc | Submitted for Basic Launch approval |
+| Poki | none | application form (developers.poki.com/guide/share) | Form filled 2026-11-28; owner to submit |
+| GameDistribution | none | account pending | Not submitted |
+| Yandex Games | none | — | Parked |
+
 ## Presentation observations and missing comparison work
 
 The inspected surfaces disagree in **version and description context**: modern website experimental 0.11.4.0; Snap stable 0.11.2.0; legacy wiki 0.9.4.4; Debian/Fedora 0.9.4.4; Libregamewiki 0.9.4.1. The current website explains colony work and browser play; older surfaces retain YOG and older platform descriptions.
