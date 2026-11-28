@@ -104,6 +104,33 @@ Globulation2/glob2#1945 (portal ads at natural breaks, lite portal uploads, a 3-
 
 **Noticed:** the lite in-game menu still lists "AI telemetry", a developer-facing item, for portal players.
 
+## Release 0.11.9.1 packages (2026-11-28)
+
+This is the patch the final submissions were held for. It carries the input-gated first match (glob2 #1983), Play online hidden in every portal (#1985), and the HD building art. Browser release run 46093648075 on genixpro/glob2-release passed every job, crash-symbol upload included, and all seven portal jobs met their limits.
+
+| Package | Zip | Unpacked | Files | Policy (links, online, ads) |
+| --- | --- | --- | --- | --- |
+| poki-lite | 18.2 MB | 47.2 MB | 140 | no, no, yes (`awaitInput`) |
+| crazygames-lite | 18.2 MB | 47.2 MB | 140 | no, no, yes |
+| yandex-lite | 18.2 MB | 47.2 MB | 140 | no, no, yes |
+| gamedistribution | 123.1 MB | 207.4 MB | 540 | no, no, yes (`awaitInput`) |
+| gamepix | 123.1 MB | 207.4 MB | 540 | no, no, yes |
+| newgrounds | 123.1 MB | 207.4 MB | 539 | yes, no, no |
+| gamejolt | 123.1 MB | 207.4 MB | 539 | yes, no, no |
+
+The full packages grew from about 132 MB to 207 MB unpacked with the HD art. That is still inside every limit: GamePix's 200 MB applies to the zip, Newgrounds allows about 250 MB, and the 100 MB Yandex and 50 MB CrazyGames first-download limits apply to the lite packages. Copies are in `~/Downloads/glob2-0.11.9.1-portals/`, and the unpacked CrazyGames upload is in `~/Downloads/glob2-0.11.9.1-crazygames/`.
+
+Checks, 2026-11-28:
+- **Poki Inspector:** returning player: SDK initialized, game loading finished, then Commercial break and Gameplay start at the lesson start, no warnings. A fresh visitor sits at the sound prompt and the menu with no gameplay event before input; initial download 19 MB.
+- **Local portal frame:**
+  - Newgrounds and Game Jolt show Discord community and no Play online.
+  - GameDistribution, GamePix, CrazyGames and Yandex show no external links and no Play online.
+  - Every package shows version 0.11.9.1 and the HD buildings.
+  - The Newgrounds first-visit lesson starts, and leaving it returns to the menu.
+- **CrazyGames QA Tool:** still to run on this build; the owner uploads it.
+
+Nothing has been submitted.
+
 ## Game Jolt
 
 - Page: https://gamejolt.com/games/globulation2/1122762, developer account `genixpro`. Game ID 1122762, package ID 1154961.
